@@ -7,10 +7,10 @@
 
 import UIKit
 var topics = [
-    topic(segueDesti: "TOBEFILLED", title: "Gas Tests", pic: "TOBEFILLED.png", pointsNeeded: 10),
-    topic(segueDesti: "TOBEFILLED", title: "Separation Methods", pic: "TOBEFILLED.png", pointsNeeded: 20),
-    topic(segueDesti: "TOBEFILLED", title: "pH and Indicators", pic: "TOBEFILLED.png", pointsNeeded: 30),
-    topic(segueDesti: "TOBEFILLED", title: "Periodic Table", pic: "TOBEFILLED.png", pointsNeeded: 40)
+    Topic(segueDesti: "TOBEFILLED", title: "Gas Tests", pic: "gas-tests.png", pointsNeeded: 10),
+    Topic(segueDesti: "TOBEFILLED", title: "Separation Methods", pic: "separation-methods.png", pointsNeeded: 20),
+    Topic(segueDesti: "TOBEFILLED", title: "pH and Indicators", pic: "pH-and-indicators.png", pointsNeeded: 30),
+    Topic(segueDesti: "TOBEFILLED", title: "Periodic Table", pic: "periodic-table.png", pointsNeeded: 40)
     ]
 
 let ud = UserDefaults.standard
@@ -43,19 +43,20 @@ class LearnHomePageTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "titleCell", for: indexPath)
+        let currentTopic = topics[indexPath.row]
         
-//        if (points < topics[indexPath.row].pointsNeeded){
-//            cell.backgroundColor = .gray
-//        }
+        if (points < currentTopic.pointsNeeded){
+            cell.backgroundColor = UIColor(red: 211/255, green: 211/255, blue: 211/255, alpha: 1)
+        }
         
         if let cell = cell as? LearnHomePageTableViewCell{
 
-            if (points < topics[indexPath.row].pointsNeeded){
+            if (points < currentTopic.pointsNeeded){
                 cell.iconPic?.image = UIImage(named: "lock.png")
             } else {
-                cell.iconPic?.image = UIImage(named: topics[indexPath.row].pic)
+                cell.iconPic?.image = UIImage(named: currentTopic.pic)
             }
-            cell.subjectTitle.text = topics[indexPath.row].title
+            cell.subjectTitle.text = currentTopic.title
         }
 
         return cell

@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct topic {
+struct Topic {
     var segueDesti: String
     var title: String
     var pic: String
