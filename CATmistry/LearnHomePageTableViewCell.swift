@@ -7,10 +7,10 @@
 
 import UIKit
 
-class LearnPageTableViewCell: UITableViewCell {
+class LearnHomePageTableViewCell: UITableViewCell {
     
-    @IBOutlet weak var subjectTitle: UILabel!
     @IBOutlet weak var iconPic: UIImageView!
+    @IBOutlet weak var subjectTitle: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
