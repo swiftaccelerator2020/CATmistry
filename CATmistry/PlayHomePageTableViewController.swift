@@ -7,6 +7,13 @@
 
 import UIKit
 
+var gameTopics = [
+    Topic(segueDesti: "TOBEFILLED", title: "Diffusion", pic: "gas-tests.png", pointsNeeded: 0),
+    Topic(segueDesti: "TOBEFILLED", title: "Retreive the solids", pic: "separation-methods.png", pointsNeeded: 10),
+    Topic(segueDesti: "TOBEFILLED", title: "Get the PH Right", pic: "pH-and-indicators.png", pointsNeeded: 20),
+    Topic(segueDesti: "TOBEFILLED", title: "Identify the elements", pic: "periodic-table.png", pointsNeeded: 30)
+]
+
 class PlayHomePageTableViewController: UITableViewController {
 
     override func viewDidLoad() {
@@ -23,23 +30,33 @@ class PlayHomePageTableViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return gameTopics.count
     }
 
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
+        let cell = tableView.dequeueReusableCell(withIdentifier: "playChapterCell", for: indexPath)
+        let currentTopic = topics[indexPath.row]
+        
+        if let cell = cell as? PlayHomePageTableViewCell{
+            if (points < currentTopic.pointsNeeded){
+                cell.backgroundColor = UIColor(red: 211/255, green: 211/255, blue: 211/255, alpha: 1)
+                cell.selectionStyle = .none
+                cell.icon?.image = UIImage(named: "lock.png")
+            } else {
+                cell.icon?.image = UIImage(named: currentTopic.pic)
+            }
+            cell.gameTitle.text = currentTopic.title
+        }
+        
         return cell
     }
-    */
+    
 
     /*
     // Override to support conditional editing of the table view.

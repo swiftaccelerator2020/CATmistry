@@ -14,3 +14,8 @@ struct Topic {
     var pointsNeeded: Int
 }
 
+struct GameTopic{
+    var title: String
+    var pic: String
+    var pointsNeeded: Int
+}
