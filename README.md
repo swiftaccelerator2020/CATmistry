@@ -1,2 +1,2 @@
 # CATmistry
-Grup 5 - Play and Learn Chem with Your Cat
+Group 5 - Play and Learn Chem with Your Cat
