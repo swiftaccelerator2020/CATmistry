@@ -10,16 +10,16 @@
         <!--Root View Controller-->
         <scene sceneID="j2w-dJ-ESl">
             <objects>
-                <tableViewController id="SBj-Sw-yaU" customClass="learnPageTableViewController" customModule="CATmistry" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="SBj-Sw-yaU" customClass="LearnPageTableViewController" customModule="CATmistry" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="U57-Bg-nxd">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="titleCell" rowHeight="100" id="KFz-G0-V3q" customClass="learnPageTableViewCell" customModule="CATmistry" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="titleCell" rowHeight="100" id="KFz-G0-V3q" customClass="LearnPageTableViewCell" customModule="CATmistry" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="414" height="100"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="KFz-G0-V3q" id="X5X-A7-gev" customClass="learnPageTableViewCell" customModule="CATmistry" customModuleProvider="target">
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="KFz-G0-V3q" id="X5X-A7-gev" customClass="LearnPageTableViewCell" customModule="CATmistry" customModuleProvider="target">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="100"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>

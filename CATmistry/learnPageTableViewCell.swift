@@ -7,7 +7,7 @@
 
 import UIKit
 
-class learnPageTableViewCell: UITableViewCell {
+class LearnPageTableViewCell: UITableViewCell {
     
     @IBOutlet weak var subjectTitle: UILabel!
     @IBOutlet weak var iconPic: UIImageView!

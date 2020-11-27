@@ -13,7 +13,7 @@ var topics = [
     topic(segueDesti: "TOBEFILLED", title: "Periodic Table", pic: "TOBEFILLED.png", pointsNeeded: 40)
     ]
 
-class learnPageTableViewController: UITableViewController {
+class LearnPageTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,7 +42,7 @@ class learnPageTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "titleCell", for: indexPath)
         
-        if let cell = cell as? learnPageTableViewCell{
+        if let cell = cell as? LearnPageTableViewCell{
             cell.iconPic?.image = UIImage(contentsOfFile: topics[indexPath.row].pic)
             cell.subjectTitle.text = topics[indexPath.row].title
         }
