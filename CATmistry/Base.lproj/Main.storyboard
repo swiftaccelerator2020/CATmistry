@@ -10,7 +10,7 @@
         <!--Learn 📚-->
         <scene sceneID="j2w-dJ-ESl">
             <objects>
-                <tableViewController id="SBj-Sw-yaU" customClass="LearnPageTableViewController" customModule="CATmistry" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="SBj-Sw-yaU" customClass="LearnHomePageTableViewController" customModule="CATmistry" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="U57-Bg-nxd">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

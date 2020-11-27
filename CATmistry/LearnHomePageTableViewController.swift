@@ -42,10 +42,10 @@ class LearnHomePageTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "titleCell", for: indexPath)
         
-//        if let cell = cell as? LearnPageTableViewCell{
-//            cell.iconPic?.image = UIImage(contentsOfFile: topics[indexPath.row].pic)
-//            cell.subjectTitle.text = topics[indexPath.row].title
-//        }
+        if let cell = cell as? LearnHomePageTableViewCell{
+            cell.iconPic.image = UIImage(contentsOfFile: topics[indexPath.row].pic)
+            cell.subjectTitle.text = topics[indexPath.row].title
+        }
         return cell
     }
     
