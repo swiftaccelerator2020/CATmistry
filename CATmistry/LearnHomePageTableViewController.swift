@@ -51,9 +51,9 @@ class LearnHomePageTableViewController: UITableViewController {
         if let cell = cell as? LearnHomePageTableViewCell{
 
             if (points < topics[indexPath.row].pointsNeeded){
-                cell.iconPic?.image = UIImage(contentsOfFile: "lock.png")
+                //cell.iconPic?.image = UIImage(contentsOfFile: "lock.png")
             }else{
-                cell.iconPic?.image = UIImage(contentsOfFile: topics[indexPath.row].pic)
+                //cell.iconPic?.image = UIImage(contentsOfFile: topics[indexPath.row].pic)
             }
             cell.subjectTitle.text = topics[indexPath.row].title
         }
