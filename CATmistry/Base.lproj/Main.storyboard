@@ -24,45 +24,29 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4m7-mb-Cp1">
-                                            <rect key="frame" x="0.0" y="0.0" width="390" height="100"/>
+                                            <rect key="frame" x="30" y="10" width="330" height="80"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lock" translatesAutoresizingMaskIntoConstraints="NO" id="CIJ-cd-Ogd">
-                                                    <rect key="frame" x="0.0" y="0.0" width="80" height="100"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="80" id="PgY-jm-Azl"/>
                                                         <constraint firstAttribute="width" constant="80" id="zwZ-j6-8pF"/>
                                                     </constraints>
                                                 </imageView>
-                                                <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ncf-Qo-Crj">
-                                                    <rect key="frame" x="80" y="0.0" width="310" height="100"/>
-                                                    <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FgN-en-35b">
-                                                            <rect key="frame" x="0.0" y="0.0" width="310" height="100"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                            <nil key="textColor"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                    </subviews>
-                                                    <constraints>
-                                                        <constraint firstItem="FgN-en-35b" firstAttribute="top" secondItem="Ncf-Qo-Crj" secondAttribute="top" id="BIz-Go-Gq1"/>
-                                                        <constraint firstAttribute="trailing" secondItem="FgN-en-35b" secondAttribute="trailing" id="LdS-Pr-Ckt"/>
-                                                        <constraint firstItem="FgN-en-35b" firstAttribute="leading" secondItem="Ncf-Qo-Crj" secondAttribute="leading" id="TQp-vd-C0v"/>
-                                                        <constraint firstAttribute="bottom" secondItem="FgN-en-35b" secondAttribute="bottom" id="VFB-tm-WHJ"/>
-                                                    </constraints>
-                                                </stackView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FgN-en-35b">
+                                                    <rect key="frame" x="80" y="0.0" width="250" height="80"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
-                                            <constraints>
-                                                <constraint firstAttribute="trailing" secondItem="Ncf-Qo-Crj" secondAttribute="trailing" id="IyH-TM-Nk3"/>
-                                                <constraint firstItem="Ncf-Qo-Crj" firstAttribute="top" secondItem="4m7-mb-Cp1" secondAttribute="top" id="JmC-jq-sEw"/>
-                                                <constraint firstAttribute="bottom" secondItem="Ncf-Qo-Crj" secondAttribute="bottom" id="Lld-hB-hdD"/>
-                                            </constraints>
                                         </stackView>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="4m7-mb-Cp1" firstAttribute="leading" secondItem="X5X-A7-gev" secondAttribute="leading" id="Ha2-ze-d0a"/>
-                                        <constraint firstItem="4m7-mb-Cp1" firstAttribute="top" secondItem="X5X-A7-gev" secondAttribute="top" id="PIg-V4-RoE"/>
-                                        <constraint firstAttribute="trailing" secondItem="4m7-mb-Cp1" secondAttribute="trailing" id="Q3G-sd-oXF"/>
-                                        <constraint firstAttribute="bottom" secondItem="4m7-mb-Cp1" secondAttribute="bottom" id="QXC-gm-W2W"/>
+                                        <constraint firstItem="4m7-mb-Cp1" firstAttribute="leading" secondItem="X5X-A7-gev" secondAttribute="leading" constant="30" id="Ha2-ze-d0a"/>
+                                        <constraint firstItem="4m7-mb-Cp1" firstAttribute="top" secondItem="X5X-A7-gev" secondAttribute="top" constant="10" id="PIg-V4-RoE"/>
+                                        <constraint firstAttribute="trailing" secondItem="4m7-mb-Cp1" secondAttribute="trailing" constant="30" id="Q3G-sd-oXF"/>
+                                        <constraint firstAttribute="bottom" secondItem="4m7-mb-Cp1" secondAttribute="bottom" constant="10" id="QXC-gm-W2W"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
@@ -87,7 +71,7 @@
             <objects>
                 <navigationController id="8Us-es-0oa" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="OvI-u8-jpf">
-                        <rect key="frame" x="0.0" y="44" width="390" height="96"/>
+                        <rect key="frame" x="0.0" y="44" width="390" height="104.33333333333334"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
