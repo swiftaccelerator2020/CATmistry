@@ -44,9 +44,9 @@ class LearnHomePageTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "titleCell", for: indexPath)
         
-        if (points < topics[indexPath.row].pointsNeeded){
-            cell.backgroundColor = .gray
-        }
+//        if (points < topics[indexPath.row].pointsNeeded){
+//            cell.backgroundColor = .gray
+//        }
         
         if let cell = cell as? LearnHomePageTableViewCell{
 
@@ -62,7 +62,7 @@ class LearnHomePageTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        100.0
+        80.0
     }
     
 
