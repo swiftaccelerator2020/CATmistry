@@ -7,17 +7,18 @@
 
 import UIKit
 var topics = [
-    topic(segueDesti: "TOBEFILLED", title: "Gas Tests", pic: "TOBEFILLED.png"),
-    topic(segueDesti: "TOBEFILLED", title: "Separation Methods", pic: "TOBEFILLED.png"),
-    topic(segueDesti: "TOBEFILLED", title: "pH and Indicators", pic: "TOBEFILLED.png"),
-    topic(segueDesti: "TOBEFILLED", title: "Periodic Table", pic: "TOBEFILLED.png")]
+    topic(segueDesti: "TOBEFILLED", title: "Gas Tests", pic: "TOBEFILLED.png", pointsNeeded: 10),
+    topic(segueDesti: "TOBEFILLED", title: "Separation Methods", pic: "TOBEFILLED.png", pointsNeeded: 20),
+    topic(segueDesti: "TOBEFILLED", title: "pH and Indicators", pic: "TOBEFILLED.png", pointsNeeded: 30),
+    topic(segueDesti: "TOBEFILLED", title: "Periodic Table", pic: "TOBEFILLED.png", pointsNeeded: 40)
+    ]
 
 class learnPageTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
         let ud = UserDefaults.standard
-
+        var points = ud.integer(forKey: "points")
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -29,20 +30,22 @@ class learnPageTableViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return topics.count
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
+        let cell = tableView.dequeueReusableCell(withIdentifier: "titleCell", for: indexPath)
+        
+        if let cell = cell as? learnPageTableViewCell{
+            cell.iconPic?.image = UIImage(contentsOfFile: topics[indexPath.row].pic)
+            cell.subjectTitle.text = topics[indexPath.row].title
+        }
         return cell
     }
     

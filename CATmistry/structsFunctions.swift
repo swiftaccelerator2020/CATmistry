@@ -11,6 +11,6 @@ struct topic {
     var segueDesti: String
     var title: String
     var pic: String
-    var canAccess: Bool
+    var pointsNeeded: Int
 }
 
