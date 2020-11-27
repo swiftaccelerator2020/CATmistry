@@ -13,12 +13,14 @@ var topics = [
     topic(segueDesti: "TOBEFILLED", title: "Periodic Table", pic: "TOBEFILLED.png", pointsNeeded: 40)
     ]
 
+let ud = UserDefaults.standard
+var points = ud.integer(forKey: "points")
+
 class LearnHomePageTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let ud = UserDefaults.standard
-//        var points = ud.integer(forKey: "points")
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -42,10 +44,20 @@ class LearnHomePageTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "titleCell", for: indexPath)
         
+        if (points < topics[indexPath.row].pointsNeeded){
+            cell.backgroundColor = .gray
+        }
+        
         if let cell = cell as? LearnHomePageTableViewCell{
-            cell.iconPic.image = UIImage(contentsOfFile: topics[indexPath.row].pic)
+
+            if (points < topics[indexPath.row].pointsNeeded){
+                cell.iconPic?.image = UIImage(contentsOfFile: "lock.png")
+            }else{
+                cell.iconPic?.image = UIImage(contentsOfFile: topics[indexPath.row].pic)
+            }
             cell.subjectTitle.text = topics[indexPath.row].title
         }
+
         return cell
     }
     
