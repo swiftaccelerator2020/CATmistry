@@ -8,26 +8,26 @@
 import UIKit
 var learnTopics = [
     Topic(title: "Gas Tests", pic: "gas-tests.png", pointsNeeded: 0, subTopics: [
-        SubTopic(title: "What are Gas Tests?", pic: "pic.png", id: 1, content: [], subTopics: []),
-        SubTopic(title: "Take the Quiz", pic: "pic.png", id: 5, content: [], subTopics: [])
+        SubTopic(title: "What are Gas Tests?", pic: "gas-tests.png", id: 1, content: [], subTopics: []),
+        SubTopic(title: "Take the Quiz", pic: "quiz.png", id: 5, content: [], subTopics: [])
     ]),
     
     Topic(title: "Separation Methods", pic: "separation-methods.png", pointsNeeded: 10, subTopics: [
-        SubTopic(title: "What is Separation?", pic: "pic.png", id: 1, content: [], subTopics: []),
-        SubTopic(title: "Take the Quiz", pic: "pic.png", id: 2, content: [], subTopics: [])
+        SubTopic(title: "What is Separation?", pic: "separtion-methods.png", id: 1, content: [], subTopics: []),
+        SubTopic(title: "Take the Quiz", pic: "quiz.png", id: 2, content: [], subTopics: [])
     ]),
     
     Topic(title: "pH and Indicators", pic: "pH-and-indicators.png", pointsNeeded: 20, subTopics: [
-        SubTopic(title: "What is pH?", pic: "pic.png", id: 1, content: [], subTopics: []),
-        SubTopic(title: "What are Indicators?", pic: "pic.png", id: 2, content: [], subTopics: []),
-        SubTopic(title: "Take the Quiz", pic: "pic.png", id: 3, content: [], subTopics: [])
+        SubTopic(title: "What is pH?", pic: "pH-and-indicators.png", id: 1, content: [], subTopics: []),
+        SubTopic(title: "What are Indicators?", pic: "pH-and-indicators.png", id: 2, content: [], subTopics: []),
+        SubTopic(title: "Take the Quiz", pic: "quiz.png", id: 3, content: [], subTopics: [])
     ]),
     
     Topic(title: "Periodic Table", pic: "periodic-table.png", pointsNeeded: 30, subTopics: [
-        SubTopic(title: "What is the Periodic Table?", pic: "pic.png", id: 1, content: [], subTopics: []),
-        SubTopic(title: "What are Elements?", pic: "pic.png", id: 2, content: [], subTopics: []),
-        SubTopic(title: "First 18 Elements", pic: "pic.png", id: 3, content: [], subTopics: []),
-        SubTopic(title: "Take the Quiz", pic: "pic.png", id: 4, content: [], subTopics: [])
+        SubTopic(title: "What is the Periodic Table?", pic: "periidic-table.png", id: 1, content: [], subTopics: []),
+        SubTopic(title: "What are Elements?", pic: "periodic-table.png", id: 2, content: [], subTopics: []),
+        SubTopic(title: "First 18 Elements", pic: "periodic-table.png", id: 3, content: [], subTopics: []),
+        SubTopic(title: "Take the Quiz", pic: "quiz.png", id: 4, content: [], subTopics: [])
     ]),
 ]
 
