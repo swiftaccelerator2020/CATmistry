@@ -8,29 +8,28 @@
 import UIKit
 var learnTopics = [
     Topic(title: "Gas Tests", pic: "gas-tests.png", pointsNeeded: 0, subTopics: [
-        SubTopic(title: "What are Gas Tests?", pic: "gas-tests.png", id: 1, content: [
-            SubContent(definition: "pH (the Power of Hydrogen) is a scale of 1 to 14 used to specify the acidity or basicity of a solution. The pH scale indicates the concentration of hydrogen ions in a solution.\n\n A lower pH (1 - 6.9) indicates that the solution is acidic, while a higher pH (7.1 - 14) indicates that the solution is alkaline. A pH of 7 indicates that the solution is neutral (neither acidic nor alkaline).")
-        ],
+        SubTopic(title: "What are Gas Tests?", pic: "gas-tests.png", id: 1, content:
+            SubContent(definition: ""),
         subTopics: nil),
-        SubTopic(title: "Take the Quiz", pic: "quiz.png", id: 5, content: [], subTopics: [])
+        SubTopic(title: "Take the Quiz", pic: "quiz.png", id: 5, content: SubContent(definition: ""), subTopics: [])
     ]),
     
     Topic(title: "Separation Methods", pic: "separation-methods.png", pointsNeeded: 10, subTopics: [
-        SubTopic(title: "What is Separation?", pic: "separtion-methods.png", id: 1, content: [], subTopics: []),
-        SubTopic(title: "Take the Quiz", pic: "quiz.png", id: 2, content: [], subTopics: [])
+        SubTopic(title: "What is Separation?", pic: "separation-methods.png", id: 1, content: SubContent(definition: "A separation process is a method that converts a mixture or solution of chemical substances into two or more distinct product mixtures. \n\nSeparations exploit differences in chemical properties or physical properties (such as size, shape, mass, density, or chemical affinity) between the constituents of a mixture."), subTopics: []),
+        SubTopic(title: "Take the Quiz", pic: "quiz.png", id: 2, content: SubContent(definition: ""), subTopics: [])
     ]),
     
     Topic(title: "pH and Indicators", pic: "pH-and-indicators.png", pointsNeeded: 20, subTopics: [
-        SubTopic(title: "What is pH?", pic: "pH-and-indicators.png", id: 1, content: [], subTopics: []),
-        SubTopic(title: "What are Indicators?", pic: "pH-and-indicators.png", id: 2, content: [], subTopics: []),
-        SubTopic(title: "Take the Quiz", pic: "quiz.png", id: 3, content: [SubContent(definition: "") ], subTopics: [])
+        SubTopic(title: "What is pH?", pic: "pH-and-indicators.png", id: 1, content: SubContent(definition: "pH (the Power of Hydrogen) is a scale of 1 to 14 used to specify the acidity or basicity of a solution. The pH scale indicates the concentration of hydrogen ions in a solution.\n\nA lower pH (1 - 6.9) indicates that the solution is acidic, while a higher pH (7.1 - 14) indicates that the solution is alkaline. A pH of 7 indicates that the solution is neutral (neither acidic nor alkaline)."), subTopics: []),
+        SubTopic(title: "What are Indicators?", pic: "pH-and-indicators.png", id: 2, content: SubContent(definition: "Indicators are chemicals which turn into different colours depending on the pH of the solution. The transition range is the range in which the indicator changes from one colour to the other."), subTopics: []),
+        SubTopic(title: "Take the Quiz", pic: "quiz.png", id: 3, content: SubContent(definition: ""), subTopics: [])
     ]),
     
     Topic(title: "Periodic Table", pic: "periodic-table.png", pointsNeeded: 30, subTopics: [
-        SubTopic(title: "What is the Periodic Table?", pic: "periidic-table.png", id: 1, content: [], subTopics: []),
-        SubTopic(title: "What are Elements?", pic: "periodic-table.png", id: 2, content: [], subTopics: []),
-        SubTopic(title: "First 18 Elements", pic: "periodic-table.png", id: 3, content: [], subTopics: []),
-        SubTopic(title: "Take the Quiz", pic: "quiz.png", id: 4, content: [], subTopics: [])
+        SubTopic(title: "What is the Periodic Table?", pic: "periodic-table.png", id: 1, content: SubContent(definition: "A periodic table is a chart that shows chemical elements in order of their atomic number. \n\nElements with similar properties are arranged in the same column (group), and elements with the same number of electron shells are arranged in the same row (period)."), subTopics: []),
+        SubTopic(title: "What are Elements?", pic: "periodic-table.png", id: 2, content: SubContent(definition: ""), subTopics: []),
+        SubTopic(title: "First 18 Elements", pic: "periodic-table.png", id: 3, content: SubContent(definition: ""), subTopics: []),
+        SubTopic(title: "Take the Quiz", pic: "quiz.png", id: 4, content: SubContent(definition: ""), subTopics: [])
     ]),
 ]
 
@@ -69,13 +68,13 @@ class LearnHomePageTableViewController: UITableViewController {
         let currentTopic = learnTopics[indexPath.row]
         
         if let cell = cell as? LearnHomePageTableViewCell{
-            if (points < currentTopic.pointsNeeded){
-                cell.backgroundColor = UIColor(red: 211/255, green: 211/255, blue: 211/255, alpha: 1)
-                cell.selectionStyle = .none
-                cell.learnChapterImageView?.image = UIImage(named: "lock.png")
-            } else {
+//            if (points < currentTopic.pointsNeeded){
+//                cell.backgroundColor = UIColor(red: 211/255, green: 211/255, blue: 211/255, alpha: 1)
+//                cell.selectionStyle = .none
+//                cell.learnChapterImageView?.image = UIImage(named: "lock.png")
+//            } else {
                 cell.learnChapterImageView?.image = UIImage(named: currentTopic.pic)
-            }
+//            }
             cell.learnChapterLabel.text = currentTopic.title
         }
         
@@ -130,10 +129,10 @@ class LearnHomePageTableViewController: UITableViewController {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
         if segue.identifier == "goToSubTopic" {
-            let dest = segue.destination as? LearnChapterSubTopicsTableViewController
-            let indexPath = tableView.indexPathForSelectedRow
-            dest!.flexibleTitle = learnTopics[indexPath!.row].title
-            dest!.specificChapter = learnTopics[indexPath!.row].subTopics
+            let dest = segue.destination as! LearnChapterSubTopicsTableViewController
+            let indexPath = tableView.indexPathForSelectedRow!
+            dest.flexibleTitle = learnTopics[indexPath.row].title
+            dest.specificChapter = learnTopics[indexPath.row].subTopics
         }
     }
     

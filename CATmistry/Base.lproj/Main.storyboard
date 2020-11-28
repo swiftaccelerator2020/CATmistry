@@ -3,6 +3,7 @@
     <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -226,6 +227,7 @@
                                 <connections>
                                     <outlet property="learnChapterImageView" destination="jxA-Ri-3FN" id="8lM-5t-YAC"/>
                                     <outlet property="learnChapterLabel" destination="ttA-VK-tYY" id="bsc-OV-XaW"/>
+                                    <segue destination="ub2-iM-iy6" kind="show" identifier="goToSubTopicDetails" id="Rio-Jb-167"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -240,7 +242,61 @@
             </objects>
             <point key="canvasLocation" x="215" y="-211"/>
         </scene>
+        <!--Details-->
+        <scene sceneID="RqM-aF-VL0">
+            <objects>
+                <viewController id="ub2-iM-iy6" customClass="LearnSubTopicDetailsViewController" customModule="CATmistry" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="rIY-8L-x8X">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1eh-8g-148">
+                                <rect key="frame" x="25" y="158.33333333333334" width="340" height="20.333333333333343"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Nfl-vn-zd4"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="1eh-8g-148" firstAttribute="top" secondItem="Nfl-vn-zd4" secondAttribute="top" constant="10" id="Mis-0P-qqF"/>
+                            <constraint firstItem="1eh-8g-148" firstAttribute="leading" secondItem="Nfl-vn-zd4" secondAttribute="leading" constant="25" id="R5k-ba-58k"/>
+                            <constraint firstItem="Nfl-vn-zd4" firstAttribute="trailing" secondItem="1eh-8g-148" secondAttribute="trailing" constant="25" id="qIe-iU-cVF"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Details" id="dlc-gK-BtW"/>
+                    <connections>
+                        <outlet property="definitionLabel" destination="1eh-8g-148" id="Mib-Er-hQO"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="q6s-Uq-AcY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2240" y="-212"/>
+        </scene>
+        <!--Learnsub-->
+        <scene sceneID="xbT-8M-oNT">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="q3o-0B-mYz" customClass="learnsub" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="FaB-d6-X5c"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="wEn-aq-CEr">
+                        <rect key="frame" x="0.0" y="44" width="390" height="104.33333333333334"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="ub2-iM-iy6" kind="relationship" relationship="rootViewController" id="omW-sG-g2z"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8xn-VK-GXi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1311" y="-212"/>
+        </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="Rio-Jb-167"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="books.vertical.fill" catalog="system" width="128" height="100"/>
         <image name="gamecontroller.fill" catalog="system" width="128" height="80"/>

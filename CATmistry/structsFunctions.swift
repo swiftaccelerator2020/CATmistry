@@ -18,7 +18,7 @@ struct SubTopic {
     var title: String
     var pic: String
     var id: Int
-    var content: Array<SubContent>
+    var content: SubContent
     var subTopics: Array<SubSubTopic>?
 }
 
@@ -26,11 +26,11 @@ struct SubSubTopic {
     var topic: String
     var picture: String
     var id: Int
-    var content: Array<SubSubContent>
+    var content: SubSubContent
 }
 
 struct SubContent {
-    var definition: String?
+    var definition: String
 }
 
 struct SubSubContent {
