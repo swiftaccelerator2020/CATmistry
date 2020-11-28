@@ -7,9 +7,9 @@
 
 import UIKit
 
-class SpecificContentTableViewController: UITableViewController {
+class LearnChapterSubTopicsTableViewController: UITableViewController {
 
-    var specificChapter: [SpecificTopic]!
+    var specificChapter: [SubTopic]!
     
     override func viewDidLoad() {
         super.viewDidLoad()

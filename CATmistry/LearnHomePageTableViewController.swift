@@ -7,30 +7,30 @@
 
 import UIKit
 var learnTopics = [
-    Topic(title: "Gas Tests", pic: "gas-tests.png", pointsNeeded: 0, topics: [
-        SpecificTopic(topic: "What are Gas Tests?", picture: "pic.png", id: 1, content: "NO"),
-        SpecificTopic(topic: "Test for H₂", picture: "pic.png", id: 2, content: "NO"),
-        SpecificTopic(topic: "Test for CO₂", picture: "pic.png", id: 3, content: "NO"),
-        SpecificTopic(topic: "Test for NH₃", picture: "pic.png", id: 4, content: "NO"),
-        SpecificTopic(topic: "Take the Quiz", picture: "pic.png", id: 5, content: "NO")
+    Topic(title: "Gas Tests", pic: "gas-tests.png", pointsNeeded: 0, subTopics: [
+        SubTopic(topic: "What are Gas Tests?", picture: "pic.png", id: 1, content: "NO"),
+        SubTopic(topic: "Test for H₂", picture: "pic.png", id: 2, content: "NO"),
+        SubTopic(topic: "Test for CO₂", picture: "pic.png", id: 3, content: "NO"),
+        SubTopic(topic: "Test for NH₃", picture: "pic.png", id: 4, content: "NO"),
+        SubTopic(topic: "Take the Quiz", picture: "pic.png", id: 5, content: "NO")
     ]),
     
-    Topic(title: "Separation Methods", pic: "separation-methods.png", pointsNeeded: 10, topics: [
-        SpecificTopic(topic: "What is Separation?", picture: "pic.png", id: 1, content: "NO"),
-        SpecificTopic(topic: "Take the Quiz", picture: "pic.png", id: 2, content: "NO")
+    Topic(title: "Separation Methods", pic: "separation-methods.png", pointsNeeded: 10, subTopics: [
+        SubTopic(topic: "What is Separation?", picture: "pic.png", id: 1, content: "NO"),
+        SubTopic(topic: "Take the Quiz", picture: "pic.png", id: 2, content: "NO")
     ]),
     
-    Topic(title: "pH and Indicators", pic: "pH-and-indicators.png", pointsNeeded: 20, topics: [
-        SpecificTopic(topic: "What is pH?", picture: "pic.png", id: 1, content: "NO"),
-        SpecificTopic(topic: "What are Indicators?", picture: "pic.png", id: 2, content: "NO"),
-        SpecificTopic(topic: "Take the Quiz", picture: "pic.png", id: 3, content: "NO"),
+    Topic(title: "pH and Indicators", pic: "pH-and-indicators.png", pointsNeeded: 20, subTopics: [
+        SubTopic(topic: "What is pH?", picture: "pic.png", id: 1, content: "NO"),
+        SubTopic(topic: "What are Indicators?", picture: "pic.png", id: 2, content: "NO"),
+        SubTopic(topic: "Take the Quiz", picture: "pic.png", id: 3, content: "NO"),
     ]),
     
-    Topic(title: "Periodic Table", pic: "periodic-table.png", pointsNeeded: 30, topics: [
-        SpecificTopic(topic: "What is the Periodic Table?", picture: "pic.png", id: 1, content: "NO"),
-        SpecificTopic(topic: "What are Elements?", picture: "pic.png", id: 2, content: "NO"),
-        SpecificTopic(topic: "First 18 Elements", picture: "pic.png", id: 3, content: "NO"),
-        SpecificTopic(topic: "Take the Quiz", picture: "pic.png", id: 4, content: "NO")
+    Topic(title: "Periodic Table", pic: "periodic-table.png", pointsNeeded: 30, subTopics: [
+        SubTopic(topic: "What is the Periodic Table?", picture: "pic.png", id: 1, content: "NO"),
+        SubTopic(topic: "What are Elements?", picture: "pic.png", id: 2, content: "NO"),
+        SubTopic(topic: "First 18 Elements", picture: "pic.png", id: 3, content: "NO"),
+        SubTopic(topic: "Take the Quiz", picture: "pic.png", id: 4, content: "NO")
     ]),
 ]
 
@@ -129,8 +129,8 @@ class LearnHomePageTableViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
-        if segue.identifier == "goToSpecific", let dest = segue.destination as? SpecificContentTableViewController, let cDc = tableView.indexPathForSelectedRow{
-            dest.specificChapter = learnTopics[cDc.row].topics
+        if segue.identifier == "goToSpecific", let dest = segue.destination as? LearnChapterSubTopicsTableViewController, let cDc = tableView.indexPathForSelectedRow{
+            dest.specificChapter = learnTopics[cDc.row].subTopics
         }
     }
     

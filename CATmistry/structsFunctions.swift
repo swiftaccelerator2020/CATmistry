@@ -11,17 +11,18 @@ struct Topic {
     var title: String
     var pic: String
     var pointsNeeded: Int
-    var topics: Array<SpecificTopic>
+    var subTopics: Array<SubTopic>
 }
 
-struct SpecificTopic {
+struct SubTopic {
     var topic: String
     var picture: String
     var id: Int
     var content: String
+    var subTopics: Array<SubSubTopic>
 }
 
-struct SpecificSpecificTopic {
+struct SubSubTopic {
     var topic: String
     var picture: String
     var id: Int
