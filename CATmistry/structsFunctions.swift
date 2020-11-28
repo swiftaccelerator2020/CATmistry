@@ -15,10 +15,10 @@ struct Topic {
 }
 
 struct SubTopic {
-    var topic: String
-    var picture: String
+    var title: String
+    var pic: String
     var id: Int
-    var content: String
+    var content: Array<SubContent>
     var subTopics: Array<SubSubTopic>
 }
 
@@ -26,7 +26,15 @@ struct SubSubTopic {
     var topic: String
     var picture: String
     var id: Int
-    var content: String
+    var content: Array<SubSubContent>
+}
+
+struct SubContent {
+    var definition: String?
+}
+
+struct SubSubContent {
+    var image: String
 }
 
 struct GameTopic {
