@@ -123,10 +123,12 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Play 🎮" id="9HF-TP-uSx"/>
                     <connections>
-                        <segue destination="e4r-tI-S0A" kind="show" id="PHu-xF-Nia"/>
-                        <segue destination="0jR-6D-YOT" kind="show" id="ABd-xL-5Rv"/>
-                        <segue destination="MYy-Hk-xqZ" kind="show" id="Uws-7t-tbM"/>
-                        <segue destination="vbU-vN-Sop" kind="show" id="Yy2-7g-d5h"/>
+                        <outlet property="playPageTable" destination="paC-Dj-Tva" id="Hzh-Gb-CXA"/>
+                        <outlet property="tableView" destination="paC-Dj-Tva" id="WsQ-dm-HfD"/>
+                        <segue destination="e4r-tI-S0A" kind="show" identifier="phAndIndi" id="PHu-xF-Nia"/>
+                        <segue destination="0jR-6D-YOT" kind="show" identifier="sepe" id="ABd-xL-5Rv"/>
+                        <segue destination="MYy-Hk-xqZ" kind="show" identifier="diff" id="Uws-7t-tbM"/>
+                        <segue destination="vbU-vN-Sop" kind="show" identifier="periodic" id="Yy2-7g-d5h"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="e6O-ta-4U2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
