@@ -83,39 +83,29 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fZZ-aG-ba8">
-                                            <rect key="frame" x="30" y="10" width="330" height="60"/>
+                                            <rect key="frame" x="15" y="15" width="345" height="50"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lock" translatesAutoresizingMaskIntoConstraints="NO" id="e0n-2y-a3z">
-                                                    <rect key="frame" x="0.0" y="0.0" width="50" height="60"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="80" height="50"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="50" id="XLD-0D-Kec"/>
-                                                        <constraint firstAttribute="height" constant="80" id="iOY-E4-zRL"/>
+                                                        <constraint firstAttribute="height" constant="50" id="RJp-If-WHk"/>
+                                                        <constraint firstAttribute="width" constant="80" id="RN9-op-7vr"/>
                                                     </constraints>
                                                 </imageView>
-                                                <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="y1h-Md-oAI">
-                                                    <rect key="frame" x="50" y="0.0" width="280" height="60"/>
-                                                    <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dgp-do-qji">
-                                                            <rect key="frame" x="0.0" y="0.0" width="280" height="60"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                            <nil key="textColor"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                    </subviews>
-                                                    <constraints>
-                                                        <constraint firstItem="dgp-do-qji" firstAttribute="top" secondItem="y1h-Md-oAI" secondAttribute="top" id="bV8-bL-k80"/>
-                                                        <constraint firstAttribute="trailing" secondItem="dgp-do-qji" secondAttribute="trailing" id="qcs-Xx-sSO"/>
-                                                        <constraint firstAttribute="bottom" secondItem="dgp-do-qji" secondAttribute="bottom" id="vjp-pw-DuM"/>
-                                                    </constraints>
-                                                </stackView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dgp-do-qji">
+                                                    <rect key="frame" x="80" y="0.0" width="265" height="50"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                         </stackView>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstAttribute="bottom" secondItem="fZZ-aG-ba8" secondAttribute="bottom" constant="10" id="Ad5-Ud-Gr7"/>
-                                        <constraint firstItem="fZZ-aG-ba8" firstAttribute="top" secondItem="e4j-Dh-J9V" secondAttribute="top" constant="10" id="KgW-ok-0iv"/>
-                                        <constraint firstItem="fZZ-aG-ba8" firstAttribute="leading" secondItem="e4j-Dh-J9V" secondAttribute="leading" constant="30" id="SoM-UB-b27"/>
-                                        <constraint firstAttribute="trailing" secondItem="fZZ-aG-ba8" secondAttribute="trailing" constant="30" id="oK8-Rs-aka"/>
+                                        <constraint firstItem="fZZ-aG-ba8" firstAttribute="top" secondItem="e4j-Dh-J9V" secondAttribute="top" constant="15" id="AdN-js-PY0"/>
+                                        <constraint firstAttribute="trailing" secondItem="fZZ-aG-ba8" secondAttribute="trailing" constant="30" id="Dis-c5-yCa"/>
+                                        <constraint firstItem="fZZ-aG-ba8" firstAttribute="leading" secondItem="e4j-Dh-J9V" secondAttribute="leading" constant="15" id="sm0-Gh-u10"/>
+                                        <constraint firstAttribute="bottom" secondItem="fZZ-aG-ba8" secondAttribute="bottom" constant="15" id="xPh-OK-b1n"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
