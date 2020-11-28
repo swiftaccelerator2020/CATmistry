@@ -52,6 +52,7 @@
                                 <connections>
                                     <outlet property="learnChapterImageView" destination="CIJ-cd-Ogd" id="m6V-6w-RIX"/>
                                     <outlet property="learnChapterLabel" destination="FgN-en-35b" id="Coz-iG-P6l"/>
+                                    <segue destination="zYi-y0-AMu" kind="show" identifier="goToSpecific" id="An7-dl-67I"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -179,6 +180,65 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qq7-LR-359" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1502" y="508"/>
+        </scene>
+        <!--Chapter Specific-->
+        <scene sceneID="K1z-9F-dJI">
+            <objects>
+                <tableViewController id="zYi-y0-AMu" customClass="SpecificContentTableViewController" customModule="CATmistry" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="U20-2p-ijf">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="learnChapterCell" rowHeight="80" id="lWc-H3-uHu" customClass="LearnHomePageTableViewCell" customModule="CATmistry" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="390" height="80"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="lWc-H3-uHu" id="QcU-y6-tPg">
+                                    <rect key="frame" x="0.0" y="0.0" width="390" height="80"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KUT-Bu-RTy">
+                                            <rect key="frame" x="15" y="15" width="345" height="50"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lock" translatesAutoresizingMaskIntoConstraints="NO" id="jxA-Ri-3FN">
+                                                    <rect key="frame" x="0.0" y="0.0" width="80" height="50"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="80" id="Gah-09-ulN"/>
+                                                        <constraint firstAttribute="height" constant="50" id="PRg-ES-0Ty"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ttA-VK-tYY">
+                                                    <rect key="frame" x="80" y="0.0" width="265" height="50"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </stackView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="KUT-Bu-RTy" firstAttribute="leading" secondItem="QcU-y6-tPg" secondAttribute="leading" constant="15" id="7rL-RU-Q8B"/>
+                                        <constraint firstAttribute="bottom" secondItem="KUT-Bu-RTy" secondAttribute="bottom" constant="15" id="QY7-gm-atG"/>
+                                        <constraint firstItem="KUT-Bu-RTy" firstAttribute="top" secondItem="QcU-y6-tPg" secondAttribute="top" constant="15" id="bGj-pU-M21"/>
+                                        <constraint firstAttribute="trailing" secondItem="KUT-Bu-RTy" secondAttribute="trailing" constant="30" id="rg2-VL-Wem"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="learnChapterImageView" destination="jxA-Ri-3FN" id="8lM-5t-YAC"/>
+                                    <outlet property="learnChapterLabel" destination="ttA-VK-tYY" id="bsc-OV-XaW"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="zYi-y0-AMu" id="8e9-z5-Feu"/>
+                            <outlet property="delegate" destination="zYi-y0-AMu" id="6Op-gI-BPe"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Chapter Specific" id="dDO-g2-IDo"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="D9K-Bh-cIp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="215" y="-211"/>
         </scene>
     </scenes>
     <resources>

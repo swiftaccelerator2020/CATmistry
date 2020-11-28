@@ -12,6 +12,7 @@ struct Topic {
     var title: String
     var pic: String
     var pointsNeeded: Int
+    var topics: Array<String>
 }
 
 struct GameTopic{

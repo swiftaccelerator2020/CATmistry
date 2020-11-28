@@ -7,10 +7,10 @@
 
 import UIKit
 var topics = [
-    Topic(segueDesti: "TOBEFILLED", title: "Gas Tests", pic: "gas-tests.png", pointsNeeded: 0),
-    Topic(segueDesti: "TOBEFILLED", title: "Separation Methods", pic: "separation-methods.png", pointsNeeded: 10),
-    Topic(segueDesti: "TOBEFILLED", title: "pH and Indicators", pic: "pH-and-indicators.png", pointsNeeded: 20),
-    Topic(segueDesti: "TOBEFILLED", title: "Periodic Table", pic: "periodic-table.png", pointsNeeded: 30)
+    Topic(segueDesti: "TOBEFILLED", title: "Gas Tests", pic: "gas-tests.png", pointsNeeded: 0, topics: ["What are Gas Tests?", "Test for H₂", "Test for CO₂", "Test for NH₃", "Take the Quiz"]),
+    Topic(segueDesti: "TOBEFILLED", title: "Separation Methods", pic: "separation-methods.png", pointsNeeded: 10, topics: ["What is Separation?", "Evaporation", "Distillation", "Filtration", "Floatation", "Magnetism", "Crystallisation", "Chromatography", "Take the Quiz"]),
+    Topic(segueDesti: "TOBEFILLED", title: "pH and Indicators", pic: "pH-and-indicators.png", pointsNeeded: 20, topics: ["What is pH?", "What are Indicators?", "Take the Quiz"]),
+    Topic(segueDesti: "TOBEFILLED", title: "Periodic Table", pic: "periodic-table.png", pointsNeeded: 30, topics: ["What is the Periodic Table?", "What are Elements?", "First 18 Elements", "Take the Quiz"])
 ]
 
 let ud = UserDefaults.standard
@@ -101,14 +101,17 @@ class LearnHomePageTableViewController: UITableViewController {
      }
      */
     
-    /*
+    
      // MARK: - Navigation
      
      // In a storyboard-based application, you will often want to do a little preparation before navigation
      override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
      // Get the new view controller using segue.destination.
      // Pass the selected object to the new view controller.
+        if segue.identifier == "goToSpecific", let dest = segue.destination as? SpecificContentTableViewController, let cDc = tableView.indexPathForSelectedRow{
+            dest.specificChapter = topics[cDc.row].topics
+        }
      }
-     */
+     
     
 }
