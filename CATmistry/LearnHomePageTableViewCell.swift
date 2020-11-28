@@ -12,10 +12,12 @@ class LearnHomePageTableViewCell: UITableViewCell {
     
     @IBOutlet weak var learnChapterImageView: UIImageView!
     @IBOutlet weak var learnChapterLabel: UILabel!
+    @IBOutlet weak var needMorePointsLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        self.needMorePointsLabel.isHidden = true
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
