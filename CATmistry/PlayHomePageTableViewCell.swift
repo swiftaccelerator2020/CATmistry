@@ -8,8 +8,8 @@
 import UIKit
 
 class PlayHomePageTableViewCell: UITableViewCell {
-    @IBOutlet weak var icon: UIImageView!
-    @IBOutlet weak var gameTitle: UILabel!
+    @IBOutlet weak var playChapterImageView: UIImageView!
+    @IBOutlet weak var playChapterLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

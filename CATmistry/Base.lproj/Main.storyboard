@@ -50,8 +50,8 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="iconPic" destination="CIJ-cd-Ogd" id="m6V-6w-RIX"/>
-                                    <outlet property="subjectTitle" destination="FgN-en-35b" id="Coz-iG-P6l"/>
+                                    <outlet property="learnChapterImageView" destination="CIJ-cd-Ogd" id="m6V-6w-RIX"/>
+                                    <outlet property="learnChapterLabel" destination="FgN-en-35b" id="Coz-iG-P6l"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -109,8 +109,8 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="gameTitle" destination="dgp-do-qji" id="Vno-Mm-Y3G"/>
-                                    <outlet property="icon" destination="e0n-2y-a3z" id="zIs-6R-3Sc"/>
+                                    <outlet property="playChapterImageView" destination="e0n-2y-a3z" id="zIs-6R-3Sc"/>
+                                    <outlet property="playChapterLabel" destination="dgp-do-qji" id="Vno-Mm-Y3G"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -131,7 +131,7 @@
                 <navigationController id="8Us-es-0oa" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Learn" selectedImage="books.vertical.fill" catalog="system" id="ZOw-bY-pdm"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="OvI-u8-jpf">
-                        <rect key="frame" x="0.0" y="44" width="390" height="96"/>
+                        <rect key="frame" x="0.0" y="44" width="390" height="104.33333333333334"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>

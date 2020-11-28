@@ -9,8 +9,8 @@ import UIKit
 
 class LearnHomePageTableViewCell: UITableViewCell {
     
-    @IBOutlet weak var iconPic: UIImageView!
-    @IBOutlet weak var subjectTitle: UILabel!
+    @IBOutlet weak var learnChapterImageView: UIImageView!
+    @IBOutlet weak var learnChapterLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

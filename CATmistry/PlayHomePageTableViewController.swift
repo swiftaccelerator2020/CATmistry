@@ -47,11 +47,11 @@ class PlayHomePageTableViewController: UITableViewController {
             if (points < currentTopic.pointsNeeded){
                 cell.backgroundColor = UIColor(red: 211/255, green: 211/255, blue: 211/255, alpha: 1)
                 cell.selectionStyle = .none
-                cell.icon?.image = UIImage(named: "lock.png")
+                cell.playChapterImageView?.image = UIImage(named: "lock.png")
             } else {
-                cell.icon?.image = UIImage(named: currentTopic.pic)
+                cell.playChapterImageView?.image = UIImage(named: currentTopic.pic)
             }
-            cell.gameTitle.text = currentTopic.title
+            cell.playChapterLabel.text = currentTopic.title
         }
         
         return cell
