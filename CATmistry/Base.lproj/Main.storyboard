@@ -83,40 +83,39 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fZZ-aG-ba8">
-                                            <rect key="frame" x="0.0" y="0.0" width="390" height="80"/>
+                                            <rect key="frame" x="30" y="10" width="330" height="60"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lock" translatesAutoresizingMaskIntoConstraints="NO" id="e0n-2y-a3z">
-                                                    <rect key="frame" x="0.0" y="0.0" width="50" height="80"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="50" height="60"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="80" id="UoW-1b-l9t"/>
-                                                        <constraint firstAttribute="width" constant="50" id="Uxc-Zh-C3k"/>
+                                                        <constraint firstAttribute="width" constant="50" id="XLD-0D-Kec"/>
+                                                        <constraint firstAttribute="height" constant="80" id="iOY-E4-zRL"/>
                                                     </constraints>
                                                 </imageView>
                                                 <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="y1h-Md-oAI">
-                                                    <rect key="frame" x="50" y="0.0" width="340" height="80"/>
+                                                    <rect key="frame" x="50" y="0.0" width="280" height="60"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dgp-do-qji">
-                                                            <rect key="frame" x="0.0" y="0.0" width="340" height="80"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="280" height="60"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
                                                     <constraints>
-                                                        <constraint firstAttribute="trailing" secondItem="dgp-do-qji" secondAttribute="trailing" id="7Sv-Fg-zl2"/>
-                                                        <constraint firstItem="dgp-do-qji" firstAttribute="top" secondItem="y1h-Md-oAI" secondAttribute="top" id="cSe-DX-5MP"/>
-                                                        <constraint firstItem="dgp-do-qji" firstAttribute="leading" secondItem="y1h-Md-oAI" secondAttribute="leading" id="dXa-SY-A9l"/>
-                                                        <constraint firstAttribute="bottom" secondItem="dgp-do-qji" secondAttribute="bottom" id="kyn-sk-O1A"/>
+                                                        <constraint firstItem="dgp-do-qji" firstAttribute="top" secondItem="y1h-Md-oAI" secondAttribute="top" id="bV8-bL-k80"/>
+                                                        <constraint firstAttribute="trailing" secondItem="dgp-do-qji" secondAttribute="trailing" id="qcs-Xx-sSO"/>
+                                                        <constraint firstAttribute="bottom" secondItem="dgp-do-qji" secondAttribute="bottom" id="vjp-pw-DuM"/>
                                                     </constraints>
                                                 </stackView>
                                             </subviews>
                                         </stackView>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstAttribute="bottom" secondItem="fZZ-aG-ba8" secondAttribute="bottom" id="9hQ-uO-UWG"/>
-                                        <constraint firstAttribute="trailing" secondItem="fZZ-aG-ba8" secondAttribute="trailing" id="DWV-QT-NuU"/>
-                                        <constraint firstItem="fZZ-aG-ba8" firstAttribute="leading" secondItem="e4j-Dh-J9V" secondAttribute="leading" id="b5u-62-X6R"/>
-                                        <constraint firstItem="fZZ-aG-ba8" firstAttribute="top" secondItem="e4j-Dh-J9V" secondAttribute="top" id="h42-hg-nVx"/>
+                                        <constraint firstAttribute="bottom" secondItem="fZZ-aG-ba8" secondAttribute="bottom" constant="10" id="Ad5-Ud-Gr7"/>
+                                        <constraint firstItem="fZZ-aG-ba8" firstAttribute="top" secondItem="e4j-Dh-J9V" secondAttribute="top" constant="10" id="KgW-ok-0iv"/>
+                                        <constraint firstItem="fZZ-aG-ba8" firstAttribute="leading" secondItem="e4j-Dh-J9V" secondAttribute="leading" constant="30" id="SoM-UB-b27"/>
+                                        <constraint firstAttribute="trailing" secondItem="fZZ-aG-ba8" secondAttribute="trailing" constant="30" id="oK8-Rs-aka"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
@@ -142,7 +141,7 @@
                 <navigationController id="8Us-es-0oa" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Learn" selectedImage="books.vertical.fill" catalog="system" id="ZOw-bY-pdm"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="OvI-u8-jpf">
-                        <rect key="frame" x="0.0" y="44" width="390" height="104.33333333333334"/>
+                        <rect key="frame" x="0.0" y="44" width="390" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>

@@ -8,7 +8,9 @@
 import UIKit
 
 class PlayHomePageTableViewCell: UITableViewCell {
-
+    @IBOutlet weak var icon: UIImageView!
+    @IBOutlet weak var gameTitle: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

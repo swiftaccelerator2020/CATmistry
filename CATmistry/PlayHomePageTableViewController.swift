@@ -57,6 +57,10 @@ class PlayHomePageTableViewController: UITableViewController {
         return cell
     }
     
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        80.0
+    }
+    
 
     /*
     // Override to support conditional editing of the table view.
