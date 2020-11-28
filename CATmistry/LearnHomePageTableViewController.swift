@@ -7,10 +7,20 @@
 
 import UIKit
 var topics = [
-    Topic(segueDesti: "TOBEFILLED", title: "Gas Tests", pic: "gas-tests.png", pointsNeeded: 0, topics: ["What are Gas Tests?", "Test for H₂", "Test for CO₂", "Test for NH₃", "Take the Quiz"]),
-    Topic(segueDesti: "TOBEFILLED", title: "Separation Methods", pic: "separation-methods.png", pointsNeeded: 10, topics: ["What is Separation?", "Evaporation", "Distillation", "Filtration", "Floatation", "Magnetism", "Crystallisation", "Chromatography", "Take the Quiz"]),
-    Topic(segueDesti: "TOBEFILLED", title: "pH and Indicators", pic: "pH-and-indicators.png", pointsNeeded: 20, topics: ["What is pH?", "What are Indicators?", "Take the Quiz"]),
-    Topic(segueDesti: "TOBEFILLED", title: "Periodic Table", pic: "periodic-table.png", pointsNeeded: 30, topics: ["What is the Periodic Table?", "What are Elements?", "First 18 Elements", "Take the Quiz"])
+    Topic(title: "Gas Tests", pic: "gas-tests.png", pointsNeeded: 0, topics:
+        [
+        SpecificTopic(topics: "What are Gas Tests?", picture: "pic.png", id: 1, content: "NO"),
+        SpecificTopic(topics: "Test for H₂", picture: "pic.png", id: 2, content: "NO"),
+        SpecificTopic(topics: "Test for CO₂", picture: "pic.png", id: 3, content: "NO"),
+        SpecificTopic(topics: "Test for NH₃", picture: "pic.png", id: 4, content: "NO"),
+        SpecificTopic(topics: "Take the Quiz", picture: "pic.png", id: 5, content: "NO")
+        ]
+
+    Topic(title: "Separation Methods", pic: "separation-methods.png", pointsNeeded: 10, topics: ["What is Separation?", "Evaporation", "Distillation", "Filtration", "Floatation", "Magnetism", "Crystallisation", "Chromatography", "Take the Quiz"]),
+    
+    Topic(title: "pH and Indicators", pic: "pH-and-indicators.png", pointsNeeded: 20, topics: ["What is pH?", "What are Indicators?", "Take the Quiz"]),
+    
+    Topic(title: "Periodic Table", pic: "periodic-table.png", pointsNeeded: 30, topics: ["What is the Periodic Table?", "What are Elements?", "First 18 Elements", "Take the Quiz"])
 ]
 
 let ud = UserDefaults.standard

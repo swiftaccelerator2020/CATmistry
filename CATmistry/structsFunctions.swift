@@ -8,11 +8,17 @@
 import Foundation
 
 struct Topic {
-    var segueDesti: String
     var title: String
     var pic: String
     var pointsNeeded: Int
-    var topics: Array<String>
+    var topics: Array<SpecificTopic>
+}
+
+struct SpecificTopic{
+    var topics: String
+    var picture: String
+    var id: Int
+    var content: String
 }
 
 struct GameTopic{
