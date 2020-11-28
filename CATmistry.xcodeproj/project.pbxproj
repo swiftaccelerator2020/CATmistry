@@ -9,12 +9,16 @@
 /* Begin PBXBuildFile section */
 		2613B0352570DB8C00EECB4C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2613B0342570DB8C00EECB4C /* AppDelegate.swift */; };
 		2613B0372570DB8C00EECB4C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2613B0362570DB8C00EECB4C /* SceneDelegate.swift */; };
-		2613B0392570DB8C00EECB4C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2613B0382570DB8C00EECB4C /* ViewController.swift */; };
 		2613B03C2570DB8C00EECB4C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2613B03A2570DB8C00EECB4C /* Main.storyboard */; };
 		2613B03E2570DB9000EECB4C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2613B03D2570DB9000EECB4C /* Assets.xcassets */; };
 		2613B0412570DB9000EECB4C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2613B03F2570DB9000EECB4C /* LaunchScreen.storyboard */; };
 		2613B04C2570DB9100EECB4C /* CATmistryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2613B04B2570DB9100EECB4C /* CATmistryTests.swift */; };
 		2613B0572570DB9100EECB4C /* CATmistryUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2613B0562570DB9100EECB4C /* CATmistryUITests.swift */; };
+		261E539D2571486600094DA5 /* PlayHomePageTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 261E539C2571486600094DA5 /* PlayHomePageTableViewController.swift */; };
+		261E53A22571488B00094DA5 /* PlayHomePageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 261E53A12571488B00094DA5 /* PlayHomePageTableViewCell.swift */; };
+		547F0AD92570F5F900A224D9 /* LearnHomePageTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 547F0AD82570F5F900A224D9 /* LearnHomePageTableViewController.swift */; };
+		547F0ADE2570F66E00A224D9 /* LearnHomePageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 547F0ADD2570F66E00A224D9 /* LearnHomePageTableViewCell.swift */; };
+		547F0AEB2570F85000A224D9 /* structsFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 547F0AEA2570F85000A224D9 /* structsFunctions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,7 +42,6 @@
 		2613B0312570DB8C00EECB4C /* CATmistry.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CATmistry.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2613B0342570DB8C00EECB4C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2613B0362570DB8C00EECB4C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		2613B0382570DB8C00EECB4C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		2613B03B2570DB8C00EECB4C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		2613B03D2570DB9000EECB4C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2613B0402570DB9000EECB4C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -49,6 +52,11 @@
 		2613B0522570DB9100EECB4C /* CATmistryUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CATmistryUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2613B0562570DB9100EECB4C /* CATmistryUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CATmistryUITests.swift; sourceTree = "<group>"; };
 		2613B0582570DB9100EECB4C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		261E539C2571486600094DA5 /* PlayHomePageTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayHomePageTableViewController.swift; sourceTree = "<group>"; };
+		261E53A12571488B00094DA5 /* PlayHomePageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayHomePageTableViewCell.swift; sourceTree = "<group>"; };
+		547F0AD82570F5F900A224D9 /* LearnHomePageTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearnHomePageTableViewController.swift; sourceTree = "<group>"; };
+		547F0ADD2570F66E00A224D9 /* LearnHomePageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearnHomePageTableViewCell.swift; sourceTree = "<group>"; };
+		547F0AEA2570F85000A224D9 /* structsFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = structsFunctions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,8 +109,12 @@
 			children = (
 				2613B0342570DB8C00EECB4C /* AppDelegate.swift */,
 				2613B0362570DB8C00EECB4C /* SceneDelegate.swift */,
-				2613B0382570DB8C00EECB4C /* ViewController.swift */,
 				2613B03A2570DB8C00EECB4C /* Main.storyboard */,
+				261E53A12571488B00094DA5 /* PlayHomePageTableViewCell.swift */,
+				261E539C2571486600094DA5 /* PlayHomePageTableViewController.swift */,
+				547F0ADD2570F66E00A224D9 /* LearnHomePageTableViewCell.swift */,
+				547F0AD82570F5F900A224D9 /* LearnHomePageTableViewController.swift */,
+				547F0AEA2570F85000A224D9 /* structsFunctions.swift */,
 				2613B03D2570DB9000EECB4C /* Assets.xcassets */,
 				2613B03F2570DB9000EECB4C /* LaunchScreen.storyboard */,
 				2613B0422570DB9000EECB4C /* Info.plist */,
@@ -258,9 +270,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2613B0392570DB8C00EECB4C /* ViewController.swift in Sources */,
 				2613B0352570DB8C00EECB4C /* AppDelegate.swift in Sources */,
+				547F0ADE2570F66E00A224D9 /* LearnHomePageTableViewCell.swift in Sources */,
+				261E53A22571488B00094DA5 /* PlayHomePageTableViewCell.swift in Sources */,
+				547F0AEB2570F85000A224D9 /* structsFunctions.swift in Sources */,
+				261E539D2571486600094DA5 /* PlayHomePageTableViewController.swift in Sources */,
 				2613B0372570DB8C00EECB4C /* SceneDelegate.swift in Sources */,
+				547F0AD92570F5F900A224D9 /* LearnHomePageTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
