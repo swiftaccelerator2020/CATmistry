@@ -8,10 +8,10 @@
 import UIKit
 
 var gameTopics = [
-    Topic(title: "Diffusion", pic: "gas-tests.png", pointsNeeded: 0, topics: []),
-    Topic(title: "Retreive the solids", pic: "separation-methods.png", pointsNeeded: 10, topics: []),
-    Topic(title: "Get the PH Right", pic: "pH-and-indicators.png", pointsNeeded: 20, topics: []),
-    Topic(title: "Identify the elements", pic: "periodic-table.png", pointsNeeded: 3, topics: []),
+    Topic(title: "Diffusion", pic: "gas-tests.png", pointsNeeded: 0, subTopics: []),
+    Topic(title: "Retreive the solids", pic: "separation-methods.png", pointsNeeded: 10, subTopics: []),
+    Topic(title: "Get the PH Right", pic: "pH-and-indicators.png", pointsNeeded: 20, subTopics: []),
+    Topic(title: "Identify the elements", pic: "periodic-table.png", pointsNeeded: 3, subTopics: []),
 ]
 
 class PlayHomePageTableViewController: UITableViewController {

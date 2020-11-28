@@ -8,29 +8,29 @@
 import UIKit
 var learnTopics = [
     Topic(title: "Gas Tests", pic: "gas-tests.png", pointsNeeded: 0, subTopics: [
-        SubTopic(topic: "What are Gas Tests?", picture: "pic.png", id: 1, content: "NO"),
-        SubTopic(topic: "Test for H₂", picture: "pic.png", id: 2, content: "NO"),
-        SubTopic(topic: "Test for CO₂", picture: "pic.png", id: 3, content: "NO"),
-        SubTopic(topic: "Test for NH₃", picture: "pic.png", id: 4, content: "NO"),
-        SubTopic(topic: "Take the Quiz", picture: "pic.png", id: 5, content: "NO")
+        SubTopic(topic: "What are Gas Tests?", picture: "pic.png", id: 1, content: "NO", subTopics: <#[SubSubTopic]#>),
+        SubTopic(topic: "Test for H₂", picture: "pic.png", id: 2, content: "NO", subTopics: <#[SubSubTopic]#>),
+        SubTopic(topic: "Test for CO₂", picture: "pic.png", id: 3, content: "NO", subTopics: <#[SubSubTopic]#>),
+        SubTopic(topic: "Test for NH₃", picture: "pic.png", id: 4, content: "NO", subTopics: <#[SubSubTopic]#>),
+        SubTopic(topic: "Take the Quiz", picture: "pic.png", id: 5, content: "NO", subTopics: <#[SubSubTopic]#>)
     ]),
     
     Topic(title: "Separation Methods", pic: "separation-methods.png", pointsNeeded: 10, subTopics: [
-        SubTopic(topic: "What is Separation?", picture: "pic.png", id: 1, content: "NO"),
-        SubTopic(topic: "Take the Quiz", picture: "pic.png", id: 2, content: "NO")
+        SubTopic(topic: "What is Separation?", picture: "pic.png", id: 1, content: "NO", subTopics: <#[SubSubTopic]#>),
+        SubTopic(topic: "Take the Quiz", picture: "pic.png", id: 2, content: "NO", subTopics: <#[SubSubTopic]#>)
     ]),
     
     Topic(title: "pH and Indicators", pic: "pH-and-indicators.png", pointsNeeded: 20, subTopics: [
-        SubTopic(topic: "What is pH?", picture: "pic.png", id: 1, content: "NO"),
-        SubTopic(topic: "What are Indicators?", picture: "pic.png", id: 2, content: "NO"),
-        SubTopic(topic: "Take the Quiz", picture: "pic.png", id: 3, content: "NO"),
+        SubTopic(topic: "What is pH?", picture: "pic.png", id: 1, content: "NO", subTopics: <#[SubSubTopic]#>),
+        SubTopic(topic: "What are Indicators?", picture: "pic.png", id: 2, content: "NO", subTopics: <#[SubSubTopic]#>),
+        SubTopic(topic: "Take the Quiz", picture: "pic.png", id: 3, content: "NO", subTopics: <#[SubSubTopic]#>),
     ]),
     
     Topic(title: "Periodic Table", pic: "periodic-table.png", pointsNeeded: 30, subTopics: [
-        SubTopic(topic: "What is the Periodic Table?", picture: "pic.png", id: 1, content: "NO"),
-        SubTopic(topic: "What are Elements?", picture: "pic.png", id: 2, content: "NO"),
-        SubTopic(topic: "First 18 Elements", picture: "pic.png", id: 3, content: "NO"),
-        SubTopic(topic: "Take the Quiz", picture: "pic.png", id: 4, content: "NO")
+        SubTopic(topic: "What is the Periodic Table?", picture: "pic.png", id: 1, content: "NO", subTopics: <#[SubSubTopic]#>),
+        SubTopic(topic: "What are Elements?", picture: "pic.png", id: 2, content: "NO", subTopics: <#[SubSubTopic]#>),
+        SubTopic(topic: "First 18 Elements", picture: "pic.png", id: 3, content: "NO", subTopics: <#[SubSubTopic]#>),
+        SubTopic(topic: "Take the Quiz", picture: "pic.png", id: 4, content: "NO", subTopics: <#[SubSubTopic]#>)
     ]),
 ]
 
@@ -129,7 +129,7 @@ class LearnHomePageTableViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
-        if segue.identifier == "goToSpecific", let dest = segue.destination as? LearnChapterSubTopicsTableViewController, let cDc = tableView.indexPathForSelectedRow{
+        if segue.identifier == "goToSubTopic", let dest = segue.destination as? LearnChapterSubTopicsTableViewController, let cDc = tableView.indexPathForSelectedRow{
             dest.specificChapter = learnTopics[cDc.row].subTopics
         }
     }

@@ -52,7 +52,7 @@
                                 <connections>
                                     <outlet property="learnChapterImageView" destination="CIJ-cd-Ogd" id="m6V-6w-RIX"/>
                                     <outlet property="learnChapterLabel" destination="FgN-en-35b" id="Coz-iG-P6l"/>
-                                    <segue destination="zYi-y0-AMu" kind="show" identifier="goToSpecific" id="An7-dl-67I"/>
+                                    <segue destination="zYi-y0-AMu" kind="show" identifier="goToSubTopic" id="An7-dl-67I"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -184,7 +184,7 @@
         <!--Chapter Specific-->
         <scene sceneID="K1z-9F-dJI">
             <objects>
-                <tableViewController id="zYi-y0-AMu" customClass="SpecificContentTableViewController" customModule="CATmistry" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="zYi-y0-AMu" customClass="LearnChapterSubTopicsTableViewController" customModule="CATmistry" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="U20-2p-ijf">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
