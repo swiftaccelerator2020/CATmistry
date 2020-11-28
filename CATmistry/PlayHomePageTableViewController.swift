@@ -14,12 +14,17 @@ var gameTopics = [
     PlayTopic(title: "Identify the elements", pic: "periodic-table.png", pointsNeeded: 30, segDesti: "periodic")
 ]
 
-class PlayHomePageTableViewController: UITableViewController {
-
+class PlayHomePageTableViewController: UITableViewController{
+    
+    @IBOutlet var playPageTable: UITableView!
+    // HELLO HAO JUN PLS READ THIS UH TRY TO MAKE THE SEGUE WORK THANKS
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         tableView.tableFooterView = UIView()
-
+        
+        self.tableView.delegate = self
+        self.tableView.dataSource = self
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -107,5 +112,11 @@ class PlayHomePageTableViewController: UITableViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        print(indexPath.row)
+        performSegue(withIdentifier: gameTopics[indexPath.row].segDesti, sender: nil)
+    }
 
 }
