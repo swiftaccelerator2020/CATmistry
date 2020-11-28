@@ -9,12 +9,14 @@ import UIKit
 
 class LearnChapterSubTopicsTableViewController: UITableViewController {
 
+    var flexibleTitle: String!
     var specificChapter: [SubTopic]!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         tableView.tableFooterView = UIView()
+        self.title = flexibleTitle
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -48,6 +50,10 @@ class LearnChapterSubTopicsTableViewController: UITableViewController {
         // Configure the cell...
 
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        80.0
     }
     
 

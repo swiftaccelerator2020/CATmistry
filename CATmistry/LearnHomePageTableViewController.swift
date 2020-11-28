@@ -126,8 +126,11 @@ class LearnHomePageTableViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
-        if segue.identifier == "goToSubTopic", let dest = segue.destination as? LearnChapterSubTopicsTableViewController, let cDc = tableView.indexPathForSelectedRow{
-            dest.specificChapter = learnTopics[cDc.row].subTopics
+        if segue.identifier == "goToSubTopic" {
+            let dest = segue.destination as? LearnChapterSubTopicsTableViewController
+            let indexPath = tableView.indexPathForSelectedRow
+            dest!.flexibleTitle = learnTopics[indexPath!.row].title
+            dest!.specificChapter = learnTopics[indexPath!.row].subTopics
         }
     }
     
