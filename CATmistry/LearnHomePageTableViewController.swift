@@ -137,5 +137,16 @@ class LearnHomePageTableViewController: UITableViewController {
         }
     }
     
+    override func shouldPerformSegue(withIdentifier identifier: String?, sender: Any?) -> Bool {
+        if let ident = identifier {
+            if ident == "goToSubTopic" {
+                let indexPath = tableView.indexPathForSelectedRow!
+                if points < learnTopics[indexPath.row].pointsNeeded{
+                    return false
+                }
+            }
+        }
+    return true
+    }
     
 }

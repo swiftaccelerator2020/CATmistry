@@ -103,6 +103,5 @@ class LearnChapterSubTopicsTableViewController: UITableViewController {
             dest.specificSubTopic = specificChapter[indexPath.row]
         }
     }
-    
-    
+
 }
