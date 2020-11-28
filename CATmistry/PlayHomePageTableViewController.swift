@@ -7,7 +7,7 @@
 
 import UIKit
 
-var gameTopics = [    
+var gameTopics = [
     PlayTopic(title: "Diffusion", pic: "gas-tests.png", pointsNeeded: 0, segDesti: "diff"),
     PlayTopic(title: "Retreive the solids", pic: "separation-methods.png", pointsNeeded: 10, segDesti: "sepe"),
     PlayTopic(title: "Get the PH Right", pic: "pH-and-indicators.png", pointsNeeded: 20, segDesti: "phAndIndi"),
@@ -46,7 +46,7 @@ class PlayHomePageTableViewController: UITableViewController {
         
         if let cell = cell as? PlayHomePageTableViewCell{
             if (points < currentTopic.pointsNeeded){
-                cell.backgroundColor = UIColor(red: 211/255, green: 211/255, blue: 211/255, alpha: 1)
+                cell.playChapterLabel.isEnabled = false
                 cell.selectionStyle = .none
                 cell.playChapterImageView?.image = UIImage(named: "lock.png")
             } else {
