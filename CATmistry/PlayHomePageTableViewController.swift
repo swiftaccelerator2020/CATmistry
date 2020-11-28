@@ -8,10 +8,10 @@
 import UIKit
 
 var gameTopics = [
-    Topic(segueDesti: "TOBEFILLED", title: "Diffusion", pic: "gas-tests.png", pointsNeeded: 0),
-    Topic(segueDesti: "TOBEFILLED", title: "Retreive the solids", pic: "separation-methods.png", pointsNeeded: 10),
-    Topic(segueDesti: "TOBEFILLED", title: "Get the PH Right", pic: "pH-and-indicators.png", pointsNeeded: 20),
-    Topic(segueDesti: "TOBEFILLED", title: "Identify the elements", pic: "periodic-table.png", pointsNeeded: 30)
+    Topic(title: "Diffusion", pic: "gas-tests.png", pointsNeeded: 0, topics: []),
+    Topic(title: "Retreive the solids", pic: "separation-methods.png", pointsNeeded: 10, topics: []),
+    Topic(title: "Get the PH Right", pic: "pH-and-indicators.png", pointsNeeded: 20, topics: []),
+    Topic(title: "Identify the elements", pic: "periodic-table.png", pointsNeeded: 3, topics: []),
 ]
 
 class PlayHomePageTableViewController: UITableViewController {
@@ -41,7 +41,7 @@ class PlayHomePageTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "playChapterCell", for: indexPath)
-        let currentTopic = topics[indexPath.row]
+        let currentTopic = learnTopics[indexPath.row]
         
         if let cell = cell as? PlayHomePageTableViewCell{
             if (points < currentTopic.pointsNeeded){

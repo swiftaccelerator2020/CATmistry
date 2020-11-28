@@ -6,7 +6,7 @@
 //
 
 import UIKit
-var topics = [
+var learnTopics = [
     Topic(title: "Gas Tests", pic: "gas-tests.png", pointsNeeded: 0, topics: [
         SpecificTopic(topic: "What are Gas Tests?", picture: "pic.png", id: 1, content: "NO"),
         SpecificTopic(topic: "Test for H₂", picture: "pic.png", id: 2, content: "NO"),
@@ -60,13 +60,13 @@ class LearnHomePageTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return topics.count
+        return learnTopics.count
     }
     
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "learnChapterCell", for: indexPath)
-        let currentTopic = topics[indexPath.row]
+        let currentTopic = learnTopics[indexPath.row]
         
         if let cell = cell as? LearnHomePageTableViewCell{
             if (points < currentTopic.pointsNeeded){
@@ -130,7 +130,7 @@ class LearnHomePageTableViewController: UITableViewController {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
         if segue.identifier == "goToSpecific", let dest = segue.destination as? SpecificContentTableViewController, let cDc = tableView.indexPathForSelectedRow{
-            dest.specificChapter = topics[cDc.row].topics
+            dest.specificChapter = learnTopics[cDc.row].topics
         }
     }
     
