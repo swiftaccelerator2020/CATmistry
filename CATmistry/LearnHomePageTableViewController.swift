@@ -9,8 +9,8 @@ import UIKit
 var learnTopics = [
     Topic(title: "Gas Tests", pic: "gas-tests.png", pointsNeeded: 0, subTopics: [
         SubTopic(title: "What are Gas Tests?", pic: "gas-tests.png", id: 1, content:
-            SubContent(definition: ""),
-        subTopics: nil),
+                    SubContent(definition: ""),
+                 subTopics: nil),
         SubTopic(title: "Take the Quiz", pic: "quiz.png", id: 5, content: SubContent(definition: ""), subTopics: [])
     ]),
     
@@ -42,6 +42,10 @@ class LearnHomePageTableViewController: UITableViewController {
         super.viewDidLoad()
         
         tableView.tableFooterView = UIView()
+        
+        let navbar = UINavigationBarAppearance()
+        navbar.backgroundColor = UIColor(red: 242/255, green: 214/255, blue: 112/255, alpha: 1)
+        self.navigationController?.navigationBar.scrollEdgeAppearance = navbar
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -146,7 +150,7 @@ class LearnHomePageTableViewController: UITableViewController {
                 }
             }
         }
-    return true
+        return true
     }
     
 }
