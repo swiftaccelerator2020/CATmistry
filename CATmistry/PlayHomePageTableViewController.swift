@@ -52,11 +52,13 @@ class PlayHomePageTableViewController: UITableViewController{
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "playChapterCell", for: indexPath)
-        let currentTopic = learnTopics[indexPath.row]
+        let currentTopic = gameTopics[indexPath.row]
         
         if let cell = cell as? PlayHomePageTableViewCell{
             if (points < currentTopic.pointsNeeded){
                 cell.playChapterLabel.isEnabled = false
+                cell.needMorePointsLabel.isHidden = false
+                cell.needMorePointsLabel.text = currentTopic.errorLabel
                 cell.selectionStyle = .none
                 cell.playChapterImageView?.image = UIImage(named: "lock.png")
             } else {
