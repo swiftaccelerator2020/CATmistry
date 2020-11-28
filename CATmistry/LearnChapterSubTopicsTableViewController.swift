@@ -47,8 +47,6 @@ class LearnChapterSubTopicsTableViewController: UITableViewController {
             cell.learnChapterLabel.text = currentSubTopic.title
         }
 
-        // Configure the cell...
-
         return cell
     }
     
@@ -106,5 +104,5 @@ class LearnChapterSubTopicsTableViewController: UITableViewController {
         }
     }
     
-
+    
 }

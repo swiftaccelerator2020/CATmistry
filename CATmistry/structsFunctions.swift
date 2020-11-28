@@ -14,6 +14,13 @@ struct Topic {
     var subTopics: Array<SubTopic>
 }
 
+struct PlayTopic {
+    var title: String
+    var pic: String
+    var pointsNeeded: Int
+    var segDesti: String
+}
+
 struct SubTopic {
     var title: String
     var pic: String
