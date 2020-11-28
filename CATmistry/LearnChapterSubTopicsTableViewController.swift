@@ -17,6 +17,8 @@ class LearnChapterSubTopicsTableViewController: UITableViewController {
         
         tableView.tableFooterView = UIView()
         self.title = flexibleTitle
+        
+        self.navigationController?.navigationBar.tintColor = UIColor.black
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false

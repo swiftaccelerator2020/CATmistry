@@ -18,6 +18,7 @@ class LearnSubTopicDetailsViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         self.title = specificSubTopic.title
+        self.navigationController?.navigationBar.tintColor = UIColor.black
         definitionLabel.text = specificSubTopic.content.definition
     }
     
