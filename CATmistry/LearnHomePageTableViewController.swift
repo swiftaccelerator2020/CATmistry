@@ -12,25 +12,25 @@ var learnTopics = [
                     SubContent(definition: ""),
                  subTopics: nil),
         SubTopic(title: "Take the Quiz", pic: "quiz.png", id: 5, content: SubContent(definition: ""), subTopics: [])
-    ]),
+    ], errorLabel: ""),
     
     Topic(title: "Separation Methods", pic: "separation-methods.png", pointsNeeded: 10, subTopics: [
         SubTopic(title: "What is Separation?", pic: "separation-methods.png", id: 1, content: SubContent(definition: "A separation process is a method that converts a mixture or solution of chemical substances into two or more distinct product mixtures. \n\nSeparations exploit differences in chemical properties or physical properties (such as size, shape, mass, density, or chemical affinity) between the constituents of a mixture."), subTopics: []),
         SubTopic(title: "Take the Quiz", pic: "quiz.png", id: 2, content: SubContent(definition: ""), subTopics: [])
-    ]),
+    ], errorLabel: "Please complete Chapter 1"),
     
     Topic(title: "pH and Indicators", pic: "pH-and-indicators.png", pointsNeeded: 20, subTopics: [
         SubTopic(title: "What is pH?", pic: "pH-and-indicators.png", id: 1, content: SubContent(definition: "pH (the Power of Hydrogen) is a scale of 1 to 14 used to specify the acidity or basicity of a solution. The pH scale indicates the concentration of hydrogen ions in a solution.\n\nA lower pH (1 - 6.9) indicates that the solution is acidic, while a higher pH (7.1 - 14) indicates that the solution is alkaline. A pH of 7 indicates that the solution is neutral (neither acidic nor alkaline)."), subTopics: []),
         SubTopic(title: "What are Indicators?", pic: "pH-and-indicators.png", id: 2, content: SubContent(definition: "Indicators are chemicals which turn into different colours depending on the pH of the solution. The transition range is the range in which the indicator changes from one colour to the other."), subTopics: []),
         SubTopic(title: "Take the Quiz", pic: "quiz.png", id: 3, content: SubContent(definition: ""), subTopics: [])
-    ]),
+    ], errorLabel: "Please complete Chapter 2"),
     
     Topic(title: "Periodic Table", pic: "periodic-table.png", pointsNeeded: 30, subTopics: [
         SubTopic(title: "What is the Periodic Table?", pic: "periodic-table.png", id: 1, content: SubContent(definition: "A periodic table is a chart that shows chemical elements in order of their atomic number. \n\nElements with similar properties are arranged in the same column (group), and elements with the same number of electron shells are arranged in the same row (period)."), subTopics: []),
         SubTopic(title: "What are Elements?", pic: "periodic-table.png", id: 2, content: SubContent(definition: ""), subTopics: []),
         SubTopic(title: "First 18 Elements", pic: "periodic-table.png", id: 3, content: SubContent(definition: ""), subTopics: []),
         SubTopic(title: "Take the Quiz", pic: "quiz.png", id: 4, content: SubContent(definition: ""), subTopics: [])
-    ]),
+    ], errorLabel: "Please complete Chapter 3"),
 ]
 
 let ud = UserDefaults.standard
@@ -75,15 +75,9 @@ class LearnHomePageTableViewController: UITableViewController {
             if (points < currentTopic.pointsNeeded){
                 cell.learnChapterLabel.isEnabled = false
                 cell.needMorePointsLabel.isHidden = false
+                cell.needMorePointsLabel.text = currentTopic.errorLabel
                 cell.selectionStyle = .none
                 cell.learnChapterImageView?.image = UIImage(named: "lock.png")
-                if (points < 10) {
-                    cell.needMorePointsLabel.text = "Please complete Chapter 1"
-                } else if (points < 20) {
-                    cell.needMorePointsLabel.text = "Please complete Chapter 2"
-                } else if (points < 30) {
-                    cell.needMorePointsLabel.text = "Please complete Chapter 3"
-                }
             } else {
                 cell.learnChapterImageView?.image = UIImage(named: currentTopic.pic)
             }

@@ -8,10 +8,10 @@
 import UIKit
 
 var gameTopics = [
-    PlayTopic(title: "Diffusion", pic: "gas-tests.png", pointsNeeded: 0, segDesti: "diff"),
-    PlayTopic(title: "Retreive the solids", pic: "separation-methods.png", pointsNeeded: 10, segDesti: "sepe"),
-    PlayTopic(title: "Get the PH Right", pic: "pH-and-indicators.png", pointsNeeded: 20, segDesti: "phAndIndi"),
-    PlayTopic(title: "Identify the elements", pic: "periodic-table.png", pointsNeeded: 30, segDesti: "periodic")
+    PlayTopic(title: "Diffusion", pic: "gas-tests.png", pointsNeeded: 10, segDesti: "diff", errorLabel: "Please complete Chapter 1"),
+    PlayTopic(title: "Retreive the solids", pic: "separation-methods.png", pointsNeeded: 20, segDesti: "sepe", errorLabel: "Please complete Chapter 2"),
+    PlayTopic(title: "Get the PH Right", pic: "pH-and-indicators.png", pointsNeeded: 30, segDesti: "phAndIndi", errorLabel: "Please complete Chapter 3"),
+    PlayTopic(title: "Identify the elements", pic: "periodic-table.png", pointsNeeded: 40, segDesti: "periodic", errorLabel: "Please complete Chapter 4")
 ]
 
 class PlayHomePageTableViewController: UITableViewController{
@@ -25,6 +25,11 @@ class PlayHomePageTableViewController: UITableViewController{
         
         self.tableView.delegate = self
         self.tableView.dataSource = self
+
+        let navbar = UINavigationBarAppearance()
+        navbar.backgroundColor = UIColor(red: 104/255, green: 198/255, blue: 242/255, alpha: 1)
+        self.navigationController?.navigationBar.scrollEdgeAppearance = navbar
+
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 

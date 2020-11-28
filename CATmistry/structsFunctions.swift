@@ -12,6 +12,7 @@ struct Topic {
     var pic: String
     var pointsNeeded: Int
     var subTopics: Array<SubTopic>
+    var errorLabel: String
 }
 
 struct PlayTopic {
@@ -19,6 +20,7 @@ struct PlayTopic {
     var pic: String
     var pointsNeeded: Int
     var segDesti: String
+    var errorLabel: String
 }
 
 struct SubTopic {
