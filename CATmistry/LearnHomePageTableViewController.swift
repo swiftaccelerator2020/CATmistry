@@ -9,9 +9,6 @@ import UIKit
 var learnTopics = [
     Topic(title: "Gas Tests", pic: "gas-tests.png", pointsNeeded: 0, subTopics: [
         SubTopic(title: "What are Gas Tests?", pic: "pic.png", id: 1, content: [], subTopics: []),
-        SubTopic(title: "Test for H₂", pic: "pic.png", id: 2, content: [], subTopics: []),
-        SubTopic(title: "Test for CO₂", pic: "pic.png", id: 3, content: [], subTopics: []),
-        SubTopic(title: "Test for NH₃", pic: "pic.png", id: 4, content: [], subTopics: []),
         SubTopic(title: "Take the Quiz", pic: "pic.png", id: 5, content: [], subTopics: [])
     ]),
     
