@@ -72,11 +72,10 @@ class LearnHomePageTableViewController: UITableViewController {
         let currentTopic = learnTopics[indexPath.row]
         
         if let cell = cell as? LearnHomePageTableViewCell{
-            if (points < currentTopic.pointsNeeded){
+            if (points < currentTopic.pointsNeeded) {
                 cell.learnChapterLabel.isEnabled = false
                 cell.needMorePointsLabel?.isHidden = false
                 cell.needMorePointsLabel?.text = currentTopic.errorLabel
-                cell.selectionStyle = .none
                 cell.learnChapterImageView?.image = UIImage(named: "lock.png")
             } else {
                 cell.learnChapterImageView?.image = UIImage(named: currentTopic.pic)
