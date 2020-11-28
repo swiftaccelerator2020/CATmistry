@@ -8,7 +8,10 @@
 import UIKit
 var learnTopics = [
     Topic(title: "Gas Tests", pic: "gas-tests.png", pointsNeeded: 0, subTopics: [
-        SubTopic(title: "What are Gas Tests?", pic: "gas-tests.png", id: 1, content: [], subTopics: []),
+        SubTopic(title: "What are Gas Tests?", pic: "gas-tests.png", id: 1, content: [
+            SubContent(definition: "pH (the Power of Hydrogen) is a scale of 1 to 14 used to specify the acidity or basicity of a solution. The pH scale indicates the concentration of hydrogen ions in a solution.\n\n A lower pH (1 - 6.9) indicates that the solution is acidic, while a higher pH (7.1 - 14) indicates that the solution is alkaline. A pH of 7 indicates that the solution is neutral (neither acidic nor alkaline).")
+        ],
+        subTopics: nil),
         SubTopic(title: "Take the Quiz", pic: "quiz.png", id: 5, content: [], subTopics: [])
     ]),
     
@@ -20,7 +23,7 @@ var learnTopics = [
     Topic(title: "pH and Indicators", pic: "pH-and-indicators.png", pointsNeeded: 20, subTopics: [
         SubTopic(title: "What is pH?", pic: "pH-and-indicators.png", id: 1, content: [], subTopics: []),
         SubTopic(title: "What are Indicators?", pic: "pH-and-indicators.png", id: 2, content: [], subTopics: []),
-        SubTopic(title: "Take the Quiz", pic: "quiz.png", id: 3, content: [], subTopics: [])
+        SubTopic(title: "Take the Quiz", pic: "quiz.png", id: 3, content: [SubContent(definition: "") ], subTopics: [])
     ]),
     
     Topic(title: "Periodic Table", pic: "periodic-table.png", pointsNeeded: 30, subTopics: [

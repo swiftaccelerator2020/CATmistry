@@ -19,7 +19,7 @@ struct SubTopic {
     var pic: String
     var id: Int
     var content: Array<SubContent>
-    var subTopics: Array<SubSubTopic>
+    var subTopics: Array<SubSubTopic>?
 }
 
 struct SubSubTopic {
