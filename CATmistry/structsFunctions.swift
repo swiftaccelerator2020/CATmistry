@@ -14,14 +14,21 @@ struct Topic {
     var topics: Array<SpecificTopic>
 }
 
-struct SpecificTopic{
-    var topics: String
+struct SpecificTopic {
+    var topic: String
     var picture: String
     var id: Int
     var content: String
 }
 
-struct GameTopic{
+struct SpecificSpecificTopic {
+    var topic: String
+    var picture: String
+    var id: Int
+    var content: String
+}
+
+struct GameTopic {
     var title: String
     var pic: String
     var pointsNeeded: Int

@@ -7,20 +7,31 @@
 
 import UIKit
 var topics = [
-    Topic(title: "Gas Tests", pic: "gas-tests.png", pointsNeeded: 0, topics:
-        [
-        SpecificTopic(topics: "What are Gas Tests?", picture: "pic.png", id: 1, content: "NO"),
-        SpecificTopic(topics: "Test for H₂", picture: "pic.png", id: 2, content: "NO"),
-        SpecificTopic(topics: "Test for CO₂", picture: "pic.png", id: 3, content: "NO"),
-        SpecificTopic(topics: "Test for NH₃", picture: "pic.png", id: 4, content: "NO"),
-        SpecificTopic(topics: "Take the Quiz", picture: "pic.png", id: 5, content: "NO")
-        ]
-
-    Topic(title: "Separation Methods", pic: "separation-methods.png", pointsNeeded: 10, topics: ["What is Separation?", "Evaporation", "Distillation", "Filtration", "Floatation", "Magnetism", "Crystallisation", "Chromatography", "Take the Quiz"]),
+    Topic(title: "Gas Tests", pic: "gas-tests.png", pointsNeeded: 0, topics: [
+        SpecificTopic(topic: "What are Gas Tests?", picture: "pic.png", id: 1, content: "NO"),
+        SpecificTopic(topic: "Test for H₂", picture: "pic.png", id: 2, content: "NO"),
+        SpecificTopic(topic: "Test for CO₂", picture: "pic.png", id: 3, content: "NO"),
+        SpecificTopic(topic: "Test for NH₃", picture: "pic.png", id: 4, content: "NO"),
+        SpecificTopic(topic: "Take the Quiz", picture: "pic.png", id: 5, content: "NO")
+    ]),
     
-    Topic(title: "pH and Indicators", pic: "pH-and-indicators.png", pointsNeeded: 20, topics: ["What is pH?", "What are Indicators?", "Take the Quiz"]),
+    Topic(title: "Separation Methods", pic: "separation-methods.png", pointsNeeded: 10, topics: [
+        SpecificTopic(topic: "What is Separation?", picture: "pic.png", id: 1, content: "NO"),
+        SpecificTopic(topic: "Take the Quiz", picture: "pic.png", id: 2, content: "NO")
+    ]),
     
-    Topic(title: "Periodic Table", pic: "periodic-table.png", pointsNeeded: 30, topics: ["What is the Periodic Table?", "What are Elements?", "First 18 Elements", "Take the Quiz"])
+    Topic(title: "pH and Indicators", pic: "pH-and-indicators.png", pointsNeeded: 20, topics: [
+        SpecificTopic(topic: "What is pH?", picture: "pic.png", id: 1, content: "NO"),
+        SpecificTopic(topic: "What are Indicators?", picture: "pic.png", id: 2, content: "NO"),
+        SpecificTopic(topic: "Take the Quiz", picture: "pic.png", id: 3, content: "NO"),
+    ]),
+    
+    Topic(title: "Periodic Table", pic: "periodic-table.png", pointsNeeded: 30, topics: [
+        SpecificTopic(topic: "What is the Periodic Table?", picture: "pic.png", id: 1, content: "NO"),
+        SpecificTopic(topic: "What are Elements?", picture: "pic.png", id: 2, content: "NO"),
+        SpecificTopic(topic: "First 18 Elements", picture: "pic.png", id: 3, content: "NO"),
+        SpecificTopic(topic: "Take the Quiz", picture: "pic.png", id: 4, content: "NO")
+    ]),
 ]
 
 let ud = UserDefaults.standard
@@ -112,16 +123,16 @@ class LearnHomePageTableViewController: UITableViewController {
      */
     
     
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
+    // MARK: - Navigation
+    
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destination.
+        // Pass the selected object to the new view controller.
         if segue.identifier == "goToSpecific", let dest = segue.destination as? SpecificContentTableViewController, let cDc = tableView.indexPathForSelectedRow{
             dest.specificChapter = topics[cDc.row].topics
         }
-     }
-     
+    }
+    
     
 }
