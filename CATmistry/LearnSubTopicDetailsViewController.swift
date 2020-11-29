@@ -11,8 +11,11 @@ class LearnSubTopicDetailsViewController: UIViewController {
     
     var specificSubTopic: SubTopic!
 
+    @IBOutlet weak var PHSlider: UISlider!
+    @IBOutlet weak var maxLabel: UILabel!
+    @IBOutlet weak var minLabel: UILabel!
     @IBOutlet weak var definitionLabel: UILabel!
-    @IBOutlet weak var PHSlider: UILabel!
+    @IBOutlet weak var sliderValue: UILabel!
     @IBOutlet weak var contentTable: UITableView!
     
     override func viewDidLoad() {
@@ -26,11 +29,17 @@ class LearnSubTopicDetailsViewController: UIViewController {
             contentTable.isHidden = true
         }
         
+        if (!specificSubTopic.needSlider){
+            sliderValue.isHidden = true
+            PHSlider.isHidden = true
+            maxLabel.isHidden = true
+            minLabel.isHidden = true
+        }
     }
     
 
     @IBAction func sliderChangedValue(_ sender: UISlider) {
-        PHSlider.text = String(Int(sender.value.rounded()))
+        sliderValue.text = String(Int(sender.value.rounded()))
     }
     /*
     // MARK: - Navigation
