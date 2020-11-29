@@ -7,8 +7,6 @@
 
 import UIKit
 
-
-
 class PlayHomePageTableViewController: UITableViewController{
     
     @IBOutlet var playPageTable: UITableView!

@@ -103,6 +103,7 @@ class LearnChapterSubTopicsTableViewController: UITableViewController {
             let dest = segue.destination as! LearnSubTopicDetailsViewController
             let indexPath = tableView.indexPathForSelectedRow!
             dest.specificSubTopic = specificChapter[indexPath.row]
+            
         }
     }
 
