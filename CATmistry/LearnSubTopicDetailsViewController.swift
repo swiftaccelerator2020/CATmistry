@@ -12,17 +12,26 @@ class LearnSubTopicDetailsViewController: UIViewController {
     var specificSubTopic: SubTopic!
 
     @IBOutlet weak var definitionLabel: UILabel!
+    @IBOutlet weak var PHSlider: UILabel!
+    @IBOutlet weak var contentTable: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
         self.title = specificSubTopic.title
         self.navigationController?.navigationBar.tintColor = UIColor.darkGray
         definitionLabel.text = specificSubTopic.content.definition
+        if ((specificSubTopic.subTopics?.isEmpty) != nil){
+            contentTable.isHidden = true
+        }
+        
     }
     
 
+    @IBAction func sliderChangedValue(_ sender: UISlider) {
+        PHSlider.text = String(Int(sender.value.rounded()))
+    }
     /*
     // MARK: - Navigation
 

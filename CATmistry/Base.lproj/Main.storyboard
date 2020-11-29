@@ -366,7 +366,7 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="T3d-ac-smH">
                                         <rect key="frame" x="0.0" y="0.0" width="340" height="20.333333333333332"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fh0-Dc-lU3">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fh0-Dc-lU3">
                                                 <rect key="frame" x="0.0" y="0.0" width="60" height="20.333333333333332"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="60" id="8q1-PK-wYx"/>
@@ -375,10 +375,13 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="gHE-5A-gNw">
+                                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="14" translatesAutoresizingMaskIntoConstraints="NO" id="gHE-5A-gNw">
                                                 <rect key="frame" x="58" y="0.0" width="224" height="21.333333333333332"/>
+                                                <connections>
+                                                    <action selector="sliderChangedValue:" destination="ub2-iM-iy6" eventType="valueChanged" id="HLr-4Q-q1Z"/>
+                                                </connections>
                                             </slider>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ikF-1Q-emW">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="14" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ikF-1Q-emW">
                                                 <rect key="frame" x="280" y="0.0" width="60" height="20.333333333333332"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="60" id="1uf-f7-Q0l"/>
@@ -438,6 +441,8 @@
                     </view>
                     <navigationItem key="navigationItem" title="Details" id="dlc-gK-BtW"/>
                     <connections>
+                        <outlet property="PHSlider" destination="eHh-jA-vOe" id="YTv-zk-WNF"/>
+                        <outlet property="contentTable" destination="mOF-DJ-IGC" id="5Ce-Zv-6mR"/>
                         <outlet property="definitionLabel" destination="1eh-8g-148" id="Mib-Er-hQO"/>
                     </connections>
                 </viewController>
@@ -452,7 +457,7 @@
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="FaB-d6-X5c"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="wEn-aq-CEr">
-                        <rect key="frame" x="0.0" y="44" width="390" height="104.33333333333334"/>
+                        <rect key="frame" x="0.0" y="44" width="390" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
