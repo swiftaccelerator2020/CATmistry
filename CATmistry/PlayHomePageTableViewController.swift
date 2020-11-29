@@ -7,12 +7,7 @@
 
 import UIKit
 
-var gameTopics = [
-    PlayTopic(title: "Diffusion", pic: "gas-tests.png", pointsNeeded: 10, segDesti: "diff", errorLabel: "Please complete Chapter 1"),
-    PlayTopic(title: "Retreive the solids", pic: "separation-methods.png", pointsNeeded: 20, segDesti: "sepe", errorLabel: "Please complete Chapter 2"),
-    PlayTopic(title: "Get the PH Right", pic: "pH-and-indicators.png", pointsNeeded: 30, segDesti: "phAndIndi", errorLabel: "Please complete Chapter 3"),
-    PlayTopic(title: "Identify the elements", pic: "periodic-table.png", pointsNeeded: 40, segDesti: "periodic", errorLabel: "Please complete Chapter 4")
-]
+
 
 class PlayHomePageTableViewController: UITableViewController{
     
@@ -56,6 +51,7 @@ class PlayHomePageTableViewController: UITableViewController{
         
         if let cell = cell as? PlayHomePageTableViewCell{
             if (points < currentTopic.pointsNeeded){
+                cell.selectionStyle = .none
                 cell.playChapterLabel.isEnabled = false
                 cell.needMorePointsLabel.isHidden = false
                 cell.needMorePointsLabel.text = currentTopic.errorLabel
