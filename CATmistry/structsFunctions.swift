@@ -61,6 +61,8 @@ struct QuizQuestion {
     var options: [String]
     var correctAnswer: Int
 }
+
+
 var learnTopics = [
     Topic(title: "Gas Tests", pic: "gas-tests.png", pointsNeeded: 0, subTopics: [
         SubTopic(title: "What are Gas Tests?", pic: "gas-tests.png", needSlider: false, content:
