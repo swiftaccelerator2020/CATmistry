@@ -1,0 +1,6 @@
+framework module Pods_CATmistry {
+  umbrella header "Pods-CATmistry-umbrella.h"
+
+  export *
+  module * { export * }
+}

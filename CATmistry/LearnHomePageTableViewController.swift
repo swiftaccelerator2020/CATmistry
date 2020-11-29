@@ -8,8 +8,8 @@
 import UIKit
 
 let ud = UserDefaults.standard
-var points = ud.integer(forKey: "points")
-
+// var points = ud.integer(forKey: "points")
+var points = 100000
 class LearnHomePageTableViewController: UITableViewController {
     
     override func viewDidLoad() {

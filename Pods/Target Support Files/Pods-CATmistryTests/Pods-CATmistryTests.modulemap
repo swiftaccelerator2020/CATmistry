@@ -1,0 +1,6 @@
+framework module Pods_CATmistryTests {
+  umbrella header "Pods-CATmistryTests-umbrella.h"
+
+  export *
+  module * { export * }
+}
