@@ -52,6 +52,15 @@ struct GameTopic {
     var pointsNeeded: Int
 }
 
+struct QuizTopic {
+    var questions: [QuizQuestion]
+}
+
+struct QuizQuestion {
+    var question: String
+    var options: [String]
+    var correctAnswer: Int
+}
 var learnTopics = [
     Topic(title: "Gas Tests", pic: "gas-tests.png", pointsNeeded: 0, subTopics: [
         SubTopic(title: "What are Gas Tests?", pic: "gas-tests.png", needSlider: false, content:

@@ -331,7 +331,6 @@
                                 <connections>
                                     <outlet property="learnChapterImageView" destination="jxA-Ri-3FN" id="8lM-5t-YAC"/>
                                     <outlet property="learnChapterLabel" destination="ttA-VK-tYY" id="bsc-OV-XaW"/>
-                                    <segue destination="ub2-iM-iy6" kind="show" identifier="goToSubTopicDetails" id="Rio-Jb-167"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -341,6 +340,10 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Chapter Specific" id="dDO-g2-IDo"/>
+                    <connections>
+                        <segue destination="Q5l-gv-pqw" kind="show" identifier="goToQuiz" id="6DZ-lT-xEb"/>
+                        <segue destination="ub2-iM-iy6" kind="show" identifier="goToSubTopicDetails" id="l86-7T-ukz"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="D9K-Bh-cIp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -355,13 +358,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1eh-8g-148">
-                                <rect key="frame" x="25" y="150" width="340" height="20.333333333333343"/>
+                                <rect key="frame" x="25" y="158.33333333333334" width="340" height="20.333333333333343"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="nqN-W0-xcf">
-                                <rect key="frame" x="25" y="200.33333333333337" width="340" height="250"/>
+                                <rect key="frame" x="25" y="208.66666666666663" width="340" height="250"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="T3d-ac-smH">
                                         <rect key="frame" x="0.0" y="0.0" width="340" height="20.333333333333332"/>
@@ -393,7 +396,7 @@
                                         </subviews>
                                     </stackView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eHh-jA-vOe">
-                                        <rect key="frame" x="0.0" y="20.333333333333314" width="340" height="60"/>
+                                        <rect key="frame" x="0.0" y="20.333333333333343" width="340" height="60"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="60" id="bpS-Ns-kSQ"/>
                                         </constraints>
@@ -410,7 +413,7 @@
                                 </constraints>
                             </stackView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="mOF-DJ-IGC">
-                                <rect key="frame" x="0.0" y="480.33333333333326" width="390" height="329.66666666666674"/>
+                                <rect key="frame" x="0.0" y="488.66666666666674" width="390" height="321.33333333333326"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="1Qw-5Z-Hts">
@@ -470,7 +473,23 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8xn-VK-GXi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1311" y="-212"/>
+            <point key="canvasLocation" x="1211" y="-213"/>
+        </scene>
+        <!--Take the Quiz-->
+        <scene sceneID="CYC-oy-Dow">
+            <objects>
+                <viewController id="Q5l-gv-pqw" customClass="QuizViewController" customModule="CATmistry" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="2Bz-nv-xOV">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="ZOb-i1-cri"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Take the Quiz" id="bvk-PH-Q9H"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WVd-hw-mx7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="214" y="508"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
