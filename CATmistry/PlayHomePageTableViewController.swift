@@ -10,14 +10,13 @@ import UIKit
 class PlayHomePageTableViewController: UITableViewController{
     
     @IBOutlet var playPageTable: UITableView!
-    // HELLO HAO JUN PLS READ THIS UH TRY TO MAKE THE SEGUE WORK THANKS
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tableView.tableFooterView = UIView()
-        
-        self.tableView.delegate = self
-        self.tableView.dataSource = self
+        playPageTable.tableFooterView = UIView()
+        playPageTable.delegate = self
+        playPageTable.dataSource = self
 
         let navbar = UINavigationBarAppearance()
         navbar.backgroundColor = UIColor(red: 104/255, green: 198/255, blue: 242/255, alpha: 1)
@@ -114,9 +113,8 @@ class PlayHomePageTableViewController: UITableViewController{
     */
     
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print(indexPath.row)
         performSegue(withIdentifier: gameTopics[indexPath.row].segDesti, sender: nil)
     }
-
 }
