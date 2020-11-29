@@ -21,6 +21,9 @@
 		547F0ADE2570F66E00A224D9 /* LearnHomePageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 547F0ADD2570F66E00A224D9 /* LearnHomePageTableViewCell.swift */; };
 		547F0AEB2570F85000A224D9 /* structsFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 547F0AEA2570F85000A224D9 /* structsFunctions.swift */; };
 		54F5202F2571FA4600D7363C /* LearnChapterSubTopicsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54F5202E2571FA4600D7363C /* LearnChapterSubTopicsTableViewController.swift */; };
+		6162D640B8567EBF7E172D11 /* Pods_CATmistry.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49DA23714213562AA54B3120 /* Pods_CATmistry.framework */; };
+		A0EA46C12C28AAC955A26CC8 /* Pods_CATmistryTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C25FC8DB42CBF979D08BA3AE /* Pods_CATmistryTests.framework */; };
+		C182AE3B215D6AE8A4B33886 /* Pods_CATmistry_CATmistryUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E17CC281B885BB9952784F31 /* Pods_CATmistry_CATmistryUITests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,6 +44,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		09DA7E89D99E92596912DACB /* Pods-CATmistryTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CATmistryTests.release.xcconfig"; path = "Target Support Files/Pods-CATmistryTests/Pods-CATmistryTests.release.xcconfig"; sourceTree = "<group>"; };
 		2613B0312570DB8C00EECB4C /* CATmistry.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CATmistry.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2613B0342570DB8C00EECB4C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2613B0362570DB8C00EECB4C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -57,10 +61,18 @@
 		261E539C2571486600094DA5 /* PlayHomePageTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayHomePageTableViewController.swift; sourceTree = "<group>"; };
 		261E53A12571488B00094DA5 /* PlayHomePageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayHomePageTableViewCell.swift; sourceTree = "<group>"; };
 		2640F0A225724091003EC92B /* LearnSubTopicDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearnSubTopicDetailsViewController.swift; sourceTree = "<group>"; };
+		2F20F908644330A99E65D047 /* Pods-CATmistryTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CATmistryTests.debug.xcconfig"; path = "Target Support Files/Pods-CATmistryTests/Pods-CATmistryTests.debug.xcconfig"; sourceTree = "<group>"; };
+		462BC2A50FADBCEE81DEA261 /* Pods-CATmistry.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CATmistry.release.xcconfig"; path = "Target Support Files/Pods-CATmistry/Pods-CATmistry.release.xcconfig"; sourceTree = "<group>"; };
+		49DA23714213562AA54B3120 /* Pods_CATmistry.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CATmistry.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		547F0AD82570F5F900A224D9 /* LearnHomePageTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearnHomePageTableViewController.swift; sourceTree = "<group>"; };
 		547F0ADD2570F66E00A224D9 /* LearnHomePageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearnHomePageTableViewCell.swift; sourceTree = "<group>"; };
 		547F0AEA2570F85000A224D9 /* structsFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = structsFunctions.swift; sourceTree = "<group>"; };
 		54F5202E2571FA4600D7363C /* LearnChapterSubTopicsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearnChapterSubTopicsTableViewController.swift; sourceTree = "<group>"; };
+		632B238902855510D1A66A8D /* Pods-CATmistry-CATmistryUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CATmistry-CATmistryUITests.debug.xcconfig"; path = "Target Support Files/Pods-CATmistry-CATmistryUITests/Pods-CATmistry-CATmistryUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		67A35E2E4F9993C8DC7B5A27 /* Pods-CATmistry-CATmistryUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CATmistry-CATmistryUITests.release.xcconfig"; path = "Target Support Files/Pods-CATmistry-CATmistryUITests/Pods-CATmistry-CATmistryUITests.release.xcconfig"; sourceTree = "<group>"; };
+		C25FC8DB42CBF979D08BA3AE /* Pods_CATmistryTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CATmistryTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D90F63469EC545053F408036 /* Pods-CATmistry.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CATmistry.debug.xcconfig"; path = "Target Support Files/Pods-CATmistry/Pods-CATmistry.debug.xcconfig"; sourceTree = "<group>"; };
+		E17CC281B885BB9952784F31 /* Pods_CATmistry_CATmistryUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CATmistry_CATmistryUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +80,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6162D640B8567EBF7E172D11 /* Pods_CATmistry.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -75,6 +88,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A0EA46C12C28AAC955A26CC8 /* Pods_CATmistryTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -82,12 +96,27 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C182AE3B215D6AE8A4B33886 /* Pods_CATmistry_CATmistryUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1EC3B74727D1C8711C4FFBA6 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				D90F63469EC545053F408036 /* Pods-CATmistry.debug.xcconfig */,
+				462BC2A50FADBCEE81DEA261 /* Pods-CATmistry.release.xcconfig */,
+				632B238902855510D1A66A8D /* Pods-CATmistry-CATmistryUITests.debug.xcconfig */,
+				67A35E2E4F9993C8DC7B5A27 /* Pods-CATmistry-CATmistryUITests.release.xcconfig */,
+				2F20F908644330A99E65D047 /* Pods-CATmistryTests.debug.xcconfig */,
+				09DA7E89D99E92596912DACB /* Pods-CATmistryTests.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		2613B0282570DB8C00EECB4C = {
 			isa = PBXGroup;
 			children = (
@@ -95,6 +124,8 @@
 				2613B04A2570DB9100EECB4C /* CATmistryTests */,
 				2613B0552570DB9100EECB4C /* CATmistryUITests */,
 				2613B0322570DB8C00EECB4C /* Products */,
+				1EC3B74727D1C8711C4FFBA6 /* Pods */,
+				6D9E306F40C4427E4EFBF49A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -146,6 +177,16 @@
 			path = CATmistryUITests;
 			sourceTree = "<group>";
 		};
+		6D9E306F40C4427E4EFBF49A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				49DA23714213562AA54B3120 /* Pods_CATmistry.framework */,
+				E17CC281B885BB9952784F31 /* Pods_CATmistry_CATmistryUITests.framework */,
+				C25FC8DB42CBF979D08BA3AE /* Pods_CATmistryTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -153,9 +194,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2613B05B2570DB9100EECB4C /* Build configuration list for PBXNativeTarget "CATmistry" */;
 			buildPhases = (
+				B65EC5B886734F30A7D69A8C /* [CP] Check Pods Manifest.lock */,
 				2613B02D2570DB8C00EECB4C /* Sources */,
 				2613B02E2570DB8C00EECB4C /* Frameworks */,
 				2613B02F2570DB8C00EECB4C /* Resources */,
+				12F4BE675F42FB3F68B317F5 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -170,6 +213,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2613B05E2570DB9100EECB4C /* Build configuration list for PBXNativeTarget "CATmistryTests" */;
 			buildPhases = (
+				415D50FC7A39B0E0382C52D1 /* [CP] Check Pods Manifest.lock */,
 				2613B0432570DB9100EECB4C /* Sources */,
 				2613B0442570DB9100EECB4C /* Frameworks */,
 				2613B0452570DB9100EECB4C /* Resources */,
@@ -188,9 +232,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2613B0612570DB9100EECB4C /* Build configuration list for PBXNativeTarget "CATmistryUITests" */;
 			buildPhases = (
+				A7472495A8C1F013AA36C866 /* [CP] Check Pods Manifest.lock */,
 				2613B04E2570DB9100EECB4C /* Sources */,
 				2613B04F2570DB9100EECB4C /* Frameworks */,
 				2613B0502570DB9100EECB4C /* Resources */,
+				EA522FB1D432C6FA4F6D4446 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -270,6 +316,109 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		12F4BE675F42FB3F68B317F5 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CATmistry/Pods-CATmistry-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CATmistry/Pods-CATmistry-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CATmistry/Pods-CATmistry-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		415D50FC7A39B0E0382C52D1 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-CATmistryTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A7472495A8C1F013AA36C866 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-CATmistry-CATmistryUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B65EC5B886734F30A7D69A8C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-CATmistry-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EA522FB1D432C6FA4F6D4446 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CATmistry-CATmistryUITests/Pods-CATmistry-CATmistryUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CATmistry-CATmistryUITests/Pods-CATmistry-CATmistryUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CATmistry-CATmistryUITests/Pods-CATmistry-CATmistryUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		2613B02D2570DB8C00EECB4C /* Sources */ = {
@@ -457,6 +606,7 @@
 		};
 		2613B05C2570DB9100EECB4C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D90F63469EC545053F408036 /* Pods-CATmistry.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -475,6 +625,7 @@
 		};
 		2613B05D2570DB9100EECB4C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 462BC2A50FADBCEE81DEA261 /* Pods-CATmistry.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -493,6 +644,7 @@
 		};
 		2613B05F2570DB9100EECB4C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2F20F908644330A99E65D047 /* Pods-CATmistryTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -514,6 +666,7 @@
 		};
 		2613B0602570DB9100EECB4C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 09DA7E89D99E92596912DACB /* Pods-CATmistryTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -535,6 +688,7 @@
 		};
 		2613B0622570DB9100EECB4C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 632B238902855510D1A66A8D /* Pods-CATmistry-CATmistryUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -554,6 +708,7 @@
 		};
 		2613B0632570DB9100EECB4C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 67A35E2E4F9993C8DC7B5A27 /* Pods-CATmistry-CATmistryUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
