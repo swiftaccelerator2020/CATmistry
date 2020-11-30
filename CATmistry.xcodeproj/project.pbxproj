@@ -17,6 +17,7 @@
 		261E539D2571486600094DA5 /* PlayHomePageTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 261E539C2571486600094DA5 /* PlayHomePageTableViewController.swift */; };
 		261E53A22571488B00094DA5 /* PlayHomePageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 261E53A12571488B00094DA5 /* PlayHomePageTableViewCell.swift */; };
 		2640F0A325724091003EC92B /* LearnSubTopicDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2640F0A225724091003EC92B /* LearnSubTopicDetailsViewController.swift */; };
+		26DDE2A4257483B200FDC078 /* LearnSubSubTopicDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26DDE2A3257483B200FDC078 /* LearnSubSubTopicDetailsViewController.swift */; };
 		547F0AD92570F5F900A224D9 /* LearnHomePageTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 547F0AD82570F5F900A224D9 /* LearnHomePageTableViewController.swift */; };
 		547F0ADE2570F66E00A224D9 /* LearnHomePageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 547F0ADD2570F66E00A224D9 /* LearnHomePageTableViewCell.swift */; };
 		547F0AEB2570F85000A224D9 /* structsFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 547F0AEA2570F85000A224D9 /* structsFunctions.swift */; };
@@ -62,6 +63,7 @@
 		261E539C2571486600094DA5 /* PlayHomePageTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayHomePageTableViewController.swift; sourceTree = "<group>"; };
 		261E53A12571488B00094DA5 /* PlayHomePageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayHomePageTableViewCell.swift; sourceTree = "<group>"; };
 		2640F0A225724091003EC92B /* LearnSubTopicDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearnSubTopicDetailsViewController.swift; sourceTree = "<group>"; };
+		26DDE2A3257483B200FDC078 /* LearnSubSubTopicDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearnSubSubTopicDetailsViewController.swift; sourceTree = "<group>"; };
 		2F20F908644330A99E65D047 /* Pods-CATmistryTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CATmistryTests.debug.xcconfig"; path = "Target Support Files/Pods-CATmistryTests/Pods-CATmistryTests.debug.xcconfig"; sourceTree = "<group>"; };
 		462BC2A50FADBCEE81DEA261 /* Pods-CATmistry.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CATmistry.release.xcconfig"; path = "Target Support Files/Pods-CATmistry/Pods-CATmistry.release.xcconfig"; sourceTree = "<group>"; };
 		49DA23714213562AA54B3120 /* Pods_CATmistry.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CATmistry.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -146,6 +148,7 @@
 				2613B0342570DB8C00EECB4C /* AppDelegate.swift */,
 				2613B0362570DB8C00EECB4C /* SceneDelegate.swift */,
 				2613B03A2570DB8C00EECB4C /* Main.storyboard */,
+				26DDE2A3257483B200FDC078 /* LearnSubSubTopicDetailsViewController.swift */,
 				54B5D28525738FB5006A55F2 /* QuizViewController.swift */,
 				261E53A12571488B00094DA5 /* PlayHomePageTableViewCell.swift */,
 				261E539C2571486600094DA5 /* PlayHomePageTableViewController.swift */,
@@ -432,6 +435,7 @@
 				2613B0352570DB8C00EECB4C /* AppDelegate.swift in Sources */,
 				547F0ADE2570F66E00A224D9 /* LearnHomePageTableViewCell.swift in Sources */,
 				261E53A22571488B00094DA5 /* PlayHomePageTableViewCell.swift in Sources */,
+				26DDE2A4257483B200FDC078 /* LearnSubSubTopicDetailsViewController.swift in Sources */,
 				54F5202F2571FA4600D7363C /* LearnChapterSubTopicsTableViewController.swift in Sources */,
 				547F0AEB2570F85000A224D9 /* structsFunctions.swift in Sources */,
 				261E539D2571486600094DA5 /* PlayHomePageTableViewController.swift in Sources */,
