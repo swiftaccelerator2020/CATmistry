@@ -17,7 +17,9 @@ class LearnSubTopicDetailsViewController: UIViewController {
     @IBOutlet weak var definitionLabel: UILabel!
     @IBOutlet weak var sliderValueLabel: UILabel!
     @IBOutlet weak var subSubTopicsTableView: UITableView!
-    @IBOutlet weak var pHSliderVertStack: UIStackView!
+    @IBOutlet weak var pHSlidersVertStack: UIStackView!
+    @IBOutlet var pHSliderVertStackIsVisibleConstraint: NSLayoutConstraint!
+    @IBOutlet var pHSliderVertStackIsHiddenConstraint: NSLayoutConstraint!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,17 +30,13 @@ class LearnSubTopicDetailsViewController: UIViewController {
         definitionLabel.text = specificSubTopic.content.definition
         
         if (!specificSubTopic.needSlider) {
-            pHSliderVertStack.isHidden = true
-            sliderValueLabel.isHidden = true
-            pHSlider.isHidden = true
-            maxLabel.isHidden = true
-            minLabel.isHidden = true
+            pHSlidersVertStack.isHidden = true
+            pHSliderVertStackIsVisibleConstraint.isActive = false
+            pHSliderVertStackIsHiddenConstraint.isActive = true
         } else {
-            pHSliderVertStack.isHidden = false
-            sliderValueLabel.isHidden = false
-            pHSlider.isHidden = false
-            maxLabel.isHidden = false
-            minLabel.isHidden = false
+            pHSlidersVertStack.isHidden = false
+            pHSliderVertStackIsVisibleConstraint.isActive = true
+            pHSliderVertStackIsHiddenConstraint.isActive = false
         }
         
         if (specificSubTopic.subTopics == nil) {
