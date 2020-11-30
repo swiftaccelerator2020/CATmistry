@@ -7,24 +7,28 @@
 
 import UIKit
 
-class LearnSubTopicDetailsViewController: UIViewController {
+class LearnSubTopicDetailsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     var specificSubTopic: SubTopic!
 
-    @IBOutlet weak var pHSlider: UISlider?
-    @IBOutlet weak var maxLabel: UILabel?
-    @IBOutlet weak var minLabel: UILabel?
-    @IBOutlet weak var definitionLabel: UILabel?
-    @IBOutlet weak var sliderValueLabel: UILabel?
-    @IBOutlet weak var subSubTopicsTableView: UITableView?
-    @IBOutlet weak var pHSlidersVertStack: UIStackView?
-    @IBOutlet var pHSliderVertStackIsVisibleConstraint: NSLayoutConstraint?
-    @IBOutlet var pHSliderVertStackIsHiddenConstraint: NSLayoutConstraint?
+    @IBOutlet weak var pHSlider: UISlider!
+    @IBOutlet weak var maxLabel: UILabel!
+    @IBOutlet weak var minLabel: UILabel!
+    @IBOutlet weak var definitionLabel: UILabel!
+    @IBOutlet weak var sliderValueLabel: UILabel!
+    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var pHSlidersVertStack: UIStackView!
+    @IBOutlet var pHSliderVertStackIsVisibleConstraint: NSLayoutConstraint!
+    @IBOutlet var pHSliderVertStackIsHiddenConstraint: NSLayoutConstraint!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         // Do any additional setup after loading the view.
+        self.tableView.dataSource = self
+        self.tableView.delegate = self
+        self.tableView.tableFooterView = UIView()
+
         self.title = specificSubTopic.navTitle
         self.navigationController?.navigationBar.tintColor = UIColor.darkGray
         definitionLabel?.text = specificSubTopic.content.definition
@@ -38,11 +42,11 @@ class LearnSubTopicDetailsViewController: UIViewController {
             pHSliderVertStackIsVisibleConstraint?.isActive = true
             pHSliderVertStackIsHiddenConstraint?.isActive = false
         }
-        
+
         if (specificSubTopic.subTopics == nil) {
-            subSubTopicsTableView?.isHidden = true
+            tableView?.isHidden = true
         }
-        
+
     }
     
 
@@ -59,22 +63,28 @@ class LearnSubTopicDetailsViewController: UIViewController {
     }
     */
     func numberOfSections(in tableView: UITableView) -> Int {
-            // #warning Incomplete implementation, return the number of sections
-            return 1
+        // #warning Incomplete implementation, return the number of sections
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        // #warning Incomplete implementation, return the number of rows
+        return specificSubTopic.subTopics!.count
+    }
+    
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "subSubTopicCell", for: indexPath)
+        
+        if let cell = cell as? subSubTopicTableViewCell{
+            cell.subSubTopicPicture.image = UIImage(named: (specificSubTopic.subTopics?[indexPath.row].picture)!)
+            cell.subSubTopicTitleLabel.text = specificSubTopic.subTopics?[indexPath.row].topic
         }
-
-        func tableView( tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-            // #warning Incomplete implementation, return the number of rows
-            return specificSubTopic.subTopics!.count
-        }
-
-        func tableView( tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-            80.0
-        }
-
-        func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "subSubTopicCell", for: indexPath)
-            
-            return cell
-        }
+        
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        80.0
+    }
 }

@@ -9,7 +9,6 @@ import UIKit
 
 class LearnHomePageTableViewCell: UITableViewCell {
     
-    
     @IBOutlet weak var learnChapterImageView: UIImageView!
     @IBOutlet weak var learnChapterLabel: UILabel!
     @IBOutlet weak var needMorePointsLabel: UILabel?
