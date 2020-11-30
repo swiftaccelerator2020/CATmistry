@@ -10,7 +10,7 @@ import UIKit
 class LearnSubTopicDetailsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     var specificSubTopic: SubTopic!
-
+    
     @IBOutlet weak var pHSlider: UISlider!
     @IBOutlet weak var maxLabel: UILabel!
     @IBOutlet weak var minLabel: UILabel!
@@ -20,15 +20,19 @@ class LearnSubTopicDetailsViewController: UIViewController, UITableViewDataSourc
     @IBOutlet weak var pHSlidersVertStack: UIStackView!
     @IBOutlet var pHSliderVertStackIsVisibleConstraint: NSLayoutConstraint!
     @IBOutlet var pHSliderVertStackIsHiddenConstraint: NSLayoutConstraint!
+    @IBOutlet weak var pHImageView: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
         self.tableView.dataSource = self
         self.tableView.delegate = self
         self.tableView.tableFooterView = UIView()
-
+        pHSlider.value = 7
+        sliderValueLabel.text = "Current pH: 7 \nWater"
+        pHImageView.image = UIImage(named: "ph-7.png")
+        
         self.title = specificSubTopic.navTitle
         self.navigationController?.navigationBar.tintColor = UIColor.darkGray
         definitionLabel?.text = specificSubTopic.content.definition
@@ -42,26 +46,31 @@ class LearnSubTopicDetailsViewController: UIViewController, UITableViewDataSourc
             pHSliderVertStackIsVisibleConstraint?.isActive = true
             pHSliderVertStackIsHiddenConstraint?.isActive = false
         }
-
+        
         if (specificSubTopic.subTopics == nil) {
             tableView?.isHidden = true
         }
-
+        
     }
     
-
+    
     @IBAction func sliderChangedValue(_ sender: UISlider) {
-        sliderValueLabel?.text = "Current pH: " + String(Int(sender.value.rounded()))
+        let pHItemArray = ["Stomach Acid", "Lemonade", "Apple Juice", "Tomato Juice", "Coffee", "Milk", "Water", "Egg", "Baking Soda", "Stomach Tablets", "Ammonia", "Soap", "Bleach", "Pipe Cleaner"]
+        
+        let line1Text = "Current pH: " + String(Int(sender.value.rounded()))
+        let line2Text = "\n" + pHItemArray[Int(sender.value.rounded()) - 1]
+        sliderValueLabel.text =  line1Text + line2Text
+        pHImageView.image = UIImage(named: "ph-" + String(sender.value.rounded()) + ".png")
     }
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destination.
+     // Pass the selected object to the new view controller.
+     }
+     */
     func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 1
@@ -69,7 +78,11 @@ class LearnSubTopicDetailsViewController: UIViewController, UITableViewDataSourc
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return specificSubTopic.subTopics!.count
+        if (specificSubTopic.subTopics?.count != nil) {
+            return specificSubTopic.subTopics!.count
+        } else {
+            return 0
+        }
     }
     
     

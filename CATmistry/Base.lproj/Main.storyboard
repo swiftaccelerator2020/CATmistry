@@ -298,7 +298,7 @@
                     <tabBarItem key="tabBarItem" title="Play" image="gamecontroller.fill" catalog="system" selectedImage="gamecontroller.fill" id="Xs1-53-ugV"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="eFe-la-nb9">
-                        <rect key="frame" x="0.0" y="44" width="390" height="96"/>
+                        <rect key="frame" x="0.0" y="44" width="390" height="104.33333333333334"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" red="0.396078431372549" green="0.77647058823529413" blue="0.94117647058823528" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </navigationBar>
@@ -383,7 +383,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="nqN-W0-xcf">
-                                <rect key="frame" x="25" y="208.66666666666663" width="340" height="250"/>
+                                <rect key="frame" x="25" y="208.66666666666663" width="340" height="280"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="T3d-ac-smH">
                                         <rect key="frame" x="0.0" y="0.0" width="340" height="20"/>
@@ -417,17 +417,17 @@
                                             <constraint firstAttribute="height" constant="20" id="RGj-Jl-Oei"/>
                                         </constraints>
                                     </stackView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Current pH: " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eHh-jA-vOe">
-                                        <rect key="frame" x="0.0" y="20" width="340" height="60"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Current pH: " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eHh-jA-vOe">
+                                        <rect key="frame" x="0.0" y="20" width="340" height="90"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="60" id="bpS-Ns-kSQ"/>
+                                            <constraint firstAttribute="height" constant="90" id="bpS-Ns-kSQ"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="gxF-Gn-Ie7">
-                                        <rect key="frame" x="0.0" y="80.000000000000028" width="340" height="170"/>
+                                        <rect key="frame" x="0.0" y="110.00000000000003" width="340" height="169.99999999999997"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="170" id="U9M-t0-fHW"/>
                                         </constraints>
@@ -441,10 +441,10 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KRh-Eh-A1Y">
-                                <rect key="frame" x="0.0" y="488.66666666666674" width="390" height="272.33333333333326"/>
+                                <rect key="frame" x="0.0" y="518.66666666666663" width="390" height="242.33333333333337"/>
                                 <subviews>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="P1S-kZ-JzO">
-                                        <rect key="frame" x="0.0" y="0.0" width="390" height="272"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="390" height="242"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <prototypes>
@@ -501,7 +501,7 @@
                             <constraint firstItem="Nfl-vn-zd4" firstAttribute="bottom" secondItem="KRh-Eh-A1Y" secondAttribute="bottom" id="4It-g5-gUh"/>
                             <constraint firstItem="KRh-Eh-A1Y" firstAttribute="trailing" secondItem="Nfl-vn-zd4" secondAttribute="trailing" id="4ae-8V-PiF"/>
                             <constraint firstItem="KRh-Eh-A1Y" firstAttribute="top" secondItem="nqN-W0-xcf" secondAttribute="bottom" constant="30" id="5Oa-mm-5kw"/>
-                            <constraint firstItem="KRh-Eh-A1Y" firstAttribute="top" secondItem="1eh-8g-148" secondAttribute="bottom" priority="900" constant="30" id="K0P-J9-vP7"/>
+                            <constraint firstItem="KRh-Eh-A1Y" firstAttribute="top" secondItem="1eh-8g-148" secondAttribute="bottom" priority="900" constant="10" id="K0P-J9-vP7"/>
                             <constraint firstItem="1eh-8g-148" firstAttribute="top" secondItem="Nfl-vn-zd4" secondAttribute="top" constant="10" id="Mis-0P-qqF"/>
                             <constraint firstItem="nqN-W0-xcf" firstAttribute="top" secondItem="1eh-8g-148" secondAttribute="bottom" constant="30" id="QhQ-fG-hHm"/>
                             <constraint firstItem="KRh-Eh-A1Y" firstAttribute="leading" secondItem="rIY-8L-x8X" secondAttribute="leading" id="SdI-cZ-6YS"/>
@@ -518,6 +518,7 @@
                         <outlet property="definitionLabel" destination="1eh-8g-148" id="Mib-Er-hQO"/>
                         <outlet property="maxLabel" destination="ikF-1Q-emW" id="hxN-my-Yds"/>
                         <outlet property="minLabel" destination="Fh0-Dc-lU3" id="uor-Ym-wHB"/>
+                        <outlet property="pHImageView" destination="gxF-Gn-Ie7" id="fX2-93-HhU"/>
                         <outlet property="pHSlider" destination="gHE-5A-gNw" id="U7Q-cq-v3i"/>
                         <outlet property="pHSliderVertStackIsHiddenConstraint" destination="K0P-J9-vP7" id="cjC-tS-OMb"/>
                         <outlet property="pHSliderVertStackIsVisibleConstraint" destination="5Oa-mm-5kw" id="MRJ-IA-0ba"/>
@@ -569,7 +570,7 @@
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="FaB-d6-X5c"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="wEn-aq-CEr">
-                        <rect key="frame" x="0.0" y="44" width="390" height="96"/>
+                        <rect key="frame" x="0.0" y="44" width="390" height="104.33333333333334"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
