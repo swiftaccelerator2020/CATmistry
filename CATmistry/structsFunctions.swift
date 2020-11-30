@@ -45,6 +45,9 @@ struct SubContent {
 
 struct SubSubContent {
     var image: String
+    var firstAttributionText: String
+    var secondAttributionText: String
+    var thirdAttributionText: String
 }
 
 struct GameTopic {
@@ -69,10 +72,10 @@ var learnTopics = [
         SubTopic(title: "What are Gas Tests?", pic: "gas-tests.png", needSlider: false, content:
                     SubContent(definition: "some filler text for show"),
                  subTopics: [
-                    SubSubTopic(topic: "Test for H₂", picture: "h2.png", id: 1, content: SubSubContent(image: "pic.png")),
-                    SubSubTopic(topic: "Test for CO₂", picture: "co2.png", id: 2, content: SubSubContent(image: "pic.png")),
-                    SubSubTopic(topic: "Test for O₂", picture: "o2.png", id: 3, content: SubSubContent(image: "pic.png")),
-                    SubSubTopic(topic: "Test for NH₃", picture: "nh3.png", id: 4, content: SubSubContent(image: "pic.png"))
+                    SubSubTopic(topic: "Test for H₂", picture: "h2.png", id: 1, content: SubSubContent(image: "gas-tests.png", firstAttributionText: "test1", secondAttributionText: "test", thirdAttributionText: "test3")),
+                    SubSubTopic(topic: "Test for CO₂", picture: "co2.png", id: 2, content: SubSubContent(image: "pic.png", firstAttributionText: "", secondAttributionText: "", thirdAttributionText: "")),
+                    SubSubTopic(topic: "Test for O₂", picture: "o2.png", id: 3, content: SubSubContent(image: "pic.png", firstAttributionText: "", secondAttributionText: "", thirdAttributionText: "")),
+                    SubSubTopic(topic: "Test for NH₃", picture: "nh3.png", id: 4, content: SubSubContent(image: "pic.png", firstAttributionText: "", secondAttributionText: "", thirdAttributionText: ""))
                  ], navTitle: "Gas Tests"),
         SubTopic(title: "Take the Quiz", pic: "quiz.png", needSlider: false, content: SubContent(definition: ""), subTopics: [], navTitle: "Take the Quiz")
     ], errorLabel: ""),

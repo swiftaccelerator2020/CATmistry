@@ -8,11 +8,23 @@
 import UIKit
 
 class LearnSubSubTopicDetailsViewController: UIViewController {
+    
+    var flexibleTitle: String!
+    var specificChapter: SubSubTopic!
 
+    @IBOutlet weak var subSubTopicImageView: UIImageView!
+    @IBOutlet weak var firstAttributeLabel: UILabel!
+    @IBOutlet weak var secondAttributeLabel: UILabel!
+    @IBOutlet weak var thirdAttributeLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        subSubTopicImageView.image = UIImage(named: specificChapter.content.image)
+        firstAttributeLabel.text = specificChapter.content.firstAttributionText
+        secondAttributeLabel.text = specificChapter.content.secondAttributionText
+        thirdAttributeLabel.text = specificChapter.content.thirdAttributionText
     }
     
 

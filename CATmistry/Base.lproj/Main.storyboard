@@ -484,6 +484,7 @@
                                                 <connections>
                                                     <outlet property="subSubTopicPicture" destination="Pzg-7N-0ey" id="o1w-zy-DAw"/>
                                                     <outlet property="subSubTopicTitleLabel" destination="PxR-Ji-98i" id="wWm-Qv-5X9"/>
+                                                    <segue destination="Zhu-nR-rZ4" kind="show" identifier="goToSubSubTopic" id="eBF-tC-Jy2"/>
                                                 </connections>
                                             </tableViewCell>
                                         </prototypes>
@@ -538,10 +539,53 @@
                     <view key="view" contentMode="scaleToFill" id="85D-jV-kzT">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="sYo-35-5uv">
+                                <rect key="frame" x="25" y="508.33333333333326" width="340" height="150"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vLl-vO-qmx">
+                                        <rect key="frame" x="0.0" y="0.0" width="340" height="50"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GIh-U6-dCc">
+                                        <rect key="frame" x="0.0" y="50" width="340" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="PW1-pA-EOH"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2rd-lO-Xti">
+                                        <rect key="frame" x="0.0" y="100" width="340" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="h7L-gZ-1bQ"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="150" id="STy-x9-Ss4"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="afs-NH-58h"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="afs-NH-58h" firstAttribute="trailing" secondItem="sYo-35-5uv" secondAttribute="trailing" constant="25" id="ibd-4B-iSd"/>
+                            <constraint firstItem="sYo-35-5uv" firstAttribute="leading" secondItem="afs-NH-58h" secondAttribute="leading" constant="25" id="tyF-bC-iCG"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Sub Sub Topic Details" id="mw7-i7-Hak"/>
+                    <connections>
+                        <outlet property="firstAttributeLabel" destination="vLl-vO-qmx" id="J0a-Ki-8zI"/>
+                        <outlet property="secondAttributeLabel" destination="GIh-U6-dCc" id="XGe-jI-FVg"/>
+                        <outlet property="thirdAttributeLabel" destination="2rd-lO-Xti" id="7yO-bf-pEH"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XGP-dR-d2j" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -710,6 +754,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="eBF-tC-Jy2"/>
         <segue reference="l86-7T-ukz"/>
     </inferredMetricsTieBreakers>
     <resources>
