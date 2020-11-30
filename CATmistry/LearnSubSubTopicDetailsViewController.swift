@@ -21,6 +21,8 @@ class LearnSubSubTopicDetailsViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        self.title = flexibleTitle
+        
         subSubTopicImageView.image = UIImage(named: specificChapter.content.image)
         firstAttributeLabel.text = specificChapter.content.firstAttributionText
         secondAttributeLabel.text = specificChapter.content.secondAttributionText

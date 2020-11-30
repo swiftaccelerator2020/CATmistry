@@ -87,14 +87,23 @@ var learnTopics = [
     
     Topic(title: "pH and Indicators", pic: "pH-and-indicators.png", pointsNeeded: 20, subTopics: [
         SubTopic(title: "What is pH?", pic: "pH-and-indicators.png", needSlider: true, content: SubContent(definition: "pH (the Power of Hydrogen) is a scale of 1 to 14 used to specify the acidity or basicity of a solution. The pH scale indicates the concentration of hydrogen ions in a solution.\n\nA lower pH (1 - 6.9) indicates that the solution is acidic, while a higher pH (7.1 - 14) indicates that the solution is alkaline. A pH of 7 indicates that the solution is neutral (neither acidic nor alkaline)."), subTopics: nil, navTitle: "pH"),
-        SubTopic(title: "What are Indicators?", pic: "pH-and-indicators.png", needSlider: false, content: SubContent(definition: "Indicators are chemicals which turn into different colours depending on the pH of the solution. The transition range is the range in which the indicator changes from one colour to the other."), subTopics: [], navTitle: "Indicators"),
+        SubTopic(title: "What are Indicators?", pic: "pH-and-indicators.png", needSlider: false, content: SubContent(definition: "Indicators are chemicals which turn into different colours depending on the pH of the solution. The transition range is the range in which the indicator changes from one colour to the other."), subTopics: [
+            SubSubTopic(topic: "Methyl Orange", picture: "methyl-orange.png", id: 1, content: SubSubContent(image: "methyl-orange.png", firstAttributionText: "", secondAttributionText: "", thirdAttributionText: "")),
+            SubSubTopic(topic: "Litmus", picture: "litmus.png", id: 1, content: SubSubContent(image: "methyl-orange.png", firstAttributionText: "", secondAttributionText: "", thirdAttributionText: "")),
+            SubSubTopic(topic: "Phenolphthalein", picture: "phenolphthalein.png", id: 1, content: SubSubContent(image: "methyl-orange.png", firstAttributionText: "", secondAttributionText: "", thirdAttributionText: "")),
+            SubSubTopic(topic: "Screened Methyl Orange", picture: "screened-methyl-orange.png", id: 1, content: SubSubContent(image: "methyl-orange.png", firstAttributionText: "", secondAttributionText: "", thirdAttributionText: "")),
+            SubSubTopic(topic: "Thymol Blue", picture: "methyl-orange.png", id: 1, content: SubSubContent(image: "methyl-orange.png", firstAttributionText: "", secondAttributionText: "", thirdAttributionText: "")),
+            SubSubTopic(topic: "Universal Indicator", picture: "universal-indicator.png", id: 1, content: SubSubContent(image: "methyl-orange.png", firstAttributionText: "", secondAttributionText: "", thirdAttributionText: ""))
+        ], navTitle: "Indicators"),
         SubTopic(title: "Take the Quiz", pic: "quiz.png", needSlider: false, content: SubContent(definition: ""), subTopics: [], navTitle: "Take the Quiz")
     ], errorLabel: "Please complete Chapter 2"),
     
     Topic(title: "Periodic Table", pic: "periodic-table.png", pointsNeeded: 30, subTopics: [
         SubTopic(title: "What is the Periodic Table?", pic: "periodic-table.png", needSlider: false, content: SubContent(definition: "A periodic table is a chart that shows chemical elements in order of their atomic number. \n\nElements with similar properties are arranged in the same column (group), and elements with the same number of electron shells are arranged in the same row (period)."), subTopics: [], navTitle: "Periodic Table"),
         SubTopic(title: "What are Elements?", pic: "periodic-table.png", needSlider: false, content: SubContent(definition: ""), subTopics: nil, navTitle: "Elements"),
-        SubTopic(title: "First 18 Elements", pic: "periodic-table.png", needSlider: false, content: SubContent(definition: ""), subTopics: [], navTitle: "First 18 Elements"),
+        SubTopic(title: "First 18 Elements", pic: "periodic-table.png", needSlider: false, content: SubContent(definition: ""), subTopics: [
+            SubSubTopic(topic: "1 - Hydrogen", picture: "pic.png", id: 1, content: SubSubContent(image: "pic.png", firstAttributionText: "", secondAttributionText: "", thirdAttributionText: ""))
+        ], navTitle: "First 18 Elements"),
         SubTopic(title: "Groups' Properties", pic: "periodic-table.png", needSlider: false, content: SubContent(definition: ""), subTopics: [], navTitle: "Groups' Properties"),
         SubTopic(title: "Take the Quiz", pic: "quiz.png", needSlider: false, content: SubContent(definition: ""), subTopics: [], navTitle: "Take the Quiz")
     ], errorLabel: "Please complete Chapter 3"),

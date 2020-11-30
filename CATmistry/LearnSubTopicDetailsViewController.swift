@@ -33,6 +33,12 @@ class LearnSubTopicDetailsViewController: UIViewController, UITableViewDataSourc
         sliderValueLabel.text = "Current pH: 7 \nWater"
         pHImageView.image = UIImage(named: "ph-7.png")
         
+        let px = 1 / UIScreen.main.scale
+        let frame = CGRect(x: 0, y: 0, width: self.tableView.frame.size.width, height: px)
+        let line = UIView(frame: frame)
+        self.tableView.tableHeaderView = line
+        line.backgroundColor = self.tableView.separatorColor
+        
         self.title = specificSubTopic.navTitle
         self.navigationController?.navigationBar.tintColor = UIColor.darkGray
         definitionLabel?.text = specificSubTopic.content.definition
