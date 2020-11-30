@@ -48,27 +48,29 @@ class QuizViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         timeLeft.progress = 0
-        
-        if (index == question.count-1){
+    
+        if (index >= question.count-1){
             performSegue(withIdentifier: "quizEnded", sender: nil)
+            dismiss(animated: false, completion: nil)
         }
+        
         if !firstLoad{
             optionOne.titleLabel!.text = question[index].options[0]
-            
+        
             optionTwo.titleLabel!.text = question[index].options[1]
-            
+        
             optionThree.titleLabel!.text = question[index].options[2]
-            
+        
             optionFour.titleLabel!.text = question[index].options[3]
-            
+        
             questionLabel.text = question[index].question
-            
+        
             self.progressBarTimer = Timer.scheduledTimer(timeInterval: 0.025, target: self, selector: #selector(QuizViewController.updateProgressView), userInfo: nil, repeats: true)
         }
     }
-    
+
     @IBAction func optionOneClicked(_ sender: Any) {
-        progressBarTimer.invalidate()
+        stopTimer()
         if (question[index].correctAnswer == 1){
             performSegue(withIdentifier: "correctAns", sender: nil)
         }else{
@@ -78,7 +80,7 @@ class QuizViewController: UIViewController {
     }
     
     @IBAction func optionTwoClicked(_ sender: Any) {
-        progressBarTimer.invalidate()
+        stopTimer()
         if (question[index].correctAnswer == 2){
             performSegue(withIdentifier: "correctAns", sender: nil)
         }else{
@@ -88,7 +90,7 @@ class QuizViewController: UIViewController {
     }
     
     @IBAction func optionThreeClicked(_ sender: Any) {
-        progressBarTimer.invalidate()
+        stopTimer()
         if (question[index].correctAnswer == 3){
             performSegue(withIdentifier: "correctAns", sender: nil)
         }else{
@@ -98,7 +100,7 @@ class QuizViewController: UIViewController {
     }
     
     @IBAction func optionFourClicked(_ sender: Any) {
-        progressBarTimer.invalidate()
+        stopTimer()
         if (question[index].correctAnswer == 4){
             performSegue(withIdentifier: "correctAns", sender: nil)
         }else{
@@ -120,7 +122,7 @@ class QuizViewController: UIViewController {
         timeLeft.setProgress(timeLeft.progress, animated: true)
         if(timeLeft.progress == 1.0)
         {
-            progressBarTimer.invalidate()
+            stopTimer()
             performSegue(withIdentifier: "wrongAns", sender: nil)
             index += 1
         }
@@ -128,6 +130,7 @@ class QuizViewController: UIViewController {
     
     func stopTimer(){
         progressBarTimer.invalidate()
-        
+        progressBarTimer = nil
+        timeLeft.progress = 0
     }
 }
