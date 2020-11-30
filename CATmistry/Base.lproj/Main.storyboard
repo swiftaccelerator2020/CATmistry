@@ -383,7 +383,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="nqN-W0-xcf">
-                                <rect key="frame" x="25" y="208.66666666666663" width="340" height="280"/>
+                                <rect key="frame" x="25" y="223.66666666666663" width="340" height="280"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="T3d-ac-smH">
                                         <rect key="frame" x="0.0" y="0.0" width="340" height="20"/>
@@ -435,16 +435,16 @@
                                 </subviews>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1eh-8g-148">
-                                <rect key="frame" x="25" y="158.33333333333334" width="340" height="20.333333333333343"/>
+                                <rect key="frame" x="25" y="173.33333333333334" width="340" height="20.333333333333343"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KRh-Eh-A1Y">
-                                <rect key="frame" x="0.0" y="518.66666666666663" width="390" height="242.33333333333337"/>
+                                <rect key="frame" x="0.0" y="533.66666666666663" width="390" height="227.33333333333337"/>
                                 <subviews>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="P1S-kZ-JzO">
-                                        <rect key="frame" x="0.0" y="0.0" width="390" height="242"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="390" height="212"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <prototypes>
@@ -502,7 +502,7 @@
                             <constraint firstItem="KRh-Eh-A1Y" firstAttribute="trailing" secondItem="Nfl-vn-zd4" secondAttribute="trailing" id="4ae-8V-PiF"/>
                             <constraint firstItem="KRh-Eh-A1Y" firstAttribute="top" secondItem="nqN-W0-xcf" secondAttribute="bottom" constant="30" id="5Oa-mm-5kw"/>
                             <constraint firstItem="KRh-Eh-A1Y" firstAttribute="top" secondItem="1eh-8g-148" secondAttribute="bottom" priority="900" constant="10" id="K0P-J9-vP7"/>
-                            <constraint firstItem="1eh-8g-148" firstAttribute="top" secondItem="Nfl-vn-zd4" secondAttribute="top" constant="10" id="Mis-0P-qqF"/>
+                            <constraint firstItem="1eh-8g-148" firstAttribute="top" secondItem="Nfl-vn-zd4" secondAttribute="top" constant="25" id="Mis-0P-qqF"/>
                             <constraint firstItem="nqN-W0-xcf" firstAttribute="top" secondItem="1eh-8g-148" secondAttribute="bottom" constant="30" id="QhQ-fG-hHm"/>
                             <constraint firstItem="KRh-Eh-A1Y" firstAttribute="leading" secondItem="rIY-8L-x8X" secondAttribute="leading" id="SdI-cZ-6YS"/>
                             <constraint firstItem="Nfl-vn-zd4" firstAttribute="trailing" secondItem="nqN-W0-xcf" secondAttribute="trailing" constant="25" id="W8L-VG-Uu8"/>
