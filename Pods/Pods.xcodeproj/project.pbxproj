@@ -3,103 +3,64 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		26942B0A48F3437796B278C0BAEA97BB /* StepSlider-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = F41856F19D3E44A86D62B0428D7211C0 /* StepSlider-dummy.m */; };
-		3ECA50B73C4A7AFD24A24E9A8F00FF2A /* Pods-CATmistryTests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 845F1CD8B599DFA2C79AA47572651B2E /* Pods-CATmistryTests-dummy.m */; };
-		50D6BE6AD42BA521324C2A8053AEFCB2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
-		5F56360302C7F440A5E9389DBFD4C360 /* StepSlider-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = E4C7C1E9FFDB2E7CA763DCF6841A95F2 /* StepSlider-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		6BD55670E718266C78FAF823EF3C7E8A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
-		752B196C61DCB16CB2771C9C26AC3773 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
+		1349AA17023C0B830CEF008681DEF883 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
+		3C1C045D4D0C433F6016F927189D2BAF /* Pods-CATmistry-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 858E747BC24F8A96D5A92D4628DDB8D8 /* Pods-CATmistry-dummy.m */; };
+		3ECA50B73C4A7AFD24A24E9A8F00FF2A /* Pods-CATmistryTests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = B38EC23DBCEDB2B79B8BD4E4DE07C0E5 /* Pods-CATmistryTests-dummy.m */; };
 		9939BB99A5411A61098B02C2A7E990C9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
-		A12E394A40A6D147FA0804794EF96E81 /* Pods-CATmistry-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = B1F872FB7BC592D10322E4005A697333 /* Pods-CATmistry-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		ABC1FB4C988137D5D2007B497139010F /* Pods-CATmistryTests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = B44FD0B9A220A1430D98240E05086B23 /* Pods-CATmistryTests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		ACE7A2D5D5CEF59768E251DD6A65A8B6 /* Pods-CATmistry-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = EC5D1E8FE459108C93985FC6962F9CEE /* Pods-CATmistry-dummy.m */; };
-		C91D7087FF00434A236B52E2112356AE /* Pods-CATmistry-CATmistryUITests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = EFED6DBF560D13F7AB7E6F4A28BB5D81 /* Pods-CATmistry-CATmistryUITests-dummy.m */; };
-		D81FFF05014A2B360374F931A8205F13 /* StepSlider.h in Headers */ = {isa = PBXBuildFile; fileRef = 00F8D8147FFE0D7668C85C567062324A /* StepSlider.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		E2786D386232580B299E26AB34E198AE /* StepSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = 19E6142372196778944044AFD1D37A51 /* StepSlider.m */; };
-		FC16AAF4D17AB9AD2B8979645461B45E /* Pods-CATmistry-CATmistryUITests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = B339C3348658DE5849B69C095FB2EFFC /* Pods-CATmistry-CATmistryUITests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9FB9718D5B5C60283F1BE8BDFFA63535 /* Pods-CATmistry-CATmistryUITests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 5F2281A8ACD6A73BBFF849955F5104C8 /* Pods-CATmistry-CATmistryUITests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		ABC1FB4C988137D5D2007B497139010F /* Pods-CATmistryTests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = C78988FEBBA59B9A0ACDF22CFF976705 /* Pods-CATmistryTests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E6173C6BAB5C909A99720AF4438EA253 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
+		EB69338A17408DEED1AB49FEBCE3FF85 /* Pods-CATmistry-CATmistryUITests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 005C502612B3A72FDD98D08C4995B84C /* Pods-CATmistry-CATmistryUITests-dummy.m */; };
+		FA0A32D3779C479E2BCC73B3F75769E0 /* Pods-CATmistry-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = F439BFD5B7D302F7A6CCA1CDA4BC2D41 /* Pods-CATmistry-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		03D633E2C2ED9A4B1A54E1C51EA2B9C5 /* PBXContainerItemProxy */ = {
+		A376B649EAA9B5C5F274CCD0CA160B76 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 520F8B9B49D3E363FBBBBCBBAD6CDB4F;
 			remoteInfo = "Pods-CATmistry";
 		};
-		249EAFBFA78389FF8EDBD77D611A55F6 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 52EA8B3667B8849AB63C4EF323988478;
-			remoteInfo = StepSlider;
-		};
-		FA5F414B69FA526C747E0CD3BFF0B4DB /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 52EA8B3667B8849AB63C4EF323988478;
-			remoteInfo = StepSlider;
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		00F8D8147FFE0D7668C85C567062324A /* StepSlider.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = StepSlider.h; path = Sources/StepSlider/include/StepSlider.h; sourceTree = "<group>"; };
-		0E55CCB4D9612ED8FAC319C3DE154DFE /* Pods-CATmistryTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-CATmistryTests.debug.xcconfig"; sourceTree = "<group>"; };
+		005C502612B3A72FDD98D08C4995B84C /* Pods-CATmistry-CATmistryUITests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-CATmistry-CATmistryUITests-dummy.m"; sourceTree = "<group>"; };
 		126ABEF127187B19F6BD8076FF78529B /* Pods_CATmistry_CATmistryUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_CATmistry_CATmistryUITests.framework; path = "Pods-CATmistry-CATmistryUITests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
-		19E6142372196778944044AFD1D37A51 /* StepSlider.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = StepSlider.m; path = Sources/StepSlider/StepSlider.m; sourceTree = "<group>"; };
+		2480404FE33B57A6C43CC56B488758C6 /* Pods-CATmistry-CATmistryUITests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-CATmistry-CATmistryUITests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		2A09EF2D7438A4539888BF665448468D /* Pods-CATmistry-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-CATmistry-Info.plist"; sourceTree = "<group>"; };
+		2A30DDF6A8EA082AE2932C78C111D160 /* Pods-CATmistryTests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-CATmistryTests-Info.plist"; sourceTree = "<group>"; };
+		2E65C772F68B0DE9B399814142AE7ACF /* Pods-CATmistry.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-CATmistry.release.xcconfig"; sourceTree = "<group>"; };
 		3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		3457BF83A743ABB01A317D34823847E1 /* Pods-CATmistry-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-CATmistry-Info.plist"; sourceTree = "<group>"; };
-		3BAC6C562748F309B2BA038CE6B310CC /* Pods-CATmistry-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-CATmistry-acknowledgements.plist"; sourceTree = "<group>"; };
-		3E1AB49B0145C3ED9FDD265ADE5D84E9 /* Pods-CATmistry-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-CATmistry-frameworks.sh"; sourceTree = "<group>"; };
-		45F01A76CDAC41CF977BC360283D516D /* Pods-CATmistryTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-CATmistryTests.release.xcconfig"; sourceTree = "<group>"; };
-		47E95A5DC783C59795E3AA586E236092 /* Pods-CATmistry-CATmistryUITests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-CATmistry-CATmistryUITests-frameworks.sh"; sourceTree = "<group>"; };
-		4FAA6BC943CCEF890C7E7056D56D481E /* Pods-CATmistry.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-CATmistry.debug.xcconfig"; sourceTree = "<group>"; };
-		5355BD1142BD9563E61AFD70F40D17C0 /* StepSlider-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "StepSlider-prefix.pch"; sourceTree = "<group>"; };
-		70600ECA373CA4AE92FF7D14FA34AD5F /* Pods-CATmistryTests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-CATmistryTests.modulemap"; sourceTree = "<group>"; };
-		716DD367969036E2473383BDBF7B4E22 /* Pods-CATmistry-CATmistryUITests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-CATmistry-CATmistryUITests-acknowledgements.plist"; sourceTree = "<group>"; };
-		7A6F71E1E2C33927DF7021A084E1475F /* StepSlider.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = StepSlider.framework; path = StepSlider.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		7E74BC72AEF7C810E517C9D380A0357E /* StepSlider.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = StepSlider.debug.xcconfig; sourceTree = "<group>"; };
-		845F1CD8B599DFA2C79AA47572651B2E /* Pods-CATmistryTests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-CATmistryTests-dummy.m"; sourceTree = "<group>"; };
+		393E98EB23DAF966159A41D34EAD872F /* Pods-CATmistryTests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-CATmistryTests.modulemap"; sourceTree = "<group>"; };
+		56B85981DD5825CBAF23F91AD0208078 /* Pods-CATmistry-CATmistryUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-CATmistry-CATmistryUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		5B49ABB20CC332C129EFF288E7E44908 /* Pods-CATmistry-CATmistryUITests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-CATmistry-CATmistryUITests-acknowledgements.plist"; sourceTree = "<group>"; };
+		5F2281A8ACD6A73BBFF849955F5104C8 /* Pods-CATmistry-CATmistryUITests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-CATmistry-CATmistryUITests-umbrella.h"; sourceTree = "<group>"; };
+		6663D93A6AEEDC9BB5D944B46C236598 /* Pods-CATmistry.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-CATmistry.modulemap"; sourceTree = "<group>"; };
+		6D21810D1B4E0AAAB9BFB2A1E2F28BCB /* Pods-CATmistryTests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-CATmistryTests-acknowledgements.plist"; sourceTree = "<group>"; };
+		75A161286994446C0A18F548F1A1CFD3 /* Pods-CATmistry-CATmistryUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-CATmistry-CATmistryUITests.release.xcconfig"; sourceTree = "<group>"; };
+		858E747BC24F8A96D5A92D4628DDB8D8 /* Pods-CATmistry-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-CATmistry-dummy.m"; sourceTree = "<group>"; };
+		8A9A965018F76FB5D492509DC085CF93 /* Pods-CATmistry-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-CATmistry-acknowledgements.plist"; sourceTree = "<group>"; };
 		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		A0693F2035FF2012B9823406343C175A /* StepSlider.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = StepSlider.modulemap; sourceTree = "<group>"; };
-		B1F872FB7BC592D10322E4005A697333 /* Pods-CATmistry-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-CATmistry-umbrella.h"; sourceTree = "<group>"; };
-		B30F8FA5053618E4AF5D0E4133202F56 /* Pods-CATmistry-CATmistryUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-CATmistry-CATmistryUITests.release.xcconfig"; sourceTree = "<group>"; };
-		B339C3348658DE5849B69C095FB2EFFC /* Pods-CATmistry-CATmistryUITests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-CATmistry-CATmistryUITests-umbrella.h"; sourceTree = "<group>"; };
-		B44FD0B9A220A1430D98240E05086B23 /* Pods-CATmistryTests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-CATmistryTests-umbrella.h"; sourceTree = "<group>"; };
-		B4A242E1E8370584EAB0B249FB1A3D5B /* Pods-CATmistry-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-CATmistry-acknowledgements.markdown"; sourceTree = "<group>"; };
-		B79B8D429201EBC5229673DAAA88BCC8 /* Pods-CATmistry-CATmistryUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-CATmistry-CATmistryUITests.debug.xcconfig"; sourceTree = "<group>"; };
-		B9DB92936617794BF50B9E881265F969 /* Pods-CATmistry-CATmistryUITests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-CATmistry-CATmistryUITests-acknowledgements.markdown"; sourceTree = "<group>"; };
-		C51E721F2B7F3348E4AE9B75BF09E529 /* Pods-CATmistry.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-CATmistry.modulemap"; sourceTree = "<group>"; };
-		C686FBCA2C8289C331413E218C27B74A /* Pods-CATmistry-CATmistryUITests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-CATmistry-CATmistryUITests.modulemap"; sourceTree = "<group>"; };
-		D3662EA576F86B7153F249800D05C3AE /* Pods-CATmistryTests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-CATmistryTests-acknowledgements.plist"; sourceTree = "<group>"; };
+		AC6B2D83389839E57C01B84458249B9A /* Pods-CATmistry-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-CATmistry-acknowledgements.markdown"; sourceTree = "<group>"; };
+		B38EC23DBCEDB2B79B8BD4E4DE07C0E5 /* Pods-CATmistryTests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-CATmistryTests-dummy.m"; sourceTree = "<group>"; };
+		B9E7B093A3914997D5B940F35E51CD43 /* Pods-CATmistryTests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-CATmistryTests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		C78988FEBBA59B9A0ACDF22CFF976705 /* Pods-CATmistryTests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-CATmistryTests-umbrella.h"; sourceTree = "<group>"; };
+		C9E205F534595F64295CC5317D3328B5 /* Pods-CATmistryTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-CATmistryTests.release.xcconfig"; sourceTree = "<group>"; };
+		D1DCCA60715AF8C215BB996AA3034A3D /* Pods-CATmistry.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-CATmistry.debug.xcconfig"; sourceTree = "<group>"; };
+		D222C8A8DA36562CF9F766F94346AC73 /* Pods-CATmistryTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-CATmistryTests.debug.xcconfig"; sourceTree = "<group>"; };
 		DD93AD45B208594D72A8FDBD9DB090AB /* Pods_CATmistry.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_CATmistry.framework; path = "Pods-CATmistry.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
-		E04764EBC3898B013CDC8C067E743017 /* Pods-CATmistryTests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-CATmistryTests-acknowledgements.markdown"; sourceTree = "<group>"; };
-		E2B27CE666193C549B892172BCEC9563 /* StepSlider-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "StepSlider-Info.plist"; sourceTree = "<group>"; };
-		E2E85B2B47C3171BE05B7CDCBBCF6FE2 /* Pods-CATmistry.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-CATmistry.release.xcconfig"; sourceTree = "<group>"; };
-		E4C7C1E9FFDB2E7CA763DCF6841A95F2 /* StepSlider-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "StepSlider-umbrella.h"; sourceTree = "<group>"; };
+		DE0FE72598EC82D7D9CB8ACD00BF8272 /* Pods-CATmistry-CATmistryUITests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-CATmistry-CATmistryUITests-Info.plist"; sourceTree = "<group>"; };
 		EAFC6138C14D933F42188A79CC584444 /* Pods_CATmistryTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_CATmistryTests.framework; path = "Pods-CATmistryTests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
-		EC5D1E8FE459108C93985FC6962F9CEE /* Pods-CATmistry-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-CATmistry-dummy.m"; sourceTree = "<group>"; };
-		EFED6DBF560D13F7AB7E6F4A28BB5D81 /* Pods-CATmistry-CATmistryUITests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-CATmistry-CATmistryUITests-dummy.m"; sourceTree = "<group>"; };
-		F1C8FF4B1324F179099A6E803A5CE53D /* StepSlider.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = StepSlider.release.xcconfig; sourceTree = "<group>"; };
-		F30961F98EFE396FDBA8C982AF1E9B05 /* Pods-CATmistryTests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-CATmistryTests-Info.plist"; sourceTree = "<group>"; };
-		F41856F19D3E44A86D62B0428D7211C0 /* StepSlider-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "StepSlider-dummy.m"; sourceTree = "<group>"; };
-		FF6FEF955D082EBFC3305243876408B2 /* Pods-CATmistry-CATmistryUITests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-CATmistry-CATmistryUITests-Info.plist"; sourceTree = "<group>"; };
+		F439BFD5B7D302F7A6CCA1CDA4BC2D41 /* Pods-CATmistry-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-CATmistry-umbrella.h"; sourceTree = "<group>"; };
+		F5A70E750D2CD9CE66D5C4354F00DABB /* Pods-CATmistry-CATmistryUITests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-CATmistry-CATmistryUITests.modulemap"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		0E3EF62F745216AEDCD68D0B1538BCE2 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				752B196C61DCB16CB2771C9C26AC3773 /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		2461FAF4DB504FDE2C140A80F934B41A /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -108,68 +69,91 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		577E40001A724BAE3321B84C668AFCCC /* Frameworks */ = {
+		6918102F72ACBB3C4E7DD090E0B7DE96 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				50D6BE6AD42BA521324C2A8053AEFCB2 /* Foundation.framework in Frameworks */,
+				1349AA17023C0B830CEF008681DEF883 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		AC9C36818CA1ADCC23AF0A8C043703F7 /* Frameworks */ = {
+		BDF0FFD6A40869DFC46C7ECFA633D18F /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6BD55670E718266C78FAF823EF3C7E8A /* Foundation.framework in Frameworks */,
+				E6173C6BAB5C909A99720AF4438EA253 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		0C05CCB119259E3E3195EA9FB59A155F /* StepSlider */ = {
+		07B52BC3C90BB8CD6BC035EAC6E3E2FF /* Targets Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				00F8D8147FFE0D7668C85C567062324A /* StepSlider.h */,
-				19E6142372196778944044AFD1D37A51 /* StepSlider.m */,
-				C412439878C3A840E10AB040CEFA6F07 /* Support Files */,
-			);
-			name = StepSlider;
-			path = StepSlider;
-			sourceTree = "<group>";
-		};
-		1F9071119FB5A4EDBC6BFE000D426BB5 /* Targets Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				E59155DA53FAFAA8B8A72F16AD0E2803 /* Pods-CATmistry */,
-				E4EEA7853C2EF8C08DD733CDF81AE46F /* Pods-CATmistry-CATmistryUITests */,
-				5C02A71F775EA16FC634E317F1C6DF36 /* Pods-CATmistryTests */,
+				16E590977AAC48B4A63D1DE3229736DB /* Pods-CATmistry */,
+				19EAF07E896E20A864E91822BBFB4E2E /* Pods-CATmistry-CATmistryUITests */,
+				75AE5EF90C8BFD5147891CEC8118E389 /* Pods-CATmistryTests */,
 			);
 			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
-		5C02A71F775EA16FC634E317F1C6DF36 /* Pods-CATmistryTests */ = {
+		16E590977AAC48B4A63D1DE3229736DB /* Pods-CATmistry */ = {
 			isa = PBXGroup;
 			children = (
-				70600ECA373CA4AE92FF7D14FA34AD5F /* Pods-CATmistryTests.modulemap */,
-				E04764EBC3898B013CDC8C067E743017 /* Pods-CATmistryTests-acknowledgements.markdown */,
-				D3662EA576F86B7153F249800D05C3AE /* Pods-CATmistryTests-acknowledgements.plist */,
-				845F1CD8B599DFA2C79AA47572651B2E /* Pods-CATmistryTests-dummy.m */,
-				F30961F98EFE396FDBA8C982AF1E9B05 /* Pods-CATmistryTests-Info.plist */,
-				B44FD0B9A220A1430D98240E05086B23 /* Pods-CATmistryTests-umbrella.h */,
-				0E55CCB4D9612ED8FAC319C3DE154DFE /* Pods-CATmistryTests.debug.xcconfig */,
-				45F01A76CDAC41CF977BC360283D516D /* Pods-CATmistryTests.release.xcconfig */,
+				6663D93A6AEEDC9BB5D944B46C236598 /* Pods-CATmistry.modulemap */,
+				AC6B2D83389839E57C01B84458249B9A /* Pods-CATmistry-acknowledgements.markdown */,
+				8A9A965018F76FB5D492509DC085CF93 /* Pods-CATmistry-acknowledgements.plist */,
+				858E747BC24F8A96D5A92D4628DDB8D8 /* Pods-CATmistry-dummy.m */,
+				2A09EF2D7438A4539888BF665448468D /* Pods-CATmistry-Info.plist */,
+				F439BFD5B7D302F7A6CCA1CDA4BC2D41 /* Pods-CATmistry-umbrella.h */,
+				D1DCCA60715AF8C215BB996AA3034A3D /* Pods-CATmistry.debug.xcconfig */,
+				2E65C772F68B0DE9B399814142AE7ACF /* Pods-CATmistry.release.xcconfig */,
+			);
+			name = "Pods-CATmistry";
+			path = "Target Support Files/Pods-CATmistry";
+			sourceTree = "<group>";
+		};
+		19EAF07E896E20A864E91822BBFB4E2E /* Pods-CATmistry-CATmistryUITests */ = {
+			isa = PBXGroup;
+			children = (
+				F5A70E750D2CD9CE66D5C4354F00DABB /* Pods-CATmistry-CATmistryUITests.modulemap */,
+				2480404FE33B57A6C43CC56B488758C6 /* Pods-CATmistry-CATmistryUITests-acknowledgements.markdown */,
+				5B49ABB20CC332C129EFF288E7E44908 /* Pods-CATmistry-CATmistryUITests-acknowledgements.plist */,
+				005C502612B3A72FDD98D08C4995B84C /* Pods-CATmistry-CATmistryUITests-dummy.m */,
+				DE0FE72598EC82D7D9CB8ACD00BF8272 /* Pods-CATmistry-CATmistryUITests-Info.plist */,
+				5F2281A8ACD6A73BBFF849955F5104C8 /* Pods-CATmistry-CATmistryUITests-umbrella.h */,
+				56B85981DD5825CBAF23F91AD0208078 /* Pods-CATmistry-CATmistryUITests.debug.xcconfig */,
+				75A161286994446C0A18F548F1A1CFD3 /* Pods-CATmistry-CATmistryUITests.release.xcconfig */,
+			);
+			name = "Pods-CATmistry-CATmistryUITests";
+			path = "Target Support Files/Pods-CATmistry-CATmistryUITests";
+			sourceTree = "<group>";
+		};
+		4FFCAD9C859A9CB40F99714C94CF3E64 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				DD93AD45B208594D72A8FDBD9DB090AB /* Pods_CATmistry.framework */,
+				126ABEF127187B19F6BD8076FF78529B /* Pods_CATmistry_CATmistryUITests.framework */,
+				EAFC6138C14D933F42188A79CC584444 /* Pods_CATmistryTests.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		75AE5EF90C8BFD5147891CEC8118E389 /* Pods-CATmistryTests */ = {
+			isa = PBXGroup;
+			children = (
+				393E98EB23DAF966159A41D34EAD872F /* Pods-CATmistryTests.modulemap */,
+				B9E7B093A3914997D5B940F35E51CD43 /* Pods-CATmistryTests-acknowledgements.markdown */,
+				6D21810D1B4E0AAAB9BFB2A1E2F28BCB /* Pods-CATmistryTests-acknowledgements.plist */,
+				B38EC23DBCEDB2B79B8BD4E4DE07C0E5 /* Pods-CATmistryTests-dummy.m */,
+				2A30DDF6A8EA082AE2932C78C111D160 /* Pods-CATmistryTests-Info.plist */,
+				C78988FEBBA59B9A0ACDF22CFF976705 /* Pods-CATmistryTests-umbrella.h */,
+				D222C8A8DA36562CF9F766F94346AC73 /* Pods-CATmistryTests.debug.xcconfig */,
+				C9E205F534595F64295CC5317D3328B5 /* Pods-CATmistryTests.release.xcconfig */,
 			);
 			name = "Pods-CATmistryTests";
 			path = "Target Support Files/Pods-CATmistryTests";
-			sourceTree = "<group>";
-		};
-		BEF48B28706F2693325C2F9D10C454C8 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				0C05CCB119259E3E3195EA9FB59A155F /* StepSlider */,
-			);
-			name = Pods;
 			sourceTree = "<group>";
 		};
 		C0834CEBB1379A84116EF29F93051C60 /* iOS */ = {
@@ -180,29 +164,13 @@
 			name = iOS;
 			sourceTree = "<group>";
 		};
-		C412439878C3A840E10AB040CEFA6F07 /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				A0693F2035FF2012B9823406343C175A /* StepSlider.modulemap */,
-				F41856F19D3E44A86D62B0428D7211C0 /* StepSlider-dummy.m */,
-				E2B27CE666193C549B892172BCEC9563 /* StepSlider-Info.plist */,
-				5355BD1142BD9563E61AFD70F40D17C0 /* StepSlider-prefix.pch */,
-				E4C7C1E9FFDB2E7CA763DCF6841A95F2 /* StepSlider-umbrella.h */,
-				7E74BC72AEF7C810E517C9D380A0357E /* StepSlider.debug.xcconfig */,
-				F1C8FF4B1324F179099A6E803A5CE53D /* StepSlider.release.xcconfig */,
-			);
-			name = "Support Files";
-			path = "../Target Support Files/StepSlider";
-			sourceTree = "<group>";
-		};
 		CF1408CF629C7361332E53B88F7BD30C = {
 			isa = PBXGroup;
 			children = (
 				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
 				D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */,
-				BEF48B28706F2693325C2F9D10C454C8 /* Pods */,
-				D5F96795ECDD4AF915DF64EE7397DEC4 /* Products */,
-				1F9071119FB5A4EDBC6BFE000D426BB5 /* Targets Support Files */,
+				4FFCAD9C859A9CB40F99714C94CF3E64 /* Products */,
+				07B52BC3C90BB8CD6BC035EAC6E3E2FF /* Targets Support Files */,
 			);
 			sourceTree = "<group>";
 		};
@@ -214,76 +182,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		D5F96795ECDD4AF915DF64EE7397DEC4 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				DD93AD45B208594D72A8FDBD9DB090AB /* Pods_CATmistry.framework */,
-				126ABEF127187B19F6BD8076FF78529B /* Pods_CATmistry_CATmistryUITests.framework */,
-				EAFC6138C14D933F42188A79CC584444 /* Pods_CATmistryTests.framework */,
-				7A6F71E1E2C33927DF7021A084E1475F /* StepSlider.framework */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		E4EEA7853C2EF8C08DD733CDF81AE46F /* Pods-CATmistry-CATmistryUITests */ = {
-			isa = PBXGroup;
-			children = (
-				C686FBCA2C8289C331413E218C27B74A /* Pods-CATmistry-CATmistryUITests.modulemap */,
-				B9DB92936617794BF50B9E881265F969 /* Pods-CATmistry-CATmistryUITests-acknowledgements.markdown */,
-				716DD367969036E2473383BDBF7B4E22 /* Pods-CATmistry-CATmistryUITests-acknowledgements.plist */,
-				EFED6DBF560D13F7AB7E6F4A28BB5D81 /* Pods-CATmistry-CATmistryUITests-dummy.m */,
-				47E95A5DC783C59795E3AA586E236092 /* Pods-CATmistry-CATmistryUITests-frameworks.sh */,
-				FF6FEF955D082EBFC3305243876408B2 /* Pods-CATmistry-CATmistryUITests-Info.plist */,
-				B339C3348658DE5849B69C095FB2EFFC /* Pods-CATmistry-CATmistryUITests-umbrella.h */,
-				B79B8D429201EBC5229673DAAA88BCC8 /* Pods-CATmistry-CATmistryUITests.debug.xcconfig */,
-				B30F8FA5053618E4AF5D0E4133202F56 /* Pods-CATmistry-CATmistryUITests.release.xcconfig */,
-			);
-			name = "Pods-CATmistry-CATmistryUITests";
-			path = "Target Support Files/Pods-CATmistry-CATmistryUITests";
-			sourceTree = "<group>";
-		};
-		E59155DA53FAFAA8B8A72F16AD0E2803 /* Pods-CATmistry */ = {
-			isa = PBXGroup;
-			children = (
-				C51E721F2B7F3348E4AE9B75BF09E529 /* Pods-CATmistry.modulemap */,
-				B4A242E1E8370584EAB0B249FB1A3D5B /* Pods-CATmistry-acknowledgements.markdown */,
-				3BAC6C562748F309B2BA038CE6B310CC /* Pods-CATmistry-acknowledgements.plist */,
-				EC5D1E8FE459108C93985FC6962F9CEE /* Pods-CATmistry-dummy.m */,
-				3E1AB49B0145C3ED9FDD265ADE5D84E9 /* Pods-CATmistry-frameworks.sh */,
-				3457BF83A743ABB01A317D34823847E1 /* Pods-CATmistry-Info.plist */,
-				B1F872FB7BC592D10322E4005A697333 /* Pods-CATmistry-umbrella.h */,
-				4FAA6BC943CCEF890C7E7056D56D481E /* Pods-CATmistry.debug.xcconfig */,
-				E2E85B2B47C3171BE05B7CDCBBCF6FE2 /* Pods-CATmistry.release.xcconfig */,
-			);
-			name = "Pods-CATmistry";
-			path = "Target Support Files/Pods-CATmistry";
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		59C6F587A213D269BC9613DC903D8D45 /* Headers */ = {
+		8E954512B3FE6AB821008F2BD4F77351 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5F56360302C7F440A5E9389DBFD4C360 /* StepSlider-umbrella.h in Headers */,
-				D81FFF05014A2B360374F931A8205F13 /* StepSlider.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		84911C9C86BC6F3052503C5A1613F184 /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				A12E394A40A6D147FA0804794EF96E81 /* Pods-CATmistry-umbrella.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		A90C38E2A6D4627C78156D434ADEEFF0 /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				FC16AAF4D17AB9AD2B8979645461B45E /* Pods-CATmistry-CATmistryUITests-umbrella.h in Headers */,
+				9FB9718D5B5C60283F1BE8BDFFA63535 /* Pods-CATmistry-CATmistryUITests-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -295,22 +201,29 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		C7C6B51F07835620B82B41893D626513 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FA0A32D3779C479E2BCC73B3F75769E0 /* Pods-CATmistry-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
 		4C98358D9B1CE38DD83E718B7005BF97 /* Pods-CATmistry-CATmistryUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 32674A82F0F70C1ED8F8BFA8A5D4F096 /* Build configuration list for PBXNativeTarget "Pods-CATmistry-CATmistryUITests" */;
+			buildConfigurationList = 775E46600379C34DD1C2627F401127B3 /* Build configuration list for PBXNativeTarget "Pods-CATmistry-CATmistryUITests" */;
 			buildPhases = (
-				A90C38E2A6D4627C78156D434ADEEFF0 /* Headers */,
-				99312392287865A1BA8C85B398879807 /* Sources */,
-				AC9C36818CA1ADCC23AF0A8C043703F7 /* Frameworks */,
-				495755B05EAF54B7716C5EF0AB9F090B /* Resources */,
+				8E954512B3FE6AB821008F2BD4F77351 /* Headers */,
+				433DF4DB95605090F7EC3D0ADB187C81 /* Sources */,
+				6918102F72ACBB3C4E7DD090E0B7DE96 /* Frameworks */,
+				3A7B39887DB41AF5341FFC234EFA0859 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				AF6F065FED0B005889FEAC7251FBED8E /* PBXTargetDependency */,
 			);
 			name = "Pods-CATmistry-CATmistryUITests";
 			productName = "Pods-CATmistry-CATmistryUITests";
@@ -319,39 +232,20 @@
 		};
 		520F8B9B49D3E363FBBBBCBBAD6CDB4F /* Pods-CATmistry */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = D0479D984311D66CFFF51E2BB67EB472 /* Build configuration list for PBXNativeTarget "Pods-CATmistry" */;
+			buildConfigurationList = 7A102983E117A8565C05C6A002C30B52 /* Build configuration list for PBXNativeTarget "Pods-CATmistry" */;
 			buildPhases = (
-				84911C9C86BC6F3052503C5A1613F184 /* Headers */,
-				3EA390E5643C4E8CFC6C7E5E84031BB3 /* Sources */,
-				577E40001A724BAE3321B84C668AFCCC /* Frameworks */,
-				9F458D25E627E7BD802782D07F2039EC /* Resources */,
+				C7C6B51F07835620B82B41893D626513 /* Headers */,
+				13D60DE033527186AD9A422751C8CC75 /* Sources */,
+				BDF0FFD6A40869DFC46C7ECFA633D18F /* Frameworks */,
+				C3BD90081623AE63029E4F32716425E0 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				FAD9D72B4AE890A8B00D06BEE355CDE9 /* PBXTargetDependency */,
 			);
 			name = "Pods-CATmistry";
 			productName = "Pods-CATmistry";
 			productReference = DD93AD45B208594D72A8FDBD9DB090AB /* Pods_CATmistry.framework */;
-			productType = "com.apple.product-type.framework";
-		};
-		52EA8B3667B8849AB63C4EF323988478 /* StepSlider */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 762C909E9064371A8E436819665D6A5A /* Build configuration list for PBXNativeTarget "StepSlider" */;
-			buildPhases = (
-				59C6F587A213D269BC9613DC903D8D45 /* Headers */,
-				08A1C407035477AF53E1A0F752CC8387 /* Sources */,
-				0E3EF62F745216AEDCD68D0B1538BCE2 /* Frameworks */,
-				70E1DFED6A003AF718BE7F87FF8C2B32 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = StepSlider;
-			productName = StepSlider;
-			productReference = 7A6F71E1E2C33927DF7021A084E1475F /* StepSlider.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		8AE925A3229A187EC4307820491B24B0 /* Pods-CATmistryTests */ = {
@@ -366,7 +260,7 @@
 			buildRules = (
 			);
 			dependencies = (
-				8DC553FF7743192C57007849AFCDB3BE /* PBXTargetDependency */,
+				EF454080ACE2C6086AA00B8C4613699F /* PBXTargetDependency */,
 			);
 			name = "Pods-CATmistryTests";
 			productName = "Pods-CATmistryTests";
@@ -383,7 +277,7 @@
 				LastUpgradeCheck = 1100;
 			};
 			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
-			compatibilityVersion = "Xcode 9.3";
+			compatibilityVersion = "Xcode 10.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -391,27 +285,19 @@
 				Base,
 			);
 			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
-			productRefGroup = D5F96795ECDD4AF915DF64EE7397DEC4 /* Products */;
+			productRefGroup = 4FFCAD9C859A9CB40F99714C94CF3E64 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
 				520F8B9B49D3E363FBBBBCBBAD6CDB4F /* Pods-CATmistry */,
 				4C98358D9B1CE38DD83E718B7005BF97 /* Pods-CATmistry-CATmistryUITests */,
 				8AE925A3229A187EC4307820491B24B0 /* Pods-CATmistryTests */,
-				52EA8B3667B8849AB63C4EF323988478 /* StepSlider */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		495755B05EAF54B7716C5EF0AB9F090B /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		70E1DFED6A003AF718BE7F87FF8C2B32 /* Resources */ = {
+		3A7B39887DB41AF5341FFC234EFA0859 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -425,7 +311,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		9F458D25E627E7BD802782D07F2039EC /* Resources */ = {
+		C3BD90081623AE63029E4F32716425E0 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -435,28 +321,19 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		08A1C407035477AF53E1A0F752CC8387 /* Sources */ = {
+		13D60DE033527186AD9A422751C8CC75 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				26942B0A48F3437796B278C0BAEA97BB /* StepSlider-dummy.m in Sources */,
-				E2786D386232580B299E26AB34E198AE /* StepSlider.m in Sources */,
+				3C1C045D4D0C433F6016F927189D2BAF /* Pods-CATmistry-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		3EA390E5643C4E8CFC6C7E5E84031BB3 /* Sources */ = {
+		433DF4DB95605090F7EC3D0ADB187C81 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ACE7A2D5D5CEF59768E251DD6A65A8B6 /* Pods-CATmistry-dummy.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		99312392287865A1BA8C85B398879807 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				C91D7087FF00434A236B52E2112356AE /* Pods-CATmistry-CATmistryUITests-dummy.m in Sources */,
+				EB69338A17408DEED1AB49FEBCE3FF85 /* Pods-CATmistry-CATmistryUITests-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -471,31 +348,20 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		8DC553FF7743192C57007849AFCDB3BE /* PBXTargetDependency */ = {
+		EF454080ACE2C6086AA00B8C4613699F /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = "Pods-CATmistry";
 			target = 520F8B9B49D3E363FBBBBCBBAD6CDB4F /* Pods-CATmistry */;
-			targetProxy = 03D633E2C2ED9A4B1A54E1C51EA2B9C5 /* PBXContainerItemProxy */;
-		};
-		AF6F065FED0B005889FEAC7251FBED8E /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = StepSlider;
-			target = 52EA8B3667B8849AB63C4EF323988478 /* StepSlider */;
-			targetProxy = FA5F414B69FA526C747E0CD3BFF0B4DB /* PBXContainerItemProxy */;
-		};
-		FAD9D72B4AE890A8B00D06BEE355CDE9 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = StepSlider;
-			target = 52EA8B3667B8849AB63C4EF323988478 /* StepSlider */;
-			targetProxy = 249EAFBFA78389FF8EDBD77D611A55F6 /* PBXContainerItemProxy */;
+			targetProxy = A376B649EAA9B5C5F274CCD0CA160B76 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		1DB0615D1C7AD431EFC957830C5D772E /* Debug */ = {
+		1737846B4E335CDFC9EAFE2324EC967A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7E74BC72AEF7C810E517C9D380A0357E /* StepSlider.debug.xcconfig */;
+			baseConfigurationReference = 56B85981DD5825CBAF23F91AD0208078 /* Pods-CATmistry-CATmistryUITests.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -506,22 +372,61 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/StepSlider/StepSlider-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/StepSlider/StepSlider-Info.plist";
+				INFOPLIST_FILE = "Target Support Files/Pods-CATmistry-CATmistryUITests/Pods-CATmistry-CATmistryUITests-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MODULEMAP_FILE = "Target Support Files/StepSlider/StepSlider.modulemap";
-				PRODUCT_MODULE_NAME = StepSlider;
-				PRODUCT_NAME = StepSlider;
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-CATmistry-CATmistryUITests/Pods-CATmistry-CATmistryUITests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		3F26CCE45EED3DF0CC58F13AFA771E5F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D1DCCA60715AF8C215BB996AA3034A3D /* Pods-CATmistry.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-CATmistry/Pods-CATmistry-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-CATmistry/Pods-CATmistry.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -592,9 +497,9 @@
 			};
 			name = Debug;
 		};
-		67C1BC691E38FB3454C2A638FB98AAC9 /* Release */ = {
+		6EF4C793EE30701E5EBBD762CAB7F3F2 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E2E85B2B47C3171BE05B7CDCBBCF6FE2 /* Pods-CATmistry.release.xcconfig */;
+			baseConfigurationReference = 75A161286994446C0A18F548F1A1CFD3 /* Pods-CATmistry-CATmistryUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CLANG_ENABLE_OBJC_WEAK = NO;
@@ -607,7 +512,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-CATmistry/Pods-CATmistry-Info.plist";
+				INFOPLIST_FILE = "Target Support Files/Pods-CATmistry-CATmistryUITests/Pods-CATmistry-CATmistryUITests-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.2;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -616,7 +521,7 @@
 					"@loader_path/Frameworks",
 				);
 				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-CATmistry/Pods-CATmistry.modulemap";
+				MODULEMAP_FILE = "Target Support Files/Pods-CATmistry-CATmistryUITests/Pods-CATmistry-CATmistryUITests.modulemap";
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PODS_ROOT = "$(SRCROOT)";
@@ -631,46 +536,9 @@
 			};
 			name = Release;
 		};
-		6EA5E55AD08ABE913323CAD53EDB7F82 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = F1C8FF4B1324F179099A6E803A5CE53D /* StepSlider.release.xcconfig */;
-			buildSettings = {
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/StepSlider/StepSlider-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/StepSlider/StepSlider-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MODULEMAP_FILE = "Target Support Files/StepSlider/StepSlider.modulemap";
-				PRODUCT_MODULE_NAME = StepSlider;
-				PRODUCT_NAME = StepSlider;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
 		71B88B1332A4C8CC54E301F7017AA376 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 45F01A76CDAC41CF977BC360283D516D /* Pods-CATmistryTests.release.xcconfig */;
+			baseConfigurationReference = C9E205F534595F64295CC5317D3328B5 /* Pods-CATmistryTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CLANG_ENABLE_OBJC_WEAK = NO;
@@ -709,7 +577,7 @@
 		};
 		78BDA7FF42CBCF517E3BCB6DEDE35DDA /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0E55CCB4D9612ED8FAC319C3DE154DFE /* Pods-CATmistryTests.debug.xcconfig */;
+			baseConfigurationReference = D222C8A8DA36562CF9F766F94346AC73 /* Pods-CATmistryTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CLANG_ENABLE_OBJC_WEAK = NO;
@@ -805,48 +673,9 @@
 			};
 			name = Release;
 		};
-		B0F7A936BE8F614D01EFE6AA2B14B544 /* Release */ = {
+		E6B9F5E72077E8E3FD3BCC7E1982F804 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B30F8FA5053618E4AF5D0E4133202F56 /* Pods-CATmistry-CATmistryUITests.release.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-CATmistry-CATmistryUITests/Pods-CATmistry-CATmistryUITests-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.2;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-CATmistry-CATmistryUITests/Pods-CATmistry-CATmistryUITests.modulemap";
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		C8BC28A39EE14EBC790A8D29B3589E47 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4FAA6BC943CCEF890C7E7056D56D481E /* Pods-CATmistry.debug.xcconfig */;
+			baseConfigurationReference = 2E65C772F68B0DE9B399814142AE7ACF /* Pods-CATmistry.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CLANG_ENABLE_OBJC_WEAK = NO;
@@ -877,48 +706,11 @@
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
-			name = Debug;
-		};
-		D2A2BF12D877AACEFB2376EA34F7BB50 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = B79B8D429201EBC5229673DAAA88BCC8 /* Pods-CATmistry-CATmistryUITests.debug.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-CATmistry-CATmistryUITests/Pods-CATmistry-CATmistryUITests-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.2;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-CATmistry-CATmistryUITests/Pods-CATmistry-CATmistryUITests.modulemap";
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
+			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
@@ -932,15 +724,6 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		32674A82F0F70C1ED8F8BFA8A5D4F096 /* Build configuration list for PBXNativeTarget "Pods-CATmistry-CATmistryUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				D2A2BF12D877AACEFB2376EA34F7BB50 /* Debug */,
-				B0F7A936BE8F614D01EFE6AA2B14B544 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -950,20 +733,20 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		762C909E9064371A8E436819665D6A5A /* Build configuration list for PBXNativeTarget "StepSlider" */ = {
+		775E46600379C34DD1C2627F401127B3 /* Build configuration list for PBXNativeTarget "Pods-CATmistry-CATmistryUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				1DB0615D1C7AD431EFC957830C5D772E /* Debug */,
-				6EA5E55AD08ABE913323CAD53EDB7F82 /* Release */,
+				1737846B4E335CDFC9EAFE2324EC967A /* Debug */,
+				6EF4C793EE30701E5EBBD762CAB7F3F2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		D0479D984311D66CFFF51E2BB67EB472 /* Build configuration list for PBXNativeTarget "Pods-CATmistry" */ = {
+		7A102983E117A8565C05C6A002C30B52 /* Build configuration list for PBXNativeTarget "Pods-CATmistry" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				C8BC28A39EE14EBC790A8D29B3589E47 /* Debug */,
-				67C1BC691E38FB3454C2A638FB98AAC9 /* Release */,
+				3F26CCE45EED3DF0CC58F13AFA771E5F /* Debug */,
+				E6B9F5E72077E8E3FD3BCC7E1982F804 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
