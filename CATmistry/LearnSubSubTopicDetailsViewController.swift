@@ -31,9 +31,17 @@ class LearnSubSubTopicDetailsViewController: UIViewController {
         // Do any additional setup after loading the view.
         self.title = flexibleTitle
         
-        warningLabel.layer.cornerRadius = 5
-        warningLabel.layer.masksToBounds = true
-        warningLabel.text = "⚠️ Methyl Orange has a transitation range from more acidic to less acidic"
+        if (specificChapter.content.warningText != nil) {
+            warningLabel.layer.cornerRadius = 5
+            warningLabel.layer.masksToBounds = true
+            warningLabel.text = specificChapter.content.warningText
+            warningIsVisibleConstraint?.isActive = true
+            warningIsHiddenConstraint?.isActive = false
+        } else {
+            warningLabel.isHidden = true
+            warningIsVisibleConstraint?.isActive = false
+            warningIsHiddenConstraint?.isActive = true
+        }
         
         subSubTopicImageView.image = UIImage(named: specificChapter.content.image)
         firstAttributeLabel.text = specificChapter.content.firstAttributionText
