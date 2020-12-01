@@ -48,6 +48,14 @@ struct SubSubContent {
     var firstAttributionText: String
     var secondAttributionText: String
     var thirdAttributionText: String
+    var lowpH: Float? = nil
+    var highpH: Float? = nil
+    var lowpHColor: String? = nil
+    var middlepHColor: String? = nil
+    var highpHColor: String? = nil
+    var lowpHColorName: String? = nil
+    var middlepHColorName: String? = nil
+    var highpHColorName: String? = nil
 }
 
 struct GameTopic {
@@ -88,12 +96,12 @@ var learnTopics = [
     Topic(title: "pH and Indicators", pic: "pH-and-indicators.png", pointsNeeded: 20, subTopics: [
         SubTopic(title: "What is pH?", pic: "pH.png", needSlider: true, content: SubContent(definition: "pH (the Power of Hydrogen) is a scale of 1 to 14 used to specify the acidity or basicity of a solution. The pH scale indicates the concentration of hydrogen ions in a solution.\n\nA lower pH (1 - 6.9) indicates that the solution is acidic, while a higher pH (7.1 - 14) indicates that the solution is alkaline. A pH of 7 indicates that the solution is neutral (neither acidic nor alkaline)."), subTopics: nil, navTitle: "pH"),
         SubTopic(title: "What are Indicators?", pic: "pH-and-indicators.png", needSlider: false, content: SubContent(definition: "Indicators are chemicals which turn into different colours depending on the pH of the solution. The transition range is the range in which the indicator changes from one colour to the other."), subTopics: [
-            SubSubTopic(topic: "Methyl Orange", picture: "methyl-orange.png", id: 1, content: SubSubContent(image: "methyl-orange.png", firstAttributionText: "", secondAttributionText: "", thirdAttributionText: "")),
-            SubSubTopic(topic: "Litmus", picture: "litmus.png", id: 1, content: SubSubContent(image: "methyl-orange.png", firstAttributionText: "", secondAttributionText: "", thirdAttributionText: "")),
-            SubSubTopic(topic: "Phenolphthalein", picture: "phenolphthalein.png", id: 1, content: SubSubContent(image: "methyl-orange.png", firstAttributionText: "", secondAttributionText: "", thirdAttributionText: "")),
-            SubSubTopic(topic: "Screened Methyl Orange", picture: "screened-methyl-orange.png", id: 1, content: SubSubContent(image: "methyl-orange.png", firstAttributionText: "", secondAttributionText: "", thirdAttributionText: "")),
-            SubSubTopic(topic: "Thymol Blue", picture: "methyl-orange.png", id: 1, content: SubSubContent(image: "methyl-orange.png", firstAttributionText: "", secondAttributionText: "", thirdAttributionText: "")),
-            SubSubTopic(topic: "Universal Indicator", picture: "universal-indicator.png", id: 1, content: SubSubContent(image: "methyl-orange.png", firstAttributionText: "", secondAttributionText: "", thirdAttributionText: ""))
+            SubSubTopic(topic: "Methyl Orange", picture: "methyl-orange.jpg", id: 2, content: SubSubContent(image: "methyl-orange.jpg", firstAttributionText: "", secondAttributionText: "Colour Below Transition Range: Red \nTransition Range: pH 3.1 to pH 4.4 \nColour Above Transition Range: Yellow", thirdAttributionText: "Try out the interactive slider below:", lowpH: 3.1, highpH: 4.4, lowpHColor: "FF0000", middlepHColor: "FF7500", highpHColor: "FFE600", lowpHColorName: "Red", middlepHColorName: "Orange", highpHColorName: "Yellow")),
+            SubSubTopic(topic: "Litmus", picture: "litmus.png", id: 1, content: SubSubContent(image: "litmus.png", firstAttributionText: "", secondAttributionText: "Colour Below Transition Range: Red \nTransition Range: pH 4.5 to pH 8.3 \nColour Above Transition Range: Blue", thirdAttributionText: "Try out the interactive slider below:", lowpH: 4.5, highpH: 8.3, lowpHColor: "", middlepHColor: "", highpHColor: "", lowpHColorName: "Red", middlepHColorName: "Purple", highpHColorName: "Blue")),
+            SubSubTopic(topic: "Phenolphthalein", picture: "phenolphthalein.png", id: 1, content: SubSubContent(image: "methyl-orange.png", firstAttributionText: "", secondAttributionText: "Colour Below Transition Range: Colourless \nTransition Range: pH 8.3 to pH 10.0 \nColour Above Transition Range: Pink", thirdAttributionText: "Try out the interactive slider below:", lowpH: 8.3, highpH: 10.0, lowpHColor: "", middlepHColor: "", highpHColor: "", lowpHColorName: "Colourless", middlepHColorName: "Light Pink", highpHColorName: "Pink")),
+            SubSubTopic(topic: "Screened Methyl Orange", picture: "screened-methyl-orange.png", id: 1, content: SubSubContent(image: "methyl-orange.png", firstAttributionText: "", secondAttributionText: "", thirdAttributionText: "Try out the interactive slider below:", lowpH: 1, highpH: 1, lowpHColor: "", middlepHColor: "", highpHColor: "", lowpHColorName: "", middlepHColorName: "", highpHColorName: "")),
+            SubSubTopic(topic: "Thymol Blue", picture: "thymol-blue.png", id: 1, content: SubSubContent(image: "methyl-orange.png", firstAttributionText: "", secondAttributionText: "", thirdAttributionText: "Try out the interactive slider below:", lowpH: 1, highpH: 1, lowpHColor: "", middlepHColor: "", highpHColor: "", lowpHColorName: "", middlepHColorName: "", highpHColorName: "")),
+            SubSubTopic(topic: "Universal Indicator", picture: "universal-indicator.png", id: 1, content: SubSubContent(image: "methyl-orange.png", firstAttributionText: "", secondAttributionText: "", thirdAttributionText: "Try out the interactive slider below:", lowpH: 1, highpH: 1, lowpHColor: "", middlepHColor: "", highpHColor: "", lowpHColorName: "", middlepHColorName: "", highpHColorName: ""))
         ], navTitle: "Indicators"),
         SubTopic(title: "Take the Quiz", pic: "quiz.png", needSlider: false, content: SubContent(definition: ""), subTopics: [], navTitle: "Take the Quiz")
     ], errorLabel: "Please complete Chapter 2"),
