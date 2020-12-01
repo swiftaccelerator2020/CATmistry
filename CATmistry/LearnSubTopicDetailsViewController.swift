@@ -10,7 +10,7 @@ import UIKit
 class LearnSubTopicDetailsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     var specificSubTopic: SubTopic!
-    
+     
     @IBOutlet weak var pHSlider: UISlider!
     @IBOutlet weak var maxLabel: UILabel!
     @IBOutlet weak var minLabel: UILabel!
