@@ -259,7 +259,14 @@ Given the properties of each Group of the periodic table, select the correct gro
                                 <state key="normal" title="START GAME">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <segue destination="Vph-Yc-cjH" kind="show" id="tAl-fe-g5g"/>
+                                </connections>
                             </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="bowl" translatesAutoresizingMaskIntoConstraints="NO" id="ryL-fI-Fif">
+                                <rect key="frame" x="16" y="648" width="140" height="125"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="BKy-cn-q26"/>
                         <color key="backgroundColor" red="0.70781546829999997" green="0.87274885179999995" blue="0.99610430000000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -273,6 +280,22 @@ Given the properties of each Group of the periodic table, select the correct gro
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2QJ-1y-jCk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="833.84615384615381" y="1264.6919431279621"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="OMw-4Q-DVZ">
+            <objects>
+                <viewController id="Vph-Yc-cjH" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="dic-67-1Ar">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="MF8-ge-vWh"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="X9m-AO-FC8"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mVe-KW-IaH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="834" y="2010"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="vSM-Tt-jq0">
@@ -893,6 +916,7 @@ Given the properties of each Group of the periodic table, select the correct gro
     </inferredMetricsTieBreakers>
     <resources>
         <image name="books.vertical.fill" catalog="system" width="128" height="100"/>
+        <image name="bowl" width="130" height="109"/>
         <image name="cat" width="156" height="197.33332824707031"/>
         <image name="gamecontroller.fill" catalog="system" width="128" height="80"/>
         <image name="lock" width="512" height="512"/>
