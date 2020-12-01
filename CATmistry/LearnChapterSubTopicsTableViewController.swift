@@ -10,7 +10,7 @@ import UIKit
 class LearnChapterSubTopicsTableViewController: UITableViewController {
     
     var flexibleTitle: String!
-    var specificChapter: [SubTopic]!
+    var specificChapter: [SubTopic]! 
     
     override func viewDidLoad() {
         super.viewDidLoad()
