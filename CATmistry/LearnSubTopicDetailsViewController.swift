@@ -10,7 +10,7 @@ import UIKit
 class LearnSubTopicDetailsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     var specificSubTopic: SubTopic!
-     
+    
     @IBOutlet weak var pHSlider: UISlider!
     @IBOutlet weak var maxLabel: UILabel!
     @IBOutlet weak var minLabel: UILabel!
@@ -44,9 +44,23 @@ class LearnSubTopicDetailsViewController: UIViewController, UITableViewDataSourc
         definitionLabel?.text = specificSubTopic.content.definition
         
         if (!specificSubTopic.needSlider) {
-            pHSlidersVertStack?.isHidden = true
-            pHSliderVertStackIsVisibleConstraint?.isActive = false
-            pHSliderVertStackIsHiddenConstraint?.isActive = true
+            if (specificSubTopic.navTitle == "Periodic Table") {
+                pHSlider.isHidden = true
+                minLabel.isHidden = true
+                maxLabel.isHidden = true
+                sliderValueLabel.isHidden = true
+                pHImageView.image = UIImage(named: "understand-periodic-table.png")
+            } else if (specificSubTopic.navTitle == "Elements") {
+                pHSlider.isHidden = true
+                minLabel.isHidden = true
+                maxLabel.isHidden = true
+                sliderValueLabel.isHidden = true
+                pHImageView.image = UIImage(named: "understand-elements.png")
+            } else {
+                pHSlidersVertStack?.isHidden = true
+                pHSliderVertStackIsVisibleConstraint?.isActive = false
+                pHSliderVertStackIsHiddenConstraint?.isActive = true
+            }
         } else {
             pHSlidersVertStack?.isHidden = false
             pHSliderVertStackIsVisibleConstraint?.isActive = true
@@ -100,12 +114,12 @@ class LearnSubTopicDetailsViewController: UIViewController, UITableViewDataSourc
     }
     
     
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
+    // MARK: - Navigation
+    
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destination.
+        // Pass the selected object to the new view controller.
         if segue.identifier == "goToSubSubTopic" {
             let dest = segue.destination as! LearnSubSubTopicDetailsViewController
             let indexPath = self.tableView.indexPathForSelectedRow!
@@ -116,6 +130,6 @@ class LearnSubTopicDetailsViewController: UIViewController, UITableViewDataSourc
             backItem.title = self.title
             navigationItem.backBarButtonItem = backItem
         }
-     }
-     
+    }
+    
 }
