@@ -111,6 +111,10 @@ class LearnSubTopicDetailsViewController: UIViewController, UITableViewDataSourc
             let indexPath = self.tableView.indexPathForSelectedRow!
             dest.flexibleTitle = specificSubTopic.subTopics?[indexPath.row].topic
             dest.specificChapter = specificSubTopic.subTopics?[indexPath.row]
+            dest.subTopicName = specificSubTopic.navTitle
+            let backItem = UIBarButtonItem()
+            backItem.title = self.title
+            navigationItem.backBarButtonItem = backItem
         }
      }
      

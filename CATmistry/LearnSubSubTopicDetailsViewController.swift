@@ -11,11 +11,17 @@ class LearnSubSubTopicDetailsViewController: UIViewController {
     
     var flexibleTitle: String!
     var specificChapter: SubSubTopic!
+    var subTopicName: String!
 
     @IBOutlet weak var subSubTopicImageView: UIImageView!
+    @IBOutlet weak var warningImageView: UIImageView!
+    @IBOutlet weak var warningLabel: UILabel!
     @IBOutlet weak var firstAttributeLabel: UILabel!
     @IBOutlet weak var secondAttributeLabel: UILabel!
     @IBOutlet weak var thirdAttributeLabel: UILabel!
+    @IBOutlet var warningIsVisibleConstraint: NSLayoutConstraint!
+    @IBOutlet var warningIsHiddenConstraint: NSLayoutConstraint!
+    @IBOutlet var indicatorsSliderVertStack: UIStackView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,6 +33,10 @@ class LearnSubSubTopicDetailsViewController: UIViewController {
         firstAttributeLabel.text = specificChapter.content.firstAttributionText
         secondAttributeLabel.text = specificChapter.content.secondAttributionText
         thirdAttributeLabel.text = specificChapter.content.thirdAttributionText
+        
+        if (subTopicName != "Indicators") {
+            indicatorsSliderVertStack.isHidden = true
+        }
     }
     
 

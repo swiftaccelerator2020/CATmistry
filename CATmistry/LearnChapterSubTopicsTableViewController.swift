@@ -113,7 +113,7 @@ class LearnChapterSubTopicsTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if (specificChapter[indexPath.row].title != "Take the Quiz"){
             performSegue(withIdentifier: "goToSubTopicDetails", sender: nil)
-        }else{
+        } else {
             performSegue(withIdentifier: "goToQuiz", sender: nil)
         }
     }
