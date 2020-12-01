@@ -444,11 +444,11 @@
                                 <rect key="frame" x="0.0" y="533.66666666666663" width="390" height="227.33333333333337"/>
                                 <subviews>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="P1S-kZ-JzO">
-                                        <rect key="frame" x="0.0" y="0.0" width="390" height="227"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="390" height="227.33333333333331"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <prototypes>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="subSubTopicCell" rowHeight="80" id="DhD-Xs-JgC" customClass="subSubTopicTableViewCell" customModule="CATmistry" customModuleProvider="target">
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="subSubTopicCell" rowHeight="80" id="DhD-Xs-JgC" customClass="SubSubTopicTableViewCell" customModule="CATmistry" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="28" width="390" height="80"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="DhD-Xs-JgC" id="R3D-ma-UJe">
