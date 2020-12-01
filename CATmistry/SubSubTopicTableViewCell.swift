@@ -7,7 +7,7 @@
 
 import UIKit
 
-class subSubTopicTableViewCell: UITableViewCell {
+class SubSubTopicTableViewCell: UITableViewCell {
 
     @IBOutlet weak var subSubTopicPicture: UIImageView!
     @IBOutlet weak var subSubTopicTitleLabel: UILabel!

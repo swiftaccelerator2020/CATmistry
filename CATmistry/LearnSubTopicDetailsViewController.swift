@@ -87,7 +87,7 @@ class LearnSubTopicDetailsViewController: UIViewController, UITableViewDataSourc
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "subSubTopicCell", for: indexPath)
         
-        if let cell = cell as? subSubTopicTableViewCell{
+        if let cell = cell as? SubSubTopicTableViewCell{
             cell.subSubTopicPicture.image = UIImage(named: (specificSubTopic.subTopics?[indexPath.row].picture)!)
             cell.subSubTopicTitleLabel.text = specificSubTopic.subTopics?[indexPath.row].topic
         }
