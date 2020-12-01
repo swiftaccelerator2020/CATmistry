@@ -56,6 +56,7 @@ struct SubSubContent {
     var lowpHColorName: String? = nil
     var middlepHColorName: String? = nil
     var highpHColorName: String? = nil
+    var needWarning: Bool = false
 }
 
 struct GameTopic {
@@ -89,12 +90,14 @@ var learnTopics = [
     ], errorLabel: ""),
     
     Topic(title: "Separation Methods", pic: "separation-methods.png", pointsNeeded: 10, subTopics: [
-        SubTopic(title: "What is Separation?", pic: "separation-methods.png", needSlider: false, content: SubContent(definition: "A separation process is a method that converts a mixture or solution of chemical substances into two or more distinct product mixtures. \n\nSeparations exploit differences in chemical properties or physical properties (such as size, shape, mass, density, or chemical affinity) between the constituents of a mixture."), subTopics: [], navTitle: "Separation"),
+        SubTopic(title: "What is Separation?", pic: "separation-methods.png", needSlider: false, content: SubContent(definition: "Separation process: \nMethod that converts a mixture/solution of chemical substances into 2 or more mixtures \n\nSeparation exploits differences in chemical properties or physical properties between the parts of a mixture, such as: \n- Size \n- Shape \n- Mass \n- Density \n- Magnetic Conductivity"), subTopics: [
+            SubSubTopic(topic: "Evaporation", picture: "evaporation.png", id: 1, content: SubSubContent(image: "evaporation.png", firstAttributionText: "", secondAttributionText: "", thirdAttributionText: ""))
+        ], navTitle: "Separation"),
         SubTopic(title: "Take the Quiz", pic: "quiz.png", needSlider: false, content: SubContent(definition: ""), subTopics: [], navTitle: "Take the Quiz")
     ], errorLabel: "Please complete Chapter 1"),
     
     Topic(title: "pH and Indicators", pic: "pH-and-indicators.png", pointsNeeded: 20, subTopics: [
-        SubTopic(title: "What is pH?", pic: "pH.png", needSlider: true, content: SubContent(definition: "pH (the Power of Hydrogen) is a scale of 1 to 14 used to specify the acidity or basicity of a solution. The pH scale indicates the concentration of hydrogen ions in a solution.\n\nA lower pH (1 - 6.9) indicates that the solution is acidic, while a higher pH (7.1 - 14) indicates that the solution is alkaline. A pH of 7 indicates that the solution is neutral (neither acidic nor alkaline)."), subTopics: nil, navTitle: "pH"),
+        SubTopic(title: "What is pH?", pic: "pH.png", needSlider: true, content: SubContent(definition: "pH means Power of Hydrogen(concentration of hydrogen ions). \n\nIt is represented on a scale of 1 to 14, which is used to specify the acidity or basicity/alkalinity of a solution. \n\nLower pH (1 - 6.9): Acidic \nHigher pH (7.1 - 14):  Alkaline \npH of 7: Neutral (neither acidic nor alkaline)"), subTopics: nil, navTitle: "pH"),
         SubTopic(title: "What are Indicators?", pic: "pH-and-indicators.png", needSlider: false, content: SubContent(definition: "Indicators are chemicals which turn into different colours depending on the pH of the solution. \n\nThe transition range is the range in which the indicator changes from one colour to the other."), subTopics: [
             SubSubTopic(topic: "Methyl Orange", picture: "methyl-orange.jpg", id: 2, content: SubSubContent(image: "methyl-orange.jpg", firstAttributionText: "", secondAttributionText: "Colour Below Transition Range: Red \nTransition Range: pH 3.1 to pH 4.4 \nColour Above Transition Range: Yellow", thirdAttributionText: "Try out the interactive slider below:", lowpH: 3.1, highpH: 4.4, lowpHColor: "FF0000", middlepHColor: "FF7500", highpHColor: "FFE600", lowpHColorName: "Red", middlepHColorName: "Orange", highpHColorName: "Yellow")),
             SubSubTopic(topic: "Litmus", picture: "litmus.png", id: 1, content: SubSubContent(image: "litmus.png", firstAttributionText: "", secondAttributionText: "Colour Below Transition Range: Red \nTransition Range: pH 4.5 to pH 8.3 \nColour Above Transition Range: Blue", thirdAttributionText: "Try out the interactive slider below:", lowpH: 4.5, highpH: 8.3, lowpHColor: "", middlepHColor: "", highpHColor: "", lowpHColorName: "Red", middlepHColorName: "Purple", highpHColorName: "Blue")),
@@ -107,12 +110,21 @@ var learnTopics = [
     ], errorLabel: "Please complete Chapter 2"),
     
     Topic(title: "Periodic Table", pic: "periodic-table.png", pointsNeeded: 30, subTopics: [
-        SubTopic(title: "What is the Periodic Table?", pic: "periodic-table.png", needSlider: false, content: SubContent(definition: "A periodic table is a chart that shows chemical elements in order of their atomic number. \n\nElements with similar properties are arranged in the same column (group), and elements with the same number of electron shells are arranged in the same row (period)."), subTopics: [], navTitle: "Periodic Table"),
+        SubTopic(title: "What is the Periodic Table?", pic: "periodic-table.png", needSlider: false, content: SubContent(definition: "A periodic table is a chart that shows chemical elements in order of their atomic number. \n\nElements with similar properties are arranged in the same column (group), and elements with the same number of electron shells are arranged in the same row (period)."), subTopics: nil, navTitle: "Periodic Table"),
         SubTopic(title: "What are Elements?", pic: "element.png", needSlider: false, content: SubContent(definition: ""), subTopics: nil, navTitle: "Elements"),
         SubTopic(title: "First 18 Elements", pic: "periodic-table.png", needSlider: false, content: SubContent(definition: ""), subTopics: [
             SubSubTopic(topic: "1 - Hydrogen", picture: "pic.png", id: 1, content: SubSubContent(image: "pic.png", firstAttributionText: "", secondAttributionText: "", thirdAttributionText: ""))
         ], navTitle: "First 18 Elements"),
-        SubTopic(title: "Groups' Properties", pic: "periodic-table.png", needSlider: false, content: SubContent(definition: ""), subTopics: [], navTitle: "Groups' Properties"),
+        SubTopic(title: "Groups' Properties", pic: "periodic-table.png", needSlider: false, content: SubContent(definition: "The Periodic Table consists of 8 main groups, namely Groups 1, 2, 3, 4, 5, 6, 7, and 0. The respective groups' properties can be found by tapping below:"), subTopics: [
+            SubSubTopic(topic: "Group 1", picture: "1.png", id: 1, content: SubSubContent(image: "1.png", firstAttributionText: "", secondAttributionText: "", thirdAttributionText: "")),
+            SubSubTopic(topic: "Group 2", picture: "2.png", id: 2, content: SubSubContent(image: "2.png", firstAttributionText: "", secondAttributionText: "", thirdAttributionText: "")),
+            SubSubTopic(topic: "Group 3", picture: "3.png", id: 3, content: SubSubContent(image: "3.png", firstAttributionText: "", secondAttributionText: "", thirdAttributionText: "")),
+            SubSubTopic(topic: "Group 4", picture: "4.png", id: 4, content: SubSubContent(image: "4.png", firstAttributionText: "", secondAttributionText: "", thirdAttributionText: "")),
+            SubSubTopic(topic: "Group 5", picture: "5.png", id: 5, content: SubSubContent(image: "5.png", firstAttributionText: "", secondAttributionText: "", thirdAttributionText: "")),
+            SubSubTopic(topic: "Group 6", picture: "6.png", id: 6, content: SubSubContent(image: "6.png", firstAttributionText: "", secondAttributionText: "", thirdAttributionText: "")),
+            SubSubTopic(topic: "Group 7", picture: "7.png", id: 7, content: SubSubContent(image: "7.png", firstAttributionText: "", secondAttributionText: "", thirdAttributionText: "")),
+            SubSubTopic(topic: "Group 0", picture: "0.png", id: 0, content: SubSubContent(image: "0.png", firstAttributionText: "", secondAttributionText: "", thirdAttributionText: ""))
+        ], navTitle: "Groups' Properties"),
         SubTopic(title: "Take the Quiz", pic: "quiz.png", needSlider: false, content: SubContent(definition: ""), subTopics: [], navTitle: "Take the Quiz")
     ], errorLabel: "Please complete Chapter 3"),
 ]
