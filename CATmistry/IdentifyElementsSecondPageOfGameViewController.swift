@@ -8,7 +8,7 @@
 import UIKit
 
 class IdentifyElementsSecondPageOfGameViewController: UIViewController {
-
+    
     @IBOutlet weak var nonMetal: UIButton!
     @IBOutlet weak var transitionMetal: UIButton!
     @IBOutlet weak var metal: UIButton!
@@ -47,6 +47,7 @@ class IdentifyElementsSecondPageOfGameViewController: UIViewController {
     }
     
     var selectedButton: UIButton!
+    var selectedMetalButton: UIButton!
     
     @IBAction func groupOne(_ sender: Any) {
         if (selectedButton != groupOne && selectedButton != nil){
@@ -118,24 +119,70 @@ class IdentifyElementsSecondPageOfGameViewController: UIViewController {
             groupFour.backgroundColor = .black
             groupFour.setTitleColor(.white, for: .normal)
         }
-
+        
     }
     
     @IBAction func metal(_ sender: Any) {
+        if (selectedMetalButton != metal && selectedMetalButton != nil){
+            metal.backgroundColor = .green
+            metal.setTitleColor(.black, for: .normal)
+            selectedMetalButton.backgroundColor = .black
+            selectedMetalButton.setTitleColor(.white, for: .normal)
+            selectedMetalButton = metal
+        } else if (selectedMetalButton != metal){
+            selectedMetalButton = metal
+            metal.backgroundColor = .green
+            metal.setTitleColor(.black, for: .normal)
+        } else {
+            selectedMetalButton = nil
+            metal.backgroundColor = .black
+            metal.setTitleColor(.white, for: .normal)
+        }
     }
     
     @IBAction func transitionMetal(_ sender: Any) {
+        if (selectedMetalButton != transitionMetal && selectedMetalButton != nil){
+            transitionMetal.backgroundColor = .green
+            transitionMetal.setTitleColor(.black, for: .normal)
+            selectedMetalButton.backgroundColor = .black
+            selectedMetalButton.setTitleColor(.white, for: .normal)
+            selectedMetalButton = transitionMetal
+        } else if (selectedMetalButton != transitionMetal){
+            selectedMetalButton = transitionMetal
+            transitionMetal.backgroundColor = .green
+            transitionMetal.setTitleColor(.black, for: .normal)
+        } else {
+            selectedMetalButton = nil
+            transitionMetal.backgroundColor = .black
+            transitionMetal.setTitleColor(.white, for: .normal)
+        }
     }
     
     @IBAction func nonMetal(_ sender: Any) {
+        if (selectedMetalButton != nonMetal && selectedMetalButton != nil){
+            nonMetal.backgroundColor = .green
+            nonMetal.setTitleColor(.black, for: .normal)
+            selectedMetalButton.backgroundColor = .black
+            selectedMetalButton.setTitleColor(.white, for: .normal)
+            selectedMetalButton = nonMetal
+        } else if (selectedMetalButton != nonMetal){
+            selectedMetalButton = nonMetal
+            nonMetal.backgroundColor = .green
+            nonMetal.setTitleColor(.black, for: .normal)
+        } else {
+            selectedMetalButton = nil
+            nonMetal.backgroundColor = .black
+            nonMetal.setTitleColor(.white, for: .normal)
+        }
+        
     }
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destination.
+     // Pass the selected object to the new view controller.
+     }
+     */
 }
