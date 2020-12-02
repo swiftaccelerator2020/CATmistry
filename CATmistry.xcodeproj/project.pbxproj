@@ -163,26 +163,11 @@
 		2613B0332570DB8C00EECB4C /* CATmistry */ = {
 			isa = PBXGroup;
 			children = (
-				2632D7082577D5F00005033F /* PlayAdjustPhDetailsViewController.swift */,
-				2632D70D2577D62F0005033F /* PlayRetrieveSolidsDetailsViewController.swift */,
-				2632D7032577D5B50005033F /* PlayFindGasDetailsViewController.swift */,
 				2613B0342570DB8C00EECB4C /* AppDelegate.swift */,
 				2613B0362570DB8C00EECB4C /* SceneDelegate.swift */,
 				2613B03A2570DB8C00EECB4C /* Main.storyboard */,
-				269F995825777538001C7246 /* PlayFindGasStartViewController.swift */,
-				269F995D25777553001C7246 /* PlayRetrieveSolidsStartViewController.swift */,
-				269F995025777504001C7246 /* PlayAdjustPhStartViewController.swift */,
-				54FEFB0425770AE50054CFF9 /* PlayIdentifyElementsSecondViewController.swift */,
-				548C7E852576897200D2ACD8 /* PlayIdentifyElementsStartViewController.swift */,
-				54C171492574E44F004ED787 /* SubSubTopicTableViewCell.swift */,
-				26DDE2A3257483B200FDC078 /* LearnSubSubTopicDetailsViewController.swift */,
-				54B5D28525738FB5006A55F2 /* QuizViewController.swift */,
-				261E53A12571488B00094DA5 /* PlayHomePageTableViewCell.swift */,
-				261E539C2571486600094DA5 /* PlayHomePageTableViewController.swift */,
-				2640F0A225724091003EC92B /* LearnSubTopicDetailsViewController.swift */,
-				54F5202E2571FA4600D7363C /* LearnChapterSubTopicsTableViewController.swift */,
-				547F0ADD2570F66E00A224D9 /* LearnHomePageTableViewCell.swift */,
-				547F0AD82570F5F900A224D9 /* LearnHomePageTableViewController.swift */,
+				54FEFB172578609C0054CFF9 /* Learn Pages */,
+				54FEFB122578603A0054CFF9 /* Play Pages */,
 				547F0AEA2570F85000A224D9 /* structsFunctions.swift */,
 				2613B03D2570DB9000EECB4C /* Assets.xcassets */,
 				2613B03F2570DB9000EECB4C /* LaunchScreen.storyboard */,
@@ -207,6 +192,77 @@
 				2613B0582570DB9100EECB4C /* Info.plist */,
 			);
 			path = CATmistryUITests;
+			sourceTree = "<group>";
+		};
+		54FEFB122578603A0054CFF9 /* Play Pages */ = {
+			isa = PBXGroup;
+			children = (
+				54FEFB1C2578612A0054CFF9 /* Table View */,
+				54FEFB1B257861130054CFF9 /* Retrieve Solids Game */,
+				54FEFB1A257860F30054CFF9 /* PH game */,
+				54FEFB19257860DC0054CFF9 /* Find Gas Game */,
+				54FEFB18257860C10054CFF9 /* Identify Elements Game */,
+			);
+			path = "Play Pages";
+			sourceTree = "<group>";
+		};
+		54FEFB172578609C0054CFF9 /* Learn Pages */ = {
+			isa = PBXGroup;
+			children = (
+				54C171492574E44F004ED787 /* SubSubTopicTableViewCell.swift */,
+				26DDE2A3257483B200FDC078 /* LearnSubSubTopicDetailsViewController.swift */,
+				54B5D28525738FB5006A55F2 /* QuizViewController.swift */,
+				2640F0A225724091003EC92B /* LearnSubTopicDetailsViewController.swift */,
+				54F5202E2571FA4600D7363C /* LearnChapterSubTopicsTableViewController.swift */,
+				547F0ADD2570F66E00A224D9 /* LearnHomePageTableViewCell.swift */,
+				547F0AD82570F5F900A224D9 /* LearnHomePageTableViewController.swift */,
+			);
+			path = "Learn Pages";
+			sourceTree = "<group>";
+		};
+		54FEFB18257860C10054CFF9 /* Identify Elements Game */ = {
+			isa = PBXGroup;
+			children = (
+				54FEFB0425770AE50054CFF9 /* PlayIdentifyElementsSecondViewController.swift */,
+				548C7E852576897200D2ACD8 /* PlayIdentifyElementsStartViewController.swift */,
+			);
+			path = "Identify Elements Game";
+			sourceTree = "<group>";
+		};
+		54FEFB19257860DC0054CFF9 /* Find Gas Game */ = {
+			isa = PBXGroup;
+			children = (
+				2632D7032577D5B50005033F /* PlayFindGasDetailsViewController.swift */,
+				269F995825777538001C7246 /* PlayFindGasStartViewController.swift */,
+			);
+			path = "Find Gas Game";
+			sourceTree = "<group>";
+		};
+		54FEFB1A257860F30054CFF9 /* PH game */ = {
+			isa = PBXGroup;
+			children = (
+				2632D7082577D5F00005033F /* PlayAdjustPhDetailsViewController.swift */,
+				269F995025777504001C7246 /* PlayAdjustPhStartViewController.swift */,
+			);
+			path = "PH game";
+			sourceTree = "<group>";
+		};
+		54FEFB1B257861130054CFF9 /* Retrieve Solids Game */ = {
+			isa = PBXGroup;
+			children = (
+				2632D70D2577D62F0005033F /* PlayRetrieveSolidsDetailsViewController.swift */,
+				269F995D25777553001C7246 /* PlayRetrieveSolidsStartViewController.swift */,
+			);
+			path = "Retrieve Solids Game";
+			sourceTree = "<group>";
+		};
+		54FEFB1C2578612A0054CFF9 /* Table View */ = {
+			isa = PBXGroup;
+			children = (
+				261E53A12571488B00094DA5 /* PlayHomePageTableViewCell.swift */,
+				261E539C2571486600094DA5 /* PlayHomePageTableViewController.swift */,
+			);
+			path = "Table View";
 			sourceTree = "<group>";
 		};
 		6D9E306F40C4427E4EFBF49A /* Frameworks */ = {

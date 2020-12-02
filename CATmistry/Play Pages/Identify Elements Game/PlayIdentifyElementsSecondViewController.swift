@@ -194,7 +194,7 @@ class PlayIdentifyElementsSecondViewController: UIViewController {
         timeLeftTrack -= 1
         if(timeLeftTrack == 0)
         {
-            performSegue(withIdentifier: "akldmf", sender: nil)
+            performSegue(withIdentifier: "finishedSceneTwoGame", sender: nil)
         }
     }
     
