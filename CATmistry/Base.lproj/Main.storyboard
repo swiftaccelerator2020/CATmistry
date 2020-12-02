@@ -159,7 +159,7 @@
             </objects>
             <point key="canvasLocation" x="-612" y="508"/>
         </scene>
-        <!--Get the PH Right-->
+        <!--Find the Right Gas-->
         <scene sceneID="dQq-rs-Q5l">
             <objects>
                 <viewController id="e4r-tI-S0A" sceneMemberID="viewController">
@@ -169,7 +169,7 @@
                         <viewLayoutGuide key="safeArea" id="dY3-Y6-cVQ"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Get the PH Right" id="95M-K7-MA6"/>
+                    <navigationItem key="navigationItem" title="Find the Right Gas" id="95M-K7-MA6"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Un1-SI-ZRg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -191,7 +191,7 @@
             </objects>
             <point key="canvasLocation" x="-1003" y="1265"/>
         </scene>
-        <!--Diffusion-->
+        <!--Adjust the pH-->
         <scene sceneID="PsZ-pb-emh">
             <objects>
                 <viewController id="MYy-Hk-xqZ" sceneMemberID="viewController">
@@ -201,7 +201,7 @@
                         <viewLayoutGuide key="safeArea" id="Bm7-DL-tuY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Diffusion" id="B7j-M9-dXn"/>
+                    <navigationItem key="navigationItem" title="Adjust the pH" id="B7j-M9-dXn"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OEt-lM-p0P" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -663,7 +663,7 @@ Given the properties of each Group of the periodic table, select the correct gro
                                 <rect key="frame" x="0.0" y="533.66666666666663" width="390" height="276.33333333333337"/>
                                 <subviews>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="P1S-kZ-JzO">
-                                        <rect key="frame" x="0.0" y="0.0" width="390" height="276.33333333333331"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="390" height="276"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <prototypes>
