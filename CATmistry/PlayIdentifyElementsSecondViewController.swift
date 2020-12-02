@@ -24,7 +24,9 @@ class PlayIdentifyElementsSecondViewController: UIViewController {
         super.viewDidLoad()
         
         timeLeftTrack = gameTopic.timeGiven
-
+        
+        timeLeft.text = "\(timeLeftTrack!) seconds left"
+        
         timeLeft.layer.masksToBounds = true
         timeLeft.layer.cornerRadius = 20
         groupOne.clipsToBounds = true
