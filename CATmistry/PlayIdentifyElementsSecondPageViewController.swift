@@ -7,7 +7,7 @@
 
 import UIKit
 
-class IdentifyElementsSecondPageOfGameViewController: UIViewController {
+class PlayIdentifyElementsSecondPageViewController: UIViewController {
     
     @IBOutlet weak var nonMetal: UIButton!
     @IBOutlet weak var transitionMetal: UIButton!
@@ -45,7 +45,7 @@ class IdentifyElementsSecondPageOfGameViewController: UIViewController {
         nonMetal.clipsToBounds = true
         nonMetal.layer.cornerRadius = 0.5 * nonMetal.bounds.size.height
         
-        self.progressBarTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(IdentifyElementsSecondPageOfGameViewController.updateProgressView), userInfo: nil, repeats: true)
+        self.progressBarTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(PlayIdentifyElementsSecondPageViewController.updateProgressView), userInfo: nil, repeats: true)
 
         // Do any additional setup after loading the view.
     }

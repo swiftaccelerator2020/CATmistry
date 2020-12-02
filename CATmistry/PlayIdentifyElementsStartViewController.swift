@@ -7,7 +7,7 @@
 
 import UIKit
 
-class IdentifyElementsStartPageOfGameViewController: UIViewController {
+class PlayIdentifyElementsStartViewController: UIViewController {
 
     @IBOutlet weak var startGame: UIButton!
     @IBOutlet weak var descriptionLabel: UILabel!

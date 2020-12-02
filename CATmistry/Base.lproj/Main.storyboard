@@ -170,6 +170,8 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" title="Find the Right Gas" id="95M-K7-MA6"/>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Un1-SI-ZRg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -186,6 +188,8 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" title="Retreive the Solids" id="rbB-eb-zzQ"/>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="S7H-FD-Jot" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -202,6 +206,8 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" title="Adjust the pH" id="B7j-M9-dXn"/>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OEt-lM-p0P" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -210,7 +216,7 @@
         <!--Identify the Elements-->
         <scene sceneID="dWH-BX-F9I">
             <objects>
-                <viewController id="vbU-vN-Sop" customClass="IdentifyElementsStartPageOfGameViewController" customModule="CATmistry" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="vbU-vN-Sop" customClass="PlayIdentifyElementsStartViewController" customModule="CATmistry" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="aYq-RM-VKe">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -272,6 +278,8 @@ Given the properties of each Group of the periodic table, select the correct gro
                         <color key="backgroundColor" red="0.70781546829999997" green="0.87274885179999995" blue="0.99610430000000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     </view>
                     <navigationItem key="navigationItem" title="Identify the Elements" largeTitleDisplayMode="never" id="6GP-ug-FjL"/>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="descriptionLabel" destination="nO3-sY-A0E" id="eXc-sw-sTg"/>
                         <outlet property="startGame" destination="XnT-Qh-CmY" id="dgr-c0-rp5"/>
@@ -281,10 +289,10 @@ Given the properties of each Group of the periodic table, select the correct gro
             </objects>
             <point key="canvasLocation" x="833.84615384615381" y="1264.6919431279621"/>
         </scene>
-        <!--Identify Elements Second Page Of Game View Controller-->
+        <!--Play Identify Elements Second Page View Controller-->
         <scene sceneID="OMw-4Q-DVZ">
             <objects>
-                <viewController id="Vph-Yc-cjH" customClass="IdentifyElementsSecondPageOfGameViewController" customModule="CATmistry" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Vph-Yc-cjH" customClass="PlayIdentifyElementsSecondPageViewController" customModule="CATmistry" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="dic-67-1Ar">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1060,7 +1068,7 @@ Given the properties of each Group of the periodic table, select the correct gro
         <segue reference="omW-sG-g2z"/>
     </inferredMetricsTieBreakers>
     <resources>
-        <image name="books.vertical.fill" catalog="system" width="32" height="32"/>
+        <image name="books.vertical.fill" catalog="system" width="128" height="100"/>
         <image name="bowl" width="130" height="109"/>
         <image name="cat" width="156" height="197.33332824707031"/>
         <image name="gamecontroller.fill" catalog="system" width="128" height="80"/>
