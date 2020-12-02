@@ -185,7 +185,7 @@ class PlayIdentifyElementsSecondViewController: UIViewController {
     }
         
     @objc func updateProgressView(){
-        timeLeft.text = "\(timeLeftTrack) seconds left"
+        timeLeft.text = "\(timeLeftTrack!) seconds left"
         timeLeftTrack -= 1
         if(timeLeftTrack == 0)
         {
