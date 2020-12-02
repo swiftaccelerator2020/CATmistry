@@ -309,22 +309,6 @@ Given the properties of each Group of the periodic table, select the correct gro
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ryc-Bd-yaq">
-                                <rect key="frame" x="0.0" y="761" width="390" height="83"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.51672327520000005" green="0.49615734820000001" blue="0.27446746830000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7HG-1f-S6R">
-                                <rect key="frame" x="0.0" y="750" width="390" height="11"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.086989797650000006" green="0.61483764649999995" blue="0.17241600160000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="cat" translatesAutoresizingMaskIntoConstraints="NO" id="HxV-Tr-60R">
                                 <rect key="frame" x="263" y="633" width="106" height="128"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -345,9 +329,31 @@ Given the properties of each Group of the periodic table, select the correct gro
                                 <rect key="frame" x="16" y="648" width="140" height="125"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Cj-lx-b83">
+                                <rect key="frame" x="0.0" y="774" width="390" height="70"/>
+                                <color key="backgroundColor" red="0.52058792109999996" green="0.4943810105" blue="0.18790945410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="70" id="KwH-Xv-EWX"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="M0I-Op-FFw">
+                                <rect key="frame" x="0.0" y="754" width="390" height="20"/>
+                                <color key="backgroundColor" red="0.33988469840000002" green="0.59663778540000001" blue="0.33742028470000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="JKt-xA-wmG"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="BKy-cn-q26"/>
                         <color key="backgroundColor" red="0.70781546829999997" green="0.87274885179999995" blue="0.99610430000000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstItem="5Cj-lx-b83" firstAttribute="top" secondItem="M0I-Op-FFw" secondAttribute="bottom" id="9ZQ-0R-zgt"/>
+                            <constraint firstItem="5Cj-lx-b83" firstAttribute="leading" secondItem="BKy-cn-q26" secondAttribute="leading" id="KK6-R3-jN0"/>
+                            <constraint firstItem="BKy-cn-q26" firstAttribute="trailing" secondItem="M0I-Op-FFw" secondAttribute="trailing" id="LBU-t4-VoQ"/>
+                            <constraint firstItem="BKy-cn-q26" firstAttribute="trailing" secondItem="5Cj-lx-b83" secondAttribute="trailing" id="PtM-zl-2Za"/>
+                            <constraint firstAttribute="bottom" secondItem="5Cj-lx-b83" secondAttribute="bottom" id="hYG-Of-K5X"/>
+                            <constraint firstItem="M0I-Op-FFw" firstAttribute="leading" secondItem="BKy-cn-q26" secondAttribute="leading" id="pho-bK-kuR"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Identify the Elements" largeTitleDisplayMode="never" id="6GP-ug-FjL"/>
                     <nil key="simulatedTopBarMetrics"/>
@@ -375,22 +381,6 @@ Given the properties of each Group of the periodic table, select the correct gro
                                 <color key="backgroundColor" systemColor="labelColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Kh-xY-qhe">
-                                <rect key="frame" x="0.0" y="760" width="390" height="84"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.48148769139999997" green="0.46072334050000002" blue="0.25486281509999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z7P-03-6dX">
-                                <rect key="frame" x="0.0" y="750" width="390" height="11"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.086989797650000006" green="0.61483764649999995" blue="0.17241600160000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Silver, reactive, high melting point and hard " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6nO-os-1tY">
@@ -502,9 +492,31 @@ Given the properties of each Group of the periodic table, select the correct gro
                                     <action selector="nonMetal:" destination="Vph-Yc-cjH" eventType="touchUpInside" id="4dW-VV-sqP"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MQX-Yl-wcO">
+                                <rect key="frame" x="0.0" y="774" width="390" height="70"/>
+                                <color key="backgroundColor" red="0.52056539059999996" green="0.49439543489999999" blue="0.15334412459999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="70" id="Um4-Lz-u0s"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5OE-SW-Qva">
+                                <rect key="frame" x="0.0" y="754" width="390" height="20"/>
+                                <color key="backgroundColor" red="0.34736526010000002" green="0.59664463999999995" blue="0.31989881399999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="ar1-1B-oyP"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="MF8-ge-vWh"/>
                         <color key="backgroundColor" red="0.71173471210000006" green="0.87667095660000005" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstItem="MQX-Yl-wcO" firstAttribute="leading" secondItem="MF8-ge-vWh" secondAttribute="leading" id="4g4-hc-cgz"/>
+                            <constraint firstAttribute="bottom" secondItem="MQX-Yl-wcO" secondAttribute="bottom" id="GkB-8K-Q6z"/>
+                            <constraint firstItem="MF8-ge-vWh" firstAttribute="trailing" secondItem="5OE-SW-Qva" secondAttribute="trailing" id="hWV-yM-VtG"/>
+                            <constraint firstItem="MQX-Yl-wcO" firstAttribute="top" secondItem="5OE-SW-Qva" secondAttribute="bottom" id="mSO-TM-vAo"/>
+                            <constraint firstItem="MF8-ge-vWh" firstAttribute="trailing" secondItem="MQX-Yl-wcO" secondAttribute="trailing" id="oRy-Zk-tcC"/>
+                            <constraint firstItem="5OE-SW-Qva" firstAttribute="leading" secondItem="MF8-ge-vWh" secondAttribute="leading" id="osx-J9-cdf"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="X9m-AO-FC8"/>
                     <connections>
