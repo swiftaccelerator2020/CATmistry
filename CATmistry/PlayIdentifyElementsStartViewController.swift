@@ -28,6 +28,12 @@ class PlayIdentifyElementsStartViewController: UIViewController {
     }
 
 
+    @IBAction func unwindToPlayHomePage(_ sender: Any) {
+        tabBarController?.tabBar.isHidden = false
+        navigationController?.setNavigationBarHidden(false, animated: false)
+        _ = navigationController?.popToRootViewController(animated: true)
+    }
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation

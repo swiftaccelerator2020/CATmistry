@@ -22,7 +22,12 @@ class PlayRetrieveSolidsStartViewController: UIViewController {
         startButton.layer.cornerRadius = 15
     }
     
-
+    @IBAction func unwindToPlayHomePage(_ sender: Any) {
+        tabBarController?.tabBar.isHidden = false
+        navigationController?.setNavigationBarHidden(false, animated: false)
+        _ = navigationController?.popToRootViewController(animated: true)
+    }
+    
     /*
     // MARK: - Navigation
 
