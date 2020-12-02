@@ -149,10 +149,10 @@
                     <connections>
                         <outlet property="playPageTable" destination="paC-Dj-Tva" id="Hzh-Gb-CXA"/>
                         <outlet property="tableView" destination="paC-Dj-Tva" id="WsQ-dm-HfD"/>
-                        <segue destination="e4r-tI-S0A" kind="show" identifier="phAndIndi" id="PHu-xF-Nia"/>
-                        <segue destination="0jR-6D-YOT" kind="show" identifier="sepe" id="ABd-xL-5Rv"/>
-                        <segue destination="MYy-Hk-xqZ" kind="show" identifier="diff" id="Uws-7t-tbM"/>
-                        <segue destination="vbU-vN-Sop" kind="show" identifier="periodic" id="Yy2-7g-d5h"/>
+                        <segue destination="e4r-tI-S0A" kind="show" identifier="goToFindGas" id="PHu-xF-Nia"/>
+                        <segue destination="0jR-6D-YOT" kind="show" identifier="goToRetrieveSolids" id="ABd-xL-5Rv"/>
+                        <segue destination="MYy-Hk-xqZ" kind="show" identifier="goToAdjustPh" id="Uws-7t-tbM"/>
+                        <segue destination="vbU-vN-Sop" kind="show" identifier="goToIdentifyElement" id="Yy2-7g-d5h"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="e6O-ta-4U2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -181,6 +181,19 @@
                                     <constraint firstAttribute="height" constant="20" id="5FW-VU-zxd"/>
                                 </constraints>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bu6-o8-Ecw">
+                                <rect key="frame" x="40" y="194" width="310" height="260"/>
+                                <color key="backgroundColor" red="0.99248284099999995" green="0.36665385960000002" blue="0.41768696900000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="260" id="6G3-w5-Mp8"/>
+                                </constraints>
+                                <string key="text">Your cat just crash-landed on Earth from the Moon and all the gas tanks in its rocket got mixed up.
+
+As your cat can only live in a certain type of gas, your task is to use your knowledge of gas tests to help it identify which gas tank to attach to its holding room so that it can survive.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="dY3-Y6-cVQ"/>
                         <color key="backgroundColor" red="0.66819649930000002" green="0.87850791220000002" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -188,18 +201,24 @@
                             <constraint firstItem="TX4-D1-VgR" firstAttribute="leading" secondItem="dY3-Y6-cVQ" secondAttribute="leading" id="87b-PZ-s0M"/>
                             <constraint firstAttribute="bottom" secondItem="68x-vD-9BS" secondAttribute="bottom" id="ClU-0k-gqg"/>
                             <constraint firstItem="68x-vD-9BS" firstAttribute="leading" secondItem="dY3-Y6-cVQ" secondAttribute="leading" id="JAK-d8-P8N"/>
+                            <constraint firstItem="bu6-o8-Ecw" firstAttribute="leading" secondItem="dY3-Y6-cVQ" secondAttribute="leading" constant="40" id="Wn5-Dn-yLa"/>
                             <constraint firstItem="dY3-Y6-cVQ" firstAttribute="trailing" secondItem="68x-vD-9BS" secondAttribute="trailing" id="ddG-TE-rqh"/>
                             <constraint firstItem="dY3-Y6-cVQ" firstAttribute="trailing" secondItem="TX4-D1-VgR" secondAttribute="trailing" id="py5-gs-rPh"/>
+                            <constraint firstAttribute="trailing" secondItem="bu6-o8-Ecw" secondAttribute="trailing" constant="40" id="qD5-y2-e5U"/>
+                            <constraint firstItem="bu6-o8-Ecw" firstAttribute="top" secondItem="dY3-Y6-cVQ" secondAttribute="top" constant="150" id="vHd-WG-Nh8"/>
                             <constraint firstItem="68x-vD-9BS" firstAttribute="top" secondItem="TX4-D1-VgR" secondAttribute="bottom" id="xhq-Yn-qp8"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Find the Right Gas" id="95M-K7-MA6"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <nil key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="backgroundLabel" destination="bu6-o8-Ecw" id="PuN-ht-Bwo"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Un1-SI-ZRg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1968" y="1265"/>
+            <point key="canvasLocation" x="-1969.2307692307691" y="1264.6919431279621"/>
         </scene>
         <!--Retreive the Solids-->
         <scene sceneID="aPN-6E-YL3">
@@ -283,7 +302,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OEt-lM-p0P" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-68" y="1265"/>
+            <point key="canvasLocation" x="-69.230769230769226" y="1264.6919431279621"/>
         </scene>
         <!--Identify the Elements-->
         <scene sceneID="dWH-BX-F9I">
@@ -609,7 +628,7 @@ Given the properties of each Group of the periodic table, select the correct gro
                     <tabBarItem key="tabBarItem" title="Play" image="gamecontroller.fill" catalog="system" selectedImage="gamecontroller.fill" id="Xs1-53-ugV"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="eFe-la-nb9">
-                        <rect key="frame" x="0.0" y="44" width="390" height="104.33333333333334"/>
+                        <rect key="frame" x="0.0" y="44" width="390" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" red="0.396078431372549" green="0.77647058823529413" blue="0.94117647058823528" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </navigationBar>
