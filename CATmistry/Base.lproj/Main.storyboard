@@ -846,6 +846,7 @@ Given the properties of each Group of the periodic table, select the correct gro
                     </view>
                     <navigationItem key="navigationItem" id="X9m-AO-FC8"/>
                     <connections>
+                        <outlet property="desc" destination="6nO-os-1tY" id="VVW-g8-tub"/>
                         <outlet property="groupFour" destination="A8l-gW-kVM" id="SCx-XB-qT0"/>
                         <outlet property="groupOne" destination="W11-8E-3sm" id="15s-uB-hpv"/>
                         <outlet property="groupThree" destination="tIQ-IQ-S8Q" id="gte-Co-VwY"/>
@@ -1351,7 +1352,7 @@ Given the properties of each Group of the periodic table, select the correct gro
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="FaB-d6-X5c"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="wEn-aq-CEr">
-                        <rect key="frame" x="0.0" y="44" width="390" height="96"/>
+                        <rect key="frame" x="0.0" y="44" width="390" height="104.33333333333334"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -1477,7 +1478,7 @@ Given the properties of each Group of the periodic table, select the correct gro
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="q0c-Zz-aob" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="jRP-bA-vTs">
-                        <rect key="frame" x="0.0" y="44" width="390" height="96"/>
+                        <rect key="frame" x="0.0" y="44" width="390" height="104.33333333333334"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
