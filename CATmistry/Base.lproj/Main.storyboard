@@ -484,14 +484,14 @@ The monster is currently living in the right conditions, and your task is to use
                                 <rect key="frame" x="16" y="648" width="140" height="125"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5Cj-lx-b83">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Cj-lx-b83">
                                 <rect key="frame" x="0.0" y="774" width="390" height="70"/>
                                 <color key="backgroundColor" red="0.52058792109999996" green="0.4943810105" blue="0.18790945410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="70" id="KwH-Xv-EWX"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="M0I-Op-FFw">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="M0I-Op-FFw">
                                 <rect key="frame" x="0.0" y="754" width="390" height="20"/>
                                 <color key="backgroundColor" red="0.33988469840000002" green="0.59663778540000001" blue="0.33742028470000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -554,10 +554,10 @@ Given the properties of each Group of the periodic table, select the correct gro
                         <viewLayoutGuide key="safeArea" id="BKy-cn-q26"/>
                         <color key="backgroundColor" red="0.53186249730000001" green="0.75687271359999997" blue="0.92158544060000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="5Cj-lx-b83" firstAttribute="top" secondItem="M0I-Op-FFw" secondAttribute="bottom" id="9ZQ-0R-zgt"/>
                             <constraint firstItem="BKy-cn-q26" firstAttribute="trailing" secondItem="aKs-9U-qBf" secondAttribute="trailing" constant="40" id="9qS-3y-xaR"/>
                             <constraint firstItem="6dT-Hx-ynf" firstAttribute="leading" secondItem="BKy-cn-q26" secondAttribute="leading" constant="40" id="Bb6-Pp-xn8"/>
                             <constraint firstItem="aKs-9U-qBf" firstAttribute="leading" secondItem="BKy-cn-q26" secondAttribute="leading" constant="40" id="IKI-Vv-jqz"/>
+                            <constraint firstItem="5Cj-lx-b83" firstAttribute="top" secondItem="M0I-Op-FFw" secondAttribute="bottom" id="JSN-kG-x5z"/>
                             <constraint firstItem="BKy-cn-q26" firstAttribute="trailing" secondItem="m4u-Iu-U2B" secondAttribute="trailing" constant="100" id="K6J-xx-khk"/>
                             <constraint firstItem="5Cj-lx-b83" firstAttribute="leading" secondItem="BKy-cn-q26" secondAttribute="leading" id="KK6-R3-jN0"/>
                             <constraint firstItem="BKy-cn-q26" firstAttribute="trailing" secondItem="M0I-Op-FFw" secondAttribute="trailing" id="LBU-t4-VoQ"/>
@@ -573,6 +573,7 @@ Given the properties of each Group of the periodic table, select the correct gro
                             <constraint firstItem="M0I-Op-FFw" firstAttribute="leading" secondItem="BKy-cn-q26" secondAttribute="leading" id="pho-bK-kuR"/>
                             <constraint firstItem="m4u-Iu-U2B" firstAttribute="top" secondItem="aKs-9U-qBf" secondAttribute="bottom" constant="8" id="sec-Ol-P4b"/>
                             <constraint firstItem="BKy-cn-q26" firstAttribute="trailing" secondItem="mrp-jh-fji" secondAttribute="trailing" constant="40" id="sjN-EZ-0kL"/>
+                            <constraint firstAttribute="bottom" secondItem="5Cj-lx-b83" secondAttribute="bottom" id="vND-Aa-Al4"/>
                             <constraint firstItem="m4u-Iu-U2B" firstAttribute="leading" secondItem="BKy-cn-q26" secondAttribute="leading" constant="100" id="vpu-Ov-cH2"/>
                         </constraints>
                     </view>
