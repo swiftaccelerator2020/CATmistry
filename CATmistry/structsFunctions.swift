@@ -153,12 +153,30 @@ var learnTopics = [
 ]
 
 var perioicTable = [
+    // LEVEL 1
     [
         periodicTableGame(properties: "Silver, reactive, high melting point and hard", correctAns1: 1, correctAns2: 1, timeGiven: 20),
         periodicTableGame(properties: "HALO", correctAns1: 1, correctAns2: 2, timeGiven: 20),
         periodicTableGame(properties: "bai", correctAns1: 1, correctAns2: 3, timeGiven: 20)
     ],
-    
+    // LEVEL 2
+    [
+        periodicTableGame(properties: "Silver, reactive, high melting point and hard", correctAns1: 1, correctAns2: 1, timeGiven: 15),
+        periodicTableGame(properties: "HALO", correctAns1: 1, correctAns2: 2, timeGiven: 15),
+        periodicTableGame(properties: "bai", correctAns1: 1, correctAns2: 3, timeGiven: 15)
+    ],
+    // LEVEL 3
+    [
+        periodicTableGame(properties: "Silver, reactive, high melting point and hard", correctAns1: 1, correctAns2: 1, timeGiven: 10),
+        periodicTableGame(properties: "HALO", correctAns1: 1, correctAns2: 2, timeGiven: 10),
+        periodicTableGame(properties: "bai", correctAns1: 1, correctAns2: 3, timeGiven: 10)
+    ],
+    // LEVEL 4
+    [
+        periodicTableGame(properties: "Silver, reactive, high melting point and hard", correctAns1: 1, correctAns2: 1, timeGiven: 5),
+        periodicTableGame(properties: "HALO", correctAns1: 1, correctAns2: 2, timeGiven: 5),
+        periodicTableGame(properties: "bai", correctAns1: 1, correctAns2: 3, timeGiven: 5)
+    ]
 ]
 
 var gameTopics = [

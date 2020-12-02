@@ -18,10 +18,13 @@ class PlayIdentifyElementsSecondViewController: UIViewController {
     @IBOutlet weak var groupOne: UIButton!
     @IBOutlet weak var timeLeft: UILabel!
     var progressBarTimer: Timer!
-
+    var gameTopic: periodicTableGame!
+    var timeLeftTrack: Int!
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        timeLeftTrack = gameTopic.timeGiven
+
         timeLeft.layer.masksToBounds = true
         timeLeft.layer.cornerRadius = 20
         groupOne.clipsToBounds = true
@@ -46,7 +49,7 @@ class PlayIdentifyElementsSecondViewController: UIViewController {
         nonMetal.layer.cornerRadius = 0.5 * nonMetal.bounds.size.height
         
         self.progressBarTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(PlayIdentifyElementsSecondViewController.updateProgressView), userInfo: nil, repeats: true)
-
+        
         // Do any additional setup after loading the view.
     }
     
@@ -180,11 +183,10 @@ class PlayIdentifyElementsSecondViewController: UIViewController {
         }
         
     }
-    
-    var timeLeftTrack = 10
-    
+        
     @objc func updateProgressView(){
         timeLeft.text = "\(timeLeftTrack) seconds left"
+        timeLeftTrack -= 1
         if(timeLeftTrack == 0)
         {
             performSegue(withIdentifier: "akldmf", sender: nil)
