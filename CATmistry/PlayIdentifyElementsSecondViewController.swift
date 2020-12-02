@@ -9,6 +9,7 @@ import UIKit
 
 class PlayIdentifyElementsSecondViewController: UIViewController {
     
+    @IBOutlet weak var desc: UILabel!
     @IBOutlet weak var nonMetal: UIButton!
     @IBOutlet weak var transitionMetal: UIButton!
     @IBOutlet weak var metal: UIButton!
@@ -24,7 +25,11 @@ class PlayIdentifyElementsSecondViewController: UIViewController {
         super.viewDidLoad()
         
         timeLeftTrack = gameTopic.timeGiven
-
+        
+        timeLeft.text = "\(timeLeftTrack!) seconds left"
+        
+        desc.text = gameTopic.properties
+        
         timeLeft.layer.masksToBounds = true
         timeLeft.layer.cornerRadius = 20
         groupOne.clipsToBounds = true
