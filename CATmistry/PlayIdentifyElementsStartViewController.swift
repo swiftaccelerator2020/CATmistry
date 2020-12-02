@@ -8,21 +8,18 @@
 import UIKit
 
 class PlayIdentifyElementsStartViewController: UIViewController {
-
-    @IBOutlet weak var startGame: UIButton!
-    @IBOutlet weak var descriptionLabel: UILabel!
     
+    @IBOutlet weak var backgroundLabelView: UIView!
+    @IBOutlet weak var startButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tabBarController?.tabBar.isHidden = true
-        descriptionLabel.layer.masksToBounds = true
-        descriptionLabel.layer.cornerRadius = 25
-        navigationController?.setNavigationBarHidden(true, animated: false)
-        startGame.layer.masksToBounds = true
-        startGame.layer.cornerRadius = 25
 
         // Do any additional setup after loading the view.
+        tabBarController?.tabBar.isHidden = true
+        navigationController?.setNavigationBarHidden(true, animated: false)
+        backgroundLabelView.layer.cornerRadius = 15
+        startButton.layer.cornerRadius = 15
     }
     
 

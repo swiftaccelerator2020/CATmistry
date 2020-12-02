@@ -181,31 +181,54 @@
                                     <constraint firstAttribute="height" constant="20" id="5FW-VU-zxd"/>
                                 </constraints>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bu6-o8-Ecw">
-                                <rect key="frame" x="40" y="194" width="310" height="260"/>
-                                <color key="backgroundColor" red="0.99248284099999995" green="0.36665385960000002" blue="0.41768696900000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="260" id="6G3-w5-Mp8"/>
-                                </constraints>
-                                <string key="text">Your cat just crash-landed on Earth from the Moon and all the gas tanks in its rocket got mixed up.
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="amq-j8-pX9">
+                                <rect key="frame" x="40" y="189" width="310" height="260"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bu6-o8-Ecw">
+                                        <rect key="frame" x="15" y="5" width="280" height="250"/>
+                                        <string key="text">Your cat just crash-landed on Earth from the Moon and all the gas tanks in its rocket got mixed up.
 
 As your cat can only live in a certain type of gas, your task is to use your knowledge of gas tests to help it identify which gas tank to attach to its holding room so that it can survive.</string>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="bu6-o8-Ecw" firstAttribute="top" secondItem="amq-j8-pX9" secondAttribute="top" constant="5" id="62v-gc-LEJ"/>
+                                    <constraint firstItem="bu6-o8-Ecw" firstAttribute="leading" secondItem="amq-j8-pX9" secondAttribute="leading" constant="15" id="JTZ-NC-Nab"/>
+                                    <constraint firstAttribute="trailing" secondItem="bu6-o8-Ecw" secondAttribute="trailing" constant="15" id="kSl-wJ-KfX"/>
+                                    <constraint firstAttribute="bottom" secondItem="bu6-o8-Ecw" secondAttribute="bottom" constant="5" id="nY6-sx-PeP"/>
+                                    <constraint firstAttribute="height" constant="260" id="vP6-zd-OEw"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wf9-10-D2Q">
+                                <rect key="frame" x="80" y="489" width="230" height="50"/>
+                                <color key="backgroundColor" red="1" green="0.37254901960784315" blue="0.4392156862745098" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="5uk-GC-44G"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="Start">
+                                    <color key="titleColor" systemColor="labelColor"/>
+                                </state>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="dY3-Y6-cVQ"/>
-                        <color key="backgroundColor" red="0.66819649930000002" green="0.87850791220000002" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.52549019607843139" green="0.75686274509803919" blue="0.9137254901960784" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="Wf9-10-D2Q" firstAttribute="leading" secondItem="dY3-Y6-cVQ" secondAttribute="leading" constant="80" id="0LT-yX-eQ8"/>
                             <constraint firstItem="TX4-D1-VgR" firstAttribute="leading" secondItem="dY3-Y6-cVQ" secondAttribute="leading" id="87b-PZ-s0M"/>
                             <constraint firstAttribute="bottom" secondItem="68x-vD-9BS" secondAttribute="bottom" id="ClU-0k-gqg"/>
                             <constraint firstItem="68x-vD-9BS" firstAttribute="leading" secondItem="dY3-Y6-cVQ" secondAttribute="leading" id="JAK-d8-P8N"/>
-                            <constraint firstItem="bu6-o8-Ecw" firstAttribute="leading" secondItem="dY3-Y6-cVQ" secondAttribute="leading" constant="40" id="Wn5-Dn-yLa"/>
+                            <constraint firstItem="amq-j8-pX9" firstAttribute="leading" secondItem="dY3-Y6-cVQ" secondAttribute="leading" constant="40" id="McL-qv-ZMU"/>
+                            <constraint firstItem="amq-j8-pX9" firstAttribute="top" secondItem="dY3-Y6-cVQ" secondAttribute="top" constant="145" id="OxH-Bq-s0m"/>
+                            <constraint firstItem="dY3-Y6-cVQ" firstAttribute="trailing" secondItem="Wf9-10-D2Q" secondAttribute="trailing" constant="80" id="SVS-QL-pta"/>
                             <constraint firstItem="dY3-Y6-cVQ" firstAttribute="trailing" secondItem="68x-vD-9BS" secondAttribute="trailing" id="ddG-TE-rqh"/>
+                            <constraint firstItem="Wf9-10-D2Q" firstAttribute="top" secondItem="amq-j8-pX9" secondAttribute="bottom" constant="40" id="ecN-pS-m0A"/>
                             <constraint firstItem="dY3-Y6-cVQ" firstAttribute="trailing" secondItem="TX4-D1-VgR" secondAttribute="trailing" id="py5-gs-rPh"/>
-                            <constraint firstAttribute="trailing" secondItem="bu6-o8-Ecw" secondAttribute="trailing" constant="40" id="qD5-y2-e5U"/>
-                            <constraint firstItem="bu6-o8-Ecw" firstAttribute="top" secondItem="dY3-Y6-cVQ" secondAttribute="top" constant="150" id="vHd-WG-Nh8"/>
+                            <constraint firstItem="dY3-Y6-cVQ" firstAttribute="trailing" secondItem="amq-j8-pX9" secondAttribute="trailing" constant="40" id="v9Z-jr-dqX"/>
                             <constraint firstItem="68x-vD-9BS" firstAttribute="top" secondItem="TX4-D1-VgR" secondAttribute="bottom" id="xhq-Yn-qp8"/>
                         </constraints>
                     </view>
@@ -214,6 +237,8 @@ As your cat can only live in a certain type of gas, your task is to use your kno
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="backgroundLabel" destination="bu6-o8-Ecw" id="PuN-ht-Bwo"/>
+                        <outlet property="backgroundLabelView" destination="amq-j8-pX9" id="iQF-QM-lkP"/>
+                        <outlet property="startButton" destination="Wf9-10-D2Q" id="JMr-Kk-fVc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Un1-SI-ZRg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -242,11 +267,50 @@ As your cat can only live in a certain type of gas, your task is to use your kno
                                     <constraint firstAttribute="height" constant="20" id="Rrl-PF-ei0"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bX0-O2-5ts">
+                                <rect key="frame" x="40" y="189" width="310" height="260"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JSc-Cm-RlV">
+                                        <rect key="frame" x="15" y="5" width="280" height="250"/>
+                                        <string key="text">Your cat encountered a wizard.  
+Separate all the elements in his beaker or the wizard will cast a spell on your cat.
+ A new element is added for every wrong method chosen, so do not let it overflow!</string>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="260" id="2aS-Hj-bRc"/>
+                                    <constraint firstAttribute="bottom" secondItem="JSc-Cm-RlV" secondAttribute="bottom" constant="5" id="T64-bW-rIV"/>
+                                    <constraint firstItem="JSc-Cm-RlV" firstAttribute="top" secondItem="bX0-O2-5ts" secondAttribute="top" constant="5" id="XEG-g1-w25"/>
+                                    <constraint firstAttribute="trailing" secondItem="JSc-Cm-RlV" secondAttribute="trailing" constant="15" id="fod-F0-7d9"/>
+                                    <constraint firstItem="JSc-Cm-RlV" firstAttribute="leading" secondItem="bX0-O2-5ts" secondAttribute="leading" constant="15" id="jsG-1M-fEG"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6M8-1i-jac">
+                                <rect key="frame" x="80" y="489" width="230" height="50"/>
+                                <color key="backgroundColor" red="0.99313288929999999" green="0.46924948690000001" blue="0.51390445230000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="XO7-hb-96k"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="Start">
+                                    <color key="titleColor" systemColor="labelColor"/>
+                                </state>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Ieg-ok-ug3"/>
-                        <color key="backgroundColor" red="0.66816294190000003" green="0.87852185959999995" blue="0.99836879970000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.52424961329999997" green="0.75689440969999999" blue="0.91346889730000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="bX0-O2-5ts" firstAttribute="leading" secondItem="Ieg-ok-ug3" secondAttribute="leading" constant="40" id="0YC-tc-FVo"/>
                             <constraint firstItem="c1E-ZM-b3t" firstAttribute="top" secondItem="BEJ-jg-Dsp" secondAttribute="bottom" id="1mm-QF-Son"/>
+                            <constraint firstItem="Ieg-ok-ug3" firstAttribute="trailing" secondItem="bX0-O2-5ts" secondAttribute="trailing" constant="40" id="6C3-KL-Zzo"/>
+                            <constraint firstItem="6M8-1i-jac" firstAttribute="top" secondItem="bX0-O2-5ts" secondAttribute="bottom" constant="40" id="8rZ-st-DUz"/>
+                            <constraint firstItem="6M8-1i-jac" firstAttribute="leading" secondItem="Ieg-ok-ug3" secondAttribute="leading" constant="80" id="9Mr-tP-yWg"/>
+                            <constraint firstItem="bX0-O2-5ts" firstAttribute="top" secondItem="Ieg-ok-ug3" secondAttribute="top" constant="145" id="AIS-21-JJd"/>
+                            <constraint firstItem="Ieg-ok-ug3" firstAttribute="trailing" secondItem="6M8-1i-jac" secondAttribute="trailing" constant="80" id="KJl-fK-KAu"/>
                             <constraint firstItem="Ieg-ok-ug3" firstAttribute="trailing" secondItem="BEJ-jg-Dsp" secondAttribute="trailing" id="PxC-Ve-uLA"/>
                             <constraint firstItem="BEJ-jg-Dsp" firstAttribute="leading" secondItem="Ieg-ok-ug3" secondAttribute="leading" id="bC0-P5-B7I"/>
                             <constraint firstAttribute="bottom" secondItem="c1E-ZM-b3t" secondAttribute="bottom" id="bWn-gZ-IUX"/>
@@ -257,6 +321,10 @@ As your cat can only live in a certain type of gas, your task is to use your kno
                     <navigationItem key="navigationItem" title="Retreive the Solids" id="rbB-eb-zzQ"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <nil key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="backgroundLabelView" destination="bX0-O2-5ts" id="wnv-W5-OSS"/>
+                        <outlet property="startButton" destination="6M8-1i-jac" id="4H9-pv-RTp"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="S7H-FD-Jot" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -284,21 +352,64 @@ As your cat can only live in a certain type of gas, your task is to use your kno
                                     <constraint firstAttribute="height" constant="20" id="KpC-ce-8Qb"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sVL-LJ-I3y">
+                                <rect key="frame" x="40" y="189" width="310" height="260"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ocy-oj-uJM">
+                                        <rect key="frame" x="15" y="5" width="280" height="250"/>
+                                        <string key="text">Your cat has met a monster who can only live in either acidic or alkali conditions.
+
+The monster is currently living in the right conditions, and your task is to use the indicators and solutions provided to find out what that condition is and how to kill the monster to save your cat.</string>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="Ocy-oj-uJM" firstAttribute="leading" secondItem="sVL-LJ-I3y" secondAttribute="leading" constant="15" id="5zG-k5-P4g"/>
+                                    <constraint firstAttribute="height" constant="260" id="JAs-f5-MSU"/>
+                                    <constraint firstItem="Ocy-oj-uJM" firstAttribute="top" secondItem="sVL-LJ-I3y" secondAttribute="top" constant="5" id="bFG-UE-e0Z"/>
+                                    <constraint firstAttribute="trailing" secondItem="Ocy-oj-uJM" secondAttribute="trailing" constant="15" id="dyG-q2-DQu"/>
+                                    <constraint firstAttribute="bottom" secondItem="Ocy-oj-uJM" secondAttribute="bottom" constant="5" id="tDa-ky-Bpx"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZL3-LC-bQI">
+                                <rect key="frame" x="80" y="489" width="230" height="50"/>
+                                <color key="backgroundColor" red="0.99313288929999999" green="0.46924948690000001" blue="0.51390445230000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="56F-XM-iYS"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="Start">
+                                    <color key="titleColor" systemColor="labelColor"/>
+                                </state>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Bm7-DL-tuY"/>
-                        <color key="backgroundColor" red="0.66816294190000003" green="0.87852185959999995" blue="0.99836879970000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.52424961329999997" green="0.75689440969999999" blue="0.91346889730000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="oGs-Vn-alh" firstAttribute="leading" secondItem="Bm7-DL-tuY" secondAttribute="leading" id="1wS-uu-eiP"/>
                             <constraint firstItem="Bm7-DL-tuY" firstAttribute="trailing" secondItem="oGs-Vn-alh" secondAttribute="trailing" id="A1y-y1-u0X"/>
+                            <constraint firstItem="ZL3-LC-bQI" firstAttribute="leading" secondItem="Bm7-DL-tuY" secondAttribute="leading" constant="80" id="E5x-kr-OZF"/>
+                            <constraint firstItem="Bm7-DL-tuY" firstAttribute="trailing" secondItem="sVL-LJ-I3y" secondAttribute="trailing" constant="40" id="OVr-Lt-FwT"/>
+                            <constraint firstItem="Bm7-DL-tuY" firstAttribute="trailing" secondItem="ZL3-LC-bQI" secondAttribute="trailing" constant="80" id="X1u-6Z-Arg"/>
                             <constraint firstItem="oGs-Vn-alh" firstAttribute="top" secondItem="50f-yV-puJ" secondAttribute="bottom" id="XeW-jH-M5B"/>
                             <constraint firstItem="50f-yV-puJ" firstAttribute="leading" secondItem="Bm7-DL-tuY" secondAttribute="leading" id="XkU-lr-74I"/>
                             <constraint firstAttribute="bottom" secondItem="oGs-Vn-alh" secondAttribute="bottom" id="cH0-Td-ogB"/>
                             <constraint firstItem="Bm7-DL-tuY" firstAttribute="trailing" secondItem="50f-yV-puJ" secondAttribute="trailing" id="eB0-rt-Jlw"/>
+                            <constraint firstItem="sVL-LJ-I3y" firstAttribute="top" secondItem="Bm7-DL-tuY" secondAttribute="top" constant="145" id="hxk-cV-DUG"/>
+                            <constraint firstItem="ZL3-LC-bQI" firstAttribute="top" secondItem="sVL-LJ-I3y" secondAttribute="bottom" constant="40" id="k2j-hK-vzR"/>
+                            <constraint firstItem="sVL-LJ-I3y" firstAttribute="leading" secondItem="Bm7-DL-tuY" secondAttribute="leading" constant="40" id="rmV-Md-Jqe"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Adjust the pH" id="B7j-M9-dXn"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <nil key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="backgroundLabelView" destination="sVL-LJ-I3y" id="h3p-Ik-OlO"/>
+                        <outlet property="startButton" destination="ZL3-LC-bQI" id="K78-6K-kkb"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OEt-lM-p0P" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -312,38 +423,10 @@ As your cat can only live in a certain type of gas, your task is to use your kno
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nO3-sY-A0E">
-                                <rect key="frame" x="26" y="63" width="338" height="399"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <string key="text">Your cat is starving after being on Earth for so long. 
-However, it cannot digest regular Earth food. 
-Its diet only consists of 
-the first 18 elements of 
-the periodic table. 
-
-Given the properties of each Group of the periodic table, select the correct group,
- or the alien cat will die!</string>
-                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="cat" translatesAutoresizingMaskIntoConstraints="NO" id="HxV-Tr-60R">
                                 <rect key="frame" x="263" y="633" width="106" height="128"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XnT-Qh-CmY">
-                                <rect key="frame" x="89" y="516" width="212" height="48"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="labelColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                <state key="normal" title="START GAME">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <segue destination="Vph-Yc-cjH" kind="show" id="tAl-fe-g5g"/>
-                                </connections>
-                            </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="bowl" translatesAutoresizingMaskIntoConstraints="NO" id="ryL-fI-Fif">
                                 <rect key="frame" x="16" y="648" width="140" height="125"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -362,24 +445,63 @@ Given the properties of each Group of the periodic table, select the correct gro
                                     <constraint firstAttribute="height" constant="20" id="JKt-xA-wmG"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HtS-5n-LQd">
+                                <rect key="frame" x="35" y="189" width="320" height="260"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wfp-Lg-Lw9">
+                                        <rect key="frame" x="15" y="5" width="290" height="250"/>
+                                        <string key="text">Your cat is starving after being on Earth for so long. However, it cannot digest regular Earth food. Its diet only consists of the first 18 elements of the periodic table. 
+
+Given the properties of each Group of the periodic table, select the correct group, or the alien cat will die!</string>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="wfp-Lg-Lw9" secondAttribute="bottom" constant="5" id="6s1-9s-RYc"/>
+                                    <constraint firstItem="wfp-Lg-Lw9" firstAttribute="leading" secondItem="HtS-5n-LQd" secondAttribute="leading" constant="15" id="PkI-T4-jFS"/>
+                                    <constraint firstAttribute="trailing" secondItem="wfp-Lg-Lw9" secondAttribute="trailing" constant="15" id="STg-ZZ-abt"/>
+                                    <constraint firstAttribute="height" constant="260" id="gMY-1d-5VB"/>
+                                    <constraint firstItem="wfp-Lg-Lw9" firstAttribute="top" secondItem="HtS-5n-LQd" secondAttribute="top" constant="5" id="tRe-XS-kkF"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MpM-z9-Kwy">
+                                <rect key="frame" x="80" y="489" width="230" height="50"/>
+                                <color key="backgroundColor" red="0.99313288929999999" green="0.46924948690000001" blue="0.51390445230000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="E3G-qH-6m6"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="Start">
+                                    <color key="titleColor" systemColor="labelColor"/>
+                                </state>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="BKy-cn-q26"/>
-                        <color key="backgroundColor" red="0.70781546829999997" green="0.87274885179999995" blue="0.99610430000000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="backgroundColor" red="0.52424961329999997" green="0.75689440969999999" blue="0.91346889730000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="5Cj-lx-b83" firstAttribute="top" secondItem="M0I-Op-FFw" secondAttribute="bottom" id="9ZQ-0R-zgt"/>
+                            <constraint firstItem="BKy-cn-q26" firstAttribute="trailing" secondItem="HtS-5n-LQd" secondAttribute="trailing" constant="35" id="BW8-5D-9x2"/>
+                            <constraint firstItem="HtS-5n-LQd" firstAttribute="top" secondItem="BKy-cn-q26" secondAttribute="top" constant="145" id="CBd-cP-hNe"/>
                             <constraint firstItem="5Cj-lx-b83" firstAttribute="leading" secondItem="BKy-cn-q26" secondAttribute="leading" id="KK6-R3-jN0"/>
+                            <constraint firstItem="BKy-cn-q26" firstAttribute="trailing" secondItem="MpM-z9-Kwy" secondAttribute="trailing" constant="80" id="L6j-PS-S1d"/>
                             <constraint firstItem="BKy-cn-q26" firstAttribute="trailing" secondItem="M0I-Op-FFw" secondAttribute="trailing" id="LBU-t4-VoQ"/>
                             <constraint firstItem="BKy-cn-q26" firstAttribute="trailing" secondItem="5Cj-lx-b83" secondAttribute="trailing" id="PtM-zl-2Za"/>
+                            <constraint firstItem="MpM-z9-Kwy" firstAttribute="leading" secondItem="BKy-cn-q26" secondAttribute="leading" constant="80" id="diX-d8-3Pz"/>
+                            <constraint firstItem="MpM-z9-Kwy" firstAttribute="top" secondItem="HtS-5n-LQd" secondAttribute="bottom" constant="40" id="g37-Xk-4c1"/>
                             <constraint firstAttribute="bottom" secondItem="5Cj-lx-b83" secondAttribute="bottom" id="hYG-Of-K5X"/>
                             <constraint firstItem="M0I-Op-FFw" firstAttribute="leading" secondItem="BKy-cn-q26" secondAttribute="leading" id="pho-bK-kuR"/>
+                            <constraint firstItem="HtS-5n-LQd" firstAttribute="leading" secondItem="BKy-cn-q26" secondAttribute="leading" constant="35" id="vZu-vw-1kS"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Identify the Elements" largeTitleDisplayMode="never" id="6GP-ug-FjL"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="descriptionLabel" destination="nO3-sY-A0E" id="eXc-sw-sTg"/>
-                        <outlet property="startGame" destination="XnT-Qh-CmY" id="dgr-c0-rp5"/>
+                        <outlet property="backgroundLabelView" destination="HtS-5n-LQd" id="BcV-rQ-wKP"/>
+                        <outlet property="startButton" destination="MpM-z9-Kwy" id="5FV-ny-fn2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2QJ-1y-jCk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -628,7 +750,7 @@ Given the properties of each Group of the periodic table, select the correct gro
                     <tabBarItem key="tabBarItem" title="Play" image="gamecontroller.fill" catalog="system" selectedImage="gamecontroller.fill" id="Xs1-53-ugV"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="eFe-la-nb9">
-                        <rect key="frame" x="0.0" y="44" width="390" height="96"/>
+                        <rect key="frame" x="0.0" y="44" width="390" height="104.33333333333334"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" red="0.396078431372549" green="0.77647058823529413" blue="0.94117647058823528" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </navigationBar>
@@ -871,31 +993,31 @@ Given the properties of each Group of the periodic table, select the correct gro
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="OP2-Bn-voJ">
-                                <rect key="frame" x="60" y="180" width="270" height="200"/>
+                                <rect key="frame" x="60" y="188.33333333333337" width="270" height="200"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="200" id="ETb-Uz-pqG"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Attribute 1" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oIV-eQ-DZC">
-                                <rect key="frame" x="25" y="460" width="340" height="20.333333333333314"/>
+                                <rect key="frame" x="25" y="468.33333333333331" width="340" height="20.333333333333314"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Attribute 2" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qpb-PP-fuw">
-                                <rect key="frame" x="25" y="490.33333333333331" width="340" height="20.333333333333314"/>
+                                <rect key="frame" x="25" y="498.66666666666669" width="340" height="20.333333333333314"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Attribute 3" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oBv-5Y-ZNa">
-                                <rect key="frame" x="25" y="520.66666666666663" width="340" height="20.333333333333371"/>
+                                <rect key="frame" x="25" y="529" width="340" height="20.333333333333371"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Ips-bi-pOe">
-                                <rect key="frame" x="25" y="571" width="340" height="150"/>
+                                <rect key="frame" x="25" y="579.33333333333337" width="340" height="150"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GR6-w8-bRo">
                                         <rect key="frame" x="0.0" y="0.0" width="340" height="20"/>
@@ -951,7 +1073,7 @@ Given the properties of each Group of the periodic table, select the correct gro
                                 </constraints>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="⚠️" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bBa-2P-jIY">
-                                <rect key="frame" x="25" y="400" width="340" height="40"/>
+                                <rect key="frame" x="25" y="408.33333333333331" width="340" height="40"/>
                                 <color key="backgroundColor" red="1" green="0.58431372549019611" blue="0.50196078431372548" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="ZdO-ge-UOu"/>

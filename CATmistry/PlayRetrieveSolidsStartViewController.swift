@@ -9,10 +9,17 @@ import UIKit
 
 class PlayRetrieveSolidsStartViewController: UIViewController {
 
+    @IBOutlet weak var backgroundLabelView: UIView!
+    @IBOutlet weak var startButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        tabBarController?.tabBar.isHidden = true
+        navigationController?.setNavigationBarHidden(true, animated: false)
+        backgroundLabelView.layer.cornerRadius = 15
+        startButton.layer.cornerRadius = 15
     }
     
 
