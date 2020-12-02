@@ -30,7 +30,7 @@
 
 /* Begin PBXFileReference section */
 		005C502612B3A72FDD98D08C4995B84C /* Pods-CATmistry-CATmistryUITests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-CATmistry-CATmistryUITests-dummy.m"; sourceTree = "<group>"; };
-		126ABEF127187B19F6BD8076FF78529B /* Pods_CATmistry_CATmistryUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_CATmistry_CATmistryUITests.framework; path = "Pods-CATmistry-CATmistryUITests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		126ABEF127187B19F6BD8076FF78529B /* Pods_CATmistry_CATmistryUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CATmistry_CATmistryUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2480404FE33B57A6C43CC56B488758C6 /* Pods-CATmistry-CATmistryUITests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-CATmistry-CATmistryUITests-acknowledgements.markdown"; sourceTree = "<group>"; };
 		2A09EF2D7438A4539888BF665448468D /* Pods-CATmistry-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-CATmistry-Info.plist"; sourceTree = "<group>"; };
 		2A30DDF6A8EA082AE2932C78C111D160 /* Pods-CATmistryTests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-CATmistryTests-Info.plist"; sourceTree = "<group>"; };
@@ -45,7 +45,7 @@
 		75A161286994446C0A18F548F1A1CFD3 /* Pods-CATmistry-CATmistryUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-CATmistry-CATmistryUITests.release.xcconfig"; sourceTree = "<group>"; };
 		858E747BC24F8A96D5A92D4628DDB8D8 /* Pods-CATmistry-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-CATmistry-dummy.m"; sourceTree = "<group>"; };
 		8A9A965018F76FB5D492509DC085CF93 /* Pods-CATmistry-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-CATmistry-acknowledgements.plist"; sourceTree = "<group>"; };
-		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		AC6B2D83389839E57C01B84458249B9A /* Pods-CATmistry-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-CATmistry-acknowledgements.markdown"; sourceTree = "<group>"; };
 		B38EC23DBCEDB2B79B8BD4E4DE07C0E5 /* Pods-CATmistryTests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-CATmistryTests-dummy.m"; sourceTree = "<group>"; };
 		B9E7B093A3914997D5B940F35E51CD43 /* Pods-CATmistryTests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-CATmistryTests-acknowledgements.markdown"; sourceTree = "<group>"; };
@@ -53,9 +53,9 @@
 		C9E205F534595F64295CC5317D3328B5 /* Pods-CATmistryTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-CATmistryTests.release.xcconfig"; sourceTree = "<group>"; };
 		D1DCCA60715AF8C215BB996AA3034A3D /* Pods-CATmistry.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-CATmistry.debug.xcconfig"; sourceTree = "<group>"; };
 		D222C8A8DA36562CF9F766F94346AC73 /* Pods-CATmistryTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-CATmistryTests.debug.xcconfig"; sourceTree = "<group>"; };
-		DD93AD45B208594D72A8FDBD9DB090AB /* Pods_CATmistry.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_CATmistry.framework; path = "Pods-CATmistry.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		DD93AD45B208594D72A8FDBD9DB090AB /* Pods_CATmistry.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CATmistry.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE0FE72598EC82D7D9CB8ACD00BF8272 /* Pods-CATmistry-CATmistryUITests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-CATmistry-CATmistryUITests-Info.plist"; sourceTree = "<group>"; };
-		EAFC6138C14D933F42188A79CC584444 /* Pods_CATmistryTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_CATmistryTests.framework; path = "Pods-CATmistryTests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		EAFC6138C14D933F42188A79CC584444 /* Pods_CATmistryTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CATmistryTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F439BFD5B7D302F7A6CCA1CDA4BC2D41 /* Pods-CATmistry-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-CATmistry-umbrella.h"; sourceTree = "<group>"; };
 		F5A70E750D2CD9CE66D5C4354F00DABB /* Pods-CATmistry-CATmistryUITests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-CATmistry-CATmistryUITests.modulemap"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -167,6 +167,7 @@
 		CF1408CF629C7361332E53B88F7BD30C = {
 			isa = PBXGroup;
 			children = (
+				2632D6FF2577D52D0005033F /* PlayAdjustPhDetailsViewController.swift */,
 				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
 				D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */,
 				4FFCAD9C859A9CB40F99714C94CF3E64 /* Products */,

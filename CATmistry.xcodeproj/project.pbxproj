@@ -16,6 +16,9 @@
 		2613B0572570DB9100EECB4C /* CATmistryUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2613B0562570DB9100EECB4C /* CATmistryUITests.swift */; };
 		261E539D2571486600094DA5 /* PlayHomePageTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 261E539C2571486600094DA5 /* PlayHomePageTableViewController.swift */; };
 		261E53A22571488B00094DA5 /* PlayHomePageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 261E53A12571488B00094DA5 /* PlayHomePageTableViewCell.swift */; };
+		2632D7042577D5B50005033F /* PlayFindGasDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2632D7032577D5B50005033F /* PlayFindGasDetailsViewController.swift */; };
+		2632D7092577D5F00005033F /* PlayAdjustPhDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2632D7082577D5F00005033F /* PlayAdjustPhDetailsViewController.swift */; };
+		2632D70E2577D62F0005033F /* PlayRetrieveSolidsDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2632D70D2577D62F0005033F /* PlayRetrieveSolidsDetailsViewController.swift */; };
 		2640F0A325724091003EC92B /* LearnSubTopicDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2640F0A225724091003EC92B /* LearnSubTopicDetailsViewController.swift */; };
 		269F995125777504001C7246 /* PlayAdjustPhStartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 269F995025777504001C7246 /* PlayAdjustPhStartViewController.swift */; };
 		269F995925777538001C7246 /* PlayFindGasStartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 269F995825777538001C7246 /* PlayFindGasStartViewController.swift */; };
@@ -68,6 +71,9 @@
 		2613B0582570DB9100EECB4C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		261E539C2571486600094DA5 /* PlayHomePageTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayHomePageTableViewController.swift; sourceTree = "<group>"; };
 		261E53A12571488B00094DA5 /* PlayHomePageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayHomePageTableViewCell.swift; sourceTree = "<group>"; };
+		2632D7032577D5B50005033F /* PlayFindGasDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayFindGasDetailsViewController.swift; sourceTree = "<group>"; };
+		2632D7082577D5F00005033F /* PlayAdjustPhDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayAdjustPhDetailsViewController.swift; sourceTree = "<group>"; };
+		2632D70D2577D62F0005033F /* PlayRetrieveSolidsDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayRetrieveSolidsDetailsViewController.swift; sourceTree = "<group>"; };
 		2640F0A225724091003EC92B /* LearnSubTopicDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearnSubTopicDetailsViewController.swift; sourceTree = "<group>"; };
 		269F995025777504001C7246 /* PlayAdjustPhStartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayAdjustPhStartViewController.swift; sourceTree = "<group>"; };
 		269F995825777538001C7246 /* PlayFindGasStartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayFindGasStartViewController.swift; sourceTree = "<group>"; };
@@ -157,6 +163,9 @@
 		2613B0332570DB8C00EECB4C /* CATmistry */ = {
 			isa = PBXGroup;
 			children = (
+				2632D7082577D5F00005033F /* PlayAdjustPhDetailsViewController.swift */,
+				2632D70D2577D62F0005033F /* PlayRetrieveSolidsDetailsViewController.swift */,
+				2632D7032577D5B50005033F /* PlayFindGasDetailsViewController.swift */,
 				2613B0342570DB8C00EECB4C /* AppDelegate.swift */,
 				2613B0362570DB8C00EECB4C /* SceneDelegate.swift */,
 				2613B03A2570DB8C00EECB4C /* Main.storyboard */,
@@ -414,6 +423,7 @@
 			files = (
 				2640F0A325724091003EC92B /* LearnSubTopicDetailsViewController.swift in Sources */,
 				54B5D28625738FB5006A55F2 /* QuizViewController.swift in Sources */,
+				2632D7042577D5B50005033F /* PlayFindGasDetailsViewController.swift in Sources */,
 				269F995E25777553001C7246 /* PlayRetrieveSolidsStartViewController.swift in Sources */,
 				2613B0352570DB8C00EECB4C /* AppDelegate.swift in Sources */,
 				547F0ADE2570F66E00A224D9 /* LearnHomePageTableViewCell.swift in Sources */,
@@ -425,9 +435,11 @@
 				54C1714A2574E44F004ED787 /* SubSubTopicTableViewCell.swift in Sources */,
 				547F0AEB2570F85000A224D9 /* structsFunctions.swift in Sources */,
 				261E539D2571486600094DA5 /* PlayHomePageTableViewController.swift in Sources */,
+				2632D7092577D5F00005033F /* PlayAdjustPhDetailsViewController.swift in Sources */,
 				54FEFB0525770AE50054CFF9 /* PlayIdentifyElementsSecondViewController.swift in Sources */,
 				2613B0372570DB8C00EECB4C /* SceneDelegate.swift in Sources */,
 				269F995925777538001C7246 /* PlayFindGasStartViewController.swift in Sources */,
+				2632D70E2577D62F0005033F /* PlayRetrieveSolidsDetailsViewController.swift in Sources */,
 				547F0AD92570F5F900A224D9 /* LearnHomePageTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
