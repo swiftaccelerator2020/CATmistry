@@ -12,7 +12,7 @@ class PlayFindGasStartViewController: UIViewController {
     @IBOutlet weak var backgroundLabel: UILabel!
     @IBOutlet weak var backgroundLabelView: UIView!
     @IBOutlet weak var startButton: UIButton!
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -22,7 +22,7 @@ class PlayFindGasStartViewController: UIViewController {
         backgroundLabelView.layer.cornerRadius = 15
         startButton.layer.cornerRadius = 15
     }
-    
+
 
     /*
     // MARK: - Navigation
