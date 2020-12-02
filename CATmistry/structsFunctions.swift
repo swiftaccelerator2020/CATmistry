@@ -75,6 +75,12 @@ struct QuizQuestion {
     var correctAnswer: Int
 }
 
+struct periodicTableGame{
+    var properties: String
+    var correctAns1: Int
+    var correctAns2: Int
+    var timeGiven: Int
+}
 
 var learnTopics = [
     Topic(title: "Gas Tests", pic: "gas-tests.png", pointsNeeded: 0, subTopics: [
@@ -144,6 +150,15 @@ var learnTopics = [
         ], navTitle: "Groups' Properties"),
         SubTopic(title: "Take the Quiz", pic: "quiz.png", needSlider: false, content: SubContent(definition: ""), subTopics: [], navTitle: "Take the Quiz")
     ], errorLabel: "Please complete Chapter 3"),
+]
+
+var perioicTable = [
+    [
+        periodicTableGame(properties: "Silver, reactive, high melting point and hard", correctAns1: 1, correctAns2: 1, timeGiven: 20),
+        periodicTableGame(properties: "HALO", correctAns1: 1, correctAns2: 2, timeGiven: 20),
+        periodicTableGame(properties: "bai", correctAns1: 1, correctAns2: 3, timeGiven: 20)
+    ],
+    
 ]
 
 var gameTopics = [

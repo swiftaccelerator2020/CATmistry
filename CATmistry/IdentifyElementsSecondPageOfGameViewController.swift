@@ -17,7 +17,8 @@ class IdentifyElementsSecondPageOfGameViewController: UIViewController {
     @IBOutlet weak var groupTwo: UIButton!
     @IBOutlet weak var groupOne: UIButton!
     @IBOutlet weak var timeLeft: UILabel!
-    
+    var progressBarTimer: Timer!
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -43,6 +44,9 @@ class IdentifyElementsSecondPageOfGameViewController: UIViewController {
         
         nonMetal.clipsToBounds = true
         nonMetal.layer.cornerRadius = 0.5 * nonMetal.bounds.size.height
+        
+        self.progressBarTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(IdentifyElementsSecondPageOfGameViewController.updateProgressView), userInfo: nil, repeats: true)
+
         // Do any additional setup after loading the view.
     }
     
@@ -176,6 +180,17 @@ class IdentifyElementsSecondPageOfGameViewController: UIViewController {
         }
         
     }
+    
+    var timeLeftTrack = 10
+    
+    @objc func updateProgressView(){
+        timeLeft.text = "\(timeLeftTrack) seconds left"
+        if(timeLeftTrack == 0)
+        {
+            performSegue(withIdentifier: "akldmf", sender: nil)
+        }
+    }
+    
     /*
      // MARK: - Navigation
      
