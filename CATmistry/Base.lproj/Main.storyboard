@@ -204,7 +204,7 @@ As your cat can only live in a certain type of gas, your task is to use your kno
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wf9-10-D2Q">
-                                <rect key="frame" x="80" y="489" width="230" height="50"/>
+                                <rect key="frame" x="80" y="568" width="230" height="50"/>
                                 <color key="backgroundColor" red="0.96862745098039216" green="0.83921568627450982" blue="0.8784313725490196" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="5uk-GC-44G"/>
@@ -215,7 +215,7 @@ As your cat can only live in a certain type of gas, your task is to use your kno
                                 </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o91-86-BzP">
-                                <rect key="frame" x="40" y="547" width="310" height="30"/>
+                                <rect key="frame" x="40" y="626" width="310" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="b5w-Ie-HaC"/>
                                 </constraints>
@@ -226,21 +226,44 @@ As your cat can only live in a certain type of gas, your task is to use your kno
                                     <action selector="unwindToPlayHomePage:" destination="e4r-tI-S0A" eventType="touchUpInside" id="zpd-cO-IS7"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select Level" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IXm-kH-T0m">
+                                <rect key="frame" x="40" y="479" width="310" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="rki-n1-slZ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="bFT-oU-B0V">
+                                <rect key="frame" x="100" y="507" width="190" height="32"/>
+                                <segments>
+                                    <segment title="1"/>
+                                    <segment title="2"/>
+                                    <segment title="3"/>
+                                </segments>
+                            </segmentedControl>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="dY3-Y6-cVQ"/>
                         <color key="backgroundColor" red="0.52549019607843139" green="0.75686274509803919" blue="0.9137254901960784" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="Wf9-10-D2Q" firstAttribute="leading" secondItem="dY3-Y6-cVQ" secondAttribute="leading" constant="80" id="0LT-yX-eQ8"/>
+                            <constraint firstItem="IXm-kH-T0m" firstAttribute="leading" secondItem="dY3-Y6-cVQ" secondAttribute="leading" constant="40" id="5JF-fl-iPm"/>
                             <constraint firstItem="TX4-D1-VgR" firstAttribute="leading" secondItem="dY3-Y6-cVQ" secondAttribute="leading" id="87b-PZ-s0M"/>
                             <constraint firstAttribute="bottom" secondItem="68x-vD-9BS" secondAttribute="bottom" id="ClU-0k-gqg"/>
                             <constraint firstItem="68x-vD-9BS" firstAttribute="leading" secondItem="dY3-Y6-cVQ" secondAttribute="leading" id="JAK-d8-P8N"/>
+                            <constraint firstItem="dY3-Y6-cVQ" firstAttribute="trailing" secondItem="bFT-oU-B0V" secondAttribute="trailing" constant="100" id="Jj4-le-9ry"/>
                             <constraint firstItem="amq-j8-pX9" firstAttribute="leading" secondItem="dY3-Y6-cVQ" secondAttribute="leading" constant="40" id="McL-qv-ZMU"/>
                             <constraint firstItem="amq-j8-pX9" firstAttribute="top" secondItem="dY3-Y6-cVQ" secondAttribute="top" constant="145" id="OxH-Bq-s0m"/>
                             <constraint firstItem="dY3-Y6-cVQ" firstAttribute="trailing" secondItem="Wf9-10-D2Q" secondAttribute="trailing" constant="80" id="SVS-QL-pta"/>
+                            <constraint firstItem="dY3-Y6-cVQ" firstAttribute="trailing" secondItem="IXm-kH-T0m" secondAttribute="trailing" constant="40" id="acH-fb-LhQ"/>
+                            <constraint firstItem="bFT-oU-B0V" firstAttribute="leading" secondItem="dY3-Y6-cVQ" secondAttribute="leading" constant="100" id="dAZ-7B-SLb"/>
                             <constraint firstItem="dY3-Y6-cVQ" firstAttribute="trailing" secondItem="68x-vD-9BS" secondAttribute="trailing" id="ddG-TE-rqh"/>
-                            <constraint firstItem="Wf9-10-D2Q" firstAttribute="top" secondItem="amq-j8-pX9" secondAttribute="bottom" constant="40" id="ecN-pS-m0A"/>
+                            <constraint firstItem="IXm-kH-T0m" firstAttribute="top" secondItem="amq-j8-pX9" secondAttribute="bottom" constant="30" id="gqf-AQ-gqO"/>
                             <constraint firstItem="o91-86-BzP" firstAttribute="top" secondItem="Wf9-10-D2Q" secondAttribute="bottom" constant="8" id="ixg-pt-AK7"/>
+                            <constraint firstItem="Wf9-10-D2Q" firstAttribute="top" secondItem="bFT-oU-B0V" secondAttribute="bottom" constant="30" id="ntY-bH-zfd"/>
                             <constraint firstItem="dY3-Y6-cVQ" firstAttribute="trailing" secondItem="TX4-D1-VgR" secondAttribute="trailing" id="py5-gs-rPh"/>
+                            <constraint firstItem="bFT-oU-B0V" firstAttribute="top" secondItem="IXm-kH-T0m" secondAttribute="bottom" constant="8" id="tNy-T4-8dU"/>
                             <constraint firstItem="dY3-Y6-cVQ" firstAttribute="trailing" secondItem="amq-j8-pX9" secondAttribute="trailing" constant="40" id="v9Z-jr-dqX"/>
                             <constraint firstItem="o91-86-BzP" firstAttribute="leading" secondItem="dY3-Y6-cVQ" secondAttribute="leading" constant="40" id="x0a-Od-z4J"/>
                             <constraint firstItem="68x-vD-9BS" firstAttribute="top" secondItem="TX4-D1-VgR" secondAttribute="bottom" id="xhq-Yn-qp8"/>
@@ -305,7 +328,7 @@ Separate all the elements in his beaker or the wizard will cast a spell on your 
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6M8-1i-jac">
-                                <rect key="frame" x="80" y="489" width="230" height="50"/>
+                                <rect key="frame" x="80" y="568" width="230" height="50"/>
                                 <color key="backgroundColor" red="0.96862745098039216" green="0.83921568627450982" blue="0.8784313725490196" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="XO7-hb-96k"/>
@@ -316,7 +339,7 @@ Separate all the elements in his beaker or the wizard will cast a spell on your 
                                 </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z2n-td-ccW">
-                                <rect key="frame" x="40" y="547" width="310" height="30"/>
+                                <rect key="frame" x="40" y="626" width="310" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="GhO-cw-9vO"/>
                                 </constraints>
@@ -327,6 +350,23 @@ Separate all the elements in his beaker or the wizard will cast a spell on your 
                                     <action selector="unwindToPlayHomePage:" destination="0jR-6D-YOT" eventType="touchUpInside" id="eVp-DE-hrQ"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select Level" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RGe-0H-Yq2">
+                                <rect key="frame" x="40" y="479" width="310" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="NAq-f9-3wV"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="xQb-T1-JaO">
+                                <rect key="frame" x="100" y="507" width="190" height="32"/>
+                                <segments>
+                                    <segment title="1"/>
+                                    <segment title="2"/>
+                                    <segment title="3"/>
+                                </segments>
+                            </segmentedControl>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Ieg-ok-ug3"/>
                         <color key="backgroundColor" red="0.52424961329999997" green="0.75689440969999999" blue="0.91346889730000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -334,17 +374,23 @@ Separate all the elements in his beaker or the wizard will cast a spell on your 
                             <constraint firstItem="bX0-O2-5ts" firstAttribute="leading" secondItem="Ieg-ok-ug3" secondAttribute="leading" constant="40" id="0YC-tc-FVo"/>
                             <constraint firstItem="c1E-ZM-b3t" firstAttribute="top" secondItem="BEJ-jg-Dsp" secondAttribute="bottom" id="1mm-QF-Son"/>
                             <constraint firstItem="Ieg-ok-ug3" firstAttribute="trailing" secondItem="bX0-O2-5ts" secondAttribute="trailing" constant="40" id="6C3-KL-Zzo"/>
-                            <constraint firstItem="6M8-1i-jac" firstAttribute="top" secondItem="bX0-O2-5ts" secondAttribute="bottom" constant="40" id="8rZ-st-DUz"/>
+                            <constraint firstItem="RGe-0H-Yq2" firstAttribute="leading" secondItem="Ieg-ok-ug3" secondAttribute="leading" constant="40" id="6FU-iP-sxb"/>
                             <constraint firstItem="6M8-1i-jac" firstAttribute="leading" secondItem="Ieg-ok-ug3" secondAttribute="leading" constant="80" id="9Mr-tP-yWg"/>
                             <constraint firstItem="bX0-O2-5ts" firstAttribute="top" secondItem="Ieg-ok-ug3" secondAttribute="top" constant="145" id="AIS-21-JJd"/>
                             <constraint firstItem="Ieg-ok-ug3" firstAttribute="trailing" secondItem="Z2n-td-ccW" secondAttribute="trailing" constant="40" id="J2t-mg-e4h"/>
                             <constraint firstItem="Ieg-ok-ug3" firstAttribute="trailing" secondItem="6M8-1i-jac" secondAttribute="trailing" constant="80" id="KJl-fK-KAu"/>
+                            <constraint firstItem="xQb-T1-JaO" firstAttribute="leading" secondItem="Ieg-ok-ug3" secondAttribute="leading" constant="100" id="Kwe-uO-O6d"/>
+                            <constraint firstItem="RGe-0H-Yq2" firstAttribute="top" secondItem="bX0-O2-5ts" secondAttribute="bottom" constant="30" id="Mbb-Gf-Z3M"/>
+                            <constraint firstItem="6M8-1i-jac" firstAttribute="top" secondItem="xQb-T1-JaO" secondAttribute="bottom" constant="30" id="O4d-I4-Od4"/>
                             <constraint firstItem="Ieg-ok-ug3" firstAttribute="trailing" secondItem="BEJ-jg-Dsp" secondAttribute="trailing" id="PxC-Ve-uLA"/>
                             <constraint firstItem="Z2n-td-ccW" firstAttribute="top" secondItem="6M8-1i-jac" secondAttribute="bottom" constant="8" id="WSJ-eX-3Uz"/>
                             <constraint firstItem="BEJ-jg-Dsp" firstAttribute="leading" secondItem="Ieg-ok-ug3" secondAttribute="leading" id="bC0-P5-B7I"/>
+                            <constraint firstItem="xQb-T1-JaO" firstAttribute="top" secondItem="RGe-0H-Yq2" secondAttribute="bottom" constant="8" id="bGi-P2-8df"/>
                             <constraint firstAttribute="bottom" secondItem="c1E-ZM-b3t" secondAttribute="bottom" id="bWn-gZ-IUX"/>
+                            <constraint firstItem="Ieg-ok-ug3" firstAttribute="trailing" secondItem="RGe-0H-Yq2" secondAttribute="trailing" constant="40" id="hef-NR-ExC"/>
                             <constraint firstItem="Ieg-ok-ug3" firstAttribute="trailing" secondItem="c1E-ZM-b3t" secondAttribute="trailing" id="izn-A2-1E7"/>
                             <constraint firstItem="c1E-ZM-b3t" firstAttribute="leading" secondItem="Ieg-ok-ug3" secondAttribute="leading" id="m8J-u9-O67"/>
+                            <constraint firstItem="Ieg-ok-ug3" firstAttribute="trailing" secondItem="xQb-T1-JaO" secondAttribute="trailing" constant="100" id="tcQ-y8-kNG"/>
                             <constraint firstItem="Z2n-td-ccW" firstAttribute="leading" secondItem="Ieg-ok-ug3" secondAttribute="leading" constant="40" id="uUF-0v-k98"/>
                         </constraints>
                     </view>
@@ -405,7 +451,7 @@ The monster is currently living in the right conditions, and your task is to use
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZL3-LC-bQI">
-                                <rect key="frame" x="80" y="489" width="230" height="50"/>
+                                <rect key="frame" x="80" y="568" width="230" height="50"/>
                                 <color key="backgroundColor" red="0.96862745098039216" green="0.83921568627450982" blue="0.8784313725490196" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="56F-XM-iYS"/>
@@ -419,7 +465,7 @@ The monster is currently living in the right conditions, and your task is to use
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jrc-1e-7XR">
-                                <rect key="frame" x="40" y="547" width="310" height="30"/>
+                                <rect key="frame" x="40" y="626" width="310" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="dfN-Hv-5sY"/>
                                 </constraints>
@@ -430,23 +476,46 @@ The monster is currently living in the right conditions, and your task is to use
                                     <action selector="unwindToPlayHomePage:" destination="MYy-Hk-xqZ" eventType="touchUpInside" id="B3U-zV-tD4"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select Level" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j3h-rP-Q8S">
+                                <rect key="frame" x="40" y="479" width="310" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="K2M-N0-GfA"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="SEV-9I-ACR">
+                                <rect key="frame" x="100" y="507" width="190" height="32"/>
+                                <segments>
+                                    <segment title="1"/>
+                                    <segment title="2"/>
+                                    <segment title="3"/>
+                                </segments>
+                            </segmentedControl>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Bm7-DL-tuY"/>
                         <color key="backgroundColor" red="0.52424961329999997" green="0.75689440969999999" blue="0.91346889730000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="oGs-Vn-alh" firstAttribute="leading" secondItem="Bm7-DL-tuY" secondAttribute="leading" id="1wS-uu-eiP"/>
                             <constraint firstItem="Bm7-DL-tuY" firstAttribute="trailing" secondItem="oGs-Vn-alh" secondAttribute="trailing" id="A1y-y1-u0X"/>
+                            <constraint firstItem="j3h-rP-Q8S" firstAttribute="top" secondItem="sVL-LJ-I3y" secondAttribute="bottom" constant="30" id="AGV-cD-AWh"/>
                             <constraint firstItem="ZL3-LC-bQI" firstAttribute="leading" secondItem="Bm7-DL-tuY" secondAttribute="leading" constant="80" id="E5x-kr-OZF"/>
                             <constraint firstItem="Bm7-DL-tuY" firstAttribute="trailing" secondItem="Jrc-1e-7XR" secondAttribute="trailing" constant="40" id="F0D-nn-QT1"/>
                             <constraint firstItem="Bm7-DL-tuY" firstAttribute="trailing" secondItem="sVL-LJ-I3y" secondAttribute="trailing" constant="40" id="OVr-Lt-FwT"/>
+                            <constraint firstItem="ZL3-LC-bQI" firstAttribute="top" secondItem="SEV-9I-ACR" secondAttribute="bottom" constant="30" id="T6R-f2-uQ2"/>
                             <constraint firstItem="Bm7-DL-tuY" firstAttribute="trailing" secondItem="ZL3-LC-bQI" secondAttribute="trailing" constant="80" id="X1u-6Z-Arg"/>
                             <constraint firstItem="oGs-Vn-alh" firstAttribute="top" secondItem="50f-yV-puJ" secondAttribute="bottom" id="XeW-jH-M5B"/>
                             <constraint firstItem="50f-yV-puJ" firstAttribute="leading" secondItem="Bm7-DL-tuY" secondAttribute="leading" id="XkU-lr-74I"/>
                             <constraint firstItem="Jrc-1e-7XR" firstAttribute="top" secondItem="ZL3-LC-bQI" secondAttribute="bottom" constant="8" id="Yuf-Iw-q3D"/>
+                            <constraint firstItem="j3h-rP-Q8S" firstAttribute="leading" secondItem="Bm7-DL-tuY" secondAttribute="leading" constant="40" id="ZCo-yw-etj"/>
+                            <constraint firstItem="SEV-9I-ACR" firstAttribute="top" secondItem="j3h-rP-Q8S" secondAttribute="bottom" constant="8" id="adg-Ye-4TK"/>
+                            <constraint firstItem="SEV-9I-ACR" firstAttribute="leading" secondItem="Bm7-DL-tuY" secondAttribute="leading" constant="100" id="cFh-Qo-UR2"/>
                             <constraint firstAttribute="bottom" secondItem="oGs-Vn-alh" secondAttribute="bottom" id="cH0-Td-ogB"/>
                             <constraint firstItem="Bm7-DL-tuY" firstAttribute="trailing" secondItem="50f-yV-puJ" secondAttribute="trailing" id="eB0-rt-Jlw"/>
                             <constraint firstItem="sVL-LJ-I3y" firstAttribute="top" secondItem="Bm7-DL-tuY" secondAttribute="top" constant="145" id="hxk-cV-DUG"/>
-                            <constraint firstItem="ZL3-LC-bQI" firstAttribute="top" secondItem="sVL-LJ-I3y" secondAttribute="bottom" constant="40" id="k2j-hK-vzR"/>
+                            <constraint firstItem="Bm7-DL-tuY" firstAttribute="trailing" secondItem="j3h-rP-Q8S" secondAttribute="trailing" constant="40" id="lLy-td-1e8"/>
+                            <constraint firstItem="Bm7-DL-tuY" firstAttribute="trailing" secondItem="SEV-9I-ACR" secondAttribute="trailing" constant="100" id="ltf-Ff-zUb"/>
                             <constraint firstItem="sVL-LJ-I3y" firstAttribute="leading" secondItem="Bm7-DL-tuY" secondAttribute="leading" constant="40" id="rmV-Md-Jqe"/>
                             <constraint firstItem="Jrc-1e-7XR" firstAttribute="leading" secondItem="Bm7-DL-tuY" secondAttribute="leading" constant="40" id="uJP-eT-eHO"/>
                         </constraints>
@@ -476,7 +545,7 @@ The monster is currently living in the right conditions, and your task is to use
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XnT-Qh-CmY">
-                                <rect key="frame" x="80" y="569" width="230" height="50"/>
+                                <rect key="frame" x="80" y="568" width="230" height="50"/>
                                 <color key="backgroundColor" red="0.96862745098039216" green="0.83921568627450982" blue="0.8784313725490196" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="f0d-fV-OcZ"/>
@@ -508,10 +577,7 @@ The monster is currently living in the right conditions, and your task is to use
                                 </constraints>
                             </view>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="m4u-Iu-U2B">
-                                <rect key="frame" x="100" y="508" width="190" height="32"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="190" id="puK-iK-SpB"/>
-                                </constraints>
+                                <rect key="frame" x="100" y="507" width="190" height="32"/>
                                 <segments>
                                     <segment title="1"/>
                                     <segment title="2"/>
@@ -523,7 +589,10 @@ The monster is currently living in the right conditions, and your task is to use
                                 </connections>
                             </segmentedControl>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select Level" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aKs-9U-qBf">
-                                <rect key="frame" x="40" y="479" width="310" height="21"/>
+                                <rect key="frame" x="40" y="479" width="310" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="A2s-z0-dUq"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -551,7 +620,7 @@ Given the properties of each Group of the periodic table, select the correct gro
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6dT-Hx-ynf">
-                                <rect key="frame" x="40" y="627" width="310" height="30"/>
+                                <rect key="frame" x="40" y="626" width="310" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="syG-0G-CkV"/>
                                 </constraints>
@@ -1282,7 +1351,7 @@ Given the properties of each Group of the periodic table, select the correct gro
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="FaB-d6-X5c"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="wEn-aq-CEr">
-                        <rect key="frame" x="0.0" y="44" width="390" height="104.33333333333334"/>
+                        <rect key="frame" x="0.0" y="44" width="390" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -1408,7 +1477,7 @@ Given the properties of each Group of the periodic table, select the correct gro
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="q0c-Zz-aob" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="jRP-bA-vTs">
-                        <rect key="frame" x="0.0" y="44" width="390" height="104.33333333333334"/>
+                        <rect key="frame" x="0.0" y="44" width="390" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
