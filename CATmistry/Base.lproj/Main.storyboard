@@ -344,6 +344,9 @@ Given the properties of each Group of the periodic table, select the correct gro
                                 <state key="normal" title="Group 1">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="groupOne:" destination="Vph-Yc-cjH" eventType="touchUpInside" id="hbf-AZ-wDC"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CwK-MR-K3w">
                                 <rect key="frame" x="210" y="394" width="150" height="30"/>
@@ -352,6 +355,9 @@ Given the properties of each Group of the periodic table, select the correct gro
                                 <state key="normal" title="Group 2">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="groupTwo:" destination="Vph-Yc-cjH" eventType="touchUpInside" id="Q9H-qB-48T"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tIQ-IQ-S8Q">
                                 <rect key="frame" x="31" y="432" width="150" height="30"/>
@@ -360,6 +366,9 @@ Given the properties of each Group of the periodic table, select the correct gro
                                 <state key="normal" title="Group 3">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="groupThree:" destination="Vph-Yc-cjH" eventType="touchUpInside" id="C89-QO-eOh"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A8l-gW-kVM">
                                 <rect key="frame" x="210" y="432" width="150" height="30"/>
@@ -368,6 +377,9 @@ Given the properties of each Group of the periodic table, select the correct gro
                                 <state key="normal" title="Group 4">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="groupFour:" destination="Vph-Yc-cjH" eventType="touchUpInside" id="NHV-aB-Gfk"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0mT-L3-v5e">
                                 <rect key="frame" x="31" y="548" width="332" height="30"/>
@@ -376,6 +388,9 @@ Given the properties of each Group of the periodic table, select the correct gro
                                 <state key="normal" title="Metal">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="metal:" destination="Vph-Yc-cjH" eventType="touchUpInside" id="jBj-Zd-bxW"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2aQ-rP-BbU">
                                 <rect key="frame" x="31" y="586" width="332" height="30"/>
@@ -384,6 +399,9 @@ Given the properties of each Group of the periodic table, select the correct gro
                                 <state key="normal" title="Transition metal">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="transitionMetal:" destination="Vph-Yc-cjH" eventType="touchUpInside" id="Zud-BS-b4N"/>
+                                </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="periodicTable" translatesAutoresizingMaskIntoConstraints="NO" id="xL5-6K-moQ">
                                 <rect key="frame" x="0.0" y="662" width="224" height="89"/>
@@ -400,6 +418,9 @@ Given the properties of each Group of the periodic table, select the correct gro
                                 <state key="normal" title="Non-Metal">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="nonMetal:" destination="Vph-Yc-cjH" eventType="touchUpInside" id="4dW-VV-sqP"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="MF8-ge-vWh"/>

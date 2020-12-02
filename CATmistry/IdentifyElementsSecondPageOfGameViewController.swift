@@ -46,7 +46,89 @@ class IdentifyElementsSecondPageOfGameViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    var selectedButton: UIButton!
+    
+    @IBAction func groupOne(_ sender: Any) {
+        if (selectedButton != groupOne && selectedButton != nil){
+            groupOne.backgroundColor = .green
+            groupOne.setTitleColor(.black, for: .normal)
+            selectedButton.backgroundColor = .black
+            selectedButton.setTitleColor(.white, for: .normal)
+            selectedButton = groupOne
+        } else if (selectedButton != groupOne){
+            selectedButton = groupOne
+            groupOne.backgroundColor = .green
+            groupOne.setTitleColor(.black, for: .normal)
+        } else {
+            selectedButton = nil
+            groupOne.backgroundColor = .black
+            groupOne.setTitleColor(.white, for: .normal)
+        }
+    }
+    
+    @IBAction func groupTwo(_ sender: Any) {
+        if (selectedButton != groupTwo && selectedButton != nil){
+            groupTwo.backgroundColor = .green
+            groupTwo.setTitleColor(.black, for: .normal)
+            selectedButton.backgroundColor = .black
+            selectedButton.setTitleColor(.white, for: .normal)
+            selectedButton = groupTwo
+        } else if (selectedButton != groupTwo){
+            selectedButton = groupTwo
+            groupTwo.backgroundColor = .green
+            groupTwo.setTitleColor(.black, for: .normal)
+        } else {
+            selectedButton = nil
+            groupTwo.backgroundColor = .black
+            groupTwo.setTitleColor(.white, for: .normal)
+        }
+    }
+    
+    @IBAction func groupThree(_ sender: Any) {
+        if (selectedButton != groupThree && selectedButton != nil){
+            groupThree.backgroundColor = .green
+            groupThree.setTitleColor(.black, for: .normal)
+            selectedButton.backgroundColor = .black
+            selectedButton.setTitleColor(.white, for: .normal)
+            selectedButton = groupThree
+        } else if (selectedButton != groupThree){
+            selectedButton = groupThree
+            groupThree.backgroundColor = .green
+            groupThree.setTitleColor(.black, for: .normal)
+        } else {
+            selectedButton = nil
+            groupThree.backgroundColor = .black
+            groupThree.setTitleColor(.white, for: .normal)
+        }
+    }
+    
+    @IBAction func groupFour(_ sender: Any) {
+        if (selectedButton != groupFour && selectedButton != nil){
+            groupFour.backgroundColor = .green
+            groupFour.setTitleColor(.black, for: .normal)
+            selectedButton.backgroundColor = .black
+            selectedButton.setTitleColor(.white, for: .normal)
+            selectedButton = groupFour
+        } else if (selectedButton != groupFour){
+            selectedButton = groupFour
+            groupFour.backgroundColor = .green
+            groupFour.setTitleColor(.black, for: .normal)
+        } else {
+            selectedButton = nil
+            groupFour.backgroundColor = .black
+            groupFour.setTitleColor(.white, for: .normal)
+        }
 
+    }
+    
+    @IBAction func metal(_ sender: Any) {
+    }
+    
+    @IBAction func transitionMetal(_ sender: Any) {
+    }
+    
+    @IBAction func nonMetal(_ sender: Any) {
+    }
     /*
     // MARK: - Navigation
 
@@ -56,5 +138,4 @@ class IdentifyElementsSecondPageOfGameViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
 }
