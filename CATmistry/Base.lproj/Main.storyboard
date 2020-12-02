@@ -385,6 +385,14 @@ Given the properties of each Group of the periodic table, select the correct gro
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                             </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="periodicTable" translatesAutoresizingMaskIntoConstraints="NO" id="xL5-6K-moQ">
+                                <rect key="frame" x="0.0" y="662" width="224" height="89"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="cat" translatesAutoresizingMaskIntoConstraints="NO" id="Nh8-km-VZF">
+                                <rect key="frame" x="280" y="655" width="94" height="103"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oWb-Xd-VoD">
                                 <rect key="frame" x="31" y="624" width="332" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -393,21 +401,20 @@ Given the properties of each Group of the periodic table, select the correct gro
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                             </button>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="periodicTable" translatesAutoresizingMaskIntoConstraints="NO" id="xL5-6K-moQ">
-                                <rect key="frame" x="0.0" y="662" width="224" height="89"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="cat" translatesAutoresizingMaskIntoConstraints="NO" id="Nh8-km-VZF">
-                                <rect key="frame" x="232" y="655" width="179" height="103"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="MF8-ge-vWh"/>
                         <color key="backgroundColor" red="0.71173471210000006" green="0.87667095660000005" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     </view>
                     <navigationItem key="navigationItem" id="X9m-AO-FC8"/>
                     <connections>
+                        <outlet property="groupFour" destination="A8l-gW-kVM" id="SCx-XB-qT0"/>
+                        <outlet property="groupOne" destination="W11-8E-3sm" id="15s-uB-hpv"/>
+                        <outlet property="groupThree" destination="tIQ-IQ-S8Q" id="gte-Co-VwY"/>
+                        <outlet property="groupTwo" destination="CwK-MR-K3w" id="kgs-zu-mbY"/>
+                        <outlet property="metal" destination="0mT-L3-v5e" id="IsA-QG-Xrg"/>
+                        <outlet property="nonMetal" destination="oWb-Xd-VoD" id="j7x-ip-Vgr"/>
                         <outlet property="timeLeft" destination="2Bq-Tb-1J1" id="RFk-SX-Q2b"/>
+                        <outlet property="transitionMetal" destination="2aQ-rP-BbU" id="9iG-6q-9DB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mVe-KW-IaH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
