@@ -222,6 +222,9 @@ As your cat can only live in a certain type of gas, your task is to use your kno
                                 <state key="normal" title="Go Back">
                                     <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="unwindToPlayHomePage:" destination="e4r-tI-S0A" eventType="touchUpInside" id="zpd-cO-IS7"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="dY3-Y6-cVQ"/>
@@ -320,6 +323,9 @@ Separate all the elements in his beaker or the wizard will cast a spell on your 
                                 <state key="normal" title="Go Back">
                                     <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="unwindToPlayHomePage:" destination="0jR-6D-YOT" eventType="touchUpInside" id="eVp-DE-hrQ"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Ieg-ok-ug3"/>
@@ -420,6 +426,9 @@ The monster is currently living in the right conditions, and your task is to use
                                 <state key="normal" title="Go Back">
                                     <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="unwindToPlayHomePage:" destination="MYy-Hk-xqZ" eventType="touchUpInside" id="B3U-zV-tD4"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Bm7-DL-tuY"/>
@@ -549,6 +558,9 @@ Given the properties of each Group of the periodic table, select the correct gro
                                 <state key="normal" title="Go Back">
                                     <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="unwindToPlayHomePage:" destination="vbU-vN-Sop" eventType="touchUpInside" id="bn2-28-Tze"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="BKy-cn-q26"/>
