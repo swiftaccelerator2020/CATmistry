@@ -162,7 +162,7 @@
         <!--Find the Right Gas-->
         <scene sceneID="dQq-rs-Q5l">
             <objects>
-                <viewController id="e4r-tI-S0A" sceneMemberID="viewController">
+                <viewController id="e4r-tI-S0A" customClass="PlayFindGasStartViewController" customModule="CATmistry" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="aYJ-Ff-qbF">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -204,7 +204,7 @@
         <!--Retreive the Solids-->
         <scene sceneID="aPN-6E-YL3">
             <objects>
-                <viewController id="0jR-6D-YOT" sceneMemberID="viewController">
+                <viewController id="0jR-6D-YOT" customClass="PlayRetrieveSolidsStartViewController" customModule="CATmistry" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="lax-hs-Nd2">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -246,7 +246,7 @@
         <!--Adjust the pH-->
         <scene sceneID="PsZ-pb-emh">
             <objects>
-                <viewController id="MYy-Hk-xqZ" sceneMemberID="viewController">
+                <viewController id="MYy-Hk-xqZ" customClass="PlayAdjustPhStartViewController" customModule="CATmistry" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="hwk-s7-jUf">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -367,10 +367,10 @@ Given the properties of each Group of the periodic table, select the correct gro
             </objects>
             <point key="canvasLocation" x="833.84615384615381" y="1264.6919431279621"/>
         </scene>
-        <!--Play Identify Elements Second Page View Controller-->
+        <!--Play Identify Elements Second View Controller-->
         <scene sceneID="OMw-4Q-DVZ">
             <objects>
-                <viewController id="Vph-Yc-cjH" customClass="PlayIdentifyElementsSecondPageViewController" customModule="CATmistry" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Vph-Yc-cjH" customClass="PlayIdentifyElementsSecondViewController" customModule="CATmistry" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="dic-67-1Ar">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -852,31 +852,31 @@ Given the properties of each Group of the periodic table, select the correct gro
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="OP2-Bn-voJ">
-                                <rect key="frame" x="60" y="188.33333333333337" width="270" height="200"/>
+                                <rect key="frame" x="60" y="180" width="270" height="200"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="200" id="ETb-Uz-pqG"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Attribute 1" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oIV-eQ-DZC">
-                                <rect key="frame" x="25" y="468.33333333333331" width="340" height="20.333333333333314"/>
+                                <rect key="frame" x="25" y="460" width="340" height="20.333333333333314"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Attribute 2" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qpb-PP-fuw">
-                                <rect key="frame" x="25" y="498.66666666666669" width="340" height="20.333333333333314"/>
+                                <rect key="frame" x="25" y="490.33333333333331" width="340" height="20.333333333333314"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Attribute 3" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oBv-5Y-ZNa">
-                                <rect key="frame" x="25" y="529" width="340" height="20.333333333333371"/>
+                                <rect key="frame" x="25" y="520.66666666666663" width="340" height="20.333333333333371"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Ips-bi-pOe">
-                                <rect key="frame" x="25" y="579.33333333333337" width="340" height="150"/>
+                                <rect key="frame" x="25" y="571" width="340" height="150"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GR6-w8-bRo">
                                         <rect key="frame" x="0.0" y="0.0" width="340" height="20"/>
@@ -932,7 +932,7 @@ Given the properties of each Group of the periodic table, select the correct gro
                                 </constraints>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="⚠️" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bBa-2P-jIY">
-                                <rect key="frame" x="25" y="408.33333333333331" width="340" height="40"/>
+                                <rect key="frame" x="25" y="400" width="340" height="40"/>
                                 <color key="backgroundColor" red="1" green="0.58431372549019611" blue="0.50196078431372548" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="ZdO-ge-UOu"/>

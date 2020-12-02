@@ -17,6 +17,9 @@
 		261E539D2571486600094DA5 /* PlayHomePageTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 261E539C2571486600094DA5 /* PlayHomePageTableViewController.swift */; };
 		261E53A22571488B00094DA5 /* PlayHomePageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 261E53A12571488B00094DA5 /* PlayHomePageTableViewCell.swift */; };
 		2640F0A325724091003EC92B /* LearnSubTopicDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2640F0A225724091003EC92B /* LearnSubTopicDetailsViewController.swift */; };
+		269F995125777504001C7246 /* PlayAdjustPhStartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 269F995025777504001C7246 /* PlayAdjustPhStartViewController.swift */; };
+		269F995925777538001C7246 /* PlayFindGasStartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 269F995825777538001C7246 /* PlayFindGasStartViewController.swift */; };
+		269F995E25777553001C7246 /* PlayRetrieveSolidsStartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 269F995D25777553001C7246 /* PlayRetrieveSolidsStartViewController.swift */; };
 		26DDE2A4257483B200FDC078 /* LearnSubSubTopicDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26DDE2A3257483B200FDC078 /* LearnSubSubTopicDetailsViewController.swift */; };
 		547F0AD92570F5F900A224D9 /* LearnHomePageTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 547F0AD82570F5F900A224D9 /* LearnHomePageTableViewController.swift */; };
 		547F0ADE2570F66E00A224D9 /* LearnHomePageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 547F0ADD2570F66E00A224D9 /* LearnHomePageTableViewCell.swift */; };
@@ -25,7 +28,7 @@
 		54B5D28625738FB5006A55F2 /* QuizViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54B5D28525738FB5006A55F2 /* QuizViewController.swift */; };
 		54C1714A2574E44F004ED787 /* SubSubTopicTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C171492574E44F004ED787 /* SubSubTopicTableViewCell.swift */; };
 		54F5202F2571FA4600D7363C /* LearnChapterSubTopicsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54F5202E2571FA4600D7363C /* LearnChapterSubTopicsTableViewController.swift */; };
-		54FEFB0525770AE50054CFF9 /* PlayIdentifyElementsSecondPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54FEFB0425770AE50054CFF9 /* PlayIdentifyElementsSecondPageViewController.swift */; };
+		54FEFB0525770AE50054CFF9 /* PlayIdentifyElementsSecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54FEFB0425770AE50054CFF9 /* PlayIdentifyElementsSecondViewController.swift */; };
 		6162D640B8567EBF7E172D11 /* Pods_CATmistry.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49DA23714213562AA54B3120 /* Pods_CATmistry.framework */; };
 		A0EA46C12C28AAC955A26CC8 /* Pods_CATmistryTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C25FC8DB42CBF979D08BA3AE /* Pods_CATmistryTests.framework */; };
 		C182AE3B215D6AE8A4B33886 /* Pods_CATmistry_CATmistryUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E17CC281B885BB9952784F31 /* Pods_CATmistry_CATmistryUITests.framework */; };
@@ -66,6 +69,9 @@
 		261E539C2571486600094DA5 /* PlayHomePageTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayHomePageTableViewController.swift; sourceTree = "<group>"; };
 		261E53A12571488B00094DA5 /* PlayHomePageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayHomePageTableViewCell.swift; sourceTree = "<group>"; };
 		2640F0A225724091003EC92B /* LearnSubTopicDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearnSubTopicDetailsViewController.swift; sourceTree = "<group>"; };
+		269F995025777504001C7246 /* PlayAdjustPhStartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayAdjustPhStartViewController.swift; sourceTree = "<group>"; };
+		269F995825777538001C7246 /* PlayFindGasStartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayFindGasStartViewController.swift; sourceTree = "<group>"; };
+		269F995D25777553001C7246 /* PlayRetrieveSolidsStartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayRetrieveSolidsStartViewController.swift; sourceTree = "<group>"; };
 		26DDE2A3257483B200FDC078 /* LearnSubSubTopicDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearnSubSubTopicDetailsViewController.swift; sourceTree = "<group>"; };
 		2F20F908644330A99E65D047 /* Pods-CATmistryTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CATmistryTests.debug.xcconfig"; path = "Target Support Files/Pods-CATmistryTests/Pods-CATmistryTests.debug.xcconfig"; sourceTree = "<group>"; };
 		462BC2A50FADBCEE81DEA261 /* Pods-CATmistry.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CATmistry.release.xcconfig"; path = "Target Support Files/Pods-CATmistry/Pods-CATmistry.release.xcconfig"; sourceTree = "<group>"; };
@@ -77,7 +83,7 @@
 		54B5D28525738FB5006A55F2 /* QuizViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizViewController.swift; sourceTree = "<group>"; };
 		54C171492574E44F004ED787 /* SubSubTopicTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubSubTopicTableViewCell.swift; sourceTree = "<group>"; };
 		54F5202E2571FA4600D7363C /* LearnChapterSubTopicsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearnChapterSubTopicsTableViewController.swift; sourceTree = "<group>"; };
-		54FEFB0425770AE50054CFF9 /* PlayIdentifyElementsSecondPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayIdentifyElementsSecondPageViewController.swift; sourceTree = "<group>"; };
+		54FEFB0425770AE50054CFF9 /* PlayIdentifyElementsSecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayIdentifyElementsSecondViewController.swift; sourceTree = "<group>"; };
 		632B238902855510D1A66A8D /* Pods-CATmistry-CATmistryUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CATmistry-CATmistryUITests.debug.xcconfig"; path = "Target Support Files/Pods-CATmistry-CATmistryUITests/Pods-CATmistry-CATmistryUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		67A35E2E4F9993C8DC7B5A27 /* Pods-CATmistry-CATmistryUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CATmistry-CATmistryUITests.release.xcconfig"; path = "Target Support Files/Pods-CATmistry-CATmistryUITests/Pods-CATmistry-CATmistryUITests.release.xcconfig"; sourceTree = "<group>"; };
 		C25FC8DB42CBF979D08BA3AE /* Pods_CATmistryTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CATmistryTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -154,7 +160,10 @@
 				2613B0342570DB8C00EECB4C /* AppDelegate.swift */,
 				2613B0362570DB8C00EECB4C /* SceneDelegate.swift */,
 				2613B03A2570DB8C00EECB4C /* Main.storyboard */,
-				54FEFB0425770AE50054CFF9 /* PlayIdentifyElementsSecondPageViewController.swift */,
+				269F995825777538001C7246 /* PlayFindGasStartViewController.swift */,
+				269F995D25777553001C7246 /* PlayRetrieveSolidsStartViewController.swift */,
+				269F995025777504001C7246 /* PlayAdjustPhStartViewController.swift */,
+				54FEFB0425770AE50054CFF9 /* PlayIdentifyElementsSecondViewController.swift */,
 				548C7E852576897200D2ACD8 /* PlayIdentifyElementsStartViewController.swift */,
 				54C171492574E44F004ED787 /* SubSubTopicTableViewCell.swift */,
 				26DDE2A3257483B200FDC078 /* LearnSubSubTopicDetailsViewController.swift */,
@@ -405,17 +414,20 @@
 			files = (
 				2640F0A325724091003EC92B /* LearnSubTopicDetailsViewController.swift in Sources */,
 				54B5D28625738FB5006A55F2 /* QuizViewController.swift in Sources */,
+				269F995E25777553001C7246 /* PlayRetrieveSolidsStartViewController.swift in Sources */,
 				2613B0352570DB8C00EECB4C /* AppDelegate.swift in Sources */,
 				547F0ADE2570F66E00A224D9 /* LearnHomePageTableViewCell.swift in Sources */,
 				548C7E862576897200D2ACD8 /* PlayIdentifyElementsStartViewController.swift in Sources */,
 				261E53A22571488B00094DA5 /* PlayHomePageTableViewCell.swift in Sources */,
 				26DDE2A4257483B200FDC078 /* LearnSubSubTopicDetailsViewController.swift in Sources */,
+				269F995125777504001C7246 /* PlayAdjustPhStartViewController.swift in Sources */,
 				54F5202F2571FA4600D7363C /* LearnChapterSubTopicsTableViewController.swift in Sources */,
 				54C1714A2574E44F004ED787 /* SubSubTopicTableViewCell.swift in Sources */,
 				547F0AEB2570F85000A224D9 /* structsFunctions.swift in Sources */,
 				261E539D2571486600094DA5 /* PlayHomePageTableViewController.swift in Sources */,
-				54FEFB0525770AE50054CFF9 /* PlayIdentifyElementsSecondPageViewController.swift in Sources */,
+				54FEFB0525770AE50054CFF9 /* PlayIdentifyElementsSecondViewController.swift in Sources */,
 				2613B0372570DB8C00EECB4C /* SceneDelegate.swift in Sources */,
+				269F995925777538001C7246 /* PlayFindGasStartViewController.swift in Sources */,
 				547F0AD92570F5F900A224D9 /* LearnHomePageTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
