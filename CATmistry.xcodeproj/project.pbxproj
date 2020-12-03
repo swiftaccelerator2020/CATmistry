@@ -32,6 +32,7 @@
 		54C1714A2574E44F004ED787 /* SubSubTopicTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C171492574E44F004ED787 /* SubSubTopicTableViewCell.swift */; };
 		54F5202F2571FA4600D7363C /* LearnChapterSubTopicsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54F5202E2571FA4600D7363C /* LearnChapterSubTopicsTableViewController.swift */; };
 		54FEFB0525770AE50054CFF9 /* PlayIdentifyElementsSecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54FEFB0425770AE50054CFF9 /* PlayIdentifyElementsSecondViewController.swift */; };
+		54FEFB222578626F0054CFF9 /* PlayIdentifyElementsThirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54FEFB212578626F0054CFF9 /* PlayIdentifyElementsThirdViewController.swift */; };
 		6162D640B8567EBF7E172D11 /* Pods_CATmistry.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49DA23714213562AA54B3120 /* Pods_CATmistry.framework */; };
 		A0EA46C12C28AAC955A26CC8 /* Pods_CATmistryTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C25FC8DB42CBF979D08BA3AE /* Pods_CATmistryTests.framework */; };
 		C182AE3B215D6AE8A4B33886 /* Pods_CATmistry_CATmistryUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E17CC281B885BB9952784F31 /* Pods_CATmistry_CATmistryUITests.framework */; };
@@ -90,6 +91,7 @@
 		54C171492574E44F004ED787 /* SubSubTopicTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubSubTopicTableViewCell.swift; sourceTree = "<group>"; };
 		54F5202E2571FA4600D7363C /* LearnChapterSubTopicsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearnChapterSubTopicsTableViewController.swift; sourceTree = "<group>"; };
 		54FEFB0425770AE50054CFF9 /* PlayIdentifyElementsSecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayIdentifyElementsSecondViewController.swift; sourceTree = "<group>"; };
+		54FEFB212578626F0054CFF9 /* PlayIdentifyElementsThirdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayIdentifyElementsThirdViewController.swift; sourceTree = "<group>"; };
 		632B238902855510D1A66A8D /* Pods-CATmistry-CATmistryUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CATmistry-CATmistryUITests.debug.xcconfig"; path = "Target Support Files/Pods-CATmistry-CATmistryUITests/Pods-CATmistry-CATmistryUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		67A35E2E4F9993C8DC7B5A27 /* Pods-CATmistry-CATmistryUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CATmistry-CATmistryUITests.release.xcconfig"; path = "Target Support Files/Pods-CATmistry-CATmistryUITests/Pods-CATmistry-CATmistryUITests.release.xcconfig"; sourceTree = "<group>"; };
 		C25FC8DB42CBF979D08BA3AE /* Pods_CATmistryTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CATmistryTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -221,6 +223,7 @@
 			isa = PBXGroup;
 			children = (
 				54FEFB0425770AE50054CFF9 /* PlayIdentifyElementsSecondViewController.swift */,
+				54FEFB212578626F0054CFF9 /* PlayIdentifyElementsThirdViewController.swift */,
 				548C7E852576897200D2ACD8 /* PlayIdentifyElementsStartViewController.swift */,
 			);
 			path = "Identify Elements Game";
@@ -489,6 +492,7 @@
 				54B5D28625738FB5006A55F2 /* QuizViewController.swift in Sources */,
 				2632D7042577D5B50005033F /* PlayFindGasDetailsViewController.swift in Sources */,
 				269F995E25777553001C7246 /* PlayRetrieveSolidsStartViewController.swift in Sources */,
+				54FEFB222578626F0054CFF9 /* PlayIdentifyElementsThirdViewController.swift in Sources */,
 				2613B0352570DB8C00EECB4C /* AppDelegate.swift in Sources */,
 				547F0ADE2570F66E00A224D9 /* LearnHomePageTableViewCell.swift in Sources */,
 				548C7E862576897200D2ACD8 /* PlayIdentifyElementsStartViewController.swift in Sources */,

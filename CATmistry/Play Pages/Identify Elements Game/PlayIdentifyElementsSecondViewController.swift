@@ -194,6 +194,8 @@ class PlayIdentifyElementsSecondViewController: UIViewController {
         timeLeftTrack -= 1
         if(timeLeftTrack == 0)
         {
+            progressBarTimer.invalidate()
+            progressBarTimer = nil
             performSegue(withIdentifier: "finishedSceneTwoGame", sender: nil)
         }
     }
