@@ -1386,7 +1386,7 @@ Given the properties of each Group of the periodic table, select the correct gro
                 <navigationController id="8Us-es-0oa" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Learn" image="books.vertical.fill" catalog="system" selectedImage="books.vertical.fill" id="ZOw-bY-pdm"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="OvI-u8-jpf">
-                        <rect key="frame" x="0.0" y="44" width="390" height="104.33333333333334"/>
+                        <rect key="frame" x="0.0" y="44" width="390" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" red="0.95419245959999999" green="0.83945876360000005" blue="0.47016263009999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </navigationBar>
@@ -1397,6 +1397,34 @@ Given the properties of each Group of the periodic table, select the correct gro
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KG7-a9-KsS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1501.5384615384614" y="-211.13744075829382"/>
+        </scene>
+        <!--Settings-->
+        <scene sceneID="ktO-op-ks2">
+            <objects>
+                <viewController id="TI6-Yu-g9g" customClass="settingsViewController" customModule="CATmistry" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="QaO-qM-xxI">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2kf-mA-oqU">
+                                <rect key="frame" x="16" y="325" width="374" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="tXk-pY-hhC"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Settings" image="square" catalog="system" selectedImage="square" id="mZa-8F-nqW"/>
+                    <connections>
+                        <outlet property="point" destination="2kf-mA-oqU" id="W4L-wk-Xhr"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5E8-vP-eOu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-3258.4615384615386" y="91.706161137440759"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="j5M-0F-VSJ">
@@ -1417,6 +1445,7 @@ Given the properties of each Group of the periodic table, select the correct gro
                     <connections>
                         <segue destination="8Us-es-0oa" kind="relationship" relationship="viewControllers" id="D1C-oQ-qTn"/>
                         <segue destination="AWj-tp-2rk" kind="relationship" relationship="viewControllers" id="3vm-Ky-bg2"/>
+                        <segue destination="TI6-Yu-g9g" kind="relationship" relationship="viewControllers" id="X7D-fX-g4p"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iiO-Mq-Aeo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1829,7 +1858,7 @@ Given the properties of each Group of the periodic table, select the correct gro
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="FaB-d6-X5c"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="wEn-aq-CEr">
-                        <rect key="frame" x="0.0" y="44" width="390" height="104.33333333333334"/>
+                        <rect key="frame" x="0.0" y="44" width="390" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -1980,6 +2009,7 @@ Given the properties of each Group of the periodic table, select the correct gro
         <image name="lock" width="512" height="512"/>
         <image name="periodicTable" width="339" height="133"/>
         <image name="ph-7" width="512" height="512"/>
+        <image name="square" catalog="system" width="128" height="114"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

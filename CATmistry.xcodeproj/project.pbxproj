@@ -29,6 +29,7 @@
 		547F0AEB2570F85000A224D9 /* structsFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 547F0AEA2570F85000A224D9 /* structsFunctions.swift */; };
 		548C7E862576897200D2ACD8 /* PlayIdentifyElementsStartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 548C7E852576897200D2ACD8 /* PlayIdentifyElementsStartViewController.swift */; };
 		54B5D28625738FB5006A55F2 /* QuizViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54B5D28525738FB5006A55F2 /* QuizViewController.swift */; };
+		54BAB8262578CA560000A5C0 /* settingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54BAB8252578CA560000A5C0 /* settingsViewController.swift */; };
 		54C1714A2574E44F004ED787 /* SubSubTopicTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C171492574E44F004ED787 /* SubSubTopicTableViewCell.swift */; };
 		54F5202F2571FA4600D7363C /* LearnChapterSubTopicsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54F5202E2571FA4600D7363C /* LearnChapterSubTopicsTableViewController.swift */; };
 		54FEFB0525770AE50054CFF9 /* PlayIdentifyElementsSecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54FEFB0425770AE50054CFF9 /* PlayIdentifyElementsSecondViewController.swift */; };
@@ -88,6 +89,7 @@
 		547F0AEA2570F85000A224D9 /* structsFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = structsFunctions.swift; sourceTree = "<group>"; };
 		548C7E852576897200D2ACD8 /* PlayIdentifyElementsStartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayIdentifyElementsStartViewController.swift; sourceTree = "<group>"; };
 		54B5D28525738FB5006A55F2 /* QuizViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizViewController.swift; sourceTree = "<group>"; };
+		54BAB8252578CA560000A5C0 /* settingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = settingsViewController.swift; sourceTree = "<group>"; };
 		54C171492574E44F004ED787 /* SubSubTopicTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubSubTopicTableViewCell.swift; sourceTree = "<group>"; };
 		54F5202E2571FA4600D7363C /* LearnChapterSubTopicsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearnChapterSubTopicsTableViewController.swift; sourceTree = "<group>"; };
 		54FEFB0425770AE50054CFF9 /* PlayIdentifyElementsSecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayIdentifyElementsSecondViewController.swift; sourceTree = "<group>"; };
@@ -168,6 +170,7 @@
 				2613B0342570DB8C00EECB4C /* AppDelegate.swift */,
 				2613B0362570DB8C00EECB4C /* SceneDelegate.swift */,
 				2613B03A2570DB8C00EECB4C /* Main.storyboard */,
+				54BAB8252578CA560000A5C0 /* settingsViewController.swift */,
 				54FEFB172578609C0054CFF9 /* Learn Pages */,
 				54FEFB122578603A0054CFF9 /* Play Pages */,
 				547F0AEA2570F85000A224D9 /* structsFunctions.swift */,
@@ -495,6 +498,7 @@
 				54FEFB222578626F0054CFF9 /* PlayIdentifyElementsThirdViewController.swift in Sources */,
 				2613B0352570DB8C00EECB4C /* AppDelegate.swift in Sources */,
 				547F0ADE2570F66E00A224D9 /* LearnHomePageTableViewCell.swift in Sources */,
+				54BAB8262578CA560000A5C0 /* settingsViewController.swift in Sources */,
 				548C7E862576897200D2ACD8 /* PlayIdentifyElementsStartViewController.swift in Sources */,
 				261E53A22571488B00094DA5 /* PlayHomePageTableViewCell.swift in Sources */,
 				26DDE2A4257483B200FDC078 /* LearnSubSubTopicDetailsViewController.swift in Sources */,
