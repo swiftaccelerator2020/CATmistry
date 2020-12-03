@@ -9,13 +9,32 @@ import UIKit
 
 class PlayAdjustPhDetailsViewController: UIViewController {
 
+    @IBOutlet weak var addFirstIndicatorButton: UIButton!
+    @IBOutlet weak var addSecondIndicatorButton: UIButton!
+    @IBOutlet weak var addThirdIndicatorButton: UIButton!
+    @IBOutlet weak var monsterImageView: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        addFirstIndicatorButton.layer.cornerRadius = 15
+        addSecondIndicatorButton.layer.cornerRadius = 15
+        addThirdIndicatorButton.layer.cornerRadius = 15
     }
     
-
+    @IBAction func clickAddFirstIndicator(_ sender: Any) {
+        monsterImageView.image = UIImage(named: "")
+    }
+    
+    @IBAction func clickAddSecondIndicator(_ sender: Any) {
+        monsterImageView.image = UIImage(named: "")
+    }
+    
+    @IBAction func clickAddThirdIndicator(_ sender: Any) {
+        monsterImageView.image = UIImage(named: "")
+    }
+    
     /*
     // MARK: - Navigation
 

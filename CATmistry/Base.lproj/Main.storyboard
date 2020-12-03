@@ -1084,6 +1084,9 @@ Given the properties of each Group of the periodic table, select the correct gro
                                 <state key="normal" title="Add Methyl Orange">
                                     <color key="titleColor" systemColor="labelColor"/>
                                 </state>
+                                <connections>
+                                    <action selector="clickAddFirstIndicator:" destination="BaN-EE-YvM" eventType="touchUpInside" id="bDk-Sp-cEV"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2fi-mq-GPf">
                                 <rect key="frame" x="40" y="164" width="310" height="40"/>
@@ -1094,6 +1097,9 @@ Given the properties of each Group of the periodic table, select the correct gro
                                 <state key="normal" title="Add Litmus">
                                     <color key="titleColor" systemColor="labelColor"/>
                                 </state>
+                                <connections>
+                                    <action selector="clickAddSecondIndicator:" destination="BaN-EE-YvM" eventType="touchUpInside" id="e6v-Cr-HMY"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XFZ-Fb-ks6">
                                 <rect key="frame" x="40" y="214" width="310" height="40"/>
@@ -1104,6 +1110,9 @@ Given the properties of each Group of the periodic table, select the correct gro
                                 <state key="normal" title="Add Universal Indicator">
                                     <color key="titleColor" systemColor="labelColor"/>
                                 </state>
+                                <connections>
+                                    <action selector="clickAddThirdIndicator:" destination="BaN-EE-YvM" eventType="touchUpInside" id="8qn-Qk-aNN"/>
+                                </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="IrT-Z2-NI1">
                                 <rect key="frame" x="40" y="314" width="310" height="90"/>
@@ -1262,6 +1271,12 @@ Given the properties of each Group of the periodic table, select the correct gro
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="hjY-wX-rX7"/>
+                    <connections>
+                        <outlet property="addFirstIndicatorButton" destination="SvK-Ny-SRi" id="AjF-oO-0Ht"/>
+                        <outlet property="addSecondIndicatorButton" destination="2fi-mq-GPf" id="BMU-wC-mWA"/>
+                        <outlet property="addThirdIndicatorButton" destination="XFZ-Fb-ks6" id="r3e-py-JoX"/>
+                        <outlet property="monsterImageView" destination="msP-Zd-VFr" id="7EP-hf-ijt"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="r6k-y5-7Ng" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1368,7 +1383,7 @@ Given the properties of each Group of the periodic table, select the correct gro
                     <tabBarItem key="tabBarItem" title="Play" image="gamecontroller.fill" catalog="system" selectedImage="gamecontroller.fill" id="Xs1-53-ugV"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="eFe-la-nb9">
-                        <rect key="frame" x="0.0" y="44" width="390" height="104.33333333333334"/>
+                        <rect key="frame" x="0.0" y="44" width="390" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" red="0.396078431372549" green="0.77647058823529413" blue="0.94117647058823528" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </navigationBar>
@@ -1767,7 +1782,7 @@ Given the properties of each Group of the periodic table, select the correct gro
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="FaB-d6-X5c"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="wEn-aq-CEr">
-                        <rect key="frame" x="0.0" y="44" width="390" height="96"/>
+                        <rect key="frame" x="0.0" y="44" width="390" height="104.33333333333334"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -1893,7 +1908,7 @@ Given the properties of each Group of the periodic table, select the correct gro
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="q0c-Zz-aob" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="jRP-bA-vTs">
-                        <rect key="frame" x="0.0" y="44" width="390" height="96"/>
+                        <rect key="frame" x="0.0" y="44" width="390" height="104.33333333333334"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
