@@ -16,7 +16,8 @@ class PlayRetrieveSolidsDetailsViewController: UIViewController, UITableViewDele
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        <#code#>
+        let cell = tableView.dequeueReusableCell(withIdentifier: "loremIpsum", for: indexPath)
+        return cell
     }
     
 
