@@ -209,11 +209,8 @@
 		54FEFB172578609C0054CFF9 /* Learn Pages */ = {
 			isa = PBXGroup;
 			children = (
-				54C171492574E44F004ED787 /* SubSubTopicTableViewCell.swift */,
-				26DDE2A3257483B200FDC078 /* LearnSubSubTopicDetailsViewController.swift */,
+				54FEFB1D257861690054CFF9 /* Specific Learn Pages */,
 				54B5D28525738FB5006A55F2 /* QuizViewController.swift */,
-				2640F0A225724091003EC92B /* LearnSubTopicDetailsViewController.swift */,
-				54F5202E2571FA4600D7363C /* LearnChapterSubTopicsTableViewController.swift */,
 				547F0ADD2570F66E00A224D9 /* LearnHomePageTableViewCell.swift */,
 				547F0AD82570F5F900A224D9 /* LearnHomePageTableViewController.swift */,
 			);
@@ -263,6 +260,17 @@
 				261E539C2571486600094DA5 /* PlayHomePageTableViewController.swift */,
 			);
 			path = "Table View";
+			sourceTree = "<group>";
+		};
+		54FEFB1D257861690054CFF9 /* Specific Learn Pages */ = {
+			isa = PBXGroup;
+			children = (
+				26DDE2A3257483B200FDC078 /* LearnSubSubTopicDetailsViewController.swift */,
+				2640F0A225724091003EC92B /* LearnSubTopicDetailsViewController.swift */,
+				54C171492574E44F004ED787 /* SubSubTopicTableViewCell.swift */,
+				54F5202E2571FA4600D7363C /* LearnChapterSubTopicsTableViewController.swift */,
+			);
+			path = "Specific Learn Pages";
 			sourceTree = "<group>";
 		};
 		6D9E306F40C4427E4EFBF49A /* Frameworks */ = {
