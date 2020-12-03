@@ -9,9 +9,13 @@ import UIKit
 
 class PlayIdentifyElementsThirdViewController: UIViewController {
 
+    @IBOutlet weak var currentPoints: UILabel!
+    var pointsToAdd: Int!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        currentPoints.text = "Points Left: \(points)"
         // Do any additional setup after loading the view.
     }
     

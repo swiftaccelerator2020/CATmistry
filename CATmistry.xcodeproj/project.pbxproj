@@ -222,9 +222,9 @@
 		54FEFB18257860C10054CFF9 /* Identify Elements Game */ = {
 			isa = PBXGroup;
 			children = (
+				548C7E852576897200D2ACD8 /* PlayIdentifyElementsStartViewController.swift */,
 				54FEFB0425770AE50054CFF9 /* PlayIdentifyElementsSecondViewController.swift */,
 				54FEFB212578626F0054CFF9 /* PlayIdentifyElementsThirdViewController.swift */,
-				548C7E852576897200D2ACD8 /* PlayIdentifyElementsStartViewController.swift */,
 			);
 			path = "Identify Elements Game";
 			sourceTree = "<group>";

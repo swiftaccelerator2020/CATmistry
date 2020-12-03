@@ -1291,22 +1291,32 @@ Given the properties of each Group of the periodic table, select the correct gro
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oJy-KV-17H">
-                                <rect key="frame" x="166" y="380" width="58" height="30"/>
+                                <rect key="frame" x="166" y="512" width="58" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Go Back"/>
                                 <connections>
                                     <action selector="unwindToPlayHomePage:" destination="S3v-yJ-bVb" eventType="touchUpInside" id="8Z5-bM-aIR"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Points Left: " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R1y-Mz-Yoa">
+                                <rect key="frame" x="107" y="201" width="175" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="wif-b8-x0e"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="9pW-Ip-rq0"/>
+                    <connections>
+                        <outlet property="currentPoints" destination="R1y-Mz-Yoa" id="2em-h4-S5Q"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bfp-4F-sdY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="834" y="2753"/>
+            <point key="canvasLocation" x="833.84615384615381" y="2752.6066350710898"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="vSM-Tt-jq0">

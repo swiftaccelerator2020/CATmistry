@@ -21,6 +21,7 @@ class PlayIdentifyElementsSecondViewController: UIViewController {
     var progressBarTimer: Timer!
     var gameTopic: periodicTableGame!
     var timeLeftTrack: Int!
+    var level: Int!
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -188,7 +189,7 @@ class PlayIdentifyElementsSecondViewController: UIViewController {
         }
         
     }
-        
+    
     @objc func updateProgressView(){
         timeLeft.text = "\(timeLeftTrack!) seconds left"
         timeLeftTrack -= 1
@@ -200,13 +201,52 @@ class PlayIdentifyElementsSecondViewController: UIViewController {
         }
     }
     
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
-     }
-     */
+    
+    // MARK: - Navigation
+    
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if (segue.identifier == "finishedSceneTwoGame"){
+            let desti = segue.destination as! PlayIdentifyElementsThirdViewController
+            switch selectedButton {
+            case groupOne:
+                if gameTopic.correctAns1 == 1{
+                    points += level/2
+                }
+            case groupTwo:
+                if gameTopic.correctAns1 == 2{
+                    points += level/2
+                }
+            case groupThree:
+                if gameTopic.correctAns1 == 3{
+                    points += level/2
+                }
+            case groupFour:
+                if gameTopic.correctAns1 == 4{
+                    points += level/2
+                }
+            default:
+                break
+            }
+            
+            switch selectedMetalButton {
+            case metal:
+                if gameTopic.correctAns2 == 1{
+                    points += level/2
+                }
+            case transitionMetal:
+                if gameTopic.correctAns2 == 2{
+                    points += level/2
+                }
+            case nonMetal:
+                if gameTopic.correctAns2 == 3{
+                    points += level/2
+                }
+            default:
+                break
+            }
+            let ud = UserDefaults.standard
+            ud.set(points, forKey: "points")
+        }
+    }
 }
