@@ -1,20 +1,21 @@
 //
-//  learnPageTableViewCell.swift
+//  PlayHomePageTableViewCell.swift
 //  CATmistry
 //
-//  Created by Wang Zerui on 27/11/20.
+//  Created by N HJ on 27/11/20.
 //
 
 import UIKit
 
-class LearnHomePageTableViewCell: UITableViewCell {
-    
-    @IBOutlet weak var learnChapterImageView: UIImageView!
-    @IBOutlet weak var learnChapterLabel: UILabel!
+class PlayHomePageTableViewCell: UITableViewCell {
+    @IBOutlet weak var playChapterImageView: UIImageView!
+    @IBOutlet weak var playChapterLabel: UILabel!
+    @IBOutlet weak var needMorePointsLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        self.needMorePointsLabel.isHidden = true
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

@@ -1,0 +1,6 @@
+framework module Pods_CATmistry_CATmistryUITests {
+  umbrella header "Pods-CATmistry-CATmistryUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}

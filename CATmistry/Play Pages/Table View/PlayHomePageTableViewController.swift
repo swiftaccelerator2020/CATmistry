@@ -1,27 +1,26 @@
 //
-//  learnPageTableViewController.swift
+//  PlayHomePageTableViewController.swift
 //  CATmistry
 //
-//  Created by Wang Zerui on 27/11/20.
+//  Created by N HJ on 27/11/20.
 //
 
 import UIKit
-var topics = [
-    Topic(segueDesti: "TOBEFILLED", title: "Gas Tests", pic: "gas-tests.png", pointsNeeded: 0),
-    Topic(segueDesti: "TOBEFILLED", title: "Separation Methods", pic: "separation-methods.png", pointsNeeded: 10),
-    Topic(segueDesti: "TOBEFILLED", title: "pH and Indicators", pic: "pH-and-indicators.png", pointsNeeded: 20),
-    Topic(segueDesti: "TOBEFILLED", title: "Periodic Table", pic: "periodic-table.png", pointsNeeded: 30)
-]
 
-let ud = UserDefaults.standard
-var points = ud.integer(forKey: "points")
-
-class LearnHomePageTableViewController: UITableViewController {
+class PlayHomePageTableViewController: UITableViewController{
+    
+    @IBOutlet var playPageTable: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tableView.tableFooterView = UIView()
+        playPageTable.tableFooterView = UIView()
+        playPageTable.delegate = self
+        playPageTable.dataSource = self
+        
+        let navbar = UINavigationBarAppearance()
+        navbar.backgroundColor = UIColor(red: 104/255, green: 198/255, blue: 242/255, alpha: 1)
+        self.navigationController?.navigationBar.scrollEdgeAppearance = navbar
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -39,23 +38,25 @@ class LearnHomePageTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return topics.count
+        return gameTopics.count
     }
     
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "learnChapterCell", for: indexPath)
-        let currentTopic = topics[indexPath.row]
+        let cell = tableView.dequeueReusableCell(withIdentifier: "playChapterCell", for: indexPath)
+        let currentTopic = gameTopics[indexPath.row]
         
-        if let cell = cell as? LearnHomePageTableViewCell{
+        if let cell = cell as? PlayHomePageTableViewCell{
             if (points < currentTopic.pointsNeeded){
-                cell.backgroundColor = UIColor(red: 211/255, green: 211/255, blue: 211/255, alpha: 1)
                 cell.selectionStyle = .none
-                cell.learnChapterImageView?.image = UIImage(named: "lock.png")
+                cell.playChapterLabel.isEnabled = false
+                cell.needMorePointsLabel.isHidden = false
+                cell.needMorePointsLabel.text = currentTopic.errorLabel
+                cell.playChapterImageView?.image = UIImage(named: "lock.png")
             } else {
-                cell.learnChapterImageView?.image = UIImage(named: currentTopic.pic)
+                cell.playChapterImageView?.image = UIImage(named: currentTopic.pic)
             }
-            cell.learnChapterLabel.text = currentTopic.title
+            cell.playChapterLabel.text = currentTopic.title
         }
         
         return cell
@@ -111,4 +112,10 @@ class LearnHomePageTableViewController: UITableViewController {
      }
      */
     
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if gameTopics[indexPath.row].pointsNeeded < points{
+            performSegue(withIdentifier: gameTopics[indexPath.row].segDesti, sender: nil)
+        }
+    }
 }

@@ -1,15 +1,17 @@
 //
-//  PlayHomePageTableViewCell.swift
+//  subSubTopicTableViewCell.swift
 //  CATmistry
 //
-//  Created by N HJ on 27/11/20.
+//  Created by Wang Zerui on 30/11/20.
 //
 
 import UIKit
 
-class PlayHomePageTableViewCell: UITableViewCell {
-    @IBOutlet weak var playChapterImageView: UIImageView!
-    @IBOutlet weak var playChapterLabel: UILabel!
+class SubSubTopicTableViewCell: UITableViewCell {
+
+    @IBOutlet weak var subSubTopicPicture: UIImageView!
+    @IBOutlet weak var subSubTopicTitleLabel: UILabel!
+    
     
     override func awakeFromNib() {
         super.awakeFromNib()
