@@ -35,6 +35,9 @@ class PlayAdjustPhDetailsViewController: UIViewController {
         monsterImageView.image = UIImage(named: "")
     }
     
+    @IBAction func click(_ sender: Any) {
+        print("1")
+    }
     /*
     // MARK: - Navigation
 
