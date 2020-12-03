@@ -8,11 +8,14 @@
 import UIKit
 
 class PlayFindGasStartViewController: UIViewController {
+    
+    var currentLevel = 0
 
     @IBOutlet weak var backgroundLabel: UILabel!
     @IBOutlet weak var backgroundLabelView: UIView!
     @IBOutlet weak var startButton: UIButton!
-
+    @IBOutlet weak var levelSegmentedControl: UISegmentedControl!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -23,6 +26,10 @@ class PlayFindGasStartViewController: UIViewController {
         startButton.layer.cornerRadius = 15
     }
 
+    @IBAction func levelClicked(_ sender: Any) {
+        currentLevel = levelSegmentedControl.selectedSegmentIndex
+    }
+    
     @IBAction func unwindToPlayHomePage(_ sender: Any) {
         tabBarController?.tabBar.isHidden = false
         navigationController?.setNavigationBarHidden(false, animated: false)

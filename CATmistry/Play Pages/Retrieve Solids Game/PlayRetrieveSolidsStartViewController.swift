@@ -8,9 +8,12 @@
 import UIKit
 
 class PlayRetrieveSolidsStartViewController: UIViewController {
+    
+    var currentLevel = 0
 
     @IBOutlet weak var backgroundLabelView: UIView!
     @IBOutlet weak var startButton: UIButton!
+    @IBOutlet weak var levelSegmentedControl: UISegmentedControl!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,6 +23,10 @@ class PlayRetrieveSolidsStartViewController: UIViewController {
         navigationController?.setNavigationBarHidden(true, animated: false)
         backgroundLabelView.layer.cornerRadius = 15
         startButton.layer.cornerRadius = 15
+    }
+    
+    @IBAction func levelClicked(_ sender: Any) {
+        currentLevel = levelSegmentedControl.selectedSegmentIndex
     }
     
     @IBAction func unwindToPlayHomePage(_ sender: Any) {

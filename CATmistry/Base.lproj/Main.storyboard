@@ -660,7 +660,7 @@ Separate all the elements in his beaker or the wizard will cast a spell on your 
                                     <segment title="3"/>
                                 </segments>
                                 <connections>
-                                    <action selector="levelClicked:" destination="0jR-6D-YOT" eventType="valueChanged" id="Kf8-26-ohB"/>
+                                    <action selector="levelClicked:" destination="0jR-6D-YOT" eventType="valueChanged" id="USY-Bq-vmG"/>
                                 </connections>
                             </segmentedControl>
                         </subviews>
@@ -886,7 +886,7 @@ The monster is currently living in the right conditions, and your task is to use
                                     <segment title="4"/>
                                 </segments>
                                 <connections>
-                                    <action selector="segmentedControlPressed:" destination="vbU-vN-Sop" eventType="valueChanged" id="mCb-jm-rV2"/>
+                                    <action selector="levelClicked:" destination="vbU-vN-Sop" eventType="valueChanged" id="JG7-Rl-dp0"/>
                                 </connections>
                             </segmentedControl>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select Level" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aKs-9U-qBf">
@@ -964,7 +964,7 @@ Given the properties of each Group of the periodic table, select the correct gro
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="backgroundLabelView" destination="mrp-jh-fji" id="k7T-5M-g9y"/>
-                        <outlet property="levelSegmentedControl" destination="m4u-Iu-U2B" id="Xlq-Oa-n3J"/>
+                        <outlet property="levelSegmentedControl" destination="m4u-Iu-U2B" id="ImP-KA-Vt2"/>
                         <outlet property="startButton" destination="XnT-Qh-CmY" id="NbS-4g-dqR"/>
                     </connections>
                 </viewController>

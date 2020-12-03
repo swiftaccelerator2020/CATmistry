@@ -8,12 +8,12 @@
 import UIKit
 
 class PlayIdentifyElementsStartViewController: UIViewController {
+    
+    var currentLevel = 0
 
     @IBOutlet weak var backgroundLabelView: UIView!
     @IBOutlet weak var startButton: UIButton!
-    @IBOutlet weak var segmentedControl: UISegmentedControl!
-
-    var currentLevel = 0
+    @IBOutlet weak var levelSegmentedControl: UISegmentedControl!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,11 +23,10 @@ class PlayIdentifyElementsStartViewController: UIViewController {
         navigationController?.setNavigationBarHidden(true, animated: false)
     }
 
-    @IBAction func segmentedControlPressed(_ sender: UISegmentedControl) {
-        currentLevel = segmentedControl.selectedSegmentIndex
+    @IBAction func levelClicked(_ sender: Any) {
+        currentLevel = levelSegmentedControl.selectedSegmentIndex
     }
-
-
+    
     @IBAction func unwindToPlayHomePage(_ sender: Any) {
         tabBarController?.tabBar.isHidden = false
         navigationController?.setNavigationBarHidden(false, animated: false)
