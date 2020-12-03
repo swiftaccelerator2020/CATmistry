@@ -1232,6 +1232,10 @@ Given the properties of each Group of the periodic table, select the correct gro
                                             </label>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <gestureRecognizers/>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="6Uc-Nd-UET" appends="YES" id="r9q-l6-QB9"/>
+                                        </connections>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="0g5-vb-Mm2">
                                         <rect key="frame" x="160" y="0.0" width="70" height="90"/>
@@ -1257,6 +1261,10 @@ Given the properties of each Group of the periodic table, select the correct gro
                                             </label>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <gestureRecognizers/>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="f4V-Ns-Ssw" appends="YES" id="Qce-h9-1ad"/>
+                                        </connections>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="1we-pg-A51">
                                         <rect key="frame" x="240" y="0.0" width="70" height="90"/>
@@ -1282,6 +1290,10 @@ Given the properties of each Group of the periodic table, select the correct gro
                                             </label>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <gestureRecognizers/>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="Qv3-Od-pxu" appends="YES" id="8yW-bn-Zrw"/>
+                                        </connections>
                                     </stackView>
                                 </subviews>
                                 <constraints>
@@ -1347,7 +1359,22 @@ Given the properties of each Group of the periodic table, select the correct gro
                 <placeholder placeholderIdentifier="IBFirstResponder" id="r6k-y5-7Ng" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer id="I98-Zc-Rob">
                     <connections>
-                        <action selector="click:" destination="BaN-EE-YvM" id="jHU-zd-eSH"/>
+                        <action selector="clickOptionOne:" destination="BaN-EE-YvM" id="jHU-zd-eSH"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="6Uc-Nd-UET">
+                    <connections>
+                        <action selector="clickSecondOption:" destination="BaN-EE-YvM" id="rlS-gn-33h"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="f4V-Ns-Ssw">
+                    <connections>
+                        <action selector="clickThirdOption:" destination="BaN-EE-YvM" id="BtO-Vm-V2p"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="Qv3-Od-pxu">
+                    <connections>
+                        <action selector="clickOptionFour:" destination="BaN-EE-YvM" id="wga-r6-IRi"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
@@ -1420,7 +1447,7 @@ Given the properties of each Group of the periodic table, select the correct gro
                 <navigationController id="8Us-es-0oa" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Learn" image="books.vertical.fill" catalog="system" selectedImage="books.vertical.fill" id="ZOw-bY-pdm"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="OvI-u8-jpf">
-                        <rect key="frame" x="0.0" y="44" width="390" height="96"/>
+                        <rect key="frame" x="0.0" y="44" width="390" height="104.33333333333334"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" red="0.95419245959999999" green="0.83945876360000005" blue="0.47016263009999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </navigationBar>
@@ -1892,7 +1919,7 @@ Given the properties of each Group of the periodic table, select the correct gro
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="FaB-d6-X5c"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="wEn-aq-CEr">
-                        <rect key="frame" x="0.0" y="44" width="390" height="96"/>
+                        <rect key="frame" x="0.0" y="44" width="390" height="104.33333333333334"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>

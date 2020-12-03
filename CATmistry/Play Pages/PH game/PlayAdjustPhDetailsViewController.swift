@@ -35,9 +35,22 @@ class PlayAdjustPhDetailsViewController: UIViewController {
         monsterImageView.image = UIImage(named: "")
     }
     
-    @IBAction func click(_ sender: Any) {
+    @IBAction func clickOptionOne(_ sender: Any) {
         print("1")
     }
+    
+    @IBAction func clickSecondOption(_ sender: Any) {
+        print("2")
+    }
+    
+    @IBAction func clickThirdOption(_ sender: Any) {
+        print("3")
+    }
+    
+    @IBAction func clickOptionFour(_ sender: Any) {
+        print("4")
+    }
+    
     /*
     // MARK: - Navigation
 
