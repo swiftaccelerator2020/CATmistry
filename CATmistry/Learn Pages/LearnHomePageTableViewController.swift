@@ -13,7 +13,6 @@ class LearnHomePageTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         tableView.tableFooterView = UIView()
         
         let navbar = UINavigationBarAppearance()

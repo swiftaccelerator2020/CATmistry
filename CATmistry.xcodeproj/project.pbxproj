@@ -205,7 +205,6 @@
 				54FEFB1C2578612A0054CFF9 /* Table View */,
 				54FEFB1B257861130054CFF9 /* Retrieve Solids Game */,
 				54FEFB1A257860F30054CFF9 /* PH game */,
-				54FEFB19257860DC0054CFF9 /* Find Gas Game */,
 				54FEFB18257860C10054CFF9 /* Identify Elements Game */,
 			);
 			path = "Play Pages";
@@ -244,6 +243,7 @@
 		54FEFB1A257860F30054CFF9 /* PH game */ = {
 			isa = PBXGroup;
 			children = (
+				54FEFB19257860DC0054CFF9 /* Find Gas Game */,
 				2632D7082577D5F00005033F /* PlayAdjustPhDetailsViewController.swift */,
 				269F995025777504001C7246 /* PlayAdjustPhStartViewController.swift */,
 			);
