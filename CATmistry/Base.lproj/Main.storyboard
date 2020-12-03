@@ -328,7 +328,7 @@ As your cat can only live in a certain type of gas, your task is to use your kno
                                                             <constraint firstAttribute="height" constant="20" id="EtG-L9-rJ3"/>
                                                         </constraints>
                                                     </view>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="jem-Jp-mqH">
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="limewater.png" translatesAutoresizingMaskIntoConstraints="NO" id="jem-Jp-mqH">
                                                         <rect key="frame" x="0.0" y="20" width="62" height="70"/>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XwD-C5-iaT">
@@ -343,6 +343,10 @@ water</string>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                 </subviews>
+                                                <gestureRecognizers/>
+                                                <connections>
+                                                    <outletCollection property="gestureRecognizers" destination="EU5-Yl-xbT" appends="YES" id="x4r-ie-8QF"/>
+                                                </connections>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="oka-iF-Q9i">
                                                 <rect key="frame" x="72" y="0.0" width="62" height="140"/>
@@ -354,7 +358,7 @@ water</string>
                                                             <constraint firstAttribute="height" constant="20" id="O1s-Sa-8oh"/>
                                                         </constraints>
                                                     </view>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="mpA-WD-yB4">
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lighted-splint.png" translatesAutoresizingMaskIntoConstraints="NO" id="mpA-WD-yB4">
                                                         <rect key="frame" x="0.0" y="20" width="62" height="70"/>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lighted Splint" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XQS-Yy-pit">
@@ -367,6 +371,10 @@ water</string>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                 </subviews>
+                                                <gestureRecognizers/>
+                                                <connections>
+                                                    <outletCollection property="gestureRecognizers" destination="13w-YN-APL" appends="YES" id="mWO-dD-JL5"/>
+                                                </connections>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="p5z-Ao-Opb">
                                                 <rect key="frame" x="144" y="0.0" width="62" height="140"/>
@@ -378,7 +386,7 @@ water</string>
                                                             <constraint firstAttribute="height" constant="20" id="UjT-Uj-Odh"/>
                                                         </constraints>
                                                     </view>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="nEB-fJ-h3l">
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="glowing-splint.png" translatesAutoresizingMaskIntoConstraints="NO" id="nEB-fJ-h3l">
                                                         <rect key="frame" x="0.0" y="20" width="62" height="70"/>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Glowing Splint" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gbk-Vs-Nac">
@@ -391,6 +399,10 @@ water</string>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                 </subviews>
+                                                <gestureRecognizers/>
+                                                <connections>
+                                                    <outletCollection property="gestureRecognizers" destination="KuL-iy-o59" appends="YES" id="rAG-nj-1Yb"/>
+                                                </connections>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Z7J-MV-qdm">
                                                 <rect key="frame" x="216" y="0.0" width="124" height="140"/>
@@ -402,7 +414,7 @@ water</string>
                                                             <constraint firstAttribute="height" constant="20" id="ogb-Df-l2y"/>
                                                         </constraints>
                                                     </view>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Z0g-Jj-5LT">
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="litmus.png" translatesAutoresizingMaskIntoConstraints="NO" id="Z0g-Jj-5LT">
                                                         <rect key="frame" x="0.0" y="20" width="124" height="70"/>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Litmus" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jZU-hg-VMZ">
@@ -415,6 +427,10 @@ water</string>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                 </subviews>
+                                                <gestureRecognizers/>
+                                                <connections>
+                                                    <outletCollection property="gestureRecognizers" destination="wwn-t8-KxU" appends="YES" id="Nma-mC-73H"/>
+                                                </connections>
                                             </stackView>
                                         </subviews>
                                         <constraints>
@@ -451,16 +467,16 @@ water</string>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="W96-am-fUF">
                                 <rect key="frame" x="45" y="374" width="300" height="125"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="c0x-d2-1Aw">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gas-tank.png" translatesAutoresizingMaskIntoConstraints="NO" id="c0x-d2-1Aw">
                                         <rect key="frame" x="0.0" y="0.0" width="67.666666666666671" height="125"/>
                                     </imageView>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="9hK-tu-8ZJ">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gas-tank.png" translatesAutoresizingMaskIntoConstraints="NO" id="9hK-tu-8ZJ">
                                         <rect key="frame" x="77.666666666666686" y="0.0" width="67.333333333333314" height="125"/>
                                     </imageView>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="jN8-PP-Qaf">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gas-tank.png" translatesAutoresizingMaskIntoConstraints="NO" id="jN8-PP-Qaf">
                                         <rect key="frame" x="155" y="0.0" width="67.666666666666686" height="125"/>
                                     </imageView>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="lfV-9n-qcb">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gas-tank.png" translatesAutoresizingMaskIntoConstraints="NO" id="lfV-9n-qcb">
                                         <rect key="frame" x="232.66666666666671" y="0.0" width="67.333333333333343" height="125"/>
                                     </imageView>
                                 </subviews>
@@ -505,6 +521,10 @@ water</string>
                     <navigationItem key="navigationItem" id="iMh-nS-fJv"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FlL-F4-Kc6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="EU5-Yl-xbT"/>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="13w-YN-APL"/>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="KuL-iy-o59"/>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="wwn-t8-KxU"/>
             </objects>
             <point key="canvasLocation" x="-1969" y="2010"/>
         </scene>
@@ -2079,7 +2099,12 @@ Given the properties of each Group of the periodic table, select the correct gro
         <image name="bowl" width="130" height="109"/>
         <image name="cat" width="156" height="197.33332824707031"/>
         <image name="gamecontroller.fill" catalog="system" width="128" height="80"/>
+        <image name="gas-tank.png" width="128" height="128"/>
         <image name="gear" catalog="system" width="128" height="119"/>
+        <image name="glowing-splint.png" width="128" height="128"/>
+        <image name="lighted-splint.png" width="128" height="128"/>
+        <image name="limewater.png" width="128" height="128"/>
+        <image name="litmus.png" width="128" height="128"/>
         <image name="lock" width="512" height="512"/>
         <image name="monster-default.png" width="128" height="128"/>
         <image name="periodicTable" width="339" height="133"/>
