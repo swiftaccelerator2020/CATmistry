@@ -19,8 +19,8 @@ class PlayIdentifyElementsThirdViewController: UIViewController {
     @IBAction func unwindToPlayHomePage(_ sender: Any) {
         tabBarController?.tabBar.isHidden = false
         navigationController?.setNavigationBarHidden(false, animated: false)
-        _ = navigationController?.popToRootViewController(animated: true)
-    }
+        self.presentingViewController?.presentingViewController?.dismiss(animated: true, completion: nil)
+    } 
     
     /*
     // MARK: - Navigation
