@@ -1132,7 +1132,7 @@ Given the properties of each Group of the periodic table, select the correct gro
         <!--Play Adjust Ph Details View Controller-->
         <scene sceneID="R0f-XJ-3nM">
             <objects>
-                <viewController id="BaN-EE-YvM" customClass="PlayAdjustPhDetailsViewController" sceneMemberID="viewController">
+                <viewController id="BaN-EE-YvM" customClass="PlayAdjustPhDetailsViewController" customModule="CATmistry" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="zgd-4l-2Ib">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1147,7 +1147,7 @@ Given the properties of each Group of the periodic table, select the correct gro
                                     <color key="titleColor" systemColor="labelColor"/>
                                 </state>
                                 <connections>
-                                    <action selector="clickAddFirstIndicator:" destination="BaN-EE-YvM" eventType="touchUpInside" id="bDk-Sp-cEV"/>
+                                    <action selector="clickAddFirstIndicator:" destination="BaN-EE-YvM" eventType="touchUpInside" id="hOY-rc-nF2"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2fi-mq-GPf">
@@ -1338,7 +1338,7 @@ Given the properties of each Group of the periodic table, select the correct gro
                     </view>
                     <navigationItem key="navigationItem" id="hjY-wX-rX7"/>
                     <connections>
-                        <outlet property="addFirstIndicatorButton" destination="SvK-Ny-SRi" id="AjF-oO-0Ht"/>
+                        <outlet property="addFirstIndicatorButton" destination="SvK-Ny-SRi" id="V1m-gp-vwp"/>
                         <outlet property="addSecondIndicatorButton" destination="2fi-mq-GPf" id="BMU-wC-mWA"/>
                         <outlet property="addThirdIndicatorButton" destination="XFZ-Fb-ks6" id="r3e-py-JoX"/>
                         <outlet property="monsterImageView" destination="msP-Zd-VFr" id="7EP-hf-ijt"/>
@@ -1892,7 +1892,7 @@ Given the properties of each Group of the periodic table, select the correct gro
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="FaB-d6-X5c"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="wEn-aq-CEr">
-                        <rect key="frame" x="0.0" y="44" width="390" height="104.33333333333334"/>
+                        <rect key="frame" x="0.0" y="44" width="390" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>

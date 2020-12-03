@@ -41,7 +41,8 @@ class LearnHomePageTableViewController: UITableViewController {
     
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "learnChapterCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier:
+                                                    "learnChapterCell", for: indexPath)
         let currentTopic = learnTopics[indexPath.row]
         
         if let cell = cell as? LearnHomePageTableViewCell{
