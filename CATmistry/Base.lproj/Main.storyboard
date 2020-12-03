@@ -1329,7 +1329,7 @@ Given the properties of each Group of the periodic table, select the correct gro
                                     <constraint firstAttribute="height" constant="20" id="dWa-6Q-khn"/>
                                 </constraints>
                             </view>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="msP-Zd-VFr">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="monster-default.png" translatesAutoresizingMaskIntoConstraints="NO" id="msP-Zd-VFr">
                                 <rect key="frame" x="40" y="454" width="310" height="300"/>
                             </imageView>
                         </subviews>
@@ -1490,14 +1490,14 @@ Given the properties of each Group of the periodic table, select the correct gro
                         <viewLayoutGuide key="safeArea" id="tXk-pY-hhC"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Settings" image="square" catalog="system" selectedImage="square" id="mZa-8F-nqW"/>
+                    <tabBarItem key="tabBarItem" title="Settings" image="gear" catalog="system" selectedImage="gear" id="mZa-8F-nqW"/>
                     <connections>
                         <outlet property="point" destination="2kf-mA-oqU" id="W4L-wk-Xhr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5E8-vP-eOu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3258.4615384615386" y="91.706161137440759"/>
+            <point key="canvasLocation" x="-3168" y="807"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="j5M-0F-VSJ">
@@ -2079,10 +2079,11 @@ Given the properties of each Group of the periodic table, select the correct gro
         <image name="bowl" width="130" height="109"/>
         <image name="cat" width="156" height="197.33332824707031"/>
         <image name="gamecontroller.fill" catalog="system" width="128" height="80"/>
+        <image name="gear" catalog="system" width="128" height="119"/>
         <image name="lock" width="512" height="512"/>
+        <image name="monster-default.png" width="128" height="128"/>
         <image name="periodicTable" width="339" height="133"/>
         <image name="ph-7" width="512" height="512"/>
-        <image name="square" catalog="system" width="128" height="114"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
