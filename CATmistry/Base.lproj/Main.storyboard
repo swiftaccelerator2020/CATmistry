@@ -919,7 +919,7 @@ Given the properties of each Group of the periodic table, select the correct gro
                         <outlet property="nonMetal" destination="oWb-Xd-VoD" id="j7x-ip-Vgr"/>
                         <outlet property="timeLeft" destination="2Bq-Tb-1J1" id="RFk-SX-Q2b"/>
                         <outlet property="transitionMetal" destination="2aQ-rP-BbU" id="9iG-6q-9DB"/>
-                        <segue destination="S3v-yJ-bVb" kind="show" identifier="finishedSceneTwoGame" id="cOL-9M-bVl"/>
+                        <segue destination="S3v-yJ-bVb" kind="showDetail" identifier="finishedSceneTwoGame" id="cOL-9M-bVl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mVe-KW-IaH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

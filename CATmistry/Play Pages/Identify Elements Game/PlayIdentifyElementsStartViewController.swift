@@ -13,7 +13,7 @@ class PlayIdentifyElementsStartViewController: UIViewController {
     @IBOutlet weak var startButton: UIButton!
     @IBOutlet weak var segmentedControl: UISegmentedControl!
 
-    var currentLevel = 1
+    var currentLevel = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
