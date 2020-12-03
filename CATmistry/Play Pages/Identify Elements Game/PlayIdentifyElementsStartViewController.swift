@@ -21,6 +21,8 @@ class PlayIdentifyElementsStartViewController: UIViewController {
         // Do any additional setup after loading the view.
         tabBarController?.tabBar.isHidden = true
         navigationController?.setNavigationBarHidden(true, animated: false)
+        backgroundLabelView.layer.cornerRadius = 10
+        startButton.layer.cornerRadius = 25
     }
 
     @IBAction func levelClicked(_ sender: Any) {
