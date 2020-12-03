@@ -82,6 +82,12 @@ struct periodicTableGame{
     var timeGiven: Int
 }
 
+struct specificSeperationMethod {
+    var picture: String
+    var name: String
+    var properties: String
+}
+
 var learnTopics = [
     Topic(title: "Gas Tests", pic: "gas-tests.png", pointsNeeded: 0, subTopics: [
         SubTopic(title: "What are Gas Tests?", pic: "gas-tests.png", needSlider: false, content:
@@ -184,4 +190,8 @@ var gameTopics = [
     PlayTopic(title: "Retreive the Solids", pic: "separation-methods.png", pointsNeeded: 20, segDesti: "goToRetrieveSolids", errorLabel: "Please complete Chapter 2"),
     PlayTopic(title: "Adjust the pH", pic: "pH-and-indicators.png", pointsNeeded: 30, segDesti: "goToAdjustPh", errorLabel: "Please complete Chapter 3"),
     PlayTopic(title: "Identify the Elements", pic: "periodic-table.png", pointsNeeded: 40, segDesti: "goToIdentifyElement", errorLabel: "Please complete Chapter 4")
+]
+
+var sperationMethods = [
+    specificSeperationMethod(picture: "1.png", name: "HALO", properties: "NO AIOAHSJNFKdcxz")
 ]
