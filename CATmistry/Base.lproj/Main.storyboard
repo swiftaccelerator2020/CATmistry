@@ -245,6 +245,9 @@ As your cat can only live in a certain type of gas, your task is to use your kno
                                     <segment title="2"/>
                                     <segment title="3"/>
                                 </segments>
+                                <connections>
+                                    <action selector="levelClicked:" destination="e4r-tI-S0A" eventType="valueChanged" id="OVw-fs-lft"/>
+                                </connections>
                             </segmentedControl>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="dY3-Y6-cVQ"/>
@@ -279,6 +282,7 @@ As your cat can only live in a certain type of gas, your task is to use your kno
                     <connections>
                         <outlet property="backgroundLabel" destination="bu6-o8-Ecw" id="PuN-ht-Bwo"/>
                         <outlet property="backgroundLabelView" destination="amq-j8-pX9" id="iQF-QM-lkP"/>
+                        <outlet property="levelSegmentedControl" destination="bFT-oU-B0V" id="bKU-f0-lLd"/>
                         <outlet property="startButton" destination="Wf9-10-D2Q" id="JMr-Kk-fVc"/>
                     </connections>
                 </viewController>
@@ -655,6 +659,9 @@ Separate all the elements in his beaker or the wizard will cast a spell on your 
                                     <segment title="2"/>
                                     <segment title="3"/>
                                 </segments>
+                                <connections>
+                                    <action selector="levelClicked:" destination="0jR-6D-YOT" eventType="valueChanged" id="Kf8-26-ohB"/>
+                                </connections>
                             </segmentedControl>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Ieg-ok-ug3"/>
@@ -688,6 +695,7 @@ Separate all the elements in his beaker or the wizard will cast a spell on your 
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="backgroundLabelView" destination="bX0-O2-5ts" id="wnv-W5-OSS"/>
+                        <outlet property="levelSegmentedControl" destination="xQb-T1-JaO" id="gFf-zu-yEl"/>
                         <outlet property="startButton" destination="6M8-1i-jac" id="4H9-pv-RTp"/>
                     </connections>
                 </viewController>
@@ -781,6 +789,9 @@ The monster is currently living in the right conditions, and your task is to use
                                     <segment title="2"/>
                                     <segment title="3"/>
                                 </segments>
+                                <connections>
+                                    <action selector="levelClicked:" destination="MYy-Hk-xqZ" eventType="valueChanged" id="s12-Mo-JQE"/>
+                                </connections>
                             </segmentedControl>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Bm7-DL-tuY"/>
@@ -814,6 +825,7 @@ The monster is currently living in the right conditions, and your task is to use
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="backgroundLabelView" destination="sVL-LJ-I3y" id="h3p-Ik-OlO"/>
+                        <outlet property="levelSegmentedControl" destination="SEV-9I-ACR" id="9MV-TC-HzP"/>
                         <outlet property="startButton" destination="ZL3-LC-bQI" id="K78-6K-kkb"/>
                     </connections>
                 </viewController>
@@ -952,7 +964,7 @@ Given the properties of each Group of the periodic table, select the correct gro
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="backgroundLabelView" destination="mrp-jh-fji" id="k7T-5M-g9y"/>
-                        <outlet property="segmentedControl" destination="m4u-Iu-U2B" id="Xlq-Oa-n3J"/>
+                        <outlet property="levelSegmentedControl" destination="m4u-Iu-U2B" id="Xlq-Oa-n3J"/>
                         <outlet property="startButton" destination="XnT-Qh-CmY" id="NbS-4g-dqR"/>
                     </connections>
                 </viewController>
