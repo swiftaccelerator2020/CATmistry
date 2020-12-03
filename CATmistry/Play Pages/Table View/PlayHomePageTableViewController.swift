@@ -13,7 +13,7 @@ class PlayHomePageTableViewController: UITableViewController{
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         playPageTable.tableFooterView = UIView()
         playPageTable.delegate = self
         playPageTable.dataSource = self

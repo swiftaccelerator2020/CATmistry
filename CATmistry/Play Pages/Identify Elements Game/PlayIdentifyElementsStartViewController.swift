@@ -41,6 +41,7 @@ class PlayIdentifyElementsStartViewController: UIViewController {
         if (segue.identifier == "startGame"){
             let desti = segue.destination as! PlayIdentifyElementsSecondViewController
             desti.gameTopic = perioicTable[currentLevel].randomElement()
+            desti.level = currentLevel+1
         }
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
