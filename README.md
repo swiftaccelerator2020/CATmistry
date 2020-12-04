@@ -12,5 +12,11 @@ CATmistry is available for iOS 14 on the [App Store]()
 
 [![App Store](https://upload.wikimedia.org/wikipedia/commons/3/3c/Download_on_the_App_Store_Badge.svg)]()
 
+## Contributing
+Contribution is much appreciated, but not appropriate at this stage.
+
+## Authors and Acknoledgements
+[![](https://opencollective.com/html-react-parser/contributors.svg?width=890&button=false)](https://github.com/swiftaccelerator2020/CATmistry/graphs/contributors)
+
 ## License 📜 [![GPLv3 license](https://img.shields.io/badge/License-GPLv3-blue.svg)](LICENSE)
 [GPLv3](https://www.gnu.org/licenses/gpl-3.0.en.html) Licensed (file [LICENSE](LICENSE)).
