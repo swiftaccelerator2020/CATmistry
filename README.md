@@ -9,6 +9,7 @@ CATmistry was built to aid upper primary to lower secondary school students in t
 
 ## Download
 CATmistry is available for iOS 14 on the [App Store]()
+
 [![App Store](https://upload.wikimedia.org/wikipedia/commons/3/3c/Download_on_the_App_Store_Badge.svg)]()
 
 ## License 📜 [![GPLv3 license](https://img.shields.io/badge/License-GPLv3-blue.svg)](LICENSE)
