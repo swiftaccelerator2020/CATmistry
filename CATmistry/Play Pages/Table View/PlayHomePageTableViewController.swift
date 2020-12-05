@@ -9,6 +9,8 @@ import UIKit
 
 class PlayHomePageTableViewController: UITableViewController{
     
+    var points = 1000
+    
     @IBOutlet var playPageTable: UITableView!
     
     override func viewDidLoad() {
@@ -112,10 +114,10 @@ class PlayHomePageTableViewController: UITableViewController{
      }
      */
     
-    
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if gameTopics[indexPath.row].pointsNeeded < points{
-            performSegue(withIdentifier: gameTopics[indexPath.row].segDesti, sender: nil)
+        
+        override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+            if gameTopics[indexPath.row].pointsNeeded < points{
+                performSegue(withIdentifier: gameTopics[indexPath.row].segDesti, sender: nil)
+            }
         }
-    }
 }

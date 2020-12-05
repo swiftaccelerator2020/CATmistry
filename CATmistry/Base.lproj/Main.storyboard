@@ -168,21 +168,21 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="68x-vD-9BS">
-                                <rect key="frame" x="0.0" y="774" width="390" height="70"/>
+                                <rect key="frame" x="0.0" y="784" width="390" height="60"/>
                                 <color key="backgroundColor" red="0.52060997490000005" green="0.4943670034" blue="0.21609994769999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="70" id="GiH-rU-Yrh"/>
+                                    <constraint firstAttribute="height" constant="60" id="GiH-rU-Yrh"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TX4-D1-VgR">
-                                <rect key="frame" x="0.0" y="754" width="390" height="20"/>
+                                <rect key="frame" x="0.0" y="764" width="390" height="20"/>
                                 <color key="backgroundColor" red="0.32549019607843138" green="0.59607843137254901" blue="0.36862745098039218" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="5FW-VU-zxd"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="amq-j8-pX9">
-                                <rect key="frame" x="40" y="187" width="310" height="260"/>
+                                <rect key="frame" x="40" y="197" width="310" height="260"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bu6-o8-Ecw">
                                         <rect key="frame" x="15" y="5" width="280" height="250"/>
@@ -204,7 +204,7 @@ As your cat can only live in a certain type of gas, your task is to use your kno
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wf9-10-D2Q">
-                                <rect key="frame" x="80" y="566" width="230" height="50"/>
+                                <rect key="frame" x="80" y="576" width="230" height="50"/>
                                 <color key="backgroundColor" red="0.96862745098039216" green="0.83921568627450982" blue="0.8784313725490196" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="5uk-GC-44G"/>
@@ -218,7 +218,7 @@ As your cat can only live in a certain type of gas, your task is to use your kno
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o91-86-BzP">
-                                <rect key="frame" x="40" y="624" width="310" height="30"/>
+                                <rect key="frame" x="40" y="634" width="310" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="b5w-Ie-HaC"/>
                                 </constraints>
@@ -230,7 +230,7 @@ As your cat can only live in a certain type of gas, your task is to use your kno
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select Level" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IXm-kH-T0m">
-                                <rect key="frame" x="40" y="477" width="310" height="20"/>
+                                <rect key="frame" x="40" y="487" width="310" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="rki-n1-slZ"/>
                                 </constraints>
@@ -239,7 +239,7 @@ As your cat can only live in a certain type of gas, your task is to use your kno
                                 <nil key="highlightedColor"/>
                             </label>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="bFT-oU-B0V">
-                                <rect key="frame" x="100" y="505" width="190" height="32"/>
+                                <rect key="frame" x="100" y="515" width="190" height="32"/>
                                 <segments>
                                     <segment title="1"/>
                                     <segment title="2"/>
@@ -299,14 +299,14 @@ As your cat can only live in a certain type of gas, your task is to use your kno
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cWk-gy-0aZ">
-                                <rect key="frame" x="0.0" y="774" width="390" height="70"/>
+                                <rect key="frame" x="0.0" y="784" width="390" height="60"/>
                                 <color key="backgroundColor" red="0.52051693200000004" green="0.4944262505" blue="0.011094402519999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="70" id="EnT-on-iWL"/>
+                                    <constraint firstAttribute="height" constant="60" id="EnT-on-iWL"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tDL-B1-4sj">
-                                <rect key="frame" x="0.0" y="754" width="390" height="20"/>
+                                <rect key="frame" x="0.0" y="764" width="390" height="20"/>
                                 <color key="backgroundColor" red="0.36236429209999999" green="0.59665834900000003" blue="0.27979537840000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="sLn-z1-YQk"/>
@@ -450,10 +450,10 @@ water</string>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9RP-HW-EJm">
-                                <rect key="frame" x="150" y="554" width="220" height="200"/>
+                                <rect key="frame" x="150" y="554" width="220" height="210"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="BgO-ca-5ez">
-                                        <rect key="frame" x="15" y="60" width="190" height="140"/>
+                                        <rect key="frame" x="15" y="60" width="190" height="150"/>
                                     </imageView>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -488,7 +488,7 @@ water</string>
                                 </constraints>
                             </stackView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="aOM-cT-Bjf">
-                                <rect key="frame" x="80" y="594" width="70" height="60"/>
+                                <rect key="frame" x="80" y="604" width="70" height="60"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="n8D-ZI-zT7"/>
                                 </constraints>
@@ -537,14 +537,14 @@ water</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xFV-sd-DNi">
-                                <rect key="frame" x="0.0" y="774" width="390" height="70"/>
+                                <rect key="frame" x="0.0" y="784" width="390" height="60"/>
                                 <color key="backgroundColor" red="0.52051693200000004" green="0.4944262505" blue="0.011094402519999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="70" id="Lek-TD-RNA"/>
+                                    <constraint firstAttribute="height" constant="60" id="Lek-TD-RNA"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xfa-7u-XhF">
-                                <rect key="frame" x="0.0" y="754" width="390" height="20"/>
+                                <rect key="frame" x="0.0" y="764" width="390" height="20"/>
                                 <color key="backgroundColor" red="0.36236429209999999" green="0.59665834900000003" blue="0.27979537840000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="L1i-7P-Agk"/>
@@ -602,21 +602,21 @@ water</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c1E-ZM-b3t">
-                                <rect key="frame" x="0.0" y="774" width="390" height="70"/>
+                                <rect key="frame" x="0.0" y="784" width="390" height="60"/>
                                 <color key="backgroundColor" red="0.52058792109999996" green="0.4943810105" blue="0.18790945410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="70" id="8SK-E5-EZQ"/>
+                                    <constraint firstAttribute="height" constant="60" id="8SK-E5-EZQ"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BEJ-jg-Dsp">
-                                <rect key="frame" x="0.0" y="754" width="390" height="20"/>
+                                <rect key="frame" x="0.0" y="764" width="390" height="20"/>
                                 <color key="backgroundColor" red="0.33242091540000002" green="0.59663021559999996" blue="0.35479038950000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="Rrl-PF-ei0"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bX0-O2-5ts">
-                                <rect key="frame" x="40" y="187" width="310" height="260"/>
+                                <rect key="frame" x="40" y="197" width="310" height="260"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JSc-Cm-RlV">
                                         <rect key="frame" x="15" y="5" width="280" height="250"/>
@@ -638,7 +638,7 @@ Separate all the elements in his beaker or the wizard will cast a spell on your 
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6M8-1i-jac">
-                                <rect key="frame" x="80" y="566" width="230" height="50"/>
+                                <rect key="frame" x="80" y="576" width="230" height="50"/>
                                 <color key="backgroundColor" red="0.96862745098039216" green="0.83921568627450982" blue="0.8784313725490196" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="XO7-hb-96k"/>
@@ -652,7 +652,7 @@ Separate all the elements in his beaker or the wizard will cast a spell on your 
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z2n-td-ccW">
-                                <rect key="frame" x="40" y="624" width="310" height="30"/>
+                                <rect key="frame" x="40" y="634" width="310" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="GhO-cw-9vO"/>
                                 </constraints>
@@ -664,7 +664,7 @@ Separate all the elements in his beaker or the wizard will cast a spell on your 
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select Level" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RGe-0H-Yq2">
-                                <rect key="frame" x="40" y="477" width="310" height="20"/>
+                                <rect key="frame" x="40" y="487" width="310" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="NAq-f9-3wV"/>
                                 </constraints>
@@ -673,7 +673,7 @@ Separate all the elements in his beaker or the wizard will cast a spell on your 
                                 <nil key="highlightedColor"/>
                             </label>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="xQb-T1-JaO">
-                                <rect key="frame" x="100" y="505" width="190" height="32"/>
+                                <rect key="frame" x="100" y="515" width="190" height="32"/>
                                 <segments>
                                     <segment title="1"/>
                                     <segment title="2"/>
@@ -732,21 +732,21 @@ Separate all the elements in his beaker or the wizard will cast a spell on your 
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oGs-Vn-alh">
-                                <rect key="frame" x="0.0" y="774" width="390" height="70"/>
+                                <rect key="frame" x="0.0" y="784" width="390" height="60"/>
                                 <color key="backgroundColor" red="0.52058792109999996" green="0.4943810105" blue="0.18790945410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="70" id="5fb-XM-WlJ"/>
+                                    <constraint firstAttribute="height" constant="60" id="5fb-XM-WlJ"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="50f-yV-puJ">
-                                <rect key="frame" x="0.0" y="754" width="390" height="20"/>
+                                <rect key="frame" x="0.0" y="764" width="390" height="20"/>
                                 <color key="backgroundColor" red="0.33333333333333331" green="0.59607843137254901" blue="0.3529411764705882" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="KpC-ce-8Qb"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sVL-LJ-I3y">
-                                <rect key="frame" x="40" y="187" width="310" height="260"/>
+                                <rect key="frame" x="40" y="197" width="310" height="260"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ocy-oj-uJM">
                                         <rect key="frame" x="15" y="5" width="280" height="250"/>
@@ -768,7 +768,7 @@ The monster is currently living in the right conditions, and your task is to use
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZL3-LC-bQI">
-                                <rect key="frame" x="80" y="566" width="230" height="50"/>
+                                <rect key="frame" x="80" y="576" width="230" height="50"/>
                                 <color key="backgroundColor" red="0.96862745098039216" green="0.83921568627450982" blue="0.8784313725490196" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="56F-XM-iYS"/>
@@ -782,7 +782,7 @@ The monster is currently living in the right conditions, and your task is to use
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jrc-1e-7XR">
-                                <rect key="frame" x="40" y="624" width="310" height="30"/>
+                                <rect key="frame" x="40" y="634" width="310" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="dfN-Hv-5sY"/>
                                 </constraints>
@@ -794,7 +794,7 @@ The monster is currently living in the right conditions, and your task is to use
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select Level" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j3h-rP-Q8S">
-                                <rect key="frame" x="40" y="477" width="310" height="20"/>
+                                <rect key="frame" x="40" y="487" width="310" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="K2M-N0-GfA"/>
                                 </constraints>
@@ -803,7 +803,7 @@ The monster is currently living in the right conditions, and your task is to use
                                 <nil key="highlightedColor"/>
                             </label>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="SEV-9I-ACR">
-                                <rect key="frame" x="100" y="505" width="190" height="32"/>
+                                <rect key="frame" x="100" y="515" width="190" height="32"/>
                                 <segments>
                                     <segment title="1"/>
                                     <segment title="2"/>
@@ -866,7 +866,7 @@ The monster is currently living in the right conditions, and your task is to use
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XnT-Qh-CmY">
-                                <rect key="frame" x="80" y="566" width="230" height="50"/>
+                                <rect key="frame" x="80" y="576" width="230" height="50"/>
                                 <color key="backgroundColor" red="0.96862745098039216" green="0.83921568627450982" blue="0.8784313725490196" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="f0d-fV-OcZ"/>
@@ -884,21 +884,21 @@ The monster is currently living in the right conditions, and your task is to use
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Cj-lx-b83">
-                                <rect key="frame" x="0.0" y="774" width="390" height="70"/>
+                                <rect key="frame" x="0.0" y="784" width="390" height="60"/>
                                 <color key="backgroundColor" red="0.52058792109999996" green="0.4943810105" blue="0.18790945410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="70" id="KwH-Xv-EWX"/>
+                                    <constraint firstAttribute="height" constant="60" id="KwH-Xv-EWX"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="M0I-Op-FFw">
-                                <rect key="frame" x="0.0" y="754" width="390" height="20"/>
+                                <rect key="frame" x="0.0" y="764" width="390" height="20"/>
                                 <color key="backgroundColor" red="0.33988469840000002" green="0.59663778540000001" blue="0.33742028470000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="JKt-xA-wmG"/>
                                 </constraints>
                             </view>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="m4u-Iu-U2B">
-                                <rect key="frame" x="100" y="505" width="190" height="32"/>
+                                <rect key="frame" x="100" y="515" width="190" height="32"/>
                                 <segments>
                                     <segment title="1"/>
                                     <segment title="2"/>
@@ -910,7 +910,7 @@ The monster is currently living in the right conditions, and your task is to use
                                 </connections>
                             </segmentedControl>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select Level" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aKs-9U-qBf">
-                                <rect key="frame" x="40" y="477" width="310" height="20"/>
+                                <rect key="frame" x="40" y="487" width="310" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="A2s-z0-dUq"/>
                                 </constraints>
@@ -919,7 +919,7 @@ The monster is currently living in the right conditions, and your task is to use
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mrp-jh-fji">
-                                <rect key="frame" x="40" y="187" width="310" height="260"/>
+                                <rect key="frame" x="40" y="197" width="310" height="260"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dmA-Cj-YgA">
                                         <rect key="frame" x="15" y="5" width="280" height="250"/>
@@ -941,7 +941,7 @@ Given the properties of each Group of the periodic table, select the correct gro
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6dT-Hx-ynf">
-                                <rect key="frame" x="40" y="624" width="310" height="30"/>
+                                <rect key="frame" x="40" y="634" width="310" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="syG-0G-CkV"/>
                                 </constraints>
@@ -1118,14 +1118,14 @@ Given the properties of each Group of the periodic table, select the correct gro
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MQX-Yl-wcO">
-                                <rect key="frame" x="0.0" y="774" width="390" height="70"/>
+                                <rect key="frame" x="0.0" y="784" width="390" height="60"/>
                                 <color key="backgroundColor" red="0.52056539059999996" green="0.49439543489999999" blue="0.15334412459999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="70" id="Um4-Lz-u0s"/>
+                                    <constraint firstAttribute="height" constant="60" id="Um4-Lz-u0s"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5OE-SW-Qva">
-                                <rect key="frame" x="0.0" y="754" width="390" height="20"/>
+                                <rect key="frame" x="0.0" y="764" width="390" height="20"/>
                                 <color key="backgroundColor" red="0.34736526010000002" green="0.59664463999999995" blue="0.31989881399999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="ar1-1B-oyP"/>
@@ -1336,44 +1336,53 @@ Given the properties of each Group of the periodic table, select the correct gro
                                 </constraints>
                             </stackView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gE9-gI-nJZ">
-                                <rect key="frame" x="0.0" y="774" width="390" height="70"/>
+                                <rect key="frame" x="0.0" y="784" width="390" height="60"/>
                                 <color key="backgroundColor" red="0.52054119109999997" green="0.49441075330000001" blue="0.1039851978" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="70" id="vc2-1C-vVa"/>
+                                    <constraint firstAttribute="height" constant="60" id="vc2-1C-vVa"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bFr-oV-Tnu">
-                                <rect key="frame" x="0.0" y="754" width="390" height="20"/>
+                                <rect key="frame" x="0.0" y="764" width="390" height="20"/>
                                 <color key="backgroundColor" red="0.35486155749999998" green="0.59665060039999995" blue="0.30220007900000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="dWa-6Q-khn"/>
                                 </constraints>
                             </view>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="monster-tank-regular" translatesAutoresizingMaskIntoConstraints="NO" id="msP-Zd-VFr">
-                                <rect key="frame" x="40" y="454" width="310" height="300"/>
+                                <rect key="frame" x="40" y="454" width="310" height="310"/>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap to add the selected into the tank:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B00-0Q-2tS">
+                                <rect key="frame" x="40" y="275" width="310" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="RPe-Dj-FCT"/>
                         <color key="backgroundColor" red="0.53948074580000005" green="0.75685077909999998" blue="0.92969924209999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="RPe-Dj-FCT" firstAttribute="trailing" secondItem="XFZ-Fb-ks6" secondAttribute="trailing" constant="40" id="5nA-fP-uUA"/>
                             <constraint firstItem="RPe-Dj-FCT" firstAttribute="trailing" secondItem="bFr-oV-Tnu" secondAttribute="trailing" id="AXo-OR-wfO"/>
-                            <constraint firstItem="bFr-oV-Tnu" firstAttribute="top" secondItem="msP-Zd-VFr" secondAttribute="bottom" id="CcR-1b-7WX"/>
+                            <constraint firstItem="bFr-oV-Tnu" firstAttribute="top" secondItem="msP-Zd-VFr" secondAttribute="bottom" id="Be8-Vr-HhZ"/>
+                            <constraint firstItem="RPe-Dj-FCT" firstAttribute="trailing" secondItem="B00-0Q-2tS" secondAttribute="trailing" constant="40" id="BuB-Ax-FuM"/>
                             <constraint firstItem="SvK-Ny-SRi" firstAttribute="top" secondItem="RPe-Dj-FCT" secondAttribute="top" constant="70" id="D8c-uc-5PU"/>
-                            <constraint firstItem="bFr-oV-Tnu" firstAttribute="top" secondItem="msP-Zd-VFr" secondAttribute="bottom" id="EgD-eL-q5i"/>
                             <constraint firstAttribute="bottom" secondItem="gE9-gI-nJZ" secondAttribute="bottom" id="HmQ-iT-TNb"/>
                             <constraint firstItem="RPe-Dj-FCT" firstAttribute="trailing" secondItem="2fi-mq-GPf" secondAttribute="trailing" constant="40" id="K4z-jD-tNo"/>
                             <constraint firstItem="RPe-Dj-FCT" firstAttribute="trailing" secondItem="gE9-gI-nJZ" secondAttribute="trailing" id="KXx-Rh-26G"/>
+                            <constraint firstItem="B00-0Q-2tS" firstAttribute="leading" secondItem="RPe-Dj-FCT" secondAttribute="leading" constant="40" id="MLf-aC-iH4"/>
                             <constraint firstItem="XFZ-Fb-ks6" firstAttribute="leading" secondItem="RPe-Dj-FCT" secondAttribute="leading" constant="40" id="N4e-zp-J8Z"/>
                             <constraint firstItem="IrT-Z2-NI1" firstAttribute="leading" secondItem="RPe-Dj-FCT" secondAttribute="leading" constant="40" id="VGK-Q6-cNV"/>
                             <constraint firstItem="IrT-Z2-NI1" firstAttribute="top" secondItem="XFZ-Fb-ks6" secondAttribute="bottom" constant="60" id="Zw7-U4-Tuh"/>
                             <constraint firstItem="RPe-Dj-FCT" firstAttribute="trailing" secondItem="msP-Zd-VFr" secondAttribute="trailing" constant="40" id="bHd-Eq-ZB3"/>
                             <constraint firstItem="RPe-Dj-FCT" firstAttribute="trailing" secondItem="SvK-Ny-SRi" secondAttribute="trailing" constant="40" id="dLs-qa-Kzi"/>
+                            <constraint firstItem="IrT-Z2-NI1" firstAttribute="top" secondItem="B00-0Q-2tS" secondAttribute="bottom" constant="18" id="eiK-3s-Wbn"/>
                             <constraint firstItem="bFr-oV-Tnu" firstAttribute="leading" secondItem="RPe-Dj-FCT" secondAttribute="leading" id="gbc-o7-fZR"/>
                             <constraint firstItem="SvK-Ny-SRi" firstAttribute="leading" secondItem="RPe-Dj-FCT" secondAttribute="leading" constant="40" id="h4i-5H-T8e"/>
                             <constraint firstItem="gE9-gI-nJZ" firstAttribute="top" secondItem="bFr-oV-Tnu" secondAttribute="bottom" id="hfk-qc-qCt"/>
                             <constraint firstItem="gE9-gI-nJZ" firstAttribute="leading" secondItem="RPe-Dj-FCT" secondAttribute="leading" id="jSq-UA-4Z0"/>
                             <constraint firstItem="msP-Zd-VFr" firstAttribute="leading" secondItem="RPe-Dj-FCT" secondAttribute="leading" constant="40" id="mfL-dw-Ur0"/>
+                            <constraint firstItem="B00-0Q-2tS" firstAttribute="top" secondItem="XFZ-Fb-ks6" secondAttribute="bottom" constant="21" id="nWL-Z4-P64"/>
                             <constraint firstItem="RPe-Dj-FCT" firstAttribute="trailing" secondItem="IrT-Z2-NI1" secondAttribute="trailing" constant="40" id="p2C-10-gsy"/>
                             <constraint firstItem="2fi-mq-GPf" firstAttribute="leading" secondItem="RPe-Dj-FCT" secondAttribute="leading" constant="40" id="unp-Qp-MwR"/>
                             <constraint firstItem="msP-Zd-VFr" firstAttribute="top" secondItem="IrT-Z2-NI1" secondAttribute="bottom" constant="50" id="viC-rc-qXt"/>
@@ -2078,7 +2087,7 @@ Given the properties of each Group of the periodic table, select the correct gro
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="q0c-Zz-aob" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="jRP-bA-vTs">
-                        <rect key="frame" x="0.0" y="44" width="390" height="104.33333333333334"/>
+                        <rect key="frame" x="0.0" y="44" width="390" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
