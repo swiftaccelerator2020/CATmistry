@@ -467,16 +467,16 @@ water</string>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="W96-am-fUF">
                                 <rect key="frame" x="45" y="374" width="300" height="125"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gas-tank.png" translatesAutoresizingMaskIntoConstraints="NO" id="c0x-d2-1Aw">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gas-tank" translatesAutoresizingMaskIntoConstraints="NO" id="c0x-d2-1Aw">
                                         <rect key="frame" x="0.0" y="0.0" width="67.666666666666671" height="125"/>
                                     </imageView>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gas-tank.png" translatesAutoresizingMaskIntoConstraints="NO" id="9hK-tu-8ZJ">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gas-tank" translatesAutoresizingMaskIntoConstraints="NO" id="9hK-tu-8ZJ">
                                         <rect key="frame" x="77.666666666666686" y="0.0" width="67.333333333333314" height="125"/>
                                     </imageView>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gas-tank.png" translatesAutoresizingMaskIntoConstraints="NO" id="jN8-PP-Qaf">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gas-tank" translatesAutoresizingMaskIntoConstraints="NO" id="jN8-PP-Qaf">
                                         <rect key="frame" x="155" y="0.0" width="67.666666666666686" height="125"/>
                                     </imageView>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gas-tank.png" translatesAutoresizingMaskIntoConstraints="NO" id="lfV-9n-qcb">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gas-tank" translatesAutoresizingMaskIntoConstraints="NO" id="lfV-9n-qcb">
                                         <rect key="frame" x="232.66666666666671" y="0.0" width="67.333333333333343" height="125"/>
                                     </imageView>
                                 </subviews>
@@ -526,7 +526,7 @@ water</string>
                 <panGestureRecognizer minimumNumberOfTouches="1" id="KuL-iy-o59"/>
                 <panGestureRecognizer minimumNumberOfTouches="1" id="wwn-t8-KxU"/>
             </objects>
-            <point key="canvasLocation" x="-1969" y="2010"/>
+            <point key="canvasLocation" x="-1969.2307692307691" y="2009.7156398104264"/>
         </scene>
         <!--Play Retrieve Solids Details View Controller-->
         <scene sceneID="zzc-Tf-4lt">
@@ -2087,7 +2087,7 @@ Given the properties of each Group of the periodic table, select the correct gro
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="q0c-Zz-aob" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="jRP-bA-vTs">
-                        <rect key="frame" x="0.0" y="44" width="390" height="96"/>
+                        <rect key="frame" x="0.0" y="44" width="390" height="104.33333333333334"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -2109,7 +2109,7 @@ Given the properties of each Group of the periodic table, select the correct gro
         <image name="bowl" width="130" height="109"/>
         <image name="cat" width="156" height="197.33332824707031"/>
         <image name="gamecontroller.fill" catalog="system" width="128" height="80"/>
-        <image name="gas-tank.png" width="128" height="128"/>
+        <image name="gas-tank" width="302" height="827"/>
         <image name="gear" catalog="system" width="128" height="119"/>
         <image name="glowing-splint.png" width="128" height="128"/>
         <image name="lighted-splint.png" width="128" height="128"/>
