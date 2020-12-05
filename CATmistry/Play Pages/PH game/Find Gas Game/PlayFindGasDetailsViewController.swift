@@ -15,6 +15,23 @@ class PlayFindGasDetailsViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    @IBAction func handlePan(_ gesture: UIPanGestureRecognizer) {
+      // 1
+      let translation = gesture.translation(in: view)
+
+      // 2
+      guard let gestureView = gesture.view else {
+        return
+      }
+
+      gestureView.center = CGPoint(
+        x: gestureView.center.x + translation.x,
+        y: gestureView.center.y + translation.y
+      )
+
+      // 3
+      gesture.setTranslation(.zero, in: view)
+    }    
 
     /*
     // MARK: - Navigation
