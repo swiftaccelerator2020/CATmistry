@@ -11,16 +11,24 @@ class PlayRetrieveSolidsDetailsViewController: UIViewController, UITableViewDele
     
     // MARK: - Table View
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        1
+    //var elements: [specificSeperationMethod]!
+    var elements = [specificSeperationMethod(picture: "", name: "hi there", properties: "no properties")]
+    func numberOfSections(in tableView: UITableView) -> Int {
+        // #warning Incomplete implementation, return the number of sections
+        return 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "loremIpsum", for: indexPath)
+        cell.textLabel?.text = "b"
         return cell
     }
     
-
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        // #warning Incomplete implementation, return the number of rows
+        return elements
+    }
+    
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
