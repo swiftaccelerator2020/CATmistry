@@ -20,13 +20,13 @@ class PlayRetrieveSolidsDetailsViewController: UIViewController, UITableViewDele
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "loremIpsum", for: indexPath)
-        cell.textLabel?.text = "b"
+        cell.textLabel?.text = "\(elements[indexPath.row].name) - \(elements[indexPath.row].properties)"
         return cell
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return elements
+        return elements.count
     }
     
     @IBOutlet weak var tableView: UITableView!
