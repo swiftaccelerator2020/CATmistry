@@ -75,11 +75,28 @@ struct QuizQuestion {
     var correctAnswer: Int
 }
 
+struct GasTestGame {
+    
+}
+
 struct periodicTableGame{
     var properties: String
     var correctAns1: Int
     var correctAns2: Int
     var timeGiven: Int
+}
+
+struct PhGame {
+    var firstItem: phOption
+    var secondItem: phOption
+    var thirdItem: phOption
+    var fourthItem: phOption
+}
+
+struct phOption {
+    var name: String
+    var image: String
+    var turnTankColour: String
 }
 
 struct specificSeperationMethod {
