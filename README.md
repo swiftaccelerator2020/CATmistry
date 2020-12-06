@@ -8,7 +8,7 @@
 CATmistry was built to aid upper primary to lower secondary school students in their Chemistry learning journey. As many other Chemistry apps currently present in the market cater largely to the undergrad/professional market, we find that there is a lack of such apps tailored to the needs of the younger population. CATmistry aims to convey relatively simple Chemistry concepts in a simple and concise manner that would be the most suitable for our target age group. Alongside the learn and information sections are mini-games and interactive elements to provide for a fun and engaging learning experience.
 
 ## Installation
-CATmistry is available for iOS and iPadOS 14 on the [App Store]()
+CATmistry is available for iOS and iPadOS 14 on the [App Store]() (not yet!)
 
 [![App Store](https://upload.wikimedia.org/wikipedia/commons/3/3c/Download_on_the_App_Store_Badge.svg)]()
 
