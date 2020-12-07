@@ -97,6 +97,7 @@ struct PhGame {
     var secondItem: phOption = phGameOptionsArray.randomElement()!
     var thirdItem: phOption = phGameOptionsArray.randomElement()!
     var fourthItem: phOption = phGameOptionsArray.randomElement()!
+    var indicatorButtonText: String? = nil
 }
 
 struct phOption {
@@ -211,7 +212,7 @@ var phGameArray = [
     [PhGame(startingMonster: "monster-yellow.png", correctMonster: "monster-blue.png")],
                     
     //LEVEL 3
-    [PhGame(startingMonster: "monster-yellow.png", correctMonster: "monster-blue.png")]
+    [PhGame(startingMonster: "monster-yellow.png", correctMonster: "monster-blue.png", indicatorButtonText: "Phenolphthalein")]
 ]
 
 var phGameOptionsArray = [

@@ -15,6 +15,14 @@ class PlayAdjustPhDetailsViewController: UIViewController {
     @IBOutlet weak var addSecondIndicatorButton: UIButton!
     @IBOutlet weak var addThirdIndicatorButton: UIButton!
     @IBOutlet weak var monsterImageView: UIImageView!
+    @IBOutlet weak var firstOptionImageView: UIImageView!
+    @IBOutlet weak var firstOptionLabel: UILabel!
+    @IBOutlet weak var secondOptionImageView: UIImageView!
+    @IBOutlet weak var secondOptionLabel: UILabel!
+    @IBOutlet weak var thirdOptionImageView: UIImageView!
+    @IBOutlet weak var thirdOptionLabel: UILabel!
+    @IBOutlet weak var fourthOptionImageView: UIImageView!
+    @IBOutlet weak var fourthOptionLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,9 +31,23 @@ class PlayAdjustPhDetailsViewController: UIViewController {
         addFirstIndicatorButton.layer.cornerRadius = 15
         addSecondIndicatorButton.layer.cornerRadius = 15
         addThirdIndicatorButton.layer.cornerRadius = 15
+        
+        if currentLevel == 0 {
+            addFirstIndicatorButton.isHidden = true
+            addSecondIndicatorButton.isHidden = true
+        } else if currentLevel == 2 {
+            addFirstIndicatorButton.isHidden = true
+            addSecondIndicatorButton.isHidden = true
+            addThirdIndicatorButton.setTitle(phGameArray[currentLevel][0].indicatorButtonText!, for: .normal)
+        }
+        
+        firstOptionImageView.image = UIImage(named: phGameArray[currentLevel][0].firstItem.image)
+        secondOptionImageView.image = UIImage(named: phGameArray[currentLevel][0].secondItem.image)
+        thirdOptionImageView.image = UIImage(named: phGameArray[currentLevel][0].thirdItem.image)
+        fourthOptionImageView.image = UIImage(named: phGameArray[currentLevel][0].fourthItem.image)
     }
     
-    @IBAction func clickAddFirstIndicator(_ sender: Any) {
+    @IBAction func clickAddFirstndicator(_ sender: Any) {
         monsterImageView.image = UIImage(named: "")
     }
     

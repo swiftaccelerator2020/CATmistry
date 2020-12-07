@@ -1447,7 +1447,15 @@ Given the properties of each Group of the periodic table, select the correct gro
                         <outlet property="addFirstIndicatorButton" destination="SvK-Ny-SRi" id="V1m-gp-vwp"/>
                         <outlet property="addSecondIndicatorButton" destination="2fi-mq-GPf" id="BMU-wC-mWA"/>
                         <outlet property="addThirdIndicatorButton" destination="XFZ-Fb-ks6" id="r3e-py-JoX"/>
+                        <outlet property="firstOptionImageView" destination="ItS-R2-GEz" id="I5s-p8-6Jf"/>
+                        <outlet property="firstOptionLabel" destination="ua7-WZ-xGW" id="ciH-NA-ZNA"/>
+                        <outlet property="fourthOptionImageView" destination="R1q-Vc-QPe" id="LwM-n9-UYG"/>
+                        <outlet property="fourthOptionLabel" destination="f16-Ok-ZSj" id="U0R-Uz-AIm"/>
                         <outlet property="monsterImageView" destination="msP-Zd-VFr" id="7EP-hf-ijt"/>
+                        <outlet property="secondOptionImageView" destination="Sib-4l-Epl" id="mb0-4X-8vl"/>
+                        <outlet property="secondOptionLabel" destination="f4K-Nb-a9k" id="mZA-zG-rBd"/>
+                        <outlet property="thirdOptionImageView" destination="uTO-QD-hTp" id="WaV-sU-qQj"/>
+                        <outlet property="thirdOptionLabel" destination="AQe-Vl-oxu" id="9Y7-Hu-J1I"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="r6k-y5-7Ng" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
