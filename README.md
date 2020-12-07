@@ -26,8 +26,6 @@ Contribution is much appreciated, but not appropriate at this stage.
   <img src="https://contributors-img.web.app/image?repo=swiftaccelerator2020/CATmistry" />
 </a>
 
-This app would not have been possible without the help of YJ, the alumni, and the other consultants, who guided us during the Swift Accelerator Programme and provided us with their invaluable advice throughout all the stages of CATmistry's development.
-
 ### About the Swift Accelerator Programme and Swift Innovators' Summit
 The [Swift Accelerator Programme](https://www.swiftinsg.org) is an intensive talent development programme for secondary school students with an interest and aptitude for app development and computational thinking, launched by [IMDA](https://www.imda.gov.sg) and [Apple](https://www.apple.com) and hosted by [Tinkercademy](https://tinkercademy.com). Over 8 months, participants learn to code in Swift, and apply story-telling and design thinking principles to design, build, and release an iOS app of their own. Find out more about us at [https://www.swiftinsg.org](https://www.swiftinsg.org).
 
