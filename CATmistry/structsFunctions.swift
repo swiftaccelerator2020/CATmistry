@@ -91,19 +91,29 @@ struct periodicTableGame{
 }
 
 struct PhGame {
-    var startingMonster: String
-    var correctMonster: String
-    var firstItem: phOption = phGameOptionsArray.randomElement()!
-    var secondItem: phOption = phGameOptionsArray.randomElement()!
-    var thirdItem: phOption = phGameOptionsArray.randomElement()!
-    var fourthItem: phOption = phGameOptionsArray.randomElement()!
+    var startIsAcidic: Bool
+    var firstItem: PhOption = phGameOptionsArray.randomElement()!
+    var secondItem: PhOption = phGameOptionsArray.randomElement()!
+    var thirdItem: PhOption = phGameOptionsArray.randomElement()!
+    var fourthItem: PhOption = phGameOptionsArray.randomElement()!
     var indicatorButtonText: String? = nil
 }
 
-struct phOption {
+struct PhOption {
     var name: String
     var image: String
     var turnTankColour: String
+}
+
+struct PhGameColour {
+    var universalStart: String
+    var universalCorrect: String
+    var methylOrangeStart: String
+    var methylOrangeCorrect: String
+    var litmusStart: String
+    var litmusCorrect: String
+    var phenolphthaleinStart: String
+    var phenolphthaleinCorrect: String
 }
 
 struct specificSeperationMethod {
@@ -206,30 +216,34 @@ var sperationMethods = [
 
 var phGameArray = [
     // LEVEL 1
-    [PhGame(startingMonster: "monster-yellow.png", correctMonster: "monster-blue.png")],
+    [PhGame(startIsAcidic: true)],
             
     //LEVEL 2
-    [PhGame(startingMonster: "monster-yellow.png", correctMonster: "monster-blue.png")],
+    [PhGame(startIsAcidic: true)],
                     
     //LEVEL 3
-    [PhGame(startingMonster: "monster-yellow.png", correctMonster: "monster-blue.png", indicatorButtonText: "Phenolphthalein")]
+    [PhGame(startIsAcidic: true)]
 ]
 
 var phGameOptionsArray = [
-    phOption(name: "", image: "ph-1.png", turnTankColour: "monster-red.png"),
-    phOption(name: "", image: "ph-2.png", turnTankColour: "monster-red.png"),
-    phOption(name: "", image: "ph-3.png", turnTankColour: "monster-red.png"),
-    phOption(name: "", image: "ph-4.png", turnTankColour: "monster-red.png"),
-    phOption(name: "", image: "ph-5.png", turnTankColour: "monster-red.png"),
-    phOption(name: "", image: "ph-6.png", turnTankColour: "monster-red.png"),
-    phOption(name: "", image: "ph-8.png", turnTankColour: "monster-purple.png"),
-    phOption(name: "", image: "ph-9.png", turnTankColour: "monster-purple.png"),
-    phOption(name: "", image: "ph-10.png", turnTankColour: "monster-purple.png"),
-    phOption(name: "", image: "ph-11.png", turnTankColour: "monster-purple.png"),
-    phOption(name: "", image: "ph-12.png", turnTankColour: "monster-purple.png"),
-    phOption(name: "", image: "ph-13.png", turnTankColour: "monster-purple.png"),
-    phOption(name: "", image: "ph-14.png", turnTankColour: "monster-purple.png"),
+    PhOption(name: "", image: "ph-1.png", turnTankColour: "monster-red.png"),
+    PhOption(name: "", image: "ph-2.png", turnTankColour: "monster-red.png"),
+    PhOption(name: "", image: "ph-3.png", turnTankColour: "monster-red.png"),
+    PhOption(name: "", image: "ph-4.png", turnTankColour: "monster-red.png"),
+    PhOption(name: "", image: "ph-5.png", turnTankColour: "monster-red.png"),
+    PhOption(name: "", image: "ph-6.png", turnTankColour: "monster-red.png"),
+    PhOption(name: "", image: "ph-8.png", turnTankColour: "monster-purple.png"),
+    PhOption(name: "", image: "ph-9.png", turnTankColour: "monster-purple.png"),
+    PhOption(name: "", image: "ph-10.png", turnTankColour: "monster-purple.png"),
+    PhOption(name: "", image: "ph-11.png", turnTankColour: "monster-purple.png"),
+    PhOption(name: "", image: "ph-12.png", turnTankColour: "monster-purple.png"),
+    PhOption(name: "", image: "ph-13.png", turnTankColour: "monster-purple.png"),
+    PhOption(name: "", image: "ph-14.png", turnTankColour: "monster-purple.png"),
 ]
+
+var phGameAcidicIndicatorColours = PhGameColour(universalStart: "monster-yellow.png", universalCorrect: "monster-purple.png", methylOrangeStart: "monster-red.png", methylOrangeCorrect: "monster-yellow.png", litmusStart: "monster-red.png", litmusCorrect: "monster-blue.png", phenolphthaleinStart: "monster-colourless.png", phenolphthaleinCorrect: "monster-pink.png")
+
+var phGameAlkalineIndicatorColours = PhGameColour(universalStart: "monster-blue.png", universalCorrect: "monster-red.png", methylOrangeStart: "monster-yellow.png", methylOrangeCorrect: "monster-red.png", litmusStart: "monster-blue.png", litmusCorrect: "monster-red.png", phenolphthaleinStart: "monster-pink.png", phenolphthaleinCorrect: "monster-colourless.png")
 
 var perioicTable = [
     // LEVEL 1
