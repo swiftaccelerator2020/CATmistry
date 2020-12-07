@@ -93,10 +93,10 @@ struct periodicTableGame{
 struct PhGame {
     var startingMonster: String
     var correctMonster: String
-    var firstItem: phOption
-    var secondItem: phOption
-    var thirdItem: phOption
-    var fourthItem: phOption
+    var firstItem: phOption = phGameOptionsArray.randomElement()!
+    var secondItem: phOption = phGameOptionsArray.randomElement()!
+    var thirdItem: phOption = phGameOptionsArray.randomElement()!
+    var fourthItem: phOption = phGameOptionsArray.randomElement()!
 }
 
 struct phOption {
@@ -205,13 +205,31 @@ var sperationMethods = [
 
 var phGameArray = [
     // LEVEL 1
-    [PhGame(startingMonster: "monster-yellow.png", correctMonster: "monster-blue.png", firstItem: phOption(name: "", image: "", turnTankColour: ""), secondItem: phOption(name: "", image: "", turnTankColour: ""), thirdItem: phOption(name: "", image: "", turnTankColour: ""), fourthItem: phOption(name: "", image: "", turnTankColour: "")),],
-    
+    [PhGame(startingMonster: "monster-yellow.png", correctMonster: "monster-blue.png")],
+            
     //LEVEL 2
-    [PhGame(startingMonster: "monster-yellow.png", correctMonster: "monster-blue.png", firstItem: phOption(name: "", image: "", turnTankColour: ""), secondItem: phOption(name: "", image: "", turnTankColour: ""), thirdItem: phOption(name: "", image: "", turnTankColour: ""), fourthItem: phOption(name: "", image: "", turnTankColour: "")),],
-    
+    [PhGame(startingMonster: "monster-yellow.png", correctMonster: "monster-blue.png")],
+                    
     //LEVEL 3
-    [PhGame(startingMonster: "monster-yellow.png", correctMonster: "monster-blue.png", firstItem: phOption(name: "", image: "", turnTankColour: ""), secondItem: phOption(name: "", image: "", turnTankColour: ""), thirdItem: phOption(name: "", image: "", turnTankColour: ""), fourthItem: phOption(name: "", image: "", turnTankColour: "")),],
+    [PhGame(startingMonster: "monster-yellow.png", correctMonster: "monster-blue.png")]
+]
+
+var phGameOptionsArray = [
+    phOption(name: "", image: "ph-1.png", turnTankColour: "monster-red.png"),
+    phOption(name: "", image: "ph-2.png", turnTankColour: "monster-red.png"),
+    phOption(name: "", image: "", turnTankColour: "monster-red.png"),
+    phOption(name: "", image: "", turnTankColour: "monster-red.png"),
+    phOption(name: "", image: "", turnTankColour: "monster-red.png"),
+    phOption(name: "", image: "", turnTankColour: "monster-red.png"),
+    phOption(name: "", image: "", turnTankColour: "monster-purple.png"),
+    phOption(name: "", image: "", turnTankColour: "monster-purple.png"),
+    phOption(name: "", image: "", turnTankColour: "monster-purple.png"),
+    phOption(name: "", image: "", turnTankColour: "monster-purple.png"),
+    phOption(name: "", image: "", turnTankColour: "monster-purple.png"),
+    phOption(name: "", image: "", turnTankColour: "monster-purple.png"),
+    phOption(name: "", image: "", turnTankColour: "monster-purple.png"),
+    phOption(name: "", image: "", turnTankColour: "monster-purple.png"),
+    phOption(name: "", image: "", turnTankColour: "monster-purple.png"),
 ]
 
 var perioicTable = [
