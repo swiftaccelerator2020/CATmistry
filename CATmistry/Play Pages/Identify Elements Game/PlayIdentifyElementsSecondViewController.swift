@@ -9,6 +9,8 @@ import UIKit
 
 class PlayIdentifyElementsSecondViewController: UIViewController {
     
+    var currentLevel = 0
+    
     @IBOutlet weak var desc: UILabel!
     @IBOutlet weak var nonMetal: UIButton!
     @IBOutlet weak var transitionMetal: UIButton!

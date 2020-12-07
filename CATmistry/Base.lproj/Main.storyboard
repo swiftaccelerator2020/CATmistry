@@ -214,7 +214,7 @@ As your cat can only live in a certain type of gas, your task is to use your kno
                                     <color key="titleColor" systemColor="labelColor"/>
                                 </state>
                                 <connections>
-                                    <segue destination="qsu-L3-DGc" kind="presentation" modalPresentationStyle="fullScreen" id="aBZ-us-CTb"/>
+                                    <segue destination="qsu-L3-DGc" kind="presentation" identifier="goToFindGasDetails" modalPresentationStyle="fullScreen" id="aBZ-us-CTb"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o91-86-BzP">
@@ -700,7 +700,7 @@ Separate all the elements in his beaker or the wizard will cast a spell on your 
                                     <color key="titleColor" systemColor="labelColor"/>
                                 </state>
                                 <connections>
-                                    <segue destination="mrd-BZ-8uB" kind="presentation" modalPresentationStyle="fullScreen" id="7Ew-g2-odc"/>
+                                    <segue destination="mrd-BZ-8uB" kind="presentation" identifier="goToRetrieveSolidsDetails" modalPresentationStyle="fullScreen" id="7Ew-g2-odc"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z2n-td-ccW">
@@ -830,7 +830,7 @@ The monster is currently living in the right conditions, and your task is to use
                                     <color key="titleColor" systemColor="labelColor"/>
                                 </state>
                                 <connections>
-                                    <segue destination="BaN-EE-YvM" kind="presentation" modalPresentationStyle="fullScreen" id="OBg-pM-LeJ"/>
+                                    <segue destination="BaN-EE-YvM" kind="presentation" identifier="goToAdjustPhDetails" modalPresentationStyle="fullScreen" id="OBg-pM-LeJ"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jrc-1e-7XR">
@@ -928,7 +928,7 @@ The monster is currently living in the right conditions, and your task is to use
                                     <color key="titleColor" systemColor="labelColor"/>
                                 </state>
                                 <connections>
-                                    <segue destination="Vph-Yc-cjH" kind="presentation" identifier="startGame" modalPresentationStyle="fullScreen" id="tAl-fe-g5g"/>
+                                    <segue destination="Vph-Yc-cjH" kind="presentation" identifier="goToIdentifyElementDetails" modalPresentationStyle="fullScreen" id="tAl-fe-g5g"/>
                                 </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="bowl" translatesAutoresizingMaskIntoConstraints="NO" id="ryL-fI-Fif">
@@ -1541,7 +1541,7 @@ Given the properties of each Group of the periodic table, select the correct gro
                 <navigationController id="8Us-es-0oa" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Learn" image="books.vertical.fill" catalog="system" selectedImage="books.vertical.fill" id="ZOw-bY-pdm"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="OvI-u8-jpf">
-                        <rect key="frame" x="0.0" y="44" width="390" height="96"/>
+                        <rect key="frame" x="0.0" y="44" width="390" height="104.33333333333334"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" red="0.95419245959999999" green="0.83945876360000005" blue="0.47016263009999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </navigationBar>
@@ -2013,7 +2013,7 @@ Given the properties of each Group of the periodic table, select the correct gro
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="FaB-d6-X5c"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="wEn-aq-CEr">
-                        <rect key="frame" x="0.0" y="44" width="390" height="96"/>
+                        <rect key="frame" x="0.0" y="44" width="390" height="104.33333333333334"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -2139,7 +2139,7 @@ Given the properties of each Group of the periodic table, select the correct gro
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="q0c-Zz-aob" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="jRP-bA-vTs">
-                        <rect key="frame" x="0.0" y="44" width="390" height="104.33333333333334"/>
+                        <rect key="frame" x="0.0" y="44" width="390" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>

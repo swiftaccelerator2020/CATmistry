@@ -8,7 +8,9 @@
 import UIKit
 
 class PlayFindGasDetailsViewController: UIViewController {
-
+    
+    var currentLevel = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

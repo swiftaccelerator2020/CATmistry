@@ -8,6 +8,8 @@
 import UIKit
 
 class PlayAdjustPhDetailsViewController: UIViewController {
+    
+    var currentLevel = 0
 
     @IBOutlet weak var addFirstIndicatorButton: UIButton!
     @IBOutlet weak var addSecondIndicatorButton: UIButton!

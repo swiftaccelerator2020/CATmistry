@@ -7,7 +7,22 @@
 
 import UIKit
 
-class PlayRetrieveSolidsDetailsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
+class PlayRetrieveSolidsDetailsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    
+    var currentLevel = 0
+    
+    @IBOutlet weak var tableView: UITableView!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        tableView.dataSource = self
+        tableView.delegate = self
+        self.tableView.tableFooterView = UIView()
+
+        
+        // Do any additional setup after loading the view.
+    }
     
     // MARK: - Table View
     
@@ -27,19 +42,6 @@ class PlayRetrieveSolidsDetailsViewController: UIViewController, UITableViewDele
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         return elements.count
-    }
-    
-    @IBOutlet weak var tableView: UITableView!
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        tableView.dataSource = self
-        tableView.delegate = self
-        self.tableView.tableFooterView = UIView()
-
-        
-        // Do any additional setup after loading the view.
     }
     
 
