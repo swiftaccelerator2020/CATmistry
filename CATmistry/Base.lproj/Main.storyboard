@@ -624,6 +624,25 @@ water</string>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" fixedFrame="YES" progress="0.10000000000000001" translatesAutoresizingMaskIntoConstraints="NO" id="soV-ZZ-VJe">
+                                <rect key="frame" x="31" y="672" width="182" height="5"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </progressView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="c9l-oF-WOd">
+                                <rect key="frame" x="187" y="541" width="187" height="208"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="Ruu-Hq-vGV">
+                                        <rect key="frame" x="0.0" y="28" width="187" height="43.666667938232422"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Ruu-Hq-vGV" id="6sm-Ct-8Yw">
+                                            <rect key="frame" x="0.0" y="0.0" width="187" height="43.666667938232422"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Hio-N0-2mq"/>
                         <color key="backgroundColor" red="0.54710417990000004" green="0.75682848690000004" blue="0.93781065939999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -638,6 +657,7 @@ water</string>
                     </view>
                     <navigationItem key="navigationItem" id="oHb-WO-dwc"/>
                     <connections>
+                        <outlet property="progressView" destination="soV-ZZ-VJe" id="fma-O8-LHS"/>
                         <outlet property="tableView" destination="Xtl-sC-sZh" id="9xf-fR-Pqz"/>
                     </connections>
                 </viewController>

@@ -11,6 +11,7 @@ class PlayRetrieveSolidsDetailsViewController: UIViewController, UITableViewDele
     
     var currentLevel = 0
     
+    @IBOutlet weak var progressView: UIProgressView!
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
@@ -19,8 +20,10 @@ class PlayRetrieveSolidsDetailsViewController: UIViewController, UITableViewDele
         tableView.dataSource = self
         tableView.delegate = self
         self.tableView.tableFooterView = UIView()
-
         
+        progressView.transform = CGAffineTransform(rotationAngle: .pi / -2)
+        progressView.transform = progressView.transform.scaledBy(x: 1, y: 30)
+
         // Do any additional setup after loading the view.
     }
     
