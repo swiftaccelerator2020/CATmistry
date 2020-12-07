@@ -36,7 +36,8 @@ class PlayRetrieveSolidsDetailsViewController: UIViewController, UITableViewDele
         
         tableView.dataSource = self
         tableView.delegate = self
-        
+        self.tableView.tableFooterView = UIView()
+
         
         // Do any additional setup after loading the view.
     }
