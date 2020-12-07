@@ -76,7 +76,11 @@ struct QuizQuestion {
 }
 
 struct GasTestGame {
-    
+    var firstGasTank: String
+    var secondGasTank: String
+    var thirdGasTank: String
+    var fourthGasTank: String
+    var correctGasTank: String
 }
 
 struct periodicTableGame{
@@ -87,6 +91,8 @@ struct periodicTableGame{
 }
 
 struct PhGame {
+    var startingMonster: String
+    var correctMonster: String
     var firstItem: phOption
     var secondItem: phOption
     var thirdItem: phOption
@@ -182,6 +188,32 @@ var gameTopics = [
     PlayTopic(title: "Identify the Elements", pic: "periodic-table.png", pointsNeeded: 40, segDesti: "goToIdentifyElement", errorLabel: "Please complete Chapter 4")
 ]
 
+var gasTestsGameArray = [
+    // LEVEL 1
+    [GasTestGame(firstGasTank: "Hydrogen", secondGasTank: "Oxygen", thirdGasTank: "Carbon Dioxide", fourthGasTank: "Ammonia", correctGasTank: "Hydrogen"),],
+    
+    // LEVEL 2
+    [GasTestGame(firstGasTank: "Hydrogen", secondGasTank: "Oxygen", thirdGasTank: "Carbon Dioxide", fourthGasTank: "Ammonia", correctGasTank: "Hydrogen"),],
+    
+    // LEVEL 3
+    [GasTestGame(firstGasTank: "Hydrogen", secondGasTank: "Oxygen", thirdGasTank: "Carbon Dioxide", fourthGasTank: "Ammonia", correctGasTank: "Hydrogen"),]
+]
+
+var sperationMethods = [
+    specificSeperationMethod(picture: "1.png", name: "HALO", properties: "NO AIOAHSJNFKdcxz")
+]
+
+var phGameArray = [
+    // LEVEL 1
+    [PhGame(startingMonster: "monster-yellow.png", correctMonster: "monster-blue.png", firstItem: phOption(name: "", image: "", turnTankColour: ""), secondItem: phOption(name: "", image: "", turnTankColour: ""), thirdItem: phOption(name: "", image: "", turnTankColour: ""), fourthItem: phOption(name: "", image: "", turnTankColour: "")),],
+    
+    //LEVEL 2
+    [PhGame(startingMonster: "monster-yellow.png", correctMonster: "monster-blue.png", firstItem: phOption(name: "", image: "", turnTankColour: ""), secondItem: phOption(name: "", image: "", turnTankColour: ""), thirdItem: phOption(name: "", image: "", turnTankColour: ""), fourthItem: phOption(name: "", image: "", turnTankColour: "")),],
+    
+    //LEVEL 3
+    [PhGame(startingMonster: "monster-yellow.png", correctMonster: "monster-blue.png", firstItem: phOption(name: "", image: "", turnTankColour: ""), secondItem: phOption(name: "", image: "", turnTankColour: ""), thirdItem: phOption(name: "", image: "", turnTankColour: ""), fourthItem: phOption(name: "", image: "", turnTankColour: "")),],
+]
+
 var perioicTable = [
     // LEVEL 1
     [
@@ -207,8 +239,4 @@ var perioicTable = [
         periodicTableGame(properties: "HALO", correctAns1: 1, correctAns2: 2, timeGiven: 5),
         periodicTableGame(properties: "bai", correctAns1: 1, correctAns2: 3, timeGiven: 5)
     ]
-]
-
-var sperationMethods = [
-    specificSeperationMethod(picture: "1.png", name: "HALO", properties: "NO AIOAHSJNFKdcxz")
 ]
