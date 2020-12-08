@@ -12,16 +12,16 @@ class PlayRetrieveSolidsDetailsViewController: UIViewController, UITableViewDele
     var currentLevel = 0
     
     @IBOutlet weak var progressView: UIProgressView!
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var seperationTableView: UITableView!
     @IBOutlet weak var choicesTableView: UITableView!
     @IBOutlet weak var selectedChoiceLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tableView.dataSource = self
-        tableView.delegate = self
-        self.tableView.tableFooterView = UIView()
+        seperationTableView.dataSource = self
+        seperationTableView.delegate = self
+        self.seperationTableView.tableFooterView = UIView()
         choicesTableView.dataSource = self
         choicesTableView.delegate = self
         self.choicesTableView.allowsSelection = true
@@ -45,39 +45,43 @@ class PlayRetrieveSolidsDetailsViewController: UIViewController, UITableViewDele
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "loremIpsum", for: indexPath)
-        cell.textLabel?.text = "\(elements[indexPath.row].name) - \(elements[indexPath.row].properties)"
-        return cell
+        if (tableView == self.seperationTableView){
+            let cell = tableView.dequeueReusableCell(withIdentifier: "loremIpsum", for: indexPath)
+            cell.textLabel?.text = "\(elements[indexPath.row].name) - \(elements[indexPath.row].properties)"
+            return cell
+        } else if (tableView == choicesTableView) {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "loremIpsum2", for: indexPath)
+            cell.textLabel?.text = elements[selectedElement!].givenMethods.methods[indexPath.row].methodName
+            return cell
+        } else {
+            return UITableViewCell()
+        }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return elements.count
+        if (tableView == seperationTableView){
+            return elements.count
+        } else if (tableView == choicesTableView){
+            return selectedElement ?? 0
+        } else {
+            return 0
+        }
     }
     var selectedElement: Int?
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        selectedElement = indexPath.row
-        tableView.deselectRow(at: indexPath, animated: true)
+        if (tableView == seperationTableView){
+            selectedElement = indexPath.row
+            tableView.deselectRow(at: indexPath, animated: true)
+
+        } else if (tableView == choicesTableView){
+            selectedChoiceLabel.text = elements[selectedElement!].givenMethods.methods[indexPath.row].methodName
+
+        }
 
     }
     
-    // MARK: - Second Table View
-    
-    func choicesTableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "loremIpsum2", for: indexPath)
-        cell.textLabel?.text = elements[selectedElement!].givenMethods.methods[indexPath.row].methodName
-        return cell
-    }
-    
-    func choicesTableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return selectedElement ?? 0
-    }
-    
-    func choicesTableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        selectedChoiceLabel.text = elements[selectedElement!].givenMethods.methods[indexPath.row].methodName
-    }
     
     /*
     // MARK: - Navigation
