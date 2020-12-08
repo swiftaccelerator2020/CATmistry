@@ -42,10 +42,17 @@ class PlayAdjustPhDetailsViewController: UIViewController {
             addThirdIndicatorButton.setTitle(phGameArray[currentLevel][currentGame].indicatorButtonText!, for: .normal)
         }
         
-        firstOptionImageView.image = UIImage(named: phGameArray[currentLevel][currentGame].options[0].image)
-        secondOptionImageView.image = UIImage(named: phGameArray[currentLevel][currentGame].options[1].image)
-        thirdOptionImageView.image = UIImage(named: phGameArray[currentLevel][currentGame].options[2].image)
-        fourthOptionImageView.image = UIImage(named: phGameArray[currentLevel][currentGame].options[3].image)
+        let phOptionPath = phGameArray[currentLevel][currentGame]
+        
+        firstOptionImageView.image = UIImage(named: phOptionPath.options[0].image)
+        secondOptionImageView.image = UIImage(named: phOptionPath.options[1].image)
+        thirdOptionImageView.image = UIImage(named: phOptionPath.options[2].image)
+        fourthOptionImageView.image = UIImage(named: phOptionPath.options[3].image)
+        
+        firstOptionLabel.text = phOptionPath.options[0].name
+        secondOptionLabel.text = phOptionPath.options[1].name
+        thirdOptionLabel.text = phOptionPath.options[2].name
+        fourthOptionLabel.text = phOptionPath.options[3].name
     }
     
     func checkForCorrectAnswer(whichOption: Int) {
