@@ -318,7 +318,7 @@ As your cat can only live in a certain type of gas, your task is to use your kno
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="C1i-Ge-n8W">
                                         <rect key="frame" x="15" y="0.0" width="340" height="140"/>
                                         <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="LRr-Gl-Jpi">
+                                            <stackView opaque="NO" multipleTouchEnabled="YES" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="LRr-Gl-Jpi">
                                                 <rect key="frame" x="0.0" y="0.0" width="62" height="140"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ruJ-kK-rtE">
@@ -348,7 +348,7 @@ water</string>
                                                     <outletCollection property="gestureRecognizers" destination="EU5-Yl-xbT" appends="YES" id="x4r-ie-8QF"/>
                                                 </connections>
                                             </stackView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="oka-iF-Q9i">
+                                            <stackView opaque="NO" multipleTouchEnabled="YES" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="oka-iF-Q9i">
                                                 <rect key="frame" x="72" y="0.0" width="62" height="140"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZW3-wa-sfM">
@@ -376,7 +376,7 @@ water</string>
                                                     <outletCollection property="gestureRecognizers" destination="13w-YN-APL" appends="YES" id="mWO-dD-JL5"/>
                                                 </connections>
                                             </stackView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="p5z-Ao-Opb">
+                                            <stackView opaque="NO" multipleTouchEnabled="YES" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="p5z-Ao-Opb">
                                                 <rect key="frame" x="144" y="0.0" width="62" height="140"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xKE-EO-Os1">
@@ -404,7 +404,7 @@ water</string>
                                                     <outletCollection property="gestureRecognizers" destination="KuL-iy-o59" appends="YES" id="rAG-nj-1Yb"/>
                                                 </connections>
                                             </stackView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Z7J-MV-qdm">
+                                            <stackView opaque="NO" multipleTouchEnabled="YES" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Z7J-MV-qdm">
                                                 <rect key="frame" x="216" y="0.0" width="124" height="140"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KtD-Xo-mNf">
@@ -467,28 +467,28 @@ water</string>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="W96-am-fUF">
                                 <rect key="frame" x="45" y="374" width="300" height="125"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gas-tank" translatesAutoresizingMaskIntoConstraints="NO" id="c0x-d2-1Aw">
+                                    <imageView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gas-tank" translatesAutoresizingMaskIntoConstraints="NO" id="c0x-d2-1Aw">
                                         <rect key="frame" x="0.0" y="0.0" width="67.666666666666671" height="125"/>
                                         <gestureRecognizers/>
                                         <connections>
                                             <outletCollection property="gestureRecognizers" destination="ZXm-GC-gtI" appends="YES" id="w8r-RG-9p5"/>
                                         </connections>
                                     </imageView>
-                                    <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gas-tank" translatesAutoresizingMaskIntoConstraints="NO" id="9hK-tu-8ZJ">
+                                    <imageView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gas-tank" translatesAutoresizingMaskIntoConstraints="NO" id="9hK-tu-8ZJ">
                                         <rect key="frame" x="77.666666666666686" y="0.0" width="67.333333333333314" height="125"/>
                                         <gestureRecognizers/>
                                         <connections>
                                             <outletCollection property="gestureRecognizers" destination="Bp6-58-wLR" appends="YES" id="3dD-QM-WOZ"/>
                                         </connections>
                                     </imageView>
-                                    <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gas-tank" translatesAutoresizingMaskIntoConstraints="NO" id="jN8-PP-Qaf">
+                                    <imageView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gas-tank" translatesAutoresizingMaskIntoConstraints="NO" id="jN8-PP-Qaf">
                                         <rect key="frame" x="155" y="0.0" width="67.666666666666686" height="125"/>
                                         <gestureRecognizers/>
                                         <connections>
                                             <outletCollection property="gestureRecognizers" destination="lah-dQ-ppr" appends="YES" id="GhW-J0-Ufs"/>
                                         </connections>
                                     </imageView>
-                                    <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gas-tank" translatesAutoresizingMaskIntoConstraints="NO" id="lfV-9n-qcb">
+                                    <imageView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gas-tank" translatesAutoresizingMaskIntoConstraints="NO" id="lfV-9n-qcb">
                                         <rect key="frame" x="232.66666666666671" y="0.0" width="67.333333333333343" height="125"/>
                                         <gestureRecognizers/>
                                         <connections>
@@ -535,6 +535,10 @@ water</string>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="iMh-nS-fJv"/>
+                    <connections>
+                        <segue destination="FWf-eu-FKe" kind="presentation" id="xa7-EN-bjL"/>
+                        <segue destination="i8X-Sz-8XG" kind="presentation" id="8zc-2j-Gbh"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FlL-F4-Kc6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <panGestureRecognizer minimumNumberOfTouches="1" id="EU5-Yl-xbT">
@@ -679,15 +683,35 @@ water</string>
             <objects>
                 <viewController id="FWf-eu-FKe" customClass="PlayCorrectAnswerViewController" customModule="CATmistry" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5y6-1y-uqG">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="790"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C3K-84-9kj">
+                                <rect key="frame" x="100" y="696" width="190" height="40"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="wXD-hf-5Nt"/>
+                                </constraints>
+                                <state key="normal" title="Next Game">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="0nQ-Ke-gfA"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="0nQ-Ke-gfA" firstAttribute="bottom" secondItem="C3K-84-9kj" secondAttribute="bottom" constant="20" id="6m3-n7-kTr"/>
+                            <constraint firstItem="C3K-84-9kj" firstAttribute="leading" secondItem="0nQ-Ke-gfA" secondAttribute="leading" constant="100" id="fz8-ZO-y2g"/>
+                            <constraint firstItem="0nQ-Ke-gfA" firstAttribute="trailing" secondItem="C3K-84-9kj" secondAttribute="trailing" constant="100" id="n4x-gY-Irb"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="nextGameButton" destination="C3K-84-9kj" id="wNk-x4-dcp"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jbW-Je-uDO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1003" y="2753"/>
+            <point key="canvasLocation" x="-1003.0769230769231" y="2752.6066350710898"/>
         </scene>
         <!--Retreive the Solids-->
         <scene sceneID="aPN-6E-YL3">
@@ -1484,6 +1508,8 @@ Given the properties of each Group of the periodic table, select the correct gro
                         <outlet property="submitButton" destination="unU-4Z-dgb" id="f1a-Q1-x7X"/>
                         <outlet property="thirdOptionImageView" destination="uTO-QD-hTp" id="WaV-sU-qQj"/>
                         <outlet property="thirdOptionLabel" destination="AQe-Vl-oxu" id="9Y7-Hu-J1I"/>
+                        <segue destination="FWf-eu-FKe" kind="presentation" id="1zV-QA-rV2"/>
+                        <segue destination="i8X-Sz-8XG" kind="presentation" id="GDV-4V-Yxl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="r6k-y5-7Ng" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1515,11 +1541,31 @@ Given the properties of each Group of the periodic table, select the correct gro
             <objects>
                 <viewController id="i8X-Sz-8XG" customClass="PlayWrongAnswerViewController" customModule="CATmistry" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="9n8-3d-vhc">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="790"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="43D-K1-zeD">
+                                <rect key="frame" x="100" y="696" width="190" height="40"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="hiq-3t-CyE"/>
+                                </constraints>
+                                <state key="normal" title="Next Game">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="QER-64-gOv"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="QER-64-gOv" firstAttribute="trailing" secondItem="43D-K1-zeD" secondAttribute="trailing" constant="100" id="ZHz-oe-kLn"/>
+                            <constraint firstItem="43D-K1-zeD" firstAttribute="leading" secondItem="QER-64-gOv" secondAttribute="leading" constant="100" id="aCq-ZR-Ncn"/>
+                            <constraint firstItem="QER-64-gOv" firstAttribute="bottom" secondItem="43D-K1-zeD" secondAttribute="bottom" constant="20" id="g67-5Q-jZe"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="nextGameButton" destination="43D-K1-zeD" id="u6y-rT-PfC"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cub-mN-ssa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -2206,6 +2252,8 @@ Given the properties of each Group of the periodic table, select the correct gro
     <inferredMetricsTieBreakers>
         <segue reference="eBF-tC-Jy2"/>
         <segue reference="omW-sG-g2z"/>
+        <segue reference="8zc-2j-Gbh"/>
+        <segue reference="xa7-EN-bjL"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="books.vertical.fill" catalog="system" width="128" height="100"/>
