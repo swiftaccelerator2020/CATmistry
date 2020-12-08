@@ -92,10 +92,7 @@ struct periodicTableGame{
 
 struct PhGame {
     var startIsAcidic: Bool
-    var firstItem: PhOption = phGameOptionsArray.randomElement()!
-    var secondItem: PhOption = phGameOptionsArray.randomElement()!
-    var thirdItem: PhOption = phGameOptionsArray.randomElement()!
-    var fourthItem: PhOption = phGameOptionsArray.randomElement()!
+    var options: Array<PhOption> = [phGameOptionsArray.randomElement()!, phGameOptionsArray.randomElement()!, phGameOptionsArray.randomElement()!, phGameOptionsArray.randomElement()!]
     var indicatorButtonText: String? = nil
 }
 

@@ -10,6 +10,7 @@ import UIKit
 class PlayAdjustPhDetailsViewController: UIViewController {
     
     var currentLevel = 0
+    var currentGame = 0
 
     @IBOutlet weak var addFirstIndicatorButton: UIButton!
     @IBOutlet weak var addSecondIndicatorButton: UIButton!
@@ -38,13 +39,47 @@ class PlayAdjustPhDetailsViewController: UIViewController {
         } else if currentLevel == 2 {
             addFirstIndicatorButton.isHidden = true
             addSecondIndicatorButton.isHidden = true
-            addThirdIndicatorButton.setTitle(phGameArray[currentLevel][0].indicatorButtonText!, for: .normal)
+            addThirdIndicatorButton.setTitle(phGameArray[currentLevel][currentGame].indicatorButtonText!, for: .normal)
         }
         
-        firstOptionImageView.image = UIImage(named: phGameArray[currentLevel][0].firstItem.image)
-        secondOptionImageView.image = UIImage(named: phGameArray[currentLevel][0].secondItem.image)
-        thirdOptionImageView.image = UIImage(named: phGameArray[currentLevel][0].thirdItem.image)
-        fourthOptionImageView.image = UIImage(named: phGameArray[currentLevel][0].fourthItem.image)
+        firstOptionImageView.image = UIImage(named: phGameArray[currentLevel][currentGame].options[0].image)
+        secondOptionImageView.image = UIImage(named: phGameArray[currentLevel][currentGame].options[1].image)
+        thirdOptionImageView.image = UIImage(named: phGameArray[currentLevel][currentGame].options[2].image)
+        fourthOptionImageView.image = UIImage(named: phGameArray[currentLevel][currentGame].options[3].image)
+    }
+    
+    func checkForCorrectAnswer(whichOption: Int) {
+        let optionClickChangedColour = phGameArray[currentLevel][currentGame].options[whichOption].turnTankColour
+        let universalAcidicCorrect = phGameAcidicIndicatorColours.universalCorrect
+        let universalAlkalineCorrect = phGameAlkalineIndicatorColours.universalCorrect
+        let methylOrangeAcidicCorrect = phGameAcidicIndicatorColours.methylOrangeCorrect
+        let methylOrangeAlkalineCorrect = phGameAlkalineIndicatorColours.methylOrangeCorrect
+        let litmusAcidicCorrect = phGameAcidicIndicatorColours.litmusCorrect
+        let litmusAlkalineCorrect = phGameAlkalineIndicatorColours.litmusCorrect
+        let phenolphthaleinAcidicCorrect = phGameAcidicIndicatorColours.phenolphthaleinCorrect
+        let phenolphthaleinAlkalineCorrect = phGameAlkalineIndicatorColours.phenolphthaleinCorrect
+        
+        if phGameArray[currentLevel][currentGame].startIsAcidic == true {
+            if optionClickChangedColour == universalAlkalineCorrect ||  optionClickChangedColour == methylOrangeAlkalineCorrect || optionClickChangedColour == litmusAlkalineCorrect || optionClickChangedColour == phenolphthaleinAlkalineCorrect {
+                optionCorrect()
+            } else {
+                optionWrong()
+            }
+        } else if phGameArray[currentLevel][currentGame].startIsAcidic == false {
+            if optionClickChangedColour == universalAcidicCorrect || optionClickChangedColour == methylOrangeAcidicCorrect || optionClickChangedColour == litmusAcidicCorrect || optionClickChangedColour == phenolphthaleinAcidicCorrect {
+                optionCorrect()
+            } else {
+                optionWrong()
+            }
+        }
+    }
+    
+    func optionCorrect() {
+        
+    }
+    
+    func optionWrong() {
+        
     }
     
     @IBAction func clickAddFirstndicator(_ sender: Any) {
@@ -60,19 +95,23 @@ class PlayAdjustPhDetailsViewController: UIViewController {
     }
     
     @IBAction func clickOptionOne(_ sender: Any) {
-        print("1")
+        monsterImageView.image = UIImage(named: phGameArray[currentLevel][currentGame].options[0].turnTankColour)
+        checkForCorrectAnswer(whichOption: 0)
     }
     
     @IBAction func clickSecondOption(_ sender: Any) {
-        print("2")
+        monsterImageView.image = UIImage(named: phGameArray[currentLevel][currentGame].options[1].turnTankColour)
+        checkForCorrectAnswer(whichOption: 1)
     }
     
     @IBAction func clickThirdOption(_ sender: Any) {
-        print("3")
+        monsterImageView.image = UIImage(named: phGameArray[currentLevel][currentGame].options[2].turnTankColour)
+        checkForCorrectAnswer(whichOption: 2)
     }
     
     @IBAction func clickOptionFour(_ sender: Any) {
-        print("4")
+        monsterImageView.image = UIImage(named: phGameArray[currentLevel][currentGame].options[3].turnTankColour)
+        checkForCorrectAnswer(whichOption: 4)
     }
     
     /*
