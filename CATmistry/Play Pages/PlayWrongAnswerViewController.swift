@@ -9,10 +9,13 @@ import UIKit
 
 class PlayWrongAnswerViewController: UIViewController {
 
+    @IBOutlet weak var nextGameButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        nextGameButton.layer.cornerRadius = 15
     }
     
 
