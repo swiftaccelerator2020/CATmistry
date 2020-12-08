@@ -29,13 +29,13 @@ class PlayRetrieveSolidsDetailsViewController: UIViewController, UITableViewDele
         
         progressView.transform = CGAffineTransform(rotationAngle: .pi / -2)
         progressView.transform = progressView.transform.scaledBy(x: 1, y: 30)
-
+        
         // Do any additional setup after loading the view.
     }
-        
+    
     //var elements: [specificSeperationMethod]!
     var elements = [specificSeperationMethod(picture: "", name: "Boron", properties: "filter", givenMethods: GivenSeperationMethods(methods: [SeperationMethods(methodName: "N.A", isCorrect: false),
-                                                                                                                SeperationMethods(methodName: "Correct", isCorrect: true)]))]
+                                                                                                                                              SeperationMethods(methodName: "Correct", isCorrect: true)]))]
     
     // MARK: - First Table View
     
@@ -63,7 +63,11 @@ class PlayRetrieveSolidsDetailsViewController: UIViewController, UITableViewDele
         if (tableView == seperationTableView){
             return elements.count
         } else if (tableView == choicesTableView){
-            return selectedElement ?? 0
+            if (selectedElement != nil){
+                return elements[selectedElement!].givenMethods.methods.count
+            } else {
+                return 0
+            }
         } else {
             return 0
         }
@@ -73,24 +77,25 @@ class PlayRetrieveSolidsDetailsViewController: UIViewController, UITableViewDele
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if (tableView == seperationTableView){
             selectedElement = indexPath.row
+            print(selectedElement!)
             tableView.deselectRow(at: indexPath, animated: true)
-
+            choicesTableView.reloadData()
         } else if (tableView == choicesTableView){
             selectedChoiceLabel.text = elements[selectedElement!].givenMethods.methods[indexPath.row].methodName
-
+            tableView.deselectRow(at: indexPath, animated: true)
+        } else {
         }
-
     }
     
     
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destination.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 }
