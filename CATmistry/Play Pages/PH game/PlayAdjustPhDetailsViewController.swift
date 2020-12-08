@@ -30,7 +30,7 @@ class PlayAdjustPhDetailsViewController: UIViewController {
         
         // Do any additional setup after loading the view.
         addFirstIndicatorButton.layer.cornerRadius = 15
-        submitButton.layer.cornerRadius = 15
+        submitButton.layer.cornerRadius = 25
         
         submitButton.isHidden = true
         
@@ -68,11 +68,11 @@ class PlayAdjustPhDetailsViewController: UIViewController {
     }
     
     func optionCorrect() {
-        
+        performSegue(withIdentifier: "adjustPhCorrect", sender: nil)
     }
     
     func optionWrong() {
-        
+        performSegue(withIdentifier: "adjustPhWrong", sender: nil)
     }
     
     @IBAction func clickAddFirstndicator(_ sender: Any) {
@@ -82,6 +82,9 @@ class PlayAdjustPhDetailsViewController: UIViewController {
     @IBAction func clickOptionOne(_ sender: Any) {
         monsterImageView.image = UIImage(named: phGameArray[currentLevel][currentGame].options[0].turnUniversalTankColour)
         chosenOption = 0
+        if currentLevel == 0 {
+            submitButton.isHidden = false
+        }
         if currentLevel == 1 {
             checkForCorrectAnswer(whichOption: 0)
         }
@@ -90,6 +93,9 @@ class PlayAdjustPhDetailsViewController: UIViewController {
     @IBAction func clickSecondOption(_ sender: Any) {
         monsterImageView.image = UIImage(named: phGameArray[currentLevel][currentGame].options[1].turnUniversalTankColour)
         chosenOption = 1
+        if currentLevel == 0 {
+            submitButton.isHidden = false
+        }
         if currentLevel == 1 {
             checkForCorrectAnswer(whichOption: 1)
         }
@@ -98,6 +104,9 @@ class PlayAdjustPhDetailsViewController: UIViewController {
     @IBAction func clickThirdOption(_ sender: Any) {
         monsterImageView.image = UIImage(named: phGameArray[currentLevel][currentGame].options[2].turnUniversalTankColour)
         chosenOption = 2
+        if currentLevel == 0 {
+            submitButton.isHidden = false
+        }
         if currentLevel == 1 {
             checkForCorrectAnswer(whichOption: 2)
         }
@@ -106,6 +115,9 @@ class PlayAdjustPhDetailsViewController: UIViewController {
     @IBAction func clickOptionFour(_ sender: Any) {
         monsterImageView.image = UIImage(named: phGameArray[currentLevel][currentGame].options[3].turnUniversalTankColour)
         chosenOption = 3
+        if currentLevel == 0 {
+            submitButton.isHidden = false
+        }
         if currentLevel == 1 {
             checkForCorrectAnswer(whichOption: 3)
         }

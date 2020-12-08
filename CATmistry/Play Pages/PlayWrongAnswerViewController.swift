@@ -15,7 +15,7 @@ class PlayWrongAnswerViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        nextGameButton.layer.cornerRadius = 15
+        nextGameButton.layer.cornerRadius = 25
     }
     
 
