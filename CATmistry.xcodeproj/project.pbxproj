@@ -23,6 +23,8 @@
 		269F995125777504001C7246 /* PlayAdjustPhStartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 269F995025777504001C7246 /* PlayAdjustPhStartViewController.swift */; };
 		269F995925777538001C7246 /* PlayFindGasStartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 269F995825777538001C7246 /* PlayFindGasStartViewController.swift */; };
 		269F995E25777553001C7246 /* PlayRetrieveSolidsStartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 269F995D25777553001C7246 /* PlayRetrieveSolidsStartViewController.swift */; };
+		26CD2F1B257F66D3002705D1 /* PlayCorrectAnswerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26CD2F1A257F66D3002705D1 /* PlayCorrectAnswerViewController.swift */; };
+		26CD2F23257F670B002705D1 /* PlayWrongAnswerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26CD2F22257F670B002705D1 /* PlayWrongAnswerViewController.swift */; };
 		26DDE2A4257483B200FDC078 /* LearnSubSubTopicDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26DDE2A3257483B200FDC078 /* LearnSubSubTopicDetailsViewController.swift */; };
 		547F0AD92570F5F900A224D9 /* LearnHomePageTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 547F0AD82570F5F900A224D9 /* LearnHomePageTableViewController.swift */; };
 		547F0ADE2570F66E00A224D9 /* LearnHomePageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 547F0ADD2570F66E00A224D9 /* LearnHomePageTableViewCell.swift */; };
@@ -80,6 +82,8 @@
 		269F995025777504001C7246 /* PlayAdjustPhStartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayAdjustPhStartViewController.swift; sourceTree = "<group>"; };
 		269F995825777538001C7246 /* PlayFindGasStartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayFindGasStartViewController.swift; sourceTree = "<group>"; };
 		269F995D25777553001C7246 /* PlayRetrieveSolidsStartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayRetrieveSolidsStartViewController.swift; sourceTree = "<group>"; };
+		26CD2F1A257F66D3002705D1 /* PlayCorrectAnswerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayCorrectAnswerViewController.swift; sourceTree = SOURCE_ROOT; };
+		26CD2F22257F670B002705D1 /* PlayWrongAnswerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayWrongAnswerViewController.swift; sourceTree = "<group>"; };
 		26DDE2A3257483B200FDC078 /* LearnSubSubTopicDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearnSubSubTopicDetailsViewController.swift; sourceTree = "<group>"; };
 		2F20F908644330A99E65D047 /* Pods-CATmistryTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CATmistryTests.debug.xcconfig"; path = "Target Support Files/Pods-CATmistryTests/Pods-CATmistryTests.debug.xcconfig"; sourceTree = "<group>"; };
 		462BC2A50FADBCEE81DEA261 /* Pods-CATmistry.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CATmistry.release.xcconfig"; path = "Target Support Files/Pods-CATmistry/Pods-CATmistry.release.xcconfig"; sourceTree = "<group>"; };
@@ -202,7 +206,10 @@
 		54FEFB122578603A0054CFF9 /* Play Pages */ = {
 			isa = PBXGroup;
 			children = (
+				26CD2F1A257F66D3002705D1 /* PlayCorrectAnswerViewController.swift */,
+				26CD2F22257F670B002705D1 /* PlayWrongAnswerViewController.swift */,
 				54FEFB1C2578612A0054CFF9 /* Table View */,
+				54FEFB19257860DC0054CFF9 /* Find Gas Game */,
 				54FEFB1B257861130054CFF9 /* Retrieve Solids Game */,
 				54FEFB1A257860F30054CFF9 /* PH game */,
 				54FEFB18257860C10054CFF9 /* Identify Elements Game */,
@@ -243,7 +250,6 @@
 		54FEFB1A257860F30054CFF9 /* PH game */ = {
 			isa = PBXGroup;
 			children = (
-				54FEFB19257860DC0054CFF9 /* Find Gas Game */,
 				2632D7082577D5F00005033F /* PlayAdjustPhDetailsViewController.swift */,
 				269F995025777504001C7246 /* PlayAdjustPhStartViewController.swift */,
 			);
@@ -506,6 +512,8 @@
 				54F5202F2571FA4600D7363C /* LearnChapterSubTopicsTableViewController.swift in Sources */,
 				54C1714A2574E44F004ED787 /* SubSubTopicTableViewCell.swift in Sources */,
 				547F0AEB2570F85000A224D9 /* structsFunctions.swift in Sources */,
+				26CD2F1B257F66D3002705D1 /* PlayCorrectAnswerViewController.swift in Sources */,
+				26CD2F23257F670B002705D1 /* PlayWrongAnswerViewController.swift in Sources */,
 				261E539D2571486600094DA5 /* PlayHomePageTableViewController.swift in Sources */,
 				2632D7092577D5F00005033F /* PlayAdjustPhDetailsViewController.swift in Sources */,
 				54FEFB0525770AE50054CFF9 /* PlayIdentifyElementsSecondViewController.swift in Sources */,
