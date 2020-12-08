@@ -56,7 +56,7 @@ class PlayAdjustPhDetailsViewController: UIViewController {
     }
     
     func checkForCorrectAnswer(whichOption: Int) {
-        let optionClickChangedColour = phGameArray[currentLevel][currentGame].options[whichOption].turnTankColour
+        let optionClickChangedColour = phGameArray[currentLevel][currentGame].options[whichOption].turnUniversalTankColour
         let universalAcidicCorrect = phGameAcidicIndicatorColours.universalCorrect
         let universalAlkalineCorrect = phGameAlkalineIndicatorColours.universalCorrect
         let methylOrangeAcidicCorrect = phGameAcidicIndicatorColours.methylOrangeCorrect
@@ -102,22 +102,22 @@ class PlayAdjustPhDetailsViewController: UIViewController {
     }
     
     @IBAction func clickOptionOne(_ sender: Any) {
-        monsterImageView.image = UIImage(named: phGameArray[currentLevel][currentGame].options[0].turnTankColour)
+        monsterImageView.image = UIImage(named: phGameArray[currentLevel][currentGame].options[0].turnUniversalTankColour)
         checkForCorrectAnswer(whichOption: 0)
     }
     
     @IBAction func clickSecondOption(_ sender: Any) {
-        monsterImageView.image = UIImage(named: phGameArray[currentLevel][currentGame].options[1].turnTankColour)
+        monsterImageView.image = UIImage(named: phGameArray[currentLevel][currentGame].options[1].turnUniversalTankColour)
         checkForCorrectAnswer(whichOption: 1)
     }
     
     @IBAction func clickThirdOption(_ sender: Any) {
-        monsterImageView.image = UIImage(named: phGameArray[currentLevel][currentGame].options[2].turnTankColour)
+        monsterImageView.image = UIImage(named: phGameArray[currentLevel][currentGame].options[2].turnUniversalTankColour)
         checkForCorrectAnswer(whichOption: 2)
     }
     
     @IBAction func clickOptionFour(_ sender: Any) {
-        monsterImageView.image = UIImage(named: phGameArray[currentLevel][currentGame].options[3].turnTankColour)
+        monsterImageView.image = UIImage(named: phGameArray[currentLevel][currentGame].options[3].turnUniversalTankColour)
         checkForCorrectAnswer(whichOption: 4)
     }
     
