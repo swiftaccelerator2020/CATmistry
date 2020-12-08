@@ -83,11 +83,20 @@ struct GasTestGame {
     var correctGasTank: String
 }
 
-struct periodicTableGame{
+struct specificSeperationMethod {
+    var picture: String
+    var name: String
     var properties: String
-    var correctAns1: Int
-    var correctAns2: Int
-    var timeGiven: Int
+    var givenMethods: GivenSeperationMethods
+}
+
+struct GivenSeperationMethods {
+    var methods: [SeperationMethods]
+}
+
+struct SeperationMethods {
+    var methodName: String
+    var isCorrect: Bool
 }
 
 struct PhGame {
@@ -113,20 +122,11 @@ struct PhGameColour {
     var phenolphthaleinCorrect: String
 }
 
-struct specificSeperationMethod {
-    var picture: String
-    var name: String
+struct periodicTableGame{
     var properties: String
-    var givenMethods: GivenSeperationMethods
-}
-
-struct GivenSeperationMethods {
-    var methods: [SeperationMethods]
-}
-
-struct SeperationMethods {
-    var methodName: String
-    var isCorrect: Bool
+    var correctAns1: Int
+    var correctAns2: Int
+    var timeGiven: Int
 }
 
 var learnTopics = [
