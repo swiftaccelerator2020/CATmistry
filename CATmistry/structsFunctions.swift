@@ -227,13 +227,46 @@ var sperationMethods = [
 */
 var phGameArray = [
     // LEVEL 1
-    [PhGame(startIsAcidic: true)],
+    [
+        PhGame(startIsAcidic: true),
+        PhGame(startIsAcidic: true),
+        PhGame(startIsAcidic: false),
+        PhGame(startIsAcidic: true),
+        PhGame(startIsAcidic: false),
+        PhGame(startIsAcidic: true),
+        PhGame(startIsAcidic: true),
+        PhGame(startIsAcidic: true),
+        PhGame(startIsAcidic: false),
+        PhGame(startIsAcidic: false)
+    ],
             
     //LEVEL 2
-    [PhGame(startIsAcidic: true)],
+    [
+        PhGame(startIsAcidic: false),
+        PhGame(startIsAcidic: true),
+        PhGame(startIsAcidic: false),
+        PhGame(startIsAcidic: false),
+        PhGame(startIsAcidic: true),
+        PhGame(startIsAcidic: false),
+        PhGame(startIsAcidic: true),
+        PhGame(startIsAcidic: true),
+        PhGame(startIsAcidic: true),
+        PhGame(startIsAcidic: false)
+    ],
                     
     //LEVEL 3
-    [PhGame(startIsAcidic: true)]
+    [
+        PhGame(startIsAcidic: true),
+        PhGame(startIsAcidic: false),
+        PhGame(startIsAcidic: true),
+        PhGame(startIsAcidic: false),
+        PhGame(startIsAcidic: false),
+        PhGame(startIsAcidic: true),
+        PhGame(startIsAcidic: false),
+        PhGame(startIsAcidic: true),
+        PhGame(startIsAcidic: false),
+        PhGame(startIsAcidic: true)
+    ]
 ]
 
 var phGameOptionsArray = [

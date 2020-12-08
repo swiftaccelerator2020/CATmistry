@@ -1794,10 +1794,10 @@ Given the properties of each Group of the periodic table, select the correct gro
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KRh-Eh-A1Y">
-                                <rect key="frame" x="0.0" y="533.66666666666663" width="390" height="227.33333333333337"/>
+                                <rect key="frame" x="0.0" y="533.66666666666663" width="390" height="276.33333333333337"/>
                                 <subviews>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="P1S-kZ-JzO">
-                                        <rect key="frame" x="0.0" y="0.0" width="390" height="227"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="390" height="276"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <prototypes>
@@ -2191,7 +2191,7 @@ Given the properties of each Group of the periodic table, select the correct gro
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="eBF-tC-Jy2"/>
-        <segue reference="l86-7T-ukz"/>
+        <segue reference="omW-sG-g2z"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="books.vertical.fill" catalog="system" width="128" height="100"/>
