@@ -888,7 +888,6 @@ The monster is currently living in the right conditions, and your task is to use
                                 <segments>
                                     <segment title="1"/>
                                     <segment title="2"/>
-                                    <segment title="3"/>
                                 </segments>
                                 <connections>
                                     <action selector="levelClicked:" destination="MYy-Hk-xqZ" eventType="valueChanged" id="s12-Mo-JQE"/>
@@ -1256,41 +1255,15 @@ Given the properties of each Group of the periodic table, select the correct gro
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="IEd-nb-OTp"/>
                                 </constraints>
-                                <state key="normal" title="Add Methyl Orange">
+                                <state key="normal" title="Add Universal Indicator">
                                     <color key="titleColor" systemColor="labelColor"/>
                                 </state>
                                 <connections>
                                     <action selector="clickAddFirstndicator:" destination="BaN-EE-YvM" eventType="touchUpInside" id="fRQ-NP-5Cg"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2fi-mq-GPf">
-                                <rect key="frame" x="40" y="164" width="310" height="40"/>
-                                <color key="backgroundColor" red="0.96639746429999995" green="0.83899235729999999" blue="0.87928730249999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="d2A-G5-bGX"/>
-                                </constraints>
-                                <state key="normal" title="Add Litmus">
-                                    <color key="titleColor" systemColor="labelColor"/>
-                                </state>
-                                <connections>
-                                    <action selector="clickAddSecondIndicator:" destination="BaN-EE-YvM" eventType="touchUpInside" id="e6v-Cr-HMY"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XFZ-Fb-ks6">
-                                <rect key="frame" x="40" y="214" width="310" height="40"/>
-                                <color key="backgroundColor" red="0.96639746429999995" green="0.83899235729999999" blue="0.87928730249999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="Rg4-Vg-Vdc"/>
-                                </constraints>
-                                <state key="normal" title="Add Universal Indicator">
-                                    <color key="titleColor" systemColor="labelColor"/>
-                                </state>
-                                <connections>
-                                    <action selector="clickAddThirdIndicator:" destination="BaN-EE-YvM" eventType="touchUpInside" id="8qn-Qk-aNN"/>
-                                </connections>
-                            </button>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="IrT-Z2-NI1">
-                                <rect key="frame" x="40" y="314" width="310" height="90"/>
+                                <rect key="frame" x="40" y="237" width="310" height="90"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="LHq-1e-0P5">
                                         <rect key="frame" x="0.0" y="0.0" width="70" height="90"/>
@@ -1431,31 +1404,46 @@ Given the properties of each Group of the periodic table, select the correct gro
                                 </constraints>
                             </view>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="monster-tank-regular" translatesAutoresizingMaskIntoConstraints="NO" id="msP-Zd-VFr">
-                                <rect key="frame" x="40" y="454" width="310" height="310"/>
+                                <rect key="frame" x="40" y="377" width="310" height="387"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap to add the selected into the tank:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B00-0Q-2tS">
-                                <rect key="frame" x="40" y="275" width="310" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap below to add the selected into the tank:" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B00-0Q-2tS">
+                                <rect key="frame" x="40" y="169" width="310" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="6gb-nH-nzx"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="unU-4Z-dgb">
+                                <rect key="frame" x="100" y="714" width="190" height="40"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="MhU-bf-jAQ"/>
+                                </constraints>
+                                <state key="normal" title="Button">
+                                    <color key="titleColor" systemColor="labelColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="clickSubmit:" destination="BaN-EE-YvM" eventType="touchUpInside" id="hTj-wo-a2a"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="RPe-Dj-FCT"/>
                         <color key="backgroundColor" red="0.53948074580000005" green="0.75685077909999998" blue="0.92969924209999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="RPe-Dj-FCT" firstAttribute="trailing" secondItem="XFZ-Fb-ks6" secondAttribute="trailing" constant="40" id="5nA-fP-uUA"/>
                             <constraint firstItem="RPe-Dj-FCT" firstAttribute="trailing" secondItem="bFr-oV-Tnu" secondAttribute="trailing" id="AXo-OR-wfO"/>
                             <constraint firstItem="bFr-oV-Tnu" firstAttribute="top" secondItem="msP-Zd-VFr" secondAttribute="bottom" id="Be8-Vr-HhZ"/>
                             <constraint firstItem="RPe-Dj-FCT" firstAttribute="trailing" secondItem="B00-0Q-2tS" secondAttribute="trailing" constant="40" id="BuB-Ax-FuM"/>
                             <constraint firstItem="SvK-Ny-SRi" firstAttribute="top" secondItem="RPe-Dj-FCT" secondAttribute="top" constant="70" id="D8c-uc-5PU"/>
                             <constraint firstAttribute="bottom" secondItem="gE9-gI-nJZ" secondAttribute="bottom" id="HmQ-iT-TNb"/>
-                            <constraint firstItem="RPe-Dj-FCT" firstAttribute="trailing" secondItem="2fi-mq-GPf" secondAttribute="trailing" constant="40" id="K4z-jD-tNo"/>
                             <constraint firstItem="RPe-Dj-FCT" firstAttribute="trailing" secondItem="gE9-gI-nJZ" secondAttribute="trailing" id="KXx-Rh-26G"/>
                             <constraint firstItem="B00-0Q-2tS" firstAttribute="leading" secondItem="RPe-Dj-FCT" secondAttribute="leading" constant="40" id="MLf-aC-iH4"/>
-                            <constraint firstItem="XFZ-Fb-ks6" firstAttribute="leading" secondItem="RPe-Dj-FCT" secondAttribute="leading" constant="40" id="N4e-zp-J8Z"/>
+                            <constraint firstItem="RPe-Dj-FCT" firstAttribute="trailing" secondItem="unU-4Z-dgb" secondAttribute="trailing" constant="100" id="NzD-EJ-tHg"/>
                             <constraint firstItem="IrT-Z2-NI1" firstAttribute="leading" secondItem="RPe-Dj-FCT" secondAttribute="leading" constant="40" id="VGK-Q6-cNV"/>
-                            <constraint firstItem="IrT-Z2-NI1" firstAttribute="top" secondItem="XFZ-Fb-ks6" secondAttribute="bottom" constant="60" id="Zw7-U4-Tuh"/>
                             <constraint firstItem="RPe-Dj-FCT" firstAttribute="trailing" secondItem="msP-Zd-VFr" secondAttribute="trailing" constant="40" id="bHd-Eq-ZB3"/>
+                            <constraint firstItem="unU-4Z-dgb" firstAttribute="leading" secondItem="RPe-Dj-FCT" secondAttribute="leading" constant="100" id="cp3-Xe-f8c"/>
+                            <constraint firstItem="B00-0Q-2tS" firstAttribute="top" secondItem="SvK-Ny-SRi" secondAttribute="bottom" constant="15" id="cvo-OJ-M1Q"/>
                             <constraint firstItem="RPe-Dj-FCT" firstAttribute="trailing" secondItem="SvK-Ny-SRi" secondAttribute="trailing" constant="40" id="dLs-qa-Kzi"/>
                             <constraint firstItem="IrT-Z2-NI1" firstAttribute="top" secondItem="B00-0Q-2tS" secondAttribute="bottom" constant="18" id="eiK-3s-Wbn"/>
                             <constraint firstItem="bFr-oV-Tnu" firstAttribute="leading" secondItem="RPe-Dj-FCT" secondAttribute="leading" id="gbc-o7-fZR"/>
@@ -1463,19 +1451,14 @@ Given the properties of each Group of the periodic table, select the correct gro
                             <constraint firstItem="gE9-gI-nJZ" firstAttribute="top" secondItem="bFr-oV-Tnu" secondAttribute="bottom" id="hfk-qc-qCt"/>
                             <constraint firstItem="gE9-gI-nJZ" firstAttribute="leading" secondItem="RPe-Dj-FCT" secondAttribute="leading" id="jSq-UA-4Z0"/>
                             <constraint firstItem="msP-Zd-VFr" firstAttribute="leading" secondItem="RPe-Dj-FCT" secondAttribute="leading" constant="40" id="mfL-dw-Ur0"/>
-                            <constraint firstItem="B00-0Q-2tS" firstAttribute="top" secondItem="XFZ-Fb-ks6" secondAttribute="bottom" constant="21" id="nWL-Z4-P64"/>
                             <constraint firstItem="RPe-Dj-FCT" firstAttribute="trailing" secondItem="IrT-Z2-NI1" secondAttribute="trailing" constant="40" id="p2C-10-gsy"/>
-                            <constraint firstItem="2fi-mq-GPf" firstAttribute="leading" secondItem="RPe-Dj-FCT" secondAttribute="leading" constant="40" id="unp-Qp-MwR"/>
+                            <constraint firstItem="bFr-oV-Tnu" firstAttribute="top" secondItem="unU-4Z-dgb" secondAttribute="bottom" constant="10" id="q4y-z2-87D"/>
                             <constraint firstItem="msP-Zd-VFr" firstAttribute="top" secondItem="IrT-Z2-NI1" secondAttribute="bottom" constant="50" id="viC-rc-qXt"/>
-                            <constraint firstItem="XFZ-Fb-ks6" firstAttribute="top" secondItem="2fi-mq-GPf" secondAttribute="bottom" constant="10" id="xTR-Qj-Hxo"/>
-                            <constraint firstItem="2fi-mq-GPf" firstAttribute="top" secondItem="SvK-Ny-SRi" secondAttribute="bottom" constant="10" id="xpj-BB-JdT"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="hjY-wX-rX7"/>
                     <connections>
                         <outlet property="addFirstIndicatorButton" destination="SvK-Ny-SRi" id="V1m-gp-vwp"/>
-                        <outlet property="addSecondIndicatorButton" destination="2fi-mq-GPf" id="BMU-wC-mWA"/>
-                        <outlet property="addThirdIndicatorButton" destination="XFZ-Fb-ks6" id="r3e-py-JoX"/>
                         <outlet property="firstOptionImageView" destination="ItS-R2-GEz" id="I5s-p8-6Jf"/>
                         <outlet property="firstOptionLabel" destination="ua7-WZ-xGW" id="ciH-NA-ZNA"/>
                         <outlet property="fourthOptionImageView" destination="R1q-Vc-QPe" id="LwM-n9-UYG"/>
@@ -1483,6 +1466,7 @@ Given the properties of each Group of the periodic table, select the correct gro
                         <outlet property="monsterImageView" destination="msP-Zd-VFr" id="7EP-hf-ijt"/>
                         <outlet property="secondOptionImageView" destination="Sib-4l-Epl" id="mb0-4X-8vl"/>
                         <outlet property="secondOptionLabel" destination="f4K-Nb-a9k" id="mZA-zG-rBd"/>
+                        <outlet property="submitButton" destination="unU-4Z-dgb" id="f1a-Q1-x7X"/>
                         <outlet property="thirdOptionImageView" destination="uTO-QD-hTp" id="WaV-sU-qQj"/>
                         <outlet property="thirdOptionLabel" destination="AQe-Vl-oxu" id="9Y7-Hu-J1I"/>
                     </connections>
