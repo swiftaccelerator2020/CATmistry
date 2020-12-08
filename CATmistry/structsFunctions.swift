@@ -120,6 +120,16 @@ struct specificSeperationMethod {
     var picture: String
     var name: String
     var properties: String
+    var givenMethods: GivenSeperationMethods
+}
+
+struct GivenSeperationMethods {
+    var methods: [SeperationMethods]
+}
+
+struct SeperationMethods {
+    var methodName: String
+    var isCorrect: Bool
 }
 
 var learnTopics = [
@@ -213,11 +223,11 @@ var gasTestsGameArray = [
     // LEVEL 3
     [GasTestGame(firstGasTank: "Hydrogen", secondGasTank: "Oxygen", thirdGasTank: "Carbon Dioxide", fourthGasTank: "Ammonia", correctGasTank: "Hydrogen"),]
 ]
-
+/*
 var sperationMethods = [
     specificSeperationMethod(picture: "1.png", name: "HALO", properties: "NO AIOAHSJNFKdcxz")
 ]
-
+*/
 var phGameArray = [
     // LEVEL 1
     [PhGame(startIsAcidic: true)],
