@@ -11,23 +11,24 @@ import SwiftConfettiView
 class PlayCorrectAnswerViewController: UIViewController {
 
     @IBOutlet weak var nextGameButton: UIButton!
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         nextGameButton.layer.cornerRadius = 25
-        
+
         let confettiView = SwiftConfettiView(frame: self.view.bounds)
         self.view.addSubview(confettiView)
+        confettiView.isUserInteractionEnabled = false
         confettiView.startConfetti()
     }
-    
+
     @IBAction func nextGameClicked(_ sender: Any) {
-        dismiss(animated: true, completion: nil)
-        print("answer correct well done now go back")
+        print("hi")
+        self.dismiss(animated: true, completion: nil)
     }
-    
+
     /*
     // MARK: - Navigation
 
