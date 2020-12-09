@@ -48,18 +48,14 @@ class PlayAdjustPhDetailsViewController: UIViewController {
     }
     
     func checkForCorrectAnswer(whichOption: Int) {
-        let optionClickChangedColour = phGameArray[currentLevel][currentGame].options[whichOption].turnUniversalTankColour
-        let universalAcidicCorrect = phGameAcidicIndicatorColours.universalCorrect
-        let universalAlkalineCorrect = phGameAlkalineIndicatorColours.universalCorrect
-        
         if phGameArray[currentLevel][currentGame].startIsAcidic == true {
-            if optionClickChangedColour == universalAlkalineCorrect {
+            if phGameArray[currentLevel][currentGame].options[whichOption].isAcidic == false {
                 optionCorrect()
             } else {
                 optionWrong()
             }
         } else if phGameArray[currentLevel][currentGame].startIsAcidic == false {
-            if optionClickChangedColour == universalAcidicCorrect {
+            if phGameArray[currentLevel][currentGame].options[whichOption].isAcidic == true {
                 optionCorrect()
             } else {
                 optionWrong()
@@ -75,8 +71,12 @@ class PlayAdjustPhDetailsViewController: UIViewController {
         performSegue(withIdentifier: "adjustPhWrong", sender: nil)
     }
     
-    @IBAction func clickAddFirstndicator(_ sender: Any) {
-        monsterImageView.image = UIImage(named: "")
+    @IBAction func clickAddUniversalIndicator(_ sender: Any) {
+        if phGameArray[currentLevel][currentGame].startIsAcidic == true {
+            monsterImageView.image = UIImage(named: phGameAcidicUniversalStartColour)
+        } else {
+            monsterImageView.image = UIImage(named: phGameAlkalinUniversalStartColour)
+        }
     }
     
     @IBAction func clickOptionOne(_ sender: Any) {

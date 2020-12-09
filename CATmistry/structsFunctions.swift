@@ -109,17 +109,7 @@ struct PhOption {
     var name: String
     var image: String
     var turnUniversalTankColour: String
-}
-
-struct PhGameColour {
-    var universalStart: String
-    var universalCorrect: String
-    var methylOrangeStart: String
-    var methylOrangeCorrect: String
-    var litmusStart: String
-    var litmusCorrect: String
-    var phenolphthaleinStart: String
-    var phenolphthaleinCorrect: String
+    var isAcidic: Bool? = true
 }
 
 struct periodicTableGame{
@@ -276,19 +266,19 @@ var phGameOptionsArray = [
     PhOption(name: "Tomato Juice", image: "ph-4.png", turnUniversalTankColour: "monster-ph4.png"),
     PhOption(name: "Coffee", image: "ph-5.png", turnUniversalTankColour: "monster-ph5.png"),
     PhOption(name: "Milk", image: "ph-6.png", turnUniversalTankColour: "monster-ph6.png"),
-    PhOption(name: "Water", image: "ph-7", turnUniversalTankColour: "monster-ph7.png"),
-    PhOption(name: "Egg", image: "ph-8.png", turnUniversalTankColour: "monster-ph8.png"),
-    PhOption(name: "Baking Soda", image: "ph-9.png", turnUniversalTankColour: "monster-ph9.png"),
-    PhOption(name: "Stomach Tablets", image: "ph-10.png", turnUniversalTankColour: "monster-ph10.png"),
-    PhOption(name: "Ammonia", image: "ph-11.png", turnUniversalTankColour: "monster-ph11.png"),
-    PhOption(name: "Soap", image: "ph-12.png", turnUniversalTankColour: "monster-ph12.png"),
-    PhOption(name: "Bleach", image: "ph-13.png", turnUniversalTankColour: "monster-ph13.png"),
-    PhOption(name: "Pipe Cleaner", image: "ph-14.png", turnUniversalTankColour: "monster-ph14.png"),
+    PhOption(name: "Water", image: "ph-7", turnUniversalTankColour: "monster-ph7.png", isAcidic: nil),
+    PhOption(name: "Egg", image: "ph-8.png", turnUniversalTankColour: "monster-ph8.png", isAcidic: false),
+    PhOption(name: "Baking Soda", image: "ph-9.png", turnUniversalTankColour: "monster-ph9.png", isAcidic: false),
+    PhOption(name: "Stomach Tablets", image: "ph-10.png", turnUniversalTankColour: "monster-ph10.png", isAcidic: false),
+    PhOption(name: "Ammonia", image: "ph-11.png", turnUniversalTankColour: "monster-ph11.png", isAcidic: false),
+    PhOption(name: "Soap", image: "ph-12.png", turnUniversalTankColour: "monster-ph12.png", isAcidic: false),
+    PhOption(name: "Bleach", image: "ph-13.png", turnUniversalTankColour: "monster-ph13.png", isAcidic: false),
+    PhOption(name: "Pipe Cleaner", image: "ph-14.png", turnUniversalTankColour: "monster-ph14.png", isAcidic: false),
 ]
 
-var phGameAcidicIndicatorColours = PhGameColour(universalStart: "monster-yellow.png", universalCorrect: "monster-purple.png", methylOrangeStart: "monster-red.png", methylOrangeCorrect: "monster-yellow.png", litmusStart: "monster-red.png", litmusCorrect: "monster-blue.png", phenolphthaleinStart: "monster-colourless.png", phenolphthaleinCorrect: "monster-pink.png")
+var phGameAcidicUniversalStartColour = "monster-ph4.png"
 
-var phGameAlkalineIndicatorColours = PhGameColour(universalStart: "monster-blue.png", universalCorrect: "monster-red.png", methylOrangeStart: "monster-yellow.png", methylOrangeCorrect: "monster-red.png", litmusStart: "monster-blue.png", litmusCorrect: "monster-red.png", phenolphthaleinStart: "monster-pink.png", phenolphthaleinCorrect: "monster-colourless.png")
+var phGameAlkalinUniversalStartColour = "monster-ph10.png"
 
 var perioicTable = [
     // LEVEL 1
