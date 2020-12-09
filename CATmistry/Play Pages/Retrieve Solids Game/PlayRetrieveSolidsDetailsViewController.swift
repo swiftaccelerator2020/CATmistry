@@ -29,6 +29,7 @@ class PlayRetrieveSolidsDetailsViewController: UIViewController, UITableViewDele
         self.choicesTableView.tableFooterView = UIView()
         
         selectedChoiceLabel.isHidden = true
+        isWrong.isHidden = true
         
         progressView.transform = CGAffineTransform(rotationAngle: .pi / -2)
         progressView.transform = progressView.transform.scaledBy(x: 1, y: 30)
@@ -92,6 +93,7 @@ class PlayRetrieveSolidsDetailsViewController: UIViewController, UITableViewDele
             tableView.deselectRow(at: indexPath, animated: true)
         }
     }
+    
     
     @IBAction func submitChoice(_ sender: Any) {
         if (!isCorrect!) {
