@@ -211,10 +211,10 @@ var gasTestsGameArray = [
     [GasTestGame(firstGasTank: "Hydrogen", secondGasTank: "Oxygen", thirdGasTank: "Carbon Dioxide", fourthGasTank: "Ammonia", correctGasTank: "Hydrogen"),]
 ]
 /*
-var sperationMethods = [
-    specificSeperationMethod(picture: "1.png", name: "HALO", properties: "NO AIOAHSJNFKdcxz")
-]
-*/
+ var sperationMethods = [
+ specificSeperationMethod(picture: "1.png", name: "HALO", properties: "NO AIOAHSJNFKdcxz")
+ ]
+ */
 var phGameArray = [
     // LEVEL 1
     [
@@ -229,7 +229,7 @@ var phGameArray = [
         PhGame(startIsAcidic: false),
         PhGame(startIsAcidic: false)
     ],
-            
+    
     //LEVEL 2
     [
         PhGame(startIsAcidic: false),
@@ -243,7 +243,7 @@ var phGameArray = [
         PhGame(startIsAcidic: true),
         PhGame(startIsAcidic: false)
     ],
-                    
+    
     //LEVEL 3
     [
         PhGame(startIsAcidic: true),

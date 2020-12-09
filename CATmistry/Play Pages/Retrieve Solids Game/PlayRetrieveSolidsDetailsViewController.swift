@@ -14,7 +14,8 @@ class PlayRetrieveSolidsDetailsViewController: UIViewController, UITableViewDele
     @IBOutlet weak var progressView: UIProgressView!
     @IBOutlet weak var seperationTableView: UITableView!
     @IBOutlet weak var choicesTableView: UITableView!
-    @IBOutlet weak var selectedChoiceLabel: UILabel!
+    @IBOutlet weak var selectedChoiceLabel: UIButton!
+    @IBOutlet weak var isWrong: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,6 +27,8 @@ class PlayRetrieveSolidsDetailsViewController: UIViewController, UITableViewDele
         choicesTableView.delegate = self
         self.choicesTableView.allowsSelection = true
         self.choicesTableView.tableFooterView = UIView()
+        
+        selectedChoiceLabel.isHidden = true
         
         progressView.transform = CGAffineTransform(rotationAngle: .pi / -2)
         progressView.transform = progressView.transform.scaledBy(x: 1, y: 30)
@@ -72,21 +75,33 @@ class PlayRetrieveSolidsDetailsViewController: UIViewController, UITableViewDele
             return 0
         }
     }
+    
     var selectedElement: Int?
+    var isCorrect: Bool?
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if (tableView == seperationTableView){
             selectedElement = indexPath.row
-            print(selectedElement!)
             tableView.deselectRow(at: indexPath, animated: true)
+            selectedChoiceLabel.isHidden = true
             choicesTableView.reloadData()
         } else if (tableView == choicesTableView){
-            selectedChoiceLabel.text = elements[selectedElement!].givenMethods.methods[indexPath.row].methodName
+            selectedChoiceLabel.setTitle("Submit: \(elements[selectedElement!].givenMethods.methods[indexPath.row].methodName)", for: .normal)
+            isCorrect = elements[selectedElement!].givenMethods.methods[indexPath.row].isCorrect
+            selectedChoiceLabel.isHidden = false
             tableView.deselectRow(at: indexPath, animated: true)
-        } else {
         }
     }
     
+    @IBAction func submitChoice(_ sender: Any) {
+        if (!isCorrect!) {
+            isWrong.text = "WRONG"
+            isWrong.backgroundColor = .red
+        } else if (isCorrect!) {
+            isWrong.text = "CORRECT"
+            isWrong.backgroundColor = .green
+        }
+    }
     
     /*
      // MARK: - Navigation

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SwiftConfettiView
 
 class PlayFindGasDetailsViewController: UIViewController {
     
@@ -13,7 +14,7 @@ class PlayFindGasDetailsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
     }
     
