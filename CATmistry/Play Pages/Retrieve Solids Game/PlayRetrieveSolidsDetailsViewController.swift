@@ -15,6 +15,7 @@ class PlayRetrieveSolidsDetailsViewController: UIViewController, UITableViewDele
     @IBOutlet weak var seperationTableView: UITableView!
     @IBOutlet weak var choicesTableView: UITableView!
     @IBOutlet weak var selectedChoiceLabel: UIButton!
+    
     @IBOutlet weak var isWrong: UILabel!
     
     override func viewDidLoad() {
@@ -79,6 +80,7 @@ class PlayRetrieveSolidsDetailsViewController: UIViewController, UITableViewDele
     
     var selectedElement: Int?
     var isCorrect: Bool?
+    var numOfItems = 2
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if (tableView == seperationTableView){
@@ -91,17 +93,26 @@ class PlayRetrieveSolidsDetailsViewController: UIViewController, UITableViewDele
             isCorrect = elements[selectedElement!].givenMethods.methods[indexPath.row].isCorrect
             selectedChoiceLabel.isHidden = false
             tableView.deselectRow(at: indexPath, animated: true)
+            index = indexPath.row
         }
     }
     
+    var index = 0
     
     @IBAction func submitChoice(_ sender: Any) {
+        isWrong.isHidden = false
         if (!isCorrect!) {
             isWrong.text = "WRONG"
             isWrong.backgroundColor = .red
+            
         } else if (isCorrect!) {
             isWrong.text = "CORRECT"
             isWrong.backgroundColor = .green
+            elements.remove(at: index)
+        }
+        let seconds = 4.0
+        DispatchQueue.main.asyncAfter(deadline: .now() + seconds) {
+            self.isWrong.isHidden = true
         }
     }
     

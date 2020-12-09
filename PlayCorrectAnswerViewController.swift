@@ -20,12 +20,14 @@ class PlayCorrectAnswerViewController: UIViewController {
         
         let confettiView = SwiftConfettiView(frame: self.view.bounds)
         self.view.addSubview(confettiView)
+        confettiView.isUserInteractionEnabled = false
         confettiView.startConfetti()
     }
 
-//    @IBAction func nextGameClicked(_ sender: Any) {
-//        self.dismiss(animated: true, completion: nil)
-//    }
+    @IBAction func nextGameClicked(_ sender: Any) {
+        print("hi")
+        self.dismiss(animated: true, completion: nil)
+    }
     
     /*
     // MARK: - Navigation
