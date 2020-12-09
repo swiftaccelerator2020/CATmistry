@@ -92,6 +92,7 @@ class PlayAdjustPhDetailsViewController: UIViewController {
     @IBAction func clickAddUniversalIndicator(_ sender: Any) {
         if indicatorPresent == false {
             indicatorPresent = true
+            addFirstIndicatorButton.setTitle("Reset", for: .normal)
             if phGameArray[currentLevel][currentGame].startIsAcidic == true {
                 monsterImageView.image = UIImage(named: phGameAcidicUniversalStartColour)
             } else {
