@@ -8,14 +8,19 @@
 import UIKit
 
 class PlayWrongAnswerViewController: UIViewController {
+    
+    var currentLevel: Int!
+    var currentGame: Int!
 
     @IBOutlet weak var nextGameButton: UIButton!
+    @IBOutlet weak var sadLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         nextGameButton.layer.cornerRadius = 25
+        sadLabel.text = "Oh no! \n\nYour answer was wrong, and your cat died. \n\nDon't worry though, a cat has 9 lives, and you still have \(String(10 - currentGame)) rounds remaining in Level \(String(currentLevel + 1)). Good luck!"
     }
     
     @IBAction func nextGameClicked(_ sender: Any) {

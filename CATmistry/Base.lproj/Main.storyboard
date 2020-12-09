@@ -715,24 +715,19 @@ water</string>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eoa-4i-m9E">
-                                <rect key="frame" x="40" y="493.66666666666669" width="310" height="142.33333333333331"/>
+                                <rect key="frame" x="40" y="453.33333333333331" width="310" height="182.66666666666669"/>
                                 <string key="text">Congrats!
 
 Through your hard work, your cat has been able to avoid the danger.
 
-You have 9 rounds remaining in Level 1. Keep up the good work!</string>
+You have \(String(10 - currentGame)) rounds remaining in Level \(String(currentLevel)). Keep up the good work!</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="meowster" translatesAutoresizingMaskIntoConstraints="NO" id="vM2-9W-dXt">
-                                <rect key="frame" x="60" y="237.66666666666663" width="270" height="216"/>
+                                <rect key="frame" x="60" y="197.33333333333337" width="270" height="216"/>
                             </imageView>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IHe-Ov-Cbq">
-                                <rect key="frame" x="0.0" y="159" width="240" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="0nQ-Ke-gfA"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -749,6 +744,7 @@ You have 9 rounds remaining in Level 1. Keep up the good work!</string>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="congratsLabel" destination="eoa-4i-m9E" id="NHs-mP-DdP"/>
                         <outlet property="nextGameButton" destination="C3K-84-9kj" id="wNk-x4-dcp"/>
                     </connections>
                 </viewController>
@@ -1610,19 +1606,19 @@ click the tick to submit:</string>
                                     <action selector="nextGameClicked:" destination="i8X-Sz-8XG" eventType="touchUpInside" id="rqT-6F-uBd"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IpG-ML-dit">
-                                <rect key="frame" x="40" y="493.66666666666669" width="310" height="142.33333333333331"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IpG-ML-dit">
+                                <rect key="frame" x="40" y="453.33333333333331" width="310" height="182.66666666666669"/>
                                 <string key="text">Oh no!
 
 Your answer was wrong, and your cat died.
 
-Don't worry though, you still have 9 rounds remaining in Level 1. Good luck!</string>
+Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentGame)) rounds remaining in Level \(String(currentLevel)). Good luck!</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="meowster" translatesAutoresizingMaskIntoConstraints="NO" id="2cN-Uc-6g5">
-                                <rect key="frame" x="60" y="237.66666666666663" width="270" height="216"/>
+                                <rect key="frame" x="60" y="197.33333333333337" width="270" height="216"/>
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="QER-64-gOv"/>
@@ -1641,6 +1637,7 @@ Don't worry though, you still have 9 rounds remaining in Level 1. Good luck!</st
                     </view>
                     <connections>
                         <outlet property="nextGameButton" destination="43D-K1-zeD" id="u6y-rT-PfC"/>
+                        <outlet property="sadLabel" destination="IpG-ML-dit" id="ct1-GK-Cfe"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cub-mN-ssa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1930,10 +1927,10 @@ Don't worry though, you still have 9 rounds remaining in Level 1. Good luck!</st
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KRh-Eh-A1Y">
-                                <rect key="frame" x="0.0" y="533.66666666666663" width="390" height="276.33333333333337"/>
+                                <rect key="frame" x="0.0" y="533.66666666666663" width="390" height="227.33333333333337"/>
                                 <subviews>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="P1S-kZ-JzO">
-                                        <rect key="frame" x="0.0" y="0.0" width="390" height="268"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="390" height="227"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <prototypes>
@@ -2327,8 +2324,8 @@ Don't worry though, you still have 9 rounds remaining in Level 1. Good luck!</st
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="eBF-tC-Jy2"/>
-        <segue reference="omW-sG-g2z"/>
-        <segue reference="GDV-4V-Yxl"/>
+        <segue reference="l86-7T-ukz"/>
+        <segue reference="8zc-2j-Gbh"/>
         <segue reference="1zV-QA-rV2"/>
     </inferredMetricsTieBreakers>
     <resources>

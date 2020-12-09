@@ -9,14 +9,19 @@ import UIKit
 import SwiftConfettiView
 
 class PlayCorrectAnswerViewController: UIViewController {
+    
+    var currentLevel: Int!
+    var currentGame: Int!
 
     @IBOutlet weak var nextGameButton: UIButton!
-
+    @IBOutlet weak var congratsLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         nextGameButton.layer.cornerRadius = 25
+        congratsLabel.text = "Congrats! \n\nThrough your hard work, your cat has been able to avoid the danger. \n\nYou have \(String(10 - currentGame)) rounds remaining in Level \(String(currentLevel + 1)). Keep up the good work!"
 
         let confettiView = SwiftConfettiView(frame: self.view.bounds)
         self.view.addSubview(confettiView)
