@@ -330,6 +330,10 @@ As your cat can only live in a certain type of gas, your task is to use your kno
                                                     </view>
                                                     <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="limewater" translatesAutoresizingMaskIntoConstraints="NO" id="jem-Jp-mqH">
                                                         <rect key="frame" x="0.0" y="15" width="62" height="75"/>
+                                                        <gestureRecognizers/>
+                                                        <connections>
+                                                            <outletCollection property="gestureRecognizers" destination="rBg-I9-1Vu" appends="YES" id="FCu-Gg-qYh"/>
+                                                        </connections>
                                                     </imageView>
                                                     <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XwD-C5-iaT">
                                                         <rect key="frame" x="0.0" y="90" width="62" height="50"/>
@@ -344,9 +348,6 @@ water</string>
                                                     </label>
                                                 </subviews>
                                                 <gestureRecognizers/>
-                                                <connections>
-                                                    <outletCollection property="gestureRecognizers" destination="EU5-Yl-xbT" appends="YES" id="x4r-ie-8QF"/>
-                                                </connections>
                                             </stackView>
                                             <stackView opaque="NO" multipleTouchEnabled="YES" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="oka-iF-Q9i">
                                                 <rect key="frame" x="72" y="0.0" width="62" height="140"/>
@@ -360,6 +361,10 @@ water</string>
                                                     </view>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lighted-splint" translatesAutoresizingMaskIntoConstraints="NO" id="mpA-WD-yB4">
                                                         <rect key="frame" x="0.0" y="10" width="62" height="80"/>
+                                                        <gestureRecognizers/>
+                                                        <connections>
+                                                            <outletCollection property="gestureRecognizers" destination="Nik-xv-O5p" appends="YES" id="T9z-oe-Y3s"/>
+                                                        </connections>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lighted Splint" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XQS-Yy-pit">
                                                         <rect key="frame" x="0.0" y="90" width="62" height="50"/>
@@ -372,9 +377,6 @@ water</string>
                                                     </label>
                                                 </subviews>
                                                 <gestureRecognizers/>
-                                                <connections>
-                                                    <outletCollection property="gestureRecognizers" destination="13w-YN-APL" appends="YES" id="mWO-dD-JL5"/>
-                                                </connections>
                                             </stackView>
                                             <stackView opaque="NO" multipleTouchEnabled="YES" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="p5z-Ao-Opb">
                                                 <rect key="frame" x="144" y="0.0" width="62" height="140"/>
@@ -388,6 +390,10 @@ water</string>
                                                     </view>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="glowing-splint" translatesAutoresizingMaskIntoConstraints="NO" id="nEB-fJ-h3l">
                                                         <rect key="frame" x="0.0" y="10" width="62" height="80"/>
+                                                        <gestureRecognizers/>
+                                                        <connections>
+                                                            <outletCollection property="gestureRecognizers" destination="nwJ-Pm-rtH" appends="YES" id="R4q-1F-Ywr"/>
+                                                        </connections>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Glowing Splint" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gbk-Vs-Nac">
                                                         <rect key="frame" x="0.0" y="90" width="62" height="50"/>
@@ -400,9 +406,6 @@ water</string>
                                                     </label>
                                                 </subviews>
                                                 <gestureRecognizers/>
-                                                <connections>
-                                                    <outletCollection property="gestureRecognizers" destination="KuL-iy-o59" appends="YES" id="rAG-nj-1Yb"/>
-                                                </connections>
                                             </stackView>
                                             <stackView opaque="NO" multipleTouchEnabled="YES" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Z7J-MV-qdm">
                                                 <rect key="frame" x="216" y="0.0" width="124" height="140"/>
@@ -416,6 +419,10 @@ water</string>
                                                     </view>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="litmus" translatesAutoresizingMaskIntoConstraints="NO" id="Z0g-Jj-5LT">
                                                         <rect key="frame" x="0.0" y="15" width="124" height="75"/>
+                                                        <gestureRecognizers/>
+                                                        <connections>
+                                                            <outletCollection property="gestureRecognizers" destination="zqG-kt-skf" appends="YES" id="YdU-my-EtS"/>
+                                                        </connections>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Litmus" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jZU-hg-VMZ">
                                                         <rect key="frame" x="0.0" y="90" width="124" height="50"/>
@@ -428,9 +435,6 @@ water</string>
                                                     </label>
                                                 </subviews>
                                                 <gestureRecognizers/>
-                                                <connections>
-                                                    <outletCollection property="gestureRecognizers" destination="wwn-t8-KxU" appends="YES" id="Nma-mC-73H"/>
-                                                </connections>
                                             </stackView>
                                         </subviews>
                                         <constraints>
@@ -471,28 +475,28 @@ water</string>
                                         <rect key="frame" x="0.0" y="0.0" width="67.666666666666671" height="125"/>
                                         <gestureRecognizers/>
                                         <connections>
-                                            <outletCollection property="gestureRecognizers" destination="ZXm-GC-gtI" appends="YES" id="w8r-RG-9p5"/>
+                                            <outletCollection property="gestureRecognizers" destination="lTs-ea-sgT" appends="YES" id="D6H-gL-pgo"/>
                                         </connections>
                                     </imageView>
                                     <imageView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gas-tank" translatesAutoresizingMaskIntoConstraints="NO" id="9hK-tu-8ZJ">
                                         <rect key="frame" x="77.666666666666686" y="0.0" width="67.333333333333314" height="125"/>
                                         <gestureRecognizers/>
                                         <connections>
-                                            <outletCollection property="gestureRecognizers" destination="Bp6-58-wLR" appends="YES" id="3dD-QM-WOZ"/>
+                                            <outletCollection property="gestureRecognizers" destination="Yur-r8-SPT" appends="YES" id="I03-JB-ImV"/>
                                         </connections>
                                     </imageView>
                                     <imageView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gas-tank" translatesAutoresizingMaskIntoConstraints="NO" id="jN8-PP-Qaf">
                                         <rect key="frame" x="155" y="0.0" width="67.666666666666686" height="125"/>
                                         <gestureRecognizers/>
                                         <connections>
-                                            <outletCollection property="gestureRecognizers" destination="lah-dQ-ppr" appends="YES" id="GhW-J0-Ufs"/>
+                                            <outletCollection property="gestureRecognizers" destination="ef6-nR-Tcx" appends="YES" id="Fvg-rp-a5X"/>
                                         </connections>
                                     </imageView>
                                     <imageView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gas-tank" translatesAutoresizingMaskIntoConstraints="NO" id="lfV-9n-qcb">
                                         <rect key="frame" x="232.66666666666671" y="0.0" width="67.333333333333343" height="125"/>
                                         <gestureRecognizers/>
                                         <connections>
-                                            <outletCollection property="gestureRecognizers" destination="6h9-Pg-Am9" appends="YES" id="2eh-kF-E4G"/>
+                                            <outletCollection property="gestureRecognizers" destination="ZRp-Li-G6M" appends="YES" id="PWb-Ob-kgx"/>
                                         </connections>
                                     </imageView>
                                 </subviews>
@@ -541,44 +545,44 @@ water</string>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FlL-F4-Kc6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <panGestureRecognizer minimumNumberOfTouches="1" id="EU5-Yl-xbT">
+                <panGestureRecognizer minimumNumberOfTouches="1" id="rBg-I9-1Vu">
                     <connections>
-                        <action selector="handlePan:" destination="qsu-L3-DGc" id="TkH-fh-bFu"/>
+                        <action selector="handlePan:" destination="qsu-L3-DGc" id="7sP-qv-Qvz"/>
                     </connections>
                 </panGestureRecognizer>
-                <panGestureRecognizer minimumNumberOfTouches="1" id="13w-YN-APL">
+                <panGestureRecognizer minimumNumberOfTouches="1" id="Nik-xv-O5p">
                     <connections>
-                        <action selector="handlePan:" destination="qsu-L3-DGc" id="kRt-eY-dl6"/>
+                        <action selector="handlePan:" destination="qsu-L3-DGc" id="jnm-XK-N2o"/>
                     </connections>
                 </panGestureRecognizer>
-                <panGestureRecognizer minimumNumberOfTouches="1" id="KuL-iy-o59">
+                <panGestureRecognizer minimumNumberOfTouches="1" id="nwJ-Pm-rtH">
                     <connections>
-                        <action selector="handlePan:" destination="qsu-L3-DGc" id="3g0-cS-LXw"/>
+                        <action selector="handlePan:" destination="qsu-L3-DGc" id="3zW-1y-SGk"/>
                     </connections>
                 </panGestureRecognizer>
-                <panGestureRecognizer minimumNumberOfTouches="1" id="wwn-t8-KxU">
+                <panGestureRecognizer minimumNumberOfTouches="1" id="zqG-kt-skf">
                     <connections>
-                        <action selector="handlePan:" destination="qsu-L3-DGc" id="Sfo-7d-Rpc"/>
+                        <action selector="handlePan:" destination="qsu-L3-DGc" id="57r-gi-cEB"/>
                     </connections>
                 </panGestureRecognizer>
-                <panGestureRecognizer minimumNumberOfTouches="1" id="ZXm-GC-gtI">
+                <panGestureRecognizer minimumNumberOfTouches="1" id="lTs-ea-sgT">
                     <connections>
-                        <action selector="handlePan:" destination="qsu-L3-DGc" id="9lY-0E-9qi"/>
+                        <action selector="handlePan:" destination="qsu-L3-DGc" id="zGY-h4-SOR"/>
                     </connections>
                 </panGestureRecognizer>
-                <panGestureRecognizer minimumNumberOfTouches="1" id="Bp6-58-wLR">
+                <panGestureRecognizer minimumNumberOfTouches="1" id="Yur-r8-SPT">
                     <connections>
-                        <action selector="handlePan:" destination="qsu-L3-DGc" id="mNN-MX-WlF"/>
+                        <action selector="handlePan:" destination="qsu-L3-DGc" id="AWq-ET-CON"/>
                     </connections>
                 </panGestureRecognizer>
-                <panGestureRecognizer minimumNumberOfTouches="1" id="lah-dQ-ppr">
+                <panGestureRecognizer minimumNumberOfTouches="1" id="ef6-nR-Tcx">
                     <connections>
-                        <action selector="handlePan:" destination="qsu-L3-DGc" id="tft-46-XGW"/>
+                        <action selector="handlePan:" destination="qsu-L3-DGc" id="Cja-Za-Pw7"/>
                     </connections>
                 </panGestureRecognizer>
-                <panGestureRecognizer minimumNumberOfTouches="1" id="6h9-Pg-Am9">
+                <panGestureRecognizer minimumNumberOfTouches="1" id="ZRp-Li-G6M">
                     <connections>
-                        <action selector="handlePan:" destination="qsu-L3-DGc" id="tUg-mB-UFQ"/>
+                        <action selector="handlePan:" destination="qsu-L3-DGc" id="wpI-yA-fOD"/>
                     </connections>
                 </panGestureRecognizer>
             </objects>
@@ -2300,8 +2304,8 @@ Don't worry though, you still have 9 rounds remaining in Level 1. Good luck!</st
     <inferredMetricsTieBreakers>
         <segue reference="eBF-tC-Jy2"/>
         <segue reference="omW-sG-g2z"/>
-        <segue reference="GDV-4V-Yxl"/>
-        <segue reference="1zV-QA-rV2"/>
+        <segue reference="8zc-2j-Gbh"/>
+        <segue reference="xa7-EN-bjL"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="books.vertical.fill" catalog="system" width="128" height="100"/>
