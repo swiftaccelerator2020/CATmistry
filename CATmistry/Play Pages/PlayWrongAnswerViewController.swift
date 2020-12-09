@@ -18,7 +18,14 @@ class PlayWrongAnswerViewController: UIViewController {
         nextGameButton.layer.cornerRadius = 25
     }
     
-
+    @IBAction func unwindToGame(_ seg: UIStoryboardSegue) {
+    }
+    
+    @IBAction func unwindToGameWrong(_ sender: Any) {
+        performSegue(withIdentifier: "unwindToGameWrong", sender: self)
+        self.presentingViewController?.presentingViewController?.dismiss(animated: true, completion: nil)
+    }
+    
     /*
     // MARK: - Navigation
 

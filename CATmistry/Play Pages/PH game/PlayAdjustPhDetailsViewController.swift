@@ -65,10 +65,12 @@ class PlayAdjustPhDetailsViewController: UIViewController {
     
     func optionCorrect() {
         performSegue(withIdentifier: "adjustPhCorrect", sender: nil)
+        currentGame += 1
     }
     
     func optionWrong() {
         performSegue(withIdentifier: "adjustPhWrong", sender: nil)
+        currentGame += 1
     }
     
     @IBAction func clickAddUniversalIndicator(_ sender: Any) {

@@ -23,7 +23,15 @@ class PlayCorrectAnswerViewController: UIViewController {
         confettiView.startConfetti()
     }
     
-
+//    @IBAction func unwindToGame(_ seg: UIStoryboardSegue) {
+//    }
+    
+    @IBAction func unwindToGameCorrect(_ sender: Any) {
+        tabBarController?.tabBar.isHidden = false
+        navigationController?.setNavigationBarHidden(false, animated: false)
+        self.presentingViewController?.presentingViewController?.dismiss(animated: true, completion: nil)
+    }
+    
     /*
     // MARK: - Navigation
 
