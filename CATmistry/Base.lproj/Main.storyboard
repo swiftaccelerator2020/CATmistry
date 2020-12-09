@@ -363,7 +363,7 @@ water</string>
                                                         <rect key="frame" x="0.0" y="10" width="62" height="80"/>
                                                         <gestureRecognizers/>
                                                         <connections>
-                                                            <outletCollection property="gestureRecognizers" destination="Nik-xv-O5p" appends="YES" id="T9z-oe-Y3s"/>
+                                                            <outletCollection property="gestureRecognizers" destination="Nik-xv-O5p" appends="YES" id="9zh-qo-Usc"/>
                                                         </connections>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lighted Splint" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XQS-Yy-pit">
@@ -1482,7 +1482,7 @@ Given the properties of each Group of the periodic table, select the correct gro
                                 </constraints>
                             </view>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="monster-regular" translatesAutoresizingMaskIntoConstraints="NO" id="msP-Zd-VFr">
-                                <rect key="frame" x="40" y="377" width="310" height="387"/>
+                                <rect key="frame" x="30" y="377" width="310" height="387"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap below to add the selected into the tank:" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B00-0Q-2tS">
                                 <rect key="frame" x="40" y="169" width="310" height="50"/>
@@ -1494,7 +1494,7 @@ Given the properties of each Group of the periodic table, select the correct gro
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="unU-4Z-dgb">
-                                <rect key="frame" x="60" y="704" width="270" height="50"/>
+                                <rect key="frame" x="120" y="482" width="150" height="50"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="MhU-bf-jAQ"/>
@@ -1511,17 +1511,17 @@ Given the properties of each Group of the periodic table, select the correct gro
                         <viewLayoutGuide key="safeArea" id="RPe-Dj-FCT"/>
                         <color key="backgroundColor" red="0.53948074580000005" green="0.75685077909999998" blue="0.92969924209999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="unU-4Z-dgb" firstAttribute="leading" secondItem="RPe-Dj-FCT" secondAttribute="leading" constant="120" id="0t5-ry-dTC"/>
                             <constraint firstItem="RPe-Dj-FCT" firstAttribute="trailing" secondItem="bFr-oV-Tnu" secondAttribute="trailing" id="AXo-OR-wfO"/>
                             <constraint firstItem="bFr-oV-Tnu" firstAttribute="top" secondItem="msP-Zd-VFr" secondAttribute="bottom" id="Be8-Vr-HhZ"/>
                             <constraint firstItem="RPe-Dj-FCT" firstAttribute="trailing" secondItem="B00-0Q-2tS" secondAttribute="trailing" constant="40" id="BuB-Ax-FuM"/>
                             <constraint firstItem="SvK-Ny-SRi" firstAttribute="top" secondItem="RPe-Dj-FCT" secondAttribute="top" constant="70" id="D8c-uc-5PU"/>
                             <constraint firstAttribute="bottom" secondItem="gE9-gI-nJZ" secondAttribute="bottom" id="HmQ-iT-TNb"/>
+                            <constraint firstItem="RPe-Dj-FCT" firstAttribute="trailing" secondItem="unU-4Z-dgb" secondAttribute="trailing" constant="120" id="Ia7-le-g0f"/>
                             <constraint firstItem="RPe-Dj-FCT" firstAttribute="trailing" secondItem="gE9-gI-nJZ" secondAttribute="trailing" id="KXx-Rh-26G"/>
                             <constraint firstItem="B00-0Q-2tS" firstAttribute="leading" secondItem="RPe-Dj-FCT" secondAttribute="leading" constant="40" id="MLf-aC-iH4"/>
-                            <constraint firstItem="RPe-Dj-FCT" firstAttribute="trailing" secondItem="unU-4Z-dgb" secondAttribute="trailing" constant="60" id="NzD-EJ-tHg"/>
                             <constraint firstItem="IrT-Z2-NI1" firstAttribute="leading" secondItem="RPe-Dj-FCT" secondAttribute="leading" constant="40" id="VGK-Q6-cNV"/>
-                            <constraint firstItem="RPe-Dj-FCT" firstAttribute="trailing" secondItem="msP-Zd-VFr" secondAttribute="trailing" constant="40" id="bHd-Eq-ZB3"/>
-                            <constraint firstItem="unU-4Z-dgb" firstAttribute="leading" secondItem="RPe-Dj-FCT" secondAttribute="leading" constant="60" id="cp3-Xe-f8c"/>
+                            <constraint firstItem="RPe-Dj-FCT" firstAttribute="trailing" secondItem="msP-Zd-VFr" secondAttribute="trailing" constant="50" id="bHd-Eq-ZB3"/>
                             <constraint firstItem="B00-0Q-2tS" firstAttribute="top" secondItem="SvK-Ny-SRi" secondAttribute="bottom" constant="15" id="cvo-OJ-M1Q"/>
                             <constraint firstItem="RPe-Dj-FCT" firstAttribute="trailing" secondItem="SvK-Ny-SRi" secondAttribute="trailing" constant="40" id="dLs-qa-Kzi"/>
                             <constraint firstItem="IrT-Z2-NI1" firstAttribute="top" secondItem="B00-0Q-2tS" secondAttribute="bottom" constant="18" id="eiK-3s-Wbn"/>
@@ -1529,10 +1529,10 @@ Given the properties of each Group of the periodic table, select the correct gro
                             <constraint firstItem="SvK-Ny-SRi" firstAttribute="leading" secondItem="RPe-Dj-FCT" secondAttribute="leading" constant="40" id="h4i-5H-T8e"/>
                             <constraint firstItem="gE9-gI-nJZ" firstAttribute="top" secondItem="bFr-oV-Tnu" secondAttribute="bottom" id="hfk-qc-qCt"/>
                             <constraint firstItem="gE9-gI-nJZ" firstAttribute="leading" secondItem="RPe-Dj-FCT" secondAttribute="leading" id="jSq-UA-4Z0"/>
-                            <constraint firstItem="msP-Zd-VFr" firstAttribute="leading" secondItem="RPe-Dj-FCT" secondAttribute="leading" constant="40" id="mfL-dw-Ur0"/>
+                            <constraint firstItem="msP-Zd-VFr" firstAttribute="leading" secondItem="RPe-Dj-FCT" secondAttribute="leading" constant="30" id="mfL-dw-Ur0"/>
                             <constraint firstItem="RPe-Dj-FCT" firstAttribute="trailing" secondItem="IrT-Z2-NI1" secondAttribute="trailing" constant="40" id="p2C-10-gsy"/>
-                            <constraint firstItem="bFr-oV-Tnu" firstAttribute="top" secondItem="unU-4Z-dgb" secondAttribute="bottom" constant="10" id="q4y-z2-87D"/>
                             <constraint firstItem="msP-Zd-VFr" firstAttribute="top" secondItem="IrT-Z2-NI1" secondAttribute="bottom" constant="50" id="viC-rc-qXt"/>
+                            <constraint firstItem="unU-4Z-dgb" firstAttribute="top" secondItem="IrT-Z2-NI1" secondAttribute="bottom" constant="155" id="z4C-RY-g1w"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="hjY-wX-rX7"/>
@@ -1540,14 +1540,18 @@ Given the properties of each Group of the periodic table, select the correct gro
                         <outlet property="addFirstIndicatorButton" destination="SvK-Ny-SRi" id="V1m-gp-vwp"/>
                         <outlet property="firstOptionImageView" destination="ItS-R2-GEz" id="I5s-p8-6Jf"/>
                         <outlet property="firstOptionLabel" destination="ua7-WZ-xGW" id="ciH-NA-ZNA"/>
+                        <outlet property="firstOptionStackView" destination="LHq-1e-0P5" id="Qa5-K0-ZpP"/>
                         <outlet property="fourthOptionImageView" destination="R1q-Vc-QPe" id="LwM-n9-UYG"/>
                         <outlet property="fourthOptionLabel" destination="f16-Ok-ZSj" id="U0R-Uz-AIm"/>
+                        <outlet property="fourthOptionStackView" destination="1we-pg-A51" id="91C-9H-GtJ"/>
                         <outlet property="monsterImageView" destination="msP-Zd-VFr" id="7EP-hf-ijt"/>
                         <outlet property="secondOptionImageView" destination="Sib-4l-Epl" id="mb0-4X-8vl"/>
                         <outlet property="secondOptionLabel" destination="f4K-Nb-a9k" id="mZA-zG-rBd"/>
+                        <outlet property="secondOptionStackView" destination="AFh-pk-jOe" id="kXj-EU-wgK"/>
                         <outlet property="submitButton" destination="unU-4Z-dgb" id="f1a-Q1-x7X"/>
                         <outlet property="thirdOptionImageView" destination="uTO-QD-hTp" id="WaV-sU-qQj"/>
                         <outlet property="thirdOptionLabel" destination="AQe-Vl-oxu" id="9Y7-Hu-J1I"/>
+                        <outlet property="thirdOptionStackView" destination="0g5-vb-Mm2" id="FBE-x9-lSt"/>
                         <segue destination="FWf-eu-FKe" kind="presentation" identifier="adjustPhCorrect" id="1zV-QA-rV2"/>
                         <segue destination="i8X-Sz-8XG" kind="presentation" identifier="adjustPhWrong" id="GDV-4V-Yxl"/>
                     </connections>
@@ -2174,7 +2178,7 @@ Don't worry though, you still have 9 rounds remaining in Level 1. Good luck!</st
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="FaB-d6-X5c"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="wEn-aq-CEr">
-                        <rect key="frame" x="0.0" y="44" width="390" height="96"/>
+                        <rect key="frame" x="0.0" y="44" width="390" height="104.33333333333334"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -2300,7 +2304,7 @@ Don't worry though, you still have 9 rounds remaining in Level 1. Good luck!</st
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="q0c-Zz-aob" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="jRP-bA-vTs">
-                        <rect key="frame" x="0.0" y="44" width="390" height="104.33333333333334"/>
+                        <rect key="frame" x="0.0" y="44" width="390" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>

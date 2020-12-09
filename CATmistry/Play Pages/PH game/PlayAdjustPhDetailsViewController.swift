@@ -25,6 +25,10 @@ class PlayAdjustPhDetailsViewController: UIViewController {
     @IBOutlet weak var fourthOptionImageView: UIImageView!
     @IBOutlet weak var fourthOptionLabel: UILabel!
     @IBOutlet weak var submitButton: UIButton!
+    @IBOutlet weak var firstOptionStackView: UIStackView!
+    @IBOutlet weak var secondOptionStackView: UIStackView!
+    @IBOutlet weak var thirdOptionStackView: UIStackView!
+    @IBOutlet weak var fourthOptionStackView: UIStackView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,8 +36,15 @@ class PlayAdjustPhDetailsViewController: UIViewController {
         // Do any additional setup after loading the view.
         addFirstIndicatorButton.layer.cornerRadius = 15
         submitButton.layer.cornerRadius = 25
-        
         submitButton.isHidden = true
+        firstOptionStackView.layer.masksToBounds = true
+        firstOptionStackView.layer.cornerRadius = 15
+        secondOptionStackView.layer.masksToBounds = true
+        secondOptionStackView.layer.cornerRadius = 15
+        thirdOptionStackView.layer.masksToBounds = true
+        thirdOptionStackView.layer.cornerRadius = 15
+        fourthOptionStackView.layer.masksToBounds = true
+        fourthOptionStackView.layer.cornerRadius = 15
         
         let phOptionPath = phGameArray[currentLevel][currentGame]
         
@@ -49,7 +60,9 @@ class PlayAdjustPhDetailsViewController: UIViewController {
     }
     
     func checkForCorrectAnswer(whichOption: Int) {
-        currentGame += 1
+        if phGameArray[currentLevel].count != currentGame - 1 {
+            currentGame += 1
+        }
         
         submitButton.isHidden = true
         monsterImageView.image = UIImage(named: "monster-regular.png")
