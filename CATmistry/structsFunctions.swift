@@ -270,20 +270,20 @@ var phGameArray = [
 ]
 
 var phGameOptionsArray = [
-    PhOption(name: "Stomach Acid", image: "ph-1.png", turnUniversalTankColour: "monster-red.png"),
-    PhOption(name: "Lemonade", image: "ph-2.png", turnUniversalTankColour: "monster-red.png"),
-    PhOption(name: "Apple Juice", image: "ph-3.png", turnUniversalTankColour: "monster-red.png"),
-    PhOption(name: "Tomato Juice", image: "ph-4.png", turnUniversalTankColour: "monster-red.png"),
-    PhOption(name: "Coffee", image: "ph-5.png", turnUniversalTankColour: "monster-red.png"),
-    PhOption(name: "Milk", image: "ph-6.png", turnUniversalTankColour: "monster-red.png"),
-    PhOption(name: "Water", image: "ph-7", turnUniversalTankColour: "monster-green.png"),
-    PhOption(name: "Egg", image: "ph-8.png", turnUniversalTankColour: "monster-purple.png"),
-    PhOption(name: "Baking Soda", image: "ph-9.png", turnUniversalTankColour: "monster-purple.png"),
-    PhOption(name: "Stomach Tablets", image: "ph-10.png", turnUniversalTankColour: "monster-purple.png"),
-    PhOption(name: "Ammonia", image: "ph-11.png", turnUniversalTankColour: "monster-purple.png"),
-    PhOption(name: "Soap", image: "ph-12.png", turnUniversalTankColour: "monster-purple.png"),
-    PhOption(name: "Bleach", image: "ph-13.png", turnUniversalTankColour: "monster-purple.png"),
-    PhOption(name: "Pipe Cleaner", image: "ph-14.png", turnUniversalTankColour: "monster-purple.png"),
+    PhOption(name: "Stomach Acid", image: "ph-1.png", turnUniversalTankColour: "monster-ph1.png"),
+    PhOption(name: "Lemonade", image: "ph-2.png", turnUniversalTankColour: "monster-ph2.png"),
+    PhOption(name: "Apple Juice", image: "ph-3.png", turnUniversalTankColour: "monster-ph3.png"),
+    PhOption(name: "Tomato Juice", image: "ph-4.png", turnUniversalTankColour: "monster-ph4.png"),
+    PhOption(name: "Coffee", image: "ph-5.png", turnUniversalTankColour: "monster-ph5.png"),
+    PhOption(name: "Milk", image: "ph-6.png", turnUniversalTankColour: "monster-ph6.png"),
+    PhOption(name: "Water", image: "ph-7", turnUniversalTankColour: "monster-ph7.png"),
+    PhOption(name: "Egg", image: "ph-8.png", turnUniversalTankColour: "monster-ph8.png"),
+    PhOption(name: "Baking Soda", image: "ph-9.png", turnUniversalTankColour: "monster-ph9.png"),
+    PhOption(name: "Stomach Tablets", image: "ph-10.png", turnUniversalTankColour: "monster-ph10.png"),
+    PhOption(name: "Ammonia", image: "ph-11.png", turnUniversalTankColour: "monster-ph11.png"),
+    PhOption(name: "Soap", image: "ph-12.png", turnUniversalTankColour: "monster-ph12.png"),
+    PhOption(name: "Bleach", image: "ph-13.png", turnUniversalTankColour: "monster-ph13.png"),
+    PhOption(name: "Pipe Cleaner", image: "ph-14.png", turnUniversalTankColour: "monster-ph14.png"),
 ]
 
 var phGameAcidicIndicatorColours = PhGameColour(universalStart: "monster-yellow.png", universalCorrect: "monster-purple.png", methylOrangeStart: "monster-red.png", methylOrangeCorrect: "monster-yellow.png", litmusStart: "monster-red.png", litmusCorrect: "monster-blue.png", phenolphthaleinStart: "monster-colourless.png", phenolphthaleinCorrect: "monster-pink.png")
