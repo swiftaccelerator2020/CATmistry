@@ -18,16 +18,12 @@ class PlayWrongAnswerViewController: UIViewController {
         nextGameButton.layer.cornerRadius = 25
     }
     
-    @IBAction func unwindToGame(_ seg: UIStoryboardSegue) {
-    }
-    
-    @IBAction func unwindToGameWrong(_ sender: Any) {
-        performSegue(withIdentifier: "unwindToGameWrong", sender: self)
-        self.presentingViewController?.presentingViewController?.dismiss(animated: true, completion: nil)
+    @IBAction func nextGameClicked(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
     }
     
     /*
-    // MARK: - Navigation
+    //MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

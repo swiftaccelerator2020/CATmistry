@@ -697,8 +697,7 @@ water</string>
                                     <color key="titleColor" systemColor="labelColor"/>
                                 </state>
                                 <connections>
-                                    <action selector="unwindToGame:" destination="FWf-eu-FKe" eventType="touchUpInside" id="4eM-eU-EdX"/>
-                                    <action selector="unwindToGameCorrect:" destination="FWf-eu-FKe" eventType="touchUpInside" id="bKm-Bv-14Q"/>
+                                    <action selector="nextGameClicked:" destination="FWf-eu-FKe" eventType="touchUpInside" id="8bI-18-fFi"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eoa-4i-m9E">
@@ -732,11 +731,9 @@ You have 9 rounds remaining in Level 1. Keep up the good work!</string>
                     </view>
                     <connections>
                         <outlet property="nextGameButton" destination="C3K-84-9kj" id="wNk-x4-dcp"/>
-                        <segue destination="SCF-d2-sEx" kind="unwind" identifier="unwindToGameCorrect" unwindAction="unwindToGame:" id="KzR-1j-DGo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jbW-Je-uDO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <exit id="SCF-d2-sEx" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="-1057" y="2753"/>
         </scene>
@@ -1582,8 +1579,7 @@ Given the properties of each Group of the periodic table, select the correct gro
                                     <color key="titleColor" systemColor="labelColor"/>
                                 </state>
                                 <connections>
-                                    <action selector="unwindToGame:" destination="i8X-Sz-8XG" eventType="touchUpInside" id="JqC-pN-yd2"/>
-                                    <action selector="unwindToGameWrong:" destination="i8X-Sz-8XG" eventType="touchUpInside" id="gtP-aS-zis"/>
+                                    <action selector="nextGameClicked:" destination="i8X-Sz-8XG" eventType="touchUpInside" id="rqT-6F-uBd"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IpG-ML-dit">
@@ -1617,11 +1613,9 @@ Don't worry though, you still have 9 rounds remaining in Level 1. Good luck!</st
                     </view>
                     <connections>
                         <outlet property="nextGameButton" destination="43D-K1-zeD" id="u6y-rT-PfC"/>
-                        <segue destination="Dw9-9M-Ob7" kind="unwind" identifier="unwindToGameWrong" unwindAction="unwindToGame:" id="ckj-8k-RGE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cub-mN-ssa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <exit id="Dw9-9M-Ob7" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="-69" y="2753"/>
         </scene>
@@ -1692,7 +1686,7 @@ Don't worry though, you still have 9 rounds remaining in Level 1. Good luck!</st
                 <navigationController id="8Us-es-0oa" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Learn" image="books.vertical.fill" catalog="system" selectedImage="books.vertical.fill" id="ZOw-bY-pdm"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="OvI-u8-jpf">
-                        <rect key="frame" x="0.0" y="44" width="390" height="104.33333333333334"/>
+                        <rect key="frame" x="0.0" y="44" width="390" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" red="0.95419245959999999" green="0.83945876360000005" blue="0.47016263009999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </navigationBar>
@@ -2164,7 +2158,7 @@ Don't worry though, you still have 9 rounds remaining in Level 1. Good luck!</st
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="FaB-d6-X5c"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="wEn-aq-CEr">
-                        <rect key="frame" x="0.0" y="44" width="390" height="96"/>
+                        <rect key="frame" x="0.0" y="44" width="390" height="104.33333333333334"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -2290,7 +2284,7 @@ Don't worry though, you still have 9 rounds remaining in Level 1. Good luck!</st
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="q0c-Zz-aob" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="jRP-bA-vTs">
-                        <rect key="frame" x="0.0" y="44" width="390" height="96"/>
+                        <rect key="frame" x="0.0" y="44" width="390" height="104.33333333333334"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
