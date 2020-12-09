@@ -21,7 +21,6 @@ class PlayCorrectAnswerViewController: UIViewController {
         let confettiView = SwiftConfettiView(frame: self.view.bounds)
         self.view.addSubview(confettiView)
         confettiView.isUserInteractionEnabled = false
-        confettiView.type = .image(UIImage(named: "cat")!)
         confettiView.startConfetti()
     }
 
