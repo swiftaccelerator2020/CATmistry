@@ -22,10 +22,11 @@ class PlayCorrectAnswerViewController: UIViewController {
         self.view.addSubview(confettiView)
         confettiView.startConfetti()
     }
-
-//    @IBAction func nextGameClicked(_ sender: Any) {
-//        self.dismiss(animated: true, completion: nil)
-//    }
+    
+    @IBAction func nextGameClicked(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+        print("answer correct well done now go back")
+    }
     
     /*
     // MARK: - Navigation

@@ -35,7 +35,6 @@ class PlayAdjustPhDetailsViewController: UIViewController {
         
         // Do any additional setup after loading the view.
         addFirstIndicatorButton.layer.cornerRadius = 15
-        submitButton.layer.cornerRadius = 25
         submitButton.isHidden = true
         firstOptionStackView.layer.masksToBounds = true
         firstOptionStackView.layer.cornerRadius = 15
@@ -45,11 +44,6 @@ class PlayAdjustPhDetailsViewController: UIViewController {
         thirdOptionStackView.layer.cornerRadius = 15
         fourthOptionStackView.layer.masksToBounds = true
         fourthOptionStackView.layer.cornerRadius = 15
-        
-//        submitButton.layer.shadowOpacity = 1
-//        submitButton.layer.shadowRadius = 5
-//        submitButton.layer.shadowOffset = .zero
-//        submitButton.layer.shadowColor = UIColor.gray.cgColor
         
         let phOptionPath = phGameArray[currentLevel][currentGame]
         
