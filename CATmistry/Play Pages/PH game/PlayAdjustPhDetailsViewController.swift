@@ -12,6 +12,7 @@ class PlayAdjustPhDetailsViewController: UIViewController {
     var currentLevel = 0
     var currentGame = 0
     var chosenOption = 0
+    var indicatorPresent = false
     
     @IBOutlet weak var addFirstIndicatorButton: UIButton!
     @IBOutlet weak var monsterImageView: UIImageView!
@@ -48,6 +49,23 @@ class PlayAdjustPhDetailsViewController: UIViewController {
     }
     
     func checkForCorrectAnswer(whichOption: Int) {
+        currentGame += 1
+        
+        submitButton.isHidden = true
+        monsterImageView.image = UIImage(named: "monster-regular.png")
+        
+        let phOptionPath = phGameArray[currentLevel][currentGame]
+        
+        firstOptionImageView.image = UIImage(named: phOptionPath.options[0].image)
+        secondOptionImageView.image = UIImage(named: phOptionPath.options[1].image)
+        thirdOptionImageView.image = UIImage(named: phOptionPath.options[2].image)
+        fourthOptionImageView.image = UIImage(named: phOptionPath.options[3].image)
+        
+        firstOptionLabel.text = phOptionPath.options[0].name
+        secondOptionLabel.text = phOptionPath.options[1].name
+        thirdOptionLabel.text = phOptionPath.options[2].name
+        fourthOptionLabel.text = phOptionPath.options[3].name
+        
         if phGameArray[currentLevel][currentGame].startIsAcidic == true {
             if phGameArray[currentLevel][currentGame].options[whichOption].isAcidic == false {
                 optionCorrect()
@@ -65,24 +83,34 @@ class PlayAdjustPhDetailsViewController: UIViewController {
     
     func optionCorrect() {
         performSegue(withIdentifier: "adjustPhCorrect", sender: nil)
-        currentGame += 1
     }
     
     func optionWrong() {
         performSegue(withIdentifier: "adjustPhWrong", sender: nil)
-        currentGame += 1
     }
     
     @IBAction func clickAddUniversalIndicator(_ sender: Any) {
-        if phGameArray[currentLevel][currentGame].startIsAcidic == true {
-            monsterImageView.image = UIImage(named: phGameAcidicUniversalStartColour)
+        if indicatorPresent == false {
+            indicatorPresent = true
+            if phGameArray[currentLevel][currentGame].startIsAcidic == true {
+                monsterImageView.image = UIImage(named: phGameAcidicUniversalStartColour)
+            } else {
+                monsterImageView.image = UIImage(named: phGameAlkalinUniversalStartColour)
+            }
         } else {
-            monsterImageView.image = UIImage(named: phGameAlkalinUniversalStartColour)
+            indicatorPresent = false
+            monsterImageView.image = UIImage(named: "monster-regular.png")
+            submitButton.isHidden = true
+            addFirstIndicatorButton.setTitle("Add Universal Indicator", for: .normal
+            )
         }
     }
     
     @IBAction func clickOptionOne(_ sender: Any) {
-        monsterImageView.image = UIImage(named: phGameArray[currentLevel][currentGame].options[0].turnUniversalTankColour)
+        if indicatorPresent == true {
+            monsterImageView.image = UIImage(named: phGameArray[currentLevel][currentGame].options[0].turnUniversalTankColour)
+            addFirstIndicatorButton.setTitle("Reset", for: .normal)
+        }
         chosenOption = 0
         if currentLevel == 0 {
             submitButton.isHidden = false
@@ -93,7 +121,10 @@ class PlayAdjustPhDetailsViewController: UIViewController {
     }
     
     @IBAction func clickSecondOption(_ sender: Any) {
-        monsterImageView.image = UIImage(named: phGameArray[currentLevel][currentGame].options[1].turnUniversalTankColour)
+        if indicatorPresent == true {
+            monsterImageView.image = UIImage(named: phGameArray[currentLevel][currentGame].options[1].turnUniversalTankColour)
+            addFirstIndicatorButton.setTitle("Reset", for: .normal)
+        }
         chosenOption = 1
         if currentLevel == 0 {
             submitButton.isHidden = false
@@ -104,7 +135,10 @@ class PlayAdjustPhDetailsViewController: UIViewController {
     }
     
     @IBAction func clickThirdOption(_ sender: Any) {
-        monsterImageView.image = UIImage(named: phGameArray[currentLevel][currentGame].options[2].turnUniversalTankColour)
+        if indicatorPresent == true {
+            monsterImageView.image = UIImage(named: phGameArray[currentLevel][currentGame].options[2].turnUniversalTankColour)
+            addFirstIndicatorButton.setTitle("Reset", for: .normal)
+        }
         chosenOption = 2
         if currentLevel == 0 {
             submitButton.isHidden = false
@@ -115,7 +149,10 @@ class PlayAdjustPhDetailsViewController: UIViewController {
     }
     
     @IBAction func clickOptionFour(_ sender: Any) {
-        monsterImageView.image = UIImage(named: phGameArray[currentLevel][currentGame].options[3].turnUniversalTankColour)
+        if indicatorPresent == true {
+            monsterImageView.image = UIImage(named: phGameArray[currentLevel][currentGame].options[3].turnUniversalTankColour)
+            addFirstIndicatorButton.setTitle("Reset", for: .normal)
+        }
         chosenOption = 3
         if currentLevel == 0 {
             submitButton.isHidden = false

@@ -23,9 +23,9 @@ class PlayCorrectAnswerViewController: UIViewController {
         confettiView.startConfetti()
     }
 
-    @IBAction func nextGameClicked(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
-    }
+//    @IBAction func nextGameClicked(_ sender: Any) {
+//        self.dismiss(animated: true, completion: nil)
+//    }
     
     /*
     // MARK: - Navigation
