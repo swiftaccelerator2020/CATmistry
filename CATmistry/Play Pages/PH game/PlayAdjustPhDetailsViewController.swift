@@ -46,6 +46,11 @@ class PlayAdjustPhDetailsViewController: UIViewController {
         fourthOptionStackView.layer.masksToBounds = true
         fourthOptionStackView.layer.cornerRadius = 15
         
+//        submitButton.layer.shadowOpacity = 1
+//        submitButton.layer.shadowRadius = 5
+//        submitButton.layer.shadowOffset = .zero
+//        submitButton.layer.shadowColor = UIColor.gray.cgColor
+        
         let phOptionPath = phGameArray[currentLevel][currentGame]
         
         firstOptionImageView.image = UIImage(named: phOptionPath.options[0].image)
@@ -121,6 +126,10 @@ class PlayAdjustPhDetailsViewController: UIViewController {
     }
     
     @IBAction func clickOptionOne(_ sender: Any) {
+        firstOptionStackView.backgroundColor = UIColor(red: 88/255, green: 214/255, blue: 141/255, alpha: 1)
+        secondOptionStackView.backgroundColor = UIColor.white
+        thirdOptionStackView.backgroundColor = UIColor.white
+        fourthOptionStackView.backgroundColor = UIColor.white
         if indicatorPresent == true {
             monsterImageView.image = UIImage(named: phGameArray[currentLevel][currentGame].options[0].turnUniversalTankColour)
             addFirstIndicatorButton.setTitle("Reset", for: .normal)
@@ -135,6 +144,10 @@ class PlayAdjustPhDetailsViewController: UIViewController {
     }
     
     @IBAction func clickSecondOption(_ sender: Any) {
+        firstOptionStackView.backgroundColor = UIColor.white
+        secondOptionStackView.backgroundColor = UIColor(red: 88/255, green: 214/255, blue: 141/255, alpha: 1)
+        thirdOptionStackView.backgroundColor = UIColor.white
+        fourthOptionStackView.backgroundColor = UIColor.white
         if indicatorPresent == true {
             monsterImageView.image = UIImage(named: phGameArray[currentLevel][currentGame].options[1].turnUniversalTankColour)
             addFirstIndicatorButton.setTitle("Reset", for: .normal)
@@ -149,6 +162,10 @@ class PlayAdjustPhDetailsViewController: UIViewController {
     }
     
     @IBAction func clickThirdOption(_ sender: Any) {
+        firstOptionStackView.backgroundColor = UIColor.white
+        secondOptionStackView.backgroundColor = UIColor.white
+        thirdOptionStackView.backgroundColor = UIColor(red: 88/255, green: 214/255, blue: 141/255, alpha: 1)
+        fourthOptionStackView.backgroundColor = UIColor.white
         if indicatorPresent == true {
             monsterImageView.image = UIImage(named: phGameArray[currentLevel][currentGame].options[2].turnUniversalTankColour)
             addFirstIndicatorButton.setTitle("Reset", for: .normal)
@@ -163,6 +180,10 @@ class PlayAdjustPhDetailsViewController: UIViewController {
     }
     
     @IBAction func clickOptionFour(_ sender: Any) {
+        firstOptionStackView.backgroundColor = UIColor.white
+        secondOptionStackView.backgroundColor = UIColor.white
+        thirdOptionStackView.backgroundColor = UIColor.white
+        fourthOptionStackView.backgroundColor = UIColor(red: 88/255, green: 214/255, blue: 141/255, alpha: 1)
         if indicatorPresent == true {
             monsterImageView.image = UIImage(named: phGameArray[currentLevel][currentGame].options[3].turnUniversalTankColour)
             addFirstIndicatorButton.setTitle("Reset", for: .normal)
