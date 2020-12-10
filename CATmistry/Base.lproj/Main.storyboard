@@ -546,8 +546,8 @@ water</string>
                     </view>
                     <navigationItem key="navigationItem" id="iMh-nS-fJv"/>
                     <connections>
-                        <segue destination="FWf-eu-FKe" kind="presentation" identifier="findGasCorrect" id="xa7-EN-bjL"/>
-                        <segue destination="i8X-Sz-8XG" kind="presentation" identifier="findGasWrong" id="8zc-2j-Gbh"/>
+                        <segue destination="FWf-eu-FKe" kind="showDetail" identifier="findGasCorrect" id="xa7-EN-bjL"/>
+                        <segue destination="i8X-Sz-8XG" kind="showDetail" identifier="findGasWrong" id="8zc-2j-Gbh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FlL-F4-Kc6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -692,56 +692,24 @@ water</string>
                         <outlet property="progressView" destination="soV-ZZ-VJe" id="fma-O8-LHS"/>
                         <outlet property="selectedChoiceLabel" destination="Urf-ny-xZM" id="51E-sy-xIQ"/>
                         <outlet property="seperationTableView" destination="Xtl-sC-sZh" id="F4I-r9-5HI"/>
-                        <segue destination="IQs-jY-UTd" kind="show" id="MUX-y1-ons"/>
-                        <segue destination="Fhw-Mo-krG" kind="show" id="gSh-eS-azz"/>
+                        <segue destination="FWf-eu-FKe" kind="showDetail" identifier="seperationGameWIn" id="KGp-Wk-Y1U"/>
+                        <segue destination="i8X-Sz-8XG" kind="showDetail" identifier="seperationGameLose" id="cAs-Qz-eXZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QgB-vC-p4j" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1003.0769230769231" y="2009.7156398104264"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="7KG-GE-lav">
-            <objects>
-                <viewController modalPresentationStyle="fullScreen" id="IQs-jY-UTd" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="mVi-kL-hBZ">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="8OX-Bw-Hoa"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="aMu-eX-zeK"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Wpq-xg-dfA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-612" y="3545"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="CbC-uZ-IZ6">
-            <objects>
-                <viewController modalPresentationStyle="fullScreen" id="Fhw-Mo-krG" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Smq-ry-kLY">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="dBx-XO-h2x"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="u7I-86-m97"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="drn-4r-FBF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-1503" y="3545"/>
-        </scene>
         <!--Play Correct Answer View Controller-->
         <scene sceneID="y0b-6v-pbE">
             <objects>
-                <viewController id="FWf-eu-FKe" customClass="PlayCorrectAnswerViewController" customModule="CATmistry" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="FWf-eu-FKe" customClass="PlayCorrectAnswerViewController" customModule="CATmistry" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5y6-1y-uqG">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="790"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C3K-84-9kj">
-                                <rect key="frame" x="40" y="686" width="310" height="50"/>
+                                <rect key="frame" x="40" y="740" width="310" height="50"/>
                                 <color key="backgroundColor" red="0.92549019607843142" green="0.4392156862745098" blue="0.38823529411764707" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="wXD-hf-5Nt"/>
@@ -755,7 +723,7 @@ water</string>
                                 </connections>
                             </button>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Pf-F9-PTX">
-                                <rect key="frame" x="0.0" y="0.0" width="390" height="686"/>
+                                <rect key="frame" x="0.0" y="44" width="390" height="696"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ApE-zQ-fgG">
                                         <rect key="frame" x="0.0" y="0.0" width="390" height="680"/>
@@ -1387,8 +1355,8 @@ Given the properties of each Group of the periodic table, select the correct gro
                         <outlet property="nonMetal" destination="oWb-Xd-VoD" id="j7x-ip-Vgr"/>
                         <outlet property="timeLeft" destination="2Bq-Tb-1J1" id="RFk-SX-Q2b"/>
                         <outlet property="transitionMetal" destination="2aQ-rP-BbU" id="9iG-6q-9DB"/>
-                        <segue destination="FWf-eu-FKe" kind="show" identifier="identifyElementsGameWIn" id="SnY-zI-Ehk"/>
-                        <segue destination="i8X-Sz-8XG" kind="show" identifier="identifyElementsGameLose" id="orq-5T-Gly"/>
+                        <segue destination="FWf-eu-FKe" kind="showDetail" identifier="identifyElementsGameWIn" id="SnY-zI-Ehk"/>
+                        <segue destination="i8X-Sz-8XG" kind="showDetail" identifier="identifyElementsGameLose" id="orq-5T-Gly"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mVe-KW-IaH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1628,8 +1596,8 @@ click the tick to submit:</string>
                         <outlet property="thirdOptionImageView" destination="uTO-QD-hTp" id="WaV-sU-qQj"/>
                         <outlet property="thirdOptionLabel" destination="AQe-Vl-oxu" id="9Y7-Hu-J1I"/>
                         <outlet property="thirdOptionStackView" destination="0g5-vb-Mm2" id="FBE-x9-lSt"/>
-                        <segue destination="FWf-eu-FKe" kind="presentation" identifier="adjustPhCorrect" id="1zV-QA-rV2"/>
-                        <segue destination="i8X-Sz-8XG" kind="presentation" identifier="adjustPhWrong" id="GDV-4V-Yxl"/>
+                        <segue destination="FWf-eu-FKe" kind="showDetail" identifier="adjustPhCorrect" id="1zV-QA-rV2"/>
+                        <segue destination="i8X-Sz-8XG" kind="showDetail" identifier="adjustPhWrong" id="GDV-4V-Yxl"/>
                     </connections>
                 </viewController>
                 <tapGestureRecognizer id="Qv3-Od-pxu">
@@ -1659,13 +1627,13 @@ click the tick to submit:</string>
         <!--Play Wrong Answer View Controller-->
         <scene sceneID="bZQ-v1-4GD">
             <objects>
-                <viewController id="i8X-Sz-8XG" customClass="PlayWrongAnswerViewController" customModule="CATmistry" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="i8X-Sz-8XG" customClass="PlayWrongAnswerViewController" customModule="CATmistry" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="9n8-3d-vhc">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="790"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="43D-K1-zeD">
-                                <rect key="frame" x="40" y="686" width="310" height="50"/>
+                                <rect key="frame" x="40" y="740" width="310" height="50"/>
                                 <color key="backgroundColor" red="0.92549019607843142" green="0.4392156862745098" blue="0.38823529411764707" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="hiq-3t-CyE"/>
@@ -1679,7 +1647,7 @@ click the tick to submit:</string>
                                 </connections>
                             </button>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Uz9-4H-TWk">
-                                <rect key="frame" x="0.0" y="0.0" width="390" height="686"/>
+                                <rect key="frame" x="0.0" y="44" width="390" height="696"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GaR-cW-ge6">
                                         <rect key="frame" x="0.0" y="0.0" width="390" height="680"/>
@@ -1778,7 +1746,7 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
                 <navigationController id="8Us-es-0oa" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Learn" image="books.vertical.fill" catalog="system" selectedImage="books.vertical.fill" id="ZOw-bY-pdm"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="OvI-u8-jpf">
-                        <rect key="frame" x="0.0" y="44" width="390" height="96"/>
+                        <rect key="frame" x="0.0" y="44" width="390" height="104.33333333333334"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" red="0.95419245959999999" green="0.83945876360000005" blue="0.47016263009999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </navigationBar>
@@ -2418,8 +2386,8 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
     <inferredMetricsTieBreakers>
         <segue reference="s4T-H5-cTx"/>
         <segue reference="l86-7T-ukz"/>
-        <segue reference="8zc-2j-Gbh"/>
-        <segue reference="xa7-EN-bjL"/>
+        <segue reference="cAs-Qz-eXZ"/>
+        <segue reference="KGp-Wk-Y1U"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="books.vertical.fill" catalog="system" width="128" height="100"/>

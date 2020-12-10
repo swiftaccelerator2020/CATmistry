@@ -10,6 +10,7 @@ import SwiftConfettiView
 
 class PlayCorrectAnswerViewController: UIViewController {
     
+    var isSeperation: Bool?
     var currentLevel: Int!
     var currentGame: Int!
 
@@ -21,7 +22,11 @@ class PlayCorrectAnswerViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         nextGameButton.layer.cornerRadius = 25
-        congratsLabel.text = "Congrats! \n\nThrough your hard work, your cat has been able to avoid the danger. \n\nYou have \(String(10 - currentGame)) rounds remaining in Level \(String(currentLevel + 1)). Keep up the good work!"
+        if (isSeperation != nil){
+            congratsLabel.text = "Yay good job you saved the cat!"
+        } else {
+            congratsLabel.text = "Congrats! \n\nThrough your hard work, your cat has been able to avoid the danger. \n\nYou have \(String(10 - currentGame)) rounds remaining in Level \(String(currentLevel + 1)). Keep up the good work!"
+        }
 
         let confettiView = SwiftConfettiView(frame: self.view.bounds)
         self.view.addSubview(confettiView)
@@ -30,7 +35,11 @@ class PlayCorrectAnswerViewController: UIViewController {
     }
 
     @IBAction func nextGameClicked(_ sender: Any) {
-        dismiss(animated: true, completion: nil)
+        if (isSeperation != nil){
+            self.presentingViewController?.presentingViewController?.dismiss(animated: true, completion: nil)
+        } else {
+            dismiss(animated: true, completion: nil)
+        }
     }
 
     /*
