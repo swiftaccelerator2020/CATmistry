@@ -39,14 +39,18 @@ class PlayRetrieveSolidsDetailsViewController: UIViewController, UITableViewDele
     }
     
     //var elements: [specificSeperationMethod]!
-    var elements =
-        [
-            specificSeperationMethod(picture: "", name: "aa", properties: "filter", givenMethods: GivenSeperationMethods(methods: [SeperationMethods(methodName: "N.A", isCorrect: false),SeperationMethods(methodName: "Correct", isCorrect: true)])),
-            specificSeperationMethod(picture: "", name: "bbb", properties: "filter", givenMethods: GivenSeperationMethods(methods: [SeperationMethods(methodName: "N.A", isCorrect: false),SeperationMethods(methodName: "Correct", isCorrect: true)])),
-            specificSeperationMethod(picture: "", name: "ccc", properties: "filter", givenMethods: GivenSeperationMethods(methods: [SeperationMethods(methodName: "N.A", isCorrect: false),SeperationMethods(methodName: "Correct", isCorrect: true)])),
-            specificSeperationMethod(picture: "", name: "ddd", properties: "filter", givenMethods: GivenSeperationMethods(methods: [SeperationMethods(methodName: "N.A", isCorrect: false),SeperationMethods(methodName: "Correct", isCorrect: true)])),
-            specificSeperationMethod(picture: "", name: "eee", properties: "filter", givenMethods: GivenSeperationMethods(methods: [SeperationMethods(methodName: "N.A", isCorrect: false),SeperationMethods(methodName: "Correct", isCorrect: true)])),
-        ]
+    var elements = [
+        retrieveSolidsArray.randomElement(),
+        retrieveSolidsArray.randomElement(),
+        retrieveSolidsArray.randomElement(),
+        retrieveSolidsArray.randomElement(),
+        retrieveSolidsArray.randomElement(),
+        retrieveSolidsArray.randomElement(),
+        retrieveSolidsArray.randomElement(),
+        retrieveSolidsArray.randomElement(),
+        retrieveSolidsArray.randomElement(),
+        retrieveSolidsArray.randomElement()
+    ]
     
     // MARK: - First Table View
     
@@ -58,11 +62,11 @@ class PlayRetrieveSolidsDetailsViewController: UIViewController, UITableViewDele
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if (tableView == self.seperationTableView){
             let cell = tableView.dequeueReusableCell(withIdentifier: "loremIpsum", for: indexPath)
-            cell.textLabel?.text = "\(elements[indexPath.row].name) - \(elements[indexPath.row].properties)"
+            cell.textLabel?.text = "\(elements[indexPath.row]!.name) - \(elements[indexPath.row]!.properties)"
             return cell
         } else if (tableView == choicesTableView) {
             let cell = tableView.dequeueReusableCell(withIdentifier: "loremIpsum2", for: indexPath)
-            cell.textLabel?.text = elements[selectedElement!].givenMethods.methods[indexPath.row].methodName
+            cell.textLabel?.text = elements[selectedElement!]!.givenMethods.methods[indexPath.row].methodName
             return cell
         } else {
             return UITableViewCell()
@@ -75,7 +79,7 @@ class PlayRetrieveSolidsDetailsViewController: UIViewController, UITableViewDele
             return numOfItems
         } else if (tableView == choicesTableView){
             if (selectedElement != nil){
-                return elements[selectedElement!].givenMethods.methods.count
+                return elements[selectedElement!]!.givenMethods.methods.count
             } else {
                 return 0
             }
@@ -86,7 +90,7 @@ class PlayRetrieveSolidsDetailsViewController: UIViewController, UITableViewDele
     
     var selectedElement: Int?
     var isCorrect: Bool?
-    var numOfItems = 2
+    var numOfItems = 4
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if (tableView == seperationTableView){
@@ -95,8 +99,8 @@ class PlayRetrieveSolidsDetailsViewController: UIViewController, UITableViewDele
             selectedChoiceLabel.isHidden = true
             choicesTableView.reloadData()
         } else if (tableView == choicesTableView){
-            selectedChoiceLabel.setTitle("Submit: \(elements[selectedElement!].givenMethods.methods[indexPath.row].methodName)", for: .normal)
-            isCorrect = elements[selectedElement!].givenMethods.methods[indexPath.row].isCorrect
+            selectedChoiceLabel.setTitle("Submit: \(elements[selectedElement!]!.givenMethods.methods[indexPath.row].methodName)", for: .normal)
+            isCorrect = elements[selectedElement!]!.givenMethods.methods[indexPath.row].isCorrect
             selectedChoiceLabel.isHidden = false
             tableView.deselectRow(at: indexPath, animated: true)
             index = indexPath.row
@@ -134,10 +138,10 @@ class PlayRetrieveSolidsDetailsViewController: UIViewController, UITableViewDele
     }
     
     
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    // MARK: - Navigation
+    
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "seperationGameLose"){
             let dest = segue.destination as! PlayWrongAnswerViewController
             dest.isSeperation = true
@@ -146,9 +150,9 @@ class PlayRetrieveSolidsDetailsViewController: UIViewController, UITableViewDele
             let dest = segue.destination as! PlayCorrectAnswerViewController
             dest.isSeperation = true
         }
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
-     }
-     
+        // Get the new view controller using segue.destination.
+        // Pass the selected object to the new view controller.
+    }
+    
     
 }
