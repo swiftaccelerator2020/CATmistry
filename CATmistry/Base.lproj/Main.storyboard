@@ -692,8 +692,8 @@ water</string>
                         <outlet property="progressView" destination="soV-ZZ-VJe" id="fma-O8-LHS"/>
                         <outlet property="selectedChoiceLabel" destination="Urf-ny-xZM" id="51E-sy-xIQ"/>
                         <outlet property="seperationTableView" destination="Xtl-sC-sZh" id="F4I-r9-5HI"/>
-                        <segue destination="FWf-eu-FKe" kind="showDetail" identifier="seperationGameLose" id="KGp-Wk-Y1U"/>
-                        <segue destination="i8X-Sz-8XG" kind="showDetail" identifier="seperationGameWIn" id="cAs-Qz-eXZ"/>
+                        <segue destination="FWf-eu-FKe" kind="showDetail" identifier="seperationGameWIn" id="KGp-Wk-Y1U"/>
+                        <segue destination="i8X-Sz-8XG" kind="showDetail" identifier="seperationGameLose" id="cAs-Qz-eXZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QgB-vC-p4j" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -2360,7 +2360,7 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
     <inferredMetricsTieBreakers>
         <segue reference="eBF-tC-Jy2"/>
         <segue reference="l86-7T-ukz"/>
-        <segue reference="8zc-2j-Gbh"/>
+        <segue reference="cAs-Qz-eXZ"/>
         <segue reference="KGp-Wk-Y1U"/>
     </inferredMetricsTieBreakers>
     <resources>
