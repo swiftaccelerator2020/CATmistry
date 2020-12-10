@@ -39,8 +39,14 @@ class PlayRetrieveSolidsDetailsViewController: UIViewController, UITableViewDele
     }
     
     //var elements: [specificSeperationMethod]!
-    var elements = [specificSeperationMethod(picture: "", name: "Boron", properties: "filter", givenMethods: GivenSeperationMethods(methods: [SeperationMethods(methodName: "N.A", isCorrect: false),
-                                                                                                                                              SeperationMethods(methodName: "Correct", isCorrect: true)]))]
+    var elements =
+        [
+            specificSeperationMethod(picture: "", name: "aa", properties: "filter", givenMethods: GivenSeperationMethods(methods: [SeperationMethods(methodName: "N.A", isCorrect: false),SeperationMethods(methodName: "Correct", isCorrect: true)])),
+            specificSeperationMethod(picture: "", name: "bbb", properties: "filter", givenMethods: GivenSeperationMethods(methods: [SeperationMethods(methodName: "N.A", isCorrect: false),SeperationMethods(methodName: "Correct", isCorrect: true)])),
+            specificSeperationMethod(picture: "", name: "ccc", properties: "filter", givenMethods: GivenSeperationMethods(methods: [SeperationMethods(methodName: "N.A", isCorrect: false),SeperationMethods(methodName: "Correct", isCorrect: true)])),
+            specificSeperationMethod(picture: "", name: "ddd", properties: "filter", givenMethods: GivenSeperationMethods(methods: [SeperationMethods(methodName: "N.A", isCorrect: false),SeperationMethods(methodName: "Correct", isCorrect: true)])),
+            specificSeperationMethod(picture: "", name: "eee", properties: "filter", givenMethods: GivenSeperationMethods(methods: [SeperationMethods(methodName: "N.A", isCorrect: false),SeperationMethods(methodName: "Correct", isCorrect: true)])),
+        ]
     
     // MARK: - First Table View
     
