@@ -72,7 +72,7 @@ class PlayRetrieveSolidsDetailsViewController: UIViewController, UITableViewDele
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         if (tableView == seperationTableView){
-            return elements.count
+            return numOfItems
         } else if (tableView == choicesTableView){
             if (selectedElement != nil){
                 return elements[selectedElement!].givenMethods.methods.count
@@ -110,12 +110,14 @@ class PlayRetrieveSolidsDetailsViewController: UIViewController, UITableViewDele
         if (!isCorrect!) {
             isWrong.text = "WRONG"
             isWrong.backgroundColor = .red
-            
+            numOfItems += 1
         } else if (isCorrect!) {
             isWrong.text = "CORRECT"
             isWrong.backgroundColor = .green
             elements.remove(at: index)
+            numOfItems -= 1
         }
+        seperationTableView.reloadData()
         let seconds = 4.0
         DispatchQueue.main.asyncAfter(deadline: .now() + seconds) {
             self.isWrong.isHidden = true

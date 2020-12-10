@@ -76,7 +76,7 @@
 		261E53A12571488B00094DA5 /* PlayHomePageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayHomePageTableViewCell.swift; sourceTree = "<group>"; };
 		2632D7032577D5B50005033F /* PlayFindGasDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayFindGasDetailsViewController.swift; sourceTree = "<group>"; };
 		2632D7082577D5F00005033F /* PlayAdjustPhDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayAdjustPhDetailsViewController.swift; sourceTree = "<group>"; };
-		2632D70D2577D62F0005033F /* PlayRetrieveSolidsDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayRetrieveSolidsDetailsViewController.swift; sourceTree = "<group>"; };
+		2632D70D2577D62F0005033F /* PlayRetrieveSolidsDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayRetrieveSolidsDetailsViewController.swift; sourceTree = "<group>"; wrapsLines = 0; };
 		2640F0A225724091003EC92B /* LearnSubTopicDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearnSubTopicDetailsViewController.swift; sourceTree = "<group>"; };
 		269F995025777504001C7246 /* PlayAdjustPhStartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayAdjustPhStartViewController.swift; sourceTree = "<group>"; };
 		269F995825777538001C7246 /* PlayFindGasStartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayFindGasStartViewController.swift; sourceTree = "<group>"; };
