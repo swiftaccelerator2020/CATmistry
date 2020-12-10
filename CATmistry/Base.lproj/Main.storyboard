@@ -365,7 +365,7 @@ water</string>
                                                             <constraint firstAttribute="height" constant="10" id="O1s-Sa-8oh"/>
                                                         </constraints>
                                                     </view>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lighted-splint" translatesAutoresizingMaskIntoConstraints="NO" id="mpA-WD-yB4">
+                                                    <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lighted-splint" translatesAutoresizingMaskIntoConstraints="NO" id="mpA-WD-yB4">
                                                         <rect key="frame" x="0.0" y="10" width="62" height="80"/>
                                                         <gestureRecognizers/>
                                                         <connections>
@@ -394,7 +394,7 @@ water</string>
                                                             <constraint firstAttribute="height" constant="10" id="UjT-Uj-Odh"/>
                                                         </constraints>
                                                     </view>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="glowing-splint" translatesAutoresizingMaskIntoConstraints="NO" id="nEB-fJ-h3l">
+                                                    <imageView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="glowing-splint" translatesAutoresizingMaskIntoConstraints="NO" id="nEB-fJ-h3l">
                                                         <rect key="frame" x="0.0" y="10" width="62" height="80"/>
                                                         <gestureRecognizers/>
                                                         <connections>
@@ -423,7 +423,7 @@ water</string>
                                                             <constraint firstAttribute="height" constant="15" id="ogb-Df-l2y"/>
                                                         </constraints>
                                                     </view>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="litmus" translatesAutoresizingMaskIntoConstraints="NO" id="Z0g-Jj-5LT">
+                                                    <imageView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="litmus" translatesAutoresizingMaskIntoConstraints="NO" id="Z0g-Jj-5LT">
                                                         <rect key="frame" x="0.0" y="15" width="124" height="75"/>
                                                         <gestureRecognizers/>
                                                         <connections>
@@ -553,12 +553,12 @@ water</string>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FlL-F4-Kc6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <panGestureRecognizer minimumNumberOfTouches="1" id="rBg-I9-1Vu">
                     <connections>
-                        <action selector="handlePan:" destination="qsu-L3-DGc" id="7sP-qv-Qvz"/>
+                        <action selector="panPiece:" destination="qsu-L3-DGc" id="U3v-13-Fsj"/>
                     </connections>
                 </panGestureRecognizer>
                 <panGestureRecognizer minimumNumberOfTouches="1" id="Nik-xv-O5p">
                     <connections>
-                        <action selector="handlePan:" destination="qsu-L3-DGc" id="jnm-XK-N2o"/>
+                        <action selector="panPiece:" destination="qsu-L3-DGc" id="bNN-HI-W3g"/>
                     </connections>
                 </panGestureRecognizer>
                 <panGestureRecognizer minimumNumberOfTouches="1" id="nwJ-Pm-rtH">
@@ -1661,8 +1661,8 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="meowster" translatesAutoresizingMaskIntoConstraints="NO" id="bcK-GK-icA">
-                                                <rect key="frame" x="60" y="202.33333333333337" width="270" height="215"/>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="meowster" translatesAutoresizingMaskIntoConstraints="NO" id="bcK-GK-icA">
+                                                <rect key="frame" x="60" y="133" width="270" height="216"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="215" id="fZj-B7-vJo"/>
                                                 </constraints>
@@ -1706,7 +1706,6 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
                     <navigationItem key="navigationItem" id="ClN-Xv-SEQ"/>
                     <connections>
                         <outlet property="nextGameButton" destination="43D-K1-zeD" id="u6y-rT-PfC"/>
-                        <outlet property="sadLabel" destination="iE7-b8-PyK" id="hw0-Wf-OHr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cub-mN-ssa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -2358,8 +2357,8 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
     <inferredMetricsTieBreakers>
         <segue reference="eBF-tC-Jy2"/>
         <segue reference="l86-7T-ukz"/>
-        <segue reference="GDV-4V-Yxl"/>
-        <segue reference="1zV-QA-rV2"/>
+        <segue reference="8zc-2j-Gbh"/>
+        <segue reference="xa7-EN-bjL"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="books.vertical.fill" catalog="system" width="128" height="100"/>
