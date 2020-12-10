@@ -31,7 +31,7 @@ class LearnSubSubTopicDetailsViewController: UIViewController {
         // Do any additional setup after loading the view.
         self.title = flexibleTitle
         
-        if specificChapter.content != nil {
+        if (specificChapter.content.warningText != nil) {
             warningLabel.layer.cornerRadius = 5
             warningLabel.layer.masksToBounds = true
             warningLabel.text = specificChapter.content.warningText

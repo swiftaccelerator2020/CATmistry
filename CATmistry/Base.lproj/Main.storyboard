@@ -1819,7 +1819,7 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
                     <tabBarItem key="tabBarItem" title="Play" image="gamecontroller.fill" catalog="system" selectedImage="gamecontroller.fill" id="Xs1-53-ugV"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="eFe-la-nb9">
-                        <rect key="frame" x="0.0" y="44" width="390" height="96"/>
+                        <rect key="frame" x="0.0" y="44" width="390" height="104.33333333333334"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" red="0.396078431372549" green="0.77647058823529413" blue="0.94117647058823528" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </navigationBar>
@@ -2011,7 +2011,7 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
                                                                 <connections>
                                                                     <outlet property="subSubTopicPicture" destination="X2w-UO-O4Y" id="Afa-b7-1tP"/>
                                                                     <outlet property="subSubTopicTitleLabel" destination="FRg-PB-i5a" id="jEM-KK-UaF"/>
-                                                                    <segue destination="Zhu-nR-rZ4" kind="show" id="s4T-H5-cTx"/>
+                                                                    <segue destination="Zhu-nR-rZ4" kind="show" identifier="goToSubSubTopic" id="s4T-H5-cTx"/>
                                                                 </connections>
                                                             </tableViewCell>
                                                         </prototypes>
