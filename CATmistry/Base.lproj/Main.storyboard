@@ -1462,6 +1462,9 @@ click the tick to submit:</string>
                                                         </subviews>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <gestureRecognizers/>
+                                                        <connections>
+                                                            <outletCollection property="gestureRecognizers" destination="xXB-FL-wBv" appends="YES" id="Dl7-pO-rVB"/>
+                                                        </connections>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="SMD-0O-mXJ">
                                                         <rect key="frame" x="80" y="0.0" width="70" height="90"/>
@@ -1488,6 +1491,9 @@ click the tick to submit:</string>
                                                         </subviews>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <gestureRecognizers/>
+                                                        <connections>
+                                                            <outletCollection property="gestureRecognizers" destination="R1W-ja-EpO" appends="YES" id="mwe-WH-Bac"/>
+                                                        </connections>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="SY4-DI-2yI">
                                                         <rect key="frame" x="160" y="0.0" width="70" height="90"/>
@@ -1514,6 +1520,9 @@ click the tick to submit:</string>
                                                         </subviews>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <gestureRecognizers/>
+                                                        <connections>
+                                                            <outletCollection property="gestureRecognizers" destination="R2t-u3-t0O" appends="YES" id="viR-am-GDC"/>
+                                                        </connections>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="N3T-dd-fOR">
                                                         <rect key="frame" x="240" y="0.0" width="70" height="90"/>
@@ -1540,6 +1549,9 @@ click the tick to submit:</string>
                                                         </subviews>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <gestureRecognizers/>
+                                                        <connections>
+                                                            <outletCollection property="gestureRecognizers" destination="TGS-NF-YVz" appends="YES" id="v3s-93-UqD"/>
+                                                        </connections>
                                                     </stackView>
                                                 </subviews>
                                                 <constraints>
@@ -1618,25 +1630,25 @@ click the tick to submit:</string>
                         <segue destination="i8X-Sz-8XG" kind="showDetail" identifier="adjustPhWrong" id="GDV-4V-Yxl"/>
                     </connections>
                 </viewController>
-                <tapGestureRecognizer id="Qv3-Od-pxu">
-                    <connections>
-                        <action selector="clickOptionFour:" destination="BaN-EE-YvM" id="wga-r6-IRi"/>
-                    </connections>
-                </tapGestureRecognizer>
-                <tapGestureRecognizer id="f4V-Ns-Ssw">
-                    <connections>
-                        <action selector="clickThirdOption:" destination="BaN-EE-YvM" id="BtO-Vm-V2p"/>
-                    </connections>
-                </tapGestureRecognizer>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="r6k-y5-7Ng" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="6Uc-Nd-UET">
+                <tapGestureRecognizer id="xXB-FL-wBv">
                     <connections>
-                        <action selector="clickSecondOption:" destination="BaN-EE-YvM" id="rlS-gn-33h"/>
+                        <action selector="clickOptionOne:" destination="BaN-EE-YvM" id="iGs-B6-J5x"/>
                     </connections>
                 </tapGestureRecognizer>
-                <tapGestureRecognizer id="I98-Zc-Rob">
+                <tapGestureRecognizer id="R1W-ja-EpO">
                     <connections>
-                        <action selector="clickOptionOne:" destination="BaN-EE-YvM" id="jHU-zd-eSH"/>
+                        <action selector="clickSecondOption:" destination="BaN-EE-YvM" id="Ec0-f9-liZ"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="R2t-u3-t0O">
+                    <connections>
+                        <action selector="clickThirdOption:" destination="BaN-EE-YvM" id="AkJ-gS-Qzi"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="TGS-NF-YVz">
+                    <connections>
+                        <action selector="clickOptionFour:" destination="BaN-EE-YvM" id="iNi-oc-eaV"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
@@ -1837,7 +1849,7 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
                     <tabBarItem key="tabBarItem" title="Play" image="gamecontroller.fill" catalog="system" selectedImage="gamecontroller.fill" id="Xs1-53-ugV"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="eFe-la-nb9">
-                        <rect key="frame" x="0.0" y="44" width="390" height="96"/>
+                        <rect key="frame" x="0.0" y="44" width="390" height="104.33333333333334"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" red="0.396078431372549" green="0.77647058823529413" blue="0.94117647058823528" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </navigationBar>
@@ -2418,7 +2430,7 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="q0c-Zz-aob" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="jRP-bA-vTs">
-                        <rect key="frame" x="0.0" y="44" width="390" height="104.33333333333334"/>
+                        <rect key="frame" x="0.0" y="44" width="390" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
