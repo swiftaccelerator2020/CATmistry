@@ -1567,9 +1567,9 @@ scroll down to submit</string>
                                         <constraints>
                                             <constraint firstAttribute="trailing" secondItem="6eE-28-Muh" secondAttribute="trailing" constant="15" id="1cK-Vv-whH"/>
                                             <constraint firstItem="bc4-W0-z7E" firstAttribute="top" secondItem="Inh-Cc-vSE" secondAttribute="top" constant="15" id="4xs-TK-IJo"/>
-                                            <constraint firstAttribute="height" priority="900" constant="311" id="8OR-Xo-isP"/>
+                                            <constraint firstAttribute="height" constant="311" id="8OR-Xo-isP"/>
                                             <constraint firstItem="2qY-s9-PTk" firstAttribute="top" secondItem="6eE-28-Muh" secondAttribute="bottom" constant="18" id="8Wb-ct-Z1l"/>
-                                            <constraint firstAttribute="height" priority="899" constant="243" id="Bjq-PA-ecD"/>
+                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" priority="900" constant="243" id="FXI-uS-bsN"/>
                                             <constraint firstAttribute="trailing" secondItem="tHs-2v-5WT" secondAttribute="trailing" constant="40" id="L2h-vZ-rXH"/>
                                             <constraint firstItem="tHs-2v-5WT" firstAttribute="leading" secondItem="Inh-Cc-vSE" secondAttribute="leading" constant="40" id="Nyg-FZ-AjT"/>
                                             <constraint firstItem="6eE-28-Muh" firstAttribute="leading" secondItem="Inh-Cc-vSE" secondAttribute="leading" constant="15" id="Szp-JC-vjB"/>
@@ -1628,8 +1628,8 @@ scroll down to submit</string>
                         <outlet property="secondOptionLabel" destination="vI7-OP-NZn" id="8Nv-8X-ST2"/>
                         <outlet property="secondOptionStackView" destination="SMD-0O-mXJ" id="jXF-rg-THJ"/>
                         <outlet property="submitButton" destination="tHs-2v-5WT" id="fCe-3c-oup"/>
-                        <outlet property="submitButtonIsHiddenConstraint" destination="Bjq-PA-ecD" id="R8R-DE-RsS"/>
-                        <outlet property="submitButtonIsVisibleConstraint" destination="8OR-Xo-isP" id="Gex-Mt-6eW"/>
+                        <outlet property="submitButtonIsHiddenConstraint" destination="FXI-uS-bsN" id="rHa-B0-JLn"/>
+                        <outlet property="submitButtonIsVisibleConstraint" destination="8OR-Xo-isP" id="tO4-7P-aF0"/>
                         <outlet property="thirdOptionImageView" destination="4r0-oT-BIz" id="Uuf-aL-3cU"/>
                         <outlet property="thirdOptionLabel" destination="FFs-H5-s0k" id="gix-iM-wB3"/>
                         <outlet property="thirdOptionStackView" destination="SY4-DI-2yI" id="DN1-OI-q3B"/>
@@ -1856,7 +1856,7 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
                     <tabBarItem key="tabBarItem" title="Play" image="gamecontroller.fill" catalog="system" selectedImage="gamecontroller.fill" id="Xs1-53-ugV"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="eFe-la-nb9">
-                        <rect key="frame" x="0.0" y="44" width="390" height="96"/>
+                        <rect key="frame" x="0.0" y="44" width="390" height="104.33333333333334"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" red="0.396078431372549" green="0.77647058823529413" blue="0.94117647058823528" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </navigationBar>
@@ -2311,7 +2311,7 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="FaB-d6-X5c"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="wEn-aq-CEr">
-                        <rect key="frame" x="0.0" y="44" width="390" height="96"/>
+                        <rect key="frame" x="0.0" y="44" width="390" height="104.33333333333334"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>

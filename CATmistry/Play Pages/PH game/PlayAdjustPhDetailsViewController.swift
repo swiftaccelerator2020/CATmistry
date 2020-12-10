@@ -35,8 +35,8 @@ class PlayAdjustPhDetailsViewController: UIViewController {
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var contentView: UIView!
     @IBOutlet weak var submitButton: UIButton!
-    @IBOutlet weak var submitButtonIsVisibleConstraint: NSLayoutConstraint!
-    @IBOutlet weak var submitButtonIsHiddenConstraint: NSLayoutConstraint!
+    @IBOutlet var submitButtonIsVisibleConstraint: NSLayoutConstraint!
+    @IBOutlet var submitButtonIsHiddenConstraint: NSLayoutConstraint!
     
     override func viewDidLoad() {
         super.viewDidLoad()
