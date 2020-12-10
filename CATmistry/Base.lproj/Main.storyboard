@@ -638,7 +638,7 @@ water</string>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" fixedFrame="YES" progress="0.10000000000000001" translatesAutoresizingMaskIntoConstraints="NO" id="soV-ZZ-VJe">
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" fixedFrame="YES" progress="0.20000000000000001" translatesAutoresizingMaskIntoConstraints="NO" id="soV-ZZ-VJe">
                                 <rect key="frame" x="31" y="672" width="182" height="5"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </progressView>
@@ -692,11 +692,45 @@ water</string>
                         <outlet property="progressView" destination="soV-ZZ-VJe" id="fma-O8-LHS"/>
                         <outlet property="selectedChoiceLabel" destination="Urf-ny-xZM" id="51E-sy-xIQ"/>
                         <outlet property="seperationTableView" destination="Xtl-sC-sZh" id="F4I-r9-5HI"/>
+                        <segue destination="IQs-jY-UTd" kind="show" id="MUX-y1-ons"/>
+                        <segue destination="Fhw-Mo-krG" kind="show" id="gSh-eS-azz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QgB-vC-p4j" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1003.0769230769231" y="2009.7156398104264"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="7KG-GE-lav">
+            <objects>
+                <viewController modalPresentationStyle="fullScreen" id="IQs-jY-UTd" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="mVi-kL-hBZ">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="8OX-Bw-Hoa"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="aMu-eX-zeK"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Wpq-xg-dfA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-612" y="3545"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="CbC-uZ-IZ6">
+            <objects>
+                <viewController modalPresentationStyle="fullScreen" id="Fhw-Mo-krG" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Smq-ry-kLY">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="dBx-XO-h2x"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="u7I-86-m97"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="drn-4r-FBF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1503" y="3545"/>
         </scene>
         <!--Play Correct Answer View Controller-->
         <scene sceneID="y0b-6v-pbE">
@@ -1744,7 +1778,7 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
                 <navigationController id="8Us-es-0oa" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Learn" image="books.vertical.fill" catalog="system" selectedImage="books.vertical.fill" id="ZOw-bY-pdm"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="OvI-u8-jpf">
-                        <rect key="frame" x="0.0" y="44" width="390" height="104.33333333333334"/>
+                        <rect key="frame" x="0.0" y="44" width="390" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" red="0.95419245959999999" green="0.83945876360000005" blue="0.47016263009999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </navigationBar>
@@ -1817,7 +1851,7 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
                     <tabBarItem key="tabBarItem" title="Play" image="gamecontroller.fill" catalog="system" selectedImage="gamecontroller.fill" id="Xs1-53-ugV"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="eFe-la-nb9">
-                        <rect key="frame" x="0.0" y="44" width="390" height="104.33333333333334"/>
+                        <rect key="frame" x="0.0" y="44" width="390" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" red="0.396078431372549" green="0.77647058823529413" blue="0.94117647058823528" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </navigationBar>

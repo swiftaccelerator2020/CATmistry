@@ -111,11 +111,20 @@ class PlayRetrieveSolidsDetailsViewController: UIViewController, UITableViewDele
             isWrong.text = "WRONG"
             isWrong.backgroundColor = .red
             numOfItems += 1
+            progressView.progress += 0.1
         } else if (isCorrect!) {
             isWrong.text = "CORRECT"
             isWrong.backgroundColor = .green
             elements.remove(at: index)
             numOfItems -= 1
+            progressView.progress -= 0.1
+        }
+        if (progressView.progress <= 0) {
+            // win
+            performSegue(withIdentifier: "", sender: nil)
+        } else if (progressView.progress >= 1) {
+            // lose
+            performSegue(withIdentifier: "", sender: nil)
         }
         seperationTableView.reloadData()
         let seconds = 4.0
