@@ -312,8 +312,7 @@ var perioicTable = [
     ]
 ]
 
-var retrieveSolidsArray =
-[
+var retrieveSolidsArray = [
     specificSeperationMethod(name: "aa", properties: "filter", givenMethods: GivenSeperationMethods(methods: [SeperationMethods(methodName: "N.A", isCorrect: false),SeperationMethods(methodName: "Correct", isCorrect: true)])),
     specificSeperationMethod(name: "bbb", properties: "filter", givenMethods: GivenSeperationMethods(methods: [SeperationMethods(methodName: "N.A", isCorrect: false),SeperationMethods(methodName: "Correct", isCorrect: true)])),
     specificSeperationMethod(name: "ccc", properties: "filter", givenMethods: GivenSeperationMethods(methods: [SeperationMethods(methodName: "N.A", isCorrect: false),SeperationMethods(methodName: "Correct", isCorrect: true)])),
