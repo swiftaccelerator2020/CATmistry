@@ -68,6 +68,28 @@ class PlayAdjustPhDetailsViewController: UIViewController {
     }
     
     func checkForCorrectAnswer(whichOption: Int) {
+        print(phOptionsArray[whichOption])
+        
+        submitButton.isHidden = true
+        submitButton.setTitle("Add Universal Indicator", for: .normal)
+        monsterImageView.image = UIImage(named: "monster-regular.png")
+        
+        indicatorPresent = false
+        
+        if phGameArray[currentLevel][currentGame].startIsAcidic == true {
+            if phOptionsArray[whichOption].isAcidic == false {
+                optionCorrect()
+            } else {
+                optionWrong()
+            }
+        } else if phGameArray[currentLevel][currentGame].startIsAcidic == false {
+            if phOptionsArray[whichOption].isAcidic == true {
+                optionCorrect()
+            } else {
+                optionWrong()
+            }
+        }
+        
         if phGameArray[currentLevel].count != currentGame - 1 {
             currentGame += 1
         } else {
@@ -83,9 +105,6 @@ class PlayAdjustPhDetailsViewController: UIViewController {
         
         phOptionsArray = Array(phOptionsSet)
         
-        submitButton.isHidden = true
-        monsterImageView.image = UIImage(named: "monster-regular.png")
-        
         firstOptionImageView.image = UIImage(named: phOptionsArray[0].image)
         secondOptionImageView.image = UIImage(named: phOptionsArray[1].image)
         thirdOptionImageView.image = UIImage(named: phOptionsArray[2].image)
@@ -95,20 +114,6 @@ class PlayAdjustPhDetailsViewController: UIViewController {
         secondOptionLabel.text = phOptionsArray[1].name
         thirdOptionLabel.text = phOptionsArray[2].name
         fourthOptionLabel.text = phOptionsArray[3].name
-        
-        if phGameArray[currentLevel][currentGame].startIsAcidic == true {
-            if phOptionsArray[whichOption].isAcidic == false {
-                optionCorrect()
-            } else {
-                optionWrong()
-            }
-        } else if phGameArray[currentLevel][currentGame].startIsAcidic == false {
-            if phOptionsArray[whichOption].isAcidic == true {
-                optionCorrect()
-            } else {
-                optionWrong()
-            }
-        }
     }
     
     func optionCorrect() {
