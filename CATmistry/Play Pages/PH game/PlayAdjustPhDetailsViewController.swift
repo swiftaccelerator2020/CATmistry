@@ -33,6 +33,7 @@ class PlayAdjustPhDetailsViewController: UIViewController {
     @IBOutlet weak var secondOptionStackView: UIStackView!
     @IBOutlet weak var thirdOptionStackView: UIStackView!
     @IBOutlet weak var fourthOptionStackView: UIStackView!
+    @IBOutlet weak var scrollView: UIScrollView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,6 +49,7 @@ class PlayAdjustPhDetailsViewController: UIViewController {
         thirdOptionStackView.layer.cornerRadius = 15
         fourthOptionStackView.layer.masksToBounds = true
         fourthOptionStackView.layer.cornerRadius = 15
+        scrollView.layer.cornerRadius = 15
         
         while phOptionsSet.count < 4 {
             let randomIndex = Int(arc4random_uniform(UInt32(phGameOptionsArray.count)))
