@@ -13,7 +13,7 @@ class PlayAdjustPhDetailsViewController: UIViewController {
     var currentGame = 0
     var chosenOption = 0
     var indicatorPresent = false
-    var phOptionsSet: Set<PhOption>!
+    var phOptionsSet = Set<PhOption>()
     var phOptionsArray: Array<PhOption>!
     
     @IBOutlet weak var addFirstIndicatorButton: UIButton!
