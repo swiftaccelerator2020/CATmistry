@@ -208,24 +208,29 @@ class PlayIdentifyElementsSecondViewController: UIViewController {
     
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if (segue.identifier == "finishedSceneTwoGame"){
-            let desti = segue.destination as! PlayIdentifyElementsThirdViewController
+        if (segue.identifier == "finishedSceneTwoGame") {
+            var isCorrect = false
+            var isCorrect2 = false
             switch selectedButton {
             case groupOne:
                 if gameTopic.correctAns1 == 1{
                     points += level/2
+                    isCorrect = true
                 }
             case groupTwo:
                 if gameTopic.correctAns1 == 2{
                     points += level/2
+                    isCorrect = true
                 }
             case groupThree:
                 if gameTopic.correctAns1 == 3{
                     points += level/2
+                    isCorrect = true
                 }
             case groupFour:
                 if gameTopic.correctAns1 == 4{
                     points += level/2
+                    isCorrect = true
                 }
             default:
                 break
@@ -235,17 +240,24 @@ class PlayIdentifyElementsSecondViewController: UIViewController {
             case metal:
                 if gameTopic.correctAns2 == 1{
                     points += level/2
+                    isCorrect2 = true
                 }
             case transitionMetal:
                 if gameTopic.correctAns2 == 2{
                     points += level/2
+                    isCorrect2 = true
                 }
             case nonMetal:
                 if gameTopic.correctAns2 == 3{
                     points += level/2
+                    isCorrect2 = true
                 }
             default:
                 break
+            }
+            
+            if (isCorrect && isCorrect2){
+                
             }
             let ud = UserDefaults.standard
             ud.set(points, forKey: "points")
