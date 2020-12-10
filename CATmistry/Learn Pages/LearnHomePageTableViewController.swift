@@ -124,7 +124,7 @@ class LearnHomePageTableViewController: UITableViewController {
                 }
             }
         }
-        return true
+        return true 
     }
     
 }

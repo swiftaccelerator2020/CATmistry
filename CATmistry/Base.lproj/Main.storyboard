@@ -749,6 +749,7 @@ You have \(String(10 - currentGame)) rounds remaining in Level \(String(currentL
                             <constraint firstItem="0nQ-Ke-gfA" firstAttribute="trailing" secondItem="eoa-4i-m9E" secondAttribute="trailing" constant="40" id="yX1-Pa-9DL"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="XIQ-UC-Nlu"/>
                     <connections>
                         <outlet property="congratsLabel" destination="eoa-4i-m9E" id="NHs-mP-DdP"/>
                         <outlet property="nextGameButton" destination="C3K-84-9kj" id="wNk-x4-dcp"/>
@@ -1322,7 +1323,8 @@ Given the properties of each Group of the periodic table, select the correct gro
                         <outlet property="nonMetal" destination="oWb-Xd-VoD" id="j7x-ip-Vgr"/>
                         <outlet property="timeLeft" destination="2Bq-Tb-1J1" id="RFk-SX-Q2b"/>
                         <outlet property="transitionMetal" destination="2aQ-rP-BbU" id="9iG-6q-9DB"/>
-                        <segue destination="S3v-yJ-bVb" kind="showDetail" identifier="finishedSceneTwoGame" id="cOL-9M-bVl"/>
+                        <segue destination="FWf-eu-FKe" kind="show" identifier="identifyElementsGameWIn" id="SnY-zI-Ehk"/>
+                        <segue destination="i8X-Sz-8XG" kind="show" identifier="identifyElementsGameLose" id="orq-5T-Gly"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mVe-KW-IaH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1641,6 +1643,7 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
                             <constraint firstItem="QER-64-gOv" firstAttribute="trailing" secondItem="IpG-ML-dit" secondAttribute="trailing" constant="40" id="zcl-oe-d1s"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="ClN-Xv-SEQ"/>
                     <connections>
                         <outlet property="nextGameButton" destination="43D-K1-zeD" id="u6y-rT-PfC"/>
                         <outlet property="sadLabel" destination="IpG-ML-dit" id="ct1-GK-Cfe"/>
@@ -1649,42 +1652,6 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cub-mN-ssa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-89" y="2753"/>
-        </scene>
-        <!--Play Identify Elements Third View Controller-->
-        <scene sceneID="lqR-cq-4qq">
-            <objects>
-                <viewController modalPresentationStyle="overFullScreen" id="S3v-yJ-bVb" customClass="PlayIdentifyElementsThirdViewController" customModule="CATmistry" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="D43-QL-3ji">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oJy-KV-17H">
-                                <rect key="frame" x="166" y="512" width="58" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Go Back"/>
-                                <connections>
-                                    <action selector="unwindToPlayHomePage:" destination="S3v-yJ-bVb" eventType="touchUpInside" id="8Z5-bM-aIR"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Points Left: " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R1y-Mz-Yoa">
-                                <rect key="frame" x="107" y="201" width="175" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="wif-b8-x0e"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="9pW-Ip-rq0"/>
-                    <connections>
-                        <outlet property="currentPoints" destination="R1y-Mz-Yoa" id="2em-h4-S5Q"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="bfp-4F-sdY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="833.84615384615381" y="2752.6066350710898"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="vSM-Tt-jq0">
@@ -1790,7 +1757,7 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
                     <tabBarItem key="tabBarItem" title="Play" image="gamecontroller.fill" catalog="system" selectedImage="gamecontroller.fill" id="Xs1-53-ugV"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="eFe-la-nb9">
-                        <rect key="frame" x="0.0" y="44" width="390" height="104.33333333333334"/>
+                        <rect key="frame" x="0.0" y="44" width="390" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" red="0.396078431372549" green="0.77647058823529413" blue="0.94117647058823528" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </navigationBar>
@@ -2315,7 +2282,7 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="q0c-Zz-aob" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="jRP-bA-vTs">
-                        <rect key="frame" x="0.0" y="44" width="390" height="104.33333333333334"/>
+                        <rect key="frame" x="0.0" y="44" width="390" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -2331,8 +2298,8 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
     <inferredMetricsTieBreakers>
         <segue reference="eBF-tC-Jy2"/>
         <segue reference="l86-7T-ukz"/>
-        <segue reference="GDV-4V-Yxl"/>
-        <segue reference="1zV-QA-rV2"/>
+        <segue reference="orq-5T-Gly"/>
+        <segue reference="SnY-zI-Ehk"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="books.vertical.fill" catalog="system" width="128" height="100"/>

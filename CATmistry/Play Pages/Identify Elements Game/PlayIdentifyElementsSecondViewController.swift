@@ -199,16 +199,7 @@ class PlayIdentifyElementsSecondViewController: UIViewController {
         {
             progressBarTimer.invalidate()
             progressBarTimer = nil
-            performSegue(withIdentifier: "finishedSceneTwoGame", sender: nil)
-        }
-    }
-    
-    
-    // MARK: - Navigation
-    
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if (segue.identifier == "finishedSceneTwoGame") {
+            
             var isCorrect = false
             var isCorrect2 = false
             switch selectedButton {
@@ -257,10 +248,23 @@ class PlayIdentifyElementsSecondViewController: UIViewController {
             }
             
             if (isCorrect && isCorrect2){
-                
+                performSegue(withIdentifier: "identifyElementsGameWIn", sender: nil)
+            } else {
+                performSegue(withIdentifier: "identifyElementsGameLose", sender: nil)
             }
+            
             let ud = UserDefaults.standard
             ud.set(points, forKey: "points")
+        }
+    }
+    
+    
+    // MARK: - Navigation
+    
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if (segue.identifier == "finishedSceneTwoGame") {
+
         }
     }
 }
