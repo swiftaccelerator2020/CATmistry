@@ -563,32 +563,32 @@ water</string>
                 </panGestureRecognizer>
                 <panGestureRecognizer minimumNumberOfTouches="1" id="nwJ-Pm-rtH">
                     <connections>
-                        <action selector="handlePan:" destination="qsu-L3-DGc" id="3zW-1y-SGk"/>
+                        <action selector="panPiece:" destination="qsu-L3-DGc" id="FPn-wE-dIg"/>
                     </connections>
                 </panGestureRecognizer>
                 <panGestureRecognizer minimumNumberOfTouches="1" id="zqG-kt-skf">
                     <connections>
-                        <action selector="handlePan:" destination="qsu-L3-DGc" id="57r-gi-cEB"/>
+                        <action selector="panPiece:" destination="qsu-L3-DGc" id="2iy-ji-asx"/>
                     </connections>
                 </panGestureRecognizer>
                 <panGestureRecognizer minimumNumberOfTouches="1" id="lTs-ea-sgT">
                     <connections>
-                        <action selector="handlePan:" destination="qsu-L3-DGc" id="zGY-h4-SOR"/>
+                        <action selector="panPiece:" destination="qsu-L3-DGc" id="QQ7-BC-un1"/>
                     </connections>
                 </panGestureRecognizer>
                 <panGestureRecognizer minimumNumberOfTouches="1" id="Yur-r8-SPT">
                     <connections>
-                        <action selector="handlePan:" destination="qsu-L3-DGc" id="AWq-ET-CON"/>
+                        <action selector="panPiece:" destination="qsu-L3-DGc" id="LND-Yk-J2F"/>
                     </connections>
                 </panGestureRecognizer>
                 <panGestureRecognizer minimumNumberOfTouches="1" id="ef6-nR-Tcx">
                     <connections>
-                        <action selector="handlePan:" destination="qsu-L3-DGc" id="Cja-Za-Pw7"/>
+                        <action selector="panPiece:" destination="qsu-L3-DGc" id="B6V-ly-Dax"/>
                     </connections>
                 </panGestureRecognizer>
                 <panGestureRecognizer minimumNumberOfTouches="1" id="ZRp-Li-G6M">
                     <connections>
-                        <action selector="handlePan:" destination="qsu-L3-DGc" id="wpI-yA-fOD"/>
+                        <action selector="panPiece:" destination="qsu-L3-DGc" id="rFI-Uu-RcN"/>
                     </connections>
                 </panGestureRecognizer>
             </objects>
@@ -2358,8 +2358,8 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
     <inferredMetricsTieBreakers>
         <segue reference="eBF-tC-Jy2"/>
         <segue reference="l86-7T-ukz"/>
-        <segue reference="GDV-4V-Yxl"/>
-        <segue reference="1zV-QA-rV2"/>
+        <segue reference="8zc-2j-Gbh"/>
+        <segue reference="xa7-EN-bjL"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="books.vertical.fill" catalog="system" width="128" height="100"/>

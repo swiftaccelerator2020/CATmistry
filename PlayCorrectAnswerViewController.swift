@@ -30,7 +30,6 @@ class PlayCorrectAnswerViewController: UIViewController {
     }
 
     @IBAction func nextGameClicked(_ sender: Any) {
-        print("hi")
         dismiss(animated: true, completion: nil)
     }
 
