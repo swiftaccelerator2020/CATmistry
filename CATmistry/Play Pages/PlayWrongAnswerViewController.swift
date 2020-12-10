@@ -29,7 +29,11 @@ class PlayWrongAnswerViewController: UIViewController {
     }
     
     @IBAction func nextGameClicked(_ sender: Any) {
-        dismiss(animated: true, completion: nil)
+        if (isSeperation != nil){
+            self.presentingViewController?.presentingViewController?.dismiss(animated: true, completion: nil)
+        } else {
+            dismiss(animated: true, completion: nil)
+        }
     }
     
     /*
