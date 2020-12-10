@@ -15,7 +15,6 @@ class PlayRetrieveSolidsDetailsViewController: UIViewController, UITableViewDele
     @IBOutlet weak var seperationTableView: UITableView!
     @IBOutlet weak var choicesTableView: UITableView!
     @IBOutlet weak var selectedChoiceLabel: UIButton!
-    
     @IBOutlet weak var isWrong: UILabel!
     
     override func viewDidLoad() {
@@ -35,6 +34,9 @@ class PlayRetrieveSolidsDetailsViewController: UIViewController, UITableViewDele
         progressView.transform = CGAffineTransform(rotationAngle: .pi / -2)
         progressView.transform = progressView.transform.scaledBy(x: 1, y: 30)
         
+        isWrong.layer.cornerRadius = 25
+        
+        progressView.progress = Float(numOfItems)/10
         // Do any additional setup after loading the view.
     }
     
