@@ -35,6 +35,8 @@ class PlayAdjustPhDetailsViewController: UIViewController {
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var contentView: UIView!
     @IBOutlet weak var submitButton: UIButton!
+    @IBOutlet weak var submitButtonIsVisibleConstraint: NSLayoutConstraint!
+    @IBOutlet weak var submitButtonIsHiddenConstraint: NSLayoutConstraint!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,6 +55,9 @@ class PlayAdjustPhDetailsViewController: UIViewController {
         scrollView.layer.cornerRadius = 15
         contentView.layer.cornerRadius = 15
         submitButton.layer.cornerRadius = 25
+        
+        submitButtonIsVisibleConstraint?.isActive = false
+        submitButtonIsHiddenConstraint?.isActive = true
         
         while phOptionsSet.count < 4 {
             let randomIndex = Int(arc4random_uniform(UInt32(phGameOptionsArray.count)))
@@ -148,8 +153,9 @@ class PlayAdjustPhDetailsViewController: UIViewController {
             indicatorPresent = false
             monsterImageView.image = UIImage(named: "monster-regular.png")
             submitButton.isHidden = true
-            addFirstIndicatorButton.setTitle("Add Universal Indicator", for: .normal
-            )
+            addFirstIndicatorButton.setTitle("Add Universal Indicator", for: .normal)
+            submitButtonIsVisibleConstraint?.isActive = false
+            submitButtonIsHiddenConstraint?.isActive = true
         }
     }
     
@@ -165,6 +171,8 @@ class PlayAdjustPhDetailsViewController: UIViewController {
         chosenOption = 0
         if currentLevel == 0 {
             submitButton.isHidden = false
+            submitButtonIsVisibleConstraint?.isActive = true
+            submitButtonIsHiddenConstraint?.isActive = false
         }
         if currentLevel == 1 {
             checkForCorrectAnswer(whichOption: 0)
@@ -183,6 +191,8 @@ class PlayAdjustPhDetailsViewController: UIViewController {
         chosenOption = 1
         if currentLevel == 0 {
             submitButton.isHidden = false
+            submitButtonIsVisibleConstraint?.isActive = true
+            submitButtonIsHiddenConstraint?.isActive = false
         }
         if currentLevel == 1 {
             checkForCorrectAnswer(whichOption: 1)
@@ -201,6 +211,8 @@ class PlayAdjustPhDetailsViewController: UIViewController {
         chosenOption = 2
         if currentLevel == 0 {
             submitButton.isHidden = false
+            submitButtonIsVisibleConstraint?.isActive = true
+            submitButtonIsHiddenConstraint?.isActive = false
         }
         if currentLevel == 1 {
             checkForCorrectAnswer(whichOption: 2)
@@ -219,6 +231,8 @@ class PlayAdjustPhDetailsViewController: UIViewController {
         chosenOption = 3
         if currentLevel == 0 {
             submitButton.isHidden = false
+            submitButtonIsVisibleConstraint?.isActive = true
+            submitButtonIsHiddenConstraint?.isActive = false
         }
         if currentLevel == 1 {
             checkForCorrectAnswer(whichOption: 3)
