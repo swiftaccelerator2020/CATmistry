@@ -12,6 +12,8 @@ class PlayAdjustPhDetailsViewController: UIViewController {
     var currentLevel = 0
     var currentGame = 0
     var chosenOption = 0
+    var correctGames = 0
+    var wrongGames = 0
     var indicatorPresent = false
     var phOptionsSet = Set<PhOption>()
     var phOptionsArray: Array<PhOption>!
@@ -110,10 +112,12 @@ class PlayAdjustPhDetailsViewController: UIViewController {
     }
     
     func optionCorrect() {
+        correctGames += 1
         performSegue(withIdentifier: "adjustPhCorrect", sender: nil)
     }
     
     func optionWrong() {
+        wrongGames += 1
         performSegue(withIdentifier: "adjustPhWrong", sender: nil)
     }
     

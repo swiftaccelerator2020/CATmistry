@@ -720,44 +720,74 @@ water</string>
                                     <action selector="nextGameClicked:" destination="FWf-eu-FKe" eventType="touchUpInside" id="lEh-tg-p6F"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eoa-4i-m9E">
-                                <rect key="frame" x="40" y="453.33333333333331" width="310" height="182.66666666666669"/>
-                                <string key="text">Congrats!
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Pf-F9-PTX">
+                                <rect key="frame" x="0.0" y="0.0" width="390" height="686"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ApE-zQ-fgG">
+                                        <rect key="frame" x="0.0" y="0.0" width="390" height="680"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="meowster" translatesAutoresizingMaskIntoConstraints="NO" id="Toi-w5-WBS">
+                                                <rect key="frame" x="60" y="202.33333333333337" width="270" height="215"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="215" id="Ugm-fD-FJ3"/>
+                                                </constraints>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uFs-Yh-ieF">
+                                                <rect key="frame" x="40" y="457.33333333333331" width="310" height="182.66666666666669"/>
+                                                <string key="text">Congrats!
 
 Through your hard work, your cat has been able to avoid the danger.
 
 You have \(String(10 - currentGame)) rounds remaining in Level \(String(currentLevel)). Keep up the good work!</string>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="meowster" translatesAutoresizingMaskIntoConstraints="NO" id="vM2-9W-dXt">
-                                <rect key="frame" x="60" y="197.33333333333337" width="270" height="216"/>
-                            </imageView>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="uFs-Yh-ieF" secondAttribute="trailing" constant="40" id="dCL-aB-yhh"/>
+                                            <constraint firstAttribute="height" constant="680" id="gU8-wU-iBt"/>
+                                            <constraint firstItem="Toi-w5-WBS" firstAttribute="leading" secondItem="ApE-zQ-fgG" secondAttribute="leading" constant="60" id="imb-lI-On9"/>
+                                            <constraint firstItem="uFs-Yh-ieF" firstAttribute="leading" secondItem="ApE-zQ-fgG" secondAttribute="leading" constant="40" id="nVV-Ne-dI1"/>
+                                            <constraint firstItem="uFs-Yh-ieF" firstAttribute="top" secondItem="Toi-w5-WBS" secondAttribute="bottom" constant="40" id="oKB-k4-Z7q"/>
+                                            <constraint firstAttribute="bottom" secondItem="uFs-Yh-ieF" secondAttribute="bottom" constant="40" id="wX1-xX-rbY"/>
+                                            <constraint firstAttribute="trailing" secondItem="Toi-w5-WBS" secondAttribute="trailing" constant="60" id="wpq-va-4lG"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="r4A-Mt-oAZ" firstAttribute="top" secondItem="ApE-zQ-fgG" secondAttribute="top" id="4An-gT-Z29"/>
+                                    <constraint firstItem="ApE-zQ-fgG" firstAttribute="bottom" secondItem="r4A-Mt-oAZ" secondAttribute="bottom" id="ENw-J2-UfP"/>
+                                    <constraint firstItem="ApE-zQ-fgG" firstAttribute="leading" secondItem="r4A-Mt-oAZ" secondAttribute="leading" id="OHe-jV-uSC"/>
+                                    <constraint firstItem="ApE-zQ-fgG" firstAttribute="width" secondItem="dN2-tS-5XS" secondAttribute="width" id="r8A-Xm-JG1"/>
+                                    <constraint firstItem="ApE-zQ-fgG" firstAttribute="trailing" secondItem="r4A-Mt-oAZ" secondAttribute="trailing" id="rWP-zT-k6n"/>
+                                </constraints>
+                                <viewLayoutGuide key="contentLayoutGuide" id="r4A-Mt-oAZ"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="dN2-tS-5XS"/>
+                            </scrollView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="0nQ-Ke-gfA"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="0nQ-Ke-gfA" firstAttribute="bottom" secondItem="C3K-84-9kj" secondAttribute="bottom" constant="20" id="6m3-n7-kTr"/>
-                            <constraint firstItem="eoa-4i-m9E" firstAttribute="leading" secondItem="0nQ-Ke-gfA" secondAttribute="leading" constant="40" id="A6c-ve-o0M"/>
-                            <constraint firstItem="0nQ-Ke-gfA" firstAttribute="trailing" secondItem="vM2-9W-dXt" secondAttribute="trailing" constant="60" id="bY8-Qs-vQK"/>
+                            <constraint firstItem="C3K-84-9kj" firstAttribute="top" secondItem="2Pf-F9-PTX" secondAttribute="bottom" id="IS5-Eu-v5c"/>
+                            <constraint firstItem="2Pf-F9-PTX" firstAttribute="top" secondItem="0nQ-Ke-gfA" secondAttribute="top" id="PBg-Me-RJK"/>
+                            <constraint firstItem="2Pf-F9-PTX" firstAttribute="leading" secondItem="0nQ-Ke-gfA" secondAttribute="leading" id="fXe-nf-T2Q"/>
                             <constraint firstItem="C3K-84-9kj" firstAttribute="leading" secondItem="0nQ-Ke-gfA" secondAttribute="leading" constant="40" id="fz8-ZO-y2g"/>
-                            <constraint firstItem="vM2-9W-dXt" firstAttribute="leading" secondItem="0nQ-Ke-gfA" secondAttribute="leading" constant="60" id="l5Z-6x-yk4"/>
                             <constraint firstItem="0nQ-Ke-gfA" firstAttribute="trailing" secondItem="C3K-84-9kj" secondAttribute="trailing" constant="40" id="n4x-gY-Irb"/>
-                            <constraint firstItem="eoa-4i-m9E" firstAttribute="top" secondItem="vM2-9W-dXt" secondAttribute="bottom" constant="40" id="nFF-oh-heI"/>
-                            <constraint firstItem="C3K-84-9kj" firstAttribute="top" secondItem="eoa-4i-m9E" secondAttribute="bottom" constant="50" id="o8r-6w-uWf"/>
-                            <constraint firstItem="0nQ-Ke-gfA" firstAttribute="trailing" secondItem="eoa-4i-m9E" secondAttribute="trailing" constant="40" id="yX1-Pa-9DL"/>
+                            <constraint firstItem="0nQ-Ke-gfA" firstAttribute="trailing" secondItem="2Pf-F9-PTX" secondAttribute="trailing" id="u3V-f2-sCT"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="XIQ-UC-Nlu"/>
                     <connections>
-                        <outlet property="congratsLabel" destination="eoa-4i-m9E" id="NHs-mP-DdP"/>
+                        <outlet property="congratsLabel" destination="uFs-Yh-ieF" id="k0p-FS-U1n"/>
                         <outlet property="nextGameButton" destination="C3K-84-9kj" id="wNk-x4-dcp"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jbW-Je-uDO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1106" y="2753"/>
+            <point key="canvasLocation" x="-1106.1538461538462" y="2752.6066350710898"/>
         </scene>
         <!--Retreive the Solids-->
         <scene sceneID="aPN-6E-YL3">
@@ -1334,27 +1364,6 @@ Given the properties of each Group of the periodic table, select the correct gro
         <!--Play Adjust Ph Details View Controller-->
         <scene sceneID="R0f-XJ-3nM">
             <objects>
-                <tapGestureRecognizer id="Qv3-Od-pxu">
-                    <connections>
-                        <action selector="clickOptionFour:" destination="BaN-EE-YvM" id="wga-r6-IRi"/>
-                    </connections>
-                </tapGestureRecognizer>
-                <tapGestureRecognizer id="f4V-Ns-Ssw">
-                    <connections>
-                        <action selector="clickThirdOption:" destination="BaN-EE-YvM" id="BtO-Vm-V2p"/>
-                    </connections>
-                </tapGestureRecognizer>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="r6k-y5-7Ng" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="6Uc-Nd-UET">
-                    <connections>
-                        <action selector="clickSecondOption:" destination="BaN-EE-YvM" id="rlS-gn-33h"/>
-                    </connections>
-                </tapGestureRecognizer>
-                <tapGestureRecognizer id="I98-Zc-Rob">
-                    <connections>
-                        <action selector="clickOptionOne:" destination="BaN-EE-YvM" id="jHU-zd-eSH"/>
-                    </connections>
-                </tapGestureRecognizer>
                 <viewController id="BaN-EE-YvM" customClass="PlayAdjustPhDetailsViewController" customModule="CATmistry" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="zgd-4l-2Ib">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
@@ -1589,6 +1598,27 @@ click the tick to submit:</string>
                         <segue destination="i8X-Sz-8XG" kind="presentation" identifier="adjustPhWrong" id="GDV-4V-Yxl"/>
                     </connections>
                 </viewController>
+                <tapGestureRecognizer id="Qv3-Od-pxu">
+                    <connections>
+                        <action selector="clickOptionFour:" destination="BaN-EE-YvM" id="wga-r6-IRi"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="f4V-Ns-Ssw">
+                    <connections>
+                        <action selector="clickThirdOption:" destination="BaN-EE-YvM" id="BtO-Vm-V2p"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="r6k-y5-7Ng" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="6Uc-Nd-UET">
+                    <connections>
+                        <action selector="clickSecondOption:" destination="BaN-EE-YvM" id="rlS-gn-33h"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="I98-Zc-Rob">
+                    <connections>
+                        <action selector="clickOptionOne:" destination="BaN-EE-YvM" id="jHU-zd-eSH"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-69.230769230769226" y="2009.7156398104264"/>
         </scene>
@@ -1614,39 +1644,69 @@ click the tick to submit:</string>
                                     <action selector="nextGameClicked:" destination="i8X-Sz-8XG" eventType="touchUpInside" id="rqT-6F-uBd"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IpG-ML-dit">
-                                <rect key="frame" x="40" y="453.33333333333331" width="310" height="182.66666666666669"/>
-                                <string key="text">Oh no!
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Uz9-4H-TWk">
+                                <rect key="frame" x="0.0" y="0.0" width="390" height="686"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GaR-cW-ge6">
+                                        <rect key="frame" x="0.0" y="0.0" width="390" height="680"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iE7-b8-PyK">
+                                                <rect key="frame" x="40" y="457.33333333333331" width="310" height="182.66666666666669"/>
+                                                <string key="text">Oh no!
 
 Your answer was wrong, and your cat died.
 
 Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentGame)) rounds remaining in Level \(String(currentLevel)). Good luck!</string>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="meowster" translatesAutoresizingMaskIntoConstraints="NO" id="2cN-Uc-6g5">
-                                <rect key="frame" x="60" y="197.33333333333337" width="270" height="216"/>
-                            </imageView>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="meowster" translatesAutoresizingMaskIntoConstraints="NO" id="bcK-GK-icA">
+                                                <rect key="frame" x="60" y="202.33333333333337" width="270" height="215"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="215" id="fZj-B7-vJo"/>
+                                                </constraints>
+                                            </imageView>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="680" id="LQB-mD-GL3"/>
+                                            <constraint firstItem="iE7-b8-PyK" firstAttribute="top" secondItem="bcK-GK-icA" secondAttribute="bottom" constant="40" id="PNq-8v-re9"/>
+                                            <constraint firstAttribute="trailing" secondItem="bcK-GK-icA" secondAttribute="trailing" constant="60" id="TMv-ZO-1Lm"/>
+                                            <constraint firstAttribute="trailing" secondItem="iE7-b8-PyK" secondAttribute="trailing" constant="40" id="U5J-V0-z2D"/>
+                                            <constraint firstItem="bcK-GK-icA" firstAttribute="leading" secondItem="GaR-cW-ge6" secondAttribute="leading" constant="60" id="dWl-Jh-wMw"/>
+                                            <constraint firstAttribute="bottom" secondItem="iE7-b8-PyK" secondAttribute="bottom" constant="40" id="iGr-a5-zIR"/>
+                                            <constraint firstItem="iE7-b8-PyK" firstAttribute="leading" secondItem="GaR-cW-ge6" secondAttribute="leading" constant="40" id="jbc-qd-SDr"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="GaR-cW-ge6" firstAttribute="bottom" secondItem="X4a-oi-Fvu" secondAttribute="bottom" id="7xM-z6-HWZ"/>
+                                    <constraint firstItem="GaR-cW-ge6" firstAttribute="width" secondItem="f1f-7S-GYv" secondAttribute="width" id="HmD-9V-Hpt"/>
+                                    <constraint firstItem="GaR-cW-ge6" firstAttribute="trailing" secondItem="X4a-oi-Fvu" secondAttribute="trailing" id="JVi-Of-e6f"/>
+                                    <constraint firstItem="X4a-oi-Fvu" firstAttribute="top" secondItem="GaR-cW-ge6" secondAttribute="top" id="WoT-tO-4PQ"/>
+                                    <constraint firstItem="X4a-oi-Fvu" firstAttribute="leading" secondItem="GaR-cW-ge6" secondAttribute="leading" id="ebh-IA-z6k"/>
+                                </constraints>
+                                <viewLayoutGuide key="contentLayoutGuide" id="X4a-oi-Fvu"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="f1f-7S-GYv"/>
+                            </scrollView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="QER-64-gOv"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="IpG-ML-dit" firstAttribute="leading" secondItem="QER-64-gOv" secondAttribute="leading" constant="40" id="N90-rD-X8n"/>
-                            <constraint firstItem="43D-K1-zeD" firstAttribute="top" secondItem="IpG-ML-dit" secondAttribute="bottom" constant="50" id="Quo-mx-vmg"/>
-                            <constraint firstItem="IpG-ML-dit" firstAttribute="top" secondItem="2cN-Uc-6g5" secondAttribute="bottom" constant="40" id="X9o-gT-x9q"/>
-                            <constraint firstItem="QER-64-gOv" firstAttribute="trailing" secondItem="2cN-Uc-6g5" secondAttribute="trailing" constant="60" id="YnC-HO-kSd"/>
+                            <constraint firstItem="Uz9-4H-TWk" firstAttribute="top" secondItem="QER-64-gOv" secondAttribute="top" id="CsI-cz-u9o"/>
+                            <constraint firstItem="43D-K1-zeD" firstAttribute="top" secondItem="Uz9-4H-TWk" secondAttribute="bottom" id="JWv-nR-cio"/>
                             <constraint firstItem="QER-64-gOv" firstAttribute="trailing" secondItem="43D-K1-zeD" secondAttribute="trailing" constant="40" id="ZHz-oe-kLn"/>
                             <constraint firstItem="43D-K1-zeD" firstAttribute="leading" secondItem="QER-64-gOv" secondAttribute="leading" constant="40" id="aCq-ZR-Ncn"/>
-                            <constraint firstItem="2cN-Uc-6g5" firstAttribute="leading" secondItem="QER-64-gOv" secondAttribute="leading" constant="60" id="aUJ-xc-49i"/>
                             <constraint firstItem="QER-64-gOv" firstAttribute="bottom" secondItem="43D-K1-zeD" secondAttribute="bottom" constant="20" id="g67-5Q-jZe"/>
-                            <constraint firstItem="QER-64-gOv" firstAttribute="trailing" secondItem="IpG-ML-dit" secondAttribute="trailing" constant="40" id="zcl-oe-d1s"/>
+                            <constraint firstItem="Uz9-4H-TWk" firstAttribute="leading" secondItem="QER-64-gOv" secondAttribute="leading" id="pWm-1l-3G4"/>
+                            <constraint firstItem="QER-64-gOv" firstAttribute="trailing" secondItem="Uz9-4H-TWk" secondAttribute="trailing" id="rpr-gw-iz0"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="ClN-Xv-SEQ"/>
                     <connections>
                         <outlet property="nextGameButton" destination="43D-K1-zeD" id="u6y-rT-PfC"/>
-                        <outlet property="sadLabel" destination="IpG-ML-dit" id="ct1-GK-Cfe"/>
+                        <outlet property="sadLabel" destination="iE7-b8-PyK" id="hw0-Wf-OHr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cub-mN-ssa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1757,7 +1817,7 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
                     <tabBarItem key="tabBarItem" title="Play" image="gamecontroller.fill" catalog="system" selectedImage="gamecontroller.fill" id="Xs1-53-ugV"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="eFe-la-nb9">
-                        <rect key="frame" x="0.0" y="44" width="390" height="96"/>
+                        <rect key="frame" x="0.0" y="44" width="390" height="104.33333333333334"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" red="0.396078431372549" green="0.77647058823529413" blue="0.94117647058823528" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </navigationBar>
@@ -1903,7 +1963,7 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
                                 <rect key="frame" x="0.0" y="533.66666666666663" width="390" height="227.33333333333337"/>
                                 <subviews>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="P1S-kZ-JzO">
-                                        <rect key="frame" x="0.0" y="0.0" width="390" height="227.33333333333331"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="390" height="227"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <prototypes>
@@ -2282,7 +2342,7 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="q0c-Zz-aob" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="jRP-bA-vTs">
-                        <rect key="frame" x="0.0" y="44" width="390" height="96"/>
+                        <rect key="frame" x="0.0" y="44" width="390" height="104.33333333333334"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -2298,8 +2358,8 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
     <inferredMetricsTieBreakers>
         <segue reference="eBF-tC-Jy2"/>
         <segue reference="l86-7T-ukz"/>
-        <segue reference="orq-5T-Gly"/>
-        <segue reference="SnY-zI-Ehk"/>
+        <segue reference="GDV-4V-Yxl"/>
+        <segue reference="1zV-QA-rV2"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="books.vertical.fill" catalog="system" width="128" height="100"/>
