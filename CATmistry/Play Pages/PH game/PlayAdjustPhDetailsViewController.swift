@@ -13,6 +13,8 @@ class PlayAdjustPhDetailsViewController: UIViewController {
     var currentGame = 0
     var chosenOption = 0
     var indicatorPresent = false
+    var phOptionsSet: Set<PhOption>!
+    var phOptionsArray: Array<PhOption>!
     
     @IBOutlet weak var addFirstIndicatorButton: UIButton!
     @IBOutlet weak var monsterImageView: UIImageView!
@@ -45,47 +47,61 @@ class PlayAdjustPhDetailsViewController: UIViewController {
         fourthOptionStackView.layer.masksToBounds = true
         fourthOptionStackView.layer.cornerRadius = 15
         
-        let phOptionPath = phGameArray[currentLevel][currentGame]
+        while phOptionsSet.count < 4 {
+            let randomIndex = Int(arc4random_uniform(UInt32(phGameOptionsArray.count)))
+            phOptionsSet.insert(phGameOptionsArray[randomIndex])
+        }
         
-        firstOptionImageView.image = UIImage(named: phOptionPath.options[0].image)
-        secondOptionImageView.image = UIImage(named: phOptionPath.options[1].image)
-        thirdOptionImageView.image = UIImage(named: phOptionPath.options[2].image)
-        fourthOptionImageView.image = UIImage(named: phOptionPath.options[3].image)
+        phOptionsArray = Array(phOptionsSet)
         
-        firstOptionLabel.text = phOptionPath.options[0].name
-        secondOptionLabel.text = phOptionPath.options[1].name
-        thirdOptionLabel.text = phOptionPath.options[2].name
-        fourthOptionLabel.text = phOptionPath.options[3].name
+        firstOptionImageView.image = UIImage(named: phOptionsArray[0].image)
+        secondOptionImageView.image = UIImage(named: phOptionsArray[1].image)
+        thirdOptionImageView.image = UIImage(named: phOptionsArray[2].image)
+        fourthOptionImageView.image = UIImage(named: phOptionsArray[3].image)
+        
+        firstOptionLabel.text = phOptionsArray[0].name
+        secondOptionLabel.text = phOptionsArray[1].name
+        thirdOptionLabel.text = phOptionsArray[2].name
+        fourthOptionLabel.text = phOptionsArray[3].name
     }
     
     func checkForCorrectAnswer(whichOption: Int) {
         if phGameArray[currentLevel].count != currentGame - 1 {
             currentGame += 1
+        } else {
+            currentGame = 0
         }
+        
+        phOptionsSet = []
+        
+        while phOptionsSet.count < 4 {
+            let randomIndex = Int(arc4random_uniform(UInt32(phGameOptionsArray.count)))
+            phOptionsSet.insert(phGameOptionsArray[randomIndex])
+        }
+        
+        phOptionsArray = Array(phOptionsSet)
         
         submitButton.isHidden = true
         monsterImageView.image = UIImage(named: "monster-regular.png")
         
-        let phOptionPath = phGameArray[currentLevel][currentGame]
+        firstOptionImageView.image = UIImage(named: phOptionsArray[0].image)
+        secondOptionImageView.image = UIImage(named: phOptionsArray[1].image)
+        thirdOptionImageView.image = UIImage(named: phOptionsArray[2].image)
+        fourthOptionImageView.image = UIImage(named: phOptionsArray[3].image)
         
-        firstOptionImageView.image = UIImage(named: phOptionPath.options[0].image)
-        secondOptionImageView.image = UIImage(named: phOptionPath.options[1].image)
-        thirdOptionImageView.image = UIImage(named: phOptionPath.options[2].image)
-        fourthOptionImageView.image = UIImage(named: phOptionPath.options[3].image)
-        
-        firstOptionLabel.text = phOptionPath.options[0].name
-        secondOptionLabel.text = phOptionPath.options[1].name
-        thirdOptionLabel.text = phOptionPath.options[2].name
-        fourthOptionLabel.text = phOptionPath.options[3].name
+        firstOptionLabel.text = phOptionsArray[0].name
+        secondOptionLabel.text = phOptionsArray[1].name
+        thirdOptionLabel.text = phOptionsArray[2].name
+        fourthOptionLabel.text = phOptionsArray[3].name
         
         if phGameArray[currentLevel][currentGame].startIsAcidic == true {
-            if phGameArray[currentLevel][currentGame].options[whichOption].isAcidic == false {
+            if phOptionsArray[whichOption].isAcidic == false {
                 optionCorrect()
             } else {
                 optionWrong()
             }
         } else if phGameArray[currentLevel][currentGame].startIsAcidic == false {
-            if phGameArray[currentLevel][currentGame].options[whichOption].isAcidic == true {
+            if phOptionsArray[whichOption].isAcidic == true {
                 optionCorrect()
             } else {
                 optionWrong()
@@ -125,7 +141,7 @@ class PlayAdjustPhDetailsViewController: UIViewController {
         thirdOptionStackView.backgroundColor = UIColor.white
         fourthOptionStackView.backgroundColor = UIColor.white
         if indicatorPresent == true {
-            monsterImageView.image = UIImage(named: phGameArray[currentLevel][currentGame].options[0].turnUniversalTankColour)
+            monsterImageView.image = UIImage(named: phGameOptionsArray[0].turnUniversalTankColour)
             addFirstIndicatorButton.setTitle("Reset", for: .normal)
         }
         chosenOption = 0
@@ -143,7 +159,7 @@ class PlayAdjustPhDetailsViewController: UIViewController {
         thirdOptionStackView.backgroundColor = UIColor.white
         fourthOptionStackView.backgroundColor = UIColor.white
         if indicatorPresent == true {
-            monsterImageView.image = UIImage(named: phGameArray[currentLevel][currentGame].options[1].turnUniversalTankColour)
+            monsterImageView.image = UIImage(named: phOptionsArray[1].turnUniversalTankColour)
             addFirstIndicatorButton.setTitle("Reset", for: .normal)
         }
         chosenOption = 1
@@ -161,7 +177,7 @@ class PlayAdjustPhDetailsViewController: UIViewController {
         thirdOptionStackView.backgroundColor = UIColor(red: 88/255, green: 214/255, blue: 141/255, alpha: 1)
         fourthOptionStackView.backgroundColor = UIColor.white
         if indicatorPresent == true {
-            monsterImageView.image = UIImage(named: phGameArray[currentLevel][currentGame].options[2].turnUniversalTankColour)
+            monsterImageView.image = UIImage(named: phOptionsArray[2].turnUniversalTankColour)
             addFirstIndicatorButton.setTitle("Reset", for: .normal)
         }
         chosenOption = 2
@@ -179,7 +195,7 @@ class PlayAdjustPhDetailsViewController: UIViewController {
         thirdOptionStackView.backgroundColor = UIColor.white
         fourthOptionStackView.backgroundColor = UIColor(red: 88/255, green: 214/255, blue: 141/255, alpha: 1)
         if indicatorPresent == true {
-            monsterImageView.image = UIImage(named: phGameArray[currentLevel][currentGame].options[3].turnUniversalTankColour)
+            monsterImageView.image = UIImage(named: phOptionsArray[3].turnUniversalTankColour)
             addFirstIndicatorButton.setTitle("Reset", for: .normal)
         }
         chosenOption = 3

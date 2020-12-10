@@ -101,18 +101,24 @@ struct SeperationMethods {
 
 struct PhGame {
     var startIsAcidic: Bool
-    var options: Array<PhOption> = [phGameOptionsArray.randomElement()!, phGameOptionsArray.randomElement()!, phGameOptionsArray.randomElement()!, phGameOptionsArray.randomElement()!]
     var indicatorButtonText: String? = nil
 }
 
-struct PhOption {
+struct PhOption: Hashable {
     var name: String
     var image: String
     var turnUniversalTankColour: String
     var isAcidic: Bool? = true
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(name)
+        hasher.combine(image)
+        hasher.combine(turnUniversalTankColour)
+        hasher.combine(isAcidic)
+    }
 }
 
-struct periodicTableGame{
+struct periodicTableGame {
     var properties: String
     var correctAns1: Int
     var correctAns2: Int

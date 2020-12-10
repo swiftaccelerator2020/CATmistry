@@ -1334,6 +1334,27 @@ Given the properties of each Group of the periodic table, select the correct gro
         <!--Play Adjust Ph Details View Controller-->
         <scene sceneID="R0f-XJ-3nM">
             <objects>
+                <tapGestureRecognizer id="Qv3-Od-pxu">
+                    <connections>
+                        <action selector="clickOptionFour:" destination="BaN-EE-YvM" id="wga-r6-IRi"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="f4V-Ns-Ssw">
+                    <connections>
+                        <action selector="clickThirdOption:" destination="BaN-EE-YvM" id="BtO-Vm-V2p"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="r6k-y5-7Ng" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="6Uc-Nd-UET">
+                    <connections>
+                        <action selector="clickSecondOption:" destination="BaN-EE-YvM" id="rlS-gn-33h"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="I98-Zc-Rob">
+                    <connections>
+                        <action selector="clickOptionOne:" destination="BaN-EE-YvM" id="jHU-zd-eSH"/>
+                    </connections>
+                </tapGestureRecognizer>
                 <viewController id="BaN-EE-YvM" customClass="PlayAdjustPhDetailsViewController" customModule="CATmistry" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="zgd-4l-2Ib">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
@@ -1568,27 +1589,6 @@ click the tick to submit:</string>
                         <segue destination="i8X-Sz-8XG" kind="presentation" identifier="adjustPhWrong" id="GDV-4V-Yxl"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="r6k-y5-7Ng" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="I98-Zc-Rob">
-                    <connections>
-                        <action selector="clickOptionOne:" destination="BaN-EE-YvM" id="jHU-zd-eSH"/>
-                    </connections>
-                </tapGestureRecognizer>
-                <tapGestureRecognizer id="6Uc-Nd-UET">
-                    <connections>
-                        <action selector="clickSecondOption:" destination="BaN-EE-YvM" id="rlS-gn-33h"/>
-                    </connections>
-                </tapGestureRecognizer>
-                <tapGestureRecognizer id="f4V-Ns-Ssw">
-                    <connections>
-                        <action selector="clickThirdOption:" destination="BaN-EE-YvM" id="BtO-Vm-V2p"/>
-                    </connections>
-                </tapGestureRecognizer>
-                <tapGestureRecognizer id="Qv3-Od-pxu">
-                    <connections>
-                        <action selector="clickOptionFour:" destination="BaN-EE-YvM" id="wga-r6-IRi"/>
-                    </connections>
-                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-69.230769230769226" y="2009.7156398104264"/>
         </scene>
@@ -1903,19 +1903,19 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
                                 <rect key="frame" x="0.0" y="533.66666666666663" width="390" height="227.33333333333337"/>
                                 <subviews>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="P1S-kZ-JzO">
-                                        <rect key="frame" x="0.0" y="0.0" width="390" height="227"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="390" height="227.33333333333331"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <prototypes>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="subSubTopicCell" rowHeight="80" id="DhD-Xs-JgC" customClass="SubSubTopicTableViewCell" customModule="CATmistry" customModuleProvider="target">
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="subSubTopicCell" rowHeight="80" id="DhD-Xs-JgC" customClass="SubSubTopicTableViewCell" customModule="CATmistry" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="28" width="390" height="80"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="DhD-Xs-JgC" id="R3D-ma-UJe">
-                                                    <rect key="frame" x="0.0" y="0.0" width="358.66666666666669" height="80"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="390" height="80"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rMy-wE-i7c">
-                                                            <rect key="frame" x="15" y="15" width="313.66666666666669" height="50"/>
+                                                            <rect key="frame" x="15" y="15" width="345" height="50"/>
                                                             <subviews>
                                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lock" translatesAutoresizingMaskIntoConstraints="NO" id="Pzg-7N-0ey">
                                                                     <rect key="frame" x="0.0" y="0.0" width="80" height="50"/>
@@ -1925,7 +1925,7 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
                                                                     </constraints>
                                                                 </imageView>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PxR-Ji-98i">
-                                                                    <rect key="frame" x="79.999999999999986" y="0.0" width="233.66666666666663" height="50"/>
+                                                                    <rect key="frame" x="80" y="0.0" width="265" height="50"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
