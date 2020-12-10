@@ -121,10 +121,10 @@ class PlayRetrieveSolidsDetailsViewController: UIViewController, UITableViewDele
         }
         if (progressView.progress <= 0) {
             // win
-            performSegue(withIdentifier: "", sender: nil)
+            performSegue(withIdentifier: "seperationGameWIn", sender: nil)
         } else if (progressView.progress >= 1) {
             // lose
-            performSegue(withIdentifier: "", sender: nil)
+            performSegue(withIdentifier: "seperationGameLose", sender: nil)
         }
         seperationTableView.reloadData()
         let seconds = 4.0
@@ -133,14 +133,22 @@ class PlayRetrieveSolidsDetailsViewController: UIViewController, UITableViewDele
         }
     }
     
-    /*
+    
      // MARK: - Navigation
      
      // In a storyboard-based application, you will often want to do a little preparation before navigation
      override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if (segue.identifier == "seperationGameLose"){
+            let dest = segue.destination as! PlayWrongAnswerViewController
+            dest.isSeperation = true
+        }
+        if (segue.identifier == "seperationGameWIn"){
+            let dest = segue.destination as! PlayCorrectAnswerViewController
+            dest.isSeperation = true
+        }
      // Get the new view controller using segue.destination.
      // Pass the selected object to the new view controller.
      }
-     */
+     
     
 }
