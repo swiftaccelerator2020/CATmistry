@@ -125,15 +125,11 @@ class PlayRetrieveSolidsDetailsViewController: UIViewController, UITableViewDele
         }
         if (progressView.progress <= 0) {
             // win
-            points += 10
-            let ud = UserDefaults.standard
-            ud.set(points, forKey: "points")
+            changePoints(10)
             performSegue(withIdentifier: "seperationGameWIn", sender: nil)
         } else if (progressView.progress >= 1) {
             // lose
-            points -= 2
-            let ud = UserDefaults.standard
-            ud.set(points, forKey: "points")
+            changePoints(-2)
             performSegue(withIdentifier: "seperationGameLose", sender: nil)
         }
         seperationTableView.reloadData()

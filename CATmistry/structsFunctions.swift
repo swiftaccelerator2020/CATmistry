@@ -215,11 +215,7 @@ var gasTestsGameArray = [
     // LEVEL 3
     [GasTestGame(firstGasTank: "Hydrogen", secondGasTank: "Oxygen", thirdGasTank: "Carbon Dioxide", fourthGasTank: "Ammonia", correctGasTank: "Hydrogen"),]
 ]
-/*
- var sperationMethods = [
- specificSeperationMethod(picture: "1.png", name: "HALO", properties: "NO AIOAHSJNFKdcxz")
- ]
- */
+
 var phGameArray = [
     // LEVEL 1
     [
@@ -324,3 +320,12 @@ var retrieveSolidsArray = [
     specificSeperationMethod(name: "ii", properties: "filter", givenMethods: GivenSeperationMethods(methods: [SeperationMethods(methodName: "N.A", isCorrect: false),SeperationMethods(methodName: "Correct", isCorrect: true)])),
     specificSeperationMethod(name: "jj", properties: "filter", givenMethods: GivenSeperationMethods(methods: [SeperationMethods(methodName: "N.A", isCorrect: false),SeperationMethods(methodName: "Correct", isCorrect: true)]))
 ]
+
+func changePoints(_ valueChanged: Int){
+    points += valueChanged
+    if (points < 0) {
+        points = 0
+    }
+    let ud = UserDefaults.standard
+    ud.set(points, forKey: "points")
+}
