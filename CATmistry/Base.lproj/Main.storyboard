@@ -17,15 +17,15 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="learnChapterCell" rowHeight="80" id="KFz-G0-V3q" customClass="LearnHomePageTableViewCell" customModule="CATmistry" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="learnChapterCell" rowHeight="80" id="KFz-G0-V3q" customClass="LearnHomePageTableViewCell" customModule="CATmistry" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="390" height="80"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="KFz-G0-V3q" id="X5X-A7-gev">
-                                    <rect key="frame" x="0.0" y="0.0" width="390" height="80"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="358.66666666666669" height="80"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4m7-mb-Cp1">
-                                            <rect key="frame" x="15" y="15" width="345" height="50"/>
+                                            <rect key="frame" x="15" y="15" width="313.66666666666669" height="50"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lock" translatesAutoresizingMaskIntoConstraints="NO" id="CIJ-cd-Ogd">
                                                     <rect key="frame" x="0.0" y="0.0" width="80" height="50"/>
@@ -35,16 +35,16 @@
                                                     </constraints>
                                                 </imageView>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="LK0-0e-rlw">
-                                                    <rect key="frame" x="80" y="0.0" width="265" height="50"/>
+                                                    <rect key="frame" x="79.999999999999986" y="0.0" width="233.66666666666663" height="50"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FgN-en-35b">
-                                                            <rect key="frame" x="0.0" y="0.0" width="265" height="32"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="233.66666666666666" height="32"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Bp-q5-3M4">
-                                                            <rect key="frame" x="0.0" y="32" width="265" height="18"/>
+                                                            <rect key="frame" x="0.0" y="32" width="233.66666666666666" height="18"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -1812,15 +1812,15 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="learnChapterCell" rowHeight="80" id="lWc-H3-uHu" customClass="LearnHomePageTableViewCell" customModule="CATmistry" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="learnChapterCell" rowHeight="80" id="lWc-H3-uHu" customClass="LearnHomePageTableViewCell" customModule="CATmistry" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="390" height="80"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="lWc-H3-uHu" id="QcU-y6-tPg">
-                                    <rect key="frame" x="0.0" y="0.0" width="390" height="80"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="358.66666666666669" height="80"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KUT-Bu-RTy">
-                                            <rect key="frame" x="15" y="15" width="345" height="50"/>
+                                            <rect key="frame" x="15" y="15" width="313.66666666666669" height="50"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lock" translatesAutoresizingMaskIntoConstraints="NO" id="jxA-Ri-3FN">
                                                     <rect key="frame" x="0.0" y="0.0" width="80" height="50"/>
@@ -1830,7 +1830,7 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ttA-VK-tYY">
-                                                    <rect key="frame" x="80" y="0.0" width="265" height="50"/>
+                                                    <rect key="frame" x="79.999999999999986" y="0.0" width="233.66666666666663" height="50"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -1940,15 +1940,15 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <prototypes>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="subSubTopicCell" rowHeight="80" id="DhD-Xs-JgC" customClass="SubSubTopicTableViewCell" customModule="CATmistry" customModuleProvider="target">
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="subSubTopicCell" rowHeight="80" id="DhD-Xs-JgC" customClass="SubSubTopicTableViewCell" customModule="CATmistry" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="28" width="390" height="80"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="DhD-Xs-JgC" id="R3D-ma-UJe">
-                                                    <rect key="frame" x="0.0" y="0.0" width="390" height="80"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="358.66666666666669" height="80"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rMy-wE-i7c">
-                                                            <rect key="frame" x="15" y="15" width="345" height="50"/>
+                                                            <rect key="frame" x="15" y="15" width="313.66666666666669" height="50"/>
                                                             <subviews>
                                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lock" translatesAutoresizingMaskIntoConstraints="NO" id="Pzg-7N-0ey">
                                                                     <rect key="frame" x="0.0" y="0.0" width="80" height="50"/>
@@ -1958,7 +1958,7 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
                                                                     </constraints>
                                                                 </imageView>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PxR-Ji-98i">
-                                                                    <rect key="frame" x="80" y="0.0" width="265" height="50"/>
+                                                                    <rect key="frame" x="79.999999999999986" y="0.0" width="233.66666666666663" height="50"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
@@ -2182,10 +2182,10 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
             </objects>
             <point key="canvasLocation" x="2240" y="508"/>
         </scene>
-        <!--Learnsub-->
+        <!--Navigation Controller-->
         <scene sceneID="xbT-8M-oNT">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="q3o-0B-mYz" customClass="learnsub" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="q3o-0B-mYz" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="FaB-d6-X5c"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="wEn-aq-CEr">
