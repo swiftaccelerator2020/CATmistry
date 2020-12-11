@@ -2068,16 +2068,16 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
                                 <rect key="frame" x="0.0" y="140" width="390" height="621"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mVw-ph-Zlg">
-                                        <rect key="frame" x="0.0" y="0.0" width="390" height="700"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="390" height="850"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ASq-R7-EIf">
-                                                <rect key="frame" x="25" y="25.000000000000007" width="340" height="107.66666666666669"/>
+                                                <rect key="frame" x="25" y="25" width="340" height="257.66666666666669"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="SYZ-WC-ALx">
-                                                <rect key="frame" x="25" y="162.66666666666669" width="340" height="280"/>
+                                                <rect key="frame" x="25" y="312.66666666666669" width="340" height="280.00000000000006"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ruL-5t-Hew">
                                                         <rect key="frame" x="0.0" y="0.0" width="340" height="20"/>
@@ -2121,7 +2121,7 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="7aQ-Kb-rIM">
-                                                        <rect key="frame" x="0.0" y="110" width="340" height="170"/>
+                                                        <rect key="frame" x="0.0" y="109.99999999999994" width="340" height="170"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="170" id="FtG-tu-kGa"/>
                                                         </constraints>
@@ -2129,7 +2129,7 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a9P-V4-qKv">
-                                                <rect key="frame" x="0.0" y="472.66666666666657" width="390" height="227.33333333333331"/>
+                                                <rect key="frame" x="0.0" y="622.66666666666663" width="390" height="227.33333333333337"/>
                                                 <subviews>
                                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Jm5-uT-0GT">
                                                         <rect key="frame" x="0.0" y="0.0" width="390" height="227.33333333333334"/>
@@ -2189,7 +2189,7 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
                                             <constraint firstItem="SYZ-WC-ALx" firstAttribute="top" secondItem="ASq-R7-EIf" secondAttribute="bottom" constant="30" id="4Nh-ne-Yio"/>
                                             <constraint firstAttribute="trailing" secondItem="a9P-V4-qKv" secondAttribute="trailing" id="4nS-bT-ElI"/>
                                             <constraint firstItem="a9P-V4-qKv" firstAttribute="top" secondItem="SYZ-WC-ALx" secondAttribute="bottom" constant="30" id="5tn-YG-yNa"/>
-                                            <constraint firstAttribute="height" constant="700" id="J34-1h-Z45"/>
+                                            <constraint firstAttribute="height" constant="850" id="J34-1h-Z45"/>
                                             <constraint firstItem="ASq-R7-EIf" firstAttribute="top" secondItem="mVw-ph-Zlg" secondAttribute="top" constant="25" id="NPd-76-mQ1"/>
                                             <constraint firstAttribute="bottom" secondItem="a9P-V4-qKv" secondAttribute="bottom" id="Ne6-IM-4HQ"/>
                                             <constraint firstAttribute="trailing" secondItem="ASq-R7-EIf" secondAttribute="trailing" constant="25" id="WvU-R8-0nC"/>
