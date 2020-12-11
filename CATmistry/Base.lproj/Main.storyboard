@@ -1392,7 +1392,7 @@ Given the properties of each Group of the periodic table, select the correct gro
                                 </constraints>
                             </imageView>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AeW-Ro-PBg">
-                                <rect key="frame" x="25" y="94" width="340" height="233"/>
+                                <rect key="frame" x="25" y="104" width="340" height="223"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Inh-Cc-vSE">
                                         <rect key="frame" x="0.0" y="0.0" width="340" height="311"/>
@@ -1594,10 +1594,10 @@ scroll down to submit</string>
                                 <viewLayoutGuide key="frameLayoutGuide" id="KxI-MU-1H9"/>
                             </scrollView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="20:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="28d-ID-N6R">
-                                <rect key="frame" x="120" y="54" width="150" height="30"/>
+                                <rect key="frame" x="120" y="54" width="150" height="40"/>
                                 <color key="backgroundColor" red="0.20392156859999999" green="0.28627450980000002" blue="0.36862745099999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="qDM-fL-5CK"/>
+                                    <constraint firstAttribute="height" constant="40" id="qDM-fL-5CK"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
