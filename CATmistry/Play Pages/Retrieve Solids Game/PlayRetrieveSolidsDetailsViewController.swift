@@ -15,6 +15,7 @@ class PlayRetrieveSolidsDetailsViewController: UIViewController, UITableViewDele
     var isCorrect: Bool?
     var numOfItems = 4
     var currentLevel = 0
+    var progressBarTimer: Timer!
     var specificSeperationMethodSet = Set<specificSeperationMethod>()
     var elements: Array<specificSeperationMethod>!
     
