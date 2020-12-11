@@ -773,7 +773,7 @@ You have \(String(10 - currentGame)) rounds remaining in Level \(String(currentL
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="9mQ-Tq-Ae0"/>
                                 </constraints>
-                                <state key="normal" title="Restart"/>
+                                <state key="normal" title="Go Back Home"/>
                                 <connections>
                                     <action selector="restartClicked:" destination="FWf-eu-FKe" eventType="touchUpInside" id="GTX-7S-Y9O"/>
                                 </connections>
@@ -797,6 +797,7 @@ You have \(String(10 - currentGame)) rounds remaining in Level \(String(currentL
                     <navigationItem key="navigationItem" id="XIQ-UC-Nlu"/>
                     <connections>
                         <outlet property="congratsLabel" destination="uFs-Yh-ieF" id="k0p-FS-U1n"/>
+                        <outlet property="goHomeButton" destination="22Z-Jz-Qff" id="m19-Pa-zZy"/>
                         <outlet property="nextGameButton" destination="C3K-84-9kj" id="wNk-x4-dcp"/>
                     </connections>
                 </viewController>
@@ -1829,7 +1830,7 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="5ho-gn-QFT"/>
                                 </constraints>
-                                <state key="normal" title="Restart"/>
+                                <state key="normal" title="Go Back Home"/>
                                 <connections>
                                     <action selector="restartClicked:" destination="i8X-Sz-8XG" eventType="touchUpInside" id="tWn-vj-eaM"/>
                                 </connections>
@@ -1866,6 +1867,7 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
                     </view>
                     <navigationItem key="navigationItem" id="ClN-Xv-SEQ"/>
                     <connections>
+                        <outlet property="goHomeButton" destination="sa9-fd-6Og" id="vzy-EP-1Wm"/>
                         <outlet property="nextGameButton" destination="43D-K1-zeD" id="u6y-rT-PfC"/>
                         <outlet property="sadLabel" destination="iE7-b8-PyK" id="4pp-AL-4xt"/>
                     </connections>

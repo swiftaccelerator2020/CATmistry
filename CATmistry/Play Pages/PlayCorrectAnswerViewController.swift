@@ -16,6 +16,7 @@ class PlayCorrectAnswerViewController: UIViewController {
     
     @IBOutlet weak var nextGameButton: UIButton!
     @IBOutlet weak var congratsLabel: UILabel!
+    @IBOutlet weak var goHomeButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,6 +27,11 @@ class PlayCorrectAnswerViewController: UIViewController {
             congratsLabel.text = "Yay good job you saved the cat!"
         } else {
             congratsLabel.text = "Congrats! \n\nThrough your hard work, your cat has been able to avoid the danger. \n\nYou have \(String(9 - currentGame)) rounds remaining in Level \(String(currentLevel + 1)). Keep up the good work!"
+        }
+        
+        if 9 - self.currentGame == 0 {
+            nextGameButton.setTitle("Go Back Home", for: .normal)
+            goHomeButton.setTitle("Restart", for: .normal)
         }
         
         let confettiView = SwiftConfettiView(frame: self.view.bounds)
@@ -45,7 +51,10 @@ class PlayCorrectAnswerViewController: UIViewController {
     }
     
     @IBAction func restartClicked(_ sender: Any) {
-        let alert = UIAlertController(title: "Are you sure you would like to restart?", message: "All progress wil be lost, and you will be taken to the start page of this game.", preferredStyle: .alert)
+        var alert = UIAlertController(title: "Are you sure you would like to go home?", message: "All game progress wil be lost, and you will be taken to the start page of this game.", preferredStyle: .alert)
+        if 9 - currentGame == 0 {
+            alert = UIAlertController(title: "Are you sure you would like to restart?", message: "You will not go to the start page, but will instead play the 10 rounds of Level \(String(currentLevel)) again.", preferredStyle: .alert)
+        }
         alert.addAction(UIAlertAction(title: "Continue", style: UIAlertAction.Style.default, handler: { action in
             if 9 - self.currentGame == 0 {
                 self.presentingViewController?.presentingViewController?.dismiss(animated: true, completion: nil)
