@@ -9,7 +9,16 @@ import UIKit
 
 class PlayRetrieveSolidsDetailsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
+    // MARK: - Variable Declaration
+    
+    var selectedElement: Int?
+    var isCorrect: Bool?
+    var numOfItems = 4
     var currentLevel = 0
+    var specificSeperationMethodSet = Set<specificSeperationMethod>()
+    var elements: Array<specificSeperationMethod>!
+    
+    // MARK: - IBOutlets Declaration
     
     @IBOutlet weak var progressView: UIProgressView!
     @IBOutlet weak var seperationTableView: UITableView!
@@ -40,20 +49,6 @@ class PlayRetrieveSolidsDetailsViewController: UIViewController, UITableViewDele
         // Do any additional setup after loading the view.
     }
     
-    //var elements: [specificSeperationMethod]!
-    var elements = [
-        retrieveSolidsArray.randomElement(),
-        retrieveSolidsArray.randomElement(),
-        retrieveSolidsArray.randomElement(),
-        retrieveSolidsArray.randomElement(),
-        retrieveSolidsArray.randomElement(),
-        retrieveSolidsArray.randomElement(),
-        retrieveSolidsArray.randomElement(),
-        retrieveSolidsArray.randomElement(),
-        retrieveSolidsArray.randomElement(),
-        retrieveSolidsArray.randomElement()
-    ]
-    
     // MARK: - First Table View
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -64,11 +59,11 @@ class PlayRetrieveSolidsDetailsViewController: UIViewController, UITableViewDele
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if (tableView == self.seperationTableView){
             let cell = tableView.dequeueReusableCell(withIdentifier: "loremIpsum", for: indexPath)
-            cell.textLabel?.text = "\(elements[indexPath.row]!.name) - \(elements[indexPath.row]!.properties)"
+            cell.textLabel?.text = "\(elements[indexPath.row].name) - \(elements[indexPath.row].properties)"
             return cell
         } else if (tableView == choicesTableView) {
             let cell = tableView.dequeueReusableCell(withIdentifier: "loremIpsum2", for: indexPath)
-            cell.textLabel?.text = elements[selectedElement!]!.givenMethods.methods[indexPath.row].methodName
+            cell.textLabel?.text = elements[selectedElement!].givenMethods.methods[indexPath.row].methodName
             return cell
         } else {
             return UITableViewCell()
@@ -81,7 +76,7 @@ class PlayRetrieveSolidsDetailsViewController: UIViewController, UITableViewDele
             return numOfItems
         } else if (tableView == choicesTableView){
             if (selectedElement != nil){
-                return elements[selectedElement!]!.givenMethods.methods.count
+                return elements[selectedElement!].givenMethods.methods.count
             } else {
                 return 0
             }
@@ -90,10 +85,6 @@ class PlayRetrieveSolidsDetailsViewController: UIViewController, UITableViewDele
         }
     }
     
-    var selectedElement: Int?
-    var isCorrect: Bool?
-    var numOfItems = 4
-    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if (tableView == seperationTableView){
             selectedElement = indexPath.row
@@ -101,8 +92,8 @@ class PlayRetrieveSolidsDetailsViewController: UIViewController, UITableViewDele
             selectedChoiceLabel.isHidden = true
             choicesTableView.reloadData()
         } else if (tableView == choicesTableView){
-            selectedChoiceLabel.setTitle("Submit: \(elements[selectedElement!]!.givenMethods.methods[indexPath.row].methodName)", for: .normal)
-            isCorrect = elements[selectedElement!]!.givenMethods.methods[indexPath.row].isCorrect
+            selectedChoiceLabel.setTitle("Submit: \(elements[selectedElement!].givenMethods.methods[indexPath.row].methodName)", for: .normal)
+            isCorrect = elements[selectedElement!].givenMethods.methods[indexPath.row].isCorrect
             selectedChoiceLabel.isHidden = false
             tableView.deselectRow(at: indexPath, animated: true)
             index = indexPath.row
