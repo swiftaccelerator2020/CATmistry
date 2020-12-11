@@ -1907,7 +1907,7 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
                 <navigationController id="8Us-es-0oa" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Learn" image="books.vertical.fill" catalog="system" selectedImage="books.vertical.fill" id="ZOw-bY-pdm"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="OvI-u8-jpf">
-                        <rect key="frame" x="0.0" y="44" width="390" height="96"/>
+                        <rect key="frame" x="0.0" y="44" width="390" height="104.33333333333334"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" red="0.95419245959999999" green="0.83945876360000005" blue="0.47016263009999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </navigationBar>
@@ -2065,7 +2065,7 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XVC-Ig-NQi">
-                                <rect key="frame" x="0.0" y="88" width="390" height="673"/>
+                                <rect key="frame" x="0.0" y="148.33333333333331" width="390" height="612.66666666666652"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mVw-ph-Zlg">
                                         <rect key="frame" x="0.0" y="0.0" width="390" height="850"/>
@@ -2257,7 +2257,7 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
                                         <rect key="frame" x="0.0" y="0.0" width="390" height="613"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="cNd-RL-8tW">
-                                                <rect key="frame" x="40" y="20" width="310" height="200"/>
+                                                <rect key="frame" x="20" y="20" width="350" height="200"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="200" id="tBe-EN-Jlq"/>
                                                 </constraints>
@@ -2352,14 +2352,14 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
                                         <constraints>
                                             <constraint firstItem="gbb-p3-Sjw" firstAttribute="top" secondItem="cNd-RL-8tW" secondAttribute="bottom" priority="900" constant="30" id="7z7-1X-SGN"/>
                                             <constraint firstItem="tTe-N0-8NH" firstAttribute="top" secondItem="ZON-sx-e8W" secondAttribute="bottom" constant="30" id="9pa-K7-Ozd"/>
-                                            <constraint firstAttribute="trailing" secondItem="cNd-RL-8tW" secondAttribute="trailing" constant="40" id="Ngv-lV-AV6"/>
+                                            <constraint firstAttribute="trailing" secondItem="cNd-RL-8tW" secondAttribute="trailing" constant="20" id="Ngv-lV-AV6"/>
                                             <constraint firstItem="tTe-N0-8NH" firstAttribute="leading" secondItem="zMu-Qc-3rs" secondAttribute="leading" constant="25" id="PKC-eS-631"/>
                                             <constraint firstAttribute="trailing" secondItem="ZON-sx-e8W" secondAttribute="trailing" constant="25" id="Zo6-xx-UgC"/>
                                             <constraint firstItem="WwZ-6m-8G3" firstAttribute="top" secondItem="cNd-RL-8tW" secondAttribute="bottom" constant="20" id="aS0-kf-gmG"/>
                                             <constraint firstAttribute="trailing" secondItem="WwZ-6m-8G3" secondAttribute="trailing" constant="25" id="ehW-4s-uNX"/>
                                             <constraint firstAttribute="trailing" secondItem="gbb-p3-Sjw" secondAttribute="trailing" constant="25" id="fdU-ji-zsj"/>
                                             <constraint firstItem="WwZ-6m-8G3" firstAttribute="leading" secondItem="zMu-Qc-3rs" secondAttribute="leading" constant="25" id="hDS-Zt-igV"/>
-                                            <constraint firstItem="cNd-RL-8tW" firstAttribute="leading" secondItem="zMu-Qc-3rs" secondAttribute="leading" constant="40" id="i0i-TR-pJh"/>
+                                            <constraint firstItem="cNd-RL-8tW" firstAttribute="leading" secondItem="zMu-Qc-3rs" secondAttribute="leading" constant="20" id="i0i-TR-pJh"/>
                                             <constraint firstItem="gbb-p3-Sjw" firstAttribute="top" secondItem="WwZ-6m-8G3" secondAttribute="bottom" constant="20" id="iMW-49-HaL"/>
                                             <constraint firstItem="gbb-p3-Sjw" firstAttribute="leading" secondItem="zMu-Qc-3rs" secondAttribute="leading" constant="25" id="kye-xR-8M4"/>
                                             <constraint firstItem="cYj-Ro-1Mx" firstAttribute="leading" secondItem="zMu-Qc-3rs" secondAttribute="leading" constant="25" id="loQ-U3-xGW"/>
@@ -2436,7 +2436,7 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="FaB-d6-X5c"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="wEn-aq-CEr">
-                        <rect key="frame" x="0.0" y="44" width="390" height="96"/>
+                        <rect key="frame" x="0.0" y="44" width="390" height="104.33333333333334"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
