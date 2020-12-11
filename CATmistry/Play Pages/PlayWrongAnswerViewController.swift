@@ -31,6 +31,8 @@ class PlayWrongAnswerViewController: UIViewController {
     @IBAction func nextGameClicked(_ sender: Any) {
         if (isSeperation != nil){
             self.presentingViewController?.presentingViewController?.dismiss(animated: true, completion: nil)
+        } else if 9 - currentGame == 0 {
+            self.presentingViewController?.presentingViewController?.dismiss(animated: true, completion: nil)
         } else {
             dismiss(animated: true, completion: nil)
         }
@@ -39,10 +41,11 @@ class PlayWrongAnswerViewController: UIViewController {
     @IBAction func restartClicked(_ sender: Any) {
         let alert = UIAlertController(title: "Are you sure you would like to restart?", message: "All progress wil be lost, and you will be taken to the start page of this game.", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Continue", style: UIAlertAction.Style.default, handler: { action in
-            self.tabBarController?.tabBar.isHidden = false
-            self.navigationController?.setNavigationBarHidden(false, animated: false)
-            
-            self.presentingViewController?.presentingViewController?.dismiss(animated: true, completion: nil)
+            if 9 - self.currentGame == 0 {
+                self.presentingViewController?.presentingViewController?.dismiss(animated: true, completion: nil)
+            } else {
+                self.dismiss(animated: true, completion: nil)
+            }
         }))
         alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel, handler: nil))
         self.present(alert, animated: true, completion: nil)
