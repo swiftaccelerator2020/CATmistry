@@ -1566,10 +1566,10 @@ scroll down to submit</string>
                                         <color key="backgroundColor" red="0.49154669049999999" green="0.67839610579999998" blue="0.84290921689999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="trailing" secondItem="6eE-28-Muh" secondAttribute="trailing" constant="15" id="1cK-Vv-whH"/>
+                                            <constraint firstAttribute="bottom" secondItem="2qY-s9-PTk" secondAttribute="bottom" priority="900" constant="15" id="2Re-Rb-Fx7"/>
                                             <constraint firstItem="bc4-W0-z7E" firstAttribute="top" secondItem="Inh-Cc-vSE" secondAttribute="top" constant="15" id="4xs-TK-IJo"/>
                                             <constraint firstAttribute="height" constant="311" id="8OR-Xo-isP"/>
                                             <constraint firstItem="2qY-s9-PTk" firstAttribute="top" secondItem="6eE-28-Muh" secondAttribute="bottom" constant="18" id="8Wb-ct-Z1l"/>
-                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" priority="900" constant="243" id="FXI-uS-bsN"/>
                                             <constraint firstAttribute="trailing" secondItem="tHs-2v-5WT" secondAttribute="trailing" constant="40" id="L2h-vZ-rXH"/>
                                             <constraint firstItem="tHs-2v-5WT" firstAttribute="leading" secondItem="Inh-Cc-vSE" secondAttribute="leading" constant="40" id="Nyg-FZ-AjT"/>
                                             <constraint firstItem="6eE-28-Muh" firstAttribute="leading" secondItem="Inh-Cc-vSE" secondAttribute="leading" constant="15" id="Szp-JC-vjB"/>
@@ -1616,6 +1616,7 @@ scroll down to submit</string>
                     <connections>
                         <outlet property="addFirstIndicatorButton" destination="bc4-W0-z7E" id="5Ae-QV-dYf"/>
                         <outlet property="contentView" destination="Inh-Cc-vSE" id="Xfj-FI-9DM"/>
+                        <outlet property="contentViewHeight" destination="8OR-Xo-isP" id="zjf-w2-YeW"/>
                         <outlet property="firstOptionImageView" destination="pcs-4x-bWN" id="ENb-Gr-GTK"/>
                         <outlet property="firstOptionLabel" destination="tTe-ft-SBp" id="XOo-Bu-rdG"/>
                         <outlet property="firstOptionStackView" destination="JY8-Y2-m9m" id="H6u-d0-2BE"/>
@@ -1628,8 +1629,8 @@ scroll down to submit</string>
                         <outlet property="secondOptionLabel" destination="vI7-OP-NZn" id="8Nv-8X-ST2"/>
                         <outlet property="secondOptionStackView" destination="SMD-0O-mXJ" id="jXF-rg-THJ"/>
                         <outlet property="submitButton" destination="tHs-2v-5WT" id="fCe-3c-oup"/>
-                        <outlet property="submitButtonIsHiddenConstraint" destination="FXI-uS-bsN" id="rHa-B0-JLn"/>
-                        <outlet property="submitButtonIsVisibleConstraint" destination="8OR-Xo-isP" id="tO4-7P-aF0"/>
+                        <outlet property="submitButtonIsHiddenConstraint" destination="2Re-Rb-Fx7" id="lvb-d7-MS6"/>
+                        <outlet property="submitButtonIsVisibleConstraint" destination="wTU-co-i4A" id="d4u-7w-Vqo"/>
                         <outlet property="thirdOptionImageView" destination="4r0-oT-BIz" id="Uuf-aL-3cU"/>
                         <outlet property="thirdOptionLabel" destination="FFs-H5-s0k" id="gix-iM-wB3"/>
                         <outlet property="thirdOptionStackView" destination="SY4-DI-2yI" id="DN1-OI-q3B"/>
@@ -2453,8 +2454,8 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
     <inferredMetricsTieBreakers>
         <segue reference="s4T-H5-cTx"/>
         <segue reference="l86-7T-ukz"/>
-        <segue reference="8zc-2j-Gbh"/>
-        <segue reference="xa7-EN-bjL"/>
+        <segue reference="GDV-4V-Yxl"/>
+        <segue reference="1zV-QA-rV2"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="books.vertical.fill" catalog="system" width="128" height="100"/>

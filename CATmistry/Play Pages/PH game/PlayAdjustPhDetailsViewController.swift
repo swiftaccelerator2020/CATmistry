@@ -35,8 +35,9 @@ class PlayAdjustPhDetailsViewController: UIViewController {
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var contentView: UIView!
     @IBOutlet weak var submitButton: UIButton!
-    @IBOutlet var submitButtonIsVisibleConstraint: NSLayoutConstraint!
-    @IBOutlet var submitButtonIsHiddenConstraint: NSLayoutConstraint!
+    @IBOutlet weak var contentViewHeight: NSLayoutConstraint!
+    @IBOutlet weak var submitButtonIsVisibleConstraint: NSLayoutConstraint!
+    @IBOutlet weak var submitButtonIsHiddenConstraint: NSLayoutConstraint!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -56,6 +57,8 @@ class PlayAdjustPhDetailsViewController: UIViewController {
         contentView.layer.cornerRadius = 15
         submitButton.layer.cornerRadius = 25
         
+        contentViewHeight.constant -= 68
+        self.view.layoutIfNeeded()
         submitButtonIsVisibleConstraint?.isActive = false
         submitButtonIsHiddenConstraint?.isActive = true
         
@@ -77,6 +80,134 @@ class PlayAdjustPhDetailsViewController: UIViewController {
         fourthOptionLabel.text = phOptionsArray[3].name
     }
     
+    @IBAction func clickAddUniversalIndicator(_ sender: Any) {
+        if indicatorPresent == false {
+            indicatorPresent = true
+            addFirstIndicatorButton.setTitle("Reset", for: .normal)
+            if phGameArray[currentLevel][currentGame].startIsAcidic == true {
+                monsterImageView.image = UIImage(named: phGameAcidicUniversalStartColour)
+            } else {
+                monsterImageView.image = UIImage(named: phGameAlkalinUniversalStartColour)
+            }
+        } else {
+            if submitButton.isHidden == false {
+                contentViewHeight.constant -= 68
+                self.view.layoutIfNeeded()
+                submitButtonIsVisibleConstraint?.isActive = false
+                submitButtonIsHiddenConstraint?.isActive = true
+            }
+            firstOptionStackView.backgroundColor = UIColor.white
+            secondOptionStackView.backgroundColor = UIColor.white
+            thirdOptionStackView.backgroundColor = UIColor.white
+            fourthOptionStackView.backgroundColor = UIColor.white
+            indicatorPresent = false
+            monsterImageView.image = UIImage(named: "monster-regular.png")
+            submitButton.isHidden = true
+            addFirstIndicatorButton.setTitle("Add Universal Indicator", for: .normal)
+        }
+    }
+    
+    @IBAction func clickOptionOne(_ sender: Any) {
+        firstOptionStackView.backgroundColor = UIColor(red: 88/255, green: 214/255, blue: 141/255, alpha: 1)
+        secondOptionStackView.backgroundColor = UIColor.white
+        thirdOptionStackView.backgroundColor = UIColor.white
+        fourthOptionStackView.backgroundColor = UIColor.white
+        if indicatorPresent == true {
+            monsterImageView.image = UIImage(named: phGameOptionsArray[0].turnUniversalTankColour)
+            addFirstIndicatorButton.setTitle("Reset", for: .normal)
+        }
+        chosenOption = 0
+        if currentLevel == 0 {
+            submitButton.isHidden = false
+            submitButtonIsVisibleConstraint?.isActive = true
+            submitButtonIsHiddenConstraint?.isActive = false
+            if contentViewHeight.constant != 311 {
+                contentViewHeight.constant += 68
+                self.view.layoutIfNeeded()
+            }
+        }
+        if currentLevel == 1 {
+            checkForCorrectAnswer(whichOption: 0)
+        }
+    }
+    
+    @IBAction func clickSecondOption(_ sender: Any) {
+        firstOptionStackView.backgroundColor = UIColor.white
+        secondOptionStackView.backgroundColor = UIColor(red: 88/255, green: 214/255, blue: 141/255, alpha: 1)
+        thirdOptionStackView.backgroundColor = UIColor.white
+        fourthOptionStackView.backgroundColor = UIColor.white
+        if indicatorPresent == true {
+            monsterImageView.image = UIImage(named: phOptionsArray[1].turnUniversalTankColour)
+            addFirstIndicatorButton.setTitle("Reset", for: .normal)
+        }
+        chosenOption = 1
+        if currentLevel == 0 {
+            submitButton.isHidden = false
+            submitButtonIsVisibleConstraint?.isActive = true
+            submitButtonIsHiddenConstraint?.isActive = false
+            if contentViewHeight.constant != 311 {
+                contentViewHeight.constant += 68
+                self.view.layoutIfNeeded()
+            }
+        }
+        if currentLevel == 1 {
+            checkForCorrectAnswer(whichOption: 1)
+        }
+    }
+    
+    @IBAction func clickThirdOption(_ sender: Any) {
+        firstOptionStackView.backgroundColor = UIColor.white
+        secondOptionStackView.backgroundColor = UIColor.white
+        thirdOptionStackView.backgroundColor = UIColor(red: 88/255, green: 214/255, blue: 141/255, alpha: 1)
+        fourthOptionStackView.backgroundColor = UIColor.white
+        if indicatorPresent == true {
+            monsterImageView.image = UIImage(named: phOptionsArray[2].turnUniversalTankColour)
+            addFirstIndicatorButton.setTitle("Reset", for: .normal)
+        }
+        chosenOption = 2
+        if currentLevel == 0 {
+            submitButton.isHidden = false
+            submitButtonIsVisibleConstraint?.isActive = true
+            submitButtonIsHiddenConstraint?.isActive = false
+            if contentViewHeight.constant != 311 {
+                contentViewHeight.constant += 68
+                self.view.layoutIfNeeded()
+            }
+        }
+        if currentLevel == 1 {
+            checkForCorrectAnswer(whichOption: 2)
+        }
+    }
+    
+    @IBAction func clickOptionFour(_ sender: Any) {
+        firstOptionStackView.backgroundColor = UIColor.white
+        secondOptionStackView.backgroundColor = UIColor.white
+        thirdOptionStackView.backgroundColor = UIColor.white
+        fourthOptionStackView.backgroundColor = UIColor(red: 88/255, green: 214/255, blue: 141/255, alpha: 1)
+        if indicatorPresent == true {
+            monsterImageView.image = UIImage(named: phOptionsArray[3].turnUniversalTankColour)
+            addFirstIndicatorButton.setTitle("Reset", for: .normal)
+        }
+        chosenOption = 3
+        if currentLevel == 0 {
+            submitButton.isHidden = false
+            submitButtonIsVisibleConstraint?.isActive = true
+            submitButtonIsHiddenConstraint?.isActive = false
+            if contentViewHeight.constant != 311 {
+                contentViewHeight.constant += 68
+                self.view.layoutIfNeeded()
+            }
+        }
+        if currentLevel == 1 {
+            checkForCorrectAnswer(whichOption: 3)
+        }
+    }
+    
+    @IBAction func clickSubmit(_ sender: Any) {
+        checkForCorrectAnswer(whichOption: chosenOption)
+    }
+    
+    // Other Functions
     func checkForCorrectAnswer(whichOption: Int) {
         print(phOptionsArray[whichOption])
         
@@ -138,109 +269,6 @@ class PlayAdjustPhDetailsViewController: UIViewController {
     func optionWrong() {
         wrongGames += 1
         performSegue(withIdentifier: "adjustPhWrong", sender: nil)
-    }
-    
-    @IBAction func clickAddUniversalIndicator(_ sender: Any) {
-        if indicatorPresent == false {
-            indicatorPresent = true
-            addFirstIndicatorButton.setTitle("Reset", for: .normal)
-            if phGameArray[currentLevel][currentGame].startIsAcidic == true {
-                monsterImageView.image = UIImage(named: phGameAcidicUniversalStartColour)
-            } else {
-                monsterImageView.image = UIImage(named: phGameAlkalinUniversalStartColour)
-            }
-        } else {
-            indicatorPresent = false
-            monsterImageView.image = UIImage(named: "monster-regular.png")
-            submitButton.isHidden = true
-            addFirstIndicatorButton.setTitle("Add Universal Indicator", for: .normal)
-            submitButtonIsVisibleConstraint?.isActive = false
-            submitButtonIsHiddenConstraint?.isActive = true
-        }
-    }
-    
-    @IBAction func clickOptionOne(_ sender: Any) {
-        firstOptionStackView.backgroundColor = UIColor(red: 88/255, green: 214/255, blue: 141/255, alpha: 1)
-        secondOptionStackView.backgroundColor = UIColor.white
-        thirdOptionStackView.backgroundColor = UIColor.white
-        fourthOptionStackView.backgroundColor = UIColor.white
-        if indicatorPresent == true {
-            monsterImageView.image = UIImage(named: phGameOptionsArray[0].turnUniversalTankColour)
-            addFirstIndicatorButton.setTitle("Reset", for: .normal)
-        }
-        chosenOption = 0
-        if currentLevel == 0 {
-            submitButton.isHidden = false
-            submitButtonIsVisibleConstraint?.isActive = true
-            submitButtonIsHiddenConstraint?.isActive = false
-        }
-        if currentLevel == 1 {
-            checkForCorrectAnswer(whichOption: 0)
-        }
-    }
-    
-    @IBAction func clickSecondOption(_ sender: Any) {
-        firstOptionStackView.backgroundColor = UIColor.white
-        secondOptionStackView.backgroundColor = UIColor(red: 88/255, green: 214/255, blue: 141/255, alpha: 1)
-        thirdOptionStackView.backgroundColor = UIColor.white
-        fourthOptionStackView.backgroundColor = UIColor.white
-        if indicatorPresent == true {
-            monsterImageView.image = UIImage(named: phOptionsArray[1].turnUniversalTankColour)
-            addFirstIndicatorButton.setTitle("Reset", for: .normal)
-        }
-        chosenOption = 1
-        if currentLevel == 0 {
-            submitButton.isHidden = false
-            submitButtonIsVisibleConstraint?.isActive = true
-            submitButtonIsHiddenConstraint?.isActive = false
-        }
-        if currentLevel == 1 {
-            checkForCorrectAnswer(whichOption: 1)
-        }
-    }
-    
-    @IBAction func clickThirdOption(_ sender: Any) {
-        firstOptionStackView.backgroundColor = UIColor.white
-        secondOptionStackView.backgroundColor = UIColor.white
-        thirdOptionStackView.backgroundColor = UIColor(red: 88/255, green: 214/255, blue: 141/255, alpha: 1)
-        fourthOptionStackView.backgroundColor = UIColor.white
-        if indicatorPresent == true {
-            monsterImageView.image = UIImage(named: phOptionsArray[2].turnUniversalTankColour)
-            addFirstIndicatorButton.setTitle("Reset", for: .normal)
-        }
-        chosenOption = 2
-        if currentLevel == 0 {
-            submitButton.isHidden = false
-            submitButtonIsVisibleConstraint?.isActive = true
-            submitButtonIsHiddenConstraint?.isActive = false
-        }
-        if currentLevel == 1 {
-            checkForCorrectAnswer(whichOption: 2)
-        }
-    }
-    
-    @IBAction func clickOptionFour(_ sender: Any) {
-        firstOptionStackView.backgroundColor = UIColor.white
-        secondOptionStackView.backgroundColor = UIColor.white
-        thirdOptionStackView.backgroundColor = UIColor.white
-        fourthOptionStackView.backgroundColor = UIColor(red: 88/255, green: 214/255, blue: 141/255, alpha: 1)
-        if indicatorPresent == true {
-            monsterImageView.image = UIImage(named: phOptionsArray[3].turnUniversalTankColour)
-            addFirstIndicatorButton.setTitle("Reset", for: .normal)
-        }
-        chosenOption = 3
-        if currentLevel == 0 {
-            submitButton.isHidden = false
-            submitButtonIsVisibleConstraint?.isActive = true
-            submitButtonIsHiddenConstraint?.isActive = false
-        }
-        if currentLevel == 1 {
-            checkForCorrectAnswer(whichOption: 3)
-        }
-    }
-    
-    @IBAction func clickSubmit(_ sender: Any) {
-        checkForCorrectAnswer(whichOption: chosenOption)
     }
     
     
