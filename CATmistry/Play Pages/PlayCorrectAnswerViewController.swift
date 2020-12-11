@@ -25,7 +25,7 @@ class PlayCorrectAnswerViewController: UIViewController {
         if (isSeperation != nil){
             congratsLabel.text = "Yay good job you saved the cat!"
         } else {
-            congratsLabel.text = "Congrats! \n\nThrough your hard work, your cat has been able to avoid the danger. \n\nYou have \(String(10 - currentGame)) rounds remaining in Level \(String(currentLevel + 1)). Keep up the good work!"
+            congratsLabel.text = "Congrats! \n\nThrough your hard work, your cat has been able to avoid the danger. \n\nYou have \(String(9 - currentGame)) rounds remaining in Level \(String(currentLevel + 1)). Keep up the good work!"
         }
 
         let confettiView = SwiftConfettiView(frame: self.view.bounds)
