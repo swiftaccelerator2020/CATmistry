@@ -1594,13 +1594,12 @@ scroll down to submit</string>
                                 <viewLayoutGuide key="frameLayoutGuide" id="KxI-MU-1H9"/>
                             </scrollView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="20:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="28d-ID-N6R">
-                                <rect key="frame" x="120" y="54" width="150" height="40"/>
-                                <color key="backgroundColor" red="0.20392156859999999" green="0.28627450980000002" blue="0.36862745099999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <rect key="frame" x="25" y="54" width="340" height="40"/>
+                                <color key="backgroundColor" red="0.49411764705882355" green="0.67837697269999997" blue="0.85103112459999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="qDM-fL-5CK"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -1610,11 +1609,11 @@ scroll down to submit</string>
                             <constraint firstItem="msP-Zd-VFr" firstAttribute="top" secondItem="AeW-Ro-PBg" secondAttribute="bottom" constant="50" id="92s-Xy-JdZ"/>
                             <constraint firstItem="RPe-Dj-FCT" firstAttribute="trailing" secondItem="bFr-oV-Tnu" secondAttribute="trailing" id="AXo-OR-wfO"/>
                             <constraint firstItem="bFr-oV-Tnu" firstAttribute="top" secondItem="msP-Zd-VFr" secondAttribute="bottom" id="Be8-Vr-HhZ"/>
-                            <constraint firstItem="RPe-Dj-FCT" firstAttribute="trailing" secondItem="28d-ID-N6R" secondAttribute="trailing" constant="120" id="EVU-cQ-yfm"/>
+                            <constraint firstItem="RPe-Dj-FCT" firstAttribute="trailing" secondItem="28d-ID-N6R" secondAttribute="trailing" constant="25" id="EVU-cQ-yfm"/>
                             <constraint firstAttribute="bottom" secondItem="gE9-gI-nJZ" secondAttribute="bottom" id="HmQ-iT-TNb"/>
                             <constraint firstItem="RPe-Dj-FCT" firstAttribute="trailing" secondItem="gE9-gI-nJZ" secondAttribute="trailing" id="KXx-Rh-26G"/>
                             <constraint firstItem="28d-ID-N6R" firstAttribute="top" secondItem="RPe-Dj-FCT" secondAttribute="top" constant="10" id="LuS-bl-DP2"/>
-                            <constraint firstItem="28d-ID-N6R" firstAttribute="leading" secondItem="RPe-Dj-FCT" secondAttribute="leading" constant="120" id="Vj8-Fb-Hls"/>
+                            <constraint firstItem="28d-ID-N6R" firstAttribute="leading" secondItem="RPe-Dj-FCT" secondAttribute="leading" constant="25" id="Vj8-Fb-Hls"/>
                             <constraint firstItem="RPe-Dj-FCT" firstAttribute="trailing" secondItem="msP-Zd-VFr" secondAttribute="trailing" constant="50" id="bHd-Eq-ZB3"/>
                             <constraint firstItem="bFr-oV-Tnu" firstAttribute="leading" secondItem="RPe-Dj-FCT" secondAttribute="leading" id="gbc-o7-fZR"/>
                             <constraint firstItem="AeW-Ro-PBg" firstAttribute="leading" secondItem="RPe-Dj-FCT" secondAttribute="leading" constant="25" id="gpo-CP-vIt"/>
@@ -1798,7 +1797,7 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
                 <navigationController id="8Us-es-0oa" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Learn" image="books.vertical.fill" catalog="system" selectedImage="books.vertical.fill" id="ZOw-bY-pdm"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="OvI-u8-jpf">
-                        <rect key="frame" x="0.0" y="44" width="390" height="104.33333333333334"/>
+                        <rect key="frame" x="0.0" y="44" width="390" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" red="0.95419245959999999" green="0.83945876360000005" blue="0.47016263009999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </navigationBar>
@@ -2468,8 +2467,8 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
     <inferredMetricsTieBreakers>
         <segue reference="s4T-H5-cTx"/>
         <segue reference="l86-7T-ukz"/>
-        <segue reference="orq-5T-Gly"/>
-        <segue reference="SnY-zI-Ehk"/>
+        <segue reference="GDV-4V-Yxl"/>
+        <segue reference="1zV-QA-rV2"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="books.vertical.fill" catalog="system" width="128" height="100"/>
