@@ -56,11 +56,7 @@ class PlayCorrectAnswerViewController: UIViewController {
             alert = UIAlertController(title: "Are you sure you would like to restart?", message: "You will not go to the start page, but will instead play the 10 rounds of Level \(String(currentLevel)) again.", preferredStyle: .alert)
         }
         alert.addAction(UIAlertAction(title: "Continue", style: UIAlertAction.Style.default, handler: { action in
-            if 9 - self.currentGame == 0 {
-                self.presentingViewController?.presentingViewController?.dismiss(animated: true, completion: nil)
-            } else {
-                self.dismiss(animated: true, completion: nil)
-            }
+            self.presentingViewController?.presentingViewController?.dismiss(animated: true, completion: nil)
         }))
         alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel, handler: nil))
         self.present(alert, animated: true, completion: nil)

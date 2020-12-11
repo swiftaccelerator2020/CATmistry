@@ -797,7 +797,7 @@ You have \(String(10 - currentGame)) rounds remaining in Level \(String(currentL
                     <navigationItem key="navigationItem" id="XIQ-UC-Nlu"/>
                     <connections>
                         <outlet property="congratsLabel" destination="uFs-Yh-ieF" id="k0p-FS-U1n"/>
-                        <outlet property="goHomeButton" destination="22Z-Jz-Qff" id="m19-Pa-zZy"/>
+                        <outlet property="goHomeButton" destination="22Z-Jz-Qff" id="ZsW-A2-MM8"/>
                         <outlet property="nextGameButton" destination="C3K-84-9kj" id="wNk-x4-dcp"/>
                     </connections>
                 </viewController>
