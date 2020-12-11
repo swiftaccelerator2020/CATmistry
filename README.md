@@ -8,8 +8,6 @@
 [![GitHub issues](https://img.shields.io/github/issues/swiftaccelerator2020/CATmistry)](https://github.com/swiftaccelerator2020/issues)
 [![GitHub pull requests](https://img.shields.io/github/issues-pr/swiftaccelerator2020/CATmistry)](https://github.com/swiftaccelerator2020/pull)
 
-[![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://github.com/swiftaccelerator2020/CATmistry/graphs/commit-activity)
-
 CATmistry was built to aid upper primary to lower secondary school students in their Chemistry learning journey. As many other Chemistry apps currently present in the market cater largely to the undergrad/professional market, we find that there is a lack of such apps tailored to the needs of the younger population. CATmistry aims to convey relatively simple Chemistry concepts in a simple and concise manner that would be the most suitable for our target age group. Alongside the learn and information sections are mini-games and interactive elements to provide for a fun and engaging learning experience.
 
 CATmistry was built as part of our project for the Swift Accelerators' Programme.
