@@ -31,11 +31,17 @@ class PlayRetrieveSolidsDetailsViewController: UIViewController, UITableViewDele
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if (hardMode) {
-            let color = UIColor(rgb: 0xFF0000)
+        if (currentLevel == 2){
+            hardMode = true
+        } else {
+            hardMode = false
+        }
+        
+        if (!hardMode) {
+            let color = UIColor(rgb: 0x7CC2F5)
             self.view.backgroundColor = color
         } else {
-            let color = UIColor(rgb: 0x7CC2F5)
+            let color = UIColor(rgb: 0xFF0000)
             self.view.backgroundColor = color
         }
         
@@ -64,9 +70,25 @@ class PlayRetrieveSolidsDetailsViewController: UIViewController, UITableViewDele
         
         elements = Array(specificSeperationMethodSet)
         
+        self.progressBarTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(PlayRetrieveSolidsDetailsViewController.updateProgressView), userInfo: nil, repeats: true)
+
+        
         // Do any additional setup after loading the view.
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        
+        let color = UIColor(rgb: 0xFF0000)
+        let darkRed = UIColor(rgb: 0xCC0000)
+        self.view.backgroundColor = color
+
+        if (hardMode) {
+            UIView.animate(withDuration: 1, delay: 0.0, options:[UIView.AnimationOptions.repeat, UIView.AnimationOptions.autoreverse], animations: {
+                 self.view.backgroundColor = color
+                 self.view.backgroundColor = darkRed
+            }, completion: nil)
+        }
+    }
     // MARK: - First Table View
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -154,6 +176,10 @@ class PlayRetrieveSolidsDetailsViewController: UIViewController, UITableViewDele
         }
     }
     
+    @objc func updateProgressView(){
+        numOfItems += 1
+        progressView.progress += 0.1
+    }
     
     // MARK: - Navigation
     
@@ -175,19 +201,19 @@ class PlayRetrieveSolidsDetailsViewController: UIViewController, UITableViewDele
 }
 
 extension UIColor {
-   convenience init(red: Int, green: Int, blue: Int) {
-       assert(red >= 0 && red <= 255, "Invalid red component")
-       assert(green >= 0 && green <= 255, "Invalid green component")
-       assert(blue >= 0 && blue <= 255, "Invalid blue component")
-
-       self.init(red: CGFloat(red) / 255.0, green: CGFloat(green) / 255.0, blue: CGFloat(blue) / 255.0, alpha: 1.0)
-   }
-
-   convenience init(rgb: Int) {
-       self.init(
-           red: (rgb >> 16) & 0xFF,
-           green: (rgb >> 8) & 0xFF,
-           blue: rgb & 0xFF
-       )
-   }
+    convenience init(red: Int, green: Int, blue: Int) {
+        assert(red >= 0 && red <= 255, "Invalid red component")
+        assert(green >= 0 && green <= 255, "Invalid green component")
+        assert(blue >= 0 && blue <= 255, "Invalid blue component")
+        
+        self.init(red: CGFloat(red) / 255.0, green: CGFloat(green) / 255.0, blue: CGFloat(blue) / 255.0, alpha: 1.0)
+    }
+    
+    convenience init(rgb: Int) {
+        self.init(
+            red: (rgb >> 16) & 0xFF,
+            green: (rgb >> 8) & 0xFF,
+            blue: rgb & 0xFF
+        )
+    }
 }

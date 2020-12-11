@@ -887,9 +887,9 @@ Separate all the elements in his beaker or the wizard will cast a spell on your 
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="xQb-T1-JaO">
                                 <rect key="frame" x="100" y="515" width="190" height="32"/>
                                 <segments>
-                                    <segment title="1"/>
-                                    <segment title="2"/>
-                                    <segment title="3"/>
+                                    <segment title="Normal"/>
+                                    <segment title="Hard"/>
+                                    <segment title="Extreme"/>
                                 </segments>
                                 <connections>
                                     <action selector="levelClicked:" destination="0jR-6D-YOT" eventType="valueChanged" id="USY-Bq-vmG"/>
@@ -2436,7 +2436,7 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="FaB-d6-X5c"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="wEn-aq-CEr">
-                        <rect key="frame" x="0.0" y="44" width="390" height="96"/>
+                        <rect key="frame" x="0.0" y="44" width="390" height="104.33333333333334"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
