@@ -18,6 +18,7 @@ class PlayRetrieveSolidsDetailsViewController: UIViewController, UITableViewDele
     var progressBarTimer: Timer!
     var specificSeperationMethodSet = Set<specificSeperationMethod>()
     var elements: Array<specificSeperationMethod>!
+    var hardMode = true
     
     // MARK: - IBOutlets Declaration
     
@@ -29,6 +30,14 @@ class PlayRetrieveSolidsDetailsViewController: UIViewController, UITableViewDele
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if (hardMode) {
+            let color = UIColor(rgb: 0xFF0000)
+            self.view.backgroundColor = color
+        } else {
+            let color = UIColor(rgb: 0x7CC2F5)
+            self.view.backgroundColor = color
+        }
         
         seperationTableView.dataSource = self
         seperationTableView.delegate = self
@@ -47,6 +56,14 @@ class PlayRetrieveSolidsDetailsViewController: UIViewController, UITableViewDele
         isWrong.layer.cornerRadius = 25
         
         progressView.progress = Float(numOfItems)/10
+        
+        while specificSeperationMethodSet.count < 4 {
+            let randomIndex = Int(arc4random_uniform(UInt32(retrieveSolidsArray.count)))
+            specificSeperationMethodSet.insert(retrieveSolidsArray[randomIndex])
+        }
+        
+        elements = Array(specificSeperationMethodSet)
+        
         // Do any additional setup after loading the view.
     }
     
@@ -151,4 +168,22 @@ class PlayRetrieveSolidsDetailsViewController: UIViewController, UITableViewDele
     }
     
     
+}
+
+extension UIColor {
+   convenience init(red: Int, green: Int, blue: Int) {
+       assert(red >= 0 && red <= 255, "Invalid red component")
+       assert(green >= 0 && green <= 255, "Invalid green component")
+       assert(blue >= 0 && blue <= 255, "Invalid blue component")
+
+       self.init(red: CGFloat(red) / 255.0, green: CGFloat(green) / 255.0, blue: CGFloat(blue) / 255.0, alpha: 1.0)
+   }
+
+   convenience init(rgb: Int) {
+       self.init(
+           red: (rgb >> 16) & 0xFF,
+           green: (rgb >> 8) & 0xFF,
+           blue: rgb & 0xFF
+       )
+   }
 }
