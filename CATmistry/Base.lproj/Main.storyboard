@@ -423,7 +423,7 @@ water</string>
                                                             <constraint firstAttribute="height" constant="15" id="ogb-Df-l2y"/>
                                                         </constraints>
                                                     </view>
-                                                    <imageView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="litmus" translatesAutoresizingMaskIntoConstraints="NO" id="Z0g-Jj-5LT">
+                                                    <imageView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="litmus-2" translatesAutoresizingMaskIntoConstraints="NO" id="Z0g-Jj-5LT">
                                                         <rect key="frame" x="0.0" y="15" width="124" height="75"/>
                                                         <gestureRecognizers/>
                                                         <connections>
@@ -2224,6 +2224,7 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
                     <navigationItem key="navigationItem" title="Sub Topics Details" id="dlc-gK-BtW"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="contentView" destination="mVw-ph-Zlg" id="1sW-wr-UGt"/>
                         <outlet property="definitionLabel" destination="ASq-R7-EIf" id="cMB-C7-1Rh"/>
                         <outlet property="maxLabel" destination="uFU-gK-oxP" id="QaZ-ac-8Oc"/>
                         <outlet property="minLabel" destination="Ybv-iL-VWX" id="XSp-yG-IZi"/>
@@ -2394,6 +2395,7 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
                     </view>
                     <navigationItem key="navigationItem" title="Sub Sub Topic Details" id="mw7-i7-Hak"/>
                     <connections>
+                        <outlet property="contentView" destination="zMu-Qc-3rs" id="hQI-V5-1vN"/>
                         <outlet property="firstAttributeLabel" destination="gbb-p3-Sjw" id="Kyb-c0-LuZ"/>
                         <outlet property="indicatorSlider" destination="ti9-et-KLQ" id="Pac-qf-4E6"/>
                         <outlet property="indicatorSliderValueLabel" destination="ZQv-92-zYh" id="WJw-sF-SuN"/>
@@ -2576,8 +2578,8 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
     <inferredMetricsTieBreakers>
         <segue reference="s4T-H5-cTx"/>
         <segue reference="omW-sG-g2z"/>
-        <segue reference="orq-5T-Gly"/>
-        <segue reference="SnY-zI-Ehk"/>
+        <segue reference="8zc-2j-Gbh"/>
+        <segue reference="xa7-EN-bjL"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="books.vertical.fill" catalog="system" width="128" height="100"/>
@@ -2590,7 +2592,7 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
         <image name="glowing-splint" width="33" height="256"/>
         <image name="lighted-splint" width="76" height="260"/>
         <image name="limewater" width="104" height="237"/>
-        <image name="litmus" width="296" height="236"/>
+        <image name="litmus-2" width="296" height="236"/>
         <image name="lock" width="512" height="512"/>
         <image name="meowster" width="166" height="216"/>
         <image name="monster-regular" width="828" height="1161"/>

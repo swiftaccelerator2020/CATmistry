@@ -22,6 +22,7 @@ class LearnSubTopicDetailsViewController: UIViewController, UITableViewDataSourc
     @IBOutlet var pHSliderVertStackIsHiddenConstraint: NSLayoutConstraint!
     @IBOutlet weak var pHImageView: UIImageView!
     @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var contentView: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,11 +34,6 @@ class LearnSubTopicDetailsViewController: UIViewController, UITableViewDataSourc
         pHSlider.value = 7
         sliderValueLabel.text = "Current pH: 7 \nWater"
         pHImageView.image = UIImage(named: "ph-7.png")
-        
-//        let contentRect: CGRect = scrollView.subviews.reduce(into: .zero) { rect, view in
-//            rect = rect.union(view.frame)
-//        }
-//        scrollView.contentSize = contentRect.size
         
         let px = 1 / UIScreen.main.scale
         let frame = CGRect(x: 0, y: 0, width: self.tableView.frame.size.width, height: px)

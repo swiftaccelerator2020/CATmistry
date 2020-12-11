@@ -24,12 +24,15 @@ class LearnSubSubTopicDetailsViewController: UIViewController {
     @IBOutlet weak var indicatorSlider: UISlider!
     @IBOutlet weak var indicatorSliderValueLabel: UILabel!
     @IBOutlet weak var indicatorSliderView: UIView!
+    @IBOutlet weak var contentView: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         self.title = flexibleTitle
+        
+        contentView.sizeToFit()
         
         if (specificChapter.content.warningText != nil) {
             warningLabel.layer.cornerRadius = 5
