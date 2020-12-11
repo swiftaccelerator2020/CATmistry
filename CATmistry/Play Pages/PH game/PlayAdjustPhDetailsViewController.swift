@@ -38,6 +38,7 @@ class PlayAdjustPhDetailsViewController: UIViewController {
     @IBOutlet weak var contentViewHeight: NSLayoutConstraint!
     @IBOutlet weak var submitButtonIsVisibleConstraint: NSLayoutConstraint!
     @IBOutlet weak var submitButtonIsHiddenConstraint: NSLayoutConstraint!
+    @IBOutlet weak var timerLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -55,6 +56,8 @@ class PlayAdjustPhDetailsViewController: UIViewController {
         scrollView.layer.cornerRadius = 15
         contentView.layer.cornerRadius = 15
         submitButton.layer.cornerRadius = 25
+        timerLabel.layer.cornerRadius = 15
+        timerLabel.layer.masksToBounds = true
         
         if currentLevel == 1 {
             submitButton.isHidden = true

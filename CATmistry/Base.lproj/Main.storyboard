@@ -1392,7 +1392,7 @@ Given the properties of each Group of the periodic table, select the correct gro
                                 </constraints>
                             </imageView>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AeW-Ro-PBg">
-                                <rect key="frame" x="25" y="84" width="340" height="243"/>
+                                <rect key="frame" x="25" y="94" width="340" height="233"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Inh-Cc-vSE">
                                         <rect key="frame" x="0.0" y="0.0" width="340" height="311"/>
@@ -1593,16 +1593,28 @@ scroll down to submit</string>
                                 <viewLayoutGuide key="contentLayoutGuide" id="gay-63-2WH"/>
                                 <viewLayoutGuide key="frameLayoutGuide" id="KxI-MU-1H9"/>
                             </scrollView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="20:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="28d-ID-N6R">
+                                <rect key="frame" x="120" y="54" width="150" height="30"/>
+                                <color key="backgroundColor" red="0.20392156859999999" green="0.28627450980000002" blue="0.36862745099999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="qDM-fL-5CK"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="RPe-Dj-FCT"/>
                         <color key="backgroundColor" red="0.53948074580000005" green="0.75685077909999998" blue="0.92969924209999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="AeW-Ro-PBg" firstAttribute="top" secondItem="RPe-Dj-FCT" secondAttribute="top" constant="40" id="4ND-65-GIl"/>
                             <constraint firstItem="msP-Zd-VFr" firstAttribute="top" secondItem="AeW-Ro-PBg" secondAttribute="bottom" constant="50" id="92s-Xy-JdZ"/>
                             <constraint firstItem="RPe-Dj-FCT" firstAttribute="trailing" secondItem="bFr-oV-Tnu" secondAttribute="trailing" id="AXo-OR-wfO"/>
                             <constraint firstItem="bFr-oV-Tnu" firstAttribute="top" secondItem="msP-Zd-VFr" secondAttribute="bottom" id="Be8-Vr-HhZ"/>
+                            <constraint firstItem="RPe-Dj-FCT" firstAttribute="trailing" secondItem="28d-ID-N6R" secondAttribute="trailing" constant="120" id="EVU-cQ-yfm"/>
                             <constraint firstAttribute="bottom" secondItem="gE9-gI-nJZ" secondAttribute="bottom" id="HmQ-iT-TNb"/>
                             <constraint firstItem="RPe-Dj-FCT" firstAttribute="trailing" secondItem="gE9-gI-nJZ" secondAttribute="trailing" id="KXx-Rh-26G"/>
+                            <constraint firstItem="28d-ID-N6R" firstAttribute="top" secondItem="RPe-Dj-FCT" secondAttribute="top" constant="10" id="LuS-bl-DP2"/>
+                            <constraint firstItem="28d-ID-N6R" firstAttribute="leading" secondItem="RPe-Dj-FCT" secondAttribute="leading" constant="120" id="Vj8-Fb-Hls"/>
                             <constraint firstItem="RPe-Dj-FCT" firstAttribute="trailing" secondItem="msP-Zd-VFr" secondAttribute="trailing" constant="50" id="bHd-Eq-ZB3"/>
                             <constraint firstItem="bFr-oV-Tnu" firstAttribute="leading" secondItem="RPe-Dj-FCT" secondAttribute="leading" id="gbc-o7-fZR"/>
                             <constraint firstItem="AeW-Ro-PBg" firstAttribute="leading" secondItem="RPe-Dj-FCT" secondAttribute="leading" constant="25" id="gpo-CP-vIt"/>
@@ -1610,6 +1622,7 @@ scroll down to submit</string>
                             <constraint firstItem="gE9-gI-nJZ" firstAttribute="leading" secondItem="RPe-Dj-FCT" secondAttribute="leading" id="jSq-UA-4Z0"/>
                             <constraint firstItem="RPe-Dj-FCT" firstAttribute="trailing" secondItem="AeW-Ro-PBg" secondAttribute="trailing" constant="25" id="lgY-um-vu3"/>
                             <constraint firstItem="msP-Zd-VFr" firstAttribute="leading" secondItem="RPe-Dj-FCT" secondAttribute="leading" constant="50" id="mfL-dw-Ur0"/>
+                            <constraint firstItem="AeW-Ro-PBg" firstAttribute="top" secondItem="28d-ID-N6R" secondAttribute="bottom" constant="10" id="q1e-8J-5Kz"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="hjY-wX-rX7"/>
@@ -1629,11 +1642,12 @@ scroll down to submit</string>
                         <outlet property="secondOptionLabel" destination="vI7-OP-NZn" id="8Nv-8X-ST2"/>
                         <outlet property="secondOptionStackView" destination="SMD-0O-mXJ" id="jXF-rg-THJ"/>
                         <outlet property="submitButton" destination="tHs-2v-5WT" id="fCe-3c-oup"/>
-                        <outlet property="submitButtonIsHiddenConstraint" destination="2Re-Rb-Fx7" id="lvb-d7-MS6"/>
+                        <outlet property="submitButtonIsHiddenConstraint" destination="2Re-Rb-Fx7" id="QQU-sM-gS3"/>
                         <outlet property="submitButtonIsVisibleConstraint" destination="wTU-co-i4A" id="d4u-7w-Vqo"/>
                         <outlet property="thirdOptionImageView" destination="4r0-oT-BIz" id="Uuf-aL-3cU"/>
                         <outlet property="thirdOptionLabel" destination="FFs-H5-s0k" id="gix-iM-wB3"/>
                         <outlet property="thirdOptionStackView" destination="SY4-DI-2yI" id="DN1-OI-q3B"/>
+                        <outlet property="timerLabel" destination="28d-ID-N6R" id="T35-Kx-Du2"/>
                         <segue destination="FWf-eu-FKe" kind="showDetail" identifier="adjustPhCorrect" id="1zV-QA-rV2"/>
                         <segue destination="i8X-Sz-8XG" kind="showDetail" identifier="adjustPhWrong" id="GDV-4V-Yxl"/>
                     </connections>
