@@ -9,6 +9,7 @@ import UIKit
 
 let ud = UserDefaults.standard
 var points = ud.integer(forKey: "points")
+
 class LearnHomePageTableViewController: UITableViewController {
     
     override func viewDidLoad() {
@@ -18,6 +19,8 @@ class LearnHomePageTableViewController: UITableViewController {
         let navbar = UINavigationBarAppearance()
         navbar.backgroundColor = UIColor(red: 242/255, green: 214/255, blue: 112/255, alpha: 1)
         self.navigationController?.navigationBar.scrollEdgeAppearance = navbar
+        
+        points = 10000
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
