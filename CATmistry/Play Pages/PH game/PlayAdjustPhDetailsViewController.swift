@@ -44,7 +44,6 @@ class PlayAdjustPhDetailsViewController: UIViewController {
         
         // Do any additional setup after loading the view.
         addFirstIndicatorButton.layer.cornerRadius = 15
-        submitButton.isHidden = true
         firstOptionStackView.layer.masksToBounds = true
         firstOptionStackView.layer.cornerRadius = 15
         secondOptionStackView.layer.masksToBounds = true
@@ -57,10 +56,16 @@ class PlayAdjustPhDetailsViewController: UIViewController {
         contentView.layer.cornerRadius = 15
         submitButton.layer.cornerRadius = 25
         
-        contentViewHeight.constant -= 68
-        self.view.layoutIfNeeded()
-        submitButtonIsVisibleConstraint?.isActive = false
-        submitButtonIsHiddenConstraint?.isActive = true
+        if currentLevel == 1 {
+            submitButton.isHidden = true
+            contentViewHeight.constant -= 68
+            self.view.layoutIfNeeded()
+            submitButtonIsVisibleConstraint?.isActive = false
+            submitButtonIsHiddenConstraint?.isActive = true
+        } else {
+            submitButton.isEnabled = false
+            submitButton.titleLabel?.isEnabled = false
+        }
         
         while phOptionsSet.count < 4 {
             let randomIndex = Int(arc4random_uniform(UInt32(phGameOptionsArray.count)))
@@ -90,19 +95,14 @@ class PlayAdjustPhDetailsViewController: UIViewController {
                 monsterImageView.image = UIImage(named: phGameAlkalinUniversalStartColour)
             }
         } else {
-            if submitButton.isHidden == false {
-                contentViewHeight.constant -= 68
-                self.view.layoutIfNeeded()
-                submitButtonIsVisibleConstraint?.isActive = false
-                submitButtonIsHiddenConstraint?.isActive = true
-            }
+            submitButton.isEnabled = false
+            submitButton.titleLabel?.isEnabled = false
             firstOptionStackView.backgroundColor = UIColor.white
             secondOptionStackView.backgroundColor = UIColor.white
             thirdOptionStackView.backgroundColor = UIColor.white
             fourthOptionStackView.backgroundColor = UIColor.white
             indicatorPresent = false
             monsterImageView.image = UIImage(named: "monster-regular.png")
-            submitButton.isHidden = true
             addFirstIndicatorButton.setTitle("Add Universal Indicator", for: .normal)
         }
     }
@@ -118,13 +118,8 @@ class PlayAdjustPhDetailsViewController: UIViewController {
         }
         chosenOption = 0
         if currentLevel == 0 {
-            submitButton.isHidden = false
-            submitButtonIsVisibleConstraint?.isActive = true
-            submitButtonIsHiddenConstraint?.isActive = false
-            if contentViewHeight.constant != 311 {
-                contentViewHeight.constant += 68
-                self.view.layoutIfNeeded()
-            }
+            submitButton.isEnabled = true
+            submitButton.titleLabel?.isEnabled = true
         }
         if currentLevel == 1 {
             checkForCorrectAnswer(whichOption: 0)
@@ -142,13 +137,8 @@ class PlayAdjustPhDetailsViewController: UIViewController {
         }
         chosenOption = 1
         if currentLevel == 0 {
-            submitButton.isHidden = false
-            submitButtonIsVisibleConstraint?.isActive = true
-            submitButtonIsHiddenConstraint?.isActive = false
-            if contentViewHeight.constant != 311 {
-                contentViewHeight.constant += 68
-                self.view.layoutIfNeeded()
-            }
+            submitButton.isEnabled = true
+            submitButton.titleLabel?.isEnabled = true
         }
         if currentLevel == 1 {
             checkForCorrectAnswer(whichOption: 1)
@@ -166,13 +156,8 @@ class PlayAdjustPhDetailsViewController: UIViewController {
         }
         chosenOption = 2
         if currentLevel == 0 {
-            submitButton.isHidden = false
-            submitButtonIsVisibleConstraint?.isActive = true
-            submitButtonIsHiddenConstraint?.isActive = false
-            if contentViewHeight.constant != 311 {
-                contentViewHeight.constant += 68
-                self.view.layoutIfNeeded()
-            }
+            submitButton.isEnabled = true
+            submitButton.titleLabel?.isEnabled = true
         }
         if currentLevel == 1 {
             checkForCorrectAnswer(whichOption: 2)
@@ -190,13 +175,8 @@ class PlayAdjustPhDetailsViewController: UIViewController {
         }
         chosenOption = 3
         if currentLevel == 0 {
-            submitButton.isHidden = false
-            submitButtonIsVisibleConstraint?.isActive = true
-            submitButtonIsHiddenConstraint?.isActive = false
-            if contentViewHeight.constant != 311 {
-                contentViewHeight.constant += 68
-                self.view.layoutIfNeeded()
-            }
+            submitButton.isEnabled = true
+            submitButton.titleLabel?.isEnabled = true
         }
         if currentLevel == 1 {
             checkForCorrectAnswer(whichOption: 3)
@@ -211,14 +191,11 @@ class PlayAdjustPhDetailsViewController: UIViewController {
     func checkForCorrectAnswer(whichOption: Int) {
         print(phOptionsArray[whichOption])
         
-        if submitButton.isHidden == false {
-            contentViewHeight.constant -= 68
-            self.view.layoutIfNeeded()
-            submitButtonIsVisibleConstraint?.isActive = false
-            submitButtonIsHiddenConstraint?.isActive = true
+        if currentLevel == 0 {
+            submitButton.isEnabled = false
+            submitButton.titleLabel?.isEnabled = false
         }
         
-        submitButton.isHidden = true
         addFirstIndicatorButton.setTitle("Add Universal Indicator", for: .normal)
         monsterImageView.image = UIImage(named: "monster-regular.png")
         firstOptionStackView.backgroundColor = UIColor.white
