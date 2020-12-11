@@ -14,6 +14,7 @@ class settingsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         point.text = " You have \(points) points"
+        
         // Do any additional setup after loading the view.
     }
     

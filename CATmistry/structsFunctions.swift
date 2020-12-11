@@ -7,6 +7,8 @@
 
 import Foundation
 
+// MARK: - Structs
+
 struct Topic {
     var title: String
     var pic: String
@@ -83,19 +85,35 @@ struct GasTestGame {
     var correctGasTank: String
 }
 
-struct specificSeperationMethod {
+struct specificSeperationMethod: Hashable{
     var name: String
     var properties: String
     var givenMethods: GivenSeperationMethods
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(name)
+        hasher.combine(properties)
+        hasher.combine(givenMethods)
+    }
 }
 
-struct GivenSeperationMethods {
+struct GivenSeperationMethods: Hashable{
+    
     var methods: [SeperationMethods]
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(methods)
+    }
 }
 
-struct SeperationMethods {
+struct SeperationMethods: Hashable{
     var methodName: String
     var isCorrect: Bool
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(methodName)
+        hasher.combine(isCorrect)
+    }
 }
 
 struct PhGame {
@@ -123,6 +141,8 @@ struct periodicTableGame {
     var correctAns2: Int
     var timeGiven: Int
 }
+
+// MARK: - Arrays
 
 var learnTopics = [
     Topic(title: "Gas Tests", pic: "gas-tests.png", pointsNeeded: 0, subTopics: [
@@ -325,6 +345,8 @@ var retrieveSolidsArray = [
     specificSeperationMethod(name: "ii", properties: "filter", givenMethods: GivenSeperationMethods(methods: [SeperationMethods(methodName: "N.A", isCorrect: false),SeperationMethods(methodName: "Correct", isCorrect: true)])),
     specificSeperationMethod(name: "jj", properties: "filter", givenMethods: GivenSeperationMethods(methods: [SeperationMethods(methodName: "N.A", isCorrect: false),SeperationMethods(methodName: "Correct", isCorrect: true)]))
 ]
+
+// MARK: - Functions
 
 func changePoints(_ valueChanged: Int){
     points += valueChanged
