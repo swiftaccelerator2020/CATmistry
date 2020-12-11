@@ -131,6 +131,7 @@ class PlayRetrieveSolidsDetailsViewController: UIViewController, UITableViewDele
             isWrong.text = "CORRECT"
             isWrong.backgroundColor = .green
             elements.remove(at: index)
+            selectedElement = nil
             numOfItems -= 1
             progressView.progress -= 0.1
         }
