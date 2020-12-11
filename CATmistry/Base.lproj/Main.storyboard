@@ -1215,11 +1215,12 @@ Given the properties of each Group of the periodic table, select the correct gro
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10 seconds left" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Bq-Tb-1J1">
-                                <rect key="frame" x="25" y="64" width="340" height="40"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="20 seconds left" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Bq-Tb-1J1">
+                                <rect key="frame" x="215" y="64" width="150" height="40"/>
                                 <color key="backgroundColor" red="0.49921655650000002" green="0.67835754159999995" blue="0.85915046930000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="jkQ-03-NnT"/>
+                                    <constraint firstAttribute="width" constant="150" id="qCg-Cg-plR"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="highlightedColor"/>
@@ -1423,7 +1424,6 @@ Given the properties of each Group of the periodic table, select the correct gro
                             <constraint firstItem="MQX-Yl-wcO" firstAttribute="leading" secondItem="MF8-ge-vWh" secondAttribute="leading" id="4g4-hc-cgz"/>
                             <constraint firstItem="e33-u2-r4Q" firstAttribute="top" secondItem="6nO-os-1tY" secondAttribute="bottom" constant="20" id="7up-2U-1kQ"/>
                             <constraint firstItem="5OE-SW-Qva" firstAttribute="top" secondItem="Nh8-km-VZF" secondAttribute="bottom" id="8yI-YB-VRU"/>
-                            <constraint firstItem="2Bq-Tb-1J1" firstAttribute="leading" secondItem="MF8-ge-vWh" secondAttribute="leading" constant="25" id="EMn-gH-2Kh"/>
                             <constraint firstItem="Nh8-km-VZF" firstAttribute="top" secondItem="e33-u2-r4Q" secondAttribute="bottom" constant="20" id="EqU-O9-lbc"/>
                             <constraint firstItem="MF8-ge-vWh" firstAttribute="trailing" secondItem="6nO-os-1tY" secondAttribute="trailing" constant="25" id="FNo-NA-6z1"/>
                             <constraint firstAttribute="bottom" secondItem="MQX-Yl-wcO" secondAttribute="bottom" id="GkB-8K-Q6z"/>
@@ -1488,7 +1488,7 @@ Given the properties of each Group of the periodic table, select the correct gro
                                 </constraints>
                             </imageView>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AeW-Ro-PBg">
-                                <rect key="frame" x="25" y="114" width="340" height="213"/>
+                                <rect key="frame" x="25" y="124" width="340" height="203"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Inh-Cc-vSE">
                                         <rect key="frame" x="0.0" y="0.0" width="340" height="311"/>
@@ -1690,9 +1690,10 @@ scroll down to submit</string>
                                 <viewLayoutGuide key="frameLayoutGuide" id="KxI-MU-1H9"/>
                             </scrollView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="20 seconds left" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="28d-ID-N6R">
-                                <rect key="frame" x="25" y="64" width="340" height="40"/>
+                                <rect key="frame" x="215" y="64" width="150" height="40"/>
                                 <color key="backgroundColor" red="0.49411764705882355" green="0.67837697269999997" blue="0.85103112459999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
+                                    <constraint firstAttribute="width" constant="150" id="2Ux-xe-arT"/>
                                     <constraint firstAttribute="height" constant="40" id="qDM-fL-5CK"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -1709,7 +1710,6 @@ scroll down to submit</string>
                             <constraint firstAttribute="bottom" secondItem="gE9-gI-nJZ" secondAttribute="bottom" id="HmQ-iT-TNb"/>
                             <constraint firstItem="RPe-Dj-FCT" firstAttribute="trailing" secondItem="gE9-gI-nJZ" secondAttribute="trailing" id="KXx-Rh-26G"/>
                             <constraint firstItem="28d-ID-N6R" firstAttribute="top" secondItem="RPe-Dj-FCT" secondAttribute="top" constant="20" id="LuS-bl-DP2"/>
-                            <constraint firstItem="28d-ID-N6R" firstAttribute="leading" secondItem="RPe-Dj-FCT" secondAttribute="leading" constant="25" id="Vj8-Fb-Hls"/>
                             <constraint firstItem="RPe-Dj-FCT" firstAttribute="trailing" secondItem="msP-Zd-VFr" secondAttribute="trailing" constant="50" id="bHd-Eq-ZB3"/>
                             <constraint firstItem="bFr-oV-Tnu" firstAttribute="leading" secondItem="RPe-Dj-FCT" secondAttribute="leading" id="gbc-o7-fZR"/>
                             <constraint firstItem="AeW-Ro-PBg" firstAttribute="leading" secondItem="RPe-Dj-FCT" secondAttribute="leading" constant="25" id="gpo-CP-vIt"/>
@@ -1717,7 +1717,7 @@ scroll down to submit</string>
                             <constraint firstItem="gE9-gI-nJZ" firstAttribute="leading" secondItem="RPe-Dj-FCT" secondAttribute="leading" id="jSq-UA-4Z0"/>
                             <constraint firstItem="RPe-Dj-FCT" firstAttribute="trailing" secondItem="AeW-Ro-PBg" secondAttribute="trailing" constant="25" id="lgY-um-vu3"/>
                             <constraint firstItem="msP-Zd-VFr" firstAttribute="leading" secondItem="RPe-Dj-FCT" secondAttribute="leading" constant="50" id="mfL-dw-Ur0"/>
-                            <constraint firstItem="AeW-Ro-PBg" firstAttribute="top" secondItem="28d-ID-N6R" secondAttribute="bottom" constant="10" id="q1e-8J-5Kz"/>
+                            <constraint firstItem="AeW-Ro-PBg" firstAttribute="top" secondItem="28d-ID-N6R" secondAttribute="bottom" constant="20" id="q1e-8J-5Kz"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="hjY-wX-rX7"/>
@@ -2578,8 +2578,8 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
     <inferredMetricsTieBreakers>
         <segue reference="s4T-H5-cTx"/>
         <segue reference="l86-7T-ukz"/>
-        <segue reference="cAs-Qz-eXZ"/>
-        <segue reference="KGp-Wk-Y1U"/>
+        <segue reference="GDV-4V-Yxl"/>
+        <segue reference="1zV-QA-rV2"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="books.vertical.fill" catalog="system" width="128" height="100"/>
