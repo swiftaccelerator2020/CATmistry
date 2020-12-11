@@ -131,6 +131,7 @@ class PlayRetrieveSolidsDetailsViewController: UIViewController, UITableViewDele
             isWrong.text = "CORRECT"
             isWrong.backgroundColor = .green
             elements.remove(at: index)
+            selectedChoiceLabel.isHidden = true
             selectedElement = nil
             index = 0
             choicesTableView.reloadData()
