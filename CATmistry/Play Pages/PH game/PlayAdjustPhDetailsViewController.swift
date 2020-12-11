@@ -117,7 +117,7 @@ class PlayAdjustPhDetailsViewController: UIViewController {
         thirdOptionStackView.backgroundColor = UIColor.white
         fourthOptionStackView.backgroundColor = UIColor.white
         if indicatorPresent == true {
-            monsterImageView.image = UIImage(named: phGameOptionsArray[0].turnUniversalTankColour)
+            monsterImageView.image = UIImage(named: phOptionsArray[0].turnUniversalTankColour)
         }
         addFirstIndicatorButton.setTitle("Reset", for: .normal)
         chosenOption = 0
