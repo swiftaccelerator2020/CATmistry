@@ -219,7 +219,7 @@ class PlayAdjustPhDetailsViewController: UIViewController {
         }
         
         submitButton.isHidden = true
-        submitButton.setTitle("Add Universal Indicator", for: .normal)
+        addFirstIndicatorButton.setTitle("Add Universal Indicator", for: .normal)
         monsterImageView.image = UIImage(named: "monster-regular.png")
         firstOptionStackView.backgroundColor = UIColor.white
         secondOptionStackView.backgroundColor = UIColor.white
