@@ -1386,7 +1386,7 @@ Given the properties of each Group of the periodic table, select the correct gro
                                 </constraints>
                             </view>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="monster-regular" translatesAutoresizingMaskIntoConstraints="NO" id="msP-Zd-VFr">
-                                <rect key="frame" x="38" y="377" width="302" height="387"/>
+                                <rect key="frame" x="50" y="377" width="290" height="387"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="387" id="ka8-dJ-d39"/>
                                 </constraints>
@@ -1609,7 +1609,7 @@ scroll down to submit</string>
                             <constraint firstItem="gE9-gI-nJZ" firstAttribute="top" secondItem="bFr-oV-Tnu" secondAttribute="bottom" id="hfk-qc-qCt"/>
                             <constraint firstItem="gE9-gI-nJZ" firstAttribute="leading" secondItem="RPe-Dj-FCT" secondAttribute="leading" id="jSq-UA-4Z0"/>
                             <constraint firstItem="RPe-Dj-FCT" firstAttribute="trailing" secondItem="AeW-Ro-PBg" secondAttribute="trailing" constant="25" id="lgY-um-vu3"/>
-                            <constraint firstItem="msP-Zd-VFr" firstAttribute="leading" secondItem="RPe-Dj-FCT" secondAttribute="leading" constant="38" id="mfL-dw-Ur0"/>
+                            <constraint firstItem="msP-Zd-VFr" firstAttribute="leading" secondItem="RPe-Dj-FCT" secondAttribute="leading" constant="50" id="mfL-dw-Ur0"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="hjY-wX-rX7"/>
@@ -2312,7 +2312,7 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="FaB-d6-X5c"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="wEn-aq-CEr">
-                        <rect key="frame" x="0.0" y="44" width="390" height="104.33333333333334"/>
+                        <rect key="frame" x="0.0" y="44" width="390" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>

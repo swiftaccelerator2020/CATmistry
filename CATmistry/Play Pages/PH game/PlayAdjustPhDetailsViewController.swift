@@ -86,7 +86,7 @@ class PlayAdjustPhDetailsViewController: UIViewController {
     }
     
     @IBAction func clickAddUniversalIndicator(_ sender: Any) {
-        if indicatorPresent == false {
+        if addFirstIndicatorButton.titleLabel!.text == "Add Universal Indicator" {
             indicatorPresent = true
             addFirstIndicatorButton.setTitle("Reset", for: .normal)
             if phGameArray[currentLevel][currentGame].startIsAcidic == true {
@@ -115,8 +115,8 @@ class PlayAdjustPhDetailsViewController: UIViewController {
         fourthOptionStackView.backgroundColor = UIColor.white
         if indicatorPresent == true {
             monsterImageView.image = UIImage(named: phGameOptionsArray[0].turnUniversalTankColour)
-            addFirstIndicatorButton.setTitle("Reset", for: .normal)
         }
+        addFirstIndicatorButton.setTitle("Reset", for: .normal)
         chosenOption = 0
         if currentLevel == 0 {
             submitButton.isEnabled = true
@@ -134,8 +134,8 @@ class PlayAdjustPhDetailsViewController: UIViewController {
         fourthOptionStackView.backgroundColor = UIColor.white
         if indicatorPresent == true {
             monsterImageView.image = UIImage(named: phOptionsArray[1].turnUniversalTankColour)
-            addFirstIndicatorButton.setTitle("Reset", for: .normal)
         }
+        addFirstIndicatorButton.setTitle("Reset", for: .normal)
         chosenOption = 1
         if currentLevel == 0 {
             submitButton.isEnabled = true
@@ -153,8 +153,8 @@ class PlayAdjustPhDetailsViewController: UIViewController {
         fourthOptionStackView.backgroundColor = UIColor.white
         if indicatorPresent == true {
             monsterImageView.image = UIImage(named: phOptionsArray[2].turnUniversalTankColour)
-            addFirstIndicatorButton.setTitle("Reset", for: .normal)
         }
+        addFirstIndicatorButton.setTitle("Reset", for: .normal)
         chosenOption = 2
         if currentLevel == 0 {
             submitButton.isEnabled = true
@@ -172,8 +172,8 @@ class PlayAdjustPhDetailsViewController: UIViewController {
         fourthOptionStackView.backgroundColor = UIColor(red: 88/255, green: 214/255, blue: 141/255, alpha: 1)
         if indicatorPresent == true {
             monsterImageView.image = UIImage(named: phOptionsArray[3].turnUniversalTankColour)
-            addFirstIndicatorButton.setTitle("Reset", for: .normal)
         }
+        addFirstIndicatorButton.setTitle("Reset", for: .normal)
         chosenOption = 3
         if currentLevel == 0 {
             submitButton.isEnabled = true
