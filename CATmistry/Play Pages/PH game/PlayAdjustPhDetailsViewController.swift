@@ -104,6 +104,7 @@ class PlayAdjustPhDetailsViewController: UIViewController {
             indicatorPresent = false
             monsterImageView.image = UIImage(named: "monster-regular.png")
             addFirstIndicatorButton.setTitle("Add Universal Indicator", for: .normal)
+            scrollView.scrollToTop()
         }
     }
     
@@ -196,6 +197,8 @@ class PlayAdjustPhDetailsViewController: UIViewController {
             submitButton.titleLabel?.isEnabled = false
         }
         
+        scrollView.scrollToTop()
+        
         addFirstIndicatorButton.setTitle("Add Universal Indicator", for: .normal)
         monsterImageView.image = UIImage(named: "monster-regular.png")
         firstOptionStackView.backgroundColor = UIColor.white
@@ -272,6 +275,11 @@ class PlayAdjustPhDetailsViewController: UIViewController {
             destVC.currentGame = currentGame
         }
     }
-    
-    
+}
+
+extension UIScrollView {
+    func scrollToTop() {
+        let desiredOffset = CGPoint(x: 0, y: -contentInset.top)
+        setContentOffset(desiredOffset, animated: true)
+   }
 }
