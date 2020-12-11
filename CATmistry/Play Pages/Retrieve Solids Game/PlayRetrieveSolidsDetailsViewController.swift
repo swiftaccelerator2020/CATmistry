@@ -108,13 +108,13 @@ class PlayRetrieveSolidsDetailsViewController: UIViewController, UITableViewDele
             selectedElement = indexPath.row
             tableView.deselectRow(at: indexPath, animated: true)
             selectedChoiceLabel.isHidden = true
+            index = indexPath.row
             choicesTableView.reloadData()
         } else if (tableView == choicesTableView){
             selectedChoiceLabel.setTitle("Submit: \(elements[selectedElement!].givenMethods.methods[indexPath.row].methodName)", for: .normal)
             isCorrect = elements[selectedElement!].givenMethods.methods[indexPath.row].isCorrect
             selectedChoiceLabel.isHidden = false
             tableView.deselectRow(at: indexPath, animated: true)
-            index = indexPath.row
         }
     }
     
@@ -131,6 +131,10 @@ class PlayRetrieveSolidsDetailsViewController: UIViewController, UITableViewDele
             isWrong.text = "CORRECT"
             isWrong.backgroundColor = .green
             elements.remove(at: index)
+            selectedChoiceLabel.isHidden = true
+            selectedElement = nil
+            index = 0
+            choicesTableView.reloadData()
             numOfItems -= 1
             progressView.progress -= 0.1
         }
