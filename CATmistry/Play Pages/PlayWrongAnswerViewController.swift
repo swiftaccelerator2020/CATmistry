@@ -36,6 +36,9 @@ class PlayWrongAnswerViewController: UIViewController {
         }
     }
     
+    @IBAction func restartClicked(_ sender: Any) {
+    }
+    
     /*
     //MARK: - Navigation
 

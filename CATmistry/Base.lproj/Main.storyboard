@@ -709,7 +709,7 @@ water</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C3K-84-9kj">
-                                <rect key="frame" x="40" y="740" width="310" height="50"/>
+                                <rect key="frame" x="40" y="710" width="310" height="50"/>
                                 <color key="backgroundColor" red="0.92549019607843142" green="0.4392156862745098" blue="0.38823529411764707" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="wXD-hf-5Nt"/>
@@ -723,19 +723,19 @@ water</string>
                                 </connections>
                             </button>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Pf-F9-PTX">
-                                <rect key="frame" x="0.0" y="44" width="390" height="696"/>
+                                <rect key="frame" x="0.0" y="44" width="390" height="646"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ApE-zQ-fgG">
-                                        <rect key="frame" x="0.0" y="0.0" width="390" height="680"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="390" height="646"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="meowster" translatesAutoresizingMaskIntoConstraints="NO" id="Toi-w5-WBS">
-                                                <rect key="frame" x="60" y="202.33333333333337" width="270" height="215"/>
+                                                <rect key="frame" x="60" y="188.33333333333337" width="270" height="215"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="215" id="Ugm-fD-FJ3"/>
                                                 </constraints>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uFs-Yh-ieF">
-                                                <rect key="frame" x="40" y="457.33333333333331" width="310" height="182.66666666666669"/>
+                                                <rect key="frame" x="40" y="443.33333333333331" width="310" height="182.66666666666669"/>
                                                 <string key="text">Congrats!
 
 Through your hard work, your cat has been able to avoid the danger.
@@ -749,11 +749,11 @@ You have \(String(10 - currentGame)) rounds remaining in Level \(String(currentL
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
                                             <constraint firstAttribute="trailing" secondItem="uFs-Yh-ieF" secondAttribute="trailing" constant="40" id="dCL-aB-yhh"/>
-                                            <constraint firstAttribute="height" constant="680" id="gU8-wU-iBt"/>
+                                            <constraint firstAttribute="height" constant="646" id="gU8-wU-iBt"/>
                                             <constraint firstItem="Toi-w5-WBS" firstAttribute="leading" secondItem="ApE-zQ-fgG" secondAttribute="leading" constant="60" id="imb-lI-On9"/>
                                             <constraint firstItem="uFs-Yh-ieF" firstAttribute="leading" secondItem="ApE-zQ-fgG" secondAttribute="leading" constant="40" id="nVV-Ne-dI1"/>
                                             <constraint firstItem="uFs-Yh-ieF" firstAttribute="top" secondItem="Toi-w5-WBS" secondAttribute="bottom" constant="40" id="oKB-k4-Z7q"/>
-                                            <constraint firstAttribute="bottom" secondItem="uFs-Yh-ieF" secondAttribute="bottom" constant="40" id="wX1-xX-rbY"/>
+                                            <constraint firstAttribute="bottom" secondItem="uFs-Yh-ieF" secondAttribute="bottom" constant="20" id="wX1-xX-rbY"/>
                                             <constraint firstAttribute="trailing" secondItem="Toi-w5-WBS" secondAttribute="trailing" constant="60" id="wpq-va-4lG"/>
                                         </constraints>
                                     </view>
@@ -768,15 +768,28 @@ You have \(String(10 - currentGame)) rounds remaining in Level \(String(currentL
                                 <viewLayoutGuide key="contentLayoutGuide" id="r4A-Mt-oAZ"/>
                                 <viewLayoutGuide key="frameLayoutGuide" id="dN2-tS-5XS"/>
                             </scrollView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="22Z-Jz-Qff">
+                                <rect key="frame" x="40" y="770" width="310" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="9mQ-Tq-Ae0"/>
+                                </constraints>
+                                <state key="normal" title="Restart"/>
+                                <connections>
+                                    <action selector="restartClicked:" destination="FWf-eu-FKe" eventType="touchUpInside" id="GTX-7S-Y9O"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="0nQ-Ke-gfA"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="0nQ-Ke-gfA" firstAttribute="bottom" secondItem="C3K-84-9kj" secondAttribute="bottom" constant="20" id="6m3-n7-kTr"/>
-                            <constraint firstItem="C3K-84-9kj" firstAttribute="top" secondItem="2Pf-F9-PTX" secondAttribute="bottom" id="IS5-Eu-v5c"/>
+                            <constraint firstItem="0nQ-Ke-gfA" firstAttribute="trailing" secondItem="22Z-Jz-Qff" secondAttribute="trailing" constant="40" id="GN0-Yk-3Y1"/>
+                            <constraint firstItem="C3K-84-9kj" firstAttribute="top" secondItem="2Pf-F9-PTX" secondAttribute="bottom" constant="20" id="IS5-Eu-v5c"/>
                             <constraint firstItem="2Pf-F9-PTX" firstAttribute="top" secondItem="0nQ-Ke-gfA" secondAttribute="top" id="PBg-Me-RJK"/>
+                            <constraint firstItem="22Z-Jz-Qff" firstAttribute="leading" secondItem="0nQ-Ke-gfA" secondAttribute="leading" constant="40" id="WhD-s9-cEB"/>
+                            <constraint firstItem="22Z-Jz-Qff" firstAttribute="top" secondItem="C3K-84-9kj" secondAttribute="bottom" constant="10" id="fH0-Zj-Bku"/>
                             <constraint firstItem="2Pf-F9-PTX" firstAttribute="leading" secondItem="0nQ-Ke-gfA" secondAttribute="leading" id="fXe-nf-T2Q"/>
                             <constraint firstItem="C3K-84-9kj" firstAttribute="leading" secondItem="0nQ-Ke-gfA" secondAttribute="leading" constant="40" id="fz8-ZO-y2g"/>
+                            <constraint firstItem="0nQ-Ke-gfA" firstAttribute="bottom" secondItem="22Z-Jz-Qff" secondAttribute="bottom" constant="20" id="jLh-j3-1qv"/>
                             <constraint firstItem="0nQ-Ke-gfA" firstAttribute="trailing" secondItem="C3K-84-9kj" secondAttribute="trailing" constant="40" id="n4x-gY-Irb"/>
                             <constraint firstItem="0nQ-Ke-gfA" firstAttribute="trailing" secondItem="2Pf-F9-PTX" secondAttribute="trailing" id="u3V-f2-sCT"/>
                         </constraints>
@@ -1281,9 +1294,9 @@ Given the properties of each Group of the periodic table, select the correct gro
                                                         <subviews>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s5Z-jQ-t5b">
                                                                 <rect key="frame" x="0.0" y="0.0" width="140" height="35"/>
-                                                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <state key="normal" title="Group 1">
-                                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                    <color key="titleColor" systemColor="labelColor"/>
                                                                 </state>
                                                                 <connections>
                                                                     <action selector="groupOne:" destination="Vph-Yc-cjH" eventType="touchUpInside" id="9ic-Qh-vUE"/>
@@ -1291,9 +1304,9 @@ Given the properties of each Group of the periodic table, select the correct gro
                                                             </button>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B2H-1r-aQ3">
                                                                 <rect key="frame" x="0.0" y="45" width="140" height="35"/>
-                                                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <state key="normal" title="Group 3">
-                                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                    <color key="titleColor" systemColor="labelColor"/>
                                                                 </state>
                                                                 <connections>
                                                                     <action selector="groupThree:" destination="Vph-Yc-cjH" eventType="touchUpInside" id="9sh-8u-MRR"/>
@@ -1309,9 +1322,9 @@ Given the properties of each Group of the periodic table, select the correct gro
                                                         <subviews>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O7J-Hd-b7c">
                                                                 <rect key="frame" x="0.0" y="0.0" width="140" height="35"/>
-                                                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <state key="normal" title="Group 2">
-                                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                    <color key="titleColor" systemColor="labelColor"/>
                                                                 </state>
                                                                 <connections>
                                                                     <action selector="groupTwo:" destination="Vph-Yc-cjH" eventType="touchUpInside" id="i5c-IO-DLX"/>
@@ -1319,9 +1332,9 @@ Given the properties of each Group of the periodic table, select the correct gro
                                                             </button>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="60r-ze-aOG">
                                                                 <rect key="frame" x="0.0" y="45" width="140" height="35"/>
-                                                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <state key="normal" title="Group 4">
-                                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                    <color key="titleColor" systemColor="labelColor"/>
                                                                 </state>
                                                                 <connections>
                                                                     <action selector="groupFour:" destination="Vph-Yc-cjH" eventType="touchUpInside" id="Cgo-XP-lbl"/>
@@ -1343,9 +1356,9 @@ Given the properties of each Group of the periodic table, select the correct gro
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o3r-UY-MyN">
                                                         <rect key="frame" x="0.0" y="0.0" width="300" height="30"/>
-                                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <color key="backgroundColor" red="0.96253973250000002" green="0.838998735" blue="0.87931841610000006" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <state key="normal" title="Metal">
-                                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <color key="titleColor" systemColor="labelColor"/>
                                                         </state>
                                                         <connections>
                                                             <action selector="metal:" destination="Vph-Yc-cjH" eventType="touchUpInside" id="VfT-DB-17M"/>
@@ -1353,9 +1366,9 @@ Given the properties of each Group of the periodic table, select the correct gro
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lwW-4g-ESC">
                                                         <rect key="frame" x="0.0" y="40" width="300" height="30"/>
-                                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <color key="backgroundColor" red="0.96253973250000002" green="0.838998735" blue="0.87931841610000006" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <state key="normal" title="Transition metal">
-                                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <color key="titleColor" systemColor="labelColor"/>
                                                         </state>
                                                         <connections>
                                                             <action selector="transitionMetal:" destination="Vph-Yc-cjH" eventType="touchUpInside" id="SYk-Dz-YEy"/>
@@ -1363,9 +1376,9 @@ Given the properties of each Group of the periodic table, select the correct gro
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ddq-95-qRR">
                                                         <rect key="frame" x="0.0" y="80" width="300" height="30"/>
-                                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <color key="backgroundColor" red="0.96253973250000002" green="0.838998735" blue="0.87931841610000006" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <state key="normal" title="Non-Metal">
-                                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <color key="titleColor" systemColor="labelColor"/>
                                                         </state>
                                                         <connections>
                                                             <action selector="nonMetal:" destination="Vph-Yc-cjH" eventType="touchUpInside" id="pcM-IS-Y66"/>
@@ -1429,7 +1442,14 @@ Given the properties of each Group of the periodic table, select the correct gro
                     <navigationItem key="navigationItem" id="X9m-AO-FC8"/>
                     <connections>
                         <outlet property="desc" destination="6nO-os-1tY" id="VVW-g8-tub"/>
+                        <outlet property="groupFour" destination="60r-ze-aOG" id="4me-oZ-iyK"/>
+                        <outlet property="groupOne" destination="s5Z-jQ-t5b" id="HdY-a9-DDf"/>
+                        <outlet property="groupThree" destination="B2H-1r-aQ3" id="t3u-4V-6pd"/>
+                        <outlet property="groupTwo" destination="O7J-Hd-b7c" id="IhE-uK-vYP"/>
+                        <outlet property="metal" destination="o3r-UY-MyN" id="aZy-J6-u6u"/>
+                        <outlet property="nonMetal" destination="Ddq-95-qRR" id="ltS-Ox-hEj"/>
                         <outlet property="timeLeft" destination="2Bq-Tb-1J1" id="RFk-SX-Q2b"/>
+                        <outlet property="transitionMetal" destination="lwW-4g-ESC" id="m2E-LD-3rp"/>
                         <segue destination="FWf-eu-FKe" kind="showDetail" identifier="identifyElementsGameWIn" id="SnY-zI-Ehk"/>
                         <segue destination="i8X-Sz-8XG" kind="showDetail" identifier="identifyElementsGameLose" id="orq-5T-Gly"/>
                     </connections>
@@ -1758,28 +1778,14 @@ scroll down to submit</string>
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="43D-K1-zeD">
-                                <rect key="frame" x="40" y="740" width="310" height="50"/>
-                                <color key="backgroundColor" red="0.92549019607843142" green="0.4392156862745098" blue="0.38823529411764707" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="hiq-3t-CyE"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <state key="normal" title="Next Game">
-                                    <color key="titleColor" systemColor="labelColor"/>
-                                </state>
-                                <connections>
-                                    <action selector="nextGameClicked:" destination="i8X-Sz-8XG" eventType="touchUpInside" id="rqT-6F-uBd"/>
-                                </connections>
-                            </button>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Uz9-4H-TWk">
-                                <rect key="frame" x="0.0" y="44" width="390" height="696"/>
+                                <rect key="frame" x="0.0" y="44" width="390" height="646"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GaR-cW-ge6">
-                                        <rect key="frame" x="0.0" y="0.0" width="390" height="680"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="390" height="646"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iE7-b8-PyK">
-                                                <rect key="frame" x="40" y="457.33333333333331" width="310" height="182.66666666666669"/>
+                                                <rect key="frame" x="40" y="443.33333333333331" width="310" height="182.66666666666669"/>
                                                 <string key="text">Oh no!
 
 Your answer was wrong, and your cat died.
@@ -1790,7 +1796,7 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="meowster" translatesAutoresizingMaskIntoConstraints="NO" id="bcK-GK-icA">
-                                                <rect key="frame" x="60" y="202.33333333333337" width="270" height="215"/>
+                                                <rect key="frame" x="60" y="188.33333333333337" width="270" height="215"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="215" id="fZj-B7-vJo"/>
                                                 </constraints>
@@ -1798,11 +1804,11 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="680" id="LQB-mD-GL3"/>
+                                            <constraint firstAttribute="height" constant="646" id="LQB-mD-GL3"/>
                                             <constraint firstAttribute="trailing" secondItem="bcK-GK-icA" secondAttribute="trailing" constant="60" id="TMv-ZO-1Lm"/>
                                             <constraint firstAttribute="trailing" secondItem="iE7-b8-PyK" secondAttribute="trailing" constant="40" id="U5J-V0-z2D"/>
                                             <constraint firstItem="bcK-GK-icA" firstAttribute="leading" secondItem="GaR-cW-ge6" secondAttribute="leading" constant="60" id="dWl-Jh-wMw"/>
-                                            <constraint firstAttribute="bottom" secondItem="iE7-b8-PyK" secondAttribute="bottom" constant="40" id="iGr-a5-zIR"/>
+                                            <constraint firstAttribute="bottom" secondItem="iE7-b8-PyK" secondAttribute="bottom" constant="20" id="iGr-a5-zIR"/>
                                             <constraint firstItem="iE7-b8-PyK" firstAttribute="leading" secondItem="GaR-cW-ge6" secondAttribute="leading" constant="40" id="jbc-qd-SDr"/>
                                             <constraint firstItem="iE7-b8-PyK" firstAttribute="top" secondItem="bcK-GK-icA" secondAttribute="bottom" constant="40" id="rHa-Tc-fi1"/>
                                         </constraints>
@@ -1818,17 +1824,44 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
                                 <viewLayoutGuide key="contentLayoutGuide" id="X4a-oi-Fvu"/>
                                 <viewLayoutGuide key="frameLayoutGuide" id="f1f-7S-GYv"/>
                             </scrollView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sa9-fd-6Og">
+                                <rect key="frame" x="40" y="770" width="310" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="5ho-gn-QFT"/>
+                                </constraints>
+                                <state key="normal" title="Restart"/>
+                                <connections>
+                                    <action selector="restartClicked:" destination="i8X-Sz-8XG" eventType="touchUpInside" id="tWn-vj-eaM"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="43D-K1-zeD">
+                                <rect key="frame" x="40" y="710" width="310" height="50"/>
+                                <color key="backgroundColor" red="0.92549019607843142" green="0.4392156862745098" blue="0.38823529411764707" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="hiq-3t-CyE"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <state key="normal" title="Next Game">
+                                    <color key="titleColor" systemColor="labelColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="nextGameClicked:" destination="i8X-Sz-8XG" eventType="touchUpInside" id="rqT-6F-uBd"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="QER-64-gOv"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="Uz9-4H-TWk" firstAttribute="top" secondItem="QER-64-gOv" secondAttribute="top" id="CsI-cz-u9o"/>
-                            <constraint firstItem="43D-K1-zeD" firstAttribute="top" secondItem="Uz9-4H-TWk" secondAttribute="bottom" id="JWv-nR-cio"/>
+                            <constraint firstItem="QER-64-gOv" firstAttribute="bottom" secondItem="sa9-fd-6Og" secondAttribute="bottom" constant="20" id="E1b-4A-pSW"/>
+                            <constraint firstItem="QER-64-gOv" firstAttribute="trailing" secondItem="sa9-fd-6Og" secondAttribute="trailing" constant="40" id="VTB-Tg-hgH"/>
                             <constraint firstItem="QER-64-gOv" firstAttribute="trailing" secondItem="43D-K1-zeD" secondAttribute="trailing" constant="40" id="ZHz-oe-kLn"/>
                             <constraint firstItem="43D-K1-zeD" firstAttribute="leading" secondItem="QER-64-gOv" secondAttribute="leading" constant="40" id="aCq-ZR-Ncn"/>
-                            <constraint firstItem="QER-64-gOv" firstAttribute="bottom" secondItem="43D-K1-zeD" secondAttribute="bottom" constant="20" id="g67-5Q-jZe"/>
+                            <constraint firstItem="43D-K1-zeD" firstAttribute="top" secondItem="Uz9-4H-TWk" secondAttribute="bottom" constant="20" id="lj5-Ky-SN8"/>
                             <constraint firstItem="Uz9-4H-TWk" firstAttribute="leading" secondItem="QER-64-gOv" secondAttribute="leading" id="pWm-1l-3G4"/>
+                            <constraint firstItem="sa9-fd-6Og" firstAttribute="top" secondItem="43D-K1-zeD" secondAttribute="bottom" constant="10" id="pzI-W3-vyq"/>
                             <constraint firstItem="QER-64-gOv" firstAttribute="trailing" secondItem="Uz9-4H-TWk" secondAttribute="trailing" id="rpr-gw-iz0"/>
+                            <constraint firstItem="sa9-fd-6Og" firstAttribute="leading" secondItem="QER-64-gOv" secondAttribute="leading" constant="40" id="yTa-yR-bSv"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="ClN-Xv-SEQ"/>
@@ -1839,7 +1872,7 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cub-mN-ssa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-89" y="2753"/>
+            <point key="canvasLocation" x="-89.230769230769226" y="2752.6066350710898"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="vSM-Tt-jq0">
@@ -1945,7 +1978,7 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
                     <tabBarItem key="tabBarItem" title="Play" image="gamecontroller.fill" catalog="system" selectedImage="gamecontroller.fill" id="Xs1-53-ugV"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="eFe-la-nb9">
-                        <rect key="frame" x="0.0" y="44" width="390" height="104.33333333333334"/>
+                        <rect key="frame" x="0.0" y="44" width="390" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" red="0.396078431372549" green="0.77647058823529413" blue="0.94117647058823528" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </navigationBar>
@@ -2526,7 +2559,7 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="q0c-Zz-aob" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="jRP-bA-vTs">
-                        <rect key="frame" x="0.0" y="44" width="390" height="104.33333333333334"/>
+                        <rect key="frame" x="0.0" y="44" width="390" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -2542,8 +2575,8 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
     <inferredMetricsTieBreakers>
         <segue reference="s4T-H5-cTx"/>
         <segue reference="omW-sG-g2z"/>
-        <segue reference="orq-5T-Gly"/>
-        <segue reference="SnY-zI-Ehk"/>
+        <segue reference="8zc-2j-Gbh"/>
+        <segue reference="xa7-EN-bjL"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="books.vertical.fill" catalog="system" width="128" height="100"/>
