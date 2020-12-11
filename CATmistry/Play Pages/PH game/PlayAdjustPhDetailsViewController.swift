@@ -211,6 +211,13 @@ class PlayAdjustPhDetailsViewController: UIViewController {
     func checkForCorrectAnswer(whichOption: Int) {
         print(phOptionsArray[whichOption])
         
+        if submitButton.isHidden == false {
+            contentViewHeight.constant -= 68
+            self.view.layoutIfNeeded()
+            submitButtonIsVisibleConstraint?.isActive = false
+            submitButtonIsHiddenConstraint?.isActive = true
+        }
+        
         submitButton.isHidden = true
         submitButton.setTitle("Add Universal Indicator", for: .normal)
         monsterImageView.image = UIImage(named: "monster-regular.png")
