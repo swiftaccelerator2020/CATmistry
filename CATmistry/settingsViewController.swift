@@ -16,7 +16,7 @@ class settingsViewController: UIViewController {
         
         // Do any additional setup after loading the view.
         let navbar = UINavigationBarAppearance()
-        navbar.backgroundColor = UIColor(red: 170/255, green: 143/255, blue: 102/255, alpha: 1)
+        navbar.backgroundColor = UIColor(red: 198/255, green: 170/255, blue: 127/255, alpha: 1)
         self.navigationController?.navigationBar.scrollEdgeAppearance = navbar
         
         point.text = " You have \(points) points"
