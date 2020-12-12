@@ -164,7 +164,7 @@ class PlayRetrieveSolidsDetailsViewController: UIViewController, UITableViewDele
             // win
             changePoints(10)
             performSegue(withIdentifier: "seperationGameWIn", sender: nil)
-        } else if (progressView.progress >= 1) {
+        } else if (progressView.progress > 1) {
             // lose
             changePoints(-2)
             performSegue(withIdentifier: "seperationGameLose", sender: nil)
@@ -183,7 +183,7 @@ class PlayRetrieveSolidsDetailsViewController: UIViewController, UITableViewDele
             // win
             changePoints(10)
             performSegue(withIdentifier: "seperationGameWIn", sender: nil)
-        } else if (progressView.progress >= 1) {
+        } else if (progressView.progress > 1) {
             // lose
             changePoints(-2)
             performSegue(withIdentifier: "seperationGameLose", sender: nil)
