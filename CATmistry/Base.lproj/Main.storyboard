@@ -78,15 +78,10 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Learn 📚" id="zpM-bx-qgA">
-                        <barButtonItem key="rightBarButtonItem" image="gear" catalog="system" style="plain" id="uUF-F6-Jgb">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="8XE-7N-F91">
-                                <rect key="frame" x="352" y="11" width="22" height="22"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="gear" catalog="system"/>
-                                <connections>
-                                    <segue destination="4ae-PL-21e" kind="presentation" identifier="learnGoToSettings" modalPresentationStyle="fullScreen" id="6vI-OH-9oH"/>
-                                </connections>
-                            </button>
+                        <barButtonItem key="rightBarButtonItem" image="gear" catalog="system" id="UQB-NL-IbG">
+                            <connections>
+                                <segue destination="4ae-PL-21e" kind="presentation" identifier="learnGoToSettings" modalPresentationStyle="fullScreen" id="AB2-Sp-ZK0"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                 </tableViewController>
@@ -163,15 +158,10 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Play 🎮" id="9HF-TP-uSx">
-                        <barButtonItem key="rightBarButtonItem" image="gear" catalog="system" style="plain" id="1WU-Sx-NPG">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="6dv-xM-B9D">
-                                <rect key="frame" x="352" y="11" width="22" height="22"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="gear" catalog="system"/>
-                                <connections>
-                                    <segue destination="4ae-PL-21e" kind="presentation" identifier="playGoToSettings" modalPresentationStyle="fullScreen" id="dHL-HA-pYI"/>
-                                </connections>
-                            </button>
+                        <barButtonItem key="rightBarButtonItem" image="gear" catalog="system" id="uQO-hC-fJF">
+                            <connections>
+                                <segue destination="4ae-PL-21e" kind="presentation" identifier="playGoToSettings" modalPresentationStyle="fullScreen" id="TGq-gO-pZV"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
@@ -1947,41 +1937,52 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
         <!--Settings ⚙️-->
         <scene sceneID="ktO-op-ks2">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5E8-vP-eOu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <viewController id="TI6-Yu-g9g" customClass="settingsViewController" customModule="CATmistry" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="QaO-qM-xxI">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2kf-mA-oqU">
-                                <rect key="frame" x="16" y="325" width="374" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
                         <viewLayoutGuide key="safeArea" id="tXk-pY-hhC"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" title="Settings ⚙️" id="nJr-N0-we4">
-                        <barButtonItem key="rightBarButtonItem" style="plain" id="46b-qI-HFF">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="1te-1P-3Bm">
-                                <rect key="frame" x="288" y="7" width="86" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Done"/>
-                                <connections>
-                                    <action selector="doneButtonClicked:" destination="TI6-Yu-g9g" eventType="touchUpInside" id="NYS-mb-Vp1"/>
-                                </connections>
-                            </button>
+                        <barButtonItem key="rightBarButtonItem" title="Done" id="fga-JN-q7x">
+                            <connections>
+                                <action selector="doneButtonClicked:" destination="TI6-Yu-g9g" id="RJg-KD-LXi"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
-                    <connections>
-                        <outlet property="point" destination="2kf-mA-oqU" id="W4L-wk-Xhr"/>
-                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="5E8-vP-eOu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-2712" y="807"/>
+        </scene>
+        <!--Table View Controller-->
+        <scene sceneID="BCb-IQ-4of">
+            <objects>
+                <tableViewController id="ire-Um-mD0" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="cgi-JN-5od">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="xTP-du-QYR">
+                                <rect key="frame" x="0.0" y="28" width="390" height="43.666667938232422"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="xTP-du-QYR" id="yw7-xQ-Jpg">
+                                    <rect key="frame" x="0.0" y="0.0" width="390" height="43.666667938232422"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="ire-Um-mD0" id="P4k-MC-81t"/>
+                            <outlet property="delegate" destination="ire-Um-mD0" id="976-Kj-SZF"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TwO-o2-kJf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2084" y="784"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="j5M-0F-VSJ">
@@ -2634,11 +2635,11 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="dHL-HA-pYI"/>
+        <segue reference="AB2-Sp-ZK0"/>
         <segue reference="s4T-H5-cTx"/>
         <segue reference="l86-7T-ukz"/>
-        <segue reference="orq-5T-Gly"/>
-        <segue reference="SnY-zI-Ehk"/>
+        <segue reference="GDV-4V-Yxl"/>
+        <segue reference="1zV-QA-rV2"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="books.vertical.fill" catalog="system" width="128" height="100"/>
