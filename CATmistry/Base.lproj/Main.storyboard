@@ -1979,7 +1979,7 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
-                                    <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
+                                    <color key="backgroundColor" systemColor="systemGray5Color"/>
                                     <constraints>
                                         <constraint firstAttribute="trailing" secondItem="xsH-rE-t4Z" secondAttribute="trailing" constant="15" id="1wo-cy-IkP"/>
                                         <constraint firstItem="xsH-rE-t4Z" firstAttribute="top" secondItem="RjB-72-hW4" secondAttribute="top" constant="10" id="Eeu-Y2-m6w"/>
@@ -2772,11 +2772,11 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
-        <systemColor name="opaqueSeparatorColor">
-            <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray5Color">
+            <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemGreenColor">
             <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

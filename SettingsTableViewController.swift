@@ -108,7 +108,6 @@ class SettingsTableViewController: UITableViewController {
         let navbar = UINavigationBarAppearance()
         navbar.backgroundColor = UIColor(red: 198/255, green: 170/255, blue: 127/255, alpha: 1)
         self.navigationController?.navigationBar.scrollEdgeAppearance = navbar
-        navigationController?.navigationBar.shadowImage = UIImage()
         
         let topInset = 30
         settingsTableView.contentInset.top = CGFloat(topInset)
