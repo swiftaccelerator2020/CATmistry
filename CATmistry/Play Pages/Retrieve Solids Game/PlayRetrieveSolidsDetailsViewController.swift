@@ -70,7 +70,7 @@ class PlayRetrieveSolidsDetailsViewController: UIViewController, UITableViewDele
         
         elements = Array(specificSeperationMethodSet)
         
-        self.progressBarTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(PlayRetrieveSolidsDetailsViewController.updateProgressView), userInfo: nil, repeats: true)
+        self.progressBarTimer = Timer.scheduledTimer(timeInterval: 2, target: self, selector: #selector(PlayRetrieveSolidsDetailsViewController.updateProgressView), userInfo: nil, repeats: true)
 
         
         // Do any additional setup after loading the view.
@@ -83,7 +83,7 @@ class PlayRetrieveSolidsDetailsViewController: UIViewController, UITableViewDele
         self.view.backgroundColor = color
 
         if (hardMode) {
-            UIView.animate(withDuration: 1, delay: 0.0, options:[UIView.AnimationOptions.repeat, UIView.AnimationOptions.autoreverse], animations: {
+            UIView.animate(withDuration: 2, delay: 0.0, options:[UIView.AnimationOptions.repeat, UIView.AnimationOptions.autoreverse], animations: {
                  self.view.backgroundColor = color
                  self.view.backgroundColor = darkRed
             }, completion: nil)
