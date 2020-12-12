@@ -13,9 +13,13 @@ class settingsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        point.text = " You have \(points) points"
         
         // Do any additional setup after loading the view.
+        let navbar = UINavigationBarAppearance()
+        navbar.backgroundColor = UIColor(red: 170/255, green: 143/255, blue: 102/255, alpha: 1)
+        self.navigationController?.navigationBar.scrollEdgeAppearance = navbar
+        
+        point.text = " You have \(points) points"
     }
     
 

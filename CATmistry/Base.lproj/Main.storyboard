@@ -163,7 +163,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="e6O-ta-4U2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-612" y="508"/>
+            <point key="canvasLocation" x="316.92307692307691" y="507.58293838862556"/>
         </scene>
         <!--Find the Right Gas-->
         <scene sceneID="dQq-rs-Q5l">
@@ -294,7 +294,7 @@ As your cat can only live in a certain type of gas, your task is to use your kno
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Un1-SI-ZRg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1969.2307692307691" y="1264.6919431279621"/>
+            <point key="canvasLocation" x="-1040" y="1264.6919431279621"/>
         </scene>
         <!--Play Find Gas Details View Controller-->
         <scene sceneID="jDc-AA-bik">
@@ -937,7 +937,7 @@ Separate all the elements in his beaker or the wizard will cast a spell on your 
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="S7H-FD-Jot" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1003.0769230769231" y="1264.6919431279621"/>
+            <point key="canvasLocation" x="-73.84615384615384" y="1264.6919431279621"/>
         </scene>
         <!--Adjust the pH-->
         <scene sceneID="PsZ-pb-emh">
@@ -1066,7 +1066,7 @@ The monster is currently living in the right conditions, and your task is to use
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OEt-lM-p0P" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-69.230769230769226" y="1264.6919431279621"/>
+            <point key="canvasLocation" x="860" y="1264.6919431279621"/>
         </scene>
         <!--Identify the Elements-->
         <scene sceneID="dWH-BX-F9I">
@@ -1205,7 +1205,7 @@ Given the properties of each Group of the periodic table, select the correct gro
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2QJ-1y-jCk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="833.84615384615381" y="1264.6919431279621"/>
+            <point key="canvasLocation" x="1763.0769230769231" y="1264.6919431279621"/>
         </scene>
         <!--Play Identify Elements Second View Controller-->
         <scene sceneID="OMw-4Q-DVZ">
@@ -1217,12 +1217,13 @@ Given the properties of each Group of the periodic table, select the correct gro
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="20 seconds left" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Bq-Tb-1J1">
                                 <rect key="frame" x="215" y="64" width="150" height="40"/>
-                                <color key="backgroundColor" red="0.49921655650000002" green="0.67835754159999995" blue="0.85915046930000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="jkQ-03-NnT"/>
                                     <constraint firstAttribute="width" constant="150" id="qCg-Cg-plR"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6nO-os-1tY">
@@ -1691,12 +1692,13 @@ scroll down to submit</string>
                             </scrollView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="20 seconds left" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="28d-ID-N6R">
                                 <rect key="frame" x="215" y="64" width="150" height="40"/>
-                                <color key="backgroundColor" red="0.49411764705882355" green="0.67837697269999997" blue="0.85103112459999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="150" id="2Ux-xe-arT"/>
                                     <constraint firstAttribute="height" constant="40" id="qDM-fL-5CK"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -1899,7 +1901,7 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ERJ-iw-vIi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2240" y="1265"/>
+            <point key="canvasLocation" x="3169.2307692307691" y="1264.6919431279621"/>
         </scene>
         <!--Learn-->
         <scene sceneID="NwW-Ny-3ld">
@@ -1919,7 +1921,7 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
             </objects>
             <point key="canvasLocation" x="-1501.5384615384614" y="-211.13744075829382"/>
         </scene>
-        <!--Settings-->
+        <!--Settings ⚙️-->
         <scene sceneID="ktO-op-ks2">
             <objects>
                 <viewController id="TI6-Yu-g9g" customClass="settingsViewController" customModule="CATmistry" customModuleProvider="target" sceneMemberID="viewController">
@@ -1938,14 +1940,14 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
                         <viewLayoutGuide key="safeArea" id="tXk-pY-hhC"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Settings" image="gear" catalog="system" selectedImage="gear" id="mZa-8F-nqW"/>
+                    <navigationItem key="navigationItem" title="Settings ⚙️" id="nJr-N0-we4"/>
                     <connections>
                         <outlet property="point" destination="2kf-mA-oqU" id="W4L-wk-Xhr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5E8-vP-eOu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3168" y="807"/>
+            <point key="canvasLocation" x="-2712" y="807"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="j5M-0F-VSJ">
@@ -1966,7 +1968,7 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
                     <connections>
                         <segue destination="8Us-es-0oa" kind="relationship" relationship="viewControllers" id="D1C-oQ-qTn"/>
                         <segue destination="AWj-tp-2rk" kind="relationship" relationship="viewControllers" id="3vm-Ky-bg2"/>
-                        <segue destination="TI6-Yu-g9g" kind="relationship" relationship="viewControllers" id="X7D-fX-g4p"/>
+                        <segue destination="4ae-PL-21e" kind="relationship" relationship="viewControllers" id="X7D-fX-g4p"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iiO-Mq-Aeo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1991,7 +1993,7 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qq7-LR-359" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1502" y="508"/>
+            <point key="canvasLocation" x="-573.84615384615381" y="507.58293838862556"/>
         </scene>
         <!--Sub Topics-->
         <scene sceneID="K1z-9F-dJI">
@@ -2427,7 +2429,7 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Uqm-HG-b3z" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2240" y="508"/>
+            <point key="canvasLocation" x="3169.2307692307691" y="507.58293838862556"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="xbT-8M-oNT">
@@ -2538,7 +2540,7 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WVd-hw-mx7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="213.84615384615384" y="507.58293838862556"/>
+            <point key="canvasLocation" x="1143.0769230769231" y="507.58293838862556"/>
         </scene>
         <!--wrong-->
         <scene sceneID="WMf-LO-7os">
@@ -2554,7 +2556,7 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eL0-Nl-xns" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1211" y="508"/>
+            <point key="canvasLocation" x="2140" y="507.58293838862556"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="a0R-m9-N1Z">
@@ -2574,12 +2576,32 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
             </objects>
             <point key="canvasLocation" x="3260" y="-211"/>
         </scene>
+        <!--Settings-->
+        <scene sceneID="yTd-fx-uNe">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="4ae-PL-21e" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Settings" image="gear" catalog="system" selectedImage="gear" id="mZa-8F-nqW"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="ZtL-PK-NjE">
+                        <rect key="frame" x="0.0" y="44" width="390" height="104.33333333333334"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" red="0.66666666666666663" green="0.5607843137254902" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="TI6-Yu-g9g" kind="relationship" relationship="rootViewController" id="9TP-FW-E1w"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dy3-kA-TKd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-3582" y="807"/>
+        </scene>
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="s4T-H5-cTx"/>
         <segue reference="l86-7T-ukz"/>
-        <segue reference="cAs-Qz-eXZ"/>
-        <segue reference="KGp-Wk-Y1U"/>
+        <segue reference="GDV-4V-Yxl"/>
+        <segue reference="1zV-QA-rV2"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="books.vertical.fill" catalog="system" width="128" height="100"/>
