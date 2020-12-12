@@ -63,7 +63,7 @@ class PlayRetrieveSolidsDetailsViewController: UIViewController, UITableViewDele
         
         progressView.progress = Float(numOfItems)/10
         
-        while specificSeperationMethodSet.count < 4 {
+        while specificSeperationMethodSet.count < 10 {
             let randomIndex = Int(arc4random_uniform(UInt32(retrieveSolidsArray.count)))
             specificSeperationMethodSet.insert(retrieveSolidsArray[randomIndex])
         }
@@ -164,7 +164,7 @@ class PlayRetrieveSolidsDetailsViewController: UIViewController, UITableViewDele
             // win
             changePoints(10)
             performSegue(withIdentifier: "seperationGameWIn", sender: nil)
-        } else if (progressView.progress >= 1) {
+        } else if (numOfItems > 10) {
             // lose
             changePoints(-2)
             performSegue(withIdentifier: "seperationGameLose", sender: nil)
@@ -179,6 +179,16 @@ class PlayRetrieveSolidsDetailsViewController: UIViewController, UITableViewDele
     @objc func updateProgressView(){
         numOfItems += 1
         progressView.progress += 0.1
+        if (progressView.progress <= 0) {
+            // win
+            changePoints(10)
+            performSegue(withIdentifier: "seperationGameWIn", sender: nil)
+        } else if (numOfItems > 10) {
+            // lose
+            changePoints(-2)
+            performSegue(withIdentifier: "seperationGameLose", sender: nil)
+        }
+        seperationTableView.reloadData()
     }
     
     // MARK: - Navigation

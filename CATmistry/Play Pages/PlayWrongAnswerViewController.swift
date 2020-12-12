@@ -26,11 +26,10 @@ class PlayWrongAnswerViewController: UIViewController {
             sadLabel.text = "The wizard's beaker overflowed! Now your cat is under a spell...\nReview [Separation Methods] to save your cat. "
         } else {
             sadLabel.text = "Oh no! \n\nYour answer was wrong, and your cat died. \n\nDon't worry though, a cat has 9 lives, and you still have \(String(9 - currentGame)) rounds remaining in Level \(String(currentLevel + 1)). Good luck!"
-        }
-        
-        if 9 - self.currentGame == 0 {
-            nextGameButton.setTitle("Go Back Home", for: .normal)
-            goHomeButton.isHidden = true
+            if 9 - self.currentGame == 0 {
+                nextGameButton.setTitle("Go Back Home", for: .normal)
+                goHomeButton.isHidden = true
+            }
         }
     }
     
