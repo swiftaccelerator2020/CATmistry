@@ -158,7 +158,6 @@ class PlayRetrieveSolidsDetailsViewController: UIViewController, UITableViewDele
         } else if (isCorrect!) {
             isWrong.text = "CORRECT"
             isWrong.backgroundColor = .green
-            elements.remove(at: index)
             selectedChoiceLabel.isHidden = true
             selectedElement = nil
             index = 0
