@@ -166,7 +166,7 @@ class PlayRetrieveSolidsDetailsViewController: UIViewController, UITableViewDele
             numOfItems -= 1
             progressView.progress -= 0.1
         }
-        if (progressView.progress <= 0) {
+        if (numOfItems <= 0) {
             // win
             changePoints(10)
             performSegue(withIdentifier: "seperationGameWIn", sender: nil)

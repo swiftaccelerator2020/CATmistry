@@ -25,15 +25,15 @@ class PlayCorrectAnswerViewController: UIViewController {
         nextGameButton.layer.cornerRadius = 25
         if (isSeperation != nil){
             congratsLabel.text = "Yay good job you saved the cat!"
+            nextGameButton.setTitle("Go Back Home", for: .normal)
+            goHomeButton.isHidden = true
         } else {
             congratsLabel.text = "Congrats! \n\nThrough your hard work, your cat has been able to avoid the danger. \n\nYou have \(String(9 - currentGame)) rounds remaining in Level \(String(currentLevel + 1)). Keep up the good work!"
+            if 9 - self.currentGame == 0 {
+                nextGameButton.setTitle("Go Back Home", for: .normal)
+                goHomeButton.setTitle("Restart", for: .normal)
+            }
         }
-        
-        if 9 - self.currentGame == 0 {
-            nextGameButton.setTitle("Go Back Home", for: .normal)
-            goHomeButton.setTitle("Restart", for: .normal)
-        }
-        
         let confettiView = SwiftConfettiView(frame: self.view.bounds)
         self.view.addSubview(confettiView)
         confettiView.isUserInteractionEnabled = false
@@ -51,15 +51,17 @@ class PlayCorrectAnswerViewController: UIViewController {
     }
     
     @IBAction func restartClicked(_ sender: Any) {
-        var alert = UIAlertController(title: "Are you sure you would like to go home?", message: "All game progress wil be lost, and you will be taken to the start page of this game.", preferredStyle: .alert)
-        if 9 - currentGame == 0 {
-            alert = UIAlertController(title: "Are you sure you would like to restart?", message: "You will not go to the start page, but will instead play the 10 rounds of Level \(String(currentLevel)) again.", preferredStyle: .alert)
+        if isSeperation != nil {
+            var alert = UIAlertController(title: "Are you sure you would like to go home?", message: "All game progress wil be lost, and you will be taken to the start page of this game.", preferredStyle: .alert)
+            if 9 - currentGame == 0 {
+                alert = UIAlertController(title: "Are you sure you would like to restart?", message: "You will not go to the start page, but will instead play the 10 rounds of Level \(String(currentLevel)) again.", preferredStyle: .alert)
+            }
+            alert.addAction(UIAlertAction(title: "Continue", style: UIAlertAction.Style.default, handler: { action in
+                self.presentingViewController?.presentingViewController?.dismiss(animated: true, completion: nil)
+            }))
+            alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel, handler: nil))
+            self.present(alert, animated: true, completion: nil)
         }
-        alert.addAction(UIAlertAction(title: "Continue", style: UIAlertAction.Style.default, handler: { action in
-            self.presentingViewController?.presentingViewController?.dismiss(animated: true, completion: nil)
-        }))
-        alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel, handler: nil))
-        self.present(alert, animated: true, completion: nil)
     }
     
     /*
