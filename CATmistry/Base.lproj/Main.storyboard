@@ -84,7 +84,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="gear" catalog="system"/>
                                 <connections>
-                                    <segue destination="4ae-PL-21e" kind="presentation" identifier="learnGoToSettings" id="6vI-OH-9oH"/>
+                                    <segue destination="4ae-PL-21e" kind="presentation" identifier="learnGoToSettings" modalPresentationStyle="fullScreen" id="6vI-OH-9oH"/>
                                 </connections>
                             </button>
                         </barButtonItem>
@@ -169,7 +169,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="gear" catalog="system"/>
                                 <connections>
-                                    <segue destination="4ae-PL-21e" kind="presentation" identifier="playGoToSettings" id="dHL-HA-pYI"/>
+                                    <segue destination="4ae-PL-21e" kind="presentation" identifier="playGoToSettings" modalPresentationStyle="fullScreen" id="dHL-HA-pYI"/>
                                 </connections>
                             </button>
                         </barButtonItem>
@@ -1949,7 +1949,7 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
             <objects>
                 <viewController id="TI6-Yu-g9g" customClass="settingsViewController" customModule="CATmistry" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="QaO-qM-xxI">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="790"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2kf-mA-oqU">
@@ -1963,7 +1963,18 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
                         <viewLayoutGuide key="safeArea" id="tXk-pY-hhC"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Settings ⚙️" id="nJr-N0-we4"/>
+                    <navigationItem key="navigationItem" title="Settings ⚙️" id="nJr-N0-we4">
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="46b-qI-HFF">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="1te-1P-3Bm">
+                                <rect key="frame" x="288" y="7" width="86" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Done"/>
+                                <connections>
+                                    <action selector="doneButtonClicked:" destination="TI6-Yu-g9g" eventType="touchUpInside" id="NYS-mb-Vp1"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="point" destination="2kf-mA-oqU" id="W4L-wk-Xhr"/>
                     </connections>
@@ -2607,7 +2618,7 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="CRz-xJ-7Mz"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="ZtL-PK-NjE">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="116.33333333333334"/>
+                        <rect key="frame" x="0.0" y="44" width="390" height="104.33333333333334"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" red="0.77647058823529413" green="0.66666666666666663" blue="0.49803921568627452" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -2623,7 +2634,7 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="dHL-HA-pYI"/>
+        <segue reference="6vI-OH-9oH"/>
         <segue reference="s4T-H5-cTx"/>
         <segue reference="l86-7T-ukz"/>
         <segue reference="orq-5T-Gly"/>

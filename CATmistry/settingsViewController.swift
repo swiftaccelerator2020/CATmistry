@@ -22,7 +22,10 @@ class settingsViewController: UIViewController {
         point.text = " You have \(points) points"
     }
     
-
+    @IBAction func doneButtonClicked(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
+    
     /*
     // MARK: - Navigation
 
