@@ -77,7 +77,7 @@ class LearnSubTopicDetailsViewController: UIViewController, UITableViewDataSourc
     
     
     @IBAction func sliderChangedValue(_ sender: UISlider) {
-        let pHItemArray = ["Stomach Acid", "Lemonade", "Apple Juice", "Tomato Juice", "Coffee", "Milk", "Water", "Egg", "Baking Soda", "Stomach Tablets", "Ammonia", "Soap", "Bleach", "Pipe Cleaner"]
+        let pHItemArray = ["Stomach Acid", "Lemonade", "Apple Juice", "Tomato Juice", "Coffee", "Milk", "Water", "Egg", "Baking Soda", "Stomach Tablets", "Ammonia (Cleaning Products)", "Soap", "Bleach", "Pipe Cleaner"]
         
         let line1Text = "Current pH: " + String(Int(sender.value.rounded()))
         let line2Text = "\n" + pHItemArray[Int(sender.value.rounded()) - 1]
