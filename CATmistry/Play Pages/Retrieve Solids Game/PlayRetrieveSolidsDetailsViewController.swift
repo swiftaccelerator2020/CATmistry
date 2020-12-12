@@ -63,31 +63,36 @@ class PlayRetrieveSolidsDetailsViewController: UIViewController, UITableViewDele
         
         progressView.progress = Float(numOfItems)/10
         
-        while specificSeperationMethodSet.count < 10 {
+        while specificSeperationMethodSet.count <= 10 {
             let randomIndex = Int(arc4random_uniform(UInt32(retrieveSolidsArray.count)))
             specificSeperationMethodSet.insert(retrieveSolidsArray[randomIndex])
         }
         
         elements = Array(specificSeperationMethodSet)
         
-        self.progressBarTimer = Timer.scheduledTimer(timeInterval: 2, target: self, selector: #selector(PlayRetrieveSolidsDetailsViewController.updateProgressView), userInfo: nil, repeats: true)
-
+        if (hardMode) {
+            self.progressBarTimer = Timer.scheduledTimer(timeInterval: 2, target: self, selector: #selector(PlayRetrieveSolidsDetailsViewController.updateProgressView), userInfo: nil, repeats: true)
+        }
         
         // Do any additional setup after loading the view.
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        
+        /*
         let color = UIColor(rgb: 0xFF0000)
         let darkRed = UIColor(rgb: 0xCC0000)
         self.view.backgroundColor = color
-
+        
+        let view2 = UIView()
+        self.view.addSubview(view2)
+        view2.isUserInteractionEnabled = false
+        
         if (hardMode) {
             UIView.animate(withDuration: 2, delay: 0.0, options:[UIView.AnimationOptions.repeat, UIView.AnimationOptions.autoreverse], animations: {
-                 self.view.backgroundColor = color
-                 self.view.backgroundColor = darkRed
+                 view2.backgroundColor = color
+                 view2.backgroundColor = darkRed
             }, completion: nil)
-        }
+        } */
     }
     // MARK: - First Table View
     
@@ -98,6 +103,7 @@ class PlayRetrieveSolidsDetailsViewController: UIViewController, UITableViewDele
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if (tableView == self.seperationTableView){
+            print(indexPath.row)
             let cell = tableView.dequeueReusableCell(withIdentifier: "loremIpsum", for: indexPath)
             cell.textLabel?.text = "\(elements[indexPath.row].name) - \(elements[indexPath.row].properties)"
             return cell
@@ -160,7 +166,7 @@ class PlayRetrieveSolidsDetailsViewController: UIViewController, UITableViewDele
             numOfItems -= 1
             progressView.progress -= 0.1
         }
-        if (progressView.progress <= 0) {
+        if (numOfItems <= 0) {
             // win
             changePoints(10)
             performSegue(withIdentifier: "seperationGameWIn", sender: nil)

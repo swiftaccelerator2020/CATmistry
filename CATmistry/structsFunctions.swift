@@ -410,11 +410,11 @@ var retrieveSolidsArray = [
     specificSeperationMethod(name: "hh", properties: "filter", givenMethods: GivenSeperationMethods(methods: [SeperationMethods(methodName: "N.A", isCorrect: false),SeperationMethods(methodName: "Correct", isCorrect: true)])),
     specificSeperationMethod(name: "ii", properties: "filter", givenMethods: GivenSeperationMethods(methods: [SeperationMethods(methodName: "N.A", isCorrect: false),SeperationMethods(methodName: "Correct", isCorrect: true)])),
     specificSeperationMethod(name: "jj", properties: "filter", givenMethods: GivenSeperationMethods(methods: [SeperationMethods(methodName: "N.A", isCorrect: false),SeperationMethods(methodName: "Correct", isCorrect: true)])),
-    specificSeperationMethod(name: "ff", properties: "filter", givenMethods: GivenSeperationMethods(methods: [SeperationMethods(methodName: "N.A", isCorrect: false),SeperationMethods(methodName: "Correct", isCorrect: true)])),
-    specificSeperationMethod(name: "gg", properties: "filter", givenMethods: GivenSeperationMethods(methods: [SeperationMethods(methodName: "N.A", isCorrect: false),SeperationMethods(methodName: "Correct", isCorrect: true)])),
-    specificSeperationMethod(name: "hh", properties: "filter", givenMethods: GivenSeperationMethods(methods: [SeperationMethods(methodName: "N.A", isCorrect: false),SeperationMethods(methodName: "Correct", isCorrect: true)])),
-    specificSeperationMethod(name: "ii", properties: "filter", givenMethods: GivenSeperationMethods(methods: [SeperationMethods(methodName: "N.A", isCorrect: false),SeperationMethods(methodName: "Correct", isCorrect: true)])),
-    specificSeperationMethod(name: "jj", properties: "filter", givenMethods: GivenSeperationMethods(methods: [SeperationMethods(methodName: "N.A", isCorrect: false),SeperationMethods(methodName: "Correct", isCorrect: true)]))
+    specificSeperationMethod(name: "kk", properties: "filter", givenMethods: GivenSeperationMethods(methods: [SeperationMethods(methodName: "N.A", isCorrect: false),SeperationMethods(methodName: "Correct", isCorrect: true)])),
+    specificSeperationMethod(name: "ll", properties: "filter", givenMethods: GivenSeperationMethods(methods: [SeperationMethods(methodName: "N.A", isCorrect: false),SeperationMethods(methodName: "Correct", isCorrect: true)])),
+    specificSeperationMethod(name: "mm", properties: "filter", givenMethods: GivenSeperationMethods(methods: [SeperationMethods(methodName: "N.A", isCorrect: false),SeperationMethods(methodName: "Correct", isCorrect: true)])),
+    specificSeperationMethod(name: "nn", properties: "filter", givenMethods: GivenSeperationMethods(methods: [SeperationMethods(methodName: "N.A", isCorrect: false),SeperationMethods(methodName: "Correct", isCorrect: true)])),
+    specificSeperationMethod(name: "oo", properties: "filter", givenMethods: GivenSeperationMethods(methods: [SeperationMethods(methodName: "N.A", isCorrect: false),SeperationMethods(methodName: "Correct", isCorrect: true)]))
 ]
 
 // MARK: - Functions
