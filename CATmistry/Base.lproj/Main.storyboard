@@ -1909,6 +1909,7 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
                 <navigationController id="8Us-es-0oa" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Learn" image="books.vertical.fill" catalog="system" selectedImage="books.vertical.fill" id="ZOw-bY-pdm"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="OvI-u8-jpf">
+                        <rect key="frame" x="0.0" y="44" width="390" height="104.33333333333334"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" red="0.95419245959999999" green="0.83945876360000005" blue="0.47016263009999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </navigationBar>
@@ -2011,7 +2012,7 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KUT-Bu-RTy">
-                                            <rect key="frame" x="15" y="15" width="313.66666666666669" height="50"/>
+                                            <rect key="frame" x="15" y="15" width="328.66666666666669" height="50"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lock" translatesAutoresizingMaskIntoConstraints="NO" id="jxA-Ri-3FN">
                                                     <rect key="frame" x="0.0" y="0.0" width="80" height="50"/>
@@ -2021,7 +2022,7 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ttA-VK-tYY">
-                                                    <rect key="frame" x="79.999999999999986" y="0.0" width="233.66666666666663" height="50"/>
+                                                    <rect key="frame" x="79.999999999999986" y="0.0" width="248.66666666666663" height="50"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -2033,7 +2034,7 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
                                         <constraint firstItem="KUT-Bu-RTy" firstAttribute="leading" secondItem="QcU-y6-tPg" secondAttribute="leading" constant="15" id="7rL-RU-Q8B"/>
                                         <constraint firstAttribute="bottom" secondItem="KUT-Bu-RTy" secondAttribute="bottom" constant="15" id="QY7-gm-atG"/>
                                         <constraint firstItem="KUT-Bu-RTy" firstAttribute="top" secondItem="QcU-y6-tPg" secondAttribute="top" constant="15" id="bGj-pU-M21"/>
-                                        <constraint firstAttribute="trailing" secondItem="KUT-Bu-RTy" secondAttribute="trailing" constant="30" id="rg2-VL-Wem"/>
+                                        <constraint firstAttribute="trailing" secondItem="KUT-Bu-RTy" secondAttribute="trailing" constant="15" id="rg2-VL-Wem"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
@@ -2066,7 +2067,7 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XVC-Ig-NQi">
-                                <rect key="frame" x="0.0" y="140" width="390" height="621"/>
+                                <rect key="frame" x="0.0" y="88" width="390" height="673"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mVw-ph-Zlg">
                                         <rect key="frame" x="0.0" y="0.0" width="390" height="850"/>
@@ -2078,7 +2079,7 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="SYZ-WC-ALx">
-                                                <rect key="frame" x="25" y="312.66666666666669" width="340" height="280.00000000000006"/>
+                                                <rect key="frame" x="25" y="312.66666666666663" width="340" height="280"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ruL-5t-Hew">
                                                         <rect key="frame" x="0.0" y="0.0" width="340" height="20"/>
@@ -2122,7 +2123,7 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="7aQ-Kb-rIM">
-                                                        <rect key="frame" x="0.0" y="109.99999999999994" width="340" height="170"/>
+                                                        <rect key="frame" x="0.0" y="110" width="340" height="170"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="170" id="FtG-tu-kGa"/>
                                                         </constraints>
@@ -2252,7 +2253,7 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QUe-cY-thK">
-                                <rect key="frame" x="0.0" y="148.33333333333331" width="390" height="612.66666666666652"/>
+                                <rect key="frame" x="0.0" y="148.33333333333331" width="390" height="612.66666666666674"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zMu-Qc-3rs">
                                         <rect key="frame" x="0.0" y="0.0" width="390" height="613"/>
@@ -2437,7 +2438,6 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="FaB-d6-X5c"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="wEn-aq-CEr">
-                        <rect key="frame" x="0.0" y="44" width="390" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -2563,7 +2563,7 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="q0c-Zz-aob" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="jRP-bA-vTs">
-                        <rect key="frame" x="0.0" y="44" width="390" height="104.33333333333334"/>
+                        <rect key="frame" x="0.0" y="44" width="390" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -2582,6 +2582,7 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
                     <tabBarItem key="tabBarItem" title="Settings" image="gear" catalog="system" selectedImage="gear" id="mZa-8F-nqW"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="ZtL-PK-NjE">
+                        <rect key="frame" x="0.0" y="44" width="390" height="104.33333333333334"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" red="0.77647058823529413" green="0.66666666666666663" blue="0.49803921568627452" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </navigationBar>
