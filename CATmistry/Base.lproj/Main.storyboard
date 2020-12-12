@@ -773,7 +773,7 @@ You have \(String(10 - currentGame)) rounds remaining in Level \(String(currentL
                                             <constraint firstAttribute="trailing" secondItem="uFs-Yh-ieF" secondAttribute="trailing" constant="40" id="dCL-aB-yhh"/>
                                             <constraint firstAttribute="height" constant="656" id="gU8-wU-iBt"/>
                                             <constraint firstItem="Toi-w5-WBS" firstAttribute="leading" secondItem="ApE-zQ-fgG" secondAttribute="leading" constant="60" id="imb-lI-On9"/>
-                                            <constraint firstItem="uFs-Yh-ieF" firstAttribute="leading" secondItem="ApE-zQ-fgG" secondAttribute="leading" constant="40" id="nVV-Ne-dI1"/>
+                                            <constraint firstItem="uFs-Yh-ieF" firstAttribute="left" secondItem="ApE-zQ-fgG" secondAttribute="left" constant="40" id="nVV-Ne-dI1"/>
                                             <constraint firstItem="uFs-Yh-ieF" firstAttribute="top" secondItem="Toi-w5-WBS" secondAttribute="bottom" constant="40" id="oKB-k4-Z7q"/>
                                             <constraint firstAttribute="bottom" secondItem="uFs-Yh-ieF" secondAttribute="bottom" constant="20" id="wX1-xX-rbY"/>
                                             <constraint firstAttribute="trailing" secondItem="Toi-w5-WBS" secondAttribute="trailing" constant="60" id="wpq-va-4lG"/>
