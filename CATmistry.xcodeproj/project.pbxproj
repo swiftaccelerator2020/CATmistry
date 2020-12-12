@@ -26,6 +26,7 @@
 		26CD2F1B257F66D3002705D1 /* PlayCorrectAnswerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26CD2F1A257F66D3002705D1 /* PlayCorrectAnswerViewController.swift */; };
 		26CD2F23257F670B002705D1 /* PlayWrongAnswerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26CD2F22257F670B002705D1 /* PlayWrongAnswerViewController.swift */; };
 		26DDE2A4257483B200FDC078 /* LearnSubSubTopicDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26DDE2A3257483B200FDC078 /* LearnSubSubTopicDetailsViewController.swift */; };
+		26EA43222584C15E00AD5BD0 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26EA43212584C15E00AD5BD0 /* SettingsTableViewController.swift */; };
 		547F0AD92570F5F900A224D9 /* LearnHomePageTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 547F0AD82570F5F900A224D9 /* LearnHomePageTableViewController.swift */; };
 		547F0ADE2570F66E00A224D9 /* LearnHomePageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 547F0ADD2570F66E00A224D9 /* LearnHomePageTableViewCell.swift */; };
 		547F0AEB2570F85000A224D9 /* structsFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 547F0AEA2570F85000A224D9 /* structsFunctions.swift */; };
@@ -84,6 +85,7 @@
 		26CD2F1A257F66D3002705D1 /* PlayCorrectAnswerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayCorrectAnswerViewController.swift; sourceTree = "<group>"; };
 		26CD2F22257F670B002705D1 /* PlayWrongAnswerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayWrongAnswerViewController.swift; sourceTree = "<group>"; };
 		26DDE2A3257483B200FDC078 /* LearnSubSubTopicDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearnSubSubTopicDetailsViewController.swift; sourceTree = "<group>"; };
+		26EA43212584C15E00AD5BD0 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = SOURCE_ROOT; };
 		2F20F908644330A99E65D047 /* Pods-CATmistryTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CATmistryTests.debug.xcconfig"; path = "Target Support Files/Pods-CATmistryTests/Pods-CATmistryTests.debug.xcconfig"; sourceTree = "<group>"; };
 		462BC2A50FADBCEE81DEA261 /* Pods-CATmistry.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CATmistry.release.xcconfig"; path = "Target Support Files/Pods-CATmistry/Pods-CATmistry.release.xcconfig"; sourceTree = "<group>"; };
 		49DA23714213562AA54B3120 /* Pods_CATmistry.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CATmistry.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -169,6 +171,7 @@
 		2613B0332570DB8C00EECB4C /* CATmistry */ = {
 			isa = PBXGroup;
 			children = (
+				26EA43212584C15E00AD5BD0 /* SettingsTableViewController.swift */,
 				2613B0342570DB8C00EECB4C /* AppDelegate.swift */,
 				2613B0362570DB8C00EECB4C /* SceneDelegate.swift */,
 				2613B03A2570DB8C00EECB4C /* Main.storyboard */,
@@ -550,6 +553,7 @@
 				2632D7092577D5F00005033F /* PlayAdjustPhDetailsViewController.swift in Sources */,
 				54FEFB0525770AE50054CFF9 /* PlayIdentifyElementsSecondViewController.swift in Sources */,
 				2613B0372570DB8C00EECB4C /* SceneDelegate.swift in Sources */,
+				26EA43222584C15E00AD5BD0 /* SettingsTableViewController.swift in Sources */,
 				269F995925777538001C7246 /* PlayFindGasStartViewController.swift in Sources */,
 				2632D70E2577D62F0005033F /* PlayRetrieveSolidsDetailsViewController.swift in Sources */,
 				547F0AD92570F5F900A224D9 /* LearnHomePageTableViewController.swift in Sources */,
