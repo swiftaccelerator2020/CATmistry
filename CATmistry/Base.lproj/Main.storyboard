@@ -1937,7 +1937,6 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
         <!--Settings ⚙️-->
         <scene sceneID="ktO-op-ks2">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="5E8-vP-eOu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <viewController id="TI6-Yu-g9g" customClass="settingsViewController" customModule="CATmistry" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="QaO-qM-xxI">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
@@ -1953,6 +1952,7 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
                         </barButtonItem>
                     </navigationItem>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5E8-vP-eOu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-3662" y="1547"/>
         </scene>
@@ -1960,19 +1960,117 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
         <scene sceneID="BCb-IQ-4of">
             <objects>
                 <tableViewController id="ire-Um-mD0" customClass="SettingsTableViewController" customModule="CATmistry" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="cgi-JN-5od">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="insetGrouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="cgi-JN-5od">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="xTP-du-QYR">
-                                <rect key="frame" x="0.0" y="28" width="390" height="43.666667938232422"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="headerCell" id="I7e-0D-k9T" customClass="SettingsTableViewCell" customModule="CATmistry" customModuleProvider="target">
+                                <rect key="frame" x="20" y="55.333332061767578" width="350" height="41.333332061767578"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="I7e-0D-k9T" id="RjB-72-hW4">
+                                    <rect key="frame" x="0.0" y="0.0" width="350" height="41.333332061767578"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xsH-rE-t4Z">
+                                            <rect key="frame" x="15" y="9.9999999999999982" width="320" height="21.333333333333329"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
+                                    <constraints>
+                                        <constraint firstAttribute="trailing" secondItem="xsH-rE-t4Z" secondAttribute="trailing" constant="15" id="1wo-cy-IkP"/>
+                                        <constraint firstItem="xsH-rE-t4Z" firstAttribute="top" secondItem="RjB-72-hW4" secondAttribute="top" constant="10" id="Eeu-Y2-m6w"/>
+                                        <constraint firstItem="xsH-rE-t4Z" firstAttribute="leading" secondItem="RjB-72-hW4" secondAttribute="leading" constant="15" id="JzH-zp-mPm"/>
+                                        <constraint firstAttribute="bottom" secondItem="xsH-rE-t4Z" secondAttribute="bottom" constant="10" id="oX9-5l-OMf"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="contentLabel" destination="xsH-rE-t4Z" id="whD-aq-G0o"/>
+                                </connections>
+                            </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="detailButton" indentationWidth="10" reuseIdentifier="detailAccessoryCell" id="xTP-du-QYR" customClass="SettingsTableViewCell" customModule="CATmistry" customModuleProvider="target">
+                                <rect key="frame" x="20" y="96.666664123535156" width="350" height="40.666667938232422"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="xTP-du-QYR" id="yw7-xQ-Jpg">
-                                    <rect key="frame" x="0.0" y="0.0" width="390" height="43.666667938232422"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="306" height="40.666667938232422"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AqO-hn-ZX9">
+                                            <rect key="frame" x="15" y="10.000000000000002" width="276" height="20.666666666666671"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="trailing" secondItem="AqO-hn-ZX9" secondAttribute="trailing" constant="15" id="e4l-dV-TiU"/>
+                                        <constraint firstItem="AqO-hn-ZX9" firstAttribute="top" secondItem="yw7-xQ-Jpg" secondAttribute="top" constant="10" id="eT3-90-05E"/>
+                                        <constraint firstAttribute="bottom" secondItem="AqO-hn-ZX9" secondAttribute="bottom" constant="10" id="jg4-NT-4zj"/>
+                                        <constraint firstItem="AqO-hn-ZX9" firstAttribute="leading" secondItem="yw7-xQ-Jpg" secondAttribute="leading" constant="15" id="z2H-aA-903"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="contentLabel" destination="AqO-hn-ZX9" id="l31-JM-ddh"/>
+                                </connections>
+                            </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="discloureIndicatorCell" id="ZNF-Qt-zZW" customClass="SettingsTableViewCell" customModule="CATmistry" customModuleProvider="target">
+                                <rect key="frame" x="20" y="137.33333206176758" width="350" height="41"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ZNF-Qt-zZW" id="b2e-ud-6fg">
+                                    <rect key="frame" x="0.0" y="0.0" width="318.66666666666669" height="41"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="diQ-gr-OIv">
+                                            <rect key="frame" x="15" y="10" width="288.66666666666669" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="diQ-gr-OIv" firstAttribute="top" secondItem="b2e-ud-6fg" secondAttribute="top" constant="10" id="CLa-rd-2W6"/>
+                                        <constraint firstItem="diQ-gr-OIv" firstAttribute="leading" secondItem="b2e-ud-6fg" secondAttribute="leading" constant="15" id="fIX-zA-MK4"/>
+                                        <constraint firstAttribute="bottom" secondItem="diQ-gr-OIv" secondAttribute="bottom" constant="10" id="sno-b4-g0X"/>
+                                        <constraint firstAttribute="trailing" secondItem="diQ-gr-OIv" secondAttribute="trailing" constant="15" id="tRQ-as-M5L"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="contentLabel" destination="diQ-gr-OIv" id="BIE-2G-7h1"/>
+                                </connections>
+                            </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="switchCell" id="u3b-ng-oRm" customClass="SettingsTableViewCell" customModule="CATmistry" customModuleProvider="target">
+                                <rect key="frame" x="20" y="178.33333206176758" width="350" height="45.333332061767578"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="u3b-ng-oRm" id="qxS-8z-2LR">
+                                    <rect key="frame" x="0.0" y="0.0" width="350" height="45.333332061767578"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wla-aT-DHb">
+                                            <rect key="frame" x="15" y="9.9999999999999982" width="256" height="25.333333333333329"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Yj6-P6-Tov">
+                                            <rect key="frame" x="286" y="6.9999999999999982" width="51" height="31.333333333333329"/>
+                                        </switch>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="bottom" secondItem="wla-aT-DHb" secondAttribute="bottom" constant="10" id="2Rw-tC-PzW"/>
+                                        <constraint firstItem="wla-aT-DHb" firstAttribute="leading" secondItem="qxS-8z-2LR" secondAttribute="leading" constant="15" id="55C-bW-j8O"/>
+                                        <constraint firstItem="Yj6-P6-Tov" firstAttribute="top" secondItem="qxS-8z-2LR" secondAttribute="top" constant="7" id="Q0V-SR-tTZ"/>
+                                        <constraint firstAttribute="trailing" secondItem="Yj6-P6-Tov" secondAttribute="trailing" constant="15" id="UNL-7N-0lr"/>
+                                        <constraint firstAttribute="bottom" secondItem="Yj6-P6-Tov" secondAttribute="bottom" constant="7" id="oIE-8a-rca"/>
+                                        <constraint firstItem="Yj6-P6-Tov" firstAttribute="leading" secondItem="wla-aT-DHb" secondAttribute="trailing" constant="15" id="q8t-kH-vrH"/>
+                                        <constraint firstItem="wla-aT-DHb" firstAttribute="top" secondItem="qxS-8z-2LR" secondAttribute="top" constant="10" id="u8v-uh-cDV"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="contentLabel" destination="wla-aT-DHb" id="IGE-X8-cTU"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -1980,13 +2078,17 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
                             <outlet property="delegate" destination="ire-Um-mD0" id="976-Kj-SZF"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Settings ⚙️" id="DPf-CT-owt">
+                    <navigationItem key="navigationItem" title="Settings ⚙️" largeTitleDisplayMode="always" id="DPf-CT-owt">
                         <barButtonItem key="rightBarButtonItem" title="Done" id="aUq-zt-FQ4">
+                            <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
                                 <action selector="doneButtonClicked:" destination="ire-Um-mD0" id="tG1-uu-eDN"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="settingsTableView" destination="cgi-JN-5od" id="G2p-WY-Wz0"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TwO-o2-kJf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -2024,7 +2126,7 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
                     <tabBarItem key="tabBarItem" title="Play" image="gamecontroller.fill" catalog="system" selectedImage="gamecontroller.fill" id="Xs1-53-ugV"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="eFe-la-nb9">
-                        <rect key="frame" x="0.0" y="44" width="390" height="96"/>
+                        <rect key="frame" x="0.0" y="44" width="390" height="104.33333333333334"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" red="0.396078431372549" green="0.77647058823529413" blue="0.94117647058823528" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -2110,7 +2212,7 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XVC-Ig-NQi">
-                                <rect key="frame" x="0.0" y="148.33333333333331" width="390" height="612.66666666666674"/>
+                                <rect key="frame" x="0.0" y="148.33333333333331" width="390" height="612.66666666666652"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mVw-ph-Zlg">
                                         <rect key="frame" x="0.0" y="0.0" width="390" height="850"/>
@@ -2296,7 +2398,7 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QUe-cY-thK">
-                                <rect key="frame" x="0.0" y="140" width="390" height="621"/>
+                                <rect key="frame" x="0.0" y="148.33333333333331" width="390" height="612.66666666666674"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zMu-Qc-3rs">
                                         <rect key="frame" x="0.0" y="0.0" width="390" height="613"/>
@@ -2324,7 +2426,7 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Attribute 2" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cYj-Ro-1Mx">
-                                                <rect key="frame" x="25" y="360.33333333333331" width="340" height="20.333333333333314"/>
+                                                <rect key="frame" x="25" y="360.33333333333337" width="340" height="20.333333333333314"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -2607,7 +2709,7 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="q0c-Zz-aob" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="jRP-bA-vTs">
-                        <rect key="frame" x="0.0" y="44" width="390" height="96"/>
+                        <rect key="frame" x="0.0" y="44" width="390" height="104.33333333333334"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -2629,7 +2731,7 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="ZtL-PK-NjE">
                         <rect key="frame" x="0.0" y="44" width="390" height="104.33333333333334"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" red="0.77647058823529413" green="0.66666666666666663" blue="0.49803921568627452" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.7780972719" green="0.66672307249999996" blue="0.49888640639999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -2643,7 +2745,7 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="TGq-gO-pZV"/>
+        <segue reference="AB2-Sp-ZK0"/>
         <segue reference="s4T-H5-cTx"/>
         <segue reference="l86-7T-ukz"/>
         <segue reference="GDV-4V-Yxl"/>
@@ -2669,6 +2771,9 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
         <image name="wizard" width="184" height="238"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="opaqueSeparatorColor">
+            <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

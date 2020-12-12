@@ -142,6 +142,11 @@ struct periodicTableGame {
     var timeGiven: Int
 }
 
+struct SettingsContent {
+    var labelText: String
+    var type: String
+}
+
 // MARK: - Arrays
 
 var learnTopics = [
