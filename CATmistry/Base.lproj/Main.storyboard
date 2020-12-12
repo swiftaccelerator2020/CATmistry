@@ -1966,7 +1966,7 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
                     <navigationItem key="navigationItem" title="Settings ⚙️" id="nJr-N0-we4">
                         <barButtonItem key="leftBarButtonItem" style="plain" id="W1v-OF-3iv">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="Z2Y-dx-6fo">
-                                <rect key="frame" x="-23" y="-15" width="86" height="30"/>
+                                <rect key="frame" x="16" y="7" width="86" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                             </button>
@@ -2617,6 +2617,7 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
                         <rect key="frame" x="0.0" y="44" width="390" height="104.33333333333334"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" red="0.77647058823529413" green="0.66666666666666663" blue="0.49803921568627452" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -2629,7 +2630,7 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="6vI-OH-9oH"/>
+        <segue reference="dHL-HA-pYI"/>
         <segue reference="s4T-H5-cTx"/>
         <segue reference="l86-7T-ukz"/>
         <segue reference="GDV-4V-Yxl"/>
