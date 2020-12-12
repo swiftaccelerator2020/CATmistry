@@ -2212,7 +2212,7 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XVC-Ig-NQi">
-                                <rect key="frame" x="0.0" y="148.33333333333331" width="390" height="612.66666666666652"/>
+                                <rect key="frame" x="0.0" y="148.33333333333331" width="390" height="612.66666666666674"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mVw-ph-Zlg">
                                         <rect key="frame" x="0.0" y="0.0" width="390" height="850"/>

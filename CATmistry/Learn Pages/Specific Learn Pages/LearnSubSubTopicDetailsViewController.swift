@@ -32,8 +32,6 @@ class LearnSubSubTopicDetailsViewController: UIViewController {
         // Do any additional setup after loading the view.
         self.title = flexibleTitle
         
-        contentView.sizeToFit()
-        
         if (specificChapter.content.warningText != nil) {
             warningLabel.layer.cornerRadius = 5
             warningLabel.layer.masksToBounds = true
