@@ -62,5 +62,12 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>UIAppFonts</key>
+	<array>
+		<string>OpenDyslexic-Bold</string>
+		<string>OpenDyslexic-BoldItalic</string>
+		<string>OpenDyslexic-Italic</string>
+		<string>OpenDyslexic-Regular</string>
+	</array>
 </dict>
 </plist>
