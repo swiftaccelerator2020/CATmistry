@@ -31,7 +31,6 @@ class QuizViewController: UIViewController {
         timeLeft.progress = 0
         
         if (index >= question.count){
-            print("UM HELLOOOOO")
             stopTimer()
             performSegue(withIdentifier: "quizEnded", sender: nil)
         } else {
@@ -101,7 +100,6 @@ class QuizViewController: UIViewController {
      */
     @objc func updateProgressView(){
         timeLeft.progress += 0.005
-        print(timeLeft.progress)
         if (timeLeft.progress == 1.0) {
             stopTimer()
             performSegue(withIdentifier: "wrongAns", sender: nil)
