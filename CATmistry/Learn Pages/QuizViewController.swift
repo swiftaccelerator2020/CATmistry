@@ -15,34 +15,15 @@ class QuizViewController: UIViewController {
     @IBOutlet weak var optionThree: UIButton!
     @IBOutlet weak var optionFour: UIButton!
     @IBOutlet weak var timeLeft: UIProgressView!
-    var progressBarTimer: Timer!
+    var progressBarTimer: Timer?
     
     var index = 0
     var question = [QuizQuestion(question: "Hi there are you bob", options: ["hi", "yes", "aa", "no u"], correctAnswer: 1), QuizQuestion(question: "Hi theafsfasfsare are you bob", options: ["hi", "yes", "aa", "no u"], correctAnswer: 1)]
     
-    var firstLoad = true
-    
     override func viewDidLoad() {
-        
-        timeLeft.progress = 0
-        
-        optionOne.titleLabel!.text = question[index].options[0]
-        
-        optionTwo.titleLabel!.text = question[index].options[1]
-        
-        optionThree.titleLabel!.text = question[index].options[2]
-        
-        optionFour.titleLabel!.text = question[index].options[3]
-        
-        questionLabel.text = question[index].question
-        
-        self.progressBarTimer = Timer.scheduledTimer(timeInterval: 0.025, target: self, selector: #selector(QuizViewController.updateProgressView), userInfo: nil, repeats: true)
         
         timeLeft.transform = timeLeft.transform.scaledBy(x: 1, y: 2)
         
-        
-        
-        firstLoad = false
         // Do any additional setup after loading the view.
     }
     
@@ -55,19 +36,17 @@ class QuizViewController: UIViewController {
             progressBarTimer = nil
         }
         
-        if !firstLoad{
-            optionOne.titleLabel!.text = question[index].options[0]
-            
-            optionTwo.titleLabel!.text = question[index].options[1]
-            
-            optionThree.titleLabel!.text = question[index].options[2]
-            
-            optionFour.titleLabel!.text = question[index].options[3]
-            
-            questionLabel.text = question[index].question
-            
-            self.progressBarTimer = Timer.scheduledTimer(timeInterval: 0.025, target: self, selector: #selector(QuizViewController.updateProgressView), userInfo: nil, repeats: true)
-        }
+        optionOne.setTitle(question[index].options[0], for: .normal)
+        
+        optionOne.setTitle(question[index].options[1], for: .normal)
+
+        optionOne.setTitle(question[index].options[2], for: .normal)
+
+        optionOne.setTitle(question[index].options[3], for: .normal)
+
+        questionLabel.text = question[index].question
+        
+        self.progressBarTimer = Timer.scheduledTimer(timeInterval: 0.025, target: self, selector: #selector(QuizViewController.updateProgressView), userInfo: nil, repeats: true)
     }
     
     @IBAction func optionOneClicked(_ sender: Any) {
@@ -128,7 +107,8 @@ class QuizViewController: UIViewController {
     }
     
     func stopTimer() {
-        progressBarTimer.invalidate()
+        progressBarTimer?.invalidate()
+        progressBarTimer = nil
         timeLeft.progress = 0
     }
 }
