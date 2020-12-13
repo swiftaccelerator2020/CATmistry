@@ -87,7 +87,7 @@
 		26CD2F1A257F66D3002705D1 /* PlayCorrectAnswerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayCorrectAnswerViewController.swift; sourceTree = "<group>"; };
 		26CD2F22257F670B002705D1 /* PlayWrongAnswerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayWrongAnswerViewController.swift; sourceTree = "<group>"; };
 		26DDE2A3257483B200FDC078 /* LearnSubSubTopicDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearnSubSubTopicDetailsViewController.swift; sourceTree = "<group>"; };
-		26EA43212584C15E00AD5BD0 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = SOURCE_ROOT; };
+		26EA43212584C15E00AD5BD0 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SettingsTableViewController.swift; path = "CATmistry/Settings Pages/SettingsTableViewController.swift"; sourceTree = SOURCE_ROOT; };
 		2F20F908644330A99E65D047 /* Pods-CATmistryTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CATmistryTests.debug.xcconfig"; path = "Target Support Files/Pods-CATmistryTests/Pods-CATmistryTests.debug.xcconfig"; sourceTree = "<group>"; };
 		462BC2A50FADBCEE81DEA261 /* Pods-CATmistry.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CATmistry.release.xcconfig"; path = "Target Support Files/Pods-CATmistry/Pods-CATmistry.release.xcconfig"; sourceTree = "<group>"; };
 		49DA23714213562AA54B3120 /* Pods_CATmistry.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CATmistry.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -173,13 +173,13 @@
 		2613B0332570DB8C00EECB4C /* CATmistry */ = {
 			isa = PBXGroup;
 			children = (
-				26EA43212584C15E00AD5BD0 /* SettingsTableViewController.swift */,
 				2613B0342570DB8C00EECB4C /* AppDelegate.swift */,
 				2613B0362570DB8C00EECB4C /* SceneDelegate.swift */,
 				2613B03A2570DB8C00EECB4C /* Main.storyboard */,
-				260E37DC2584F762002EA877 /* SettingsTableViewCell.swift */,
 				54FEFB172578609C0054CFF9 /* Learn Pages */,
 				54FEFB122578603A0054CFF9 /* Play Pages */,
+				2644004B258641F800ACFFEC /* Settings Pages */,
+				2644004C2586420000ACFFEC /* Fonts */,
 				547F0AEA2570F85000A224D9 /* structsFunctions.swift */,
 				2613B03D2570DB9000EECB4C /* Assets.xcassets */,
 				2613B03F2570DB9000EECB4C /* LaunchScreen.storyboard */,
@@ -204,6 +204,22 @@
 				2613B0582570DB9100EECB4C /* Info.plist */,
 			);
 			path = CATmistryUITests;
+			sourceTree = "<group>";
+		};
+		2644004B258641F800ACFFEC /* Settings Pages */ = {
+			isa = PBXGroup;
+			children = (
+				26EA43212584C15E00AD5BD0 /* SettingsTableViewController.swift */,
+				260E37DC2584F762002EA877 /* SettingsTableViewCell.swift */,
+			);
+			path = "Settings Pages";
+			sourceTree = "<group>";
+		};
+		2644004C2586420000ACFFEC /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 		54FEFB122578603A0054CFF9 /* Play Pages */ = {
