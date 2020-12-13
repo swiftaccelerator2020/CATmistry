@@ -158,13 +158,13 @@ class SettingsTableViewController: UITableViewController {
         
         // Configure the cell...
         if let cell = cell as? SettingsTableViewCell {
-            if cell.reuseIdentifier != "shareCell" {
+            if cell.reuseIdentifier != "shareCell" || cell.reuseIdentifier != "buttonCell" {
             cell.contentLabel.text = settingsContentArray[indexPath.section][indexPath.row].labelText
             cell.settingsImageView.image = settingsContentArray[indexPath.section][indexPath.row].emojiImage.image()
             }
         }
         
-        if cell.reuseIdentifier == "detailAccessoryCell" || cell.reuseIdentifier == "switchCell" {
+        if cell.reuseIdentifier == "detailAccessoryCell" || cell.reuseIdentifier == "switchCell" || cell.reuseIdentifier == "textCell" || cell.reuseIdentifier == "buttonCell"  {
             cell.selectionStyle = .none
         }
         
