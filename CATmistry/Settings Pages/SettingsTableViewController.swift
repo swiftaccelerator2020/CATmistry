@@ -178,8 +178,7 @@ class SettingsTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        let cell = tableView.dequeueReusableCell(withIdentifier: settingsContentArray[indexPath.section][indexPath.row].type, for: indexPath)
-        if cell.reuseIdentifier == "textCell" {
+        if settingsContentArray[indexPath.section][indexPath.row].type  == "textCell" {
             return 100
         } else {
             return 45.0
