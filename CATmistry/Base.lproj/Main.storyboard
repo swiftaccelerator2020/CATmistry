@@ -2087,7 +2087,7 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
                             <outlet property="delegate" destination="ire-Um-mD0" id="976-Kj-SZF"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Settings ⚙️" largeTitleDisplayMode="always" id="DPf-CT-owt">
+                    <navigationItem key="navigationItem" title="Settings ⚙️" largeTitleDisplayMode="never" id="DPf-CT-owt">
                         <barButtonItem key="rightBarButtonItem" title="Done" id="aUq-zt-FQ4">
                             <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>

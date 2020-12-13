@@ -146,7 +146,7 @@ class SettingsTableViewController: UITableViewController {
         // Configure the cell...
         if let cell = cell as? SettingsTableViewCell {
             cell.contentLabel.text = settingsContentArray[indexPath.section][indexPath.row].labelText
-            cell.settingsImageView.image = settingsContentArray[indexPath.section][indexPath.row].emojiImage.textToImage()
+            cell.settingsImageView.image = settingsContentArray[indexPath.section][indexPath.row].emojiImage.image()
             
         }
         
@@ -215,20 +215,21 @@ class SettingsTableViewController: UITableViewController {
 
 }
 
-extension String {
-    func textToImage() -> UIImage? {
-        let nsString = (self as NSString)
-        let font = UIFont.systemFont(ofSize: 1024) // you can change your font size here
-        let stringAttributes = [NSAttributedString.Key.font: font]
-        let imageSize = nsString.size(withAttributes: stringAttributes)
+extension String
+{
+    func image(fontSize:CGFloat = 40, bgColor:UIColor = UIColor.clear, imageSize:CGSize? = nil) -> UIImage?
+    {
+        let font = UIFont.systemFont(ofSize: fontSize)
+        let attributes = [NSAttributedString.Key.font: font]
+        let imageSize = imageSize ?? self.size(withAttributes: attributes)
 
-        UIGraphicsBeginImageContextWithOptions(imageSize, false, 0) //  begin image context
-        UIColor.clear.set() // clear background
-        UIRectFill(CGRect(origin: CGPoint(), size: imageSize)) // set rect size
-        nsString.draw(at: CGPoint.zero, withAttributes: stringAttributes) // draw text within rect
-        let image = UIGraphicsGetImageFromCurrentImageContext() // create image from context
-        UIGraphicsEndImageContext() //  end image context
-
-        return image ?? UIImage()
+        UIGraphicsBeginImageContextWithOptions(imageSize, false, 0)
+        bgColor.set()
+        let rect = CGRect(origin: .zero, size: imageSize)
+        UIRectFill(rect)
+        self.draw(in: rect, withAttributes: [.font: font])
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return image
     }
 }
