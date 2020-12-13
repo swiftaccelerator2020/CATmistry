@@ -11,6 +11,7 @@ class LearnChapterSubTopicsTableViewController: UITableViewController {
     
     var flexibleTitle: String!
     var specificChapter: [SubTopic]! 
+    var quizTopic: [QuizQuestion]!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -107,6 +108,11 @@ class LearnChapterSubTopicsTableViewController: UITableViewController {
             backItem.title = self.title
             navigationItem.backBarButtonItem = backItem
             
+        }
+        
+        if segue.identifier == "goToQuiz" {
+            let dest = segue.destination as! QuizViewController
+            dest.question = quizTopic
         }
     }
     

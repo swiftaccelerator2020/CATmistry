@@ -18,11 +18,21 @@ class QuizViewController: UIViewController {
     var progressBarTimer: Timer?
     
     var index = 0
-    var question = [QuizQuestion(question: "Hi there are you bob", options: ["hi", "yes", "aa", "no u"], correctAnswer: 1), QuizQuestion(question: "Hi theafsfasfsare are you bob", options: ["hi", "yes", "aa", "no u"], correctAnswer: 1)]
+    var question: [QuizQuestion]!
     
     override func viewDidLoad() {
         
         timeLeft.transform = timeLeft.transform.scaledBy(x: 1, y: 2)
+        
+        optionOne.setTitle(question[index].options[0], for: .normal)
+        
+        optionTwo.setTitle(question[index].options[1], for: .normal)
+
+        optionThree.setTitle(question[index].options[2], for: .normal)
+
+        optionFour.setTitle(question[index].options[3], for: .normal)
+
+        questionLabel.text = question[index].question
         
         // Do any additional setup after loading the view.
     }
