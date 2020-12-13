@@ -30,7 +30,7 @@ class QuizViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         timeLeft.progress = 0
         
-        if (index >= question.count-1){
+        if (index >= question.count){
             stopTimer()
             performSegue(withIdentifier: "quizEnded", sender: nil)
             progressBarTimer = nil
@@ -99,6 +99,7 @@ class QuizViewController: UIViewController {
      */
     @objc func updateProgressView(){
         timeLeft.progress += 0.005
+        print(timeLeft.progress)
         if (timeLeft.progress == 1.0) {
             stopTimer()
             performSegue(withIdentifier: "wrongAns", sender: nil)
