@@ -95,7 +95,7 @@
 		26CD2F1A257F66D3002705D1 /* PlayCorrectAnswerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayCorrectAnswerViewController.swift; sourceTree = "<group>"; };
 		26CD2F22257F670B002705D1 /* PlayWrongAnswerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayWrongAnswerViewController.swift; sourceTree = "<group>"; };
 		26DDE2A3257483B200FDC078 /* LearnSubSubTopicDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearnSubSubTopicDetailsViewController.swift; sourceTree = "<group>"; };
-		26EA43212584C15E00AD5BD0 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SettingsTableViewController.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
+		26EA43212584C15E00AD5BD0 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		2F20F908644330A99E65D047 /* Pods-CATmistryTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CATmistryTests.debug.xcconfig"; path = "Target Support Files/Pods-CATmistryTests/Pods-CATmistryTests.debug.xcconfig"; sourceTree = "<group>"; };
 		462BC2A50FADBCEE81DEA261 /* Pods-CATmistry.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CATmistry.release.xcconfig"; path = "Target Support Files/Pods-CATmistry/Pods-CATmistry.release.xcconfig"; sourceTree = "<group>"; };
 		49DA23714213562AA54B3120 /* Pods_CATmistry.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CATmistry.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -417,7 +417,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 2613B02C2570DB8C00EECB4C /* Build configuration list for PBXProject "catmistry" */;
+			buildConfigurationList = 2613B02C2570DB8C00EECB4C /* Build configuration list for PBXProject "CATmistry" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -908,7 +908,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		2613B02C2570DB8C00EECB4C /* Build configuration list for PBXProject "catmistry" */ = {
+		2613B02C2570DB8C00EECB4C /* Build configuration list for PBXProject "CATmistry" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				2613B0592570DB9100EECB4C /* Debug */,

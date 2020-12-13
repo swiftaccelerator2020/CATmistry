@@ -17,7 +17,7 @@ class SettingsTableViewController: UITableViewController {
         "Adjust pH Game",
         "Identify Elements Game",
         "Authors and Acknoledgements",
-        "Share"
+        ""
     ]
     
     var settingsContentArray = [
@@ -168,8 +168,8 @@ class SettingsTableViewController: UITableViewController {
         // Configure the cell...
         if let cell = cell as? SettingsTableViewCell {
             if cell.reuseIdentifier != "shareCell" && cell.reuseIdentifier != "buttonCell" {
-            cell.contentLabel.text = settingsContentArray[indexPath.section][indexPath.row].labelText
-            cell.settingsImageView.image = settingsContentArray[indexPath.section][indexPath.row].emojiImage.image()
+                cell.contentLabel.text = settingsContentArray[indexPath.section][indexPath.row].labelText
+                cell.settingsImageView.image = settingsContentArray[indexPath.section][indexPath.row].emojiImage.image()
             }
         }
         
@@ -183,13 +183,17 @@ class SettingsTableViewController: UITableViewController {
     // Table Header
     override func tableView(_ tableView: UITableView, titleForHeaderInSection
                                 section: Int) -> String? {
-        return settingsHeaderArray[section]
+        if settingsHeaderArray[section] != "" {
+            return settingsHeaderArray[section]
+        } else {
+            return nil
+        }
     }
     
     // Table Footer
     override func tableView(_ tableView: UITableView, titleForFooterInSection
                                 section: Int) -> String? {
-        if settingsHeaderArray[section] == "Share" {
+        if settingsHeaderArray[section] == "" {
             return "© 2020, Neo Hao Jun and Wang Zerui"
         } else {
             return nil
