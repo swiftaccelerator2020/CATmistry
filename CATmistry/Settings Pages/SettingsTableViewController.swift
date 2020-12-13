@@ -180,10 +180,20 @@ class SettingsTableViewController: UITableViewController {
         return cell
     }
     
-    // Create a standard header that includes the returned text.
+    // Table Header
     override func tableView(_ tableView: UITableView, titleForHeaderInSection
                                 section: Int) -> String? {
         return settingsHeaderArray[section]
+    }
+    
+    // Table Footer
+    override func tableView(_ tableView: UITableView, titleForFooterInSection
+                                section: Int) -> String? {
+        if settingsHeaderArray[section] == "Share" {
+            return "© 2020, Neo Hao Jun and Wang Zerui"
+        } else {
+            return nil
+        }
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
