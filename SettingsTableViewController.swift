@@ -9,84 +9,24 @@ import UIKit
 
 class SettingsTableViewController: UITableViewController {
     
+    var settingsHeaderArray = [
+        "Accessibility Settings",
+        "General Statistics",
+        "Stats for Find Gas Game",
+        "Stats for Retrieve Solids Game",
+        "Stats for Adjust pH Game",
+        "Stats for Identify Elements Game",
+        
+    ]
+    
     var settingsContentArray = [
         [
             SettingsContent(
-                labelText: "General Statistics",
-                type: "headerCell"
-            ),
-            SettingsContent(
-                labelText: "Chapters Covered:",
-                type: "detailAccessoryCell"
-            ),
-            SettingsContent(
-                labelText: "Game Points Earned: ",
-                type: "detailAccessoryCell"
-            ),
-        ],
-        
-        [
-            SettingsContent(
-                labelText: "General Statistics",
-                type: "headerCell"
-            ),
-            SettingsContent(
-                labelText: "Chapters covered:",
-                type: "detailAccessoryCell"
-            ),
-        ],
-        
-        [
-            SettingsContent(
-                labelText: "Stats for Find Gas Game",
-                type: "headerCell"
-            ),
-            SettingsContent(
-                labelText: "Number of Times Played: ",
-                type: "detailAccessoryCell"
-            ),
-        ],
-        
-        [
-            SettingsContent(
-                labelText: "Stats for Retrieve Solids Game",
-                type: "headerCell"
-            ),
-            SettingsContent(
-                labelText: "Number of Times Played: ",
-                type: "detailAccessoryCell"
-            ),
-        ],
-        
-        [
-            SettingsContent(
-                labelText: "Stats for Adjust pH Game",
-                type: "headerCell"
-            ),
-            SettingsContent(
-                labelText: "Number of Times Played: ",
-                type: "detailAccessoryCell"
-            ),
-        ],
-        
-        [
-            SettingsContent(
-                labelText: "Stats for Identify Elements Game",
-                type: "headerCell"
-            ),
-            SettingsContent(
-                labelText: "Number of Times Played: ",
-                type: "detailAccessoryCell"
-            ),
-        ],
-        
-        [
-            SettingsContent(
-                labelText: "Accessibility",
-                type: "headerCell"
-            ),
-            SettingsContent(
                 labelText: "Dyslexic Text",
+                type: "switchCell"
+            ),
+            SettingsContent(
+                labelText: "Haptics",
                 type: "switchCell"
             ),
             SettingsContent(
@@ -94,8 +34,61 @@ class SettingsTableViewController: UITableViewController {
                 type: "switchCell"
             ),
         ],
-
-
+        
+        [
+            SettingsContent(
+                labelText: "Chapters Covered:",
+                type: "detailAccessoryCell"
+            ),
+            SettingsContent(
+                labelText: "High Score: ",
+                type: "disclosureIndicatorCell"
+            ),
+        ],
+        
+        [
+            SettingsContent(
+                labelText: "Number of Times Played: ",
+                type: "detailAccessoryCell"
+            ),
+            SettingsContent(
+                labelText: "High Score: ",
+                type: "disclosureIndicatorCell"
+            ),
+        ],
+        
+        [
+            SettingsContent(
+                labelText: "Number of Times Played: ",
+                type: "detailAccessoryCell"
+            ),
+            SettingsContent(
+                labelText: "High Score: ",
+                type: "disclosureIndicatorCell"
+            ),
+        ],
+        
+        [
+            SettingsContent(
+                labelText: "Number of Times Played: ",
+                type: "detailAccessoryCell"
+            ),
+            SettingsContent(
+                labelText: "High Score: ",
+                type: "disclosureIndicatorCell"
+            ),
+        ],
+        
+        [
+            SettingsContent(
+                labelText: "Number of Times Played: ",
+                type: "detailAccessoryCell"
+            ),
+            SettingsContent(
+                labelText: "High Score: ",
+                type: "disclosureIndicatorCell"
+            ),
+        ],
     ]
 
     @IBOutlet var settingsTableView: UITableView!
@@ -108,9 +101,6 @@ class SettingsTableViewController: UITableViewController {
         let navbar = UINavigationBarAppearance()
         navbar.backgroundColor = UIColor(red: 198/255, green: 170/255, blue: 127/255, alpha: 1)
         self.navigationController?.navigationBar.scrollEdgeAppearance = navbar
-        
-        let topInset = 30
-        settingsTableView.contentInset.top = CGFloat(topInset)
         
 //        gamePointsLabel.text = " You have \(points) points"
 
@@ -147,6 +137,13 @@ class SettingsTableViewController: UITableViewController {
         
         return cell
     }
+    
+    // Create a standard header that includes the returned text.
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection
+                                section: Int) -> String? {
+       return settingsHeaderArray[section]
+    }
+
 
     /*
     // Override to support conditional editing of the table view.

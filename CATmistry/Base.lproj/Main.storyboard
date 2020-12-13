@@ -1963,43 +1963,16 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="insetGrouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="cgi-JN-5od">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="headerCell" id="I7e-0D-k9T" customClass="SettingsTableViewCell" customModule="CATmistry" customModuleProvider="target">
-                                <rect key="frame" x="20" y="55.333332061767578" width="350" height="41.333332061767578"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="I7e-0D-k9T" id="RjB-72-hW4">
-                                    <rect key="frame" x="0.0" y="0.0" width="350" height="41.333332061767578"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xsH-rE-t4Z">
-                                            <rect key="frame" x="15" y="9.9999999999999982" width="320" height="21.333333333333329"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                    </subviews>
-                                    <color key="backgroundColor" systemColor="systemGray5Color"/>
-                                    <constraints>
-                                        <constraint firstAttribute="trailing" secondItem="xsH-rE-t4Z" secondAttribute="trailing" constant="15" id="1wo-cy-IkP"/>
-                                        <constraint firstItem="xsH-rE-t4Z" firstAttribute="top" secondItem="RjB-72-hW4" secondAttribute="top" constant="10" id="Eeu-Y2-m6w"/>
-                                        <constraint firstItem="xsH-rE-t4Z" firstAttribute="leading" secondItem="RjB-72-hW4" secondAttribute="leading" constant="15" id="JzH-zp-mPm"/>
-                                        <constraint firstAttribute="bottom" secondItem="xsH-rE-t4Z" secondAttribute="bottom" constant="10" id="oX9-5l-OMf"/>
-                                    </constraints>
-                                </tableViewCellContentView>
-                                <connections>
-                                    <outlet property="contentLabel" destination="xsH-rE-t4Z" id="whD-aq-G0o"/>
-                                </connections>
-                            </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="detailButton" indentationWidth="10" reuseIdentifier="detailAccessoryCell" id="xTP-du-QYR" customClass="SettingsTableViewCell" customModule="CATmistry" customModuleProvider="target">
-                                <rect key="frame" x="20" y="96.666664123535156" width="350" height="40.666667938232422"/>
+                                <rect key="frame" x="20" y="55.333332061767578" width="350" height="40.666667938232422"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="xTP-du-QYR" id="yw7-xQ-Jpg">
                                     <rect key="frame" x="0.0" y="0.0" width="306" height="40.666667938232422"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AqO-hn-ZX9">
-                                            <rect key="frame" x="15" y="10.000000000000002" width="276" height="20.666666666666671"/>
+                                            <rect key="frame" x="20" y="10.000000000000002" width="271" height="20.666666666666671"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -2009,7 +1982,7 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
                                         <constraint firstAttribute="trailing" secondItem="AqO-hn-ZX9" secondAttribute="trailing" constant="15" id="e4l-dV-TiU"/>
                                         <constraint firstItem="AqO-hn-ZX9" firstAttribute="top" secondItem="yw7-xQ-Jpg" secondAttribute="top" constant="10" id="eT3-90-05E"/>
                                         <constraint firstAttribute="bottom" secondItem="AqO-hn-ZX9" secondAttribute="bottom" constant="10" id="jg4-NT-4zj"/>
-                                        <constraint firstItem="AqO-hn-ZX9" firstAttribute="leading" secondItem="yw7-xQ-Jpg" secondAttribute="leading" constant="15" id="z2H-aA-903"/>
+                                        <constraint firstItem="AqO-hn-ZX9" firstAttribute="leading" secondItem="yw7-xQ-Jpg" secondAttribute="leading" constant="20" id="z2H-aA-903"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
@@ -2017,14 +1990,14 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="discloureIndicatorCell" id="ZNF-Qt-zZW" customClass="SettingsTableViewCell" customModule="CATmistry" customModuleProvider="target">
-                                <rect key="frame" x="20" y="137.33333206176758" width="350" height="41"/>
+                                <rect key="frame" x="20" y="96" width="350" height="41"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ZNF-Qt-zZW" id="b2e-ud-6fg">
                                     <rect key="frame" x="0.0" y="0.0" width="318.66666666666669" height="41"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="diQ-gr-OIv">
-                                            <rect key="frame" x="15" y="10" width="288.66666666666669" height="21"/>
+                                            <rect key="frame" x="20" y="10" width="283.66666666666669" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -2032,7 +2005,7 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="diQ-gr-OIv" firstAttribute="top" secondItem="b2e-ud-6fg" secondAttribute="top" constant="10" id="CLa-rd-2W6"/>
-                                        <constraint firstItem="diQ-gr-OIv" firstAttribute="leading" secondItem="b2e-ud-6fg" secondAttribute="leading" constant="15" id="fIX-zA-MK4"/>
+                                        <constraint firstItem="diQ-gr-OIv" firstAttribute="leading" secondItem="b2e-ud-6fg" secondAttribute="leading" constant="20" id="fIX-zA-MK4"/>
                                         <constraint firstAttribute="bottom" secondItem="diQ-gr-OIv" secondAttribute="bottom" constant="10" id="sno-b4-g0X"/>
                                         <constraint firstAttribute="trailing" secondItem="diQ-gr-OIv" secondAttribute="trailing" constant="15" id="tRQ-as-M5L"/>
                                     </constraints>
@@ -2042,14 +2015,14 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="switchCell" id="u3b-ng-oRm" customClass="SettingsTableViewCell" customModule="CATmistry" customModuleProvider="target">
-                                <rect key="frame" x="20" y="178.33333206176758" width="350" height="45.333332061767578"/>
+                                <rect key="frame" x="20" y="137" width="350" height="45.333332061767578"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="u3b-ng-oRm" id="qxS-8z-2LR">
                                     <rect key="frame" x="0.0" y="0.0" width="350" height="45.333332061767578"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wla-aT-DHb">
-                                            <rect key="frame" x="15" y="9.9999999999999982" width="256" height="25.333333333333329"/>
+                                            <rect key="frame" x="20" y="9.9999999999999982" width="251" height="25.333333333333329"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -2060,7 +2033,7 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
                                     </subviews>
                                     <constraints>
                                         <constraint firstAttribute="bottom" secondItem="wla-aT-DHb" secondAttribute="bottom" constant="10" id="2Rw-tC-PzW"/>
-                                        <constraint firstItem="wla-aT-DHb" firstAttribute="leading" secondItem="qxS-8z-2LR" secondAttribute="leading" constant="15" id="55C-bW-j8O"/>
+                                        <constraint firstItem="wla-aT-DHb" firstAttribute="leading" secondItem="qxS-8z-2LR" secondAttribute="leading" constant="20" id="55C-bW-j8O"/>
                                         <constraint firstItem="Yj6-P6-Tov" firstAttribute="top" secondItem="qxS-8z-2LR" secondAttribute="top" constant="7" id="Q0V-SR-tTZ"/>
                                         <constraint firstAttribute="trailing" secondItem="Yj6-P6-Tov" secondAttribute="trailing" constant="15" id="UNL-7N-0lr"/>
                                         <constraint firstAttribute="bottom" secondItem="Yj6-P6-Tov" secondAttribute="bottom" constant="7" id="oIE-8a-rca"/>
@@ -2774,9 +2747,6 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemGray5Color">
-            <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemGreenColor">
             <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
