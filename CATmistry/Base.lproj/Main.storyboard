@@ -1890,10 +1890,10 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
             </objects>
             <point key="canvasLocation" x="-89.230769230769226" y="2752.6066350710898"/>
         </scene>
-        <!--View Controller-->
+        <!--Quiz Ended View Controller-->
         <scene sceneID="vSM-Tt-jq0">
             <objects>
-                <viewController id="Mja-L5-YzK" sceneMemberID="viewController">
+                <viewController id="Mja-L5-YzK" customClass="QuizEndedViewController" customModule="CATmistry" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="YZN-dd-Rqs">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1905,6 +1905,14 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v32-NS-slu">
+                                <rect key="frame" x="167" y="482" width="57" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Go back"/>
+                                <connections>
+                                    <action selector="goBackButton:" destination="Mja-L5-YzK" eventType="touchUpInside" id="ZIP-iE-dA8"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="IDc-lP-hxp"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -2735,8 +2743,8 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
         <segue reference="AB2-Sp-ZK0"/>
         <segue reference="s4T-H5-cTx"/>
         <segue reference="l86-7T-ukz"/>
-        <segue reference="GDV-4V-Yxl"/>
-        <segue reference="1zV-QA-rV2"/>
+        <segue reference="orq-5T-Gly"/>
+        <segue reference="SnY-zI-Ehk"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="books.vertical.fill" catalog="system" width="128" height="100"/>
