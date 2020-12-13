@@ -51,17 +51,12 @@ class PlayCorrectAnswerViewController: UIViewController {
     }
     
     @IBAction func restartClicked(_ sender: Any) {
-        if isSeperation != nil {
-            var alert = UIAlertController(title: "Are you sure you would like to go home?", message: "All game progress wil be lost, and you will be taken to the start page of this game.", preferredStyle: .alert)
-            if 9 - currentGame == 0 {
-                alert = UIAlertController(title: "Are you sure you would like to restart?", message: "You will not go to the start page, but will instead play the 10 rounds of Level \(String(currentLevel)) again.", preferredStyle: .alert)
-            }
-            alert.addAction(UIAlertAction(title: "Continue", style: UIAlertAction.Style.default, handler: { action in
-                self.presentingViewController?.presentingViewController?.dismiss(animated: true, completion: nil)
-            }))
-            alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel, handler: nil))
-            self.present(alert, animated: true, completion: nil)
-        }
+        let alert = UIAlertController(title: "Are you sure you would like to restart?", message: "All progress wil be lost, and you will be taken to the start page of this game.", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Continue", style: UIAlertAction.Style.default, handler: { action in
+            self.presentingViewController?.presentingViewController?.dismiss(animated: true, completion: nil)
+        }))
+        alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel, handler: nil))
+        self.present(alert, animated: true, completion: nil)
     }
     
     /*
