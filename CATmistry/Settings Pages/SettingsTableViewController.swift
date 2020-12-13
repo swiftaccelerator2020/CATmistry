@@ -16,7 +16,8 @@ class SettingsTableViewController: UITableViewController {
         "Retrieve Solids Game",
         "Adjust pH Game",
         "Identify Elements Game",
-        "Others",
+        "Authors and Acknoledgements",
+        "Share"
     ]
     
     var settingsContentArray = [
@@ -105,12 +106,20 @@ class SettingsTableViewController: UITableViewController {
         
         [
             SettingsContent(
-                labelText: "Authors and Acknoledgements: \nThis app would not have been possible without YJ Soon, Stephanie Ann Koh, and the entire Swift Accelerator 2020 Consult Team. \n\nThe CATmistry Team: \n1. Neo Hao Jun - CEO, Lead Developer \n2. Wang Zerui - CTO, Lead Developer \n3. Chanel Tan - CDO \n4. Ryu Hwina - CMO, Graphic Designer",
+                labelText: "The CATmistry Team: \n1. Neo Hao Jun - CEO \n2. Wang Zerui - CTO \n3. Chanel Tan - CDO \n4. Ryu Hwina - CMO",
                 type: "textCell",
                 emojiImage: "👨‍💻"
             ),
             SettingsContent(
-                labelText: "Share This Page",
+                labelText: "This app would not have been possible without YJ Soon, Stephanie Ann Koh, and the entire Swift Accelerator 2020 Consult Team.",
+                type: "textCell",
+                emojiImage: "👨‍💻"
+            ),
+        ],
+        
+        [
+            SettingsContent(
+                labelText: "",
                 type: "buttonCell",
                 emojiImage: ""
             ),
@@ -179,7 +188,7 @@ class SettingsTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if settingsContentArray[indexPath.section][indexPath.row].type  == "textCell" {
-            return 100
+            return 150.0
         } else {
             return 45.0
         }
