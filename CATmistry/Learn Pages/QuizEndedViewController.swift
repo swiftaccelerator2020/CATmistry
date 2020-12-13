@@ -21,7 +21,7 @@ class QuizEndedViewController: UIViewController {
     @IBAction func goBackButton(_ sender: Any) {
         navigationController?.setNavigationBarHidden(false, animated: false)
         tabBarController?.tabBar.isHidden = false
-        self.presentingViewController?.presentingViewController?.dismiss(animated: false, completion: nil)
+        self.navigationController!.popToRootViewController(animated: true)
     }
     
     /*
