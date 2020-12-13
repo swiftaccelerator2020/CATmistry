@@ -12,10 +12,10 @@ class SettingsTableViewController: UITableViewController {
     var settingsHeaderArray = [
         "Accessibility Settings",
         "General Statistics",
-        "Stats for Find Gas Game",
-        "Stats for Retrieve Solids Game",
-        "Stats for Adjust pH Game",
-        "Stats for Identify Elements Game",
+        "Find Gas Game",
+        "Retrieve Solids Game",
+        "Adjust pH Game",
+        "Identify Elements Game",
         
     ]
     
@@ -41,8 +41,8 @@ class SettingsTableViewController: UITableViewController {
                 type: "detailAccessoryCell"
             ),
             SettingsContent(
-                labelText: "High Score: ",
-                type: "disclosureIndicatorCell"
+                labelText: "Hours Spent Learning:",
+                type: "detailAccessoryCell"
             ),
         ],
         
