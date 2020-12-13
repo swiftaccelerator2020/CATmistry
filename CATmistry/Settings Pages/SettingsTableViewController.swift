@@ -106,9 +106,9 @@ class SettingsTableViewController: UITableViewController {
         
         [
             SettingsContent(
-                labelText: "The CATmistry Team: \n1. Neo Hao Jun - CEO \n2. Wang Zerui - CTO \n3. Chanel Tan - CDO \n4. Ryu Hwina - CMO",
+                labelText: "The CATmistry Team: \nNeo Hao Jun - CEO \nWang Zerui - CTO \nChanel Tan - CDO \nRyu Hwina - CMO",
                 type: "textCell",
-                emojiImage: "👨‍💻"
+                emojiImage: "👨‍🔬"
             ),
             SettingsContent(
                 labelText: "This app would not have been possible without YJ Soon, Stephanie Ann Koh, and the entire Swift Accelerator 2020 Consult Team.",
