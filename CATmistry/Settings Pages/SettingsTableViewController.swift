@@ -16,7 +16,7 @@ class SettingsTableViewController: UITableViewController {
         "Retrieve Solids Game",
         "Adjust pH Game",
         "Identify Elements Game",
-        
+        "Others",
     ]
     
     var settingsContentArray = [
@@ -100,6 +100,19 @@ class SettingsTableViewController: UITableViewController {
                 labelText: "High Score: ",
                 type: "disclosureIndicatorCell",
                 emojiImage: "🏅"
+            ),
+        ],
+        
+        [
+            SettingsContent(
+                labelText: "Authors and Acknoledgements: \nThis app would not have been possible without YJ Soon, Stephanie Ann Koh, and the entire Swift Accelerator 2020 Consult Team. \n\nThe CATmistry Team: \n1. Neo Hao Jun - CEO, Lead Developer \n2. Wang Zerui - CTO, Lead Developer \n3. Chanel Tan - CDO \n4. Ryu Hwina - CMO, Graphic Designer",
+                type: "textCell",
+                emojiImage: "👨‍💻"
+            ),
+            SettingsContent(
+                labelText: "Share This Page",
+                type: "buttonCell",
+                emojiImage: ""
             ),
         ],
     ]
