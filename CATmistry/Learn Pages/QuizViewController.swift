@@ -50,8 +50,8 @@ class QuizViewController: UIViewController {
         timeLeft.progress = 0
     
         if (index >= question.count-1){
+            stopTimer()
             performSegue(withIdentifier: "quizEnded", sender: nil)
-            dismiss(animated: false, completion: nil)
         }
         
         if !firstLoad{
