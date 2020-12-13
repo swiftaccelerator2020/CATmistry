@@ -1965,14 +1965,14 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="detailButton" indentationWidth="10" reuseIdentifier="detailAccessoryCell" id="xTP-du-QYR" customClass="SettingsTableViewCell" customModule="CATmistry" customModuleProvider="target">
-                                <rect key="frame" x="20" y="55.333332061767578" width="350" height="40.666667938232422"/>
+                                <rect key="frame" x="20" y="55.333332061767578" width="350" height="41"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="xTP-du-QYR" id="yw7-xQ-Jpg">
-                                    <rect key="frame" x="0.0" y="0.0" width="306" height="40.666667938232422"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="306" height="41"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AqO-hn-ZX9">
-                                            <rect key="frame" x="20" y="10.000000000000002" width="271" height="20.666666666666671"/>
+                                            <rect key="frame" x="20" y="10" width="271" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -1989,15 +1989,15 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
                                     <outlet property="contentLabel" destination="AqO-hn-ZX9" id="l31-JM-ddh"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="discloureIndicatorCell" id="ZNF-Qt-zZW" customClass="SettingsTableViewCell" customModule="CATmistry" customModuleProvider="target">
-                                <rect key="frame" x="20" y="96" width="350" height="41"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="disclosureIndicatorCell" id="ZNF-Qt-zZW" customClass="SettingsTableViewCell" customModule="CATmistry" customModuleProvider="target">
+                                <rect key="frame" x="20" y="96.333332061767578" width="350" height="41.333332061767578"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ZNF-Qt-zZW" id="b2e-ud-6fg">
-                                    <rect key="frame" x="0.0" y="0.0" width="318.66666666666669" height="41"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="318.66666666666669" height="41.333332061767578"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="diQ-gr-OIv">
-                                            <rect key="frame" x="20" y="10" width="283.66666666666669" height="21"/>
+                                            <rect key="frame" x="20" y="9.9999999999999982" width="283.66666666666669" height="21.333333333333329"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -2015,7 +2015,7 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="switchCell" id="u3b-ng-oRm" customClass="SettingsTableViewCell" customModule="CATmistry" customModuleProvider="target">
-                                <rect key="frame" x="20" y="137" width="350" height="45.333332061767578"/>
+                                <rect key="frame" x="20" y="137.66666412353516" width="350" height="45.333332061767578"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="u3b-ng-oRm" id="qxS-8z-2LR">
                                     <rect key="frame" x="0.0" y="0.0" width="350" height="45.333332061767578"/>
