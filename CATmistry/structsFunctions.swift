@@ -145,6 +145,7 @@ struct periodicTableGame {
 struct SettingsContent {
     var labelText: String
     var type: String
+    var emojiImage: String
 }
 
 // MARK: - Arrays
@@ -180,7 +181,7 @@ var learnTopics = [
                         picture: "evaporation.png",
                         id: 1, content: SubSubContent(
                             image: "evaporation.png",
-                            firstAttributionText: "Separates: Solube Solid from Solution",
+                            firstAttributionText: "Separates: Soluble Solid from Solution",
                             secondAttributionText: "Properties Involed: Themal Stability of Solid",
                             thirdAttributionText: "Principle of Separation: Liquid evaportes away, leaving behind solid"
                         )

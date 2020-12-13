@@ -23,70 +23,83 @@ class SettingsTableViewController: UITableViewController {
         [
             SettingsContent(
                 labelText: "Dyslexic Text",
-                type: "switchCell"
+                type: "switchCell",
+                emojiImage: "🅰️"
             ),
             SettingsContent(
                 labelText: "Haptics",
-                type: "switchCell"
+                type: "switchCell",
+                emojiImage: "📳"
             ),
             SettingsContent(
                 labelText: "Dark Mode",
-                type: "switchCell"
+                type: "switchCell",
+                emojiImage: "🌙"
             ),
         ],
         
         [
             SettingsContent(
                 labelText: "Chapters Covered:",
-                type: "detailAccessoryCell"
+                type: "detailAccessoryCell",
+                emojiImage: "📚"
             ),
             SettingsContent(
                 labelText: "Hours Spent Learning:",
-                type: "detailAccessoryCell"
+                type: "detailAccessoryCell",
+                emojiImage: "⏰"
             ),
         ],
         
         [
             SettingsContent(
                 labelText: "Number of Times Played: ",
-                type: "detailAccessoryCell"
+                type: "detailAccessoryCell",
+                emojiImage: "🎮"
             ),
             SettingsContent(
                 labelText: "High Score: ",
-                type: "disclosureIndicatorCell"
+                type: "disclosureIndicatorCell",
+                emojiImage: "🏅"
             ),
         ],
         
         [
             SettingsContent(
                 labelText: "Number of Times Played: ",
-                type: "detailAccessoryCell"
+                type: "detailAccessoryCell",
+                emojiImage: "🎮"
             ),
             SettingsContent(
                 labelText: "High Score: ",
-                type: "disclosureIndicatorCell"
+                type: "disclosureIndicatorCell",
+                emojiImage: "🏅"
             ),
         ],
         
         [
             SettingsContent(
                 labelText: "Number of Times Played: ",
-                type: "detailAccessoryCell"
+                type: "detailAccessoryCell",
+                emojiImage: "🎮"
             ),
             SettingsContent(
                 labelText: "High Score: ",
-                type: "disclosureIndicatorCell"
+                type: "disclosureIndicatorCell",
+                emojiImage: "🏅"
             ),
         ],
         
         [
             SettingsContent(
                 labelText: "Number of Times Played: ",
-                type: "detailAccessoryCell"
+                type: "detailAccessoryCell",
+                emojiImage: "🎮"
             ),
             SettingsContent(
                 labelText: "High Score: ",
-                type: "disclosureIndicatorCell"
+                type: "disclosureIndicatorCell",
+                emojiImage: "🏅"
             ),
         ],
     ]
@@ -99,7 +112,7 @@ class SettingsTableViewController: UITableViewController {
         tableView.tableFooterView = UIView()
         
         let navbar = UINavigationBarAppearance()
-        navbar.backgroundColor = UIColor(red: 198/255, green: 170/255, blue: 127/255, alpha: 1)
+        navbar.backgroundColor = UIColor(red: 196/255, green: 169/255, blue: 124/255, alpha: 1)
         self.navigationController?.navigationBar.scrollEdgeAppearance = navbar
         
 //        gamePointsLabel.text = " You have \(points) points"
@@ -133,6 +146,12 @@ class SettingsTableViewController: UITableViewController {
         // Configure the cell...
         if let cell = cell as? SettingsTableViewCell {
             cell.contentLabel.text = settingsContentArray[indexPath.section][indexPath.row].labelText
+            cell.settingsImageView.image = settingsContentArray[indexPath.section][indexPath.row].emojiImage.textToImage()
+            
+        }
+        
+        if cell.reuseIdentifier == "detailAccessoryCell" || cell.reuseIdentifier == "switchCell" {
+            cell.selectionStyle = .none
         }
         
         return cell
@@ -142,6 +161,10 @@ class SettingsTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, titleForHeaderInSection
                                 section: Int) -> String? {
        return settingsHeaderArray[section]
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        45.0
     }
 
 
@@ -190,4 +213,22 @@ class SettingsTableViewController: UITableViewController {
     }
     */
 
+}
+
+extension String {
+    func textToImage() -> UIImage? {
+        let nsString = (self as NSString)
+        let font = UIFont.systemFont(ofSize: 1024) // you can change your font size here
+        let stringAttributes = [NSAttributedString.Key.font: font]
+        let imageSize = nsString.size(withAttributes: stringAttributes)
+
+        UIGraphicsBeginImageContextWithOptions(imageSize, false, 0) //  begin image context
+        UIColor.clear.set() // clear background
+        UIRectFill(CGRect(origin: CGPoint(), size: imageSize)) // set rect size
+        nsString.draw(at: CGPoint.zero, withAttributes: stringAttributes) // draw text within rect
+        let image = UIGraphicsGetImageFromCurrentImageContext() // create image from context
+        UIGraphicsEndImageContext() //  end image context
+
+        return image ?? UIImage()
+    }
 }
