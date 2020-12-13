@@ -38,15 +38,16 @@ class QuizViewController: UIViewController {
             
             optionOne.setTitle(question[index].options[0], for: .normal)
             
-            optionOne.setTitle(question[index].options[1], for: .normal)
+            optionTwo.setTitle(question[index].options[1], for: .normal)
 
-            optionOne.setTitle(question[index].options[2], for: .normal)
+            optionThree.setTitle(question[index].options[2], for: .normal)
 
-            optionOne.setTitle(question[index].options[3], for: .normal)
+            optionFour.setTitle(question[index].options[3], for: .normal)
 
             questionLabel.text = question[index].question
             
             self.progressBarTimer = Timer.scheduledTimer(timeInterval: 0.025, target: self, selector: #selector(QuizViewController.updateProgressView), userInfo: nil, repeats: true)
+            
         }
     }
     
