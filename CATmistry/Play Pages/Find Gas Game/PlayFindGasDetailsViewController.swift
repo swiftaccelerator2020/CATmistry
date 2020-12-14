@@ -11,7 +11,14 @@ import SwiftConfettiView
 class PlayFindGasDetailsViewController: UIViewController {
     
     var currentLevel = 0
-    var initialCenter = CGPoint()  // The initial center point of the view.
+    @IBOutlet weak var firstGas: UIImageView!
+    @IBOutlet weak var secondGas: UIImageView!
+    @IBOutlet weak var thirdGas: UIImageView!
+    @IBOutlet weak var forthGas: UIImageView!
+    var selectedGasTank: UIImage?
+    var gases = GasTestGame(firstGasTank: "Hydrogen", secondGasTank: "Oxygen", thirdGasTank: "Carbon Dioxide", fourthGasTank: "Ammonia", firstGasIsPositive: [false, false, false, true], secondGasIsPositive: [false, false, false, true], thirdGasIsPositive: [false, false, false, true], forthGasIsPositive: [false, false, false, true], correctGasTank: "Hydrogen")
+
+    // var initialCenter = CGPoint()  // The initial center point of the view.
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,6 +26,7 @@ class PlayFindGasDetailsViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    /*
     @IBAction func panPiece(_ gestureRecognizer : UIPanGestureRecognizer) {
        guard gestureRecognizer.view != nil else {return}
        let piece = gestureRecognizer.view!
@@ -40,7 +48,7 @@ class PlayFindGasDetailsViewController: UIViewController {
           piece.center = initialCenter
        }
     }
-
+    */
     /*
     // MARK: - Navigation 
 

@@ -79,6 +79,10 @@ struct GasTestGame {
     var secondGasTank: String
     var thirdGasTank: String
     var fourthGasTank: String
+    var firstGasIsPositive: [Bool]
+    var secondGasIsPositive: [Bool]
+    var thirdGasIsPositive: [Bool]
+    var forthGasIsPositive: [Bool]
     var correctGasTank: String
 }
 
@@ -370,13 +374,7 @@ var gameTopics = [
 
 var gasTestsGameArray = [
     // LEVEL 1
-    [GasTestGame(firstGasTank: "Hydrogen", secondGasTank: "Oxygen", thirdGasTank: "Carbon Dioxide", fourthGasTank: "Ammonia", correctGasTank: "Hydrogen"),],
-    
-    // LEVEL 2
-    [GasTestGame(firstGasTank: "Hydrogen", secondGasTank: "Oxygen", thirdGasTank: "Carbon Dioxide", fourthGasTank: "Ammonia", correctGasTank: "Hydrogen"),],
-    
-    // LEVEL 3
-    [GasTestGame(firstGasTank: "Hydrogen", secondGasTank: "Oxygen", thirdGasTank: "Carbon Dioxide", fourthGasTank: "Ammonia", correctGasTank: "Hydrogen"),]
+    [GasTestGame(firstGasTank: "Hydrogen", secondGasTank: "Oxygen", thirdGasTank: "Carbon Dioxide", fourthGasTank: "Ammonia", firstGasIsPositive: [false, false, false, true], secondGasIsPositive: [false, false, false, true], thirdGasIsPositive: [false, false, false, true], forthGasIsPositive: [false, false, false, true], correctGasTank: "Hydrogen"),],
 ]
 
 var phGameArray = [
