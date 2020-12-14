@@ -179,14 +179,24 @@ class PlayFindGasDetailsViewController: UIViewController {
        }
     }
     */
-    /*
+    
     // MARK: - Navigation 
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "adjustPhCorrect" {
+            let destVC = segue.destination as! PlayCorrectAnswerViewController
+            destVC.currentLevel = currentLevel
+            destVC.currentGame = 1
+        } else if segue.identifier == "adjustPhWrong" {
+            let destVC = segue.destination as! PlayWrongAnswerViewController
+            destVC.currentLevel = currentLevel
+            destVC.currentGame = 1
+        }
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
     }
-    */
+    
     
 }
