@@ -190,11 +190,11 @@ class PlayFindGasDetailsViewController: UIViewController {
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        if segue.identifier == "adjustPhCorrect" {
+        if segue.identifier == "findGasCorrect" {
             let destVC = segue.destination as! PlayCorrectAnswerViewController
             destVC.currentLevel = currentLevel
             destVC.currentGame = currentRound
-        } else if segue.identifier == "adjustPhWrong" {
+        } else if segue.identifier == "findGasWrong" {
             let destVC = segue.destination as! PlayWrongAnswerViewController
             destVC.currentLevel = currentLevel
             destVC.currentGame = currentRound
