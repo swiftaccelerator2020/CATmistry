@@ -13,6 +13,7 @@ class PlayFindGasDetailsViewController: UIViewController {
     var selectedGasTank: UIButton?
     var selectedGasTankString: String!
     var selectedGasTest: Int!
+    var currentRound = 0
     @IBOutlet weak var resultsLabel: UILabel!
     @IBOutlet weak var limewater: UIButton!
     @IBOutlet weak var lightedSplint: UIButton!
@@ -33,6 +34,10 @@ class PlayFindGasDetailsViewController: UIViewController {
         submit.isHidden = true
         resultsLabel.isHidden = true
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        currentRound += 1
     }
     
     @IBAction func submitChoice(_ sender: Any) {
@@ -188,11 +193,11 @@ class PlayFindGasDetailsViewController: UIViewController {
         if segue.identifier == "adjustPhCorrect" {
             let destVC = segue.destination as! PlayCorrectAnswerViewController
             destVC.currentLevel = currentLevel
-            destVC.currentGame = 1
+            destVC.currentGame = currentRound
         } else if segue.identifier == "adjustPhWrong" {
             let destVC = segue.destination as! PlayWrongAnswerViewController
             destVC.currentLevel = currentLevel
-            destVC.currentGame = 1
+            destVC.currentGame = currentRound
         }
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
