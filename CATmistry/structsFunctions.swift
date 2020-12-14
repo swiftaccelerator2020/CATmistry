@@ -250,7 +250,7 @@ var learnTopics = [
                         )
                     )
                 ],
-                navTitle: "Separation", contentHeightDifference: 250
+                navTitle: "Separation", contentHeightDifference: 160
             ),
             SubTopic(
                 title: "Take the Quiz",
@@ -334,7 +334,7 @@ var learnTopics = [
             SubSubTopic(topic: "16 - Sulfur", picture: "sulfur.png", id: 16, content: SubSubContent(image: "sulfur.png", firstAttributionText: "", secondAttributionText: "Atomic Number: 16 \nAtomic Mass: 32.1 \nMetallic Character: Non-Metal", thirdAttributionText: "Found in: \n- Sulfuric Acid (H₂SO₄)")),
             SubSubTopic(topic: "17 - Chlorine", picture: "chlorine.png", id: 17, content: SubSubContent(image: "chlorine.png", firstAttributionText: "", secondAttributionText: "Atomic Number: 17 \nAtomic Mass: 35.5 \nMetallic Character: Non-Metal", thirdAttributionText: "Found in: \n- Swimming pools(HC_l_ O)")),
             SubSubTopic(topic: "18 - Argon", picture: "argon.png", id: 18, content: SubSubContent(image: "argon.png", firstAttributionText: "", secondAttributionText: "Atomic Number: 18 \nAtomic Mass: 40.0 \nMetallic Character: Non-Metal", thirdAttributionText: "Found in: \n- Welding industry")),
-        ], navTitle: "First 18 Elements", contentHeightDifference: 250),
+        ], navTitle: "First 18 Elements", contentHeightDifference: -700),
         SubTopic(title: "Groups' Properties", pic: "groups.png", needSlider: false, content: SubContent(definition: "The Periodic Table consists of 8 main groups, namely Groups 1, 2, 3, 4, 5, 6, 7, and 0. The respective groups' properties can be found by tapping below:"), subTopics: [
             SubSubTopic(topic: "Group 1", picture: "1.png", id: 1, content: SubSubContent(image: "1.png", firstAttributionText: "", secondAttributionText: "", thirdAttributionText: "")),
             SubSubTopic(topic: "Group 2", picture: "2.png", id: 2, content: SubSubContent(image: "2.png", firstAttributionText: "", secondAttributionText: "", thirdAttributionText: "")),
@@ -344,7 +344,7 @@ var learnTopics = [
             SubSubTopic(topic: "Group 6", picture: "6.png", id: 6, content: SubSubContent(image: "6.png", firstAttributionText: "", secondAttributionText: "", thirdAttributionText: "")),
             SubSubTopic(topic: "Group 7", picture: "7.png", id: 7, content: SubSubContent(image: "7.png", firstAttributionText: "", secondAttributionText: "", thirdAttributionText: "")),
             SubSubTopic(topic: "Group 0", picture: "0.png", id: 0, content: SubSubContent(image: "0.png", firstAttributionText: "", secondAttributionText: "", thirdAttributionText: ""))
-        ], navTitle: "Groups' Properties", contentHeightDifference: 250),
+        ], navTitle: "Groups' Properties", contentHeightDifference: 160),
         SubTopic(title: "Take the Quiz", pic: "quiz.png", needSlider: false, content: SubContent(definition: ""), subTopics: [], navTitle: "Take the Quiz")
     ], errorLabel: "Please complete Chapter 3", questions:
         [
