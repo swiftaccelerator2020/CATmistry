@@ -2018,7 +2018,7 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
                     <tabBarItem key="tabBarItem" title="Play" image="gamecontroller.fill" catalog="system" selectedImage="gamecontroller.fill" id="Xs1-53-ugV"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="eFe-la-nb9">
-                        <rect key="frame" x="0.0" y="44" width="390" height="96"/>
+                        <rect key="frame" x="0.0" y="44" width="390" height="104.33333333333334"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" red="0.396078431372549" green="0.77647058823529413" blue="0.94117647058823528" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -2088,7 +2088,7 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
                     <navigationItem key="navigationItem" title="Sub Topics" id="dDO-g2-IDo"/>
                     <connections>
                         <segue destination="ub2-iM-iy6" kind="show" identifier="goToSubTopicDetails" id="l86-7T-ukz"/>
-                        <segue destination="Q5l-gv-pqw" kind="show" id="3ul-Vm-2ia"/>
+                        <segue destination="Q5l-gv-pqw" kind="show" identifier="goToQuiz" id="3ul-Vm-2ia"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="D9K-Bh-cIp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -2104,7 +2104,7 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" contentInsetAdjustmentBehavior="never" translatesAutoresizingMaskIntoConstraints="NO" id="XVC-Ig-NQi">
-                                <rect key="frame" x="0.0" y="140" width="390" height="621"/>
+                                <rect key="frame" x="0.0" y="148.33333333333331" width="390" height="612.66666666666674"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mVw-ph-Zlg">
                                         <rect key="frame" x="0.0" y="0.0" width="390" height="850"/>
@@ -2116,7 +2116,7 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="SYZ-WC-ALx">
-                                                <rect key="frame" x="25" y="312.66666666666669" width="340" height="280.00000000000006"/>
+                                                <rect key="frame" x="25" y="312.66666666666663" width="340" height="280"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ruL-5t-Hew">
                                                         <rect key="frame" x="0.0" y="0.0" width="340" height="20"/>
@@ -2160,7 +2160,7 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="7aQ-Kb-rIM">
-                                                        <rect key="frame" x="0.0" y="109.99999999999994" width="340" height="170"/>
+                                                        <rect key="frame" x="0.0" y="110" width="340" height="170"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="170" id="FtG-tu-kGa"/>
                                                         </constraints>
@@ -2291,7 +2291,7 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QUe-cY-thK">
-                                <rect key="frame" x="0.0" y="148.33333333333331" width="390" height="612.66666666666652"/>
+                                <rect key="frame" x="0.0" y="148.33333333333331" width="390" height="612.66666666666674"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zMu-Qc-3rs">
                                         <rect key="frame" x="0.0" y="0.0" width="390" height="613"/>
@@ -2496,54 +2496,6 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hCp-5F-kKm">
-                                <rect key="frame" x="16" y="610" width="358" height="60"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.125115633" green="0.14704889060000001" blue="0.56474310159999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <state key="normal" title="Option 3">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    <color key="titleShadowColor" red="0.81383514400000001" green="0.62698972230000005" blue="0.1527359486" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                </state>
-                                <connections>
-                                    <action selector="optionThreeClicked:" destination="Q5l-gv-pqw" eventType="touchUpInside" id="Wdn-uM-HDM"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yUJ-f3-gub">
-                                <rect key="frame" x="16" y="678" width="358" height="60"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.6300768256" green="0.1320488155" blue="0.25098079439999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <state key="normal" title="Option 4">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    <color key="titleShadowColor" red="0.81383514400000001" green="0.62698972230000005" blue="0.1527359486" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                </state>
-                                <connections>
-                                    <action selector="optionFourClicked:" destination="Q5l-gv-pqw" eventType="touchUpInside" id="8uX-bw-mjw"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vDn-gi-iLR">
-                                <rect key="frame" x="16" y="474" width="358" height="60"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.4223154187" green="0.68918722870000004" blue="0.75688105819999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <state key="normal" title="Option 1">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    <color key="titleShadowColor" red="0.81383514400000001" green="0.62698972230000005" blue="0.1527359486" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                </state>
-                                <connections>
-                                    <action selector="optionOneClicked:" destination="Q5l-gv-pqw" eventType="touchUpInside" id="sve-zf-WxI"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tVh-El-8ot">
-                                <rect key="frame" x="16" y="542" width="358" height="60"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.2039297223" green="0.45300358530000001" blue="0.20387309789999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <state key="normal" title="Option 2">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    <color key="titleShadowColor" red="0.81383514400000001" green="0.62698972230000005" blue="0.1527359486" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                </state>
-                                <connections>
-                                    <action selector="optionTwoClicked:" destination="Q5l-gv-pqw" eventType="touchUpInside" id="cMp-4i-i5Y"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="UNDER CONTRUCTION" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sdd-8H-qca">
                                 <rect key="frame" x="16" y="148" width="358" height="312"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -2554,21 +2506,75 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
                             <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.10000000000000001" translatesAutoresizingMaskIntoConstraints="NO" id="RsP-jP-75G">
                                 <rect key="frame" x="0.0" y="148" width="390" height="4"/>
                             </progressView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="aAx-zz-Srz">
+                                <rect key="frame" x="20" y="491" width="350" height="250"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1E6-k1-giD">
+                                        <rect key="frame" x="0.0" y="0.0" width="350" height="55"/>
+                                        <color key="backgroundColor" red="0.52156862745098043" green="0.5725490196078431" blue="0.61960784313725492" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <state key="normal" title="Option 1">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="optionOneClicked:" destination="Q5l-gv-pqw" eventType="touchUpInside" id="hdn-kx-lHA"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LyK-ju-RcJ">
+                                        <rect key="frame" x="0.0" y="65" width="350" height="55"/>
+                                        <color key="backgroundColor" red="0.36470588235294116" green="0.42745098039215684" blue="0.49411764705882355" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <state key="normal" title="Option 2">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="optionTwoClicked:" destination="Q5l-gv-pqw" eventType="touchUpInside" id="lrO-pL-Flu"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nZj-It-bBg">
+                                        <rect key="frame" x="0.0" y="130" width="350" height="55"/>
+                                        <color key="backgroundColor" red="0.20392156862745098" green="0.28627450980392155" blue="0.36862745098039218" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <state key="normal" title="Option 3">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="optionThreeClicked:" destination="Q5l-gv-pqw" eventType="touchUpInside" id="EyE-gs-TXV"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p7j-Px-jZ7">
+                                        <rect key="frame" x="0.0" y="195" width="350" height="55"/>
+                                        <color key="backgroundColor" red="0.18039215689999999" green="0.25098039220000001" blue="0.32549019610000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <state key="normal" title="Option 4">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="optionFourClicked:" destination="Q5l-gv-pqw" eventType="touchUpInside" id="Por-bA-11h"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="LyK-ju-RcJ" firstAttribute="height" secondItem="1E6-k1-giD" secondAttribute="height" id="7lg-6g-VdR"/>
+                                    <constraint firstItem="p7j-Px-jZ7" firstAttribute="height" secondItem="1E6-k1-giD" secondAttribute="height" id="NoY-Kq-h6s"/>
+                                    <constraint firstAttribute="height" constant="250" id="XWt-Bl-sPI"/>
+                                    <constraint firstItem="nZj-It-bBg" firstAttribute="height" secondItem="1E6-k1-giD" secondAttribute="height" id="cLh-91-OGU"/>
+                                </constraints>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="ZOb-i1-cri"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="ZOb-i1-cri" firstAttribute="bottom" secondItem="aAx-zz-Srz" secondAttribute="bottom" constant="20" id="7D5-ye-ANg"/>
+                            <constraint firstItem="ZOb-i1-cri" firstAttribute="trailing" secondItem="aAx-zz-Srz" secondAttribute="trailing" constant="20" id="Bvc-bf-UXa"/>
                             <constraint firstItem="RsP-jP-75G" firstAttribute="leading" secondItem="2Bz-nv-xOV" secondAttribute="leading" id="JE7-iI-Jpl"/>
                             <constraint firstAttribute="trailing" secondItem="RsP-jP-75G" secondAttribute="trailing" id="VR2-jV-ULB"/>
+                            <constraint firstItem="aAx-zz-Srz" firstAttribute="leading" secondItem="ZOb-i1-cri" secondAttribute="leading" constant="20" id="ZnS-Rm-SWl"/>
                             <constraint firstItem="RsP-jP-75G" firstAttribute="top" secondItem="2Bz-nv-xOV" secondAttribute="top" constant="148" id="tz8-tq-tMY"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Take the Quiz" id="bvk-PH-Q9H"/>
                     <connections>
-                        <outlet property="optionFour" destination="yUJ-f3-gub" id="ltk-SE-krd"/>
-                        <outlet property="optionOne" destination="vDn-gi-iLR" id="Sk7-Lo-nO6"/>
-                        <outlet property="optionThree" destination="hCp-5F-kKm" id="CjD-sj-75n"/>
-                        <outlet property="optionTwo" destination="tVh-El-8ot" id="OZB-Ym-2R6"/>
+                        <outlet property="optionFour" destination="p7j-Px-jZ7" id="ui9-Y8-009"/>
+                        <outlet property="optionOne" destination="1E6-k1-giD" id="TBu-0L-Q2T"/>
+                        <outlet property="optionThree" destination="nZj-It-bBg" id="WBU-wr-u56"/>
+                        <outlet property="optionTwo" destination="LyK-ju-RcJ" id="HdT-1D-7Rh"/>
                         <outlet property="questionLabel" destination="sdd-8H-qca" id="42j-5g-PNQ"/>
                         <outlet property="timeLeft" destination="RsP-jP-75G" id="UYb-eX-Eh2"/>
                         <segue destination="i5t-1S-mIO" kind="show" identifier="wrongAns" id="VaN-Hb-RDJ"/>
@@ -2643,7 +2649,7 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="V0U-Dg-Ovt"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="OA8-46-MWj">
-                        <rect key="frame" x="0.0" y="44" width="390" height="96"/>
+                        <rect key="frame" x="0.0" y="44" width="390" height="104.33333333333334"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
