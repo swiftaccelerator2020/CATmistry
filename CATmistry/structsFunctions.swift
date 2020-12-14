@@ -148,10 +148,9 @@ struct SettingsContent: Codable {
     var type: String
     var emojiImage: String
 }
-
 // MARK: - Arrays
 
-var learnTopics = [
+let learnTopics = [
     Topic(title: "Gas Tests", pic: "gas-tests.png", pointsNeeded: 0, subTopics: [
         SubTopic(title: "What are Gas Tests?", pic: "gas-tests.png", needSlider: false, content:
             SubContent(definition: "some filler text for show"),
@@ -366,19 +365,19 @@ var learnTopics = [
     ]),
 ]
 
-var gameTopics = [
+let gameTopics = [
     PlayTopic(title: "Find the Right Gas", pic: "gas-tests.png", pointsNeeded: 10, segDesti: "goToFindGas", errorLabel: "Please complete Chapter 1"),
     PlayTopic(title: "Retreive the Solids", pic: "separation-methods.png", pointsNeeded: 20, segDesti: "goToRetrieveSolids", errorLabel: "Please complete Chapter 2"),
     PlayTopic(title: "Adjust the pH", pic: "pH-and-indicators.png", pointsNeeded: 30, segDesti: "goToAdjustPh", errorLabel: "Please complete Chapter 3"),
     PlayTopic(title: "Identify the Elements", pic: "periodic-table.png", pointsNeeded: 40, segDesti: "goToIdentifyElement", errorLabel: "Please complete Chapter 4"),
 ]
 
-var gasTestsGameArray = [
+let gasTestsGameArray = [
     // LEVEL 1
     [GasTestGame(firstGasTank: "Hydrogen", secondGasTank: "Oxygen", thirdGasTank: "Carbon Dioxide", fourthGasTank: "Ammonia", firstGasIsPositive: [false, false, false, true], secondGasIsPositive: [false, false, false, true], thirdGasIsPositive: [false, false, false, true], forthGasIsPositive: [false, false, false, true], correctGasTank: "Hydrogen")],
 ]
 
-var phGameArray = [
+let phGameArray = [
     // LEVEL 1
     [
         PhGame(startIsAcidic: true),
@@ -422,7 +421,7 @@ var phGameArray = [
     ],
 ]
 
-var phGameOptionsArray = [
+let phGameOptionsArray = [
     PhOption(name: "Stomach Acid", image: "ph-1.png", turnUniversalTankColour: "monster-ph1.png"),
     PhOption(name: "Lemonade", image: "ph-2.png", turnUniversalTankColour: "monster-ph2.png"),
     PhOption(name: "Apple Juice", image: "ph-3.png", turnUniversalTankColour: "monster-ph3.png"),
@@ -438,11 +437,11 @@ var phGameOptionsArray = [
     PhOption(name: "Pipe Cleaner", image: "ph-14.png", turnUniversalTankColour: "monster-ph14.png", isAcidic: false),
 ]
 
-var phGameAcidicUniversalStartColour = "monster-ph4.png"
+let phGameAcidicUniversalStartColour = "monster-ph4.png"
 
-var phGameAlkalinUniversalStartColour = "monster-ph10.png"
+let phGameAlkalinUniversalStartColour = "monster-ph10.png"
 
-var perioicTable = [
+let perioicTable = [
     // LEVEL 1
     [
         PeriodicTableGame(properties: "Silver, reactive, high melting point and hard", correctAns1: 1, correctAns2: 1, timeGiven: 20),
@@ -469,7 +468,7 @@ var perioicTable = [
     ],
 ]
 
-var retrieveSolidsArray = [
+let retrieveSolidsArray = [
     SpecificSeperationMethod(name: "aa", properties: "filter", givenMethods: GivenSeperationMethods(methods: [SeperationMethods(methodName: "N.A", isCorrect: false), SeperationMethods(methodName: "Correct", isCorrect: true)])),
     SpecificSeperationMethod(name: "bbb", properties: "filter", givenMethods: GivenSeperationMethods(methods: [SeperationMethods(methodName: "N.A", isCorrect: false), SeperationMethods(methodName: "Correct", isCorrect: true)])),
     SpecificSeperationMethod(name: "ccc", properties: "filter", givenMethods: GivenSeperationMethods(methods: [SeperationMethods(methodName: "N.A", isCorrect: false), SeperationMethods(methodName: "Correct", isCorrect: true)])),
