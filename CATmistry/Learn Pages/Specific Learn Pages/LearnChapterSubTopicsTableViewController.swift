@@ -112,7 +112,7 @@ class LearnChapterSubTopicsTableViewController: UITableViewController {
         
         if segue.identifier == "goToQuiz" {
             let destNav = segue.destination as! UINavigationController
-            let destVC = destNav.topViewController
+            let destVC = destNav.topViewController as! QuizViewController
             destVC.question = quizTopic
         }
     }
