@@ -77,7 +77,13 @@
                             <outlet property="delegate" destination="SBj-Sw-yaU" id="NEN-XK-xSK"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Learn 📚" id="zpM-bx-qgA"/>
+                    <navigationItem key="navigationItem" title="Learn 📚" id="zpM-bx-qgA">
+                        <barButtonItem key="rightBarButtonItem" image="gear" catalog="system" id="lWG-lT-Chw">
+                            <connections>
+                                <segue destination="4ae-PL-21e" kind="presentation" identifier="learnGoToSettings" modalPresentationStyle="fullScreen" id="YEM-b9-J01"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EaI-YO-Z4x" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -151,7 +157,13 @@
                             <outlet property="delegate" destination="X95-8B-UQ0" id="8Lk-o1-K1F"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Play 🎮" id="9HF-TP-uSx"/>
+                    <navigationItem key="navigationItem" title="Play 🎮" id="9HF-TP-uSx">
+                        <barButtonItem key="rightBarButtonItem" image="gear" catalog="system" id="TA3-nx-bGy">
+                            <connections>
+                                <segue destination="4ae-PL-21e" kind="presentation" identifier="playGoToSettings" modalPresentationStyle="fullScreen" id="GnF-zJ-RVj"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="playPageTable" destination="paC-Dj-Tva" id="Hzh-Gb-CXA"/>
                         <outlet property="tableView" destination="paC-Dj-Tva" id="WsQ-dm-HfD"/>
@@ -2605,12 +2617,13 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
         <!--Settings-->
         <scene sceneID="yTd-fx-uNe">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dy3-kA-TKd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="4ae-PL-21e" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Settings" image="gear" catalog="system" selectedImage="gear" id="mZa-8F-nqW"/>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="CRz-xJ-7Mz"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="ZtL-PK-NjE">
-                        <rect key="frame" x="0.0" y="44" width="390" height="104.33333333333334"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ZtL-PK-NjE">
+                        <rect key="frame" x="0.0" y="44" width="390" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" red="0.7780972719" green="0.66672307249999996" blue="0.49888640639999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -2620,12 +2633,12 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
                         <segue destination="ire-Um-mD0" kind="relationship" relationship="rootViewController" id="5Fx-qs-cMF"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dy3-kA-TKd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-3202" y="807"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="GnF-zJ-RVj"/>
         <segue reference="s4T-H5-cTx"/>
         <segue reference="l86-7T-ukz"/>
         <segue reference="8zc-2j-Gbh"/>
