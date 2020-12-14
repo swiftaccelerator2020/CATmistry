@@ -37,7 +37,7 @@ Contribution is much appreciated, but not appropriate at this stage.
 ## Authors and Acknoledgements
 
 <a href="https://github.com/swiftaccelerator2020/CATmistry/graphs/contributors">
-  <img src="https://contributors-img.web.app/image?repo=swiftaccelerator2020/CATmistry" />
+  <img src="https://contrib.rocks/image?repo=swiftaccelerator2020/catmistry" />
 </a>
 
 ## About the Swift Accelerator Programme
