@@ -19,10 +19,13 @@ class PlayIdentifyElementsSecondViewController: UIViewController {
     @IBOutlet var groupTwo: UIButton!
     @IBOutlet var groupOne: UIButton!
     @IBOutlet var timeLeft: UILabel!
+    var currentRound = 0
+
     var progressBarTimer: Timer!
     var gameTopic: PeriodicTableGame!
     var timeLeftTrack: Int!
     var level: Int!
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -58,6 +61,10 @@ class PlayIdentifyElementsSecondViewController: UIViewController {
         progressBarTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(PlayIdentifyElementsSecondViewController.updateProgressView), userInfo: nil, repeats: true)
 
         // Do any additional setup after loading the view.
+    }
+
+    override func viewDidAppear(_: Bool) {
+        currentRound += 1
     }
 
     var selectedButton: UIButton!
@@ -258,6 +265,14 @@ class PlayIdentifyElementsSecondViewController: UIViewController {
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender _: Any?) {
-        if segue.identifier == "finishedSceneTwoGame" {}
+        if segue.identifier == "identifyElementsGameWIn" {
+            let destVC = segue.destination as! PlayCorrectAnswerViewController
+            destVC.currentLevel = currentLevel + 1
+            destVC.currentGame = currentRound
+        } else if segue.identifier == "identifyElementsGameLose" {
+            let destVC = segue.destination as! PlayWrongAnswerViewController
+            destVC.currentLevel = currentLevel + 1
+            destVC.currentGame = currentRound
+        }
     }
 }

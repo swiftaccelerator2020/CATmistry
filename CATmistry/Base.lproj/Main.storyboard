@@ -2088,7 +2088,7 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
                     <navigationItem key="navigationItem" title="Sub Topics" id="dDO-g2-IDo"/>
                     <connections>
                         <segue destination="ub2-iM-iy6" kind="show" identifier="goToSubTopicDetails" id="l86-7T-ukz"/>
-                        <segue destination="Q5l-gv-pqw" kind="show" id="3ul-Vm-2ia"/>
+                        <segue destination="Q5l-gv-pqw" kind="show" identifier="goToQuiz" id="3ul-Vm-2ia"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="D9K-Bh-cIp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -2643,7 +2643,7 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="V0U-Dg-Ovt"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="OA8-46-MWj">
-                        <rect key="frame" x="0.0" y="44" width="390" height="96"/>
+                        <rect key="frame" x="0.0" y="44" width="390" height="104.33333333333334"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
