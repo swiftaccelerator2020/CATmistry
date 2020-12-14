@@ -77,6 +77,9 @@ class PlayFindGasDetailsViewController: UIViewController {
             } else {
                 resultsLabel.text = "negative"
             }
+            selectedGasTank = nil
+            selectedGasTest = nil
+            selectedGasTankString = nil
         }
         if selectedGasTank != nil && selectedGasTest == nil {
             selectedGasTankString = gases.firstGasTank
@@ -94,12 +97,12 @@ class PlayFindGasDetailsViewController: UIViewController {
             resultsLabel.isHidden = false
             if gases.secondGasIsPositive[selectedGasTest] {
                 resultsLabel.text = "positive"
-                selectedGasTank = nil
-                selectedGasTest = nil
             } else {
                 resultsLabel.text = "negative"
-                
             }
+            selectedGasTank = nil
+            selectedGasTest = nil
+            selectedGasTankString = nil
         }
         if selectedGasTank != nil && selectedGasTest == nil {
             selectedGasTankString = gases.secondGasTank
@@ -120,6 +123,9 @@ class PlayFindGasDetailsViewController: UIViewController {
             } else {
                 resultsLabel.text = "negative"
             }
+            selectedGasTank = nil
+            selectedGasTest = nil
+            selectedGasTankString = nil
         }
         if selectedGasTank != nil && selectedGasTest == nil {
             selectedGasTankString = gases.thirdGasTank
@@ -140,6 +146,9 @@ class PlayFindGasDetailsViewController: UIViewController {
             } else {
                 resultsLabel.text = "negative"
             }
+            selectedGasTank = nil
+            selectedGasTest = nil
+            selectedGasTankString = nil
         }
         if selectedGasTank != nil && selectedGasTest == nil {
             selectedGasTankString = gases.thirdGasTank
