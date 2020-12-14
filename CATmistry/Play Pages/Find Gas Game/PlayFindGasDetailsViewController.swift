@@ -81,14 +81,14 @@ class PlayFindGasDetailsViewController: UIViewController {
     }
     
     @IBAction func selectGas2(_ sender: Any) {
-        if selectedGasTank != gas1 {
-            selectedGasTank = gas1
+        if selectedGasTank != gas2 {
+            selectedGasTank = gas2
         } else {
             selectedGasTank = nil
         }
         if selectedGasTest != nil {
             resultsLabel.isHidden = false
-            if gases.firstGasIsPositive[selectedGasTest] {
+            if gases.secondGasIsPositive[selectedGasTest] {
                 resultsLabel.text = "positive"
             } else {
                 resultsLabel.text = "negative"
@@ -97,14 +97,14 @@ class PlayFindGasDetailsViewController: UIViewController {
     }
     
     @IBAction func selectGas3(_ sender: Any) {
-        if selectedGasTank != gas1 {
-            selectedGasTank = gas1
+        if selectedGasTank != gas3 {
+            selectedGasTank = gas3
         } else {
             selectedGasTank = nil
         }
         if selectedGasTest != nil {
             resultsLabel.isHidden = false
-            if gases.firstGasIsPositive[selectedGasTest] {
+            if gases.thirdGasIsPositive[selectedGasTest] {
                 resultsLabel.text = "positive"
             } else {
                 resultsLabel.text = "negative"
@@ -113,14 +113,14 @@ class PlayFindGasDetailsViewController: UIViewController {
     }
     
     @IBAction func selectGas4(_ sender: Any) {
-        if selectedGasTank != gas1 {
-            selectedGasTank = gas1
+        if selectedGasTank != gas4 {
+            selectedGasTank = gas4
         } else {
             selectedGasTank = nil
         }
         if selectedGasTest != nil {
             resultsLabel.isHidden = false
-            if gases.firstGasIsPositive[selectedGasTest] {
+            if gases.forthGasIsPositive[selectedGasTest] {
                 resultsLabel.text = "positive"
             } else {
                 resultsLabel.text = "negative"
