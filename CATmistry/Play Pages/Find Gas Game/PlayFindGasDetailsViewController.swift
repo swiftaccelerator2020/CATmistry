@@ -6,28 +6,69 @@
 //
 
 import UIKit
-import SwiftConfettiView
 
 class PlayFindGasDetailsViewController: UIViewController {
     
     var currentLevel = 0
-    @IBOutlet weak var firstGas: UIImageView!
-    @IBOutlet weak var secondGas: UIImageView!
-    @IBOutlet weak var thirdGas: UIImageView!
-    @IBOutlet weak var forthGas: UIImageView!
-    var selectedGasTank: UIImage?
+    var selectedGasTank: UIButton?
+    var selectedGasTankString: String!
+    var selectedGasTest: UIButton!
+    @IBOutlet weak var resultsLabel: UILabel!
+    @IBOutlet weak var limewater: UIButton!
+    @IBOutlet weak var lightedSplint: UIButton!
+    @IBOutlet weak var glowingSplint: UIButton!
+    @IBOutlet weak var litmus: UIButton!
+    @IBOutlet weak var gas1: UIButton!
+    @IBOutlet weak var gas2: UIButton!
+    @IBOutlet weak var gas3: UIButton!
+    @IBOutlet weak var gas4: UIButton!
+    @IBOutlet weak var submit: UIButton!
+    
     var gases = GasTestGame(firstGasTank: "Hydrogen", secondGasTank: "Oxygen", thirdGasTank: "Carbon Dioxide", fourthGasTank: "Ammonia", firstGasIsPositive: [false, false, false, true], secondGasIsPositive: [false, false, false, true], thirdGasIsPositive: [false, false, false, true], forthGasIsPositive: [false, false, false, true], correctGasTank: "Hydrogen")
 
     // var initialCenter = CGPoint()  // The initial center point of the view.
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        submit.isHidden = true
+        resultsLabel.isHidden = true
         // Do any additional setup after loading the view.
     }
     
+    @IBAction func submitChoice(_ sender: Any) {
+        if selectedGasTankString == gases.correctGasTank {
+            performSegue(withIdentifier: "findGasCorrect", sender: nil)
+        } else {
+            performSegue(withIdentifier: "findGasWrong", sender: nil)
+        }
+    }
+    
+    
+     @IBAction func limewaterTest(_ sender: Any) {
+        selectedGasTank = nil
+        selectedGasTest = limewater
+     }
+    
+    @IBAction func lightedSplintTest(_ sender: Any) {
+        selectedGasTank = nil
+        selectedGasTest = lightedSplint
+    }
+    
+    @IBAction func glowingSplintTest(_ sender: Any) {
+        selectedGasTank = nil
+        selectedGasTest = glowingSplint
+    }
+    
+    @IBAction func litmusPaper(_ sender: Any) {
+        selectedGasTank = nil
+        selectedGasTest = lightedSplint
+    }
+    
+    @IBAction func selectGas1(_ sender: Any) {
+    }
+    
     /*
-    @IBAction func panPiece(_ gestureRecognizer : UIPanGestureRecognizer) {
+     @IBAction func panPiece(_ gestureRecognizer : UIPanGestureRecognizer) {
        guard gestureRecognizer.view != nil else {return}
        let piece = gestureRecognizer.view!
        // Get the changes in the X and Y directions relative to
@@ -58,5 +99,5 @@ class PlayFindGasDetailsViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
+    
 }
