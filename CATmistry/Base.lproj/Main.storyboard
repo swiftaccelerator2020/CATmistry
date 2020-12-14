@@ -391,8 +391,7 @@ As your cat can only live in a certain type of gas, your task is to use your kno
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="lighted-splint"/>
                                 <connections>
-                                    <action selector="lightedSplint:" destination="qsu-L3-DGc" eventType="touchUpInside" id="sOJ-HY-L2a"/>
-                                    <action selector="lightedSplintTest:" destination="qsu-L3-DGc" eventType="touchUpInside" id="r5h-PP-y68"/>
+                                    <action selector="lightedSplintTest:" destination="qsu-L3-DGc" eventType="touchUpInside" id="azh-lN-ztf"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="fill" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pBq-gU-2rM" userLabel="glowingSplint">
