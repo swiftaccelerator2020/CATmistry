@@ -23,6 +23,7 @@ class LearnSubTopicDetailsViewController: UIViewController, UITableViewDataSourc
     @IBOutlet weak var pHImageView: UIImageView!
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var contentView: UIView!
+    @IBOutlet weak var contentViewHeight: NSLayoutConstraint!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,6 +41,9 @@ class LearnSubTopicDetailsViewController: UIViewController, UITableViewDataSourc
         let line = UIView(frame: frame)
         self.tableView.tableHeaderView = line
         line.backgroundColor = self.tableView.separatorColor
+        
+        contentViewHeight.constant -= CGFloat(specificSubTopic.contentHeightDifference!)
+        
         
         self.title = specificSubTopic.navTitle
         self.navigationController?.navigationBar.tintColor = UIColor.darkGray

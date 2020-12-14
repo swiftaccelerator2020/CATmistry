@@ -1769,7 +1769,7 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
                 <navigationController id="8Us-es-0oa" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Learn" image="books.vertical.fill" catalog="system" selectedImage="books.vertical.fill" id="ZOw-bY-pdm"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="OvI-u8-jpf">
-                        <rect key="frame" x="0.0" y="44" width="390" height="96"/>
+                        <rect key="frame" x="0.0" y="44" width="390" height="104.33333333333334"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" red="0.95419245959999999" green="0.83945876360000005" blue="0.47016263009999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -2019,7 +2019,7 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
                     <tabBarItem key="tabBarItem" title="Play" image="gamecontroller.fill" catalog="system" selectedImage="gamecontroller.fill" id="Xs1-53-ugV"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="eFe-la-nb9">
-                        <rect key="frame" x="0.0" y="44" width="390" height="104.33333333333334"/>
+                        <rect key="frame" x="0.0" y="44" width="390" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" red="0.396078431372549" green="0.77647058823529413" blue="0.94117647058823528" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -2088,7 +2088,7 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
                     </tableView>
                     <navigationItem key="navigationItem" title="Sub Topics" id="dDO-g2-IDo"/>
                     <connections>
-                        <segue destination="Q5l-gv-pqw" kind="show" identifier="goToQuiz" id="6DZ-lT-xEb"/>
+                        <segue destination="78e-YQ-Wyu" kind="show" identifier="goToQuiz" id="6DZ-lT-xEb"/>
                         <segue destination="ub2-iM-iy6" kind="show" identifier="goToSubTopicDetails" id="l86-7T-ukz"/>
                     </connections>
                 </tableViewController>
@@ -2265,6 +2265,7 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="contentView" destination="mVw-ph-Zlg" id="1sW-wr-UGt"/>
+                        <outlet property="contentViewHeight" destination="J34-1h-Z45" id="44e-Jl-lJt"/>
                         <outlet property="definitionLabel" destination="ASq-R7-EIf" id="cMB-C7-1Rh"/>
                         <outlet property="maxLabel" destination="uFU-gK-oxP" id="QaZ-ac-8Oc"/>
                         <outlet property="minLabel" destination="Ybv-iL-VWX" id="XSp-yG-IZi"/>
@@ -2467,7 +2468,7 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Uqm-HG-b3z" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3169.2307692307691" y="507.58293838862556"/>
+            <point key="canvasLocation" x="4098.4615384615381" y="507.58293838862556"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="xbT-8M-oNT">
@@ -2578,7 +2579,7 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WVd-hw-mx7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="214" y="508"/>
+            <point key="canvasLocation" x="1143.0769230769231" y="507.58293838862556"/>
         </scene>
         <!--wrong-->
         <scene sceneID="WMf-LO-7os">
@@ -2594,7 +2595,7 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eL0-Nl-xns" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1211" y="508"/>
+            <point key="canvasLocation" x="2140" y="507.58293838862556"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="a0R-m9-N1Z">
@@ -2602,7 +2603,7 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="q0c-Zz-aob" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="jRP-bA-vTs">
-                        <rect key="frame" x="0.0" y="44" width="390" height="104.33333333333334"/>
+                        <rect key="frame" x="0.0" y="44" width="390" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -2636,11 +2637,30 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
             </objects>
             <point key="canvasLocation" x="-3202" y="807"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="gii-ma-vjW">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="78e-YQ-Wyu" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="V0U-Dg-Ovt"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="OA8-46-MWj">
+                        <rect key="frame" x="0.0" y="44" width="390" height="104.33333333333334"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Q5l-gv-pqw" kind="relationship" relationship="rootViewController" id="dCR-Zv-Cho"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GXT-pt-Wm3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="213.84615384615384" y="507.58293838862556"/>
+        </scene>
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="GnF-zJ-RVj"/>
         <segue reference="s4T-H5-cTx"/>
-        <segue reference="l86-7T-ukz"/>
+        <segue reference="omW-sG-g2z"/>
         <segue reference="8zc-2j-Gbh"/>
         <segue reference="xa7-EN-bjL"/>
     </inferredMetricsTieBreakers>
