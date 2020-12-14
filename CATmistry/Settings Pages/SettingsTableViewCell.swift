@@ -12,7 +12,7 @@ class SettingsTableViewCell: UITableViewCell {
     @IBOutlet weak var contentLabel: UILabel!
     @IBOutlet weak var settingsButton: UIButton!
     @IBOutlet weak var settingsImageView: UIImageView!
-    
+
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

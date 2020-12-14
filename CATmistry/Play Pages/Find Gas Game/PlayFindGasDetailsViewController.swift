@@ -8,7 +8,7 @@
 import UIKit
 
 class PlayFindGasDetailsViewController: UIViewController {
-    
+
     var currentLevel = 0
     var selectedGasTank: UIButton?
     var selectedGasTankString: String!
@@ -24,22 +24,22 @@ class PlayFindGasDetailsViewController: UIViewController {
     @IBOutlet weak var gas3: UIButton!
     @IBOutlet weak var gas4: UIButton!
     @IBOutlet weak var submit: UIButton!
-    
+
     var gases = GasTestGame(firstGasTank: "Hydrogen", secondGasTank: "Oxygen", thirdGasTank: "Carbon Dioxide", fourthGasTank: "Ammonia", firstGasIsPositive: [false, false, false, true], secondGasIsPositive: [false, false, false, true], thirdGasIsPositive: [false, false, false, true], forthGasIsPositive: [false, false, false, true], correctGasTank: "Hydrogen")
 
     // var initialCenter = CGPoint()  // The initial center point of the view.
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         submit.isHidden = true
         resultsLabel.isHidden = true
         // Do any additional setup after loading the view.
     }
-    
+
     override func viewDidAppear(_ animated: Bool) {
         currentRound += 1
     }
-    
+
     @IBAction func submitChoice(_ sender: Any) {
         if selectedGasTankString == gases.correctGasTank {
             performSegue(withIdentifier: "findGasCorrect", sender: nil)
@@ -47,28 +47,28 @@ class PlayFindGasDetailsViewController: UIViewController {
             performSegue(withIdentifier: "findGasWrong", sender: nil)
         }
     }
-    
-    
+
+
      @IBAction func limewaterTest(_ sender: Any) {
         selectedGasTank = nil
         selectedGasTest = 0
      }
-    
+
     @IBAction func lightedSplintTest(_ sender: Any) {
         selectedGasTank = nil
         selectedGasTest = 1
     }
-    
+
     @IBAction func glowingSplintTest(_ sender: Any) {
         selectedGasTank = nil
         selectedGasTest = 2
     }
-    
+
     @IBAction func litmusPaper(_ sender: Any) {
         selectedGasTank = nil
         selectedGasTest = 3
     }
-    
+
     @IBAction func selectGas1(_ sender: Any) {
         if selectedGasTank != gas1 {
             selectedGasTank = gas1
@@ -91,7 +91,7 @@ class PlayFindGasDetailsViewController: UIViewController {
             submit.isHidden = false
         }
     }
-    
+
     @IBAction func selectGas2(_ sender: Any) {
         if selectedGasTank != gas2 {
             selectedGasTank = gas2
@@ -114,7 +114,7 @@ class PlayFindGasDetailsViewController: UIViewController {
             submit.isHidden = false
         }
     }
-    
+
     @IBAction func selectGas3(_ sender: Any) {
         if selectedGasTank != gas3 {
             selectedGasTank = gas3
@@ -137,7 +137,7 @@ class PlayFindGasDetailsViewController: UIViewController {
             submit.isHidden = false
         }
     }
-    
+
     @IBAction func selectGas4(_ sender: Any) {
         if selectedGasTank != gas4 {
             selectedGasTank = gas4
@@ -160,7 +160,7 @@ class PlayFindGasDetailsViewController: UIViewController {
             submit.isHidden = false
         }
     }
-    
+
     /*
      @IBAction func panPiece(_ gestureRecognizer : UIPanGestureRecognizer) {
        guard gestureRecognizer.view != nil else {return}
@@ -184,12 +184,12 @@ class PlayFindGasDetailsViewController: UIViewController {
        }
     }
     */
-    
-    // MARK: - Navigation 
+
+    // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
+
         if segue.identifier == "findGasCorrect" {
             let destVC = segue.destination as! PlayCorrectAnswerViewController
             destVC.currentLevel = currentLevel
@@ -202,6 +202,6 @@ class PlayFindGasDetailsViewController: UIViewController {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
     }
-    
-    
+
+
 }
