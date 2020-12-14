@@ -272,11 +272,11 @@ class PlayIdentifyElementsSecondViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "identifyElementsGameWIn" {
             let destVC = segue.destination as! PlayCorrectAnswerViewController
-            destVC.currentLevel = currentLevel
+            destVC.currentLevel = currentLevel+1
             destVC.currentGame = currentRound
         } else if segue.identifier == "identifyElementsGameLose" {
             let destVC = segue.destination as! PlayWrongAnswerViewController
-            destVC.currentLevel = currentLevel
+            destVC.currentLevel = currentLevel+1
             destVC.currentGame = currentRound
         }
     }
