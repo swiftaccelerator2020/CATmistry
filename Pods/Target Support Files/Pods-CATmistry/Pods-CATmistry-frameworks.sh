@@ -3,7 +3,7 @@ set -e
 set -u
 set -o pipefail
 
-function on_error {
+function on_error() {
   echo "$(realpath -mq "${0}"):$1: error: Unexpected failure"
 }
 trap 'on_error $LINENO' ERR
@@ -21,14 +21,12 @@ COCOAPODS_PARALLEL_CODE_SIGN="${COCOAPODS_PARALLEL_CODE_SIGN:-false}"
 SWIFT_STDLIB_PATH="$DT_TOOLCHAIN_DIR/usr/lib/swift/$PLATFORM_NAME"
 BCSYMBOLMAP_DIR="BCSymbolMaps"
 
-
 # This protects against multiple targets copying the same framework dependency at the same time. The solution
 # was originally proposed here: https://lists.samba.org/archive/rsync/2008-February/020158.html
 RSYNC_PROTECT_TMP_FILES=(--filter "P .*.??????")
 
 # Copies and strips a vendored framework
-install_framework()
-{
+install_framework() {
   if [ -r "$BUILT_PRODUCTS_DIR/$1" ]; then
     local source="$BUILT_PRODUCTS_DIR/$1"
   elif [ -r "$BUILT_PRODUCTS_DIR/$(basename "$1")" ]; then
@@ -46,7 +44,7 @@ install_framework()
 
   if [ -d "$source/$BCSYMBOLMAP_DIR" ]; then
     # Locate and install any .bcsymbolmaps if present, and remove them from the .framework before the framework is copied
-    find "$source/$BCSYMBOLMAP_DIR" -name "*.bcsymbolmap"|while read f; do
+    find "$source/$BCSYMBOLMAP_DIR" -name "*.bcsymbolmap" | while read f; do
       echo "Installing $f"
       install_bcsymbolmap "$f" "$destination"
       rm "$f"
@@ -153,10 +151,10 @@ strip_invalid_archs() {
 
 # Copies the bcsymbolmap files of a vendored framework
 install_bcsymbolmap() {
-    local bcsymbolmap_path="$1"
-    local destination="$BUILT_PRODUCTS_DIR"
-    echo "rsync --delete -av ""${RSYNC_PROTECT_TMP_FILES[@]} --filter "- CVS/" --filter "- .svn/" --filter "- .git/" --filter "- .hg/" --filter "- Headers" --filter "- PrivateHeaders" --filter "- Modules" ""$bcsymbolmap_path ""$destination"
-    rsync --delete -av "${RSYNC_PROTECT_TMP_FILES[@]}" --filter "- CVS/" --filter "- .svn/" --filter "- .git/" --filter "- .hg/" --filter "- Headers" --filter "- PrivateHeaders" --filter "- Modules" "$bcsymbolmap_path" "$destination"
+  local bcsymbolmap_path="$1"
+  local destination="$BUILT_PRODUCTS_DIR"
+  echo "rsync --delete -av ""${RSYNC_PROTECT_TMP_FILES[@]} --filter "- CVS/" --filter "- .svn/" --filter "- .git/" --filter "- .hg/" --filter "- Headers" --filter "- PrivateHeaders" --filter "- Modules" ""$bcsymbolmap_path ""$destination"
+  rsync --delete -av "${RSYNC_PROTECT_TMP_FILES[@]}" --filter "- CVS/" --filter "- .svn/" --filter "- .git/" --filter "- .hg/" --filter "- Headers" --filter "- PrivateHeaders" --filter "- Modules" "$bcsymbolmap_path" "$destination"
 }
 
 # Signs a framework with the provided identity
