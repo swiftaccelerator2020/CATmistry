@@ -17,13 +17,13 @@ class QuizEndedViewController: UIViewController {
 
         // Do any additional setup after loading the view.
     }
-    
+
     @IBAction func goBackButton(_ sender: Any) {
         navigationController?.setNavigationBarHidden(false, animated: false)
         tabBarController?.tabBar.isHidden = false
         self.navigationController!.popToRootViewController(animated: true)
     }
-    
+
     /*
     // MARK: - Navigation
 

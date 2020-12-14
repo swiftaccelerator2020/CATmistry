@@ -8,7 +8,7 @@
 import UIKit
 
 class PlayAdjustPhDetailsViewController: UIViewController {
-    
+
     var currentLevel = 0
     var currentGame = 0
     var chosenOption = 0
@@ -17,7 +17,7 @@ class PlayAdjustPhDetailsViewController: UIViewController {
     var indicatorPresent = false
     var phOptionsSet = Set<PhOption>()
     var phOptionsArray: Array<PhOption>!
-    
+
     @IBOutlet weak var addFirstIndicatorButton: UIButton!
     @IBOutlet weak var monsterImageView: UIImageView!
     @IBOutlet weak var firstOptionImageView: UIImageView!
@@ -39,10 +39,10 @@ class PlayAdjustPhDetailsViewController: UIViewController {
     @IBOutlet weak var submitButtonIsVisibleConstraint: NSLayoutConstraint!
     @IBOutlet weak var submitButtonIsHiddenConstraint: NSLayoutConstraint!
     @IBOutlet weak var timerLabel: UILabel!
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         // Do any additional setup after loading the view.
         addFirstIndicatorButton.layer.cornerRadius = 15
         firstOptionStackView.layer.masksToBounds = true
@@ -58,7 +58,7 @@ class PlayAdjustPhDetailsViewController: UIViewController {
         submitButton.layer.cornerRadius = 25
         timerLabel.layer.cornerRadius = 15
         timerLabel.layer.masksToBounds = true
-        
+
         if currentLevel == 1 {
             submitButton.isHidden = true
             contentViewHeight.constant -= 68
@@ -69,25 +69,25 @@ class PlayAdjustPhDetailsViewController: UIViewController {
             submitButton.isEnabled = false
             submitButton.titleLabel?.isEnabled = false
         }
-        
+
         while phOptionsSet.count < 4 {
             let randomIndex = Int(arc4random_uniform(UInt32(phGameOptionsArray.count)))
             phOptionsSet.insert(phGameOptionsArray[randomIndex])
         }
-        
+
         phOptionsArray = Array(phOptionsSet)
-        
+
         firstOptionImageView.image = UIImage(named: phOptionsArray[0].image)
         secondOptionImageView.image = UIImage(named: phOptionsArray[1].image)
         thirdOptionImageView.image = UIImage(named: phOptionsArray[2].image)
         fourthOptionImageView.image = UIImage(named: phOptionsArray[3].image)
-        
+
         firstOptionLabel.text = phOptionsArray[0].name
         secondOptionLabel.text = phOptionsArray[1].name
         thirdOptionLabel.text = phOptionsArray[2].name
         fourthOptionLabel.text = phOptionsArray[3].name
     }
-    
+
     @IBAction func clickAddUniversalIndicator(_ sender: Any) {
         if addFirstIndicatorButton.titleLabel!.text == "Add Universal Indicator" {
             indicatorPresent = true
@@ -110,7 +110,7 @@ class PlayAdjustPhDetailsViewController: UIViewController {
             scrollView.scrollToTop()
         }
     }
-    
+
     @IBAction func clickOptionOne(_ sender: Any) {
         firstOptionStackView.backgroundColor = UIColor(red: 88/255, green: 214/255, blue: 141/255, alpha: 1)
         secondOptionStackView.backgroundColor = UIColor.white
@@ -129,7 +129,7 @@ class PlayAdjustPhDetailsViewController: UIViewController {
             checkForCorrectAnswer(whichOption: 0)
         }
     }
-    
+
     @IBAction func clickSecondOption(_ sender: Any) {
         firstOptionStackView.backgroundColor = UIColor.white
         secondOptionStackView.backgroundColor = UIColor(red: 88/255, green: 214/255, blue: 141/255, alpha: 1)
@@ -148,7 +148,7 @@ class PlayAdjustPhDetailsViewController: UIViewController {
             checkForCorrectAnswer(whichOption: 1)
         }
     }
-    
+
     @IBAction func clickThirdOption(_ sender: Any) {
         firstOptionStackView.backgroundColor = UIColor.white
         secondOptionStackView.backgroundColor = UIColor.white
@@ -167,7 +167,7 @@ class PlayAdjustPhDetailsViewController: UIViewController {
             checkForCorrectAnswer(whichOption: 2)
         }
     }
-    
+
     @IBAction func clickOptionFour(_ sender: Any) {
         firstOptionStackView.backgroundColor = UIColor.white
         secondOptionStackView.backgroundColor = UIColor.white
@@ -186,31 +186,31 @@ class PlayAdjustPhDetailsViewController: UIViewController {
             checkForCorrectAnswer(whichOption: 3)
         }
     }
-    
+
     @IBAction func clickSubmit(_ sender: Any) {
         checkForCorrectAnswer(whichOption: chosenOption)
     }
-    
+
     // Other Functions
     func checkForCorrectAnswer(whichOption: Int) {
         print(phOptionsArray[whichOption])
-        
+
         if currentLevel == 0 {
             submitButton.isEnabled = false
             submitButton.titleLabel?.isEnabled = false
         }
-        
+
         scrollView.scrollToTop()
-        
+
         addFirstIndicatorButton.setTitle("Add Universal Indicator", for: .normal)
         monsterImageView.image = UIImage(named: "monster-regular.png")
         firstOptionStackView.backgroundColor = UIColor.white
         secondOptionStackView.backgroundColor = UIColor.white
         thirdOptionStackView.backgroundColor = UIColor.white
         fourthOptionStackView.backgroundColor = UIColor.white
-        
+
         indicatorPresent = false
-        
+
         if phGameArray[currentLevel][currentGame].startIsAcidic == true {
             if phOptionsArray[whichOption].isAcidic == false {
                 optionCorrect()
@@ -224,46 +224,46 @@ class PlayAdjustPhDetailsViewController: UIViewController {
                 optionWrong()
             }
         }
-        
+
         if phGameArray[currentLevel].count != currentGame - 1 {
             currentGame += 1
         } else {
             currentGame = 0
         }
-        
+
         phOptionsSet = []
-        
+
         while phOptionsSet.count < 4 {
             let randomIndex = Int(arc4random_uniform(UInt32(phGameOptionsArray.count)))
             phOptionsSet.insert(phGameOptionsArray[randomIndex])
         }
-        
+
         phOptionsArray = Array(phOptionsSet)
-        
+
         firstOptionImageView.image = UIImage(named: phOptionsArray[0].image)
         secondOptionImageView.image = UIImage(named: phOptionsArray[1].image)
         thirdOptionImageView.image = UIImage(named: phOptionsArray[2].image)
         fourthOptionImageView.image = UIImage(named: phOptionsArray[3].image)
-        
+
         firstOptionLabel.text = phOptionsArray[0].name
         secondOptionLabel.text = phOptionsArray[1].name
         thirdOptionLabel.text = phOptionsArray[2].name
         fourthOptionLabel.text = phOptionsArray[3].name
     }
-    
+
     func optionCorrect() {
         correctGames += 1
         performSegue(withIdentifier: "adjustPhCorrect", sender: nil)
     }
-    
+
     func optionWrong() {
         wrongGames += 1
         performSegue(withIdentifier: "adjustPhWrong", sender: nil)
     }
-    
-    
+
+
     // MARK: - Navigation
-    
+
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
