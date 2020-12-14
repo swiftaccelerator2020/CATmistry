@@ -8,7 +8,7 @@
 import UIKit
 
 class LearnSubSubTopicDetailsViewController: UIViewController {
-    
+
     var flexibleTitle: String!
     var specificChapter: SubSubTopic!
     var subTopicName: String!
@@ -24,13 +24,14 @@ class LearnSubSubTopicDetailsViewController: UIViewController {
     @IBOutlet weak var indicatorSlider: UISlider!
     @IBOutlet weak var indicatorSliderValueLabel: UILabel!
     @IBOutlet weak var indicatorSliderView: UIView!
-    
+    @IBOutlet weak var contentView: UIView!
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         self.title = flexibleTitle
-        
+
         if (specificChapter.content.warningText != nil) {
             warningLabel.layer.cornerRadius = 5
             warningLabel.layer.masksToBounds = true
@@ -42,12 +43,12 @@ class LearnSubSubTopicDetailsViewController: UIViewController {
             warningIsVisibleConstraint?.isActive = false
             warningIsHiddenConstraint?.isActive = true
         }
-        
+
         subSubTopicImageView.image = UIImage(named: specificChapter.content.image)
         firstAttributeLabel.text = specificChapter.content.firstAttributionText
         secondAttributeLabel.text = specificChapter.content.secondAttributionText
         thirdAttributeLabel.text = specificChapter.content.thirdAttributionText
-        
+
         if (subTopicName != "Indicators") {
             indicatorsSliderVertStack.isHidden = true
         } else {
@@ -64,7 +65,7 @@ class LearnSubSubTopicDetailsViewController: UIViewController {
             }
         }
     }
-    
+
     @IBAction func indicatorSliderValueChanged(_ sender: UISlider) {
         if (indicatorSlider.value < specificChapter.content.lowpH!) {
             indicatorSliderValueLabel.text = "Current pH: " + String(format: "%.2f", indicatorSlider.value) + "\n" + specificChapter.content.lowpHColorName!
@@ -77,7 +78,7 @@ class LearnSubSubTopicDetailsViewController: UIViewController {
             indicatorSliderView.backgroundColor = hexStringToUIColor(hex: specificChapter.content.highpHColor!)
         }
     }
-    
+
     /*
     // MARK: - Navigation
 
@@ -87,7 +88,7 @@ class LearnSubSubTopicDetailsViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-    
+
     func hexStringToUIColor (hex:String) -> UIColor {
         var cString:String = hex.trimmingCharacters(in: .whitespacesAndNewlines).uppercased()
 
