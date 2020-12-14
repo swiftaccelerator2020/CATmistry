@@ -256,13 +256,13 @@ extension String {
     {
         let font = UIFont.systemFont(ofSize: fontSize)
         let attributes = [NSAttributedString.Key.font: font]
-        let imageSize = imageSize ?? size(withAttributes: attributes)
+        let imageSize = imageSize ?? self.size(withAttributes: attributes)
 
         UIGraphicsBeginImageContextWithOptions(imageSize, false, 0)
         bgColor.set()
         let rect = CGRect(origin: .zero, size: imageSize)
         UIRectFill(rect)
-        draw(in: rect, withAttributes: [.font: font])
+        self.draw(in: rect, withAttributes: [.font: font])
         let image = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         return image
