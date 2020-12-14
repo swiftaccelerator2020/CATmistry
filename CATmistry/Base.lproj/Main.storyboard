@@ -344,16 +344,26 @@ As your cat can only live in a certain type of gas, your task is to use your kno
                                 <rect key="frame" x="148" y="332" width="43" height="101"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button" image="gas-tank"/>
+                                <connections>
+                                    <action selector="selectGas1:" destination="qsu-L3-DGc" eventType="touchUpInside" id="2vA-by-3rR"/>
+                                    <action selector="selectGas2:" destination="qsu-L3-DGc" eventType="touchUpInside" id="yG9-fs-NqU"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zxr-rR-eiJ">
                                 <rect key="frame" x="212" y="332" width="43" height="101"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button" image="gas-tank"/>
+                                <connections>
+                                    <action selector="selectGas3:" destination="qsu-L3-DGc" eventType="touchUpInside" id="yCI-89-ZwJ"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z16-tg-6Es">
                                 <rect key="frame" x="271" y="332" width="43" height="101"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button" image="gas-tank"/>
+                                <connections>
+                                    <action selector="selectGas4:" destination="qsu-L3-DGc" eventType="touchUpInside" id="QqR-6u-Zrg"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZFE-aE-OuH" userLabel="Limewater">
                                 <rect key="frame" x="84" y="187" width="42" height="82"/>

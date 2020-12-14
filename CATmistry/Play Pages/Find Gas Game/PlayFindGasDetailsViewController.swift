@@ -12,7 +12,7 @@ class PlayFindGasDetailsViewController: UIViewController {
     var currentLevel = 0
     var selectedGasTank: UIButton?
     var selectedGasTankString: String!
-    var selectedGasTest: UIButton!
+    var selectedGasTest: Int!
     @IBOutlet weak var resultsLabel: UILabel!
     @IBOutlet weak var limewater: UIButton!
     @IBOutlet weak var lightedSplint: UIButton!
@@ -46,25 +46,86 @@ class PlayFindGasDetailsViewController: UIViewController {
     
      @IBAction func limewaterTest(_ sender: Any) {
         selectedGasTank = nil
-        selectedGasTest = limewater
+        selectedGasTest = 0
      }
     
     @IBAction func lightedSplintTest(_ sender: Any) {
         selectedGasTank = nil
-        selectedGasTest = lightedSplint
+        selectedGasTest = 1
     }
     
     @IBAction func glowingSplintTest(_ sender: Any) {
         selectedGasTank = nil
-        selectedGasTest = glowingSplint
+        selectedGasTest = 2
     }
     
     @IBAction func litmusPaper(_ sender: Any) {
         selectedGasTank = nil
-        selectedGasTest = lightedSplint
+        selectedGasTest = 3
     }
     
     @IBAction func selectGas1(_ sender: Any) {
+        if selectedGasTank != gas1 {
+            selectedGasTank = gas1
+        } else {
+            selectedGasTank = nil
+        }
+        if selectedGasTest != nil {
+            resultsLabel.isHidden = false
+            if gases.firstGasIsPositive[selectedGasTest] {
+                resultsLabel.text = "positive"
+            } else {
+                resultsLabel.text = "negative"
+            }
+        }
+    }
+    
+    @IBAction func selectGas2(_ sender: Any) {
+        if selectedGasTank != gas1 {
+            selectedGasTank = gas1
+        } else {
+            selectedGasTank = nil
+        }
+        if selectedGasTest != nil {
+            resultsLabel.isHidden = false
+            if gases.firstGasIsPositive[selectedGasTest] {
+                resultsLabel.text = "positive"
+            } else {
+                resultsLabel.text = "negative"
+            }
+        }
+    }
+    
+    @IBAction func selectGas3(_ sender: Any) {
+        if selectedGasTank != gas1 {
+            selectedGasTank = gas1
+        } else {
+            selectedGasTank = nil
+        }
+        if selectedGasTest != nil {
+            resultsLabel.isHidden = false
+            if gases.firstGasIsPositive[selectedGasTest] {
+                resultsLabel.text = "positive"
+            } else {
+                resultsLabel.text = "negative"
+            }
+        }
+    }
+    
+    @IBAction func selectGas4(_ sender: Any) {
+        if selectedGasTank != gas1 {
+            selectedGasTank = gas1
+        } else {
+            selectedGasTank = nil
+        }
+        if selectedGasTest != nil {
+            resultsLabel.isHidden = false
+            if gases.firstGasIsPositive[selectedGasTest] {
+                resultsLabel.text = "positive"
+            } else {
+                resultsLabel.text = "negative"
+            }
+        }
     }
     
     /*
