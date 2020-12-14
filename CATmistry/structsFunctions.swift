@@ -13,7 +13,7 @@ struct Topic {
     var title: String
     var pic: String
     var pointsNeeded: Int
-    var subTopics: Array<SubTopic>
+    var subTopics: [SubTopic]
     var errorLabel: String
     var questions: [QuizQuestion]
 }
@@ -31,7 +31,7 @@ struct SubTopic {
     var pic: String
     var needSlider: Bool
     var content: SubContent
-    var subTopics: Array<SubSubTopic>?
+    var subTopics: [SubSubTopic]?
     var navTitle: String
     var contentHeightDifference: Int? = nil
 }
@@ -87,11 +87,11 @@ struct GasTestGame {
     var correctGasTank: String
 }
 
-struct specificSeperationMethod: Hashable{
+struct SpecificSeperationMethod: Hashable {
     var name: String
     var properties: String
     var givenMethods: GivenSeperationMethods
-    
+
     func hash(into hasher: inout Hasher) {
         hasher.combine(name)
         hasher.combine(properties)
@@ -99,19 +99,18 @@ struct specificSeperationMethod: Hashable{
     }
 }
 
-struct GivenSeperationMethods: Hashable{
-    
+struct GivenSeperationMethods: Hashable {
     var methods: [SeperationMethods]
-    
+
     func hash(into hasher: inout Hasher) {
         hasher.combine(methods)
     }
 }
 
-struct SeperationMethods: Hashable{
+struct SeperationMethods: Hashable {
     var methodName: String
     var isCorrect: Bool
-    
+
     func hash(into hasher: inout Hasher) {
         hasher.combine(methodName)
         hasher.combine(isCorrect)
@@ -128,7 +127,7 @@ struct PhOption: Hashable {
     var image: String
     var turnUniversalTankColour: String
     var isAcidic: Bool? = true
-    
+
     func hash(into hasher: inout Hasher) {
         hasher.combine(name)
         hasher.combine(image)
@@ -137,7 +136,7 @@ struct PhOption: Hashable {
     }
 }
 
-struct periodicTableGame {
+struct PeriodicTableGame {
     var properties: String
     var correctAns1: Int
     var correctAns2: Int
@@ -155,33 +154,33 @@ struct SettingsContent {
 var learnTopics = [
     Topic(title: "Gas Tests", pic: "gas-tests.png", pointsNeeded: 0, subTopics: [
         SubTopic(title: "What are Gas Tests?", pic: "gas-tests.png", needSlider: false, content:
-                    SubContent(definition: "some filler text for show"),
-                 subTopics: [
-                    SubSubTopic(topic: "Test for CO₂", picture: "carbon-dioxide.png", id: 2, content: SubSubContent(image: "carbon-dioxide.png", firstAttributionText: "Carbon Dioxide (CO₂) is the gas all living organisms give out when they respire, and is also the gas that plants take in for photosynthesis.", secondAttributionText: "How the gas test works: \n1. There was effervescence of a colourless, odourless gas. \n2. Bubble the gas into limewater. \n3. A white precipitate (the \"clouds\") was formed in the limewater. \n4. Carbon Dioxide gas was formed.", thirdAttributionText: "")),
-                    SubSubTopic(topic: "Test for H₂", picture: "hydrogen.png", id: 1, content: SubSubContent(image: "hydrogen.png", firstAttributionText: "Hydrogen (H₂) is a gas that is less dense than the atmosphere, meaning it floats extremely well. It was hence used in airships in the past as an alternative to planes for air travel.", secondAttributionText: "How the gas test works: \n1. There was effervescence of a colourless, odourless gas. \n2. Insert a lighted splint. \n3. The lighted splint extinguished with a 'pop' sound. \n4. Hydrogen gas was formed.", thirdAttributionText: "", warningText: "⚠️ Lighted splint, not glowing splint")),
-                    SubSubTopic(topic: "Test for O₂", picture: "oxygen.png", id: 3, content: SubSubContent(image: "oxygen.png", firstAttributionText: "Oxygen (O₂) is a colourless, odourless, tasteless gas essential to living organisms, as it is taken up by them for respiration. Plants, in turn, take up carbon dioxide during photosynthesis and gives out oxygen in the process of photosynthesis.", secondAttributionText: "How the gas test works: \n1. There was effervescence of a colourless, odourless gas. \n2. Insert a glowing splint. \n3. The glowing splint re-ignited. \n4. Oxygen gas was formed.", thirdAttributionText: "", warningText: "⚠️ Glowing splint, not lighted splint")),
-                    SubSubTopic(topic: "Test for NH₃", picture: "ph-11.png", id: 4, content: SubSubContent(image: "ph-11.png", firstAttributionText: "Ammonia (NH₃) is an alkaline gas which has a distinct odour (it is slightly smelly!). It is produced naturally in the human body and in nature—in water, soil and air, even in tiny bacteria molecules. In human health, ammonia and the ammonium ion are vital components of metabolic processes.", secondAttributionText: "How the gas test works: \n1. Heat the test tube over a flame. \n2. A colourless, pungent (smelly!) gas was liberated (freed). \n3. Hold a moist red litmus paper over the test tube. \n4. Moist red litmus paper turned blue. \n5. Ammonia gas was formed.", thirdAttributionText: "", warningText: "⚠️ Remember to heat the mixture first!"))
-                 ], navTitle: "Gas Tests", contentHeightDifference: 250),
-        SubTopic(title: "Take the Quiz", pic: "quiz.png", needSlider: false, content: SubContent(definition: ""), subTopics: [], navTitle: "Take the Quiz")
-    ], errorLabel: "",questions:
-        [
-            QuizQuestion(question: "LOREM IPSUM", options:
-                            [
-                                "wrong",
-                                "correct",
-                                "wrong",
-                                "wrong"
-                            ], correctAnswer: 2),
-            
-            QuizQuestion(question: "LOREM IPSUM", options:
-                            [
-                                "wrong",
-                                "wrong",
-                                "correct",
-                                "wrong"
-                            ], correctAnswer: 3),
-        ]),
-    
+            SubContent(definition: "some filler text for show"),
+            subTopics: [
+                SubSubTopic(topic: "Test for CO₂", picture: "carbon-dioxide.png", id: 2, content: SubSubContent(image: "carbon-dioxide.png", firstAttributionText: "Carbon Dioxide (CO₂) is the gas all living organisms give out when they respire, and is also the gas that plants take in for photosynthesis.", secondAttributionText: "How the gas test works: \n1. There was effervescence of a colourless, odourless gas. \n2. Bubble the gas into limewater. \n3. A white precipitate (the \"clouds\") was formed in the limewater. \n4. Carbon Dioxide gas was formed.", thirdAttributionText: "")),
+                SubSubTopic(topic: "Test for H₂", picture: "hydrogen.png", id: 1, content: SubSubContent(image: "hydrogen.png", firstAttributionText: "Hydrogen (H₂) is a gas that is less dense than the atmosphere, meaning it floats extremely well. It was hence used in airships in the past as an alternative to planes for air travel.", secondAttributionText: "How the gas test works: \n1. There was effervescence of a colourless, odourless gas. \n2. Insert a lighted splint. \n3. The lighted splint extinguished with a 'pop' sound. \n4. Hydrogen gas was formed.", thirdAttributionText: "", warningText: "⚠️ Lighted splint, not glowing splint")),
+                SubSubTopic(topic: "Test for O₂", picture: "oxygen.png", id: 3, content: SubSubContent(image: "oxygen.png", firstAttributionText: "Oxygen (O₂) is a colourless, odourless, tasteless gas essential to living organisms, as it is taken up by them for respiration. Plants, in turn, take up carbon dioxide during photosynthesis and gives out oxygen in the process of photosynthesis.", secondAttributionText: "How the gas test works: \n1. There was effervescence of a colourless, odourless gas. \n2. Insert a glowing splint. \n3. The glowing splint re-ignited. \n4. Oxygen gas was formed.", thirdAttributionText: "", warningText: "⚠️ Glowing splint, not lighted splint")),
+                SubSubTopic(topic: "Test for NH₃", picture: "ph-11.png", id: 4, content: SubSubContent(image: "ph-11.png", firstAttributionText: "Ammonia (NH₃) is an alkaline gas which has a distinct odour (it is slightly smelly!). It is produced naturally in the human body and in nature—in water, soil and air, even in tiny bacteria molecules. In human health, ammonia and the ammonium ion are vital components of metabolic processes.", secondAttributionText: "How the gas test works: \n1. Heat the test tube over a flame. \n2. A colourless, pungent (smelly!) gas was liberated (freed). \n3. Hold a moist red litmus paper over the test tube. \n4. Moist red litmus paper turned blue. \n5. Ammonia gas was formed.", thirdAttributionText: "", warningText: "⚠️ Remember to heat the mixture first!")),
+            ], navTitle: "Gas Tests", contentHeightDifference: 250),
+        SubTopic(title: "Take the Quiz", pic: "quiz.png", needSlider: false, content: SubContent(definition: ""), subTopics: [], navTitle: "Take the Quiz"),
+    ], errorLabel: "", questions:
+    [
+        QuizQuestion(question: "LOREM IPSUM", options:
+            [
+                "wrong",
+                "correct",
+                "wrong",
+                "wrong",
+            ], correctAnswer: 2),
+
+        QuizQuestion(question: "LOREM IPSUM", options:
+            [
+                "wrong",
+                "wrong",
+                "correct",
+                "wrong",
+            ], correctAnswer: 3),
+    ]),
+
     Topic(
         title: "Separation Methods",
         pic: "separation-methods.png",
@@ -248,7 +247,7 @@ var learnTopics = [
                             secondAttributionText: "Properties Involed: Solubility changes with temperature",
                             thirdAttributionText: "Principle of Separation: When the solubility of the solid decreases as the temperature of the mixture decreases, the solids that cannot be dissolved will crystallise"
                         )
-                    )
+                    ),
                 ],
                 navTitle: "Separation", contentHeightDifference: 160
             ),
@@ -259,27 +258,28 @@ var learnTopics = [
                 content: SubContent(definition: ""),
                 subTopics: [],
                 navTitle: "Take the Quiz"
-            )
+            ),
         ],
         errorLabel: "Please complete Chapter 1", questions:
-            [
-                QuizQuestion(question: "LOREM IPSUM", options:
-                                [
-                                    "wrong",
-                                    "correct",
-                                    "wrong",
-                                    "wrong"
-                                ], correctAnswer: 2),
-                
-                QuizQuestion(question: "LOREM IPSUM", options:
-                                [
-                                    "wrong",
-                                    "wrong",
-                                    "correct",
-                                    "wrong"
-                                ], correctAnswer: 3),
-            ]),
-    
+        [
+            QuizQuestion(question: "LOREM IPSUM", options:
+                [
+                    "wrong",
+                    "correct",
+                    "wrong",
+                    "wrong",
+                ], correctAnswer: 2),
+
+            QuizQuestion(question: "LOREM IPSUM", options:
+                [
+                    "wrong",
+                    "wrong",
+                    "correct",
+                    "wrong",
+                ], correctAnswer: 3),
+        ]
+    ),
+
     Topic(title: "pH and Indicators", pic: "pH-and-indicators.png", pointsNeeded: 20, subTopics: [
         SubTopic(title: "What is pH?", pic: "pH.png", needSlider: true, content: SubContent(definition: "pH means Power of Hydrogen (concentration of hydrogen ions). \n\nIt is represented on a scale of 1 to 14, which is used to specify the acidity or basicity/alkalinity of a solution. \n\npH 1 - 6.9: Acidic \npH 7.1 - 14:  Alkaline \npH 7: Neutral (neither acidic nor alkaline)"), subTopics: nil, navTitle: "pH", contentHeightDifference: 250),
         SubTopic(title: "What are Indicators?", pic: "pH-and-indicators.png", needSlider: false, content: SubContent(definition: "Indicators are chemicals which turn into different colours depending on the pH of the solution. \n\nThe transition range is the range in which the indicator changes from one colour to the other."), subTopics: [
@@ -290,28 +290,28 @@ var learnTopics = [
             SubSubTopic(topic: "Screened Methyl Orange (2)", picture: "screened-methyl-orange-2.png", id: 1, content: SubSubContent(image: "screened-methyl-orange-2.png", firstAttributionText: "", secondAttributionText: "", thirdAttributionText: "Try out the interactive slider below:", lowpH: 3.2, highpH: 4.4, lowpHColor: "4b7b75", middlepHColor: "4b7b75", highpHColor: "01A52F", lowpHColorName: "Grey", middlepHColorName: "Grey", highpHColorName: "Green")),
             SubSubTopic(topic: "Thymol Blue (1)", picture: "thymol-blue-1.png", id: 1, content: SubSubContent(image: "thymol-blue-1.png", firstAttributionText: "", secondAttributionText: "", thirdAttributionText: "Try out the interactive slider below:", lowpH: 1.2, highpH: 2.8, lowpHColor: "FF0000", middlepHColor: "FF7500", highpHColor: "FFE600", lowpHColorName: "Red", middlepHColorName: "Orange", highpHColorName: "Yellow")),
             SubSubTopic(topic: "Thymol Blue (2)", picture: "thymol-blue-2.png", id: 1, content: SubSubContent(image: "thymol-blue-2.png", firstAttributionText: "", secondAttributionText: "", thirdAttributionText: "Try out the interactive slider below:", lowpH: 8.0, highpH: 9.6, lowpHColor: "FFE600", middlepHColor: "01A52F", highpHColor: "274ED7", lowpHColorName: "Yellow", middlepHColorName: "Green", highpHColorName: "Blue")),
-            SubSubTopic(topic: "Universal Indicator", picture: "universal-indicator-1.png", id: 1, content: SubSubContent(image: "universal-indicator-2.png", firstAttributionText: "", secondAttributionText: "", thirdAttributionText: "Try out the interactive slider below:", lowpH: 1, highpH: 1, lowpHColor: "", middlepHColor: "", highpHColor: "", lowpHColorName: "", middlepHColorName: "", highpHColorName: ""))
+            SubSubTopic(topic: "Universal Indicator", picture: "universal-indicator-1.png", id: 1, content: SubSubContent(image: "universal-indicator-2.png", firstAttributionText: "", secondAttributionText: "", thirdAttributionText: "Try out the interactive slider below:", lowpH: 1, highpH: 1, lowpHColor: "", middlepHColor: "", highpHColor: "", lowpHColorName: "", middlepHColorName: "", highpHColorName: "")),
         ], navTitle: "Indicators", contentHeightDifference: 0),
-        SubTopic(title: "Take the Quiz", pic: "quiz.png", needSlider: false, content: SubContent(definition: ""), subTopics: [], navTitle: "Take the Quiz")
+        SubTopic(title: "Take the Quiz", pic: "quiz.png", needSlider: false, content: SubContent(definition: ""), subTopics: [], navTitle: "Take the Quiz"),
     ], errorLabel: "Please complete Chapter 2", questions:
-        [
-            QuizQuestion(question: "LOREM IPSUM", options:
-                            [
-                                "wrong",
-                                "correct",
-                                "wrong",
-                                "wrong"
-                            ], correctAnswer: 2),
-            
-            QuizQuestion(question: "LOREM IPSUM", options:
-                            [
-                                "wrong",
-                                "wrong",
-                                "correct",
-                                "wrong"
-                            ], correctAnswer: 3),
-        ]),
-    
+    [
+        QuizQuestion(question: "LOREM IPSUM", options:
+            [
+                "wrong",
+                "correct",
+                "wrong",
+                "wrong",
+            ], correctAnswer: 2),
+
+        QuizQuestion(question: "LOREM IPSUM", options:
+            [
+                "wrong",
+                "wrong",
+                "correct",
+                "wrong",
+            ], correctAnswer: 3),
+    ]),
+
     Topic(title: "Periodic Table", pic: "periodic-table.png", pointsNeeded: 30, subTopics: [
         SubTopic(title: "What is the Periodic Table?", pic: "periodic-table.png", needSlider: false, content: SubContent(definition: "A periodic table is a chart that shows chemical elements in order of their atomic number. \n\nElements with similar properties are arranged in the same column (group), and elements with the same number of electron shells are arranged in the same row (period)."), subTopics: nil, navTitle: "Periodic Table", contentHeightDifference: 250),
         SubTopic(title: "What are Elements?", pic: "element.png", needSlider: false, content: SubContent(definition: "An element is a pure substance that cannot be broken down by chemical means. \n\nEvery element is made up of its own type of atom. \n\nHere is an example of an element and how to read it in the periodic table:"), subTopics: nil, navTitle: "Elements", contentHeightDifference: 250),
@@ -343,39 +343,39 @@ var learnTopics = [
             SubSubTopic(topic: "Group 5", picture: "5.png", id: 5, content: SubSubContent(image: "5.png", firstAttributionText: "", secondAttributionText: "", thirdAttributionText: "")),
             SubSubTopic(topic: "Group 6", picture: "6.png", id: 6, content: SubSubContent(image: "6.png", firstAttributionText: "", secondAttributionText: "", thirdAttributionText: "")),
             SubSubTopic(topic: "Group 7", picture: "7.png", id: 7, content: SubSubContent(image: "7.png", firstAttributionText: "", secondAttributionText: "", thirdAttributionText: "")),
-            SubSubTopic(topic: "Group 0", picture: "0.png", id: 0, content: SubSubContent(image: "0.png", firstAttributionText: "", secondAttributionText: "", thirdAttributionText: ""))
+            SubSubTopic(topic: "Group 0", picture: "0.png", id: 0, content: SubSubContent(image: "0.png", firstAttributionText: "", secondAttributionText: "", thirdAttributionText: "")),
         ], navTitle: "Groups' Properties", contentHeightDifference: 80),
-        SubTopic(title: "Take the Quiz", pic: "quiz.png", needSlider: false, content: SubContent(definition: ""), subTopics: [], navTitle: "Take the Quiz")
+        SubTopic(title: "Take the Quiz", pic: "quiz.png", needSlider: false, content: SubContent(definition: ""), subTopics: [], navTitle: "Take the Quiz"),
     ], errorLabel: "Please complete Chapter 3", questions:
-        [
-            QuizQuestion(question: "LOREM IPSUM", options:
-                            [
-                                "wrong",
-                                "correct",
-                                "wrong",
-                                "wrong"
-                            ], correctAnswer: 2),
-            
-            QuizQuestion(question: "LOREM IPSUM", options:
-                            [
-                                "wrong",
-                                "wrong",
-                                "correct",
-                                "wrong"
-                            ], correctAnswer: 3),
-        ]),
+    [
+        QuizQuestion(question: "LOREM IPSUM", options:
+            [
+                "wrong",
+                "correct",
+                "wrong",
+                "wrong",
+            ], correctAnswer: 2),
+
+        QuizQuestion(question: "LOREM IPSUM", options:
+            [
+                "wrong",
+                "wrong",
+                "correct",
+                "wrong",
+            ], correctAnswer: 3),
+    ]),
 ]
 
 var gameTopics = [
     PlayTopic(title: "Find the Right Gas", pic: "gas-tests.png", pointsNeeded: 10, segDesti: "goToFindGas", errorLabel: "Please complete Chapter 1"),
     PlayTopic(title: "Retreive the Solids", pic: "separation-methods.png", pointsNeeded: 20, segDesti: "goToRetrieveSolids", errorLabel: "Please complete Chapter 2"),
     PlayTopic(title: "Adjust the pH", pic: "pH-and-indicators.png", pointsNeeded: 30, segDesti: "goToAdjustPh", errorLabel: "Please complete Chapter 3"),
-    PlayTopic(title: "Identify the Elements", pic: "periodic-table.png", pointsNeeded: 40, segDesti: "goToIdentifyElement", errorLabel: "Please complete Chapter 4")
+    PlayTopic(title: "Identify the Elements", pic: "periodic-table.png", pointsNeeded: 40, segDesti: "goToIdentifyElement", errorLabel: "Please complete Chapter 4"),
 ]
 
 var gasTestsGameArray = [
     // LEVEL 1
-    [GasTestGame(firstGasTank: "Hydrogen", secondGasTank: "Oxygen", thirdGasTank: "Carbon Dioxide", fourthGasTank: "Ammonia", firstGasIsPositive: [false, false, false, true], secondGasIsPositive: [false, false, false, true], thirdGasIsPositive: [false, false, false, true], forthGasIsPositive: [false, false, false, true], correctGasTank: "Hydrogen"),],
+    [GasTestGame(firstGasTank: "Hydrogen", secondGasTank: "Oxygen", thirdGasTank: "Carbon Dioxide", fourthGasTank: "Ammonia", firstGasIsPositive: [false, false, false, true], secondGasIsPositive: [false, false, false, true], thirdGasIsPositive: [false, false, false, true], forthGasIsPositive: [false, false, false, true], correctGasTank: "Hydrogen")],
 ]
 
 var phGameArray = [
@@ -390,10 +390,10 @@ var phGameArray = [
         PhGame(startIsAcidic: true),
         PhGame(startIsAcidic: true),
         PhGame(startIsAcidic: false),
-        PhGame(startIsAcidic: false)
+        PhGame(startIsAcidic: false),
     ],
-    
-    //LEVEL 2
+
+    // LEVEL 2
     [
         PhGame(startIsAcidic: false),
         PhGame(startIsAcidic: true),
@@ -404,10 +404,10 @@ var phGameArray = [
         PhGame(startIsAcidic: true),
         PhGame(startIsAcidic: true),
         PhGame(startIsAcidic: true),
-        PhGame(startIsAcidic: false)
+        PhGame(startIsAcidic: false),
     ],
-    
-    //LEVEL 3
+
+    // LEVEL 3
     [
         PhGame(startIsAcidic: true),
         PhGame(startIsAcidic: false),
@@ -418,8 +418,8 @@ var phGameArray = [
         PhGame(startIsAcidic: false),
         PhGame(startIsAcidic: true),
         PhGame(startIsAcidic: false),
-        PhGame(startIsAcidic: true)
-    ]
+        PhGame(startIsAcidic: true),
+    ],
 ]
 
 var phGameOptionsArray = [
@@ -445,53 +445,53 @@ var phGameAlkalinUniversalStartColour = "monster-ph10.png"
 var perioicTable = [
     // LEVEL 1
     [
-        periodicTableGame(properties: "Silver, reactive, high melting point and hard", correctAns1: 1, correctAns2: 1, timeGiven: 20),
-        periodicTableGame(properties: "HALO", correctAns1: 1, correctAns2: 2, timeGiven: 20),
-        periodicTableGame(properties: "bai", correctAns1: 1, correctAns2: 3, timeGiven: 20)
+        PeriodicTableGame(properties: "Silver, reactive, high melting point and hard", correctAns1: 1, correctAns2: 1, timeGiven: 20),
+        PeriodicTableGame(properties: "HALO", correctAns1: 1, correctAns2: 2, timeGiven: 20),
+        PeriodicTableGame(properties: "bai", correctAns1: 1, correctAns2: 3, timeGiven: 20),
     ],
     // LEVEL 2
     [
-        periodicTableGame(properties: "Silver, reactive, high melting point and hard", correctAns1: 1, correctAns2: 1, timeGiven: 15),
-        periodicTableGame(properties: "HALO", correctAns1: 1, correctAns2: 2, timeGiven: 15),
-        periodicTableGame(properties: "bai", correctAns1: 1, correctAns2: 3, timeGiven: 15)
+        PeriodicTableGame(properties: "Silver, reactive, high melting point and hard", correctAns1: 1, correctAns2: 1, timeGiven: 15),
+        PeriodicTableGame(properties: "HALO", correctAns1: 1, correctAns2: 2, timeGiven: 15),
+        PeriodicTableGame(properties: "bai", correctAns1: 1, correctAns2: 3, timeGiven: 15),
     ],
     // LEVEL 3
     [
-        periodicTableGame(properties: "Silver, reactive, high melting point and hard", correctAns1: 1, correctAns2: 1, timeGiven: 10),
-        periodicTableGame(properties: "HALO", correctAns1: 1, correctAns2: 2, timeGiven: 10),
-        periodicTableGame(properties: "bai", correctAns1: 1, correctAns2: 3, timeGiven: 10)
+        PeriodicTableGame(properties: "Silver, reactive, high melting point and hard", correctAns1: 1, correctAns2: 1, timeGiven: 10),
+        PeriodicTableGame(properties: "HALO", correctAns1: 1, correctAns2: 2, timeGiven: 10),
+        PeriodicTableGame(properties: "bai", correctAns1: 1, correctAns2: 3, timeGiven: 10),
     ],
     // LEVEL 4
     [
-        periodicTableGame(properties: "Silver, reactive, high melting point and hard", correctAns1: 1, correctAns2: 1, timeGiven: 5),
-        periodicTableGame(properties: "HALO", correctAns1: 1, correctAns2: 2, timeGiven: 5),
-        periodicTableGame(properties: "bai", correctAns1: 1, correctAns2: 3, timeGiven: 5)
-    ]
+        PeriodicTableGame(properties: "Silver, reactive, high melting point and hard", correctAns1: 1, correctAns2: 1, timeGiven: 5),
+        PeriodicTableGame(properties: "HALO", correctAns1: 1, correctAns2: 2, timeGiven: 5),
+        PeriodicTableGame(properties: "bai", correctAns1: 1, correctAns2: 3, timeGiven: 5),
+    ],
 ]
 
 var retrieveSolidsArray = [
-    specificSeperationMethod(name: "aa", properties: "filter", givenMethods: GivenSeperationMethods(methods: [SeperationMethods(methodName: "N.A", isCorrect: false),SeperationMethods(methodName: "Correct", isCorrect: true)])),
-    specificSeperationMethod(name: "bbb", properties: "filter", givenMethods: GivenSeperationMethods(methods: [SeperationMethods(methodName: "N.A", isCorrect: false),SeperationMethods(methodName: "Correct", isCorrect: true)])),
-    specificSeperationMethod(name: "ccc", properties: "filter", givenMethods: GivenSeperationMethods(methods: [SeperationMethods(methodName: "N.A", isCorrect: false),SeperationMethods(methodName: "Correct", isCorrect: true)])),
-    specificSeperationMethod(name: "ddd", properties: "filter", givenMethods: GivenSeperationMethods(methods: [SeperationMethods(methodName: "N.A", isCorrect: false),SeperationMethods(methodName: "Correct", isCorrect: true)])),
-    specificSeperationMethod(name: "eee", properties: "filter", givenMethods: GivenSeperationMethods(methods: [SeperationMethods(methodName: "N.A", isCorrect: false),SeperationMethods(methodName: "Correct", isCorrect: true)])),
-    specificSeperationMethod(name: "ff", properties: "filter", givenMethods: GivenSeperationMethods(methods: [SeperationMethods(methodName: "N.A", isCorrect: false),SeperationMethods(methodName: "Correct", isCorrect: true)])),
-    specificSeperationMethod(name: "gg", properties: "filter", givenMethods: GivenSeperationMethods(methods: [SeperationMethods(methodName: "N.A", isCorrect: false),SeperationMethods(methodName: "Correct", isCorrect: true)])),
-    specificSeperationMethod(name: "hh", properties: "filter", givenMethods: GivenSeperationMethods(methods: [SeperationMethods(methodName: "N.A", isCorrect: false),SeperationMethods(methodName: "Correct", isCorrect: true)])),
-    specificSeperationMethod(name: "ii", properties: "filter", givenMethods: GivenSeperationMethods(methods: [SeperationMethods(methodName: "N.A", isCorrect: false),SeperationMethods(methodName: "Correct", isCorrect: true)])),
-    specificSeperationMethod(name: "jj", properties: "filter", givenMethods: GivenSeperationMethods(methods: [SeperationMethods(methodName: "N.A", isCorrect: false),SeperationMethods(methodName: "Correct", isCorrect: true)])),
-    specificSeperationMethod(name: "kk", properties: "filter", givenMethods: GivenSeperationMethods(methods: [SeperationMethods(methodName: "N.A", isCorrect: false),SeperationMethods(methodName: "Correct", isCorrect: true)])),
-    specificSeperationMethod(name: "ll", properties: "filter", givenMethods: GivenSeperationMethods(methods: [SeperationMethods(methodName: "N.A", isCorrect: false),SeperationMethods(methodName: "Correct", isCorrect: true)])),
-    specificSeperationMethod(name: "mm", properties: "filter", givenMethods: GivenSeperationMethods(methods: [SeperationMethods(methodName: "N.A", isCorrect: false),SeperationMethods(methodName: "Correct", isCorrect: true)])),
-    specificSeperationMethod(name: "nn", properties: "filter", givenMethods: GivenSeperationMethods(methods: [SeperationMethods(methodName: "N.A", isCorrect: false),SeperationMethods(methodName: "Correct", isCorrect: true)])),
-    specificSeperationMethod(name: "oo", properties: "filter", givenMethods: GivenSeperationMethods(methods: [SeperationMethods(methodName: "N.A", isCorrect: false),SeperationMethods(methodName: "Correct", isCorrect: true)]))
+    SpecificSeperationMethod(name: "aa", properties: "filter", givenMethods: GivenSeperationMethods(methods: [SeperationMethods(methodName: "N.A", isCorrect: false), SeperationMethods(methodName: "Correct", isCorrect: true)])),
+    SpecificSeperationMethod(name: "bbb", properties: "filter", givenMethods: GivenSeperationMethods(methods: [SeperationMethods(methodName: "N.A", isCorrect: false), SeperationMethods(methodName: "Correct", isCorrect: true)])),
+    SpecificSeperationMethod(name: "ccc", properties: "filter", givenMethods: GivenSeperationMethods(methods: [SeperationMethods(methodName: "N.A", isCorrect: false), SeperationMethods(methodName: "Correct", isCorrect: true)])),
+    SpecificSeperationMethod(name: "ddd", properties: "filter", givenMethods: GivenSeperationMethods(methods: [SeperationMethods(methodName: "N.A", isCorrect: false), SeperationMethods(methodName: "Correct", isCorrect: true)])),
+    SpecificSeperationMethod(name: "eee", properties: "filter", givenMethods: GivenSeperationMethods(methods: [SeperationMethods(methodName: "N.A", isCorrect: false), SeperationMethods(methodName: "Correct", isCorrect: true)])),
+    SpecificSeperationMethod(name: "ff", properties: "filter", givenMethods: GivenSeperationMethods(methods: [SeperationMethods(methodName: "N.A", isCorrect: false), SeperationMethods(methodName: "Correct", isCorrect: true)])),
+    SpecificSeperationMethod(name: "gg", properties: "filter", givenMethods: GivenSeperationMethods(methods: [SeperationMethods(methodName: "N.A", isCorrect: false), SeperationMethods(methodName: "Correct", isCorrect: true)])),
+    SpecificSeperationMethod(name: "hh", properties: "filter", givenMethods: GivenSeperationMethods(methods: [SeperationMethods(methodName: "N.A", isCorrect: false), SeperationMethods(methodName: "Correct", isCorrect: true)])),
+    SpecificSeperationMethod(name: "ii", properties: "filter", givenMethods: GivenSeperationMethods(methods: [SeperationMethods(methodName: "N.A", isCorrect: false), SeperationMethods(methodName: "Correct", isCorrect: true)])),
+    SpecificSeperationMethod(name: "jj", properties: "filter", givenMethods: GivenSeperationMethods(methods: [SeperationMethods(methodName: "N.A", isCorrect: false), SeperationMethods(methodName: "Correct", isCorrect: true)])),
+    SpecificSeperationMethod(name: "kk", properties: "filter", givenMethods: GivenSeperationMethods(methods: [SeperationMethods(methodName: "N.A", isCorrect: false), SeperationMethods(methodName: "Correct", isCorrect: true)])),
+    SpecificSeperationMethod(name: "ll", properties: "filter", givenMethods: GivenSeperationMethods(methods: [SeperationMethods(methodName: "N.A", isCorrect: false), SeperationMethods(methodName: "Correct", isCorrect: true)])),
+    SpecificSeperationMethod(name: "mm", properties: "filter", givenMethods: GivenSeperationMethods(methods: [SeperationMethods(methodName: "N.A", isCorrect: false), SeperationMethods(methodName: "Correct", isCorrect: true)])),
+    SpecificSeperationMethod(name: "nn", properties: "filter", givenMethods: GivenSeperationMethods(methods: [SeperationMethods(methodName: "N.A", isCorrect: false), SeperationMethods(methodName: "Correct", isCorrect: true)])),
+    SpecificSeperationMethod(name: "oo", properties: "filter", givenMethods: GivenSeperationMethods(methods: [SeperationMethods(methodName: "N.A", isCorrect: false), SeperationMethods(methodName: "Correct", isCorrect: true)])),
 ]
 
 // MARK: - Functions
 
-func changePoints(_ valueChanged: Int){
+func changePoints(_ valueChanged: Int) {
     points += valueChanged
-    if (points < 0) {
+    if points < 0 {
         points = 0
     }
     let ud = UserDefaults.standard

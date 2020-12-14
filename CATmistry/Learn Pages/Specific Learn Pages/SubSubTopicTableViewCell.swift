@@ -8,11 +8,9 @@
 import UIKit
 
 class SubSubTopicTableViewCell: UITableViewCell {
+    @IBOutlet var subSubTopicPicture: UIImageView!
+    @IBOutlet var subSubTopicTitleLabel: UILabel!
 
-    @IBOutlet weak var subSubTopicPicture: UIImageView!
-    @IBOutlet weak var subSubTopicTitleLabel: UILabel!
-    
-    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -23,5 +21,4 @@ class SubSubTopicTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-
 }

@@ -8,7 +8,6 @@
 import UIKit
 
 class SettingsTableViewController: UITableViewController {
-    
     var settingsHeaderArray = [
         "Accessibility Settings",
         "General Statistics",
@@ -17,9 +16,9 @@ class SettingsTableViewController: UITableViewController {
         "Adjust pH Game",
         "Identify Elements Game",
         "Authors and Acknoledgements",
-        ""
+        "",
     ]
-    
+
     var settingsContentArray = [
         [
             SettingsContent(
@@ -38,7 +37,7 @@ class SettingsTableViewController: UITableViewController {
                 emojiImage: "🌙"
             ),
         ],
-        
+
         [
             SettingsContent(
                 labelText: "Chapters Covered:",
@@ -51,7 +50,7 @@ class SettingsTableViewController: UITableViewController {
                 emojiImage: "⏰"
             ),
         ],
-        
+
         [
             SettingsContent(
                 labelText: "Number of Times Played: ",
@@ -64,7 +63,7 @@ class SettingsTableViewController: UITableViewController {
                 emojiImage: "🏅"
             ),
         ],
-        
+
         [
             SettingsContent(
                 labelText: "Number of Times Played: ",
@@ -77,7 +76,7 @@ class SettingsTableViewController: UITableViewController {
                 emojiImage: "🏅"
             ),
         ],
-        
+
         [
             SettingsContent(
                 labelText: "Number of Times Played: ",
@@ -90,7 +89,7 @@ class SettingsTableViewController: UITableViewController {
                 emojiImage: "🏅"
             ),
         ],
-        
+
         [
             SettingsContent(
                 labelText: "Number of Times Played: ",
@@ -103,7 +102,7 @@ class SettingsTableViewController: UITableViewController {
                 emojiImage: "🏅"
             ),
         ],
-        
+
         [
             SettingsContent(
                 labelText: "The CATmistry Team: \nNeo Hao Jun - CEO \nWang Zerui - CTO \nChanel Tan - CDO \nRyu Hwina - CMO",
@@ -116,7 +115,7 @@ class SettingsTableViewController: UITableViewController {
                 emojiImage: "👨‍💻"
             ),
         ],
-        
+
         [
             SettingsContent(
                 labelText: "",
@@ -125,90 +124,87 @@ class SettingsTableViewController: UITableViewController {
             ),
         ],
     ]
-    
+
     @IBOutlet var settingsTableView: UITableView!
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         tableView.tableFooterView = UIView()
-        
+
         let navbar = UINavigationBarAppearance()
-        navbar.backgroundColor = UIColor(red: 196/255, green: 169/255, blue: 124/255, alpha: 1)
-        self.navigationController?.navigationBar.scrollEdgeAppearance = navbar
-        
+        navbar.backgroundColor = UIColor(red: 196 / 255, green: 169 / 255, blue: 124 / 255, alpha: 1)
+        navigationController?.navigationBar.scrollEdgeAppearance = navbar
+
         //        gamePointsLabel.text = " You have \(points) points"
-        
+
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
-        
+
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
-    
-    @IBAction func doneButtonClicked(_ sender: Any) {
+
+    @IBAction func doneButtonClicked(_: Any) {
         dismiss(animated: true, completion: nil)
     }
-    
+
     // MARK: - Table view data source
-    
-    override func numberOfSections(in tableView: UITableView) -> Int {
+
+    override func numberOfSections(in _: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return settingsContentArray.count
+        settingsContentArray.count
     }
-    
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+
+    override func tableView(_: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return settingsContentArray[section].count
+        settingsContentArray[section].count
     }
-    
+
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: settingsContentArray[indexPath.section][indexPath.row].type, for: indexPath)
-        
+
         // Configure the cell...
         if let cell = cell as? SettingsTableViewCell {
-            if cell.reuseIdentifier != "shareCell" && cell.reuseIdentifier != "buttonCell" {
+            if cell.reuseIdentifier != "shareCell", cell.reuseIdentifier != "buttonCell" {
                 cell.contentLabel.text = settingsContentArray[indexPath.section][indexPath.row].labelText
                 cell.settingsImageView.image = settingsContentArray[indexPath.section][indexPath.row].emojiImage.image()
             }
         }
-        
-        if cell.reuseIdentifier == "detailAccessoryCell" || cell.reuseIdentifier == "switchCell" || cell.reuseIdentifier == "textCell" || cell.reuseIdentifier == "buttonCell"  {
+
+        if cell.reuseIdentifier == "detailAccessoryCell" || cell.reuseIdentifier == "switchCell" || cell.reuseIdentifier == "textCell" || cell.reuseIdentifier == "buttonCell" {
             cell.selectionStyle = .none
         }
-        
+
         return cell
     }
-    
+
     // Table Header
-    override func tableView(_ tableView: UITableView, titleForHeaderInSection
-                                section: Int) -> String? {
+    override func tableView(_: UITableView, titleForHeaderInSection section: Int) -> String? {
         if settingsHeaderArray[section] != "" {
             return settingsHeaderArray[section]
         } else {
             return nil
         }
     }
-    
+
     // Table Footer
-    override func tableView(_ tableView: UITableView, titleForFooterInSection
-                                section: Int) -> String? {
+    override func tableView(_: UITableView, titleForFooterInSection section: Int) -> String? {
         if settingsHeaderArray[section] == "" {
             return "© 2020, Neo Hao Jun and Wang Zerui"
         } else {
             return nil
         }
     }
-    
-    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if settingsContentArray[indexPath.section][indexPath.row].type  == "textCell" {
+
+    override func tableView(_: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if settingsContentArray[indexPath.section][indexPath.row].type == "textCell" {
             return 150.0
         } else {
             return 45.0
         }
     }
-    
-    
+
     /*
      // Override to support conditional editing of the table view.
      override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
@@ -216,7 +212,7 @@ class SettingsTableViewController: UITableViewController {
      return true
      }
      */
-    
+
     /*
      // Override to support editing the table view.
      override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
@@ -228,14 +224,14 @@ class SettingsTableViewController: UITableViewController {
      }
      }
      */
-    
+
     /*
      // Override to support rearranging the table view.
      override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-     
+
      }
      */
-    
+
     /*
      // Override to support conditional rearranging of the table view.
      override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
@@ -243,32 +239,30 @@ class SettingsTableViewController: UITableViewController {
      return true
      }
      */
-    
+
     /*
      // MARK: - Navigation
-     
+
      // In a storyboard-based application, you will often want to do a little preparation before navigation
      override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
      // Get the new view controller using segue.destination.
      // Pass the selected object to the new view controller.
      }
      */
-    
 }
 
-extension String
-{
-    func image(fontSize:CGFloat = 40, bgColor:UIColor = UIColor.clear, imageSize:CGSize? = nil) -> UIImage?
+extension String {
+    func image(fontSize: CGFloat = 40, bgColor: UIColor = UIColor.clear, imageSize: CGSize? = nil) -> UIImage?
     {
         let font = UIFont.systemFont(ofSize: fontSize)
         let attributes = [NSAttributedString.Key.font: font]
-        let imageSize = imageSize ?? self.size(withAttributes: attributes)
-        
+        let imageSize = imageSize ?? size(withAttributes: attributes)
+
         UIGraphicsBeginImageContextWithOptions(imageSize, false, 0)
         bgColor.set()
         let rect = CGRect(origin: .zero, size: imageSize)
         UIRectFill(rect)
-        self.draw(in: rect, withAttributes: [.font: font])
+        draw(in: rect, withAttributes: [.font: font])
         let image = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         return image

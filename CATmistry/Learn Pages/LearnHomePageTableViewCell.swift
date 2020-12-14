@@ -8,15 +8,14 @@
 import UIKit
 
 class LearnHomePageTableViewCell: UITableViewCell {
-    
-    @IBOutlet weak var learnChapterImageView: UIImageView!
-    @IBOutlet weak var learnChapterLabel: UILabel!
-    @IBOutlet weak var needMorePointsLabel: UILabel?
-    
+    @IBOutlet var learnChapterImageView: UIImageView!
+    @IBOutlet var learnChapterLabel: UILabel!
+    @IBOutlet var needMorePointsLabel: UILabel?
+
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        self.needMorePointsLabel?.isHidden = true
+        needMorePointsLabel?.isHidden = true
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -24,5 +23,4 @@ class LearnHomePageTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-
 }

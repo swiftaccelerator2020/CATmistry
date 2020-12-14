@@ -8,14 +8,14 @@
 import UIKit
 
 class PlayHomePageTableViewCell: UITableViewCell {
-    @IBOutlet weak var playChapterImageView: UIImageView!
-    @IBOutlet weak var playChapterLabel: UILabel!
-    @IBOutlet weak var needMorePointsLabel: UILabel!
-    
+    @IBOutlet var playChapterImageView: UIImageView!
+    @IBOutlet var playChapterLabel: UILabel!
+    @IBOutlet var needMorePointsLabel: UILabel!
+
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        self.needMorePointsLabel.isHidden = true
+        needMorePointsLabel.isHidden = true
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -23,5 +23,4 @@ class PlayHomePageTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-
 }

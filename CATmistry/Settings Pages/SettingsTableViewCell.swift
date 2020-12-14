@@ -8,11 +8,10 @@
 import UIKit
 
 class SettingsTableViewCell: UITableViewCell {
+    @IBOutlet var contentLabel: UILabel!
+    @IBOutlet var settingsButton: UIButton!
+    @IBOutlet var settingsImageView: UIImageView!
 
-    @IBOutlet weak var contentLabel: UILabel!
-    @IBOutlet weak var settingsButton: UIButton!
-    @IBOutlet weak var settingsImageView: UIImageView!
-    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -23,5 +22,4 @@ class SettingsTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-
 }
