@@ -38,6 +38,13 @@
 		54F5202F2571FA4600D7363C /* LearnChapterSubTopicsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54F5202E2571FA4600D7363C /* LearnChapterSubTopicsTableViewController.swift */; };
 		54FEFB0525770AE50054CFF9 /* PlayIdentifyElementsSecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54FEFB0425770AE50054CFF9 /* PlayIdentifyElementsSecondViewController.swift */; };
 		6162D640B8567EBF7E172D11 /* Pods_CATmistry.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49DA23714213562AA54B3120 /* Pods_CATmistry.framework */; };
+		621F87832587B8350034A864 /* gasTestgameArray.json in Resources */ = {isa = PBXBuildFile; fileRef = 621F877C2587B8340034A864 /* gasTestgameArray.json */; };
+		621F87842587B8350034A864 /* perioicTable.json in Resources */ = {isa = PBXBuildFile; fileRef = 621F877D2587B8350034A864 /* perioicTable.json */; };
+		621F87852587B8350034A864 /* phGameArray.json in Resources */ = {isa = PBXBuildFile; fileRef = 621F877E2587B8350034A864 /* phGameArray.json */; };
+		621F87862587B8350034A864 /* learnTopics.json in Resources */ = {isa = PBXBuildFile; fileRef = 621F877F2587B8350034A864 /* learnTopics.json */; };
+		621F87872587B8350034A864 /* retriveSolidsArray.json in Resources */ = {isa = PBXBuildFile; fileRef = 621F87802587B8350034A864 /* retriveSolidsArray.json */; };
+		621F87882587B8350034A864 /* gameTopics.json in Resources */ = {isa = PBXBuildFile; fileRef = 621F87812587B8350034A864 /* gameTopics.json */; };
+		621F87892587B8350034A864 /* phGameOptionsArray.json in Resources */ = {isa = PBXBuildFile; fileRef = 621F87822587B8350034A864 /* phGameOptionsArray.json */; };
 		A0EA46C12C28AAC955A26CC8 /* Pods_CATmistryTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C25FC8DB42CBF979D08BA3AE /* Pods_CATmistryTests.framework */; };
 		C182AE3B215D6AE8A4B33886 /* Pods_CATmistry_CATmistryUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E17CC281B885BB9952784F31 /* Pods_CATmistry_CATmistryUITests.framework */; };
 /* End PBXBuildFile section */
@@ -100,6 +107,13 @@
 		54C171492574E44F004ED787 /* SubSubTopicTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubSubTopicTableViewCell.swift; sourceTree = "<group>"; };
 		54F5202E2571FA4600D7363C /* LearnChapterSubTopicsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearnChapterSubTopicsTableViewController.swift; sourceTree = "<group>"; };
 		54FEFB0425770AE50054CFF9 /* PlayIdentifyElementsSecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayIdentifyElementsSecondViewController.swift; sourceTree = "<group>"; };
+		621F877C2587B8340034A864 /* gasTestgameArray.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = gasTestgameArray.json; sourceTree = "<group>"; };
+		621F877D2587B8350034A864 /* perioicTable.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = perioicTable.json; sourceTree = "<group>"; };
+		621F877E2587B8350034A864 /* phGameArray.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = phGameArray.json; sourceTree = "<group>"; };
+		621F877F2587B8350034A864 /* learnTopics.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = learnTopics.json; sourceTree = "<group>"; };
+		621F87802587B8350034A864 /* retriveSolidsArray.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = retriveSolidsArray.json; sourceTree = "<group>"; };
+		621F87812587B8350034A864 /* gameTopics.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = gameTopics.json; sourceTree = "<group>"; };
+		621F87822587B8350034A864 /* phGameOptionsArray.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = phGameOptionsArray.json; sourceTree = "<group>"; };
 		632B238902855510D1A66A8D /* Pods-CATmistry-CATmistryUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CATmistry-CATmistryUITests.debug.xcconfig"; path = "Target Support Files/Pods-CATmistry-CATmistryUITests/Pods-CATmistry-CATmistryUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		67A35E2E4F9993C8DC7B5A27 /* Pods-CATmistry-CATmistryUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CATmistry-CATmistryUITests.release.xcconfig"; path = "Target Support Files/Pods-CATmistry-CATmistryUITests/Pods-CATmistry-CATmistryUITests.release.xcconfig"; sourceTree = "<group>"; };
 		C25FC8DB42CBF979D08BA3AE /* Pods_CATmistryTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CATmistryTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -173,6 +187,7 @@
 		2613B0332570DB8C00EECB4C /* CATmistry */ = {
 			isa = PBXGroup;
 			children = (
+				621F877B2587B82A0034A864 /* Data */,
 				54FEFB172578609C0054CFF9 /* Learn Pages */,
 				54FEFB122578603A0054CFF9 /* Play Pages */,
 				2644004B258641F800ACFFEC /* Settings Pages */,
@@ -296,6 +311,20 @@
 			path = "Specific Learn Pages";
 			sourceTree = "<group>";
 		};
+		621F877B2587B82A0034A864 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				621F87812587B8350034A864 /* gameTopics.json */,
+				621F877C2587B8340034A864 /* gasTestgameArray.json */,
+				621F877F2587B8350034A864 /* learnTopics.json */,
+				621F877D2587B8350034A864 /* perioicTable.json */,
+				621F877E2587B8350034A864 /* phGameArray.json */,
+				621F87822587B8350034A864 /* phGameOptionsArray.json */,
+				621F87802587B8350034A864 /* retriveSolidsArray.json */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
 		6D9E306F40C4427E4EFBF49A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -415,8 +444,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				2613B0412570DB9000EECB4C /* LaunchScreen.storyboard in Resources */,
+				621F87842587B8350034A864 /* perioicTable.json in Resources */,
+				621F87832587B8350034A864 /* gasTestgameArray.json in Resources */,
+				621F87882587B8350034A864 /* gameTopics.json in Resources */,
 				2613B03E2570DB9000EECB4C /* Assets.xcassets in Resources */,
 				2613B03C2570DB8C00EECB4C /* Main.storyboard in Resources */,
+				621F87892587B8350034A864 /* phGameOptionsArray.json in Resources */,
+				621F87872587B8350034A864 /* retriveSolidsArray.json in Resources */,
+				621F87852587B8350034A864 /* phGameArray.json in Resources */,
+				621F87862587B8350034A864 /* learnTopics.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
