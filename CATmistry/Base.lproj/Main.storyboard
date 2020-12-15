@@ -258,6 +258,9 @@ As your cat can only live in a certain type of gas, your task is to use your kno
                             </label>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="bFT-oU-B0V">
                                 <rect key="frame" x="100" y="512" width="190" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="34" id="gKT-FT-xpi"/>
+                                </constraints>
                                 <segments>
                                     <segment title="1"/>
                                     <segment title="2"/>
@@ -786,6 +789,9 @@ Separate all the elements in his beaker or the wizard will cast a spell on your 
                             </label>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="xQb-T1-JaO">
                                 <rect key="frame" x="100" y="512" width="190" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="34" id="2EJ-2B-Rub"/>
+                                </constraints>
                                 <segments>
                                     <segment title="Normal"/>
                                     <segment title="Hard"/>
@@ -921,6 +927,9 @@ The monster is currently living in the right conditions, and your task is to use
                             </label>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="SEV-9I-ACR">
                                 <rect key="frame" x="100" y="512" width="190" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="34" id="saL-fM-9fz"/>
+                                </constraints>
                                 <segments>
                                     <segment title="1"/>
                                     <segment title="2"/>
@@ -1015,7 +1024,10 @@ The monster is currently living in the right conditions, and your task is to use
                                 </constraints>
                             </view>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="m4u-Iu-U2B">
-                                <rect key="frame" x="100" y="515" width="190" height="32"/>
+                                <rect key="frame" x="100" y="512" width="190" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="34" id="2C2-Pp-uD0"/>
+                                </constraints>
                                 <segments>
                                     <segment title="1"/>
                                     <segment title="2"/>
@@ -1027,7 +1039,7 @@ The monster is currently living in the right conditions, and your task is to use
                                 </connections>
                             </segmentedControl>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select Level" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aKs-9U-qBf">
-                                <rect key="frame" x="40" y="487" width="310" height="20"/>
+                                <rect key="frame" x="40" y="484" width="310" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="A2s-z0-dUq"/>
                                 </constraints>
@@ -1036,7 +1048,7 @@ The monster is currently living in the right conditions, and your task is to use
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mrp-jh-fji">
-                                <rect key="frame" x="40" y="197" width="310" height="260"/>
+                                <rect key="frame" x="40" y="194" width="310" height="260"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dmA-Cj-YgA">
                                         <rect key="frame" x="15" y="5" width="280" height="250"/>
@@ -2058,7 +2070,7 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
                     <tabBarItem key="tabBarItem" title="Play" image="gamecontroller.fill" catalog="system" selectedImage="gamecontroller.fill" id="Xs1-53-ugV"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="eFe-la-nb9">
-                        <rect key="frame" x="0.0" y="44" width="390" height="96"/>
+                        <rect key="frame" x="0.0" y="44" width="390" height="104.33333333333334"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" red="0.396078431372549" green="0.77647058823529413" blue="0.94117647058823528" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -2660,7 +2672,7 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="V0U-Dg-Ovt"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="OA8-46-MWj">
-                        <rect key="frame" x="0.0" y="44" width="390" height="104.33333333333334"/>
+                        <rect key="frame" x="0.0" y="44" width="390" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
