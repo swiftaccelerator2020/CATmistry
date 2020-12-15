@@ -18,10 +18,10 @@ class PlayFindGasDetailsViewController: UIViewController {
     @IBOutlet weak var lightedSplintView: UIView!
     @IBOutlet weak var glowingSplintView: UIView!
     @IBOutlet weak var litmusView: UIView!
-    @IBOutlet weak var gas1: UIButton!
-    @IBOutlet weak var gas2: UIButton!
-    @IBOutlet weak var gas3: UIButton!
-    @IBOutlet weak var gas4: UIButton!
+    @IBOutlet weak var gas1: UIView!
+    @IBOutlet weak var gas2: UIView!
+    @IBOutlet weak var gas3: UIView!
+    @IBOutlet weak var gas4: UIView!
     @IBOutlet weak var submitButton: UIButton!
     @IBOutlet weak var timerLabel: UILabel!
     

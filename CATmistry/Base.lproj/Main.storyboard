@@ -335,29 +335,21 @@ As your cat can only live in a certain type of gas, your task is to use your kno
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9RP-HW-EJm">
-                                <rect key="frame" x="150" y="564" width="220" height="200"/>
+                                <rect key="frame" x="130" y="564" width="240" height="200"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="meowster" translatesAutoresizingMaskIntoConstraints="NO" id="BgO-ca-5ez">
-                                        <rect key="frame" x="15" y="60" width="190" height="216"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="meowster" translatesAutoresizingMaskIntoConstraints="NO" id="BgO-ca-5ez">
+                                        <rect key="frame" x="15" y="60" width="210" height="140"/>
                                     </imageView>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="200" id="0JT-JU-Rhw"/>
+                                    <constraint firstAttribute="trailing" secondItem="BgO-ca-5ez" secondAttribute="trailing" constant="15" id="PVc-By-ifM"/>
+                                    <constraint firstAttribute="bottom" secondItem="BgO-ca-5ez" secondAttribute="bottom" id="R1L-Pk-Mch"/>
+                                    <constraint firstItem="BgO-ca-5ez" firstAttribute="leading" secondItem="9RP-HW-EJm" secondAttribute="leading" constant="15" id="XyQ-Hn-MYd"/>
+                                    <constraint firstItem="BgO-ca-5ez" firstAttribute="top" secondItem="9RP-HW-EJm" secondAttribute="top" constant="60" id="f5b-1P-x4Q"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IZ0-0H-Ysw">
-                                <rect key="frame" x="24" y="631" width="94" height="94"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="94" id="16G-Gs-cJ5"/>
-                                    <constraint firstAttribute="height" constant="94" id="5c1-TL-P3a"/>
-                                </constraints>
-                                <state key="normal" image="submit"/>
-                                <connections>
-                                    <action selector="submitChoice:" destination="qsu-L3-DGc" eventType="touchUpInside" id="wRD-at-ZXy"/>
-                                </connections>
-                            </button>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="HSf-1d-jg6">
                                 <rect key="frame" x="25" y="124" width="340" height="100"/>
                                 <subviews>
@@ -449,45 +441,111 @@ As your cat can only live in a certain type of gas, your task is to use your kno
                                 <rect key="frame" x="25" y="239" width="340" height="310"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UuK-ME-cyu">
-                                        <rect key="frame" x="0.0" y="0.0" width="340" height="250"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="340" height="310"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZdK-1O-3Bb">
-                                                <rect key="frame" x="55" y="82" width="43" height="101"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fem-Ps-gaG">
+                                                <rect key="frame" x="20" y="30" width="300" height="100"/>
+                                                <subviews>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VK4-vz-F0U">
+                                                        <rect key="frame" x="0.0" y="0.0" width="75" height="100"/>
+                                                        <subviews>
+                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gas-tank" translatesAutoresizingMaskIntoConstraints="NO" id="ii7-e7-ODy">
+                                                                <rect key="frame" x="0.0" y="0.0" width="75" height="100"/>
+                                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            </imageView>
+                                                        </subviews>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <gestureRecognizers/>
+                                                        <constraints>
+                                                            <constraint firstItem="ii7-e7-ODy" firstAttribute="top" secondItem="VK4-vz-F0U" secondAttribute="top" id="dx7-CG-RTX"/>
+                                                            <constraint firstAttribute="bottom" secondItem="ii7-e7-ODy" secondAttribute="bottom" id="ii4-zQ-8in"/>
+                                                            <constraint firstAttribute="trailing" secondItem="ii7-e7-ODy" secondAttribute="trailing" id="rre-03-Mqh"/>
+                                                            <constraint firstItem="ii7-e7-ODy" firstAttribute="leading" secondItem="VK4-vz-F0U" secondAttribute="leading" id="xLe-I0-abZ"/>
+                                                        </constraints>
+                                                        <connections>
+                                                            <outletCollection property="gestureRecognizers" destination="4VR-hM-MzW" appends="YES" id="Nnu-DT-wCc"/>
+                                                        </connections>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5o1-J3-3Tj">
+                                                        <rect key="frame" x="75" y="0.0" width="75" height="100"/>
+                                                        <subviews>
+                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gas-tank" translatesAutoresizingMaskIntoConstraints="NO" id="1MM-HG-qEp">
+                                                                <rect key="frame" x="0.0" y="0.0" width="75" height="100"/>
+                                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            </imageView>
+                                                        </subviews>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <gestureRecognizers/>
+                                                        <constraints>
+                                                            <constraint firstItem="1MM-HG-qEp" firstAttribute="leading" secondItem="5o1-J3-3Tj" secondAttribute="leading" id="10V-nA-dr8"/>
+                                                            <constraint firstItem="1MM-HG-qEp" firstAttribute="top" secondItem="5o1-J3-3Tj" secondAttribute="top" id="TYn-Df-lwl"/>
+                                                            <constraint firstAttribute="trailing" secondItem="1MM-HG-qEp" secondAttribute="trailing" id="YVl-ql-6KI"/>
+                                                            <constraint firstAttribute="bottom" secondItem="1MM-HG-qEp" secondAttribute="bottom" id="avc-BD-mJS"/>
+                                                        </constraints>
+                                                        <connections>
+                                                            <outletCollection property="gestureRecognizers" destination="Kc3-nt-v5D" appends="YES" id="bc0-Qb-MEh"/>
+                                                        </connections>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7FT-cy-B06">
+                                                        <rect key="frame" x="150" y="0.0" width="75" height="100"/>
+                                                        <subviews>
+                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gas-tank" translatesAutoresizingMaskIntoConstraints="NO" id="wcH-To-RfN">
+                                                                <rect key="frame" x="0.0" y="0.0" width="75" height="100"/>
+                                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            </imageView>
+                                                        </subviews>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <gestureRecognizers/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="bottom" secondItem="wcH-To-RfN" secondAttribute="bottom" id="7pK-GP-Syp"/>
+                                                            <constraint firstItem="wcH-To-RfN" firstAttribute="leading" secondItem="7FT-cy-B06" secondAttribute="leading" id="E4J-he-dv5"/>
+                                                            <constraint firstAttribute="trailing" secondItem="wcH-To-RfN" secondAttribute="trailing" id="JNg-jt-QMv"/>
+                                                            <constraint firstItem="wcH-To-RfN" firstAttribute="top" secondItem="7FT-cy-B06" secondAttribute="top" id="Okz-Mp-wjs"/>
+                                                        </constraints>
+                                                        <connections>
+                                                            <outletCollection property="gestureRecognizers" destination="jVy-4z-Rl2" appends="YES" id="Jk6-CC-0e8"/>
+                                                        </connections>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mba-TN-Dj4">
+                                                        <rect key="frame" x="225" y="0.0" width="75" height="100"/>
+                                                        <subviews>
+                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gas-tank" translatesAutoresizingMaskIntoConstraints="NO" id="v1h-Gv-7vB">
+                                                                <rect key="frame" x="0.0" y="0.0" width="75" height="100"/>
+                                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            </imageView>
+                                                        </subviews>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <gestureRecognizers/>
+                                                        <constraints>
+                                                            <constraint firstItem="v1h-Gv-7vB" firstAttribute="leading" secondItem="Mba-TN-Dj4" secondAttribute="leading" id="Rfc-j8-MbX"/>
+                                                            <constraint firstItem="v1h-Gv-7vB" firstAttribute="top" secondItem="Mba-TN-Dj4" secondAttribute="top" id="Tj4-FF-IyY"/>
+                                                            <constraint firstAttribute="trailing" secondItem="v1h-Gv-7vB" secondAttribute="trailing" id="cXS-NS-cwp"/>
+                                                            <constraint firstAttribute="bottom" secondItem="v1h-Gv-7vB" secondAttribute="bottom" id="mdP-BL-5fY"/>
+                                                        </constraints>
+                                                        <connections>
+                                                            <outletCollection property="gestureRecognizers" destination="P22-gs-4Tz" appends="YES" id="Mp6-sv-Hg2"/>
+                                                        </connections>
+                                                    </view>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstItem="5o1-J3-3Tj" firstAttribute="width" secondItem="VK4-vz-F0U" secondAttribute="width" id="Gnb-9q-TIG"/>
+                                                    <constraint firstAttribute="height" constant="100" id="H3F-jU-Bre"/>
+                                                    <constraint firstItem="7FT-cy-B06" firstAttribute="width" secondItem="VK4-vz-F0U" secondAttribute="width" id="czW-pi-gc5"/>
+                                                    <constraint firstItem="Mba-TN-Dj4" firstAttribute="width" secondItem="VK4-vz-F0U" secondAttribute="width" id="pbB-L3-hXH"/>
+                                                </constraints>
+                                            </stackView>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hkd-yq-HKg">
+                                                <rect key="frame" x="147" y="176" width="46" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <state key="normal" title="Button" image="gas-tank"/>
-                                                <connections>
-                                                    <action selector="selectGas1:" destination="qsu-L3-DGc" eventType="touchUpInside" id="uFH-hK-W0o"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="79R-4g-aNY">
-                                                <rect key="frame" x="120" y="82" width="43" height="101"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <state key="normal" title="Button" image="gas-tank"/>
-                                                <connections>
-                                                    <action selector="selectGas1:" destination="qsu-L3-DGc" eventType="touchUpInside" id="RBo-xH-oOL"/>
-                                                    <action selector="selectGas2:" destination="qsu-L3-DGc" eventType="touchUpInside" id="tBE-NP-hx1"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q5Y-ze-naK">
-                                                <rect key="frame" x="184" y="82" width="43" height="101"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <state key="normal" title="Button" image="gas-tank"/>
-                                                <connections>
-                                                    <action selector="selectGas3:" destination="qsu-L3-DGc" eventType="touchUpInside" id="rB1-ZV-loj"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yd6-DZ-nOH">
-                                                <rect key="frame" x="243" y="82" width="43" height="101"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <state key="normal" title="Button" image="gas-tank"/>
-                                                <connections>
-                                                    <action selector="selectGas4:" destination="qsu-L3-DGc" eventType="touchUpInside" id="xiP-9o-C8t"/>
-                                                </connections>
+                                                <state key="normal" title="Button"/>
                                             </button>
                                         </subviews>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <color key="backgroundColor" red="0.4953809381" green="0.67837697269999997" blue="0.85103112459999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="250" id="8du-vq-5VT"/>
+                                            <constraint firstAttribute="height" constant="310" id="8du-vq-5VT"/>
+                                            <constraint firstItem="Fem-Ps-gaG" firstAttribute="leading" secondItem="UuK-ME-cyu" secondAttribute="leading" constant="20" id="CjJ-WF-FNz"/>
+                                            <constraint firstItem="Fem-Ps-gaG" firstAttribute="top" secondItem="UuK-ME-cyu" secondAttribute="top" constant="30" id="bLB-NM-8wk"/>
+                                            <constraint firstAttribute="trailing" secondItem="Fem-Ps-gaG" secondAttribute="trailing" constant="20" id="oZf-MM-2I6"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -522,17 +580,15 @@ As your cat can only live in a certain type of gas, your task is to use your kno
                             <constraint firstItem="tDL-B1-4sj" firstAttribute="trailing" secondItem="LtP-tT-GK7" secondAttribute="trailing" id="EZw-Mu-hkG"/>
                             <constraint firstItem="fgY-OB-NKG" firstAttribute="top" secondItem="LtP-tT-GK7" secondAttribute="top" constant="20" id="Jal-FL-oJB"/>
                             <constraint firstItem="LtP-tT-GK7" firstAttribute="trailing" secondItem="p1h-t2-lUh" secondAttribute="trailing" constant="25" id="JfH-yw-ZSE"/>
-                            <constraint firstItem="IZ0-0H-Ysw" firstAttribute="leading" secondItem="LtP-tT-GK7" secondAttribute="leading" constant="24" id="PYc-XF-gbe"/>
                             <constraint firstAttribute="trailing" secondItem="HSf-1d-jg6" secondAttribute="trailing" constant="25" id="RDm-Hz-kHy"/>
                             <constraint firstItem="HSf-1d-jg6" firstAttribute="top" secondItem="fgY-OB-NKG" secondAttribute="bottom" constant="20" id="UBZ-cV-Ft9"/>
                             <constraint firstItem="tDL-B1-4sj" firstAttribute="top" secondItem="9RP-HW-EJm" secondAttribute="bottom" id="Ybk-5K-iuI"/>
                             <constraint firstAttribute="bottom" secondItem="cWk-gy-0aZ" secondAttribute="bottom" id="a7b-Ri-wPG"/>
-                            <constraint firstItem="tDL-B1-4sj" firstAttribute="top" secondItem="IZ0-0H-Ysw" secondAttribute="bottom" constant="39" id="atC-gx-MRj"/>
                             <constraint firstItem="9RP-HW-EJm" firstAttribute="top" secondItem="p1h-t2-lUh" secondAttribute="bottom" constant="15" id="ayb-e2-OSJ"/>
                             <constraint firstItem="LtP-tT-GK7" firstAttribute="trailing" secondItem="fgY-OB-NKG" secondAttribute="trailing" constant="25" id="dxY-F0-iXb"/>
+                            <constraint firstItem="9RP-HW-EJm" firstAttribute="leading" secondItem="gvt-65-gMM" secondAttribute="leading" constant="130" id="ho5-dz-haD"/>
                             <constraint firstItem="tDL-B1-4sj" firstAttribute="leading" secondItem="LtP-tT-GK7" secondAttribute="leading" id="omX-QH-wL3"/>
                             <constraint firstItem="cWk-gy-0aZ" firstAttribute="top" secondItem="tDL-B1-4sj" secondAttribute="bottom" id="rre-AY-a0k"/>
-                            <constraint firstItem="9RP-HW-EJm" firstAttribute="leading" secondItem="IZ0-0H-Ysw" secondAttribute="trailing" constant="32" id="rzJ-M1-rEJ"/>
                             <constraint firstItem="p1h-t2-lUh" firstAttribute="top" secondItem="HSf-1d-jg6" secondAttribute="bottom" constant="15" id="vTT-Hq-UrX"/>
                             <constraint firstItem="p1h-t2-lUh" firstAttribute="leading" secondItem="LtP-tT-GK7" secondAttribute="leading" constant="25" id="xUk-yp-cjt"/>
                             <constraint firstItem="HSf-1d-jg6" firstAttribute="leading" secondItem="LtP-tT-GK7" secondAttribute="leading" constant="25" id="zep-Wq-Rfr"/>
@@ -540,15 +596,15 @@ As your cat can only live in a certain type of gas, your task is to use your kno
                     </view>
                     <navigationItem key="navigationItem" id="iMh-nS-fJv"/>
                     <connections>
-                        <outlet property="gas1" destination="ZdK-1O-3Bb" id="HLV-e7-oJ8"/>
-                        <outlet property="gas2" destination="79R-4g-aNY" id="B0I-0O-uTh"/>
-                        <outlet property="gas3" destination="q5Y-ze-naK" id="E1z-Ol-4e8"/>
-                        <outlet property="gas4" destination="Yd6-DZ-nOH" id="sLK-WG-aAU"/>
+                        <outlet property="gas1" destination="ii7-e7-ODy" id="vw2-QS-5ji"/>
+                        <outlet property="gas2" destination="1MM-HG-qEp" id="PFo-MI-FZl"/>
+                        <outlet property="gas3" destination="wcH-To-RfN" id="fLP-ba-gEl"/>
+                        <outlet property="gas4" destination="v1h-Gv-7vB" id="3AB-tf-ROu"/>
                         <outlet property="glowingSplintView" destination="ctl-Eq-n0j" id="JwR-Sd-WK0"/>
                         <outlet property="lightedSplintView" destination="ZBx-iJ-bIt" id="bwK-dd-tRc"/>
                         <outlet property="limewaterView" destination="KjD-zc-qXD" id="paT-42-sZQ"/>
                         <outlet property="litmusView" destination="zhw-91-4dW" id="2WJ-mW-pkH"/>
-                        <outlet property="submitButton" destination="IZ0-0H-Ysw" id="eTB-pn-iho"/>
+                        <outlet property="submitButton" destination="Hkd-yq-HKg" id="v3a-4B-kEX"/>
                         <outlet property="timerLabel" destination="fgY-OB-NKG" id="Zcr-by-Yhp"/>
                         <segue destination="FWf-eu-FKe" kind="showDetail" identifier="findGasCorrect" id="xa7-EN-bjL"/>
                         <segue destination="i8X-Sz-8XG" kind="showDetail" identifier="findGasWrong" id="8zc-2j-Gbh"/>
@@ -573,6 +629,26 @@ As your cat can only live in a certain type of gas, your task is to use your kno
                 <tapGestureRecognizer id="9pD-kg-wKX">
                     <connections>
                         <action selector="litmusPaper:" destination="qsu-L3-DGc" id="a86-lD-7h3"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="4VR-hM-MzW">
+                    <connections>
+                        <action selector="selectGas1:" destination="qsu-L3-DGc" id="q68-gk-muj"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="Kc3-nt-v5D">
+                    <connections>
+                        <action selector="selectGas2:" destination="qsu-L3-DGc" id="37d-Ts-xEf"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="jVy-4z-Rl2">
+                    <connections>
+                        <action selector="selectGas3:" destination="qsu-L3-DGc" id="vOK-RJ-eye"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="P22-gs-4Tz">
+                    <connections>
+                        <action selector="selectGas4:" destination="qsu-L3-DGc" id="TGj-u0-80U"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
@@ -3094,7 +3170,6 @@ Your answer was wrong, but don't worry! You have \(String(10 - currentQuestion))
         <image name="monster-regular" width="828" height="1161"/>
         <image name="periodicTable" width="339" height="133"/>
         <image name="ph-7" width="512" height="512"/>
-        <image name="submit" width="512" height="512"/>
         <image name="wizard" width="184" height="238"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
