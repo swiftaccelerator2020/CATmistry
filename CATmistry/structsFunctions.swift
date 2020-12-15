@@ -266,7 +266,49 @@ var learnTopics = [
                                     "Filtration",
                                     "Fractional distillation",
                                     "Separating funnel"
-                                ], correctAnswer: 2)
+                                ], correctAnswer: 2),
+                
+                QuizQuestion(question: "Which of the following can be separated using magnetic attraction", options: [
+                      "Iron and Plastic",
+                      "Steel and Gold",
+                      "Nickel and Cobalt",
+                      "Rubber and Plastic"], correctAnswer: 1),
+
+                QuizQuestion(question: "Which equipments are NOT needed for filtration", options: [
+                      "Filter funnel",
+                      "Filter paper",
+                      "Bunsen burner",
+                      "Beaker"], correctAnswer: 3),
+                
+                QuizQuestion(question: "Which of the following methods is the best to separate iron from sand", options: [
+                      "Magnetic Attraction",
+                      "Crystallization",
+                      "Diffusion",
+                      "Filtration"], correctAnswer: 1),
+
+                QuizQuestion(question: "How can you obtain salt from a salt solution?", options: [
+                      "Crystallization",
+                      "Diffusion",
+                      "Filtration",
+                      "Evaporation"], correctAnswer: 4),
+
+                QuizQuestion(question: "What is the best way to obtain sugar from a sugar solution?", options: [
+                      "Filtration,
+                      "Crystallization",
+                      "Diffusion",
+                      "Evaporation"], correctAnswer: 2),
+
+                QuizQuestion(question: "Which of the following can be used to separate sand and water?", options: [
+                      "Filtration",
+                      "Diffusion",
+                      "Evaporation",
+                      "Crystallization"], correctAnswer: 3),
+
+                QuizQuestion(question: "Which of the following can be used to separate chalk powder from water?", options: [
+                      "Magnetic Attraction",
+                      "Sublimation",
+                      "Diffusion",
+                      "Filtration"], correctAnswer: 4),
 
             ]),
 
