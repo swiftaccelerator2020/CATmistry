@@ -91,7 +91,7 @@ struct specificSeperationMethod: Hashable{
     var name: String
     var properties: String
     var givenMethods: GivenSeperationMethods
-
+    
     func hash(into hasher: inout Hasher) {
         hasher.combine(name)
         hasher.combine(properties)
@@ -100,9 +100,9 @@ struct specificSeperationMethod: Hashable{
 }
 
 struct GivenSeperationMethods: Hashable{
-
+    
     var methods: [SeperationMethods]
-
+    
     func hash(into hasher: inout Hasher) {
         hasher.combine(methods)
     }
@@ -111,7 +111,7 @@ struct GivenSeperationMethods: Hashable{
 struct SeperationMethods: Hashable{
     var methodName: String
     var isCorrect: Bool
-
+    
     func hash(into hasher: inout Hasher) {
         hasher.combine(methodName)
         hasher.combine(isCorrect)
@@ -128,7 +128,7 @@ struct PhOption: Hashable {
     var image: String
     var turnUniversalTankColour: String
     var isAcidic: Bool? = true
-
+    
     func hash(into hasher: inout Hasher) {
         hasher.combine(name)
         hasher.combine(image)
@@ -153,6 +153,7 @@ struct SettingsContent {
 // MARK: - Arrays
 
 var learnTopics = [
+    // MARK: - GAS TESTS
     Topic(title: "Gas Tests", pic: "gas-tests.png", pointsNeeded: 0, subTopics: [
         SubTopic(title: "What are Gas Tests?", pic: "gas-tests.png", needSlider: false, content:
                     SubContent(definition: "some filler text for show"),
@@ -172,7 +173,7 @@ var learnTopics = [
                                 "wrong",
                                 "wrong"
                             ], correctAnswer: 2),
-
+            
             QuizQuestion(question: "LOREM IPSUM", options:
                             [
                                 "wrong",
@@ -181,7 +182,9 @@ var learnTopics = [
                                 "wrong"
                             ], correctAnswer: 3),
         ]),
-
+    
+    // MARK: - SEPARATION METHODS
+    
     Topic(
         title: "Separation Methods",
         pic: "separation-methods.png",
@@ -270,7 +273,7 @@ var learnTopics = [
                                     "wrong",
                                     "wrong"
                                 ], correctAnswer: 2),
-
+                
                 QuizQuestion(question: "LOREM IPSUM", options:
                                 [
                                     "wrong",
@@ -279,7 +282,9 @@ var learnTopics = [
                                     "wrong"
                                 ], correctAnswer: 3),
             ]),
-
+    
+    // MARK: - PH AND INDICATORS
+    
     Topic(title: "pH and Indicators", pic: "pH-and-indicators.png", pointsNeeded: 20, subTopics: [
         SubTopic(title: "What is pH?", pic: "pH.png", needSlider: true, content: SubContent(definition: "pH means Power of Hydrogen (concentration of hydrogen ions). \n\nIt is represented on a scale of 1 to 14, which is used to specify the acidity or basicity/alkalinity of a solution. \n\npH 1 - 6.9: Acidic \npH 7.1 - 14:  Alkaline \npH 7: Neutral (neither acidic nor alkaline)"), subTopics: nil, navTitle: "pH", contentHeightDifference: 250),
         SubTopic(title: "What are Indicators?", pic: "pH-and-indicators.png", needSlider: false, content: SubContent(definition: "Indicators are chemicals which turn into different colours depending on the pH of the solution. \n\nThe transition range is the range in which the indicator changes from one colour to the other."), subTopics: [
@@ -302,7 +307,7 @@ var learnTopics = [
                                 "wrong",
                                 "wrong"
                             ], correctAnswer: 2),
-
+            
             QuizQuestion(question: "LOREM IPSUM", options:
                             [
                                 "wrong",
@@ -311,7 +316,7 @@ var learnTopics = [
                                 "wrong"
                             ], correctAnswer: 3),
         ]),
-
+    // MARK: - PERIODIC TABLE
     Topic(title: "Periodic Table", pic: "periodic-table.png", pointsNeeded: 30, subTopics: [
         SubTopic(title: "What is the Periodic Table?", pic: "periodic-table.png", needSlider: false, content: SubContent(definition: "A periodic table is a chart that shows chemical elements in order of their atomic number. \n\nElements with similar properties are arranged in the same column (group), and elements with the same number of electron shells are arranged in the same row (period)."), subTopics: nil, navTitle: "Periodic Table", contentHeightDifference: 250),
         SubTopic(title: "What are Elements?", pic: "element.png", needSlider: false, content: SubContent(definition: "An element is a pure substance that cannot be broken down by chemical means. \n\nEvery element is made up of its own type of atom. \n\nHere is an example of an element and how to read it in the periodic table:"), subTopics: nil, navTitle: "Elements", contentHeightDifference: 250),
@@ -348,21 +353,22 @@ var learnTopics = [
         SubTopic(title: "Take the Quiz", pic: "quiz.png", needSlider: false, content: SubContent(definition: ""), subTopics: [], navTitle: "Take the Quiz")
     ], errorLabel: "Please complete Chapter 3", questions:
         [
-            QuizQuestion(question: "LOREM IPSUM", options:
+            QuizQuestion(question: "Which is not a metal?", options:
                             [
-                                "wrong",
-                                "correct",
-                                "wrong",
-                                "wrong"
+                                "Nickel",
+                                "Neon",
+                                "Copper",
+                                "Platinum"
                             ], correctAnswer: 2),
-
-            QuizQuestion(question: "LOREM IPSUM", options:
+            
+            QuizQuestion(question: "What is the chemical symbol for Helium?", options:
                             [
-                                "wrong",
-                                "wrong",
-                                "correct",
-                                "wrong"
-                            ], correctAnswer: 3),
+                                "H",
+                                "Hi",
+                                "Hhe",
+                                "He"
+                            ], correctAnswer: 4),
+            
         ]),
 ]
 
@@ -392,7 +398,7 @@ var phGameArray = [
         PhGame(startIsAcidic: false),
         PhGame(startIsAcidic: false)
     ],
-
+    
     //LEVEL 2
     [
         PhGame(startIsAcidic: false),
@@ -406,7 +412,7 @@ var phGameArray = [
         PhGame(startIsAcidic: true),
         PhGame(startIsAcidic: false)
     ],
-
+    
     //LEVEL 3
     [
         PhGame(startIsAcidic: true),
