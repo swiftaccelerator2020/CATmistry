@@ -158,15 +158,63 @@ var learnTopics = [
         SubTopic(title: "What are Gas Tests?", pic: "gas-tests.png", needSlider: false, content:
                     SubContent(definition: "Our Earth's atmosphere is made up of a wide variety of gases, with some of the most abundant being nitrogen, oxygen, and argon. \n\nSome chemistry reactions give out a specific type of gas, and we then need to test this gas to identify what kind of reaction it is. In this chapter, we will be covering the gas tests of the following few gases. Click to find out more!"),
                  subTopics: [
-                    SubSubTopic(topic: "Test for CO₂", picture: "carbon-dioxide.png", id: 2, content: SubSubContent(image: "carbon-dioxide.png", firstAttributionText: "Carbon Dioxide (CO₂) is the gas all living organisms give out when they respire, and is also the gas that plants take in for photosynthesis.", secondAttributionText: "How the gas test works: \n1. There was effervescence of a colourless, odourless gas. \n2. Bubble the gas into limewater. \n3. A white precipitate (the \"clouds\") was formed in the limewater. \n4. Carbon Dioxide gas was formed.", thirdAttributionText: "")),
+                    SubSubTopic(topic: "Test for CO₂", picture: "carbon-dioxide.png", id: 2, content: SubSubContent(image: "carbon-dioxide.png", firstAttributionText: "Carbon Dioxide (CO₂) is the gas all living organisms give out when they respire, and is also the gas that plants take in for photosynthesis.", secondAttributionText: "How the gas test works: \n1. There was effervescence of a colourless, odourless gas. \n2. Bubble the gas into limewater(also known as aqueous calcium hydroxide). \n3. A white precipitate (the \"clouds\") was formed in the limewater. \n4. Carbon Dioxide gas was formed.", thirdAttributionText: "")),
                     SubSubTopic(topic: "Test for H₂", picture: "hydrogen.png", id: 1, content: SubSubContent(image: "hydrogen.png", firstAttributionText: "Hydrogen (H₂) is a gas that is less dense than the atmosphere, meaning it floats extremely well. It was hence used in airships in the past as an alternative to planes for air travel.", secondAttributionText: "How the gas test works: \n1. There was effervescence of a colourless, odourless gas. \n2. Insert a lighted splint. \n3. The lighted splint extinguished with a 'pop' sound. \n4. Hydrogen gas was formed.", thirdAttributionText: "", warningText: "⚠️ Lighted splint, not glowing splint")),
                     SubSubTopic(topic: "Test for O₂", picture: "oxygen.png", id: 3, content: SubSubContent(image: "oxygen.png", firstAttributionText: "Oxygen (O₂) is a colourless, odourless, tasteless gas essential to living organisms, as it is taken up by them for respiration. Plants, in turn, take up carbon dioxide during photosynthesis and gives out oxygen in the process of photosynthesis.", secondAttributionText: "How the gas test works: \n1. There was effervescence of a colourless, odourless gas. \n2. Insert a glowing splint. \n3. The glowing splint re-ignited. \n4. Oxygen gas was formed.", thirdAttributionText: "", warningText: "⚠️ Glowing splint, not lighted splint")),
-                    SubSubTopic(topic: "Test for NH₃", picture: "ph-11.png", id: 4, content: SubSubContent(image: "ph-11.png", firstAttributionText: "Ammonia (NH₃) is an alkaline gas which has a distinct odour (it is slightly smelly!). It is produced naturally in the human body and in nature—in water, soil and air, even in tiny bacteria molecules. In human health, ammonia and the ammonium ion are vital components of metabolic processes.", secondAttributionText: "How the gas test works: \n1. Heat the test tube over a flame. \n2. A colourless, pungent (smelly!) gas was liberated (freed). \n3. Hold a moist red litmus paper over the test tube. \n4. Moist red litmus paper turned blue. \n5. Ammonia gas was formed.", thirdAttributionText: "", warningText: "⚠️ Remember to heat the mixture first!"))
+                    SubSubTopic(topic: "Test for NH₃", picture: "ph-11.png", id: 4, content: SubSubContent(image: "ph-11.png", firstAttributionText: "Ammonia (NH₃) is an alkaline gas which has a distinct odour (it is slightly smelly!). It is produced naturally in the human body and in nature—in water, soil and air, even in tiny bacteria molecules. In human health, ammonia and the ammonium ion are vital components of metabolic processes.", secondAttributionText: "How the gas test works: \n1. Heat the test tube over a flame. \n2. A colourless, pungent (smelly!) gas was liberated (released). \n3. Hold a moist red litmus paper over the test tube. \n4. Moist red litmus paper turned blue. \n5. Ammonia gas was formed.", thirdAttributionText: "", warningText: "⚠️ Remember to heat the mixture first!"))
                  ], navTitle: "Gas Tests", contentHeightDifference: 250),
         SubTopic(title: "Take the Quiz", pic: "quiz.png", needSlider: false, content: SubContent(definition: ""), subTopics: [], navTitle: "Take the Quiz")
-    ], errorLabel: "",questions:
+    ], errorLabel: "Please complete Chapter 1",questions:
         [
-
+            QuizQuestion(question: "The test for Ammonia involves:", options:
+                            [
+                                "Dry blue litmus paper",
+                                "Dry red litmus paper",
+                                "Moist red litmus paper",
+                                "Moist blue litmus paper"
+                            ], correctAnswer: 3),
+            QuizQuestion(question: "Which gases can be easily tested?", options:
+                            [
+                                "Argon",
+                                "Hydrogen",
+                                "Neon",
+                                "Xenon"
+                            ], correctAnswer: 2),
+            QuizQuestion(question: "The test for Oxygen involves:", options:
+                            [
+                                "Glowing splint",
+                                "Broken splint",
+                                "Lighted splint",
+                                "Burnt splint"
+                            ], correctAnswer: 1),
+            QuizQuestion(question: "The test for Carbon Dioxide involves:", options:
+                            [
+                                "Limewater",
+                                "Sulfuric Acid",
+                                "Burning splint",
+                                "Moist blue litmus paper"
+                            ], correctAnswer: 1),
+            QuizQuestion(question: "The test for Hydrogen involves:", options:
+                            [
+                                "Glowing splint",
+                                "Water",
+                                "Balloons",
+                                "Lighted splint"
+                            ], correctAnswer: 4),
+            QuizQuestion(question: "Gas tests can be used to identify:", options:
+                            [
+                                "The type of chemical reaction that has occurred",
+                                "The pH of a solution",
+                                "The material of a chair",
+                                "The density of an object"
+                            ], correctAnswer: 1),
+            QuizQuestion(question: "Which property of a gas can be used to determine what type of gas test to use?", options:
+                            [
+                                "The colour of the gas",
+                                "The pH of the gas",
+                                "The origin of the gas",
+                                "The density of the gas"
+                            ], correctAnswer: 2),
         ]),
 
     // MARK: - SEPARATION METHODS
@@ -250,7 +298,7 @@ var learnTopics = [
                 navTitle: "Take the Quiz"
             )
         ],
-        errorLabel: "Please complete Chapter 1", questions:
+        errorLabel: "Please complete Chapter 2", questions:
             [
                 QuizQuestion(question: "Which of the following is insoluble?", options:
                                 [
@@ -375,7 +423,7 @@ var learnTopics = [
             SubSubTopic(topic: "Universal Indicator", picture: "universal-indicator-1.png", id: 1, content: SubSubContent(image: "universal-indicator-2.png", firstAttributionText: "", secondAttributionText: "", thirdAttributionText: "Try out the interactive slider below:", lowpH: 1, highpH: 1, lowpHColor: "", middlepHColor: "", highpHColor: "", lowpHColorName: "", middlepHColorName: "", highpHColorName: ""))
         ], navTitle: "Indicators", contentHeightDifference: 0),
         SubTopic(title: "Take the Quiz", pic: "quiz.png", needSlider: false, content: SubContent(definition: ""), subTopics: [], navTitle: "Take the Quiz")
-    ], errorLabel: "Please complete Chapter 2", questions:
+    ], errorLabel: "Please complete Chapter 3", questions:
         [
             QuizQuestion(question: "Which of the following has the highest pH value?", options:
                             [
@@ -518,7 +566,7 @@ var learnTopics = [
             SubSubTopic(topic: "Group 0", picture: "0.png", id: 0, content: SubSubContent(image: "0.png", firstAttributionText: "", secondAttributionText: "", thirdAttributionText: ""))
         ], navTitle: "Groups' Properties", contentHeightDifference: 80),
         SubTopic(title: "Take the Quiz", pic: "quiz.png", needSlider: false, content: SubContent(definition: ""), subTopics: [], navTitle: "Take the Quiz")
-    ], errorLabel: "Please complete Chapter 3", questions:
+    ], errorLabel: "Please complete Chapter 4", questions:
         [
             QuizQuestion(question: "Which is not a metal?", options:
                             [
@@ -580,11 +628,6 @@ var learnTopics = [
                             "Increasing number of valence electrons",
                             "Decreasing number of valence electrons"], correctAnswer: 1),
 
-            QuizQuestion(question: "Which of the following elements are nobles gases?", options: [
-                            "Calcium",
-                            "Helium",
-                            "Sulfur",
-                            "Iodine"], correctAnswer: 2),
 
             QuizQuestion(question: "What does the number of valence electrons represent in the Periodic Table?", options: [
                             "Groups",
@@ -660,13 +703,6 @@ var learnTopics = [
                                 "Car"
                             ], correctAnswer: 3),
 
-            QuizQuestion(question: "What is the atomic symbol of Carbon", options:
-                            [
-                                "Ca",
-                                "Cb",
-                                "C",
-                                "Car"
-                            ], correctAnswer: 3),
 
             QuizQuestion(question: "Where are the metal elements found in the periodic table?", options:
                             [
@@ -676,13 +712,6 @@ var learnTopics = [
                                 "nowhere, metals aren't in the periodic table"
                             ], correctAnswer: 2),
 
-            QuizQuestion(question: "What is copper's atmoic symbol?", options:
-                            [
-                                "Cu",
-                                "Co",
-                                "C",
-                                "Cp"
-                            ], correctAnswer: 1),
 
             QuizQuestion(question: "Which of the following isn't a noble gas?", options:
                             [
