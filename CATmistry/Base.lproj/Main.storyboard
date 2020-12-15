@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="DyY-vl-FYk">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="DyY-vl-FYk">
     <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -2309,7 +2309,7 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
                             <constraint firstItem="Nfl-vn-zd4" firstAttribute="trailing" secondItem="XVC-Ig-NQi" secondAttribute="trailing" id="iiF-NJ-SMs"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Sub Topics Details" id="dlc-gK-BtW"/>
+                    <navigationItem key="navigationItem" title="Sub Topics Details" largeTitleDisplayMode="always" id="dlc-gK-BtW"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="contentView" destination="mVw-ph-Zlg" id="1sW-wr-UGt"/>
@@ -2340,7 +2340,7 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QUe-cY-thK">
-                                <rect key="frame" x="0.0" y="148.33333333333331" width="390" height="612.66666666666652"/>
+                                <rect key="frame" x="0.0" y="148.33333333333331" width="390" height="612.66666666666674"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zMu-Qc-3rs">
                                         <rect key="frame" x="0.0" y="0.0" width="390" height="590"/>
@@ -2482,7 +2482,7 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
                             <constraint firstItem="afs-NH-58h" firstAttribute="bottom" secondItem="QUe-cY-thK" secondAttribute="bottom" id="nUG-9P-4cq"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Sub Sub Topic Details" id="mw7-i7-Hak"/>
+                    <navigationItem key="navigationItem" title="Sub Sub Topic Details" largeTitleDisplayMode="always" id="mw7-i7-Hak"/>
                     <connections>
                         <outlet property="contentView" destination="zMu-Qc-3rs" id="hQI-V5-1vN"/>
                         <outlet property="firstAttributeLabel" destination="gbb-p3-Sjw" id="Kyb-c0-LuZ"/>
