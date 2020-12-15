@@ -21,20 +21,14 @@ class QuizViewController: UIViewController {
     var question: [QuizQuestion]!
 
     override func viewDidLoad() {
-
+        // Do any additional setup after loading the view.
         timeLeft.transform = timeLeft.transform.scaledBy(x: 1, y: 2)
 
         optionOne.setTitle(question[index].options[0], for: .normal)
-
         optionTwo.setTitle(question[index].options[1], for: .normal)
-
         optionThree.setTitle(question[index].options[2], for: .normal)
-
         optionFour.setTitle(question[index].options[3], for: .normal)
-
         questionLabel.text = question[index].question
-
-        // Do any additional setup after loading the view.
     }
 
     override func viewDidAppear(_ animated: Bool) {

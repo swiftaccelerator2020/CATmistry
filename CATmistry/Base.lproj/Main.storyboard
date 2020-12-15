@@ -2546,9 +2546,9 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1E6-k1-giD">
                                         <rect key="frame" x="0.0" y="0.0" width="350" height="55"/>
-                                        <color key="backgroundColor" red="0.52156862745098043" green="0.5725490196078431" blue="0.61960784313725492" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" red="0.76618695260000003" green="1" blue="0.97661179300000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <state key="normal" title="Option 1">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <color key="titleColor" systemColor="labelColor"/>
                                         </state>
                                         <connections>
                                             <action selector="optionOneClicked:" destination="Q5l-gv-pqw" eventType="touchUpInside" id="hdn-kx-lHA"/>
@@ -2556,9 +2556,9 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LyK-ju-RcJ">
                                         <rect key="frame" x="0.0" y="65" width="350" height="55"/>
-                                        <color key="backgroundColor" red="0.36470588235294116" green="0.42745098039215684" blue="0.49411764705882355" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" red="0.61579358579999999" green="0.91798549890000003" blue="0.93565994500000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <state key="normal" title="Option 2">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <color key="titleColor" systemColor="labelColor"/>
                                         </state>
                                         <connections>
                                             <action selector="optionTwoClicked:" destination="Q5l-gv-pqw" eventType="touchUpInside" id="lrO-pL-Flu"/>
@@ -2566,9 +2566,9 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nZj-It-bBg">
                                         <rect key="frame" x="0.0" y="130" width="350" height="55"/>
-                                        <color key="backgroundColor" red="0.20392156862745098" green="0.28627450980392155" blue="0.36862745098039218" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" red="0.41103595500000001" green="0.84751278159999999" blue="0.84087127449999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <state key="normal" title="Option 3">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <color key="titleColor" systemColor="labelColor"/>
                                         </state>
                                         <connections>
                                             <action selector="optionThreeClicked:" destination="Q5l-gv-pqw" eventType="touchUpInside" id="EyE-gs-TXV"/>
@@ -2576,9 +2576,9 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p7j-Px-jZ7">
                                         <rect key="frame" x="0.0" y="195" width="350" height="55"/>
-                                        <color key="backgroundColor" red="0.18039215689999999" green="0.25098039220000001" blue="0.32549019610000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" red="0.24207571150000001" green="0.80443984270000002" blue="0.78153663870000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <state key="normal" title="Option 4">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <color key="titleColor" systemColor="labelColor"/>
                                         </state>
                                         <connections>
                                             <action selector="optionFourClicked:" destination="Q5l-gv-pqw" eventType="touchUpInside" id="Por-bA-11h"/>
