@@ -60,9 +60,10 @@ class PlayRetrieveSolidsDetailsViewController: UIViewController, UITableViewDele
         
         selectedChoiceLabel.layer.cornerRadius = 25
         selectedChoiceLabel.layer.masksToBounds = true
-        selectedChoiceLabel.isHidden = true
-        
+        selectedChoiceLabel.isEnabled = false
+        selectedChoiceLabel.setTitleColor(UIColor.darkGray, for: .normal)
 //        selectedChoiceLabel.isHidden = true
+        
 //        isWrong.isHidden = true
 
         progressView.transform = CGAffineTransform(rotationAngle: .pi / -2)
@@ -144,13 +145,17 @@ class PlayRetrieveSolidsDetailsViewController: UIViewController, UITableViewDele
         if (tableView == seperationTableView){
             selectedElement = indexPath.row
             tableView.deselectRow(at: indexPath, animated: true)
-            selectedChoiceLabel.isHidden = true
+            selectedChoiceLabel.isEnabled = false
+            selectedChoiceLabel.setTitleColor(UIColor.darkGray, for: .normal)
+//            selectedChoiceLabel.isHidden = true
             index = indexPath.row
             choicesTableView.reloadData()
         } else if (tableView == choicesTableView){
             selectedChoiceLabel.setTitle("Submit: \(elements[selectedElement!].givenMethods.methods[indexPath.row].methodName)", for: .normal)
             isCorrect = elements[selectedElement!].givenMethods.methods[indexPath.row].isCorrect
-            selectedChoiceLabel.isHidden = false
+            selectedChoiceLabel.isEnabled = true
+            selectedChoiceLabel.setTitleColor(UIColor.black, for: .normal)
+//            selectedChoiceLabel.isHidden = false
             tableView.deselectRow(at: indexPath, animated: true)
         }
     }
@@ -167,7 +172,9 @@ class PlayRetrieveSolidsDetailsViewController: UIViewController, UITableViewDele
         } else if (isCorrect!) {
 //            isWrong.text = "CORRECT"
 //            isWrong.backgroundColor = .green
-            selectedChoiceLabel.isHidden = true
+//            selectedChoiceLabel.isHidden = true
+            selectedChoiceLabel.isEnabled = true
+            selectedChoiceLabel.setTitleColor(UIColor.black, for: .normal)
             selectedElement = nil
             index = 0
             choicesTableView.reloadData()
