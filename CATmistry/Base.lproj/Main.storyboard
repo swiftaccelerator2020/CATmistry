@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="DyY-vl-FYk">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="DyY-vl-FYk">
     <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -2309,7 +2309,7 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
                             <constraint firstItem="Nfl-vn-zd4" firstAttribute="trailing" secondItem="XVC-Ig-NQi" secondAttribute="trailing" id="iiF-NJ-SMs"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Sub Topics Details" id="dlc-gK-BtW"/>
+                    <navigationItem key="navigationItem" title="Sub Topics Details" largeTitleDisplayMode="always" id="dlc-gK-BtW"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="contentView" destination="mVw-ph-Zlg" id="1sW-wr-UGt"/>
