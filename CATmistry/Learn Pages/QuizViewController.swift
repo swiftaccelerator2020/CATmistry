@@ -22,7 +22,7 @@ class QuizViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         // Do any additional setup after loading the view.
         timeLeft.transform = timeLeft.transform.scaledBy(x: 1, y: 2)
 
@@ -31,7 +31,7 @@ class QuizViewController: UIViewController {
         optionThree.setTitle(question[index].options[2], for: .normal)
         optionFour.setTitle(question[index].options[3], for: .normal)
         questionLabel.text = question[index].question
-        
+
         optionOne.layer.cornerRadius = 15
         optionTwo.layer.cornerRadius = 15
         optionThree.layer.cornerRadius = 15
@@ -100,7 +100,7 @@ class QuizViewController: UIViewController {
         }
         index += 1
     }
-    
+
      // MARK: - Navigation
 
      // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -115,8 +115,8 @@ class QuizViewController: UIViewController {
             destVC.currentQuestion = index
         }
      }
-     
-    
+
+
     @objc func updateProgressView(){
         timeLeft.progress += 0.005
         if (timeLeft.progress == 1.0) {
