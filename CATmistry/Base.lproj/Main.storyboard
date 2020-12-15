@@ -359,7 +359,7 @@ As your cat can only live in a certain type of gas, your task is to use your kno
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="HSf-1d-jg6">
-                                <rect key="frame" x="25" y="144" width="340" height="100"/>
+                                <rect key="frame" x="25" y="124" width="340" height="100"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KjD-zc-qXD">
                                         <rect key="frame" x="0.0" y="0.0" width="62" height="100"/>
@@ -446,7 +446,7 @@ As your cat can only live in a certain type of gas, your task is to use your kno
                                 </constraints>
                             </stackView>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="p1h-t2-lUh">
-                                <rect key="frame" x="25" y="259" width="340" height="290"/>
+                                <rect key="frame" x="25" y="239" width="340" height="310"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UuK-ME-cyu">
                                         <rect key="frame" x="0.0" y="0.0" width="340" height="250"/>
@@ -501,6 +501,17 @@ As your cat can only live in a certain type of gas, your task is to use your kno
                                 <viewLayoutGuide key="contentLayoutGuide" id="hOC-Fw-oPp"/>
                                 <viewLayoutGuide key="frameLayoutGuide" id="IhJ-dQ-Cyq"/>
                             </scrollView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="20 seconds left" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fgY-OB-NKG">
+                                <rect key="frame" x="215" y="64" width="150" height="40"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="H10-ah-wkG"/>
+                                    <constraint firstAttribute="width" constant="150" id="MRP-3P-iWv"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="LtP-tT-GK7"/>
                         <color key="backgroundColor" red="0.54710417990000004" green="0.75682848690000004" blue="0.93781065939999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -509,14 +520,16 @@ As your cat can only live in a certain type of gas, your task is to use your kno
                             <constraint firstItem="cWk-gy-0aZ" firstAttribute="leading" secondItem="LtP-tT-GK7" secondAttribute="leading" id="5hX-hA-oLC"/>
                             <constraint firstItem="cWk-gy-0aZ" firstAttribute="trailing" secondItem="LtP-tT-GK7" secondAttribute="trailing" id="CL8-9i-BNq"/>
                             <constraint firstItem="tDL-B1-4sj" firstAttribute="trailing" secondItem="LtP-tT-GK7" secondAttribute="trailing" id="EZw-Mu-hkG"/>
+                            <constraint firstItem="fgY-OB-NKG" firstAttribute="top" secondItem="LtP-tT-GK7" secondAttribute="top" constant="20" id="Jal-FL-oJB"/>
                             <constraint firstItem="LtP-tT-GK7" firstAttribute="trailing" secondItem="p1h-t2-lUh" secondAttribute="trailing" constant="25" id="JfH-yw-ZSE"/>
                             <constraint firstItem="IZ0-0H-Ysw" firstAttribute="leading" secondItem="LtP-tT-GK7" secondAttribute="leading" constant="24" id="PYc-XF-gbe"/>
                             <constraint firstAttribute="trailing" secondItem="HSf-1d-jg6" secondAttribute="trailing" constant="25" id="RDm-Hz-kHy"/>
+                            <constraint firstItem="HSf-1d-jg6" firstAttribute="top" secondItem="fgY-OB-NKG" secondAttribute="bottom" constant="20" id="UBZ-cV-Ft9"/>
                             <constraint firstItem="tDL-B1-4sj" firstAttribute="top" secondItem="9RP-HW-EJm" secondAttribute="bottom" id="Ybk-5K-iuI"/>
-                            <constraint firstItem="HSf-1d-jg6" firstAttribute="top" secondItem="LtP-tT-GK7" secondAttribute="top" constant="100" id="a1W-pI-IAp"/>
                             <constraint firstAttribute="bottom" secondItem="cWk-gy-0aZ" secondAttribute="bottom" id="a7b-Ri-wPG"/>
                             <constraint firstItem="tDL-B1-4sj" firstAttribute="top" secondItem="IZ0-0H-Ysw" secondAttribute="bottom" constant="39" id="atC-gx-MRj"/>
                             <constraint firstItem="9RP-HW-EJm" firstAttribute="top" secondItem="p1h-t2-lUh" secondAttribute="bottom" constant="15" id="ayb-e2-OSJ"/>
+                            <constraint firstItem="LtP-tT-GK7" firstAttribute="trailing" secondItem="fgY-OB-NKG" secondAttribute="trailing" constant="25" id="dxY-F0-iXb"/>
                             <constraint firstItem="tDL-B1-4sj" firstAttribute="leading" secondItem="LtP-tT-GK7" secondAttribute="leading" id="omX-QH-wL3"/>
                             <constraint firstItem="cWk-gy-0aZ" firstAttribute="top" secondItem="tDL-B1-4sj" secondAttribute="bottom" id="rre-AY-a0k"/>
                             <constraint firstItem="9RP-HW-EJm" firstAttribute="leading" secondItem="IZ0-0H-Ysw" secondAttribute="trailing" constant="32" id="rzJ-M1-rEJ"/>
@@ -536,6 +549,7 @@ As your cat can only live in a certain type of gas, your task is to use your kno
                         <outlet property="limewaterView" destination="KjD-zc-qXD" id="paT-42-sZQ"/>
                         <outlet property="litmusView" destination="zhw-91-4dW" id="2WJ-mW-pkH"/>
                         <outlet property="submitButton" destination="IZ0-0H-Ysw" id="eTB-pn-iho"/>
+                        <outlet property="timerLabel" destination="fgY-OB-NKG" id="Zcr-by-Yhp"/>
                         <segue destination="FWf-eu-FKe" kind="showDetail" identifier="findGasCorrect" id="xa7-EN-bjL"/>
                         <segue destination="i8X-Sz-8XG" kind="showDetail" identifier="findGasWrong" id="8zc-2j-Gbh"/>
                     </connections>

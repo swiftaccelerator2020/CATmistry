@@ -23,7 +23,8 @@ class PlayFindGasDetailsViewController: UIViewController {
     @IBOutlet weak var gas3: UIButton!
     @IBOutlet weak var gas4: UIButton!
     @IBOutlet weak var submitButton: UIButton!
-
+    @IBOutlet weak var timerLabel: UILabel!
+    
     var gases = GasTestGame(firstGasTank: "Hydrogen", secondGasTank: "Oxygen", thirdGasTank: "Carbon Dioxide", fourthGasTank: "Ammonia", firstGasIsPositive: [false, false, false, true], secondGasIsPositive: [false, false, false, true], thirdGasIsPositive: [false, false, false, true], forthGasIsPositive: [false, false, false, true], correctGasTank: "Hydrogen")
 
     // var initialCenter = CGPoint()  // The initial center point of the view.
