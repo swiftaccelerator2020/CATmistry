@@ -388,78 +388,78 @@ As your cat can only live in a certain type of gas, your task is to use your kno
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KjD-zc-qXD">
                                         <rect key="frame" x="0.0" y="0.0" width="56" height="100"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZFE-aE-OuH" userLabel="Limewater">
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="limewater" translatesAutoresizingMaskIntoConstraints="NO" id="Ick-Ku-ScQ">
                                                 <rect key="frame" x="10" y="10" width="36" height="80"/>
-                                                <state key="normal" title="Button" image="limewater"/>
-                                                <connections>
-                                                    <action selector="limewaterTest:" destination="qsu-L3-DGc" eventType="touchUpInside" id="xZE-bZ-Psf"/>
-                                                </connections>
-                                            </button>
+                                            </imageView>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <gestureRecognizers/>
                                         <constraints>
-                                            <constraint firstItem="ZFE-aE-OuH" firstAttribute="top" secondItem="KjD-zc-qXD" secondAttribute="top" constant="10" id="9cD-Hm-dxt"/>
-                                            <constraint firstItem="ZFE-aE-OuH" firstAttribute="leading" secondItem="KjD-zc-qXD" secondAttribute="leading" constant="10" id="POq-Tx-YID"/>
-                                            <constraint firstAttribute="bottom" secondItem="ZFE-aE-OuH" secondAttribute="bottom" constant="10" id="VK3-1t-yd5"/>
-                                            <constraint firstAttribute="trailing" secondItem="ZFE-aE-OuH" secondAttribute="trailing" constant="10" id="W3E-ZR-hiJ"/>
+                                            <constraint firstAttribute="trailing" secondItem="Ick-Ku-ScQ" secondAttribute="trailing" constant="10" id="8LX-33-ok7"/>
+                                            <constraint firstItem="Ick-Ku-ScQ" firstAttribute="top" secondItem="KjD-zc-qXD" secondAttribute="top" constant="10" id="UoA-z7-crB"/>
+                                            <constraint firstItem="Ick-Ku-ScQ" firstAttribute="leading" secondItem="KjD-zc-qXD" secondAttribute="leading" constant="10" id="bu2-59-GUK"/>
+                                            <constraint firstAttribute="bottom" secondItem="Ick-Ku-ScQ" secondAttribute="bottom" constant="10" id="rTo-bD-d2v"/>
                                         </constraints>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="s27-Qi-X6Q" appends="YES" id="NaJ-f3-oFi"/>
+                                        </connections>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZBx-iJ-bIt">
                                         <rect key="frame" x="66" y="0.0" width="56" height="100"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="32Y-1a-X4p" userLabel="lightedSplint">
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lighted-splint" translatesAutoresizingMaskIntoConstraints="NO" id="wg5-5x-aYZ">
                                                 <rect key="frame" x="10" y="10" width="36" height="80"/>
-                                                <state key="normal" image="lighted-splint"/>
-                                                <connections>
-                                                    <action selector="lightedSplintTest:" destination="qsu-L3-DGc" eventType="touchUpInside" id="azh-lN-ztf"/>
-                                                </connections>
-                                            </button>
+                                            </imageView>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <gestureRecognizers/>
                                         <constraints>
-                                            <constraint firstAttribute="bottom" secondItem="32Y-1a-X4p" secondAttribute="bottom" constant="10" id="E6q-wK-SlI"/>
-                                            <constraint firstItem="32Y-1a-X4p" firstAttribute="top" secondItem="ZBx-iJ-bIt" secondAttribute="top" constant="10" id="aEv-wD-pzm"/>
-                                            <constraint firstItem="32Y-1a-X4p" firstAttribute="leading" secondItem="ZBx-iJ-bIt" secondAttribute="leading" constant="10" id="sl0-Qr-Ula"/>
-                                            <constraint firstAttribute="trailing" secondItem="32Y-1a-X4p" secondAttribute="trailing" constant="10" id="vCx-4W-UYK"/>
+                                            <constraint firstItem="wg5-5x-aYZ" firstAttribute="top" secondItem="ZBx-iJ-bIt" secondAttribute="top" constant="10" id="Drk-uf-09F"/>
+                                            <constraint firstAttribute="trailing" secondItem="wg5-5x-aYZ" secondAttribute="trailing" constant="10" id="f51-wj-g9u"/>
+                                            <constraint firstItem="wg5-5x-aYZ" firstAttribute="leading" secondItem="ZBx-iJ-bIt" secondAttribute="leading" constant="10" id="m5W-Eb-Uzf"/>
+                                            <constraint firstAttribute="bottom" secondItem="wg5-5x-aYZ" secondAttribute="bottom" constant="10" id="uDV-Iz-0BS"/>
                                         </constraints>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="XNG-8B-T2s" appends="YES" id="t5r-le-6rd"/>
+                                        </connections>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ctl-Eq-n0j">
                                         <rect key="frame" x="132" y="0.0" width="56" height="100"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pBq-gU-2rM" userLabel="glowingSplint">
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="glowing-splint" translatesAutoresizingMaskIntoConstraints="NO" id="dSd-lK-7ZV">
                                                 <rect key="frame" x="10" y="10" width="36" height="80"/>
-                                                <state key="normal" image="glowing-splint"/>
-                                                <connections>
-                                                    <action selector="glowingSplintTest:" destination="qsu-L3-DGc" eventType="touchUpInside" id="SqS-Rz-Bup"/>
-                                                </connections>
-                                            </button>
+                                            </imageView>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <gestureRecognizers/>
                                         <constraints>
-                                            <constraint firstItem="pBq-gU-2rM" firstAttribute="top" secondItem="ctl-Eq-n0j" secondAttribute="top" constant="10" id="I5M-ua-Cuq"/>
-                                            <constraint firstItem="pBq-gU-2rM" firstAttribute="leading" secondItem="ctl-Eq-n0j" secondAttribute="leading" constant="10" id="QoM-Zv-Ugz"/>
-                                            <constraint firstAttribute="trailing" secondItem="pBq-gU-2rM" secondAttribute="trailing" constant="10" id="XEA-Kr-8vJ"/>
-                                            <constraint firstAttribute="bottom" secondItem="pBq-gU-2rM" secondAttribute="bottom" constant="10" id="iIY-Wy-fv0"/>
+                                            <constraint firstItem="dSd-lK-7ZV" firstAttribute="top" secondItem="ctl-Eq-n0j" secondAttribute="top" constant="10" id="4pj-gT-9cU"/>
+                                            <constraint firstAttribute="bottom" secondItem="dSd-lK-7ZV" secondAttribute="bottom" constant="10" id="K9F-iM-1W6"/>
+                                            <constraint firstAttribute="trailing" secondItem="dSd-lK-7ZV" secondAttribute="trailing" constant="10" id="fD2-Pc-fAw"/>
+                                            <constraint firstItem="dSd-lK-7ZV" firstAttribute="leading" secondItem="ctl-Eq-n0j" secondAttribute="leading" constant="10" id="fwm-Tj-HOP"/>
                                         </constraints>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="HTb-gh-POL" appends="YES" id="ebw-Ql-Beh"/>
+                                        </connections>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zhw-91-4dW">
                                         <rect key="frame" x="198" y="0.0" width="112" height="100"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5uV-I7-wA5" userLabel="Litmus Paper">
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="litmus-2" translatesAutoresizingMaskIntoConstraints="NO" id="6Kz-ts-5ut">
                                                 <rect key="frame" x="10" y="10" width="92" height="80"/>
-                                                <state key="normal" image="litmus-2"/>
-                                                <connections>
-                                                    <action selector="litmusPaper:" destination="qsu-L3-DGc" eventType="touchUpInside" id="HgJ-Va-ZKC"/>
-                                                </connections>
-                                            </button>
+                                            </imageView>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <gestureRecognizers/>
                                         <constraints>
-                                            <constraint firstItem="5uV-I7-wA5" firstAttribute="top" secondItem="zhw-91-4dW" secondAttribute="top" constant="10" id="0sj-Sj-2V7"/>
-                                            <constraint firstItem="5uV-I7-wA5" firstAttribute="leading" secondItem="zhw-91-4dW" secondAttribute="leading" constant="10" id="BDY-Zc-yNZ"/>
-                                            <constraint firstAttribute="bottom" secondItem="5uV-I7-wA5" secondAttribute="bottom" constant="10" id="CAH-1Q-mnl"/>
-                                            <constraint firstAttribute="trailing" secondItem="5uV-I7-wA5" secondAttribute="trailing" constant="10" id="GtW-VE-ahU"/>
+                                            <constraint firstAttribute="trailing" secondItem="6Kz-ts-5ut" secondAttribute="trailing" constant="10" id="7az-EG-FGO"/>
+                                            <constraint firstItem="6Kz-ts-5ut" firstAttribute="leading" secondItem="zhw-91-4dW" secondAttribute="leading" constant="10" id="aPC-Ub-2xY"/>
+                                            <constraint firstAttribute="bottom" secondItem="6Kz-ts-5ut" secondAttribute="bottom" constant="10" id="ffJ-mT-96Q"/>
+                                            <constraint firstItem="6Kz-ts-5ut" firstAttribute="top" secondItem="zhw-91-4dW" secondAttribute="top" constant="10" id="fuz-lr-dMJ"/>
                                         </constraints>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="9pD-kg-wKX" appends="YES" id="r4e-ma-oo1"/>
+                                        </connections>
                                     </view>
                                 </subviews>
                                 <constraints>
@@ -484,16 +484,36 @@ As your cat can only live in a certain type of gas, your task is to use your kno
                         <outlet property="gas2" destination="Qu4-Na-TWr" id="dMQ-q3-fz9"/>
                         <outlet property="gas3" destination="Zxr-rR-eiJ" id="9XJ-2g-mFE"/>
                         <outlet property="gas4" destination="z16-tg-6Es" id="xzm-Vh-g4k"/>
-                        <outlet property="glowingSplint" destination="pBq-gU-2rM" id="JRh-xS-loH"/>
-                        <outlet property="lightedSplintView" destination="32Y-1a-X4p" id="Y3z-7m-pdC"/>
-                        <outlet property="limewater" destination="ZFE-aE-OuH" id="EBi-af-WPS"/>
-                        <outlet property="litmus" destination="5uV-I7-wA5" id="szk-0F-YrS"/>
+                        <outlet property="glowingSplintView" destination="ctl-Eq-n0j" id="JwR-Sd-WK0"/>
+                        <outlet property="lightedSplintView" destination="ZBx-iJ-bIt" id="bwK-dd-tRc"/>
+                        <outlet property="limewaterView" destination="KjD-zc-qXD" id="paT-42-sZQ"/>
+                        <outlet property="litmusView" destination="ctl-Eq-n0j" id="oYP-Yi-wX4"/>
                         <outlet property="submit" destination="IZ0-0H-Ysw" id="eTB-pn-iho"/>
                         <segue destination="FWf-eu-FKe" kind="showDetail" identifier="findGasCorrect" id="xa7-EN-bjL"/>
                         <segue destination="i8X-Sz-8XG" kind="showDetail" identifier="findGasWrong" id="8zc-2j-Gbh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FlL-F4-Kc6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="s27-Qi-X6Q">
+                    <connections>
+                        <action selector="limewaterTest:" destination="qsu-L3-DGc" id="HFQ-1I-rKz"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="XNG-8B-T2s">
+                    <connections>
+                        <action selector="lightedSplintTest:" destination="qsu-L3-DGc" id="Zvt-Am-eAk"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="HTb-gh-POL">
+                    <connections>
+                        <action selector="glowingSplintTest:" destination="qsu-L3-DGc" id="JUu-7q-cKL"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="9pD-kg-wKX">
+                    <connections>
+                        <action selector="litmusPaper:" destination="qsu-L3-DGc" id="a86-lD-7h3"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-1969.2307692307691" y="2009.7156398104264"/>
         </scene>
