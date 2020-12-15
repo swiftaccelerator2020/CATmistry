@@ -82,10 +82,10 @@ class PlayAdjustPhDetailsViewController: UIViewController {
         thirdOptionImageView.image = UIImage(named: phOptionsArray[2].image)
         fourthOptionImageView.image = UIImage(named: phOptionsArray[3].image)
 
-        firstOptionLabel.text = phOptionsArray[0].name
-        secondOptionLabel.text = phOptionsArray[1].name
-        thirdOptionLabel.text = phOptionsArray[2].name
-        fourthOptionLabel.text = phOptionsArray[3].name
+//        firstOptionLabel.text = phOptionsArray[0].name
+//        secondOptionLabel.text = phOptionsArray[1].name
+//        thirdOptionLabel.text = phOptionsArray[2].name
+//        fourthOptionLabel.text = phOptionsArray[3].name
     }
 
     @IBAction func clickAddUniversalIndicator(_ sender: Any) {
