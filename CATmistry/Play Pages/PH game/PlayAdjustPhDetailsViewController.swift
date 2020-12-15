@@ -21,13 +21,13 @@ class PlayAdjustPhDetailsViewController: UIViewController {
     @IBOutlet weak var addFirstIndicatorButton: UIButton!
     @IBOutlet weak var monsterImageView: UIImageView!
     @IBOutlet weak var firstOptionImageView: UIImageView!
-    @IBOutlet weak var firstOptionLabel: UILabel!
+//    @IBOutlet weak var firstOptionLabel: UILabel!
     @IBOutlet weak var secondOptionImageView: UIImageView!
-    @IBOutlet weak var secondOptionLabel: UILabel!
+//    @IBOutlet weak var secondOptionLabel: UILabel!
     @IBOutlet weak var thirdOptionImageView: UIImageView!
-    @IBOutlet weak var thirdOptionLabel: UILabel!
+//    @IBOutlet weak var thirdOptionLabel: UILabel!
     @IBOutlet weak var fourthOptionImageView: UIImageView!
-    @IBOutlet weak var fourthOptionLabel: UILabel!
+//    @IBOutlet weak var fourthOptionLabel: UILabel!
     @IBOutlet weak var firstOptionStackView: UIStackView!
     @IBOutlet weak var secondOptionStackView: UIStackView!
     @IBOutlet weak var thirdOptionStackView: UIStackView!
@@ -245,10 +245,10 @@ class PlayAdjustPhDetailsViewController: UIViewController {
         thirdOptionImageView.image = UIImage(named: phOptionsArray[2].image)
         fourthOptionImageView.image = UIImage(named: phOptionsArray[3].image)
 
-        firstOptionLabel.text = phOptionsArray[0].name
-        secondOptionLabel.text = phOptionsArray[1].name
-        thirdOptionLabel.text = phOptionsArray[2].name
-        fourthOptionLabel.text = phOptionsArray[3].name
+//        firstOptionLabel.text = phOptionsArray[0].name
+//        secondOptionLabel.text = phOptionsArray[1].name
+//        thirdOptionLabel.text = phOptionsArray[2].name
+//        fourthOptionLabel.text = phOptionsArray[3].name
     }
 
     func optionCorrect() {
