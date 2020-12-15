@@ -10,7 +10,7 @@ import UIKit
 class PlayFindGasDetailsViewController: UIViewController {
 
     var currentLevel = 0
-    var selectedGasTank: UIButton?
+    var selectedGasTank: UIView?
     var selectedGasTankString: String!
     var selectedGasTest: Int!
     var currentRound = 0
