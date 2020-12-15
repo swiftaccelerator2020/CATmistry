@@ -293,7 +293,7 @@ var learnTopics = [
                       "Evaporation"], correctAnswer: 4),
 
                 QuizQuestion(question: "What is the best way to obtain sugar from a sugar solution?", options: [
-                      "Filtration,
+                      "Filtration",
                       "Crystallization",
                       "Diffusion",
                       "Evaporation"], correctAnswer: 2),
