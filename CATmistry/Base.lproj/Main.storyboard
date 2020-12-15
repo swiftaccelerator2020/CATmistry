@@ -2294,7 +2294,7 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
                                 <rect key="frame" x="0.0" y="148.33333333333331" width="390" height="612.66666666666674"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zMu-Qc-3rs">
-                                        <rect key="frame" x="0.0" y="0.0" width="390" height="613"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="390" height="590"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="cNd-RL-8tW">
                                                 <rect key="frame" x="20" y="20" width="350" height="200"/>
@@ -2409,16 +2409,16 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
                                             <constraint firstItem="ZON-sx-e8W" firstAttribute="top" secondItem="cYj-Ro-1Mx" secondAttribute="bottom" constant="10" id="sts-aP-gr6"/>
                                             <constraint firstAttribute="trailing" secondItem="cYj-Ro-1Mx" secondAttribute="trailing" constant="25" id="uRi-Et-9X5"/>
                                             <constraint firstItem="cYj-Ro-1Mx" firstAttribute="top" secondItem="gbb-p3-Sjw" secondAttribute="bottom" constant="10" id="wI3-Ah-3eD"/>
-                                            <constraint firstAttribute="height" constant="613" id="weO-3y-6uA"/>
+                                            <constraint firstAttribute="height" constant="590" id="weO-3y-6uA"/>
                                         </constraints>
                                     </view>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="zMu-Qc-3rs" firstAttribute="leading" secondItem="QUe-cY-thK" secondAttribute="leading" id="5CD-8Q-MeD"/>
+                                    <constraint firstItem="zMu-Qc-3rs" firstAttribute="leading" secondItem="Hap-Af-Zdp" secondAttribute="leading" id="0Pd-8A-uc7"/>
                                     <constraint firstItem="zMu-Qc-3rs" firstAttribute="width" secondItem="C5U-5K-PS6" secondAttribute="width" id="Tao-bO-DPp"/>
-                                    <constraint firstAttribute="trailing" secondItem="zMu-Qc-3rs" secondAttribute="trailing" id="brY-Fz-oHU"/>
-                                    <constraint firstAttribute="bottom" secondItem="zMu-Qc-3rs" secondAttribute="bottom" id="cXl-hQ-CQe"/>
-                                    <constraint firstItem="zMu-Qc-3rs" firstAttribute="top" secondItem="QUe-cY-thK" secondAttribute="top" id="eF7-dm-m1o"/>
+                                    <constraint firstItem="zMu-Qc-3rs" firstAttribute="top" secondItem="Hap-Af-Zdp" secondAttribute="top" id="UCU-8P-kbS"/>
+                                    <constraint firstItem="zMu-Qc-3rs" firstAttribute="trailing" secondItem="Hap-Af-Zdp" secondAttribute="trailing" id="o5v-L2-AEu"/>
+                                    <constraint firstItem="zMu-Qc-3rs" firstAttribute="bottom" secondItem="Hap-Af-Zdp" secondAttribute="bottom" id="vP1-Lt-4Ln"/>
                                 </constraints>
                                 <viewLayoutGuide key="contentLayoutGuide" id="Hap-Af-Zdp"/>
                                 <viewLayoutGuide key="frameLayoutGuide" id="C5U-5K-PS6"/>
