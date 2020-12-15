@@ -26,6 +26,8 @@ class PlayIdentifyElementsSecondViewController: UIViewController {
     var gameTopic: periodicTableGame!
     var timeLeftTrack: Int!
     var level: Int!
+    
+    let color = UIColor(red: 245/255.0, green: 214/255.0, blue: 224/255.0, alpha: 1)
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -75,8 +77,8 @@ class PlayIdentifyElementsSecondViewController: UIViewController {
         if (selectedButton != groupOne && selectedButton != nil){
             groupOne.backgroundColor = .green
             groupOne.setTitleColor(.black, for: .normal)
-            selectedButton.backgroundColor = .black
-            selectedButton.setTitleColor(.white, for: .normal)
+            selectedButton.backgroundColor = .white
+            selectedButton.setTitleColor(.black, for: .normal)
             selectedButton = groupOne
         } else if (selectedButton != groupOne){
             selectedButton = groupOne
@@ -84,8 +86,8 @@ class PlayIdentifyElementsSecondViewController: UIViewController {
             groupOne.setTitleColor(.black, for: .normal)
         } else {
             selectedButton = nil
-            groupOne.backgroundColor = .black
-            groupOne.setTitleColor(.white, for: .normal)
+            groupOne.backgroundColor = .white
+            groupOne.setTitleColor(.black, for: .normal)
         }
     }
 
@@ -93,8 +95,8 @@ class PlayIdentifyElementsSecondViewController: UIViewController {
         if (selectedButton != groupTwo && selectedButton != nil){
             groupTwo.backgroundColor = .green
             groupTwo.setTitleColor(.black, for: .normal)
-            selectedButton.backgroundColor = .black
-            selectedButton.setTitleColor(.white, for: .normal)
+            selectedButton.backgroundColor = .white
+            selectedButton.setTitleColor(.black, for: .normal)
             selectedButton = groupTwo
         } else if (selectedButton != groupTwo){
             selectedButton = groupTwo
@@ -102,8 +104,8 @@ class PlayIdentifyElementsSecondViewController: UIViewController {
             groupTwo.setTitleColor(.black, for: .normal)
         } else {
             selectedButton = nil
-            groupTwo.backgroundColor = .black
-            groupTwo.setTitleColor(.white, for: .normal)
+            groupTwo.backgroundColor = .white
+            groupTwo.setTitleColor(.black, for: .normal)
         }
     }
 
@@ -111,8 +113,8 @@ class PlayIdentifyElementsSecondViewController: UIViewController {
         if (selectedButton != groupThree && selectedButton != nil){
             groupThree.backgroundColor = .green
             groupThree.setTitleColor(.black, for: .normal)
-            selectedButton.backgroundColor = .black
-            selectedButton.setTitleColor(.white, for: .normal)
+            selectedButton.backgroundColor = .white
+            selectedButton.setTitleColor(.black, for: .normal)
             selectedButton = groupThree
         } else if (selectedButton != groupThree){
             selectedButton = groupThree
@@ -120,8 +122,8 @@ class PlayIdentifyElementsSecondViewController: UIViewController {
             groupThree.setTitleColor(.black, for: .normal)
         } else {
             selectedButton = nil
-            groupThree.backgroundColor = .black
-            groupThree.setTitleColor(.white, for: .normal)
+            groupThree.backgroundColor = .white
+            groupThree.setTitleColor(.black, for: .normal)
         }
     }
 
@@ -129,8 +131,8 @@ class PlayIdentifyElementsSecondViewController: UIViewController {
         if (selectedButton != groupFour && selectedButton != nil){
             groupFour.backgroundColor = .green
             groupFour.setTitleColor(.black, for: .normal)
-            selectedButton.backgroundColor = .black
-            selectedButton.setTitleColor(.white, for: .normal)
+            selectedButton.backgroundColor = .white
+            selectedButton.setTitleColor(.black, for: .normal)
             selectedButton = groupFour
         } else if (selectedButton != groupFour){
             selectedButton = groupFour
@@ -138,18 +140,17 @@ class PlayIdentifyElementsSecondViewController: UIViewController {
             groupFour.setTitleColor(.black, for: .normal)
         } else {
             selectedButton = nil
-            groupFour.backgroundColor = .black
-            groupFour.setTitleColor(.white, for: .normal)
+            groupFour.backgroundColor = .white
+            groupFour.setTitleColor(.black, for: .normal)
         }
-
     }
 
     @IBAction func metal(_ sender: Any) {
         if (selectedMetalButton != metal && selectedMetalButton != nil){
             metal.backgroundColor = .green
             metal.setTitleColor(.black, for: .normal)
-            selectedMetalButton.backgroundColor = .black
-            selectedMetalButton.setTitleColor(.white, for: .normal)
+            selectedMetalButton.backgroundColor = color
+            selectedMetalButton.setTitleColor(.black, for: .normal)
             selectedMetalButton = metal
         } else if (selectedMetalButton != metal){
             selectedMetalButton = metal
@@ -157,8 +158,8 @@ class PlayIdentifyElementsSecondViewController: UIViewController {
             metal.setTitleColor(.black, for: .normal)
         } else {
             selectedMetalButton = nil
-            metal.backgroundColor = .black
-            metal.setTitleColor(.white, for: .normal)
+            metal.backgroundColor = color
+            metal.setTitleColor(.black, for: .normal)
         }
     }
 
@@ -166,8 +167,8 @@ class PlayIdentifyElementsSecondViewController: UIViewController {
         if (selectedMetalButton != transitionMetal && selectedMetalButton != nil){
             transitionMetal.backgroundColor = .green
             transitionMetal.setTitleColor(.black, for: .normal)
-            selectedMetalButton.backgroundColor = .black
-            selectedMetalButton.setTitleColor(.white, for: .normal)
+            selectedMetalButton.backgroundColor = color
+            selectedMetalButton.setTitleColor(.black, for: .normal)
             selectedMetalButton = transitionMetal
         } else if (selectedMetalButton != transitionMetal){
             selectedMetalButton = transitionMetal
@@ -175,8 +176,8 @@ class PlayIdentifyElementsSecondViewController: UIViewController {
             transitionMetal.setTitleColor(.black, for: .normal)
         } else {
             selectedMetalButton = nil
-            transitionMetal.backgroundColor = .black
-            transitionMetal.setTitleColor(.white, for: .normal)
+            transitionMetal.backgroundColor = color
+            transitionMetal.setTitleColor(.black, for: .normal)
         }
     }
 
@@ -184,8 +185,8 @@ class PlayIdentifyElementsSecondViewController: UIViewController {
         if (selectedMetalButton != nonMetal && selectedMetalButton != nil){
             nonMetal.backgroundColor = .green
             nonMetal.setTitleColor(.black, for: .normal)
-            selectedMetalButton.backgroundColor = .black
-            selectedMetalButton.setTitleColor(.white, for: .normal)
+            selectedMetalButton.backgroundColor = color
+            selectedMetalButton.setTitleColor(.black, for: .normal)
             selectedMetalButton = nonMetal
         } else if (selectedMetalButton != nonMetal){
             selectedMetalButton = nonMetal
@@ -193,10 +194,9 @@ class PlayIdentifyElementsSecondViewController: UIViewController {
             nonMetal.setTitleColor(.black, for: .normal)
         } else {
             selectedMetalButton = nil
-            nonMetal.backgroundColor = .black
-            nonMetal.setTitleColor(.white, for: .normal)
+            nonMetal.backgroundColor = color
+            nonMetal.setTitleColor(.black, for: .normal)
         }
-
     }
 
     @objc func updateProgressView(){

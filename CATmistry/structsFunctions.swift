@@ -166,21 +166,7 @@ var learnTopics = [
         SubTopic(title: "Take the Quiz", pic: "quiz.png", needSlider: false, content: SubContent(definition: ""), subTopics: [], navTitle: "Take the Quiz")
     ], errorLabel: "",questions:
         [
-            QuizQuestion(question: "LOREM IPSUM", options:
-                            [
-                                "wrong",
-                                "correct",
-                                "wrong",
-                                "wrong"
-                            ], correctAnswer: 2),
             
-            QuizQuestion(question: "LOREM IPSUM", options:
-                            [
-                                "wrong",
-                                "wrong",
-                                "correct",
-                                "wrong"
-                            ], correctAnswer: 3),
         ]),
     
     // MARK: - SEPARATION METHODS
@@ -266,21 +252,22 @@ var learnTopics = [
         ],
         errorLabel: "Please complete Chapter 1", questions:
             [
-                QuizQuestion(question: "LOREM IPSUM", options:
-                                [
-                                    "wrong",
-                                    "correct",
-                                    "wrong",
-                                    "wrong"
-                                ], correctAnswer: 2),
+                QuizQuestion(question: "Which of the following is insoluble?", options:
+                                            [
+                                                "Salt",
+                                                "Sugar",
+                                                "Sand",
+                                                "Milo powder"
+                                            ], correctAnswer: 3),
                 
-                QuizQuestion(question: "LOREM IPSUM", options:
-                                [
-                                    "wrong",
-                                    "wrong",
-                                    "correct",
-                                    "wrong"
-                                ], correctAnswer: 3),
+                QuizQuestion(question: "I want to separate some rocks from liquid. Which separation method do I use?", options:
+                                            [
+                                                "Simple distillation",
+                                                "Filtration",
+                                                "Fractional distillation",
+                                                "Separating funnel"
+                                            ], correctAnswer: 2)
+
             ]),
     
     // MARK: - PH AND INDICATORS
@@ -300,21 +287,13 @@ var learnTopics = [
         SubTopic(title: "Take the Quiz", pic: "quiz.png", needSlider: false, content: SubContent(definition: ""), subTopics: [], navTitle: "Take the Quiz")
     ], errorLabel: "Please complete Chapter 2", questions:
         [
-            QuizQuestion(question: "LOREM IPSUM", options:
-                            [
-                                "wrong",
-                                "correct",
-                                "wrong",
-                                "wrong"
-                            ], correctAnswer: 2),
-            
-            QuizQuestion(question: "LOREM IPSUM", options:
-                            [
-                                "wrong",
-                                "wrong",
-                                "correct",
-                                "wrong"
-                            ], correctAnswer: 3),
+            QuizQuestion(question: "Which of the following has the highest pH value?", options:
+                                        [
+                                            "Wine",
+                                            "Water",
+                                            "Lime juice",
+                                            "Caustic soda"
+                                        ], correctAnswer: 4)
         ]),
     // MARK: - PERIODIC TABLE
     Topic(title: "Periodic Table", pic: "periodic-table.png", pointsNeeded: 30, subTopics: [
@@ -368,7 +347,37 @@ var learnTopics = [
                                 "Hhe",
                                 "He"
                             ], correctAnswer: 4),
+            QuizQuestion(question: "What kind of element would you find on the far left-hand side of the periodic table?", options:
+                                        [
+                                            "A metal",
+                                            "A gas",
+                                            "A negative ion",
+                                            "A halogen"
+                                        ], correctAnswer: 1),
             
+            QuizQuestion(question: "which of the following is a noble gas?", options:
+                                        [
+                                            "Nitrogen",
+                                            "Oxygen",
+                                            "Argon",
+                                            "Carbon Dioxide"
+                                        ], correctAnswer: 3),
+            
+            QuizQuestion(question: "What is the lightest element in the periodic table?", options:
+                                        [
+                                            "Helium",
+                                            "Hydrogen",
+                                            "Air",
+                                            "Neon"
+                                        ], correctAnswer: 2),
+            
+            QuizQuestion(question: "What is the atomic number of carbon?", options:
+                                        [
+                                            "2",
+                                            "4",
+                                            "6",
+                                            "8"
+                                        ], correctAnswer: 3)
         ]),
 ]
 
