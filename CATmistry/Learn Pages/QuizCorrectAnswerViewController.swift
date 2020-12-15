@@ -10,7 +10,7 @@ import UIKit
 
 class QuizCorrectAnswerViewController: UIViewController {
     
-    var currentQuestion: Int! = 
+    var currentQuestion: Int!
 
     @IBOutlet var nextQuestionButton: UIButton!
     @IBOutlet var congratsLabel: UILabel!
