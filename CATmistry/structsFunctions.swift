@@ -435,7 +435,75 @@ var learnTopics = [
                                 "4",
                                 "6",
                                 "8"
-                            ], correctAnswer: 3)
+                            ], correctAnswer: 3),
+            
+            QuizQuestion(question: "Which of the following elements have the greatest number of valence electrons?", options: [
+                  "Calcium",
+                  "Fluorine",
+                  "Neon",
+                  "Potassium"], correctAnswer: 3),
+
+
+            QuizQuestion(question: "How are the elements in the Periodic Table arranged?", options: [
+                  "Increasing proton number",
+                  "Decreasing proton number",
+                  "Increasing number of valence electrons",
+                  "Decreasing number of valence electrons"], correctAnswer: 1),
+
+
+            QuizQuestion(question: "Which of the following elements are nobles gases?", options: [
+                  "Calcium",
+                  "Helium",
+                  "Sulfur",
+                  "Iodine"], correctAnswer: 2),
+
+
+            QuizQuestion(question: "What does the number of valence electrons represent in the Periodic Table?", options: [
+                  "Groups",
+                  "Columns",
+                  "Rows",
+                  "Periods"], correctAnswer: 1),
+
+
+            QuizQuestion(question: "Which of the following is a Group I metal?", options: [
+                  "Iron",
+                  "Magnesium",
+                  "Sodium",
+                  "Titanium"], correctAnswer: 3),
+
+            QuizQuestion(question: "Which of the following elements have their valence shell fully occupied?", options: [
+                  "Helium",
+                  "Fluorine",
+                  "Lithium",
+                  "Hydrogen"], correctAnswer: 1),
+
+
+            QuizQuestion(question: "How many electron shells do period 2 elements have?", options: [
+                  "1",
+                  "2",
+                  "3",
+                  "4"], correctAnswer: 2),
+
+
+            QuizQuestion(question: "What is the relative mass of an neutron?", options: [
+                  "0",
+                  "1",
+                  "-1",
+                  "1/1840"], correctAnswer: 2),
+
+
+            QuizQuestion(question: "What is the relative charge of an electron?", options: [
+                  "0",
+                  "1",
+                  "-1",
+                  "1/1840"], correctAnswer: 3),
+
+
+            QuizQuestion(question: "Which of the following is equals to the group number?", options: [
+                  "Number of valence electrons",
+                  "Number of electron shells",
+                  "Number of protons",
+                  "Number of electrons"], correctAnswer: 1)
         ]),
 ]
 
