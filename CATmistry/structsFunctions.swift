@@ -567,6 +567,22 @@ var learnTopics = [
                                 "Silicon",
                                 "Iodine"
                             ], correctAnswer: 4),
+            
+            QuizQuestion(question: "What is the atomic number of Calcium?", options:
+                            [
+                                "19",
+                                "20",
+                                "21",
+                                "22"
+                            ], correctAnswer: 2),
+            
+            QuizQuestion(question: "What is the atomic number of Potassium", options:
+                            [
+                                "12",
+                                "11",
+                                "21",
+                                "19"
+                            ], correctAnswer: 4),
         ]),
     
 ]
