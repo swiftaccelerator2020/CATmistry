@@ -435,7 +435,39 @@ var learnTopics = [
                                 "4",
                                 "6",
                                 "8"
-                            ], correctAnswer: 3)
+                            ], correctAnswer: 3),
+            
+            QuizQuestion(question: "What is the atomic symbol of Hydrogen?", options:
+                            [
+                                "Hy",
+                                "Hyd",
+                                "Hye",
+                                "H"
+                            ], correctAnswer: 4),
+            
+            QuizQuestion(question: "What is the atomic symbol of Nitrogen", options:
+                            [
+                                "N",
+                                "Ni",
+                                "Nt",
+                                "Ny"
+                            ], correctAnswer: 1),
+            
+            QuizQuestion(question: "What is the atomic symbol of Sulfur", options:
+                            [
+                                "Su",
+                                "S",
+                                "Sul",
+                                "Sf"
+                            ], correctAnswer: 2),
+            
+            QuizQuestion(question: "What is the atomic symbol of Carbon", options:
+                            [
+                                "Ca",
+                                "Cb",
+                                "C",
+                                "Car"
+                            ], correctAnswer: 3),
         ]),
 ]
 
