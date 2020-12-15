@@ -2,22 +2,12 @@
   {
     "questions": [
       {
-        "options": [
-          "wrong",
-          "correct",
-          "wrong",
-          "wrong"
-        ],
+        "options": ["wrong", "correct", "wrong", "wrong"],
         "question": "LOREM IPSUM",
         "correctAnswer": 2
       },
       {
-        "options": [
-          "wrong",
-          "wrong",
-          "correct",
-          "wrong"
-        ],
+        "options": ["wrong", "wrong", "correct", "wrong"],
         "question": "LOREM IPSUM",
         "correctAnswer": 3
       }
@@ -101,22 +91,12 @@
   {
     "questions": [
       {
-        "options": [
-          "wrong",
-          "correct",
-          "wrong",
-          "wrong"
-        ],
+        "options": ["wrong", "correct", "wrong", "wrong"],
         "question": "LOREM IPSUM",
         "correctAnswer": 2
       },
       {
-        "options": [
-          "wrong",
-          "wrong",
-          "correct",
-          "wrong"
-        ],
+        "options": ["wrong", "wrong", "correct", "wrong"],
         "question": "LOREM IPSUM",
         "correctAnswer": 3
       }
@@ -208,22 +188,12 @@
   {
     "questions": [
       {
-        "options": [
-          "wrong",
-          "correct",
-          "wrong",
-          "wrong"
-        ],
+        "options": ["wrong", "correct", "wrong", "wrong"],
         "question": "LOREM IPSUM",
         "correctAnswer": 2
       },
       {
-        "options": [
-          "wrong",
-          "wrong",
-          "correct",
-          "wrong"
-        ],
+        "options": ["wrong", "wrong", "correct", "wrong"],
         "question": "LOREM IPSUM",
         "correctAnswer": 3
       }
@@ -424,22 +394,12 @@
   {
     "questions": [
       {
-        "options": [
-          "wrong",
-          "correct",
-          "wrong",
-          "wrong"
-        ],
+        "options": ["wrong", "correct", "wrong", "wrong"],
         "question": "LOREM IPSUM",
         "correctAnswer": 2
       },
       {
-        "options": [
-          "wrong",
-          "wrong",
-          "correct",
-          "wrong"
-        ],
+        "options": ["wrong", "wrong", "correct", "wrong"],
         "question": "LOREM IPSUM",
         "correctAnswer": 3
       }
