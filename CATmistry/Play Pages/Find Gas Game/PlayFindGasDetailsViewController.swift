@@ -15,10 +15,10 @@ class PlayFindGasDetailsViewController: UIViewController {
     var selectedGasTest: Int!
     var currentRound = 0
     @IBOutlet weak var resultsLabel: UILabel!
-    @IBOutlet weak var limewater: UIButton!
-    @IBOutlet weak var lightedSplint: UIButton!
-    @IBOutlet weak var glowingSplint: UIButton!
-    @IBOutlet weak var litmus: UIButton!
+    @IBOutlet weak var limewaterView: UIButton!
+    @IBOutlet weak var lightedSplintView: UIButton!
+    @IBOutlet weak var glowingSplintView: UIButton!
+    @IBOutlet weak var litmusView: UIButton!
     @IBOutlet weak var gas1: UIButton!
     @IBOutlet weak var gas2: UIButton!
     @IBOutlet weak var gas3: UIButton!
@@ -32,7 +32,7 @@ class PlayFindGasDetailsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         submit.isHidden = true
-        resultsLabel.isHidden = true
+//        resultsLabel.isHidden = true
         // Do any additional setup after loading the view.
     }
 
@@ -76,12 +76,12 @@ class PlayFindGasDetailsViewController: UIViewController {
             selectedGasTank = nil
         }
         if selectedGasTest != nil {
-            resultsLabel.isHidden = false
-            if gases.firstGasIsPositive[selectedGasTest] {
-                resultsLabel.text = "positive"
-            } else {
-                resultsLabel.text = "negative"
-            }
+//            resultsLabel.isHidden = false
+//            if gases.firstGasIsPositive[selectedGasTest] {
+//                resultsLabel.text = "positive"
+//            } else {
+//                resultsLabel.text = "negative"
+//            }
             selectedGasTank = nil
             selectedGasTest = nil
             selectedGasTankString = nil
@@ -99,12 +99,12 @@ class PlayFindGasDetailsViewController: UIViewController {
             selectedGasTank = nil
         }
         if selectedGasTest != nil {
-            resultsLabel.isHidden = false
-            if gases.secondGasIsPositive[selectedGasTest] {
-                resultsLabel.text = "positive"
-            } else {
-                resultsLabel.text = "negative"
-            }
+//            resultsLabel.isHidden = false
+//            if gases.secondGasIsPositive[selectedGasTest] {
+//                resultsLabel.text = "positive"
+//            } else {
+//                resultsLabel.text = "negative"
+//            }
             selectedGasTank = nil
             selectedGasTest = nil
             selectedGasTankString = nil
@@ -122,12 +122,12 @@ class PlayFindGasDetailsViewController: UIViewController {
             selectedGasTank = nil
         }
         if selectedGasTest != nil {
-            resultsLabel.isHidden = false
-            if gases.thirdGasIsPositive[selectedGasTest] {
-                resultsLabel.text = "positive"
-            } else {
-                resultsLabel.text = "negative"
-            }
+//            resultsLabel.isHidden = false
+//            if gases.thirdGasIsPositive[selectedGasTest] {
+//                resultsLabel.text = "positive"
+//            } else {
+//                resultsLabel.text = "negative"
+//            }
             selectedGasTank = nil
             selectedGasTest = nil
             selectedGasTankString = nil
@@ -145,12 +145,12 @@ class PlayFindGasDetailsViewController: UIViewController {
             selectedGasTank = nil
         }
         if selectedGasTest != nil {
-            resultsLabel.isHidden = false
-            if gases.forthGasIsPositive[selectedGasTest] {
-                resultsLabel.text = "positive"
-            } else {
-                resultsLabel.text = "negative"
-            }
+//            resultsLabel.isHidden = false
+//            if gases.forthGasIsPositive[selectedGasTest] {
+//                resultsLabel.text = "positive"
+//            } else {
+//                resultsLabel.text = "negative"
+//            }
             selectedGasTank = nil
             selectedGasTest = nil
             selectedGasTankString = nil

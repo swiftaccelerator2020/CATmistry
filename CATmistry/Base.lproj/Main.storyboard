@@ -485,7 +485,7 @@ As your cat can only live in a certain type of gas, your task is to use your kno
                         <outlet property="gas3" destination="Zxr-rR-eiJ" id="9XJ-2g-mFE"/>
                         <outlet property="gas4" destination="z16-tg-6Es" id="xzm-Vh-g4k"/>
                         <outlet property="glowingSplint" destination="pBq-gU-2rM" id="JRh-xS-loH"/>
-                        <outlet property="lightedSplint" destination="32Y-1a-X4p" id="Y3z-7m-pdC"/>
+                        <outlet property="lightedSplintView" destination="32Y-1a-X4p" id="Y3z-7m-pdC"/>
                         <outlet property="limewater" destination="ZFE-aE-OuH" id="EBi-af-WPS"/>
                         <outlet property="litmus" destination="5uV-I7-wA5" id="szk-0F-YrS"/>
                         <outlet property="submit" destination="IZ0-0H-Ysw" id="eTB-pn-iho"/>
@@ -2990,8 +2990,8 @@ Your answer was wrong, but don't worry! You have \(String(10 - currentQuestion))
         <segue reference="YEM-b9-J01"/>
         <segue reference="s4T-H5-cTx"/>
         <segue reference="l86-7T-ukz"/>
-        <segue reference="GDV-4V-Yxl"/>
-        <segue reference="1zV-QA-rV2"/>
+        <segue reference="8zc-2j-Gbh"/>
+        <segue reference="xa7-EN-bjL"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="books.vertical.fill" catalog="system" width="128" height="100"/>
