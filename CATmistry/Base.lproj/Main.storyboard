@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="DyY-vl-FYk">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="DyY-vl-FYk">
     <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -438,13 +438,13 @@ As your cat can only live in a certain type of gas, your task is to use your kno
                                 </constraints>
                             </stackView>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="p1h-t2-lUh">
-                                <rect key="frame" x="25" y="239" width="340" height="310"/>
+                                <rect key="frame" x="25" y="249" width="340" height="290"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UuK-ME-cyu">
-                                        <rect key="frame" x="0.0" y="0.0" width="340" height="310"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="340" height="290"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fem-Ps-gaG">
-                                                <rect key="frame" x="20" y="30" width="300" height="100"/>
+                                                <rect key="frame" x="20" y="110" width="300" height="100"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VK4-vz-F0U">
                                                         <rect key="frame" x="0.0" y="0.0" width="75" height="100"/>
@@ -534,21 +534,42 @@ As your cat can only live in a certain type of gas, your task is to use your kno
                                                     <constraint firstItem="Mba-TN-Dj4" firstAttribute="width" secondItem="VK4-vz-F0U" secondAttribute="width" id="pbB-L3-hXH"/>
                                                 </constraints>
                                             </stackView>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hkd-yq-HKg">
-                                                <rect key="frame" x="146" y="176" width="49" height="30"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <state key="normal" title="Submit"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hkd-yq-HKg">
+                                                <rect key="frame" x="40" y="225" width="260" height="50"/>
+                                                <color key="backgroundColor" red="0.9916279912" green="0.76091009379999996" blue="0.068631619219999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="50" id="fhH-3R-0st"/>
+                                                </constraints>
+                                                <state key="normal" title="Submit">
+                                                    <color key="titleColor" systemColor="labelColor"/>
+                                                </state>
                                                 <connections>
                                                     <action selector="submitChoice:" destination="qsu-L3-DGc" eventType="touchUpInside" id="qpU-qr-w0s"/>
                                                 </connections>
                                             </button>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dKZ-zl-Phq">
+                                                <rect key="frame" x="40" y="30" width="260" height="50"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="50" id="C4n-tZ-yyQ"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                         </subviews>
                                         <color key="backgroundColor" red="0.4953809381" green="0.67837697269999997" blue="0.85103112459999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="310" id="8du-vq-5VT"/>
+                                            <constraint firstAttribute="height" constant="290" id="8du-vq-5VT"/>
+                                            <constraint firstItem="Fem-Ps-gaG" firstAttribute="top" secondItem="dKZ-zl-Phq" secondAttribute="bottom" constant="30" id="AWO-O8-k2Z"/>
                                             <constraint firstItem="Fem-Ps-gaG" firstAttribute="leading" secondItem="UuK-ME-cyu" secondAttribute="leading" constant="20" id="CjJ-WF-FNz"/>
-                                            <constraint firstItem="Fem-Ps-gaG" firstAttribute="top" secondItem="UuK-ME-cyu" secondAttribute="top" constant="30" id="bLB-NM-8wk"/>
+                                            <constraint firstAttribute="bottom" secondItem="Hkd-yq-HKg" secondAttribute="bottom" constant="15" id="ND1-hk-xjs"/>
+                                            <constraint firstItem="Hkd-yq-HKg" firstAttribute="leading" secondItem="UuK-ME-cyu" secondAttribute="leading" constant="40" id="Nhr-LD-jRo"/>
+                                            <constraint firstItem="dKZ-zl-Phq" firstAttribute="leading" secondItem="UuK-ME-cyu" secondAttribute="leading" constant="40" id="PVv-Gf-tMo"/>
+                                            <constraint firstItem="dKZ-zl-Phq" firstAttribute="top" secondItem="UuK-ME-cyu" secondAttribute="top" constant="30" id="WS9-R5-zhk"/>
+                                            <constraint firstAttribute="trailing" secondItem="Hkd-yq-HKg" secondAttribute="trailing" constant="40" id="keJ-Dh-gkY"/>
                                             <constraint firstAttribute="trailing" secondItem="Fem-Ps-gaG" secondAttribute="trailing" constant="20" id="oZf-MM-2I6"/>
+                                            <constraint firstAttribute="trailing" secondItem="dKZ-zl-Phq" secondAttribute="trailing" constant="40" id="rip-He-7FS"/>
+                                            <constraint firstItem="Hkd-yq-HKg" firstAttribute="top" secondItem="Fem-Ps-gaG" secondAttribute="bottom" constant="15" id="uFV-96-1Lp"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -587,12 +608,12 @@ As your cat can only live in a certain type of gas, your task is to use your kno
                             <constraint firstItem="HSf-1d-jg6" firstAttribute="top" secondItem="fgY-OB-NKG" secondAttribute="bottom" constant="20" id="UBZ-cV-Ft9"/>
                             <constraint firstItem="tDL-B1-4sj" firstAttribute="top" secondItem="9RP-HW-EJm" secondAttribute="bottom" id="Ybk-5K-iuI"/>
                             <constraint firstAttribute="bottom" secondItem="cWk-gy-0aZ" secondAttribute="bottom" id="a7b-Ri-wPG"/>
-                            <constraint firstItem="9RP-HW-EJm" firstAttribute="top" secondItem="p1h-t2-lUh" secondAttribute="bottom" constant="15" id="ayb-e2-OSJ"/>
+                            <constraint firstItem="9RP-HW-EJm" firstAttribute="top" secondItem="p1h-t2-lUh" secondAttribute="bottom" constant="25" id="ayb-e2-OSJ"/>
                             <constraint firstItem="LtP-tT-GK7" firstAttribute="trailing" secondItem="fgY-OB-NKG" secondAttribute="trailing" constant="25" id="dxY-F0-iXb"/>
                             <constraint firstItem="9RP-HW-EJm" firstAttribute="leading" secondItem="gvt-65-gMM" secondAttribute="leading" constant="130" id="ho5-dz-haD"/>
                             <constraint firstItem="tDL-B1-4sj" firstAttribute="leading" secondItem="LtP-tT-GK7" secondAttribute="leading" id="omX-QH-wL3"/>
                             <constraint firstItem="cWk-gy-0aZ" firstAttribute="top" secondItem="tDL-B1-4sj" secondAttribute="bottom" id="rre-AY-a0k"/>
-                            <constraint firstItem="p1h-t2-lUh" firstAttribute="top" secondItem="HSf-1d-jg6" secondAttribute="bottom" constant="15" id="vTT-Hq-UrX"/>
+                            <constraint firstItem="p1h-t2-lUh" firstAttribute="top" secondItem="HSf-1d-jg6" secondAttribute="bottom" constant="25" id="vTT-Hq-UrX"/>
                             <constraint firstItem="p1h-t2-lUh" firstAttribute="leading" secondItem="LtP-tT-GK7" secondAttribute="leading" constant="25" id="xUk-yp-cjt"/>
                             <constraint firstItem="HSf-1d-jg6" firstAttribute="leading" secondItem="LtP-tT-GK7" secondAttribute="leading" constant="25" id="zep-Wq-Rfr"/>
                         </constraints>
@@ -1949,39 +1970,6 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
             </objects>
             <point key="canvasLocation" x="-89.230769230769226" y="2752.6066350710898"/>
         </scene>
-        <!--Quiz Ended View Controller-->
-        <scene sceneID="vSM-Tt-jq0">
-            <objects>
-                <viewController id="Mja-L5-YzK" customClass="QuizEndedViewController" customModule="CATmistry" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="YZN-dd-Rqs">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="OH WOW HEY IT ENDED CONGRATS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MXM-Q2-IvE">
-                                <rect key="frame" x="16" y="305" width="343" height="26"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v32-NS-slu">
-                                <rect key="frame" x="167" y="482" width="57" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Go back"/>
-                                <connections>
-                                    <action selector="goBackButton:" destination="Mja-L5-YzK" eventType="touchUpInside" id="ZIP-iE-dA8"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="IDc-lP-hxp"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="MSv-Kg-iaY"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ERJ-iw-vIi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3169.2307692307691" y="1264.6919431279621"/>
-        </scene>
         <!--Learn-->
         <scene sceneID="NwW-Ny-3ld">
             <objects>
@@ -2511,7 +2499,7 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QUe-cY-thK">
-                                <rect key="frame" x="0.0" y="148.33333333333331" width="390" height="612.66666666666674"/>
+                                <rect key="frame" x="0.0" y="140" width="390" height="621"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zMu-Qc-3rs">
                                         <rect key="frame" x="0.0" y="0.0" width="390" height="590"/>
@@ -2539,7 +2527,7 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Attribute 2" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cYj-Ro-1Mx">
-                                                <rect key="frame" x="25" y="360.33333333333337" width="340" height="20.333333333333314"/>
+                                                <rect key="frame" x="25" y="360.33333333333331" width="340" height="20.333333333333314"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -2901,7 +2889,6 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
                         <outlet property="optionTwo" destination="LyK-ju-RcJ" id="HdT-1D-7Rh"/>
                         <outlet property="questionLabel" destination="cl8-Nd-3wn" id="JQ7-ed-Tgr"/>
                         <outlet property="timeLeft" destination="EEk-UP-cq2" id="yC3-cB-Bk1"/>
-                        <segue destination="Mja-L5-YzK" kind="presentation" identifier="quizEnded" modalPresentationStyle="fullScreen" id="7pn-4B-FUl"/>
                         <segue destination="RR3-9Q-TX8" kind="presentation" identifier="correctAns" modalPresentationStyle="fullScreen" id="ROw-ex-BKY"/>
                         <segue destination="G5l-IS-oK1" kind="presentation" identifier="wrongAns" modalPresentationStyle="fullScreen" id="Kge-nE-YUa"/>
                     </connections>

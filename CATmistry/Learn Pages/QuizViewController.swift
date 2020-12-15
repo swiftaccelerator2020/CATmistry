@@ -19,6 +19,8 @@ class QuizViewController: UIViewController {
 
     var index = 0
     var question: [QuizQuestion]!
+    var correctAnswers = 0
+    var wrongAnswers = 0
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,10 +43,10 @@ class QuizViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         timeLeft.progress = 0
 
-        if (index >= question.count){
-            stopTimer()
-            performSegue(withIdentifier: "quizEnded", sender: nil)
-        } else {
+//        if (index >= question.count){
+//            stopTimer()
+//            performSegue(withIdentifier: "quizEnded", sender: nil)
+//        } else {
 
             optionOne.setTitle(question[index].options[0], for: .normal)
 
@@ -58,15 +60,17 @@ class QuizViewController: UIViewController {
 
             self.progressBarTimer = Timer.scheduledTimer(timeInterval: 0.025, target: self, selector: #selector(QuizViewController.updateProgressView), userInfo: nil, repeats: true)
 
-        }
+//        }
     }
 
     @IBAction func optionOneClicked(_ sender: Any) {
         stopTimer()
         if (question[index].correctAnswer == 1) {
             performSegue(withIdentifier: "correctAns", sender: nil)
+            correctAnswers += 1
         } else {
             performSegue(withIdentifier: "wrongAns", sender: nil)
+            wrongAnswers += 1
         }
         index += 1
     }
@@ -75,8 +79,10 @@ class QuizViewController: UIViewController {
         stopTimer()
         if (question[index].correctAnswer == 2) {
             performSegue(withIdentifier: "correctAns", sender: nil)
+            correctAnswers += 1
         } else {
             performSegue(withIdentifier: "wrongAns", sender: nil)
+            wrongAnswers += 1
         }
         index += 1
     }
@@ -85,8 +91,10 @@ class QuizViewController: UIViewController {
         stopTimer()
         if (question[index].correctAnswer == 3) {
             performSegue(withIdentifier: "correctAns", sender: nil)
+            correctAnswers += 1
         } else {
             performSegue(withIdentifier: "wrongAns", sender: nil)
+            wrongAnswers += 1
         }
         index += 1
     }
@@ -95,8 +103,10 @@ class QuizViewController: UIViewController {
         stopTimer()
         if (question[index].correctAnswer == 4) {
             performSegue(withIdentifier: "correctAns", sender: nil)
+            correctAnswers += 1
         } else {
             performSegue(withIdentifier: "wrongAns", sender: nil)
+            wrongAnswers += 1
         }
         index += 1
     }
@@ -110,9 +120,13 @@ class QuizViewController: UIViewController {
         if segue.identifier == "correctAns" {
             let destVC = segue.destination as! QuizCorrectAnswerViewController
             destVC.currentQuestion = index
+            destVC.correctAnswers = correctAnswers
+            destVC.wrongAnswers = wrongAnswers
         } else if segue.identifier == "wrongAns" {
             let destVC = segue.destination as! QuizWrongAnswerViewController
             destVC.currentQuestion = index
+            destVC.correctAnswers = correctAnswers
+            destVC.wrongAnswers = wrongAnswers
         }
      }
 
