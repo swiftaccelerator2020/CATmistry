@@ -20,7 +20,6 @@ class LearnHomePageTableViewController: UITableViewController {
         navbar.backgroundColor = UIColor(red: 242/255, green: 214/255, blue: 112/255, alpha: 1)
         self.navigationController?.navigationBar.scrollEdgeAppearance = navbar
 
-        points = 10000
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false

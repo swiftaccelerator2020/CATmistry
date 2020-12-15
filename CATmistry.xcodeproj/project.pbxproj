@@ -31,6 +31,10 @@
 		26CD2F23257F670B002705D1 /* PlayWrongAnswerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26CD2F22257F670B002705D1 /* PlayWrongAnswerViewController.swift */; };
 		26DDE2A4257483B200FDC078 /* LearnSubSubTopicDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26DDE2A3257483B200FDC078 /* LearnSubSubTopicDetailsViewController.swift */; };
 		26EA43222584C15E00AD5BD0 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26EA43212584C15E00AD5BD0 /* SettingsTableViewController.swift */; };
+		5415C4172588E0610072B3E2 /* OpenDyslexic-Italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 5415C4132588E0610072B3E2 /* OpenDyslexic-Italic.otf */; };
+		5415C4182588E0610072B3E2 /* OpenDyslexic-BoldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 5415C4142588E0610072B3E2 /* OpenDyslexic-BoldItalic.otf */; };
+		5415C4192588E0610072B3E2 /* OpenDyslexic-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 5415C4152588E0610072B3E2 /* OpenDyslexic-Bold.otf */; };
+		5415C41A2588E0610072B3E2 /* OpenDyslexic-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 5415C4162588E0610072B3E2 /* OpenDyslexic-Regular.otf */; };
 		54788FCD25863A2F00A16CD2 /* QuizEndedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54788FCC25863A2F00A16CD2 /* QuizEndedViewController.swift */; };
 		547F0AD92570F5F900A224D9 /* LearnHomePageTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 547F0AD82570F5F900A224D9 /* LearnHomePageTableViewController.swift */; };
 		547F0ADE2570F66E00A224D9 /* LearnHomePageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 547F0ADD2570F66E00A224D9 /* LearnHomePageTableViewCell.swift */; };
@@ -97,6 +101,10 @@
 		2F20F908644330A99E65D047 /* Pods-CATmistryTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CATmistryTests.debug.xcconfig"; path = "Target Support Files/Pods-CATmistryTests/Pods-CATmistryTests.debug.xcconfig"; sourceTree = "<group>"; };
 		462BC2A50FADBCEE81DEA261 /* Pods-CATmistry.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CATmistry.release.xcconfig"; path = "Target Support Files/Pods-CATmistry/Pods-CATmistry.release.xcconfig"; sourceTree = "<group>"; };
 		49DA23714213562AA54B3120 /* Pods_CATmistry.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CATmistry.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5415C4132588E0610072B3E2 /* OpenDyslexic-Italic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenDyslexic-Italic.otf"; sourceTree = "<group>"; };
+		5415C4142588E0610072B3E2 /* OpenDyslexic-BoldItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenDyslexic-BoldItalic.otf"; sourceTree = "<group>"; };
+		5415C4152588E0610072B3E2 /* OpenDyslexic-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenDyslexic-Bold.otf"; sourceTree = "<group>"; };
+		5415C4162588E0610072B3E2 /* OpenDyslexic-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenDyslexic-Regular.otf"; sourceTree = "<group>"; };
 		54788FCC25863A2F00A16CD2 /* QuizEndedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizEndedViewController.swift; sourceTree = "<group>"; };
 		547F0AD82570F5F900A224D9 /* LearnHomePageTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearnHomePageTableViewController.swift; sourceTree = "<group>"; };
 		547F0ADD2570F66E00A224D9 /* LearnHomePageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearnHomePageTableViewCell.swift; sourceTree = "<group>"; };
@@ -179,6 +187,7 @@
 		2613B0332570DB8C00EECB4C /* CATmistry */ = {
 			isa = PBXGroup;
 			children = (
+				5415C4112588E0610072B3E2 /* Fonts */,
 				54FEFB172578609C0054CFF9 /* Learn Pages */,
 				54FEFB122578603A0054CFF9 /* Play Pages */,
 				2644004B258641F800ACFFEC /* Settings Pages */,
@@ -218,6 +227,25 @@
 				26EA43212584C15E00AD5BD0 /* SettingsTableViewController.swift */,
 			);
 			path = "Settings Pages";
+			sourceTree = "<group>";
+		};
+		5415C4112588E0610072B3E2 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				5415C4122588E0610072B3E2 /* open_dyslexic */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		5415C4122588E0610072B3E2 /* open_dyslexic */ = {
+			isa = PBXGroup;
+			children = (
+				5415C4132588E0610072B3E2 /* OpenDyslexic-Italic.otf */,
+				5415C4142588E0610072B3E2 /* OpenDyslexic-BoldItalic.otf */,
+				5415C4152588E0610072B3E2 /* OpenDyslexic-Bold.otf */,
+				5415C4162588E0610072B3E2 /* OpenDyslexic-Regular.otf */,
+			);
+			path = open_dyslexic;
 			sourceTree = "<group>";
 		};
 		54FEFB122578603A0054CFF9 /* Play Pages */ = {
@@ -423,9 +451,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5415C4172588E0610072B3E2 /* OpenDyslexic-Italic.otf in Resources */,
 				2613B0412570DB9000EECB4C /* LaunchScreen.storyboard in Resources */,
+				5415C4182588E0610072B3E2 /* OpenDyslexic-BoldItalic.otf in Resources */,
 				2613B03E2570DB9000EECB4C /* Assets.xcassets in Resources */,
 				2613B03C2570DB8C00EECB4C /* Main.storyboard in Resources */,
+				5415C4192588E0610072B3E2 /* OpenDyslexic-Bold.otf in Resources */,
+				5415C41A2588E0610072B3E2 /* OpenDyslexic-Regular.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

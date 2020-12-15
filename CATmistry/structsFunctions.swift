@@ -309,7 +309,55 @@ var learnTopics = [
                       "Sublimation",
                       "Diffusion",
                       "Filtration"], correctAnswer: 4),
+                
+                QuizQuestion(question: "What information can be obtained from the melting and boiling point of a substance?", options: [
+                      "Weight of substance",
+                      "Density of substance",
+                      "Purity",
+                      "Head conductivity"], correctAnswer: 3),
+                
+                QuizQuestion(question: "What separation method can be used to obtain Ethanol (boils at 78°C) mixed with water (boils at 100°C)", options: [
+                      "Simple distillation",
+                      "Filtration",
+                      "Evaporation to dryness",
+                      "Fractional distillation"], correctAnswer: 4),
+                
+                QuizQuestion(question: "Which solutions can be separated with crystallisation", options: [
+                      "Sugar and salt",
+                      "Iron and salt",
+                      "Potassium chloride and salt",
+                      "Sulfur dioxide and salt"], correctAnswer: 1),
+                
+                QuizQuestion(question: "Which apparatus is not used for simple distillation", options: [
+                      "Boiling Chips",
+                      "Fractionating column",
+                      "Thermometer",
+                      "Condenser"], correctAnswer: 2),
 
+                QuizQuestion(question: "Which substance is best separated with filtration?", options: [
+                                      "Diesel from crude oil",
+                                      "Water from a mixture of water and sand",
+                                      "Orange fibre from orange juice",
+                                      "Different inks from a mixture of inks"
+                                ], correctAnswer: 3),
+                
+                QuizQuestion(question: "When is crystallisation used", options: [
+                      "When evaporation to dryness cannot be used",
+                      "When the solvent needs to be obtained in a very pure form",
+                      "When heat cannot be used",
+                      "When substances being separated have a very high boiling point"], correctAnswer: 2),
+                
+                QuizQuestion(question: "Chromatography works because:", options: [
+                      "Substances travel at different rates up the paper",
+                      "Not all substances are soluble in the solvent",
+                      "The solvent travels up the paper at a different rate",
+                      "Substances have a different rate and travel up the paper at different rates"], correctAnswer: 1),
+                
+                QuizQuestion(question: "What is the use of chromatography", options: [
+                      "Getting a large amount of salt from water",
+                      "Separating paint into different colors for painting",
+                      "Removing water from fruit juice",
+                      "Checking if ink is genuine"], correctAnswer: 4)
             ]),
 
     // MARK: - PH AND INDICATORS
@@ -392,7 +440,48 @@ var learnTopics = [
                                 "ionises completely when it is dissolved in water",
                                 "contains oxygen"
                             ], correctAnswer: 3),
+            
+            QuizQuestion(question: "What is the pH value of any acidic solution?", options: [
+                                  "pH 7",
+                                  "Below pH 7",
+                                  "pH 14",
+                                  "Above pH 14"
+                            ], correctAnswer: 2),
+            
+            QuizQuestion(question: "If air is bubbled through pure water, the pH slowly changes from 7 to 5.7. Which of the following gases in the air could be responsible for this change?", options: [
+                                  "Carbon Monoxide",
+                                  "Carbon Dioxide",
+                                  "Oxygen",
+                                  "Nitrogen"
+                            ], correctAnswer: 2),
+            
+            QuizQuestion(question: "predict the colour of the universal indicator in lemon juice", options: [
+                                  "Green",
+                                  "Blue",
+                                  "Orange",
+                                  "Rainbow colour"
+                            ], correctAnswer: 3),
+            
+            QuizQuestion(question: "Which  substance  does not produce  copper(II)  sulfate  when  added  to  dilute sulfuric acid?", options: [
+                                  "Copper",
+                                  "Copper(II) hydroxide",
+                                  "Copper(II) oxide",
+                                  "Copper(II) carbonate"
+                            ], correctAnswer: 1),
+            
+            QuizQuestion(question: "Which of the following is the correct ionic equation for neutralisation?", options: [
+                                  "H⁺ (g) + OH⁻ (aq) -> H₂O (l)",
+                                  "H⁺ (aq) + OH⁻ (aq) -> H₂O (l)",
+                                  "H⁺ (aq) + OH⁻ (aq) -> H₂O (aq)",
+                                  "H⁺ (g) + OH⁻ (aq) -> H₂O (aq)"
+                            ], correctAnswer: 2),
 
+            QuizQuestion(question: "The pH of an aqueous solution of hydrochloric acid is 2. What is the pH of the solution when  10g of sodium chloride (neutral salt) is added to it?", options: [
+                                  "1",
+                                  "2",
+                                  "7",
+                                  "9"
+                            ], correctAnswer: 2),
         ]),
     // MARK: - PERIODIC TABLE
     Topic(title: "Periodic Table", pic: "periodic-table.png", pointsNeeded: 30, subTopics: [
@@ -538,6 +627,7 @@ var learnTopics = [
                             "Number of electron shells",
                             "Number of protons",
                             "Number of electrons"], correctAnswer: 1),
+            
             QuizQuestion(question: "What is the atomic symbol of Hydrogen?", options:
                             [
                                 "Hy",
