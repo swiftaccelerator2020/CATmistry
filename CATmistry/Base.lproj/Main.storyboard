@@ -2340,7 +2340,7 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QUe-cY-thK">
-                                <rect key="frame" x="0.0" y="148.33333333333331" width="390" height="612.66666666666652"/>
+                                <rect key="frame" x="0.0" y="148.33333333333331" width="390" height="612.66666666666674"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zMu-Qc-3rs">
                                         <rect key="frame" x="0.0" y="0.0" width="390" height="590"/>
@@ -2482,7 +2482,7 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
                             <constraint firstItem="afs-NH-58h" firstAttribute="bottom" secondItem="QUe-cY-thK" secondAttribute="bottom" id="nUG-9P-4cq"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Sub Sub Topic Details" id="mw7-i7-Hak"/>
+                    <navigationItem key="navigationItem" title="Sub Sub Topic Details" largeTitleDisplayMode="always" id="mw7-i7-Hak"/>
                     <connections>
                         <outlet property="contentView" destination="zMu-Qc-3rs" id="hQI-V5-1vN"/>
                         <outlet property="firstAttributeLabel" destination="gbb-p3-Sjw" id="Kyb-c0-LuZ"/>
