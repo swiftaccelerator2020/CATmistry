@@ -266,7 +266,74 @@ var learnTopics = [
                                     "Filtration",
                                     "Fractional distillation",
                                     "Separating funnel"
-                                ], correctAnswer: 2)
+                                ], correctAnswer: 2),
+                
+                QuizQuestion(question: "What is not needed in the process of filtration?", options:
+                                [
+                                    "Filter funnel",
+                                    "Test Tube",
+                                    "Filter paper",
+                                    "Gravity"
+                                ], correctAnswer: 2),
+                
+                QuizQuestion(question: "What is the difference between simple and fractional distillation?", options:
+                                [
+                                    "Fractional distillation is more complex",
+                                    "One is simple and one is not",
+                                    "Simple distillation uses a fractioning columm",
+                                    "Fractional distillation is simpler"
+                                ], correctAnswer: 1),
+                
+                QuizQuestion(question: "Which of the following can be seperated by magnetic seperation?", options:
+                                [
+                                    "Chocolate and ice",
+                                    "Salt and sugar",
+                                    "Gummy bears and gum",
+                                    "Sand and iron filings"
+                                ], correctAnswer: 4),
+                
+                QuizQuestion(question: "Which solutions can be separated with crystallisation", options: [
+                      "Sugar and salt",
+                      "Iron and salt",
+                      "Potassium chloride and salt",
+                      "Sulfur dioxide and salt"
+                ], correctAnswer: 1),
+                
+                QuizQuestion(question: "Which apparatus is not used for simple distillation", options: [
+                      "Boiling Chips",
+                      "Fractionating column",
+                      "Thermometer",
+                      "Condenser"
+                ], correctAnswer: 2),
+                
+                QuizQuestion(question: "What information can be obtained from the melting and boiling point of a substance?", options: [
+                      "Weight of substance",
+                      "Density of substance",
+                      "Purity",
+                      "Head conductivity"
+                ], correctAnswer: 3),
+                
+                QuizQuestion(question: "What separation method can be used to obtain Ethanol (boils at 78°C) mixed with water (boils at 100°C)", options: [
+                      "Simple distillation",
+                      "Filtration",
+                      "Evaporation to dryness",
+                      "Fractional distillation"
+                ], correctAnswer: 4),
+                        
+                QuizQuestion(question: "Which of the following can be separated using magnetic attraction", options: [
+                      "Iron and Plastic",
+                      "Steel and Gold",
+                      "Nickel and Cobalt",
+                      "Rubber and Plastic"
+                ], correctAnswer: 1),
+
+                QuizQuestion(question: "Which equipments are NOT needed for filtration", options: [
+                      "Filter funnel",
+                      "Filter paper",
+                      "Bunsen burner",
+                      "Beaker"
+                ], correctAnswer: 3),
+                
                 
             ]),
     
