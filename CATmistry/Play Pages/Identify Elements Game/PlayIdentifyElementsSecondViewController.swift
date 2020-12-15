@@ -77,8 +77,8 @@ class PlayIdentifyElementsSecondViewController: UIViewController {
         if (selectedButton != groupOne && selectedButton != nil){
             groupOne.backgroundColor = .green
             groupOne.setTitleColor(.black, for: .normal)
-            selectedButton.backgroundColor = .black
-            selectedButton.setTitleColor(.white, for: .normal)
+            selectedButton.backgroundColor = .white
+            selectedButton.setTitleColor(.black, for: .normal)
             selectedButton = groupOne
         } else if (selectedButton != groupOne){
             selectedButton = groupOne
@@ -86,8 +86,8 @@ class PlayIdentifyElementsSecondViewController: UIViewController {
             groupOne.setTitleColor(.black, for: .normal)
         } else {
             selectedButton = nil
-            groupOne.backgroundColor = .black
-            groupOne.setTitleColor(.white, for: .normal)
+            groupOne.backgroundColor = .white
+            groupOne.setTitleColor(.black, for: .normal)
         }
     }
 
@@ -95,8 +95,8 @@ class PlayIdentifyElementsSecondViewController: UIViewController {
         if (selectedButton != groupTwo && selectedButton != nil){
             groupTwo.backgroundColor = .green
             groupTwo.setTitleColor(.black, for: .normal)
-            selectedButton.backgroundColor = .black
-            selectedButton.setTitleColor(.white, for: .normal)
+            selectedButton.backgroundColor = .white
+            selectedButton.setTitleColor(.black, for: .normal)
             selectedButton = groupTwo
         } else if (selectedButton != groupTwo){
             selectedButton = groupTwo
@@ -104,8 +104,8 @@ class PlayIdentifyElementsSecondViewController: UIViewController {
             groupTwo.setTitleColor(.black, for: .normal)
         } else {
             selectedButton = nil
-            groupTwo.backgroundColor = .black
-            groupTwo.setTitleColor(.white, for: .normal)
+            groupTwo.backgroundColor = .white
+            groupTwo.setTitleColor(.black, for: .normal)
         }
     }
 
@@ -113,8 +113,8 @@ class PlayIdentifyElementsSecondViewController: UIViewController {
         if (selectedButton != groupThree && selectedButton != nil){
             groupThree.backgroundColor = .green
             groupThree.setTitleColor(.black, for: .normal)
-            selectedButton.backgroundColor = .black
-            selectedButton.setTitleColor(.white, for: .normal)
+            selectedButton.backgroundColor = .white
+            selectedButton.setTitleColor(.black, for: .normal)
             selectedButton = groupThree
         } else if (selectedButton != groupThree){
             selectedButton = groupThree
@@ -122,8 +122,8 @@ class PlayIdentifyElementsSecondViewController: UIViewController {
             groupThree.setTitleColor(.black, for: .normal)
         } else {
             selectedButton = nil
-            groupThree.backgroundColor = .black
-            groupThree.setTitleColor(.white, for: .normal)
+            groupThree.backgroundColor = .white
+            groupThree.setTitleColor(.black, for: .normal)
         }
     }
 
@@ -131,8 +131,8 @@ class PlayIdentifyElementsSecondViewController: UIViewController {
         if (selectedButton != groupFour && selectedButton != nil){
             groupFour.backgroundColor = .green
             groupFour.setTitleColor(.black, for: .normal)
-            selectedButton.backgroundColor = .black
-            selectedButton.setTitleColor(.white, for: .normal)
+            selectedButton.backgroundColor = .white
+            selectedButton.setTitleColor(.black, for: .normal)
             selectedButton = groupFour
         } else if (selectedButton != groupFour){
             selectedButton = groupFour
@@ -140,10 +140,9 @@ class PlayIdentifyElementsSecondViewController: UIViewController {
             groupFour.setTitleColor(.black, for: .normal)
         } else {
             selectedButton = nil
-            groupFour.backgroundColor = .black
-            groupFour.setTitleColor(.white, for: .normal)
+            groupFour.backgroundColor = .white
+            groupFour.setTitleColor(.black, for: .normal)
         }
-
     }
 
     @IBAction func metal(_ sender: Any) {
