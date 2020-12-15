@@ -23,7 +23,7 @@ class PlayIdentifyElementsSecondViewController: UIViewController {
     var currentRound = 0
 
     var progressBarTimer: Timer!
-    var gameTopic: periodicTableGame!
+    var gameTopic: PeriodicTableGame!
     var timeLeftTrack: Int!
     var level: Int!
 

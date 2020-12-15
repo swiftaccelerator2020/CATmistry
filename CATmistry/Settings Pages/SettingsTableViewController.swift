@@ -164,7 +164,7 @@ class SettingsTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: settingsContentArray[indexPath.section][indexPath.row].type, for: indexPath)
-
+        
         // Configure the cell...
         if let cell = cell as? SettingsTableViewCell {
             if cell.reuseIdentifier != "shareCell" && cell.reuseIdentifier != "buttonCell" {
