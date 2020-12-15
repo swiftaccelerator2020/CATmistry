@@ -11,6 +11,8 @@ import UIKit
 class QuizCorrectAnswerViewController: UIViewController {
 
     var currentQuestion: Int!
+    var correctAnswers: Int!
+    var wrongAnswers: Int!
 
     @IBOutlet var nextQuestionButton: UIButton!
     @IBOutlet var congratsLabel: UILabel!
@@ -23,9 +25,17 @@ class QuizCorrectAnswerViewController: UIViewController {
         nextQuestionButton.layer.cornerRadius = 25
 
         if 9 - currentQuestion == 0 {
-            congratsLabel.text = ""
+            if correctAnswers >= 7 {
+                congratsLabel.text = "Well done! You got the answer right. \n\nThe quiz has come to an end, and you got \(String(correctAnswers)) of 10 questions right. Excellent!"
+            } else {
+                congratsLabel.text = "Well done! You got the answer right. \n\nHowever, you only scored \(String(correctAnswers)) out of 10 in this quiz. You need at least 7 out of 10 to pass. Try harder next time!"
+            }
         } else {
             congratsLabel.text = "Well done! You got the answer right. \n\nYou have \(String(9 - currentQuestion)) questions left in this quiz, keep up the good work!"
+        }
+        
+        if 9 - currentQuestion == 0 {
+            goBackLearningButton.isHidden = true
         }
 
         let confettiView = SwiftConfettiView(frame: view.bounds)
