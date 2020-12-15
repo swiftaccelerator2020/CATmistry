@@ -26,7 +26,7 @@ class PlayIdentifyElementsSecondViewController: UIViewController {
     var gameTopic: periodicTableGame!
     var timeLeftTrack: Int!
     var level: Int!
-    
+
     let color = UIColor(red: 245/255.0, green: 214/255.0, blue: 224/255.0, alpha: 1)
 
     override func viewDidLoad() {

@@ -9,11 +9,11 @@ import SwiftConfettiView
 import UIKit
 
 class QuizStartViewController: UIViewController {
-    
+
     var question: [QuizQuestion]!
 
     @IBOutlet weak var startButton: UIButton!
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -21,20 +21,20 @@ class QuizStartViewController: UIViewController {
         tabBarController?.tabBar.isHidden = true
         navigationController?.setNavigationBarHidden(true, animated: false)
         startButton.layer.cornerRadius = 15
-        
+
         let confettiView = SwiftConfettiView(frame: view.bounds)
         view.addSubview(confettiView)
         confettiView.isUserInteractionEnabled = false
         confettiView.startConfetti()
     }
-    
+
     @IBAction func goBackPressed(_ sender: Any) {
         tabBarController?.tabBar.isHidden = false
         navigationController?.setNavigationBarHidden(false, animated: false)
         self.navigationController?.popViewController(animated: true)
     }
-    
-    
+
+
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -46,6 +46,6 @@ class QuizStartViewController: UIViewController {
             destVC.question = question
         }
     }
-    
+
 
 }
