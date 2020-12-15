@@ -2140,7 +2140,7 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
                     <navigationItem key="navigationItem" title="Sub Topics" id="dDO-g2-IDo"/>
                     <connections>
                         <segue destination="ub2-iM-iy6" kind="show" identifier="goToSubTopicDetails" id="l86-7T-ukz"/>
-                        <segue destination="Q5l-gv-pqw" kind="show" identifier="goToQuiz" id="3ul-Vm-2ia"/>
+                        <segue destination="3zK-zc-Ypk" kind="show" id="EtQ-Hm-I2J"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="D9K-Bh-cIp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -2524,6 +2524,46 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
             </objects>
             <point key="canvasLocation" x="1211" y="-213"/>
         </scene>
+        <!--Quiz Start View Controller-->
+        <scene sceneID="w39-9b-XGn">
+            <objects>
+                <viewController id="3zK-zc-Ypk" customClass="QuizStartViewController" customModule="CATmistry" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="hge-oJ-dzz">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C6v-jO-5en">
+                                <rect key="frame" x="174" y="412" width="42" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z7Z-7s-HZM">
+                                <rect key="frame" x="172" y="485" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <segue destination="Q5l-gv-pqw" kind="presentation" identifier="startQuiz" modalPresentationStyle="fullScreen" id="BtZ-7b-WOf"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aPQ-LX-ywK">
+                                <rect key="frame" x="172" y="582" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="yrx-4d-rEs"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="noL-Mn-zqz"/>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kSB-rg-mU7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="214" y="508"/>
+        </scene>
         <!--Take the Quiz-->
         <scene sceneID="CYC-oy-Dow">
             <objects>
@@ -2533,20 +2573,20 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="UNDER CONTRUCTION" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sdd-8H-qca">
-                                <rect key="frame" x="40" y="192" width="310" height="239"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <rect key="frame" x="40" y="88" width="310" height="392"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.10000000000000001" translatesAutoresizingMaskIntoConstraints="NO" id="RsP-jP-75G">
-                                <rect key="frame" x="0.0" y="148" width="390" height="4"/>
+                                <rect key="frame" x="10" y="44" width="390" height="4"/>
                             </progressView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="aAx-zz-Srz">
-                                <rect key="frame" x="20" y="471" width="350" height="250"/>
+                                <rect key="frame" x="20" y="520" width="350" height="250"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1E6-k1-giD">
                                         <rect key="frame" x="0.0" y="0.0" width="350" height="55"/>
-                                        <color key="backgroundColor" red="0.76618695260000003" green="1" blue="0.97661179300000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" red="0.62745098039215685" green="0.90196078431372551" blue="0.93725490196078431" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <state key="normal" title="Option 1">
                                             <color key="titleColor" systemColor="labelColor"/>
                                         </state>
@@ -2556,7 +2596,7 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LyK-ju-RcJ">
                                         <rect key="frame" x="0.0" y="65" width="350" height="55"/>
-                                        <color key="backgroundColor" red="0.61579358579999999" green="0.91798549890000003" blue="0.93565994500000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" red="0.99607843137254903" green="0.91764705882352937" blue="0.55294117647058827" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <state key="normal" title="Option 2">
                                             <color key="titleColor" systemColor="labelColor"/>
                                         </state>
@@ -2566,7 +2606,7 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nZj-It-bBg">
                                         <rect key="frame" x="0.0" y="130" width="350" height="55"/>
-                                        <color key="backgroundColor" red="0.41103595500000001" green="0.84751278159999999" blue="0.84087127449999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" red="1" green="0.89411764705882346" blue="0.76078431372549016" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <state key="normal" title="Option 3">
                                             <color key="titleColor" systemColor="labelColor"/>
                                         </state>
@@ -2576,7 +2616,7 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p7j-Px-jZ7">
                                         <rect key="frame" x="0.0" y="195" width="350" height="55"/>
-                                        <color key="backgroundColor" red="0.24207571150000001" green="0.80443984270000002" blue="0.78153663870000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" red="0.73333333333333328" green="0.90196078431372551" blue="0.67843137254901964" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <state key="normal" title="Option 4">
                                             <color key="titleColor" systemColor="labelColor"/>
                                         </state>
@@ -2594,21 +2634,22 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
                             </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="ZOb-i1-cri"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="ZOb-i1-cri" firstAttribute="bottom" secondItem="aAx-zz-Srz" secondAttribute="bottom" constant="40" id="7D5-ye-ANg"/>
                             <constraint firstItem="ZOb-i1-cri" firstAttribute="trailing" secondItem="aAx-zz-Srz" secondAttribute="trailing" constant="20" id="Bvc-bf-UXa"/>
                             <constraint firstItem="ZOb-i1-cri" firstAttribute="trailing" secondItem="sdd-8H-qca" secondAttribute="trailing" constant="40" id="Fud-3e-Vw5"/>
-                            <constraint firstItem="RsP-jP-75G" firstAttribute="leading" secondItem="2Bz-nv-xOV" secondAttribute="leading" id="JE7-iI-Jpl"/>
                             <constraint firstItem="sdd-8H-qca" firstAttribute="top" secondItem="RsP-jP-75G" secondAttribute="bottom" constant="40" id="Udd-VT-yhA"/>
-                            <constraint firstAttribute="trailing" secondItem="RsP-jP-75G" secondAttribute="trailing" id="VR2-jV-ULB"/>
                             <constraint firstItem="aAx-zz-Srz" firstAttribute="leading" secondItem="ZOb-i1-cri" secondAttribute="leading" constant="20" id="ZnS-Rm-SWl"/>
+                            <constraint firstItem="RsP-jP-75G" firstAttribute="trailing" secondItem="ZOb-i1-cri" secondAttribute="trailing" constant="10" id="bPD-iA-WLn"/>
                             <constraint firstItem="sdd-8H-qca" firstAttribute="leading" secondItem="ZOb-i1-cri" secondAttribute="leading" constant="40" id="crJ-zS-OhH"/>
+                            <constraint firstItem="RsP-jP-75G" firstAttribute="top" secondItem="ZOb-i1-cri" secondAttribute="top" id="eXU-MQ-DNQ"/>
                             <constraint firstItem="aAx-zz-Srz" firstAttribute="top" secondItem="sdd-8H-qca" secondAttribute="bottom" constant="40" id="kEl-vv-jhc"/>
-                            <constraint firstItem="RsP-jP-75G" firstAttribute="top" secondItem="2Bz-nv-xOV" secondAttribute="top" constant="148" id="tz8-tq-tMY"/>
+                            <constraint firstItem="RsP-jP-75G" firstAttribute="leading" secondItem="ZOb-i1-cri" secondAttribute="leading" constant="10" id="vly-Ro-7Fd"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Take the Quiz" id="bvk-PH-Q9H"/>
+                    <nil key="simulatedTopBarMetrics"/>
                     <connections>
                         <outlet property="optionFour" destination="p7j-Px-jZ7" id="ui9-Y8-009"/>
                         <outlet property="optionOne" destination="1E6-k1-giD" id="TBu-0L-Q2T"/>
@@ -2623,7 +2664,7 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WVd-hw-mx7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1143.0769230769231" y="507.58293838862556"/>
+            <point key="canvasLocation" x="1211" y="508"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="a0R-m9-N1Z">
@@ -2631,7 +2672,7 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="q0c-Zz-aob" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="jRP-bA-vTs">
-                        <rect key="frame" x="0.0" y="44" width="390" height="104.33333333333334"/>
+                        <rect key="frame" x="0.0" y="44" width="390" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -2664,25 +2705,6 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dy3-kA-TKd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-3202" y="807"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="gii-ma-vjW">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="78e-YQ-Wyu" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationItem key="navigationItem" id="V0U-Dg-Ovt"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="OA8-46-MWj">
-                        <rect key="frame" x="0.0" y="44" width="390" height="104.33333333333334"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="Q5l-gv-pqw" kind="relationship" relationship="rootViewController" id="dCR-Zv-Cho"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="GXT-pt-Wm3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="213.84615384615384" y="507.58293838862556"/>
         </scene>
         <!--Quiz Correct Answer View Controller-->
         <scene sceneID="fr1-09-KyP">
@@ -2893,7 +2915,6 @@ Your answer was wrong, but don't worry! You have \(String(10 - currentQuestion))
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="YEM-b9-J01"/>
-        <segue reference="3ul-Vm-2ia"/>
         <segue reference="s4T-H5-cTx"/>
         <segue reference="l86-7T-ukz"/>
         <segue reference="orq-5T-Gly"/>

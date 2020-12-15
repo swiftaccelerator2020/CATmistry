@@ -23,6 +23,7 @@
 		2640F0A325724091003EC92B /* LearnSubTopicDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2640F0A225724091003EC92B /* LearnSubTopicDetailsViewController.swift */; };
 		267F9EDB2588357E0066BFAB /* QuizCorrectAnswerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 267F9EDA2588357D0066BFAB /* QuizCorrectAnswerViewController.swift */; };
 		267F9EE9258837B30066BFAB /* QuizWrongAnswerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 267F9EE8258837B30066BFAB /* QuizWrongAnswerViewController.swift */; };
+		267F9F00258887F30066BFAB /* QuizStartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 267F9EFF258887F30066BFAB /* QuizStartViewController.swift */; };
 		269F995125777504001C7246 /* PlayAdjustPhStartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 269F995025777504001C7246 /* PlayAdjustPhStartViewController.swift */; };
 		269F995925777538001C7246 /* PlayFindGasStartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 269F995825777538001C7246 /* PlayFindGasStartViewController.swift */; };
 		269F995E25777553001C7246 /* PlayRetrieveSolidsStartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 269F995D25777553001C7246 /* PlayRetrieveSolidsStartViewController.swift */; };
@@ -85,6 +86,7 @@
 		2640F0A225724091003EC92B /* LearnSubTopicDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearnSubTopicDetailsViewController.swift; sourceTree = "<group>"; };
 		267F9EDA2588357D0066BFAB /* QuizCorrectAnswerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizCorrectAnswerViewController.swift; sourceTree = "<group>"; };
 		267F9EE8258837B30066BFAB /* QuizWrongAnswerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizWrongAnswerViewController.swift; sourceTree = "<group>"; };
+		267F9EFF258887F30066BFAB /* QuizStartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizStartViewController.swift; sourceTree = "<group>"; };
 		269F995025777504001C7246 /* PlayAdjustPhStartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayAdjustPhStartViewController.swift; sourceTree = "<group>"; };
 		269F995825777538001C7246 /* PlayFindGasStartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayFindGasStartViewController.swift; sourceTree = "<group>"; };
 		269F995D25777553001C7246 /* PlayRetrieveSolidsStartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayRetrieveSolidsStartViewController.swift; sourceTree = "<group>"; };
@@ -235,6 +237,7 @@
 		54FEFB172578609C0054CFF9 /* Learn Pages */ = {
 			isa = PBXGroup;
 			children = (
+				267F9EFF258887F30066BFAB /* QuizStartViewController.swift */,
 				267F9EE8258837B30066BFAB /* QuizWrongAnswerViewController.swift */,
 				267F9EDA2588357D0066BFAB /* QuizCorrectAnswerViewController.swift */,
 				54FEFB1D257861690054CFF9 /* Specific Learn Pages */,
@@ -572,6 +575,7 @@
 				2632D7092577D5F00005033F /* PlayAdjustPhDetailsViewController.swift in Sources */,
 				54FEFB0525770AE50054CFF9 /* PlayIdentifyElementsSecondViewController.swift in Sources */,
 				267F9EE9258837B30066BFAB /* QuizWrongAnswerViewController.swift in Sources */,
+				267F9F00258887F30066BFAB /* QuizStartViewController.swift in Sources */,
 				2613B0372570DB8C00EECB4C /* SceneDelegate.swift in Sources */,
 				26EA43222584C15E00AD5BD0 /* SettingsTableViewController.swift in Sources */,
 				269F995925777538001C7246 /* PlayFindGasStartViewController.swift in Sources */,

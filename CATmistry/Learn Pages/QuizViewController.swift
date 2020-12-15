@@ -29,6 +29,11 @@ class QuizViewController: UIViewController {
         optionThree.setTitle(question[index].options[2], for: .normal)
         optionFour.setTitle(question[index].options[3], for: .normal)
         questionLabel.text = question[index].question
+        
+        optionOne.layer.cornerRadius = 15
+        optionTwo.layer.cornerRadius = 15
+        optionThree.layer.cornerRadius = 15
+        optionFour.layer.cornerRadius = 15
     }
 
     override func viewDidAppear(_ animated: Bool) {
