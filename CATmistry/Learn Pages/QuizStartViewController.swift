@@ -5,6 +5,7 @@
 //  Created by N HJ on 15/12/20.
 //
 
+import SwiftConfettiView
 import UIKit
 
 class QuizStartViewController: UIViewController {
@@ -20,6 +21,12 @@ class QuizStartViewController: UIViewController {
         tabBarController?.tabBar.isHidden = true
         navigationController?.setNavigationBarHidden(true, animated: false)
         startButton.layer.cornerRadius = 15
+        
+        let confettiView = SwiftConfettiView(frame: view.bounds)
+        view.addSubview(confettiView)
+        confettiView.isUserInteractionEnabled = false
+        confettiView.type = .star
+        confettiView.startConfetti()
     }
     
     @IBAction func goBackPressed(_ sender: Any) {

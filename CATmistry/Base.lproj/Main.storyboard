@@ -2686,7 +2686,7 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
                                                 <real key="value" value="50"/>
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="number" keyPath="iPhone11Max">
-                                                <real key="value" value="40"/>
+                                                <real key="value" value="50"/>
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="number" keyPath="iPadMini">
                                                 <real key="value" value="0.0"/>
