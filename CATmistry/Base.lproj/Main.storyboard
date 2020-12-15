@@ -320,19 +320,22 @@ As your cat can only live in a certain type of gas, your task is to use your kno
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cWk-gy-0aZ">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cWk-gy-0aZ">
                                 <rect key="frame" x="0.0" y="784" width="390" height="60"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.52051693200000004" green="0.4944262505" blue="0.011094402519999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="y6b-rx-5ZP"/>
+                                </constraints>
                             </view>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tDL-B1-4sj">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tDL-B1-4sj">
                                 <rect key="frame" x="0.0" y="764" width="390" height="20"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.36236429209999999" green="0.59665834900000003" blue="0.27979537840000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="xng-ED-3uh"/>
+                                </constraints>
                             </view>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9RP-HW-EJm">
-                                <rect key="frame" x="150" y="488" width="220" height="276"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9RP-HW-EJm">
+                                <rect key="frame" x="150" y="564" width="220" height="200"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="meowster" translatesAutoresizingMaskIntoConstraints="NO" id="BgO-ca-5ez">
                                         <rect key="frame" x="15" y="60" width="190" height="216"/>
@@ -340,56 +343,29 @@ As your cat can only live in a certain type of gas, your task is to use your kno
                                     </imageView>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="0JT-JU-Rhw"/>
+                                </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wSv-MP-MMP">
-                                <rect key="frame" x="83" y="332" width="43" height="101"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button" image="gas-tank"/>
-                                <connections>
-                                    <action selector="selectGas1:" destination="qsu-L3-DGc" eventType="touchUpInside" id="ClF-vf-zKV"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qu4-Na-TWr">
-                                <rect key="frame" x="148" y="332" width="43" height="101"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button" image="gas-tank"/>
-                                <connections>
-                                    <action selector="selectGas1:" destination="qsu-L3-DGc" eventType="touchUpInside" id="2vA-by-3rR"/>
-                                    <action selector="selectGas2:" destination="qsu-L3-DGc" eventType="touchUpInside" id="yG9-fs-NqU"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zxr-rR-eiJ">
-                                <rect key="frame" x="212" y="332" width="43" height="101"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button" image="gas-tank"/>
-                                <connections>
-                                    <action selector="selectGas3:" destination="qsu-L3-DGc" eventType="touchUpInside" id="yCI-89-ZwJ"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z16-tg-6Es">
-                                <rect key="frame" x="271" y="332" width="43" height="101"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button" image="gas-tank"/>
-                                <connections>
-                                    <action selector="selectGas4:" destination="qsu-L3-DGc" eventType="touchUpInside" id="QqR-6u-Zrg"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IZ0-0H-Ysw">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IZ0-0H-Ysw">
                                 <rect key="frame" x="24" y="631" width="94" height="94"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="94" id="16G-Gs-cJ5"/>
+                                    <constraint firstAttribute="height" constant="94" id="5c1-TL-P3a"/>
+                                </constraints>
                                 <state key="normal" image="submit"/>
                                 <connections>
                                     <action selector="submitChoice:" destination="qsu-L3-DGc" eventType="touchUpInside" id="wRD-at-ZXy"/>
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="HSf-1d-jg6">
-                                <rect key="frame" x="40" y="144" width="310" height="100"/>
+                                <rect key="frame" x="25" y="144" width="340" height="100"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KjD-zc-qXD">
-                                        <rect key="frame" x="0.0" y="0.0" width="56" height="100"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="62" height="100"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="limewater" translatesAutoresizingMaskIntoConstraints="NO" id="Ick-Ku-ScQ">
-                                                <rect key="frame" x="10" y="10" width="36" height="80"/>
+                                                <rect key="frame" x="10" y="10" width="42" height="80"/>
                                             </imageView>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -405,10 +381,10 @@ As your cat can only live in a certain type of gas, your task is to use your kno
                                         </connections>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZBx-iJ-bIt">
-                                        <rect key="frame" x="66" y="0.0" width="56" height="100"/>
+                                        <rect key="frame" x="72" y="0.0" width="62" height="100"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lighted-splint" translatesAutoresizingMaskIntoConstraints="NO" id="wg5-5x-aYZ">
-                                                <rect key="frame" x="10" y="10" width="36" height="80"/>
+                                                <rect key="frame" x="10" y="10" width="42" height="80"/>
                                             </imageView>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -424,10 +400,10 @@ As your cat can only live in a certain type of gas, your task is to use your kno
                                         </connections>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ctl-Eq-n0j">
-                                        <rect key="frame" x="132" y="0.0" width="56" height="100"/>
+                                        <rect key="frame" x="144" y="0.0" width="62" height="100"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="glowing-splint" translatesAutoresizingMaskIntoConstraints="NO" id="dSd-lK-7ZV">
-                                                <rect key="frame" x="10" y="10" width="36" height="80"/>
+                                                <rect key="frame" x="10" y="10" width="42" height="80"/>
                                             </imageView>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -443,10 +419,10 @@ As your cat can only live in a certain type of gas, your task is to use your kno
                                         </connections>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zhw-91-4dW">
-                                        <rect key="frame" x="198" y="0.0" width="112" height="100"/>
+                                        <rect key="frame" x="216" y="0.0" width="124" height="100"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="litmus-2" translatesAutoresizingMaskIntoConstraints="NO" id="6Kz-ts-5ut">
-                                                <rect key="frame" x="10" y="10" width="92" height="80"/>
+                                                <rect key="frame" x="10" y="10" width="104" height="80"/>
                                             </imageView>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -469,26 +445,97 @@ As your cat can only live in a certain type of gas, your task is to use your kno
                                     <constraint firstAttribute="height" constant="100" id="vQK-da-Oow"/>
                                 </constraints>
                             </stackView>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="p1h-t2-lUh">
+                                <rect key="frame" x="25" y="259" width="340" height="290"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UuK-ME-cyu">
+                                        <rect key="frame" x="0.0" y="0.0" width="340" height="250"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZdK-1O-3Bb">
+                                                <rect key="frame" x="55" y="82" width="43" height="101"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <state key="normal" title="Button" image="gas-tank"/>
+                                                <connections>
+                                                    <action selector="selectGas1:" destination="qsu-L3-DGc" eventType="touchUpInside" id="uFH-hK-W0o"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="79R-4g-aNY">
+                                                <rect key="frame" x="120" y="82" width="43" height="101"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <state key="normal" title="Button" image="gas-tank"/>
+                                                <connections>
+                                                    <action selector="selectGas1:" destination="qsu-L3-DGc" eventType="touchUpInside" id="RBo-xH-oOL"/>
+                                                    <action selector="selectGas2:" destination="qsu-L3-DGc" eventType="touchUpInside" id="tBE-NP-hx1"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q5Y-ze-naK">
+                                                <rect key="frame" x="184" y="82" width="43" height="101"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <state key="normal" title="Button" image="gas-tank"/>
+                                                <connections>
+                                                    <action selector="selectGas3:" destination="qsu-L3-DGc" eventType="touchUpInside" id="rB1-ZV-loj"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yd6-DZ-nOH">
+                                                <rect key="frame" x="243" y="82" width="43" height="101"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <state key="normal" title="Button" image="gas-tank"/>
+                                                <connections>
+                                                    <action selector="selectGas4:" destination="qsu-L3-DGc" eventType="touchUpInside" id="xiP-9o-C8t"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="250" id="8du-vq-5VT"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="hOC-Fw-oPp" firstAttribute="top" secondItem="UuK-ME-cyu" secondAttribute="top" id="4Mq-pH-6FJ"/>
+                                    <constraint firstItem="UuK-ME-cyu" firstAttribute="bottom" secondItem="hOC-Fw-oPp" secondAttribute="bottom" id="G47-QE-9jQ"/>
+                                    <constraint firstItem="UuK-ME-cyu" firstAttribute="trailing" secondItem="hOC-Fw-oPp" secondAttribute="trailing" id="R6E-H4-p31"/>
+                                    <constraint firstItem="UuK-ME-cyu" firstAttribute="width" secondItem="IhJ-dQ-Cyq" secondAttribute="width" id="YrV-I8-as0"/>
+                                    <constraint firstItem="UuK-ME-cyu" firstAttribute="leading" secondItem="hOC-Fw-oPp" secondAttribute="leading" id="bcq-O5-FYn"/>
+                                </constraints>
+                                <viewLayoutGuide key="contentLayoutGuide" id="hOC-Fw-oPp"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="IhJ-dQ-Cyq"/>
+                            </scrollView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="LtP-tT-GK7"/>
                         <color key="backgroundColor" red="0.54710417990000004" green="0.75682848690000004" blue="0.93781065939999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="HSf-1d-jg6" secondAttribute="trailing" constant="40" id="RDm-Hz-kHy"/>
+                            <constraint firstItem="LtP-tT-GK7" firstAttribute="trailing" secondItem="9RP-HW-EJm" secondAttribute="trailing" constant="20" id="3d1-vi-5IS"/>
+                            <constraint firstItem="cWk-gy-0aZ" firstAttribute="leading" secondItem="LtP-tT-GK7" secondAttribute="leading" id="5hX-hA-oLC"/>
+                            <constraint firstItem="cWk-gy-0aZ" firstAttribute="trailing" secondItem="LtP-tT-GK7" secondAttribute="trailing" id="CL8-9i-BNq"/>
+                            <constraint firstItem="tDL-B1-4sj" firstAttribute="trailing" secondItem="LtP-tT-GK7" secondAttribute="trailing" id="EZw-Mu-hkG"/>
+                            <constraint firstItem="LtP-tT-GK7" firstAttribute="trailing" secondItem="p1h-t2-lUh" secondAttribute="trailing" constant="25" id="JfH-yw-ZSE"/>
+                            <constraint firstItem="IZ0-0H-Ysw" firstAttribute="leading" secondItem="LtP-tT-GK7" secondAttribute="leading" constant="24" id="PYc-XF-gbe"/>
+                            <constraint firstAttribute="trailing" secondItem="HSf-1d-jg6" secondAttribute="trailing" constant="25" id="RDm-Hz-kHy"/>
+                            <constraint firstItem="tDL-B1-4sj" firstAttribute="top" secondItem="9RP-HW-EJm" secondAttribute="bottom" id="Ybk-5K-iuI"/>
                             <constraint firstItem="HSf-1d-jg6" firstAttribute="top" secondItem="LtP-tT-GK7" secondAttribute="top" constant="100" id="a1W-pI-IAp"/>
-                            <constraint firstItem="HSf-1d-jg6" firstAttribute="leading" secondItem="LtP-tT-GK7" secondAttribute="leading" constant="40" id="zep-Wq-Rfr"/>
+                            <constraint firstAttribute="bottom" secondItem="cWk-gy-0aZ" secondAttribute="bottom" id="a7b-Ri-wPG"/>
+                            <constraint firstItem="tDL-B1-4sj" firstAttribute="top" secondItem="IZ0-0H-Ysw" secondAttribute="bottom" constant="39" id="atC-gx-MRj"/>
+                            <constraint firstItem="9RP-HW-EJm" firstAttribute="top" secondItem="p1h-t2-lUh" secondAttribute="bottom" constant="15" id="ayb-e2-OSJ"/>
+                            <constraint firstItem="tDL-B1-4sj" firstAttribute="leading" secondItem="LtP-tT-GK7" secondAttribute="leading" id="omX-QH-wL3"/>
+                            <constraint firstItem="cWk-gy-0aZ" firstAttribute="top" secondItem="tDL-B1-4sj" secondAttribute="bottom" id="rre-AY-a0k"/>
+                            <constraint firstItem="9RP-HW-EJm" firstAttribute="leading" secondItem="IZ0-0H-Ysw" secondAttribute="trailing" constant="32" id="rzJ-M1-rEJ"/>
+                            <constraint firstItem="p1h-t2-lUh" firstAttribute="top" secondItem="HSf-1d-jg6" secondAttribute="bottom" constant="15" id="vTT-Hq-UrX"/>
+                            <constraint firstItem="p1h-t2-lUh" firstAttribute="leading" secondItem="LtP-tT-GK7" secondAttribute="leading" constant="25" id="xUk-yp-cjt"/>
+                            <constraint firstItem="HSf-1d-jg6" firstAttribute="leading" secondItem="LtP-tT-GK7" secondAttribute="leading" constant="25" id="zep-Wq-Rfr"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="iMh-nS-fJv"/>
                     <connections>
-                        <outlet property="gas1" destination="wSv-MP-MMP" id="sfd-IT-pc6"/>
-                        <outlet property="gas2" destination="Qu4-Na-TWr" id="dMQ-q3-fz9"/>
-                        <outlet property="gas3" destination="Zxr-rR-eiJ" id="9XJ-2g-mFE"/>
-                        <outlet property="gas4" destination="z16-tg-6Es" id="xzm-Vh-g4k"/>
+                        <outlet property="gas1" destination="ZdK-1O-3Bb" id="HLV-e7-oJ8"/>
+                        <outlet property="gas2" destination="79R-4g-aNY" id="B0I-0O-uTh"/>
+                        <outlet property="gas3" destination="q5Y-ze-naK" id="E1z-Ol-4e8"/>
+                        <outlet property="gas4" destination="Yd6-DZ-nOH" id="sLK-WG-aAU"/>
                         <outlet property="glowingSplintView" destination="ctl-Eq-n0j" id="JwR-Sd-WK0"/>
                         <outlet property="lightedSplintView" destination="ZBx-iJ-bIt" id="bwK-dd-tRc"/>
                         <outlet property="limewaterView" destination="KjD-zc-qXD" id="paT-42-sZQ"/>
-                        <outlet property="litmusView" destination="ctl-Eq-n0j" id="oYP-Yi-wX4"/>
-                        <outlet property="submit" destination="IZ0-0H-Ysw" id="eTB-pn-iho"/>
+                        <outlet property="litmusView" destination="zhw-91-4dW" id="2WJ-mW-pkH"/>
+                        <outlet property="submitButton" destination="IZ0-0H-Ysw" id="eTB-pn-iho"/>
                         <segue destination="FWf-eu-FKe" kind="showDetail" identifier="findGasCorrect" id="xa7-EN-bjL"/>
                         <segue destination="i8X-Sz-8XG" kind="showDetail" identifier="findGasWrong" id="8zc-2j-Gbh"/>
                     </connections>

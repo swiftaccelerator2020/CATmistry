@@ -23,7 +23,7 @@ class PlayFindGasDetailsViewController: UIViewController {
     @IBOutlet weak var gas2: UIButton!
     @IBOutlet weak var gas3: UIButton!
     @IBOutlet weak var gas4: UIButton!
-    @IBOutlet weak var submit: UIButton!
+    @IBOutlet weak var submitButton: UIButton!
 
     var gases = GasTestGame(firstGasTank: "Hydrogen", secondGasTank: "Oxygen", thirdGasTank: "Carbon Dioxide", fourthGasTank: "Ammonia", firstGasIsPositive: [false, false, false, true], secondGasIsPositive: [false, false, false, true], thirdGasIsPositive: [false, false, false, true], forthGasIsPositive: [false, false, false, true], correctGasTank: "Hydrogen")
 
@@ -34,7 +34,7 @@ class PlayFindGasDetailsViewController: UIViewController {
 
 //        resultsLabel.isHidden = true
         // Do any additional setup after loading the view.
-        submit.isHidden = true
+        submitButton.isHidden = true
         limewaterView.layer.cornerRadius = 15
         lightedSplintView.layer.cornerRadius = 15
         glowingSplintView.layer.cornerRadius = 15
@@ -93,7 +93,7 @@ class PlayFindGasDetailsViewController: UIViewController {
         }
         if selectedGasTank != nil && selectedGasTest == nil {
             selectedGasTankString = gases.firstGasTank
-            submit.isHidden = false
+            submitButton.isHidden = false
         }
     }
 
@@ -116,7 +116,7 @@ class PlayFindGasDetailsViewController: UIViewController {
         }
         if selectedGasTank != nil && selectedGasTest == nil {
             selectedGasTankString = gases.secondGasTank
-            submit.isHidden = false
+            submitButton.isHidden = false
         }
     }
 
@@ -139,7 +139,7 @@ class PlayFindGasDetailsViewController: UIViewController {
         }
         if selectedGasTank != nil && selectedGasTest == nil {
             selectedGasTankString = gases.thirdGasTank
-            submit.isHidden = false
+            submitButton.isHidden = false
         }
     }
 
@@ -162,7 +162,7 @@ class PlayFindGasDetailsViewController: UIViewController {
         }
         if selectedGasTank != nil && selectedGasTest == nil {
             selectedGasTankString = gases.thirdGasTank
-            submit.isHidden = false
+            submitButton.isHidden = false
         }
     }
 
