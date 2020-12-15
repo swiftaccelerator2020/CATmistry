@@ -253,21 +253,21 @@ var learnTopics = [
         errorLabel: "Please complete Chapter 1", questions:
             [
                 QuizQuestion(question: "Which of the following is insoluble?", options:
-                                            [
-                                                "Salt",
-                                                "Sugar",
-                                                "Sand",
-                                                "Milo powder"
-                                            ], correctAnswer: 3),
+                                [
+                                    "Salt",
+                                    "Sugar",
+                                    "Sand",
+                                    "Milo powder"
+                                ], correctAnswer: 3),
                 
                 QuizQuestion(question: "I want to separate some rocks from liquid. Which separation method do I use?", options:
-                                            [
-                                                "Simple distillation",
-                                                "Filtration",
-                                                "Fractional distillation",
-                                                "Separating funnel"
-                                            ], correctAnswer: 2)
-
+                                [
+                                    "Simple distillation",
+                                    "Filtration",
+                                    "Fractional distillation",
+                                    "Separating funnel"
+                                ], correctAnswer: 2)
+                
             ]),
     
     // MARK: - PH AND INDICATORS
@@ -288,12 +288,69 @@ var learnTopics = [
     ], errorLabel: "Please complete Chapter 2", questions:
         [
             QuizQuestion(question: "Which of the following has the highest pH value?", options:
-                                        [
-                                            "Wine",
-                                            "Water",
-                                            "Lime juice",
-                                            "Caustic soda"
-                                        ], correctAnswer: 4)
+                            [
+                                "Wine",
+                                "Water",
+                                "Lime juice",
+                                "Caustic soda"
+                            ], correctAnswer: 4),
+            
+            QuizQuestion(question: "What is the pH value of any acidic solution?", options:
+                            [
+                                "pH 7",
+                                "Below pH 7",
+                                "pH 14",
+                                "Above pH 14"
+                            ], correctAnswer: 2),
+            
+            QuizQuestion(question: "Which of the following statements about an acid is not true?", options:
+                            [
+                                "It contains hydrogen ions in solution",
+                                "It has a pH less than 7",
+                                "It contains oxygen",
+                                "It tastes sour"
+                            ], correctAnswer: 3),
+            
+            QuizQuestion(question: "A sample of pond water has a pH value of 9. This means that the water is", options:
+                            [
+                                "neutral",
+                                "neutral and weakly alkaline",
+                                "weakly acidic",
+                                "weakly alkaline"
+                            ], correctAnswer: 4),
+            
+            QuizQuestion(question: "Universal Indicator turns red in solution Y. What could solution Y be?", options:
+                            [
+                                "acidic",
+                                "alkaline",
+                                "neutral",
+                                "an indicator"
+                            ], correctAnswer: 1),
+            
+            QuizQuestion(question: "If dry citric acid crystals are placed on dry blue litmus paper, they will", options:
+                            [
+                                "turn red",
+                                "turn green",
+                                "be bleached",
+                                "remain unchanged"
+                            ], correctAnswer: 4),
+            
+            QuizQuestion(question: "Citric acid is a white solid. Which statement shows that it must be an acid?", options:
+                            [
+                                "It is soluble in water",
+                                "It contains hydrogen",
+                                "It changes the colour of indicators",
+                                "It gives hydrogen ions in water"
+                            ], correctAnswer: 4),
+            
+            QuizQuestion(question: "A strong acid always", options:
+                            [
+                                "contains hydroxide ions",
+                                "ionises partially when it is dissolved in water",
+                                "ionises completely when it is dissolved in water",
+                                "contains oxygen"
+                            ], correctAnswer: 3),
+            
         ]),
     // MARK: - PERIODIC TABLE
     Topic(title: "Periodic Table", pic: "periodic-table.png", pointsNeeded: 30, subTopics: [
@@ -347,37 +404,38 @@ var learnTopics = [
                                 "Hhe",
                                 "He"
                             ], correctAnswer: 4),
-            QuizQuestion(question: "What kind of element would you find on the far left-hand side of the periodic table?", options:
-                                        [
-                                            "A metal",
-                                            "A gas",
-                                            "A negative ion",
-                                            "A halogen"
-                                        ], correctAnswer: 1),
             
-            QuizQuestion(question: "which of the following is a noble gas?", options:
-                                        [
-                                            "Nitrogen",
-                                            "Oxygen",
-                                            "Argon",
-                                            "Carbon Dioxide"
-                                        ], correctAnswer: 3),
+            QuizQuestion(question: "What kind of element would you find on the far left-hand side of the periodic table?", options:
+                            [
+                                "A metal",
+                                "A gas",
+                                "A negative ion",
+                                "A halogen"
+                            ], correctAnswer: 1),
+            
+            QuizQuestion(question: "Which of the following is a noble gas?", options:
+                            [
+                                "Nitrogen",
+                                "Oxygen",
+                                "Argon",
+                                "Carbon Dioxide"
+                            ], correctAnswer: 3),
             
             QuizQuestion(question: "What is the lightest element in the periodic table?", options:
-                                        [
-                                            "Helium",
-                                            "Hydrogen",
-                                            "Air",
-                                            "Neon"
-                                        ], correctAnswer: 2),
+                            [
+                                "Helium",
+                                "Hydrogen",
+                                "Air",
+                                "Neon"
+                            ], correctAnswer: 2),
             
             QuizQuestion(question: "What is the atomic number of carbon?", options:
-                                        [
-                                            "2",
-                                            "4",
-                                            "6",
-                                            "8"
-                                        ], correctAnswer: 3)
+                            [
+                                "2",
+                                "4",
+                                "6",
+                                "8"
+                            ], correctAnswer: 3)
         ]),
 ]
 
