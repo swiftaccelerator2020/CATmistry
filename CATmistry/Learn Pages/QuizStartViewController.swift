@@ -11,7 +11,7 @@ import UIKit
 class QuizStartViewController: UIViewController {
 
     var question: [QuizQuestion]!
-
+    
     @IBOutlet weak var startButton: UIButton!
 
     override func viewDidLoad() {
