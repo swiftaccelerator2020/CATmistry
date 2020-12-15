@@ -1,1 +1,80 @@
-[{"isAcidic":true,"name":"Stomach Acid","image":"ph-1.png","turnUniversalTankColour":"monster-ph1.png"},{"isAcidic":true,"name":"Lemonade","image":"ph-2.png","turnUniversalTankColour":"monster-ph2.png"},{"isAcidic":true,"name":"Apple Juice","image":"ph-3.png","turnUniversalTankColour":"monster-ph3.png"},{"isAcidic":true,"name":"Tomato Juice","image":"ph-4.png","turnUniversalTankColour":"monster-ph4.png"},{"isAcidic":true,"name":"Coffee","image":"ph-5.png","turnUniversalTankColour":"monster-ph5.png"},{"isAcidic":true,"name":"Milk","image":"ph-6.png","turnUniversalTankColour":"monster-ph6.png"},{"isAcidic":false,"name":"Egg","image":"ph-8.png","turnUniversalTankColour":"monster-ph8.png"},{"isAcidic":false,"name":"Baking Soda","image":"ph-9.png","turnUniversalTankColour":"monster-ph9.png"},{"isAcidic":false,"name":"Stomach Tablets","image":"ph-10.png","turnUniversalTankColour":"monster-ph10.png"},{"isAcidic":false,"name":"Ammonia","image":"ph-11.png","turnUniversalTankColour":"monster-ph11.png"},{"isAcidic":false,"name":"Soap","image":"ph-12.png","turnUniversalTankColour":"monster-ph12.png"},{"isAcidic":false,"name":"Bleach","image":"ph-13.png","turnUniversalTankColour":"monster-ph13.png"},{"isAcidic":false,"name":"Pipe Cleaner","image":"ph-14.png","turnUniversalTankColour":"monster-ph14.png"}]
+[
+  {
+    "isAcidic": true,
+    "name": "Stomach Acid",
+    "image": "ph-1.png",
+    "turnUniversalTankColour": "monster-ph1.png"
+  },
+  {
+    "isAcidic": true,
+    "name": "Lemonade",
+    "image": "ph-2.png",
+    "turnUniversalTankColour": "monster-ph2.png"
+  },
+  {
+    "isAcidic": true,
+    "name": "Apple Juice",
+    "image": "ph-3.png",
+    "turnUniversalTankColour": "monster-ph3.png"
+  },
+  {
+    "isAcidic": true,
+    "name": "Tomato Juice",
+    "image": "ph-4.png",
+    "turnUniversalTankColour": "monster-ph4.png"
+  },
+  {
+    "isAcidic": true,
+    "name": "Coffee",
+    "image": "ph-5.png",
+    "turnUniversalTankColour": "monster-ph5.png"
+  },
+  {
+    "isAcidic": true,
+    "name": "Milk",
+    "image": "ph-6.png",
+    "turnUniversalTankColour": "monster-ph6.png"
+  },
+  {
+    "isAcidic": false,
+    "name": "Egg",
+    "image": "ph-8.png",
+    "turnUniversalTankColour": "monster-ph8.png"
+  },
+  {
+    "isAcidic": false,
+    "name": "Baking Soda",
+    "image": "ph-9.png",
+    "turnUniversalTankColour": "monster-ph9.png"
+  },
+  {
+    "isAcidic": false,
+    "name": "Stomach Tablets",
+    "image": "ph-10.png",
+    "turnUniversalTankColour": "monster-ph10.png"
+  },
+  {
+    "isAcidic": false,
+    "name": "Ammonia",
+    "image": "ph-11.png",
+    "turnUniversalTankColour": "monster-ph11.png"
+  },
+  {
+    "isAcidic": false,
+    "name": "Soap",
+    "image": "ph-12.png",
+    "turnUniversalTankColour": "monster-ph12.png"
+  },
+  {
+    "isAcidic": false,
+    "name": "Bleach",
+    "image": "ph-13.png",
+    "turnUniversalTankColour": "monster-ph13.png"
+  },
+  {
+    "isAcidic": false,
+    "name": "Pipe Cleaner",
+    "image": "ph-14.png",
+    "turnUniversalTankColour": "monster-ph14.png"
+  }
+]

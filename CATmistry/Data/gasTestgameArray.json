@@ -1,1 +1,35 @@
-[[{"thirdGasIsPositive":[false,false,false,true],"correctGasTank":"Hydrogen","firstGasIsPositive":[false,false,false,true],"forthGasIsPositive":[false,false,false,true],"firstGasTank":"Hydrogen","fourthGasTank":"Ammonia","thirdGasTank":"Carbon Dioxide","secondGasIsPositive":[false,false,false,true],"secondGasTank":"Oxygen"}]]
+[
+  [
+    {
+      "thirdGasIsPositive": [
+        false,
+        false,
+        false,
+        true
+      ],
+      "correctGasTank": "Hydrogen",
+      "firstGasIsPositive": [
+        false,
+        false,
+        false,
+        true
+      ],
+      "forthGasIsPositive": [
+        false,
+        false,
+        false,
+        true
+      ],
+      "firstGasTank": "Hydrogen",
+      "fourthGasTank": "Ammonia",
+      "thirdGasTank": "Carbon Dioxide",
+      "secondGasIsPositive": [
+        false,
+        false,
+        false,
+        true
+      ],
+      "secondGasTank": "Oxygen"
+    }
+  ]
+]
