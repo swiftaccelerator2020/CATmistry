@@ -405,7 +405,33 @@ var learnTopics = [
                       "Getting a large amount of salt from water",
                       "Separating paint into different colors for painting",
                       "Removing water from fruit juice",
-                      "Checking if ink is genuine"], correctAnswer: 4)
+                                "Checking if ink is genuine"], correctAnswer: 4),
+                
+                
+                QuizQuestion(question: "What is the difference between simple and fractional distillation?", options:
+                                                [
+                                                    "Fractional distillation is more complex",
+                                                    "One is simple and one is not",
+                                                    "Simple distillation uses a fractioning columm",
+                                                    "Fractional distillation is simpler"
+                                                ], correctAnswer: 1),
+
+                QuizQuestion(question: "Which of the following can be seperated by magnetic seperation?", options:
+                                                [
+                                                    "Chocolate and ice",
+                                                    "Salt and sugar",
+                                                    "Gummy bears and gum",
+                                                    "Sand and iron filings"
+                                                ], correctAnswer: 4),
+
+                QuizQuestion(question: "Which solutions can be separated with crystallisation", options: [
+                                      "Sugar and salt",
+                                      "Iron and salt",
+                                      "Potassium chloride and salt",
+                                      "Sulfur dioxide and salt"
+                                ], correctAnswer: 1)
+                
+                
             ]),
 
     // MARK: - PH AND INDICATORS
@@ -563,7 +589,7 @@ var learnTopics = [
             SubSubTopic(topic: "Group 5", picture: "5.png", id: 5, content: SubSubContent(image: "5.png", firstAttributionText: "Metallic character: Metal/Non-metal/Metalloid \nAppearance: Dull", secondAttributionText: "Reactivity: Decreases as you go down the columm \nMelting Point: Wide range of low and high", thirdAttributionText: "Hardness: -")),
             SubSubTopic(topic: "Group 6", picture: "6.png", id: 6, content: SubSubContent(image: "6.png", firstAttributionText: "Metallic character: Metal/Non-metal/Metalloid \nAppearance: Mostly dull", secondAttributionText: "Reactivity: Decreases moving down the group \nMelting Point: Increases going down the group", thirdAttributionText: "Hardness: -")),
             SubSubTopic(topic: "Group 7", picture: "7.png", id: 7, content: SubSubContent(image: "7.png", firstAttributionText: "Metallic character: Non-metal \nAppearance: -", secondAttributionText: "Reactivity: Gets less reactive as you go down the group \nMelting Point: Increases as you go down the group", thirdAttributionText: "Hardness: -")),
-            SubSubTopic(topic: "Group 0", picture: "0.png", id: 0, content: SubSubContent(image: "0.png", firstAttributionText: "Metallic character: Non-metal \nAppearance: -", secondAttributionText: "Reactivity: Low \nMelting Point: Low", thirdAttributionText: "Hardness: -"))
+             SubSubTopic(topic: "Group 0", picture: "0.png", id: 0, content: SubSubContent(image: "0.png", firstAttributionText: "Metallic character: Non-metal \nAppearance: -", secondAttributionText: "Reactivity: Low \nMelting Point: Low", thirdAttributionText: "Hardness: -"))
         ], navTitle: "Groups' Properties", contentHeightDifference: 80),
         SubTopic(title: "Take the Quiz", pic: "quiz.png", needSlider: false, content: SubContent(definition: ""), subTopics: [], navTitle: "Take the Quiz")
     ], errorLabel: "Please complete Chapter 4", questions:
