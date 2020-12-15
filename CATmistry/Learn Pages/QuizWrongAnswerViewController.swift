@@ -41,7 +41,7 @@ class QuizWrongAnswerViewController: UIViewController {
         alert.addAction(UIAlertAction(title: "Continue", style: UIAlertAction.Style.default, handler: { _ in
             self.navigationController?.setNavigationBarHidden(false, animated: false)
             self.tabBarController?.tabBar.isHidden = false
-            self.navigationController!.popToRootViewController(animated: true)
+            self.view.window?.rootViewController?.dismiss(animated: true, completion: nil)
         }))
         alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel, handler: nil))
         present(alert, animated: true, completion: nil)

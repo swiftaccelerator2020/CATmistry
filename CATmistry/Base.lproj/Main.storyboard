@@ -2616,7 +2616,7 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
                         <outlet property="optionTwo" destination="LyK-ju-RcJ" id="HdT-1D-7Rh"/>
                         <outlet property="questionLabel" destination="sdd-8H-qca" id="42j-5g-PNQ"/>
                         <outlet property="timeLeft" destination="RsP-jP-75G" id="UYb-eX-Eh2"/>
-                        <segue destination="Mja-L5-YzK" kind="show" identifier="quizEnded" id="7pn-4B-FUl"/>
+                        <segue destination="Mja-L5-YzK" kind="presentation" identifier="quizEnded" modalPresentationStyle="fullScreen" id="7pn-4B-FUl"/>
                         <segue destination="RR3-9Q-TX8" kind="presentation" identifier="correctAns" modalPresentationStyle="fullScreen" id="ROw-ex-BKY"/>
                         <segue destination="G5l-IS-oK1" kind="presentation" identifier="wrongAns" modalPresentationStyle="fullScreen" id="Kge-nE-YUa"/>
                     </connections>
