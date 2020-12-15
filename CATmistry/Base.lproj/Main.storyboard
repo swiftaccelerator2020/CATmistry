@@ -338,13 +338,6 @@ As your cat can only live in a certain type of gas, your task is to use your kno
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NDh-V1-aNH">
-                                <rect key="frame" x="16" y="76" width="364" height="60"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wSv-MP-MMP">
                                 <rect key="frame" x="83" y="332" width="43" height="101"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -378,38 +371,6 @@ As your cat can only live in a certain type of gas, your task is to use your kno
                                     <action selector="selectGas4:" destination="qsu-L3-DGc" eventType="touchUpInside" id="QqR-6u-Zrg"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZFE-aE-OuH" userLabel="Limewater">
-                                <rect key="frame" x="84" y="187" width="42" height="82"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button" image="limewater"/>
-                                <connections>
-                                    <action selector="limewaterTest:" destination="qsu-L3-DGc" eventType="touchUpInside" id="xZE-bZ-Psf"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="32Y-1a-X4p" userLabel="lightedSplint">
-                                <rect key="frame" x="154" y="187" width="30" height="82"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="lighted-splint"/>
-                                <connections>
-                                    <action selector="lightedSplintTest:" destination="qsu-L3-DGc" eventType="touchUpInside" id="azh-lN-ztf"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="fill" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pBq-gU-2rM" userLabel="glowingSplint">
-                                <rect key="frame" x="228" y="201" width="10" height="68"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="glowing-splint"/>
-                                <connections>
-                                    <action selector="glowingSplintTest:" destination="qsu-L3-DGc" eventType="touchUpInside" id="SqS-Rz-Bup"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5uV-I7-wA5" userLabel="Litmus Paper">
-                                <rect key="frame" x="254" y="202" width="70" height="61"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="litmus-2"/>
-                                <connections>
-                                    <action selector="litmusPaper:" destination="qsu-L3-DGc" eventType="touchUpInside" id="HgJ-Va-ZKC"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IZ0-0H-Ysw">
                                 <rect key="frame" x="24" y="631" width="94" height="94"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -418,9 +379,101 @@ As your cat can only live in a certain type of gas, your task is to use your kno
                                     <action selector="submitChoice:" destination="qsu-L3-DGc" eventType="touchUpInside" id="wRD-at-ZXy"/>
                                 </connections>
                             </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="HSf-1d-jg6">
+                                <rect key="frame" x="40" y="144" width="310" height="100"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KjD-zc-qXD">
+                                        <rect key="frame" x="0.0" y="0.0" width="56" height="100"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZFE-aE-OuH" userLabel="Limewater">
+                                                <rect key="frame" x="10" y="10" width="36" height="80"/>
+                                                <state key="normal" title="Button" image="limewater"/>
+                                                <connections>
+                                                    <action selector="limewaterTest:" destination="qsu-L3-DGc" eventType="touchUpInside" id="xZE-bZ-Psf"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstItem="ZFE-aE-OuH" firstAttribute="top" secondItem="KjD-zc-qXD" secondAttribute="top" constant="10" id="9cD-Hm-dxt"/>
+                                            <constraint firstItem="ZFE-aE-OuH" firstAttribute="leading" secondItem="KjD-zc-qXD" secondAttribute="leading" constant="10" id="POq-Tx-YID"/>
+                                            <constraint firstAttribute="bottom" secondItem="ZFE-aE-OuH" secondAttribute="bottom" constant="10" id="VK3-1t-yd5"/>
+                                            <constraint firstAttribute="trailing" secondItem="ZFE-aE-OuH" secondAttribute="trailing" constant="10" id="W3E-ZR-hiJ"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZBx-iJ-bIt">
+                                        <rect key="frame" x="66" y="0.0" width="56" height="100"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="32Y-1a-X4p" userLabel="lightedSplint">
+                                                <rect key="frame" x="10" y="10" width="36" height="80"/>
+                                                <state key="normal" image="lighted-splint"/>
+                                                <connections>
+                                                    <action selector="lightedSplintTest:" destination="qsu-L3-DGc" eventType="touchUpInside" id="azh-lN-ztf"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="32Y-1a-X4p" secondAttribute="bottom" constant="10" id="E6q-wK-SlI"/>
+                                            <constraint firstItem="32Y-1a-X4p" firstAttribute="top" secondItem="ZBx-iJ-bIt" secondAttribute="top" constant="10" id="aEv-wD-pzm"/>
+                                            <constraint firstItem="32Y-1a-X4p" firstAttribute="leading" secondItem="ZBx-iJ-bIt" secondAttribute="leading" constant="10" id="sl0-Qr-Ula"/>
+                                            <constraint firstAttribute="trailing" secondItem="32Y-1a-X4p" secondAttribute="trailing" constant="10" id="vCx-4W-UYK"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ctl-Eq-n0j">
+                                        <rect key="frame" x="132" y="0.0" width="56" height="100"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pBq-gU-2rM" userLabel="glowingSplint">
+                                                <rect key="frame" x="10" y="10" width="36" height="80"/>
+                                                <state key="normal" image="glowing-splint"/>
+                                                <connections>
+                                                    <action selector="glowingSplintTest:" destination="qsu-L3-DGc" eventType="touchUpInside" id="SqS-Rz-Bup"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstItem="pBq-gU-2rM" firstAttribute="top" secondItem="ctl-Eq-n0j" secondAttribute="top" constant="10" id="I5M-ua-Cuq"/>
+                                            <constraint firstItem="pBq-gU-2rM" firstAttribute="leading" secondItem="ctl-Eq-n0j" secondAttribute="leading" constant="10" id="QoM-Zv-Ugz"/>
+                                            <constraint firstAttribute="trailing" secondItem="pBq-gU-2rM" secondAttribute="trailing" constant="10" id="XEA-Kr-8vJ"/>
+                                            <constraint firstAttribute="bottom" secondItem="pBq-gU-2rM" secondAttribute="bottom" constant="10" id="iIY-Wy-fv0"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zhw-91-4dW">
+                                        <rect key="frame" x="198" y="0.0" width="112" height="100"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5uV-I7-wA5" userLabel="Litmus Paper">
+                                                <rect key="frame" x="10" y="10" width="92" height="80"/>
+                                                <state key="normal" image="litmus-2"/>
+                                                <connections>
+                                                    <action selector="litmusPaper:" destination="qsu-L3-DGc" eventType="touchUpInside" id="HgJ-Va-ZKC"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstItem="5uV-I7-wA5" firstAttribute="top" secondItem="zhw-91-4dW" secondAttribute="top" constant="10" id="0sj-Sj-2V7"/>
+                                            <constraint firstItem="5uV-I7-wA5" firstAttribute="leading" secondItem="zhw-91-4dW" secondAttribute="leading" constant="10" id="BDY-Zc-yNZ"/>
+                                            <constraint firstAttribute="bottom" secondItem="5uV-I7-wA5" secondAttribute="bottom" constant="10" id="CAH-1Q-mnl"/>
+                                            <constraint firstAttribute="trailing" secondItem="5uV-I7-wA5" secondAttribute="trailing" constant="10" id="GtW-VE-ahU"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="ctl-Eq-n0j" firstAttribute="width" secondItem="KjD-zc-qXD" secondAttribute="width" id="5af-BR-BgV"/>
+                                    <constraint firstItem="zhw-91-4dW" firstAttribute="width" secondItem="KjD-zc-qXD" secondAttribute="width" multiplier="2" id="EP2-fj-WIA"/>
+                                    <constraint firstItem="ZBx-iJ-bIt" firstAttribute="width" secondItem="KjD-zc-qXD" secondAttribute="width" id="s7t-gL-xIh"/>
+                                    <constraint firstAttribute="height" constant="100" id="vQK-da-Oow"/>
+                                </constraints>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="LtP-tT-GK7"/>
                         <color key="backgroundColor" red="0.54710417990000004" green="0.75682848690000004" blue="0.93781065939999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="HSf-1d-jg6" secondAttribute="trailing" constant="40" id="RDm-Hz-kHy"/>
+                            <constraint firstItem="HSf-1d-jg6" firstAttribute="top" secondItem="LtP-tT-GK7" secondAttribute="top" constant="100" id="a1W-pI-IAp"/>
+                            <constraint firstItem="HSf-1d-jg6" firstAttribute="leading" secondItem="LtP-tT-GK7" secondAttribute="leading" constant="40" id="zep-Wq-Rfr"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="iMh-nS-fJv"/>
                     <connections>
@@ -432,7 +485,6 @@ As your cat can only live in a certain type of gas, your task is to use your kno
                         <outlet property="lightedSplint" destination="32Y-1a-X4p" id="Y3z-7m-pdC"/>
                         <outlet property="limewater" destination="ZFE-aE-OuH" id="EBi-af-WPS"/>
                         <outlet property="litmus" destination="5uV-I7-wA5" id="szk-0F-YrS"/>
-                        <outlet property="resultsLabel" destination="NDh-V1-aNH" id="nuW-WI-Lzs"/>
                         <outlet property="submit" destination="IZ0-0H-Ysw" id="eTB-pn-iho"/>
                         <segue destination="FWf-eu-FKe" kind="showDetail" identifier="findGasCorrect" id="xa7-EN-bjL"/>
                         <segue destination="i8X-Sz-8XG" kind="showDetail" identifier="findGasWrong" id="8zc-2j-Gbh"/>
