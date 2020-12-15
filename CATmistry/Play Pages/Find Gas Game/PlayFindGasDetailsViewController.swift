@@ -14,6 +14,8 @@ class PlayFindGasDetailsViewController: UIViewController {
     var selectedGasTankString: String!
     var selectedGasTest: Int!
     var currentRound = 0
+    var timeLeft = 20
+    var timer: Timer!
     @IBOutlet weak var limewaterView: UIView!
     @IBOutlet weak var lightedSplintView: UIView!
     @IBOutlet weak var glowingSplintView: UIView!
@@ -41,6 +43,9 @@ class PlayFindGasDetailsViewController: UIViewController {
     }
 
     override func viewDidAppear(_ animated: Bool) {
+        
+        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(PlayIdentifyElementsSecondViewController.updateProgressView), userInfo: nil, repeats: true)
+
         currentRound += 1
     }
 
@@ -206,6 +211,13 @@ class PlayFindGasDetailsViewController: UIViewController {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
     }
-
-
+   
+    @objc func updateTimer() {
+        timeLeft -= 1
+        timerLabel.text = "\(timeLeft) seconds left"
+        if (timeLeft == 0) {
+            currentRound -= 1
+            performSegue(withIdentifier: "findGasWrong", sender: nil)
+        }
+    }
 }
