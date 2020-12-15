@@ -2067,7 +2067,7 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
                     <tabBarItem key="tabBarItem" title="Play" image="gamecontroller.fill" catalog="system" selectedImage="gamecontroller.fill" id="Xs1-53-ugV"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="eFe-la-nb9">
-                        <rect key="frame" x="0.0" y="44" width="390" height="104.33333333333334"/>
+                        <rect key="frame" x="0.0" y="44" width="390" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" red="0.396078431372549" green="0.77647058823529413" blue="0.94117647058823528" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -2728,6 +2728,8 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
                         <outlet property="optionOne" destination="1E6-k1-giD" id="TBu-0L-Q2T"/>
                         <outlet property="optionThree" destination="nZj-It-bBg" id="WBU-wr-u56"/>
                         <outlet property="optionTwo" destination="LyK-ju-RcJ" id="HdT-1D-7Rh"/>
+                        <outlet property="questionLabel" destination="cl8-Nd-3wn" id="JQ7-ed-Tgr"/>
+                        <outlet property="timeLeft" destination="EEk-UP-cq2" id="yC3-cB-Bk1"/>
                         <segue destination="Mja-L5-YzK" kind="presentation" identifier="quizEnded" modalPresentationStyle="fullScreen" id="7pn-4B-FUl"/>
                         <segue destination="RR3-9Q-TX8" kind="presentation" identifier="correctAns" modalPresentationStyle="fullScreen" id="ROw-ex-BKY"/>
                         <segue destination="G5l-IS-oK1" kind="presentation" identifier="wrongAns" modalPresentationStyle="fullScreen" id="Kge-nE-YUa"/>
