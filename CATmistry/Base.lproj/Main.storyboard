@@ -576,7 +576,7 @@ As your cat can only live in a certain type of gas, your task is to use your kno
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ApE-zQ-fgG">
                                         <rect key="frame" x="0.0" y="0.0" width="390" height="646"/>
                                         <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="meowster" translatesAutoresizingMaskIntoConstraints="NO" id="Toi-w5-WBS">
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cat-happy" translatesAutoresizingMaskIntoConstraints="NO" id="Toi-w5-WBS">
                                                 <rect key="frame" x="60" y="188.33333333333337" width="270" height="215"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="215" id="Ugm-fD-FJ3"/>
@@ -1649,7 +1649,7 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="meowster" translatesAutoresizingMaskIntoConstraints="NO" id="bcK-GK-icA">
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cat-dead" translatesAutoresizingMaskIntoConstraints="NO" id="bcK-GK-icA">
                                                 <rect key="frame" x="60" y="188.33333333333337" width="270" height="215"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="215" id="fZj-B7-vJo"/>
@@ -2844,13 +2844,15 @@ Your answer was wrong, but don't worry! You have \(String(10 - currentQuestion))
         <segue reference="3ul-Vm-2ia"/>
         <segue reference="s4T-H5-cTx"/>
         <segue reference="l86-7T-ukz"/>
-        <segue reference="orq-5T-Gly"/>
-        <segue reference="SnY-zI-Ehk"/>
+        <segue reference="8zc-2j-Gbh"/>
+        <segue reference="xa7-EN-bjL"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="books.vertical.fill" catalog="system" width="128" height="100"/>
         <image name="bowl" width="130" height="109"/>
         <image name="cat" width="156" height="197.33332824707031"/>
+        <image name="cat-dead" width="834" height="1143"/>
+        <image name="cat-happy" width="494" height="647"/>
         <image name="check" width="512" height="512"/>
         <image name="close" width="512" height="512"/>
         <image name="gamecontroller.fill" catalog="system" width="128" height="80"/>
@@ -2861,7 +2863,7 @@ Your answer was wrong, but don't worry! You have \(String(10 - currentQuestion))
         <image name="limewater" width="104" height="237"/>
         <image name="litmus-2" width="296" height="236"/>
         <image name="lock" width="512" height="512"/>
-        <image name="meowster" width="166" height="216"/>
+        <image name="meowster" width="494" height="647"/>
         <image name="monster-regular" width="828" height="1161"/>
         <image name="periodicTable" width="339" height="133"/>
         <image name="ph-7" width="512" height="512"/>
