@@ -91,7 +91,7 @@ struct SpecificSeperationMethod: Hashable, Codable {
     var name: String
     var properties: String
     var givenMethods: GivenSeperationMethods
-    
+
     func hash(into hasher: inout Hasher) {
         hasher.combine(name)
         hasher.combine(properties)
@@ -101,7 +101,7 @@ struct SpecificSeperationMethod: Hashable, Codable {
 
 struct GivenSeperationMethods: Hashable, Codable {
     var methods: [SeperationMethods]
-    
+
     func hash(into hasher: inout Hasher) {
         hasher.combine(methods)
     }
@@ -110,7 +110,7 @@ struct GivenSeperationMethods: Hashable, Codable {
 struct SeperationMethods: Hashable, Codable {
     var methodName: String
     var isCorrect: Bool
-    
+
     func hash(into hasher: inout Hasher) {
         hasher.combine(methodName)
         hasher.combine(isCorrect)
@@ -127,7 +127,7 @@ struct PhOption: Hashable, Codable {
     var image: String
     var turnUniversalTankColour: String
     var isAcidic: Bool? = true
-    
+
     func hash(into hasher: inout Hasher) {
         hasher.combine(name)
         hasher.combine(image)

@@ -8,9 +8,9 @@
 import UIKit
 
 class PlayRetrieveSolidsDetailsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-    
+
     // MARK: - Variable Declaration
-    
+
     var selectedElement: Int?
     var isCorrect: Bool?
     var numOfItems = 4
@@ -19,24 +19,24 @@ class PlayRetrieveSolidsDetailsViewController: UIViewController, UITableViewDele
     var specificSeperationMethodSet = Set<SpecificSeperationMethod>()
     var elements: Array<SpecificSeperationMethod>!
     var hardMode = true
-    
+
     // MARK: - IBOutlets Declaration
-    
+
     @IBOutlet weak var progressView: UIProgressView!
     @IBOutlet weak var seperationTableView: UITableView!
     @IBOutlet weak var choicesTableView: UITableView!
     @IBOutlet weak var selectedChoiceLabel: UIButton!
     @IBOutlet weak var isWrong: UILabel!
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         if (currentLevel == 2){
             hardMode = true
         } else {
             hardMode = false
         }
-        
+
         if (!hardMode) {
             let color = UIColor(rgb: 0x7CC2F5)
             self.view.backgroundColor = color
@@ -44,7 +44,7 @@ class PlayRetrieveSolidsDetailsViewController: UIViewController, UITableViewDele
             let color = UIColor(rgb: 0xFF0000)
             self.view.backgroundColor = color
         }
-        
+
         seperationTableView.dataSource = self
         seperationTableView.delegate = self
         self.seperationTableView.tableFooterView = UIView()
@@ -52,41 +52,41 @@ class PlayRetrieveSolidsDetailsViewController: UIViewController, UITableViewDele
         choicesTableView.delegate = self
         self.choicesTableView.allowsSelection = true
         self.choicesTableView.tableFooterView = UIView()
-        
+
         selectedChoiceLabel.isHidden = true
         isWrong.isHidden = true
-        
+
         progressView.transform = CGAffineTransform(rotationAngle: .pi / -2)
         progressView.transform = progressView.transform.scaledBy(x: 1, y: 30)
-        
+
         isWrong.layer.cornerRadius = 25
-        
+
         progressView.progress = Float(numOfItems)/10
-        
+
         while specificSeperationMethodSet.count <= 10 {
             let randomIndex = Int(arc4random_uniform(UInt32(retrieveSolidsArray.count)))
             specificSeperationMethodSet.insert(retrieveSolidsArray[randomIndex])
         }
-        
+
         elements = Array(specificSeperationMethodSet)
-        
+
         if (hardMode) {
             self.progressBarTimer = Timer.scheduledTimer(timeInterval: 2, target: self, selector: #selector(PlayRetrieveSolidsDetailsViewController.updateProgressView), userInfo: nil, repeats: true)
         }
-        
+
         // Do any additional setup after loading the view.
     }
-    
+
     override func viewDidAppear(_ animated: Bool) {
         /*
         let color = UIColor(rgb: 0xFF0000)
         let darkRed = UIColor(rgb: 0xCC0000)
         self.view.backgroundColor = color
-        
+
         let view2 = UIView()
         self.view.addSubview(view2)
         view2.isUserInteractionEnabled = false
-        
+
         if (hardMode) {
             UIView.animate(withDuration: 2, delay: 0.0, options:[UIView.AnimationOptions.repeat, UIView.AnimationOptions.autoreverse], animations: {
                  view2.backgroundColor = color
@@ -95,12 +95,12 @@ class PlayRetrieveSolidsDetailsViewController: UIViewController, UITableViewDele
         } */
     }
     // MARK: - First Table View
-    
+
     func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 1
     }
-    
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if (tableView == self.seperationTableView){
             print(indexPath.row)
@@ -115,7 +115,7 @@ class PlayRetrieveSolidsDetailsViewController: UIViewController, UITableViewDele
             return UITableViewCell()
         }
     }
-    
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         if (tableView == seperationTableView){
@@ -130,7 +130,7 @@ class PlayRetrieveSolidsDetailsViewController: UIViewController, UITableViewDele
             return 0
         }
     }
-    
+
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if (tableView == seperationTableView){
             selectedElement = indexPath.row
@@ -145,9 +145,9 @@ class PlayRetrieveSolidsDetailsViewController: UIViewController, UITableViewDele
             tableView.deselectRow(at: indexPath, animated: true)
         }
     }
-    
+
     var index = 0
-    
+
     @IBAction func submitChoice(_ sender: Any) {
         isWrong.isHidden = false
         if (!isCorrect!) {
@@ -180,7 +180,7 @@ class PlayRetrieveSolidsDetailsViewController: UIViewController, UITableViewDele
             self.isWrong.isHidden = true
         }
     }
-    
+
     @objc func updateProgressView(){
         numOfItems += 1
         progressView.progress += 0.1
@@ -195,9 +195,9 @@ class PlayRetrieveSolidsDetailsViewController: UIViewController, UITableViewDele
         }
         seperationTableView.reloadData()
     }
-    
+
     // MARK: - Navigation
-    
+
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "seperationGameLose"){
@@ -211,8 +211,8 @@ class PlayRetrieveSolidsDetailsViewController: UIViewController, UITableViewDele
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
     }
-    
-    
+
+
 }
 
 extension UIColor {
@@ -220,10 +220,10 @@ extension UIColor {
         assert(red >= 0 && red <= 255, "Invalid red component")
         assert(green >= 0 && green <= 255, "Invalid green component")
         assert(blue >= 0 && blue <= 255, "Invalid blue component")
-        
+
         self.init(red: CGFloat(red) / 255.0, green: CGFloat(green) / 255.0, blue: CGFloat(blue) / 255.0, alpha: 1.0)
     }
-    
+
     convenience init(rgb: Int) {
         self.init(
             red: (rgb >> 16) & 0xFF,
