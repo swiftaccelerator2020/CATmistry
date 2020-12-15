@@ -570,20 +570,20 @@ As your cat can only live in a certain type of gas, your task is to use your kno
                                     <action selector="nextGameClicked:" destination="FWf-eu-FKe" eventType="touchUpInside" id="lEh-tg-p6F"/>
                                 </connections>
                             </button>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Pf-F9-PTX">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2Pf-F9-PTX">
                                 <rect key="frame" x="0.0" y="44" width="390" height="646"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ApE-zQ-fgG">
-                                        <rect key="frame" x="0.0" y="0.0" width="390" height="656"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="390" height="646"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="meowster" translatesAutoresizingMaskIntoConstraints="NO" id="Toi-w5-WBS">
-                                                <rect key="frame" x="60" y="198.33333333333337" width="270" height="215"/>
+                                                <rect key="frame" x="60" y="188.33333333333337" width="270" height="215"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="215" id="Ugm-fD-FJ3"/>
                                                 </constraints>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uFs-Yh-ieF">
-                                                <rect key="frame" x="40" y="453.33333333333331" width="310" height="182.66666666666669"/>
+                                                <rect key="frame" x="40" y="443.33333333333331" width="310" height="182.66666666666669"/>
                                                 <string key="text">Congrats!
 
 Through your hard work, your cat has been able to avoid the danger.
@@ -597,7 +597,7 @@ You have \(String(10 - currentGame)) rounds remaining in Level \(String(currentL
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
                                             <constraint firstAttribute="trailing" secondItem="uFs-Yh-ieF" secondAttribute="trailing" constant="40" id="dCL-aB-yhh"/>
-                                            <constraint firstAttribute="height" constant="656" id="gU8-wU-iBt"/>
+                                            <constraint firstAttribute="height" constant="646" id="gU8-wU-iBt"/>
                                             <constraint firstItem="Toi-w5-WBS" firstAttribute="leading" secondItem="ApE-zQ-fgG" secondAttribute="leading" constant="60" id="imb-lI-On9"/>
                                             <constraint firstItem="uFs-Yh-ieF" firstAttribute="left" secondItem="ApE-zQ-fgG" secondAttribute="left" constant="40" id="nVV-Ne-dI1"/>
                                             <constraint firstItem="uFs-Yh-ieF" firstAttribute="top" secondItem="Toi-w5-WBS" secondAttribute="bottom" constant="40" id="oKB-k4-Z7q"/>
@@ -1632,14 +1632,14 @@ scroll down to submit</string>
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Uz9-4H-TWk">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Uz9-4H-TWk">
                                 <rect key="frame" x="0.0" y="44" width="390" height="646"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GaR-cW-ge6">
-                                        <rect key="frame" x="0.0" y="0.0" width="390" height="656"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="390" height="646"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iE7-b8-PyK">
-                                                <rect key="frame" x="40" y="453.33333333333331" width="310" height="182.66666666666669"/>
+                                                <rect key="frame" x="40" y="443.33333333333331" width="310" height="182.66666666666669"/>
                                                 <string key="text">Oh no!
 
 Your answer was wrong, and your cat died.
@@ -1650,7 +1650,7 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="meowster" translatesAutoresizingMaskIntoConstraints="NO" id="bcK-GK-icA">
-                                                <rect key="frame" x="60" y="198.33333333333337" width="270" height="215"/>
+                                                <rect key="frame" x="60" y="188.33333333333337" width="270" height="215"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="215" id="fZj-B7-vJo"/>
                                                 </constraints>
@@ -1658,7 +1658,7 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="656" id="LQB-mD-GL3"/>
+                                            <constraint firstAttribute="height" constant="646" id="LQB-mD-GL3"/>
                                             <constraint firstAttribute="trailing" secondItem="bcK-GK-icA" secondAttribute="trailing" constant="60" id="TMv-ZO-1Lm"/>
                                             <constraint firstAttribute="trailing" secondItem="iE7-b8-PyK" secondAttribute="trailing" constant="40" id="U5J-V0-z2D"/>
                                             <constraint firstItem="bcK-GK-icA" firstAttribute="leading" secondItem="GaR-cW-ge6" secondAttribute="leading" constant="60" id="dWl-Jh-wMw"/>
@@ -2480,9 +2480,8 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="UNDER CONTRUCTION" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sdd-8H-qca">
-                                <rect key="frame" x="16" y="148" width="358" height="312"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="UNDER CONTRUCTION" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sdd-8H-qca">
+                                <rect key="frame" x="20" y="172" width="350" height="299"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -2547,9 +2546,13 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
                         <constraints>
                             <constraint firstItem="ZOb-i1-cri" firstAttribute="bottom" secondItem="aAx-zz-Srz" secondAttribute="bottom" constant="20" id="7D5-ye-ANg"/>
                             <constraint firstItem="ZOb-i1-cri" firstAttribute="trailing" secondItem="aAx-zz-Srz" secondAttribute="trailing" constant="20" id="Bvc-bf-UXa"/>
+                            <constraint firstItem="ZOb-i1-cri" firstAttribute="trailing" secondItem="sdd-8H-qca" secondAttribute="trailing" constant="20" id="Fud-3e-Vw5"/>
                             <constraint firstItem="RsP-jP-75G" firstAttribute="leading" secondItem="2Bz-nv-xOV" secondAttribute="leading" id="JE7-iI-Jpl"/>
+                            <constraint firstItem="sdd-8H-qca" firstAttribute="top" secondItem="RsP-jP-75G" secondAttribute="bottom" constant="20" id="Udd-VT-yhA"/>
                             <constraint firstAttribute="trailing" secondItem="RsP-jP-75G" secondAttribute="trailing" id="VR2-jV-ULB"/>
                             <constraint firstItem="aAx-zz-Srz" firstAttribute="leading" secondItem="ZOb-i1-cri" secondAttribute="leading" constant="20" id="ZnS-Rm-SWl"/>
+                            <constraint firstItem="sdd-8H-qca" firstAttribute="leading" secondItem="ZOb-i1-cri" secondAttribute="leading" constant="20" id="crJ-zS-OhH"/>
+                            <constraint firstItem="aAx-zz-Srz" firstAttribute="top" secondItem="sdd-8H-qca" secondAttribute="bottom" constant="20" id="kEl-vv-jhc"/>
                             <constraint firstItem="RsP-jP-75G" firstAttribute="top" secondItem="2Bz-nv-xOV" secondAttribute="top" constant="148" id="tz8-tq-tMY"/>
                         </constraints>
                     </view>
@@ -2651,25 +2654,23 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
                                     <action selector="nextGameClicked:" destination="RR3-9Q-TX8" eventType="touchUpInside" id="H20-mJ-PZa"/>
                                 </connections>
                             </button>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rm5-18-TtM">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Rm5-18-TtM">
                                 <rect key="frame" x="0.0" y="44" width="390" height="646"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Gy-QO-q09">
-                                        <rect key="frame" x="0.0" y="0.0" width="390" height="656"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="390" height="646"/>
                                         <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="meowster" translatesAutoresizingMaskIntoConstraints="NO" id="dK6-Dx-wAq">
-                                                <rect key="frame" x="60" y="198.33333333333337" width="270" height="215"/>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="check" translatesAutoresizingMaskIntoConstraints="NO" id="dK6-Dx-wAq">
+                                                <rect key="frame" x="60" y="150" width="270" height="215"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="215" id="Rv9-MP-cDb"/>
                                                 </constraints>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lr7-nB-lX6">
-                                                <rect key="frame" x="40" y="453.33333333333331" width="310" height="182.66666666666669"/>
-                                                <string key="text">Congrats!
+                                                <rect key="frame" x="40" y="405" width="310" height="101.66666666666669"/>
+                                                <string key="text">Well done!
 
-Through your hard work, your cat has been able to avoid the danger.
-
-You have \(String(10 - currentGame)) rounds remaining in Level \(String(currentLevel)). Keep up the good work!</string>
+You go the answer right. You have \(String(9 - currentQuestion) questions left in this quiz. Keep up the good work!</string>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -2679,9 +2680,9 @@ You have \(String(10 - currentGame)) rounds remaining in Level \(String(currentL
                                         <constraints>
                                             <constraint firstItem="Lr7-nB-lX6" firstAttribute="left" secondItem="1Gy-QO-q09" secondAttribute="left" constant="40" id="Cca-z6-Fcn"/>
                                             <constraint firstAttribute="trailing" secondItem="Lr7-nB-lX6" secondAttribute="trailing" constant="40" id="GlX-tI-Tqf"/>
-                                            <constraint firstAttribute="bottom" secondItem="Lr7-nB-lX6" secondAttribute="bottom" constant="20" id="Muw-hN-7T0"/>
-                                            <constraint firstAttribute="height" constant="656" id="VMm-ui-wpw"/>
+                                            <constraint firstAttribute="height" constant="646" id="VMm-ui-wpw"/>
                                             <constraint firstItem="Lr7-nB-lX6" firstAttribute="top" secondItem="dK6-Dx-wAq" secondAttribute="bottom" constant="40" id="VNL-US-efW"/>
+                                            <constraint firstItem="dK6-Dx-wAq" firstAttribute="top" secondItem="1Gy-QO-q09" secondAttribute="top" constant="150" id="ZaS-E5-exD"/>
                                             <constraint firstAttribute="trailing" secondItem="dK6-Dx-wAq" secondAttribute="trailing" constant="60" id="eim-81-hip"/>
                                             <constraint firstItem="dK6-Dx-wAq" firstAttribute="leading" secondItem="1Gy-QO-q09" secondAttribute="leading" constant="60" id="qQt-rk-tJn"/>
                                         </constraints>
@@ -2742,25 +2743,23 @@ You have \(String(10 - currentGame)) rounds remaining in Level \(String(currentL
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="txQ-YD-Lkh">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" translatesAutoresizingMaskIntoConstraints="NO" id="txQ-YD-Lkh">
                                 <rect key="frame" x="0.0" y="44" width="390" height="646"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PIl-Rz-qvp">
-                                        <rect key="frame" x="0.0" y="0.0" width="390" height="656"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="390" height="646"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uLl-eX-CUm">
-                                                <rect key="frame" x="40" y="453.33333333333331" width="310" height="182.66666666666669"/>
+                                                <rect key="frame" x="40" y="405" width="310" height="122"/>
                                                 <string key="text">Oh no!
 
-Your answer was wrong, and your cat died.
-
-Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentGame)) rounds remaining in Level \(String(currentLevel)). Good luck!</string>
+Your answer was wrong, but don't worry! You have \(String(10 - currentQuestion)) questions left in this quiz. Try harder next time!</string>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="meowster" translatesAutoresizingMaskIntoConstraints="NO" id="MDp-tB-m3g">
-                                                <rect key="frame" x="60" y="198.33333333333337" width="270" height="215"/>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="close" translatesAutoresizingMaskIntoConstraints="NO" id="MDp-tB-m3g">
+                                                <rect key="frame" x="60" y="150" width="270" height="215"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="215" id="djT-as-Cvg"/>
                                                 </constraints>
@@ -2772,8 +2771,8 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
                                             <constraint firstItem="uLl-eX-CUm" firstAttribute="left" secondItem="PIl-Rz-qvp" secondAttribute="left" constant="40" id="8aU-wD-VLi"/>
                                             <constraint firstAttribute="trailing" secondItem="uLl-eX-CUm" secondAttribute="trailing" constant="40" id="8mp-wu-bir"/>
                                             <constraint firstAttribute="trailing" secondItem="MDp-tB-m3g" secondAttribute="trailing" constant="60" id="Bi4-NJ-uwy"/>
-                                            <constraint firstAttribute="height" constant="656" id="KXW-1U-FT7"/>
-                                            <constraint firstAttribute="bottom" secondItem="uLl-eX-CUm" secondAttribute="bottom" constant="20" id="hn6-ZB-Kgf"/>
+                                            <constraint firstAttribute="height" constant="646" id="KXW-1U-FT7"/>
+                                            <constraint firstItem="MDp-tB-m3g" firstAttribute="top" secondItem="PIl-Rz-qvp" secondAttribute="top" constant="150" id="QTr-ee-txI"/>
                                             <constraint firstItem="MDp-tB-m3g" firstAttribute="leading" secondItem="PIl-Rz-qvp" secondAttribute="leading" constant="60" id="lmn-a6-g0S"/>
                                         </constraints>
                                     </view>
@@ -2852,6 +2851,8 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
         <image name="books.vertical.fill" catalog="system" width="128" height="100"/>
         <image name="bowl" width="130" height="109"/>
         <image name="cat" width="156" height="197.33332824707031"/>
+        <image name="check" width="512" height="512"/>
+        <image name="close" width="512" height="512"/>
         <image name="gamecontroller.fill" catalog="system" width="128" height="80"/>
         <image name="gas-tank" width="302" height="827"/>
         <image name="gear" catalog="system" width="128" height="119"/>
