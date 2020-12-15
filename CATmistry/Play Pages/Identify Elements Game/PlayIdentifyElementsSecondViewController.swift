@@ -26,6 +26,8 @@ class PlayIdentifyElementsSecondViewController: UIViewController {
     var gameTopic: periodicTableGame!
     var timeLeftTrack: Int!
     var level: Int!
+    
+    let color = UIColor(red: 245/255.0, green: 214/255.0, blue: 224/255.0, alpha: 1)
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -148,8 +150,8 @@ class PlayIdentifyElementsSecondViewController: UIViewController {
         if (selectedMetalButton != metal && selectedMetalButton != nil){
             metal.backgroundColor = .green
             metal.setTitleColor(.black, for: .normal)
-            selectedMetalButton.backgroundColor = .black
-            selectedMetalButton.setTitleColor(.white, for: .normal)
+            selectedMetalButton.backgroundColor = color
+            selectedMetalButton.setTitleColor(.black, for: .normal)
             selectedMetalButton = metal
         } else if (selectedMetalButton != metal){
             selectedMetalButton = metal
@@ -157,8 +159,8 @@ class PlayIdentifyElementsSecondViewController: UIViewController {
             metal.setTitleColor(.black, for: .normal)
         } else {
             selectedMetalButton = nil
-            metal.backgroundColor = .black
-            metal.setTitleColor(.white, for: .normal)
+            metal.backgroundColor = color
+            metal.setTitleColor(.black, for: .normal)
         }
     }
 
@@ -166,8 +168,8 @@ class PlayIdentifyElementsSecondViewController: UIViewController {
         if (selectedMetalButton != transitionMetal && selectedMetalButton != nil){
             transitionMetal.backgroundColor = .green
             transitionMetal.setTitleColor(.black, for: .normal)
-            selectedMetalButton.backgroundColor = .black
-            selectedMetalButton.setTitleColor(.white, for: .normal)
+            selectedMetalButton.backgroundColor = color
+            selectedMetalButton.setTitleColor(.black, for: .normal)
             selectedMetalButton = transitionMetal
         } else if (selectedMetalButton != transitionMetal){
             selectedMetalButton = transitionMetal
@@ -175,8 +177,8 @@ class PlayIdentifyElementsSecondViewController: UIViewController {
             transitionMetal.setTitleColor(.black, for: .normal)
         } else {
             selectedMetalButton = nil
-            transitionMetal.backgroundColor = .black
-            transitionMetal.setTitleColor(.white, for: .normal)
+            transitionMetal.backgroundColor = color
+            transitionMetal.setTitleColor(.black, for: .normal)
         }
     }
 
@@ -184,8 +186,8 @@ class PlayIdentifyElementsSecondViewController: UIViewController {
         if (selectedMetalButton != nonMetal && selectedMetalButton != nil){
             nonMetal.backgroundColor = .green
             nonMetal.setTitleColor(.black, for: .normal)
-            selectedMetalButton.backgroundColor = .black
-            selectedMetalButton.setTitleColor(.white, for: .normal)
+            selectedMetalButton.backgroundColor = color
+            selectedMetalButton.setTitleColor(.black, for: .normal)
             selectedMetalButton = nonMetal
         } else if (selectedMetalButton != nonMetal){
             selectedMetalButton = nonMetal
@@ -193,10 +195,9 @@ class PlayIdentifyElementsSecondViewController: UIViewController {
             nonMetal.setTitleColor(.black, for: .normal)
         } else {
             selectedMetalButton = nil
-            nonMetal.backgroundColor = .black
-            nonMetal.setTitleColor(.white, for: .normal)
+            nonMetal.backgroundColor = color
+            nonMetal.setTitleColor(.black, for: .normal)
         }
-
     }
 
     @objc func updateProgressView(){

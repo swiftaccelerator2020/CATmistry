@@ -266,13 +266,13 @@ var learnTopics = [
         ],
         errorLabel: "Please complete Chapter 1", questions:
             [
-                QuizQuestion(question: "LOREM IPSUM", options:
-                                [
-                                    "wrong",
-                                    "correct",
-                                    "wrong",
-                                    "wrong"
-                                ], correctAnswer: 2),
+                QuizQuestion(question: "Which of the following is insoluble?", options:
+                                            [
+                                                "Salt",
+                                                "Sugar",
+                                                "Sand",
+                                                "Milo powder"
+                                            ], correctAnswer: 3),
                 
                 QuizQuestion(question: "LOREM IPSUM", options:
                                 [
