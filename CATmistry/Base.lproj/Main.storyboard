@@ -1435,20 +1435,18 @@ scroll down to submit</string>
                                                                 </constraints>
                                                             </view>
                                                             <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ph-7" translatesAutoresizingMaskIntoConstraints="NO" id="pcs-4x-bWN">
-                                                                <rect key="frame" x="0.0" y="10" width="70" height="50"/>
+                                                                <rect key="frame" x="0.0" y="10" width="70" height="70"/>
                                                             </imageView>
-                                                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tTe-ft-SBp">
-                                                                <rect key="frame" x="0.0" y="60" width="70" height="30"/>
-                                                                <constraints>
-                                                                    <constraint firstAttribute="height" constant="30" id="na1-yf-P4P"/>
-                                                                </constraints>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                <nil key="textColor"/>
-                                                                <nil key="highlightedColor"/>
-                                                            </label>
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iSR-jR-f1E">
+                                                                <rect key="frame" x="0.0" y="80" width="70" height="10"/>
+                                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                            </view>
                                                         </subviews>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <gestureRecognizers/>
+                                                        <constraints>
+                                                            <constraint firstItem="iSR-jR-f1E" firstAttribute="height" secondItem="nM2-z5-ak2" secondAttribute="height" id="15j-92-E2W"/>
+                                                        </constraints>
                                                         <connections>
                                                             <outletCollection property="gestureRecognizers" destination="xXB-FL-wBv" appends="YES" id="Dl7-pO-rVB"/>
                                                         </connections>
@@ -1464,20 +1462,18 @@ scroll down to submit</string>
                                                                 </constraints>
                                                             </view>
                                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ph-7" translatesAutoresizingMaskIntoConstraints="NO" id="Q8Y-3y-DY6">
-                                                                <rect key="frame" x="0.0" y="10" width="70" height="50"/>
+                                                                <rect key="frame" x="0.0" y="10" width="70" height="70"/>
                                                             </imageView>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vI7-OP-NZn">
-                                                                <rect key="frame" x="0.0" y="60" width="70" height="30"/>
-                                                                <constraints>
-                                                                    <constraint firstAttribute="height" constant="30" id="gKp-Ms-Uc2"/>
-                                                                </constraints>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                <nil key="textColor"/>
-                                                                <nil key="highlightedColor"/>
-                                                            </label>
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sqD-1I-Rkg">
+                                                                <rect key="frame" x="0.0" y="80" width="70" height="10"/>
+                                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                            </view>
                                                         </subviews>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <gestureRecognizers/>
+                                                        <constraints>
+                                                            <constraint firstItem="sqD-1I-Rkg" firstAttribute="height" secondItem="BZe-xm-ETW" secondAttribute="height" id="FGP-rj-lqH"/>
+                                                        </constraints>
                                                         <connections>
                                                             <outletCollection property="gestureRecognizers" destination="R1W-ja-EpO" appends="YES" id="mwe-WH-Bac"/>
                                                         </connections>
@@ -1493,20 +1489,18 @@ scroll down to submit</string>
                                                                 </constraints>
                                                             </view>
                                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ph-7" translatesAutoresizingMaskIntoConstraints="NO" id="4r0-oT-BIz">
-                                                                <rect key="frame" x="0.0" y="10" width="70" height="50"/>
+                                                                <rect key="frame" x="0.0" y="10" width="70" height="70"/>
                                                             </imageView>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FFs-H5-s0k">
-                                                                <rect key="frame" x="0.0" y="60" width="70" height="30"/>
-                                                                <constraints>
-                                                                    <constraint firstAttribute="height" constant="30" id="GRD-Wb-xPj"/>
-                                                                </constraints>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                <nil key="textColor"/>
-                                                                <nil key="highlightedColor"/>
-                                                            </label>
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="one-Or-JeC">
+                                                                <rect key="frame" x="0.0" y="80" width="70" height="10"/>
+                                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                            </view>
                                                         </subviews>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <gestureRecognizers/>
+                                                        <constraints>
+                                                            <constraint firstItem="one-Or-JeC" firstAttribute="height" secondItem="I2e-ca-ads" secondAttribute="height" id="GP9-k1-qQM"/>
+                                                        </constraints>
                                                         <connections>
                                                             <outletCollection property="gestureRecognizers" destination="R2t-u3-t0O" appends="YES" id="viR-am-GDC"/>
                                                         </connections>
@@ -1522,20 +1516,18 @@ scroll down to submit</string>
                                                                 </constraints>
                                                             </view>
                                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ph-7" translatesAutoresizingMaskIntoConstraints="NO" id="2Hh-a1-8QT">
-                                                                <rect key="frame" x="0.0" y="10" width="70" height="50"/>
+                                                                <rect key="frame" x="0.0" y="10" width="70" height="70"/>
                                                             </imageView>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OWq-50-zS7">
-                                                                <rect key="frame" x="0.0" y="60" width="70" height="30"/>
-                                                                <constraints>
-                                                                    <constraint firstAttribute="height" constant="30" id="M4e-Bu-oy5"/>
-                                                                </constraints>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                <nil key="textColor"/>
-                                                                <nil key="highlightedColor"/>
-                                                            </label>
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GLJ-zU-3GM">
+                                                                <rect key="frame" x="0.0" y="80" width="70" height="10"/>
+                                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                            </view>
                                                         </subviews>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <gestureRecognizers/>
+                                                        <constraints>
+                                                            <constraint firstItem="GLJ-zU-3GM" firstAttribute="height" secondItem="ooo-PP-F6j" secondAttribute="height" id="ikO-h2-cVJ"/>
+                                                        </constraints>
                                                         <connections>
                                                             <outletCollection property="gestureRecognizers" destination="TGS-NF-YVz" appends="YES" id="v3s-93-UqD"/>
                                                         </connections>
@@ -1631,21 +1623,17 @@ scroll down to submit</string>
                         <outlet property="contentView" destination="Inh-Cc-vSE" id="Xfj-FI-9DM"/>
                         <outlet property="contentViewHeight" destination="8OR-Xo-isP" id="zjf-w2-YeW"/>
                         <outlet property="firstOptionImageView" destination="pcs-4x-bWN" id="ENb-Gr-GTK"/>
-                        <outlet property="firstOptionLabel" destination="tTe-ft-SBp" id="XOo-Bu-rdG"/>
                         <outlet property="firstOptionStackView" destination="JY8-Y2-m9m" id="H6u-d0-2BE"/>
                         <outlet property="fourthOptionImageView" destination="2Hh-a1-8QT" id="KDf-9U-d1a"/>
-                        <outlet property="fourthOptionLabel" destination="OWq-50-zS7" id="a6C-x6-ZLk"/>
                         <outlet property="fourthOptionStackView" destination="N3T-dd-fOR" id="goM-zg-KLa"/>
                         <outlet property="monsterImageView" destination="msP-Zd-VFr" id="7EP-hf-ijt"/>
                         <outlet property="scrollView" destination="AeW-Ro-PBg" id="PRT-Nz-pkS"/>
                         <outlet property="secondOptionImageView" destination="Q8Y-3y-DY6" id="xtm-O3-kGR"/>
-                        <outlet property="secondOptionLabel" destination="vI7-OP-NZn" id="8Nv-8X-ST2"/>
                         <outlet property="secondOptionStackView" destination="SMD-0O-mXJ" id="jXF-rg-THJ"/>
                         <outlet property="submitButton" destination="tHs-2v-5WT" id="fCe-3c-oup"/>
                         <outlet property="submitButtonIsHiddenConstraint" destination="2Re-Rb-Fx7" id="QQU-sM-gS3"/>
                         <outlet property="submitButtonIsVisibleConstraint" destination="wTU-co-i4A" id="d4u-7w-Vqo"/>
                         <outlet property="thirdOptionImageView" destination="4r0-oT-BIz" id="Uuf-aL-3cU"/>
-                        <outlet property="thirdOptionLabel" destination="FFs-H5-s0k" id="gix-iM-wB3"/>
                         <outlet property="thirdOptionStackView" destination="SY4-DI-2yI" id="DN1-OI-q3B"/>
                         <outlet property="timerLabel" destination="28d-ID-N6R" id="T35-Kx-Du2"/>
                         <segue destination="FWf-eu-FKe" kind="showDetail" identifier="adjustPhCorrect" id="1zV-QA-rV2"/>
@@ -2896,8 +2884,8 @@ Your answer was wrong, but don't worry! You have \(String(10 - currentQuestion))
         <segue reference="3ul-Vm-2ia"/>
         <segue reference="s4T-H5-cTx"/>
         <segue reference="l86-7T-ukz"/>
-        <segue reference="8zc-2j-Gbh"/>
-        <segue reference="xa7-EN-bjL"/>
+        <segue reference="GDV-4V-Yxl"/>
+        <segue reference="1zV-QA-rV2"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="books.vertical.fill" catalog="system" width="128" height="100"/>
