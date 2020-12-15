@@ -441,7 +441,7 @@ As your cat can only live in a certain type of gas, your task is to use your kno
                                 <rect key="frame" x="25" y="249" width="340" height="290"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UuK-ME-cyu">
-                                        <rect key="frame" x="0.0" y="0.0" width="340" height="290"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="340" height="305"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fem-Ps-gaG">
                                                 <rect key="frame" x="20" y="110" width="300" height="100"/>
@@ -535,7 +535,7 @@ As your cat can only live in a certain type of gas, your task is to use your kno
                                                 </constraints>
                                             </stackView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hkd-yq-HKg">
-                                                <rect key="frame" x="40" y="225" width="260" height="50"/>
+                                                <rect key="frame" x="40" y="240" width="260" height="50"/>
                                                 <color key="backgroundColor" red="0.9916279912" green="0.76091009379999996" blue="0.068631619219999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="fhH-3R-0st"/>
@@ -559,7 +559,7 @@ As your cat can only live in a certain type of gas, your task is to use your kno
                                         </subviews>
                                         <color key="backgroundColor" red="0.4953809381" green="0.67837697269999997" blue="0.85103112459999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="290" id="8du-vq-5VT"/>
+                                            <constraint firstAttribute="height" constant="305" id="8du-vq-5VT"/>
                                             <constraint firstItem="Fem-Ps-gaG" firstAttribute="top" secondItem="dKZ-zl-Phq" secondAttribute="bottom" constant="30" id="AWO-O8-k2Z"/>
                                             <constraint firstItem="Fem-Ps-gaG" firstAttribute="leading" secondItem="UuK-ME-cyu" secondAttribute="leading" constant="20" id="CjJ-WF-FNz"/>
                                             <constraint firstAttribute="bottom" secondItem="Hkd-yq-HKg" secondAttribute="bottom" constant="15" id="ND1-hk-xjs"/>
@@ -569,7 +569,7 @@ As your cat can only live in a certain type of gas, your task is to use your kno
                                             <constraint firstAttribute="trailing" secondItem="Hkd-yq-HKg" secondAttribute="trailing" constant="40" id="keJ-Dh-gkY"/>
                                             <constraint firstAttribute="trailing" secondItem="Fem-Ps-gaG" secondAttribute="trailing" constant="20" id="oZf-MM-2I6"/>
                                             <constraint firstAttribute="trailing" secondItem="dKZ-zl-Phq" secondAttribute="trailing" constant="40" id="rip-He-7FS"/>
-                                            <constraint firstItem="Hkd-yq-HKg" firstAttribute="top" secondItem="Fem-Ps-gaG" secondAttribute="bottom" constant="15" id="uFV-96-1Lp"/>
+                                            <constraint firstItem="Hkd-yq-HKg" firstAttribute="top" secondItem="Fem-Ps-gaG" secondAttribute="bottom" constant="30" id="uFV-96-1Lp"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -706,28 +706,12 @@ As your cat can only live in a certain type of gas, your task is to use your kno
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Xtl-sC-sZh">
-                                <rect key="frame" x="25" y="124.66666666666667" width="340" height="198.33333333333331"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="loremIpsum" rowHeight="60" id="9Lg-hp-4mD">
-                                        <rect key="frame" x="0.0" y="28" width="340" height="60"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="9Lg-hp-4mD" id="DIl-BZ-JoE">
-                                            <rect key="frame" x="0.0" y="0.0" width="340" height="60"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </tableViewCellContentView>
-                                        <color key="tintColor" systemColor="labelColor"/>
-                                    </tableViewCell>
-                                </prototypes>
-                            </tableView>
                             <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.20000000000000001" translatesAutoresizingMaskIntoConstraints="NO" id="soV-ZZ-VJe">
                                 <rect key="frame" x="100" y="671" width="190" height="4"/>
                             </progressView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Urf-ny-xZM">
-                                <rect key="frame" x="40" y="561" width="310" height="50"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <rect key="frame" x="80" y="501" width="230" height="50"/>
+                                <color key="backgroundColor" red="0.98772650959999997" green="0.76094502210000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="Cgl-AG-l6f"/>
                                 </constraints>
@@ -738,57 +722,86 @@ As your cat can only live in a certain type of gas, your task is to use your kno
                                     <action selector="submitChoice:" destination="mrd-BZ-8uB" eventType="touchUpInside" id="MMA-1m-5Zy"/>
                                 </connections>
                             </button>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="c9l-oF-WOd">
-                                <rect key="frame" x="25" y="343" width="340" height="198"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="loremIpsum2" id="Ruu-Hq-vGV">
-                                        <rect key="frame" x="0.0" y="28" width="340" height="43.666667938232422"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Ruu-Hq-vGV" id="6sm-Ct-8Yw">
-                                            <rect key="frame" x="0.0" y="0.0" width="340" height="43.666667938232422"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </tableViewCellContentView>
-                                        <color key="tintColor" systemColor="labelColor"/>
-                                    </tableViewCell>
-                                </prototypes>
-                            </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dlK-Bu-bNc">
+                                <rect key="frame" x="25" y="124.66666666666666" width="340" height="356.33333333333337"/>
+                                <subviews>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="cfL-g4-aRp">
+                                        <rect key="frame" x="10" y="9.9999999999999858" width="320" height="163.33333333333331"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <prototypes>
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="loremIpsum" rowHeight="60" id="qGV-EX-zbB">
+                                                <rect key="frame" x="0.0" y="28" width="320" height="60"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="qGV-EX-zbB" id="EiD-fr-6G8">
+                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                </tableViewCellContentView>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="tintColor" systemColor="labelColor"/>
+                                            </tableViewCell>
+                                        </prototypes>
+                                    </tableView>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="t21-rT-gDl">
+                                        <rect key="frame" x="10" y="183.33333333333331" width="320" height="163"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <prototypes>
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="loremIpsum2" id="igN-Ou-zHl">
+                                                <rect key="frame" x="0.0" y="28" width="320" height="43.666667938232422"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="igN-Ou-zHl" id="XRZ-tP-hJw">
+                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43.666667938232422"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                </tableViewCellContentView>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="tintColor" systemColor="labelColor"/>
+                                            </tableViewCell>
+                                        </prototypes>
+                                    </tableView>
+                                </subviews>
+                                <color key="backgroundColor" red="0.4953809381" green="0.67837697269999997" blue="0.85103112459999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="t21-rT-gDl" firstAttribute="height" secondItem="cfL-g4-aRp" secondAttribute="height" id="5fE-Oz-1Gd"/>
+                                    <constraint firstAttribute="trailing" secondItem="t21-rT-gDl" secondAttribute="trailing" constant="10" id="81O-05-lcp"/>
+                                    <constraint firstItem="cfL-g4-aRp" firstAttribute="leading" secondItem="dlK-Bu-bNc" secondAttribute="leading" constant="10" id="Ka1-rf-2fV"/>
+                                    <constraint firstAttribute="trailing" secondItem="cfL-g4-aRp" secondAttribute="trailing" constant="10" id="gCb-Gl-8zN"/>
+                                    <constraint firstItem="t21-rT-gDl" firstAttribute="leading" secondItem="dlK-Bu-bNc" secondAttribute="leading" constant="10" id="h22-CF-hia"/>
+                                    <constraint firstItem="t21-rT-gDl" firstAttribute="top" secondItem="cfL-g4-aRp" secondAttribute="bottom" constant="10" id="nPn-aN-AM8"/>
+                                    <constraint firstAttribute="bottom" secondItem="t21-rT-gDl" secondAttribute="bottom" constant="10" id="oh4-zu-ldg"/>
+                                    <constraint firstItem="cfL-g4-aRp" firstAttribute="top" secondItem="dlK-Bu-bNc" secondAttribute="top" constant="10" id="zAc-cp-mSm"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Hio-N0-2mq"/>
                         <color key="backgroundColor" red="0.59067708249999995" green="0.75034755470000003" blue="0.92552059890000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
-                            <constraint firstItem="Hio-N0-2mq" firstAttribute="trailing" secondItem="c9l-oF-WOd" secondAttribute="trailing" constant="25" id="4E2-xi-T3S"/>
                             <constraint firstItem="Hio-N0-2mq" firstAttribute="trailing" secondItem="Xfa-7u-XhF" secondAttribute="trailing" id="57T-hO-rZi"/>
                             <constraint firstItem="Hio-N0-2mq" firstAttribute="trailing" secondItem="iZd-Gr-e8N" secondAttribute="trailing" constant="25" id="6mg-To-wI2"/>
+                            <constraint firstItem="Urf-ny-xZM" firstAttribute="top" secondItem="dlK-Bu-bNc" secondAttribute="bottom" constant="20" id="8JZ-qF-38H"/>
                             <constraint firstItem="soV-ZZ-VJe" firstAttribute="leading" secondItem="Hio-N0-2mq" secondAttribute="leading" constant="100" id="9u0-K2-2Qb"/>
-                            <constraint firstItem="c9l-oF-WOd" firstAttribute="leading" secondItem="Hio-N0-2mq" secondAttribute="leading" constant="25" id="G9F-te-nir"/>
                             <constraint firstItem="xFV-sd-DNi" firstAttribute="leading" secondItem="Hio-N0-2mq" secondAttribute="leading" id="JQk-XY-380"/>
                             <constraint firstItem="iZd-Gr-e8N" firstAttribute="leading" secondItem="Hio-N0-2mq" secondAttribute="leading" constant="25" id="Noj-AI-RYs"/>
-                            <constraint firstItem="c9l-oF-WOd" firstAttribute="top" secondItem="Xtl-sC-sZh" secondAttribute="bottom" constant="20" id="Oy9-rm-Iam"/>
-                            <constraint firstItem="Xtl-sC-sZh" firstAttribute="leading" secondItem="Hio-N0-2mq" secondAttribute="leading" constant="25" id="SbC-6x-eW7"/>
+                            <constraint firstItem="dlK-Bu-bNc" firstAttribute="leading" secondItem="Hio-N0-2mq" secondAttribute="leading" constant="25" id="RDk-28-ZxX"/>
                             <constraint firstItem="iZd-Gr-e8N" firstAttribute="top" secondItem="Hio-N0-2mq" secondAttribute="top" constant="20" id="UdA-4w-zKz"/>
                             <constraint firstItem="Xfa-7u-XhF" firstAttribute="top" secondItem="soV-ZZ-VJe" secondAttribute="bottom" constant="89" id="WrY-Bb-DF1"/>
-                            <constraint firstItem="Urf-ny-xZM" firstAttribute="top" secondItem="c9l-oF-WOd" secondAttribute="bottom" constant="20" id="bp1-tb-gGF"/>
                             <constraint firstItem="xFV-sd-DNi" firstAttribute="top" secondItem="Xfa-7u-XhF" secondAttribute="bottom" id="d2K-gN-swI"/>
-                            <constraint firstItem="Urf-ny-xZM" firstAttribute="leading" secondItem="Hio-N0-2mq" secondAttribute="leading" constant="40" id="dcD-Tq-h0r"/>
-                            <constraint firstItem="Hio-N0-2mq" firstAttribute="trailing" secondItem="Xtl-sC-sZh" secondAttribute="trailing" constant="25" id="dmu-r2-d9A"/>
-                            <constraint firstItem="c9l-oF-WOd" firstAttribute="height" secondItem="Xtl-sC-sZh" secondAttribute="height" id="f2g-eZ-KMk"/>
+                            <constraint firstItem="Urf-ny-xZM" firstAttribute="leading" secondItem="Hio-N0-2mq" secondAttribute="leading" constant="80" id="dcD-Tq-h0r"/>
                             <constraint firstItem="Hio-N0-2mq" firstAttribute="trailing" secondItem="soV-ZZ-VJe" secondAttribute="trailing" constant="100" id="gNx-3X-grS"/>
                             <constraint firstItem="Hio-N0-2mq" firstAttribute="trailing" secondItem="xFV-sd-DNi" secondAttribute="trailing" id="glM-1j-VIr"/>
                             <constraint firstAttribute="bottom" secondItem="xFV-sd-DNi" secondAttribute="bottom" id="h6y-Ba-ERC"/>
-                            <constraint firstItem="Xtl-sC-sZh" firstAttribute="top" secondItem="iZd-Gr-e8N" secondAttribute="bottom" constant="20" id="pgL-5y-P3r"/>
+                            <constraint firstItem="Hio-N0-2mq" firstAttribute="trailing" secondItem="dlK-Bu-bNc" secondAttribute="trailing" constant="25" id="nkw-c6-AC8"/>
+                            <constraint firstItem="dlK-Bu-bNc" firstAttribute="top" secondItem="iZd-Gr-e8N" secondAttribute="bottom" constant="20" id="qFz-Xs-iru"/>
                             <constraint firstItem="Xfa-7u-XhF" firstAttribute="leading" secondItem="Hio-N0-2mq" secondAttribute="leading" id="tt7-ES-vja"/>
-                            <constraint firstItem="soV-ZZ-VJe" firstAttribute="top" secondItem="Urf-ny-xZM" secondAttribute="bottom" constant="60" id="vEb-dv-0sh"/>
-                            <constraint firstItem="Hio-N0-2mq" firstAttribute="trailing" secondItem="Urf-ny-xZM" secondAttribute="trailing" constant="40" id="xtW-dO-6LO"/>
+                            <constraint firstItem="soV-ZZ-VJe" firstAttribute="top" secondItem="Urf-ny-xZM" secondAttribute="bottom" constant="120" id="vEb-dv-0sh"/>
+                            <constraint firstItem="Hio-N0-2mq" firstAttribute="trailing" secondItem="Urf-ny-xZM" secondAttribute="trailing" constant="80" id="xtW-dO-6LO"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="oHb-WO-dwc"/>
                     <connections>
-                        <outlet property="choicesTableView" destination="c9l-oF-WOd" id="RZ5-o2-JzL"/>
+                        <outlet property="choicesTableView" destination="t21-rT-gDl" id="bcu-HN-UsB"/>
+                        <outlet property="contentView" destination="dlK-Bu-bNc" id="bQ6-ij-eHK"/>
                         <outlet property="progressView" destination="soV-ZZ-VJe" id="fma-O8-LHS"/>
                         <outlet property="selectedChoiceLabel" destination="Urf-ny-xZM" id="51E-sy-xIQ"/>
-                        <outlet property="seperationTableView" destination="Xtl-sC-sZh" id="F4I-r9-5HI"/>
+                        <outlet property="seperationTableView" destination="cfL-g4-aRp" id="Vba-S0-81B"/>
                         <segue destination="FWf-eu-FKe" kind="showDetail" identifier="seperationGameWIn" id="KGp-Wk-Y1U"/>
                         <segue destination="i8X-Sz-8XG" kind="showDetail" identifier="seperationGameLose" id="cAs-Qz-eXZ"/>
                     </connections>

@@ -26,6 +26,7 @@ class PlayRetrieveSolidsDetailsViewController: UIViewController, UITableViewDele
     @IBOutlet weak var seperationTableView: UITableView!
     @IBOutlet weak var choicesTableView: UITableView!
     @IBOutlet weak var selectedChoiceLabel: UIButton!
+    @IBOutlet weak var contentView: UIView!
     //    @IBOutlet weak var isWrong: UILabel!
 
     override func viewDidLoad() {
@@ -47,6 +48,7 @@ class PlayRetrieveSolidsDetailsViewController: UIViewController, UITableViewDele
         
         seperationTableView.layer.cornerRadius = 15
         choicesTableView.layer.cornerRadius = 15
+        contentView.layer.cornerRadius = 15
 
         seperationTableView.dataSource = self
         seperationTableView.delegate = self
@@ -56,7 +58,7 @@ class PlayRetrieveSolidsDetailsViewController: UIViewController, UITableViewDele
         self.choicesTableView.allowsSelection = true
         self.choicesTableView.tableFooterView = UIView()
         
-        selectedChoiceLabel.layer.cornerRadius = 15
+        selectedChoiceLabel.layer.cornerRadius = 25
         selectedChoiceLabel.layer.masksToBounds = true
         selectedChoiceLabel.isHidden = true
         
