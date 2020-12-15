@@ -495,7 +495,7 @@ var learnTopics = [
                             "Number of valence electrons",
                             "Number of electron shells",
                             "Number of protons",
-                            "Number of electrons"], correctAnswer: 1)
+                            "Number of electrons"], correctAnswer: 1),
             QuizQuestion(question: "What is the atomic symbol of Hydrogen?", options:
                             [
                                 "Hy",
@@ -527,7 +527,48 @@ var learnTopics = [
                                 "C",
                                 "Car"
                             ], correctAnswer: 3),
+            
+            QuizQuestion(question: "What is the atomic symbol of Carbon", options:
+                            [
+                                "Ca",
+                                "Cb",
+                                "C",
+                                "Car"
+                            ], correctAnswer: 3),
+            
+            QuizQuestion(question: "Where are the metal elements found in the periodic table?", options:
+                            [
+                                "the middle",
+                                "far right hand side",
+                                "far left hand side",
+                                "nowhere, metals aren't in the periodic table"
+                            ], correctAnswer: 2),
+            
+            QuizQuestion(question: "What is copper's atmoic symbol?", options:
+                            [
+                                "Cu",
+                                "Co",
+                                "C",
+                                "Cp"
+                            ], correctAnswer: 1),
+            
+            QuizQuestion(question: "Which of the following isn't a noble gas?", options:
+                            [
+                                "Fluorine",
+                                "Chlorine",
+                                "Sulfur",
+                                "Bromine"
+                            ], correctAnswer: 3),
+            
+            QuizQuestion(question: "Which of the following is a noble gas?", options:
+                            [
+                                "Astatine",
+                                "Boron",
+                                "Silicon",
+                                "Iodine"
+                            ], correctAnswer: 4),
         ]),
+    
 ]
 
 var gameTopics = [
