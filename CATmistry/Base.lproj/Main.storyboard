@@ -2532,8 +2532,8 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="UNDER CONTRUCTION" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sdd-8H-qca">
-                                <rect key="frame" x="20" y="172" width="350" height="299"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="UNDER CONTRUCTION" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sdd-8H-qca">
+                                <rect key="frame" x="40" y="192" width="310" height="239"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -2542,7 +2542,7 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
                                 <rect key="frame" x="0.0" y="148" width="390" height="4"/>
                             </progressView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="aAx-zz-Srz">
-                                <rect key="frame" x="20" y="491" width="350" height="250"/>
+                                <rect key="frame" x="20" y="471" width="350" height="250"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1E6-k1-giD">
                                         <rect key="frame" x="0.0" y="0.0" width="350" height="55"/>
@@ -2596,15 +2596,15 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
                         <viewLayoutGuide key="safeArea" id="ZOb-i1-cri"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="ZOb-i1-cri" firstAttribute="bottom" secondItem="aAx-zz-Srz" secondAttribute="bottom" constant="20" id="7D5-ye-ANg"/>
+                            <constraint firstItem="ZOb-i1-cri" firstAttribute="bottom" secondItem="aAx-zz-Srz" secondAttribute="bottom" constant="40" id="7D5-ye-ANg"/>
                             <constraint firstItem="ZOb-i1-cri" firstAttribute="trailing" secondItem="aAx-zz-Srz" secondAttribute="trailing" constant="20" id="Bvc-bf-UXa"/>
-                            <constraint firstItem="ZOb-i1-cri" firstAttribute="trailing" secondItem="sdd-8H-qca" secondAttribute="trailing" constant="20" id="Fud-3e-Vw5"/>
+                            <constraint firstItem="ZOb-i1-cri" firstAttribute="trailing" secondItem="sdd-8H-qca" secondAttribute="trailing" constant="40" id="Fud-3e-Vw5"/>
                             <constraint firstItem="RsP-jP-75G" firstAttribute="leading" secondItem="2Bz-nv-xOV" secondAttribute="leading" id="JE7-iI-Jpl"/>
-                            <constraint firstItem="sdd-8H-qca" firstAttribute="top" secondItem="RsP-jP-75G" secondAttribute="bottom" constant="20" id="Udd-VT-yhA"/>
+                            <constraint firstItem="sdd-8H-qca" firstAttribute="top" secondItem="RsP-jP-75G" secondAttribute="bottom" constant="40" id="Udd-VT-yhA"/>
                             <constraint firstAttribute="trailing" secondItem="RsP-jP-75G" secondAttribute="trailing" id="VR2-jV-ULB"/>
                             <constraint firstItem="aAx-zz-Srz" firstAttribute="leading" secondItem="ZOb-i1-cri" secondAttribute="leading" constant="20" id="ZnS-Rm-SWl"/>
-                            <constraint firstItem="sdd-8H-qca" firstAttribute="leading" secondItem="ZOb-i1-cri" secondAttribute="leading" constant="20" id="crJ-zS-OhH"/>
-                            <constraint firstItem="aAx-zz-Srz" firstAttribute="top" secondItem="sdd-8H-qca" secondAttribute="bottom" constant="20" id="kEl-vv-jhc"/>
+                            <constraint firstItem="sdd-8H-qca" firstAttribute="leading" secondItem="ZOb-i1-cri" secondAttribute="leading" constant="40" id="crJ-zS-OhH"/>
+                            <constraint firstItem="aAx-zz-Srz" firstAttribute="top" secondItem="sdd-8H-qca" secondAttribute="bottom" constant="40" id="kEl-vv-jhc"/>
                             <constraint firstItem="RsP-jP-75G" firstAttribute="top" secondItem="2Bz-nv-xOV" secondAttribute="top" constant="148" id="tz8-tq-tMY"/>
                         </constraints>
                     </view>

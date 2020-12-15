@@ -22,6 +22,7 @@ class QuizEndedViewController: UIViewController {
         navigationController?.setNavigationBarHidden(false, animated: false)
         tabBarController?.tabBar.isHidden = false
         self.view.window?.rootViewController?.dismiss(animated: true, completion: nil)
+        self.navigationController?.popToRootViewController(animated: true)
     }
 
     /*
