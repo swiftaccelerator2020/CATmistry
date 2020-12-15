@@ -15,9 +15,11 @@ class PlayAdjustPhDetailsViewController: UIViewController {
     var correctGames = 0
     var wrongGames = 0
     var indicatorPresent = false
+    var timeLeft = 20
     var phOptionsSet = Set<PhOption>()
     var phOptionsArray: Array<PhOption>!
-
+    var timer: Timer!
+    
     @IBOutlet weak var addFirstIndicatorButton: UIButton!
     @IBOutlet weak var monsterImageView: UIImageView!
     @IBOutlet weak var firstOptionImageView: UIImageView!
@@ -88,6 +90,9 @@ class PlayAdjustPhDetailsViewController: UIViewController {
 //        fourthOptionLabel.text = phOptionsArray[3].name
     }
 
+    override func viewDidAppear(_ animated: Bool) {
+        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(PlayIdentifyElementsSecondViewController.updateProgressView), userInfo: nil, repeats: true)
+    }
     @IBAction func clickAddUniversalIndicator(_ sender: Any) {
         if addFirstIndicatorButton.titleLabel!.text == "Add Universal Indicator" {
             indicatorPresent = true
@@ -276,6 +281,15 @@ class PlayAdjustPhDetailsViewController: UIViewController {
             let destVC = segue.destination as! PlayWrongAnswerViewController
             destVC.currentLevel = currentLevel
             destVC.currentGame = currentGame
+        }
+    }
+    
+    @objc func updateTimer() {
+        timeLeft -= 1
+        timerLabel.text = "\(timeLeft) seconds left"
+        if (timeLeft == 0) {
+            currentGame -= 1
+            performSegue(withIdentifier: "findGasWrong", sender: nil)
         }
     }
 }
