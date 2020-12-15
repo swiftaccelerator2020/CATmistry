@@ -8,12 +8,13 @@
 import UIKit
 
 class PlayRetrieveSolidsStartViewController: UIViewController {
+    
     var currentLevel = 0
 
-    @IBOutlet var backgroundLabelView: UIView!
-    @IBOutlet var startButton: UIButton!
-    @IBOutlet var levelSegmentedControl: UISegmentedControl!
-
+    @IBOutlet weak var backgroundLabelView: UIView!
+    @IBOutlet weak var startButton: UIButton!
+    @IBOutlet weak var levelSegmentedControl: UISegmentedControl!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -23,21 +24,22 @@ class PlayRetrieveSolidsStartViewController: UIViewController {
         backgroundLabelView.layer.cornerRadius = 10
         startButton.layer.cornerRadius = 25
     }
-
-    @IBAction func levelClicked(_: Any) {
+    
+    @IBAction func levelClicked(_ sender: Any) {
         currentLevel = levelSegmentedControl.selectedSegmentIndex
     }
-
-    @IBAction func unwindToPlayHomePage(_: Any) {
+    
+    @IBAction func unwindToPlayHomePage(_ sender: Any) {
         tabBarController?.tabBar.isHidden = false
         navigationController?.setNavigationBarHidden(false, animated: false)
         _ = navigationController?.popToRootViewController(animated: true)
     }
-
+    
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender _: Any?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
         if segue.identifier == "goToRetrieveSolidsDetails" {
@@ -45,4 +47,6 @@ class PlayRetrieveSolidsStartViewController: UIViewController {
             dest.currentLevel = currentLevel
         }
     }
+    
+
 }

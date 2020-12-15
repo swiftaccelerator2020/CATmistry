@@ -13,7 +13,7 @@ struct Topic: Codable {
     var title: String
     var pic: String
     var pointsNeeded: Int
-    var subTopics: [SubTopic]
+    var subTopics: Array<SubTopic>
     var errorLabel: String
     var questions: [QuizQuestion]
 }
@@ -31,7 +31,7 @@ struct SubTopic: Codable {
     var pic: String
     var needSlider: Bool
     var content: SubContent
-    var subTopics: [SubSubTopic]?
+    var subTopics: Array<SubSubTopic>?
     var navTitle: String
     var contentHeightDifference: Int? = nil
 }
@@ -91,7 +91,7 @@ struct SpecificSeperationMethod: Hashable, Codable {
     var name: String
     var properties: String
     var givenMethods: GivenSeperationMethods
-
+    
     func hash(into hasher: inout Hasher) {
         hasher.combine(name)
         hasher.combine(properties)
@@ -101,7 +101,7 @@ struct SpecificSeperationMethod: Hashable, Codable {
 
 struct GivenSeperationMethods: Hashable, Codable {
     var methods: [SeperationMethods]
-
+    
     func hash(into hasher: inout Hasher) {
         hasher.combine(methods)
     }
@@ -110,7 +110,7 @@ struct GivenSeperationMethods: Hashable, Codable {
 struct SeperationMethods: Hashable, Codable {
     var methodName: String
     var isCorrect: Bool
-
+    
     func hash(into hasher: inout Hasher) {
         hasher.combine(methodName)
         hasher.combine(isCorrect)
@@ -127,7 +127,7 @@ struct PhOption: Hashable, Codable {
     var image: String
     var turnUniversalTankColour: String
     var isAcidic: Bool? = true
-
+    
     func hash(into hasher: inout Hasher) {
         hasher.combine(name)
         hasher.combine(image)
@@ -186,12 +186,11 @@ let perioicTable = getDataFromJsonAppbundleFile(filename: "perioicTable", dataTy
 
 let retrieveSolidsArray = getDataFromJsonAppbundleFile(filename: "retrieveSolidsArray", dataType: [SpecificSeperationMethod].self)!
 
-
 // MARK: - Functions
 
-func changePoints(_ valueChanged: Int) {
+func changePoints(_ valueChanged: Int){
     points += valueChanged
-    if points < 0 {
+    if (points < 0) {
         points = 0
     }
     let ud = UserDefaults.standard
