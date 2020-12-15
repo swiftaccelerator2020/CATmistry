@@ -25,7 +25,6 @@ class QuizStartViewController: UIViewController {
         let confettiView = SwiftConfettiView(frame: view.bounds)
         view.addSubview(confettiView)
         confettiView.isUserInteractionEnabled = false
-        confettiView.type = .star
         confettiView.startConfetti()
     }
     
