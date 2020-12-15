@@ -35,6 +35,7 @@ class QuizWrongAnswerViewController: UIViewController {
         
         if 9 - currentQuestion == 0 {
             goBackLearningButton.isHidden = true
+            nextQuestionButton.setTitle("Go Back Home", for: .normal)
         }
     }
 
