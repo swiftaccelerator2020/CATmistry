@@ -14,7 +14,6 @@ class PlayFindGasDetailsViewController: UIViewController {
     var selectedGasTankString: String!
     var selectedGasTest: Int!
     var currentRound = 0
-    @IBOutlet weak var resultsLabel: UILabel!
     @IBOutlet weak var limewaterView: UIView!
     @IBOutlet weak var lightedSplintView: UIView!
     @IBOutlet weak var glowingSplintView: UIView!
@@ -32,7 +31,6 @@ class PlayFindGasDetailsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-//        resultsLabel.isHidden = true
         // Do any additional setup after loading the view.
         submitButton.isHidden = true
         limewaterView.layer.cornerRadius = 15
