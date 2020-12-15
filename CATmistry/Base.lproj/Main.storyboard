@@ -1156,14 +1156,10 @@ Given the properties of each Group of the periodic table, select the correct gro
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="periodicTable" translatesAutoresizingMaskIntoConstraints="NO" id="xL5-6K-moQ">
-                                <rect key="frame" x="0.0" y="662" width="224" height="89"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cat" translatesAutoresizingMaskIntoConstraints="NO" id="Nh8-km-VZF">
-                                <rect key="frame" x="219" y="659" width="156" height="105"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="periodicTable" translatesAutoresizingMaskIntoConstraints="NO" id="xL5-6K-moQ">
+                                <rect key="frame" x="40" y="654" width="310" height="90"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="105" id="OX7-dV-lue"/>
+                                    <constraint firstAttribute="height" constant="90" id="y7R-fX-90g"/>
                                 </constraints>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MQX-Yl-wcO">
@@ -1181,7 +1177,7 @@ Given the properties of each Group of the periodic table, select the correct gro
                                 </constraints>
                             </view>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e33-u2-r4Q">
-                                <rect key="frame" x="25" y="309" width="340" height="330"/>
+                                <rect key="frame" x="25" y="309" width="340" height="325"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DHf-c7-5G5">
                                         <rect key="frame" x="0.0" y="0.0" width="340" height="330"/>
@@ -1337,13 +1333,13 @@ Given the properties of each Group of the periodic table, select the correct gro
                         <viewLayoutGuide key="safeArea" id="MF8-ge-vWh"/>
                         <color key="backgroundColor" red="0.53186249730000001" green="0.75687271359999997" blue="0.92158544060000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="xL5-6K-moQ" firstAttribute="leading" secondItem="MF8-ge-vWh" secondAttribute="leading" constant="40" id="2Xo-Lf-Ged"/>
                             <constraint firstItem="MQX-Yl-wcO" firstAttribute="leading" secondItem="MF8-ge-vWh" secondAttribute="leading" id="4g4-hc-cgz"/>
                             <constraint firstItem="e33-u2-r4Q" firstAttribute="top" secondItem="6nO-os-1tY" secondAttribute="bottom" constant="20" id="7up-2U-1kQ"/>
-                            <constraint firstItem="5OE-SW-Qva" firstAttribute="top" secondItem="Nh8-km-VZF" secondAttribute="bottom" id="8yI-YB-VRU"/>
-                            <constraint firstItem="Nh8-km-VZF" firstAttribute="top" secondItem="e33-u2-r4Q" secondAttribute="bottom" constant="20" id="EqU-O9-lbc"/>
+                            <constraint firstItem="5OE-SW-Qva" firstAttribute="top" secondItem="xL5-6K-moQ" secondAttribute="bottom" constant="20" id="EQu-IC-HcX"/>
                             <constraint firstItem="MF8-ge-vWh" firstAttribute="trailing" secondItem="6nO-os-1tY" secondAttribute="trailing" constant="25" id="FNo-NA-6z1"/>
+                            <constraint firstItem="xL5-6K-moQ" firstAttribute="top" secondItem="e33-u2-r4Q" secondAttribute="bottom" constant="20" id="GcC-Y7-uWC"/>
                             <constraint firstAttribute="bottom" secondItem="MQX-Yl-wcO" secondAttribute="bottom" id="GkB-8K-Q6z"/>
-                            <constraint firstItem="MF8-ge-vWh" firstAttribute="trailing" secondItem="Nh8-km-VZF" secondAttribute="trailing" constant="15" id="JEd-Ol-WGV"/>
                             <constraint firstItem="e33-u2-r4Q" firstAttribute="leading" secondItem="MF8-ge-vWh" secondAttribute="leading" constant="25" id="Qyt-ZY-k2M"/>
                             <constraint firstItem="MF8-ge-vWh" firstAttribute="trailing" secondItem="2Bq-Tb-1J1" secondAttribute="trailing" constant="25" id="Thi-Ei-5N9"/>
                             <constraint firstItem="MF8-ge-vWh" firstAttribute="trailing" secondItem="e33-u2-r4Q" secondAttribute="trailing" constant="25" id="Wdn-Rk-UAB"/>
@@ -1351,6 +1347,7 @@ Given the properties of each Group of the periodic table, select the correct gro
                             <constraint firstItem="MF8-ge-vWh" firstAttribute="trailing" secondItem="5OE-SW-Qva" secondAttribute="trailing" id="hWV-yM-VtG"/>
                             <constraint firstItem="6nO-os-1tY" firstAttribute="top" secondItem="2Bq-Tb-1J1" secondAttribute="bottom" constant="20" id="iZk-YJ-ySl"/>
                             <constraint firstItem="MQX-Yl-wcO" firstAttribute="top" secondItem="5OE-SW-Qva" secondAttribute="bottom" id="mSO-TM-vAo"/>
+                            <constraint firstItem="MF8-ge-vWh" firstAttribute="trailing" secondItem="xL5-6K-moQ" secondAttribute="trailing" constant="40" id="n5D-qR-i1y"/>
                             <constraint firstItem="MF8-ge-vWh" firstAttribute="trailing" secondItem="MQX-Yl-wcO" secondAttribute="trailing" id="oRy-Zk-tcC"/>
                             <constraint firstItem="5OE-SW-Qva" firstAttribute="leading" secondItem="MF8-ge-vWh" secondAttribute="leading" id="osx-J9-cdf"/>
                             <constraint firstItem="2Bq-Tb-1J1" firstAttribute="top" secondItem="MF8-ge-vWh" secondAttribute="top" constant="20" id="sAk-EJ-k5p"/>
@@ -2597,20 +2594,11 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="UNDER CONTRUCTION" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sdd-8H-qca">
-                                <rect key="frame" x="40" y="88" width="310" height="392"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.10000000000000001" translatesAutoresizingMaskIntoConstraints="NO" id="RsP-jP-75G">
-                                <rect key="frame" x="10" y="44" width="390" height="4"/>
-                            </progressView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="aAx-zz-Srz">
-                                <rect key="frame" x="20" y="520" width="350" height="250"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="aAx-zz-Srz">
+                                <rect key="frame" x="20" y="470" width="350" height="300"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1E6-k1-giD">
-                                        <rect key="frame" x="0.0" y="0.0" width="350" height="55"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="350" height="60"/>
                                         <color key="backgroundColor" red="0.62745098039215685" green="0.90196078431372551" blue="0.93725490196078431" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <state key="normal" title="Option 1">
                                             <color key="titleColor" systemColor="labelColor"/>
@@ -2620,7 +2608,7 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LyK-ju-RcJ">
-                                        <rect key="frame" x="0.0" y="65" width="350" height="55"/>
+                                        <rect key="frame" x="0.0" y="80" width="350" height="60"/>
                                         <color key="backgroundColor" red="0.99607843137254903" green="0.91764705882352937" blue="0.55294117647058827" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <state key="normal" title="Option 2">
                                             <color key="titleColor" systemColor="labelColor"/>
@@ -2630,7 +2618,7 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nZj-It-bBg">
-                                        <rect key="frame" x="0.0" y="130" width="350" height="55"/>
+                                        <rect key="frame" x="0.0" y="160" width="350" height="60"/>
                                         <color key="backgroundColor" red="1" green="0.89411764705882346" blue="0.76078431372549016" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <state key="normal" title="Option 3">
                                             <color key="titleColor" systemColor="labelColor"/>
@@ -2640,7 +2628,7 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p7j-Px-jZ7">
-                                        <rect key="frame" x="0.0" y="195" width="350" height="55"/>
+                                        <rect key="frame" x="0.0" y="240" width="350" height="60"/>
                                         <color key="backgroundColor" red="0.73333333333333328" green="0.90196078431372551" blue="0.67843137254901964" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <state key="normal" title="Option 4">
                                             <color key="titleColor" systemColor="labelColor"/>
@@ -2653,24 +2641,84 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
                                 <constraints>
                                     <constraint firstItem="LyK-ju-RcJ" firstAttribute="height" secondItem="1E6-k1-giD" secondAttribute="height" id="7lg-6g-VdR"/>
                                     <constraint firstItem="p7j-Px-jZ7" firstAttribute="height" secondItem="1E6-k1-giD" secondAttribute="height" id="NoY-Kq-h6s"/>
-                                    <constraint firstAttribute="height" constant="250" id="XWt-Bl-sPI"/>
+                                    <constraint firstAttribute="height" constant="300" id="XWt-Bl-sPI"/>
                                     <constraint firstItem="nZj-It-bBg" firstAttribute="height" secondItem="1E6-k1-giD" secondAttribute="height" id="cLh-91-OGU"/>
                                 </constraints>
                             </stackView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PqB-AB-jef">
+                                <rect key="frame" x="0.0" y="0.0" width="390" height="450"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="UNDER CONTRUCTION" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cl8-Nd-3wn">
+                                        <rect key="frame" x="40" y="84" width="310" height="346"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.10000000149011612" translatesAutoresizingMaskIntoConstraints="NO" id="EEk-UP-cq2">
+                                        <rect key="frame" x="10" y="40" width="370" height="4"/>
+                                    </progressView>
+                                </subviews>
+                                <color key="backgroundColor" red="0.80000000000000004" green="0.97254901960784312" blue="0.94901960784313721" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="cl8-Nd-3wn" secondAttribute="bottom" constant="20" id="4U0-Yk-IzG"/>
+                                    <constraint firstItem="EEk-UP-cq2" firstAttribute="leading" secondItem="PqB-AB-jef" secondAttribute="leading" constant="10" id="FFL-ms-gyH"/>
+                                    <constraint firstAttribute="trailing" secondItem="cl8-Nd-3wn" secondAttribute="trailing" constant="40" id="Zuz-Wl-0hq"/>
+                                    <constraint firstItem="cl8-Nd-3wn" firstAttribute="leading" secondItem="PqB-AB-jef" secondAttribute="leading" constant="40" id="cjc-tp-jHe"/>
+                                    <constraint firstAttribute="trailing" secondItem="EEk-UP-cq2" secondAttribute="trailing" constant="10" id="gzT-CV-o1R"/>
+                                    <constraint firstItem="EEk-UP-cq2" firstAttribute="top" secondItem="PqB-AB-jef" secondAttribute="top" constant="40" id="vOB-W2-ztw" customClass="NSLayoutHelper" customModule="LayoutHelper">
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="iPhone4s">
+                                                <real key="value" value="0.0"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="iPhoneSE">
+                                                <real key="value" value="0.0"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="iPhone8">
+                                                <real key="value" value="0.0"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="iPhone8Plus">
+                                                <real key="value" value="0.0"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="iPhone11Pro">
+                                                <real key="value" value="40"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="iPhone11">
+                                                <real key="value" value="40"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="iPhone11Max">
+                                                <real key="value" value="40"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="iPadMini">
+                                                <real key="value" value="0.0"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="iPadPro9_7">
+                                                <real key="value" value="0.0"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="iPadPro10_5">
+                                                <real key="value" value="0.0"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="iPadPro11">
+                                                <real key="value" value="0.0"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="iPadPro12_9">
+                                                <real key="value" value="0.0"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </constraint>
+                                    <constraint firstItem="cl8-Nd-3wn" firstAttribute="top" secondItem="EEk-UP-cq2" secondAttribute="bottom" constant="40" id="vyz-UO-C5S"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="ZOb-i1-cri"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="PqB-AB-jef" firstAttribute="top" secondItem="2Bz-nv-xOV" secondAttribute="top" id="0og-fd-qRw"/>
                             <constraint firstItem="ZOb-i1-cri" firstAttribute="bottom" secondItem="aAx-zz-Srz" secondAttribute="bottom" constant="40" id="7D5-ye-ANg"/>
                             <constraint firstItem="ZOb-i1-cri" firstAttribute="trailing" secondItem="aAx-zz-Srz" secondAttribute="trailing" constant="20" id="Bvc-bf-UXa"/>
-                            <constraint firstItem="ZOb-i1-cri" firstAttribute="trailing" secondItem="sdd-8H-qca" secondAttribute="trailing" constant="40" id="Fud-3e-Vw5"/>
-                            <constraint firstItem="sdd-8H-qca" firstAttribute="top" secondItem="RsP-jP-75G" secondAttribute="bottom" constant="40" id="Udd-VT-yhA"/>
                             <constraint firstItem="aAx-zz-Srz" firstAttribute="leading" secondItem="ZOb-i1-cri" secondAttribute="leading" constant="20" id="ZnS-Rm-SWl"/>
-                            <constraint firstItem="RsP-jP-75G" firstAttribute="trailing" secondItem="ZOb-i1-cri" secondAttribute="trailing" constant="10" id="bPD-iA-WLn"/>
-                            <constraint firstItem="sdd-8H-qca" firstAttribute="leading" secondItem="ZOb-i1-cri" secondAttribute="leading" constant="40" id="crJ-zS-OhH"/>
-                            <constraint firstItem="RsP-jP-75G" firstAttribute="top" secondItem="ZOb-i1-cri" secondAttribute="top" id="eXU-MQ-DNQ"/>
-                            <constraint firstItem="aAx-zz-Srz" firstAttribute="top" secondItem="sdd-8H-qca" secondAttribute="bottom" constant="40" id="kEl-vv-jhc"/>
-                            <constraint firstItem="RsP-jP-75G" firstAttribute="leading" secondItem="ZOb-i1-cri" secondAttribute="leading" constant="10" id="vly-Ro-7Fd"/>
+                            <constraint firstItem="aAx-zz-Srz" firstAttribute="top" secondItem="PqB-AB-jef" secondAttribute="bottom" constant="20" id="alX-bU-ets"/>
+                            <constraint firstItem="PqB-AB-jef" firstAttribute="leading" secondItem="ZOb-i1-cri" secondAttribute="leading" id="gee-qB-uej"/>
+                            <constraint firstItem="ZOb-i1-cri" firstAttribute="trailing" secondItem="PqB-AB-jef" secondAttribute="trailing" id="xhJ-yj-jIH"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Take the Quiz" id="bvk-PH-Q9H"/>
@@ -2680,8 +2728,6 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
                         <outlet property="optionOne" destination="1E6-k1-giD" id="TBu-0L-Q2T"/>
                         <outlet property="optionThree" destination="nZj-It-bBg" id="WBU-wr-u56"/>
                         <outlet property="optionTwo" destination="LyK-ju-RcJ" id="HdT-1D-7Rh"/>
-                        <outlet property="questionLabel" destination="sdd-8H-qca" id="42j-5g-PNQ"/>
-                        <outlet property="timeLeft" destination="RsP-jP-75G" id="UYb-eX-Eh2"/>
                         <segue destination="Mja-L5-YzK" kind="presentation" identifier="quizEnded" modalPresentationStyle="fullScreen" id="7pn-4B-FUl"/>
                         <segue destination="RR3-9Q-TX8" kind="presentation" identifier="correctAns" modalPresentationStyle="fullScreen" id="ROw-ex-BKY"/>
                         <segue destination="G5l-IS-oK1" kind="presentation" identifier="wrongAns" modalPresentationStyle="fullScreen" id="Kge-nE-YUa"/>
@@ -2689,7 +2735,7 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WVd-hw-mx7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1211" y="508"/>
+            <point key="canvasLocation" x="1210.7692307692307" y="507.58293838862556"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="a0R-m9-N1Z">
