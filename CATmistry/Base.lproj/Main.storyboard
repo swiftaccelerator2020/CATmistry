@@ -1970,46 +1970,13 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
             </objects>
             <point key="canvasLocation" x="-89.230769230769226" y="2752.6066350710898"/>
         </scene>
-        <!--Quiz Ended View Controller-->
-        <scene sceneID="vSM-Tt-jq0">
-            <objects>
-                <viewController id="Mja-L5-YzK" customClass="QuizEndedViewController" customModule="CATmistry" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="YZN-dd-Rqs">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="OH WOW HEY IT ENDED CONGRATS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MXM-Q2-IvE">
-                                <rect key="frame" x="16" y="305" width="343" height="26"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v32-NS-slu">
-                                <rect key="frame" x="167" y="482" width="57" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Go back"/>
-                                <connections>
-                                    <action selector="goBackButton:" destination="Mja-L5-YzK" eventType="touchUpInside" id="ZIP-iE-dA8"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="IDc-lP-hxp"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="MSv-Kg-iaY"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ERJ-iw-vIi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3169.2307692307691" y="1264.6919431279621"/>
-        </scene>
         <!--Learn-->
         <scene sceneID="NwW-Ny-3ld">
             <objects>
                 <navigationController id="8Us-es-0oa" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Learn" image="books.vertical.fill" catalog="system" selectedImage="books.vertical.fill" id="ZOw-bY-pdm"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="OvI-u8-jpf">
-                        <rect key="frame" x="0.0" y="44" width="390" height="104.33333333333334"/>
+                        <rect key="frame" x="0.0" y="44" width="390" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" red="0.95419245959999999" green="0.83945876360000005" blue="0.47016263009999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -2701,7 +2668,7 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="FaB-d6-X5c"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="wEn-aq-CEr">
-                        <rect key="frame" x="0.0" y="44" width="390" height="96"/>
+                        <rect key="frame" x="0.0" y="44" width="390" height="104.33333333333334"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -2922,7 +2889,6 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
                         <outlet property="optionTwo" destination="LyK-ju-RcJ" id="HdT-1D-7Rh"/>
                         <outlet property="questionLabel" destination="cl8-Nd-3wn" id="JQ7-ed-Tgr"/>
                         <outlet property="timeLeft" destination="EEk-UP-cq2" id="yC3-cB-Bk1"/>
-                        <segue destination="Mja-L5-YzK" kind="presentation" identifier="quizEnded" modalPresentationStyle="fullScreen" id="7pn-4B-FUl"/>
                         <segue destination="RR3-9Q-TX8" kind="presentation" identifier="correctAns" modalPresentationStyle="fullScreen" id="ROw-ex-BKY"/>
                         <segue destination="G5l-IS-oK1" kind="presentation" identifier="wrongAns" modalPresentationStyle="fullScreen" id="Kge-nE-YUa"/>
                     </connections>
@@ -2937,7 +2903,7 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="q0c-Zz-aob" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="jRP-bA-vTs">
-                        <rect key="frame" x="0.0" y="44" width="390" height="96"/>
+                        <rect key="frame" x="0.0" y="44" width="390" height="104.33333333333334"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>

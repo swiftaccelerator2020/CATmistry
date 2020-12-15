@@ -36,6 +36,7 @@ class QuizCorrectAnswerViewController: UIViewController {
         
         if 9 - currentQuestion == 0 {
             goBackLearningButton.isHidden = true
+            nextQuestionButton.setTitle("Go Back Home", for: .normal)
         }
 
         let confettiView = SwiftConfettiView(frame: view.bounds)
