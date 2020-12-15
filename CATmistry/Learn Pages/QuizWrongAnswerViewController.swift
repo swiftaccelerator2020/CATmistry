@@ -9,9 +9,7 @@ import UIKit
 
 class QuizWrongAnswerViewController: UIViewController {
 
-    var currentLevel: Int!
-    var currentGame: Int!
-    var isSeperation: Bool?
+    var currentQuestion: Int!
 
     @IBOutlet var nextQuestionButton: UIButton!
     @IBOutlet var goBackLearningButton: UIButton!
@@ -22,21 +20,16 @@ class QuizWrongAnswerViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         nextQuestionButton.layer.cornerRadius = 25
-        if isSeperation != nil {
-            sadLabel.text = "The wizard's beaker overflowed! Now your cat is under a spell...\nReview [Separation Methods] to save your cat. "
+        
+        if 9 - currentQuestion == 0 {
+            sadLabel.text = ""
         } else {
-            sadLabel.text = "Oh no! \n\nYour answer was wrong, and your cat died. \n\nDon't worry though, a cat has 9 lives, and you still have \(String(9 - currentGame)) rounds remaining in Level \(String(currentLevel + 1)). Good luck!"
-            if 9 - currentGame == 0 {
-                nextQuestionButton.setTitle("Go Back Home", for: .normal)
-                goBackLearningButton.isHidden = true
-            }
+            sadLabel.text = "Oh no! \n\nYour answer was wrong, but don't worry! You have \(String(9 - currentQuestion)) questions left in this quiz. Try harder next time!"
         }
     }
 
     @IBAction func nextGameClicked(_: Any) {
-        if isSeperation != nil {
-            presentingViewController?.presentingViewController?.dismiss(animated: true, completion: nil)
-        } else if 9 - currentGame == 0 {
+        if 9 - currentQuestion == 0 {
             presentingViewController?.presentingViewController?.dismiss(animated: true, completion: nil)
         } else {
             dismiss(animated: true, completion: nil)
@@ -44,7 +37,7 @@ class QuizWrongAnswerViewController: UIViewController {
     }
 
     @IBAction func restartClicked(_: Any) {
-        let alert = UIAlertController(title: "Are you sure you would like to restart?", message: "All progress wil be lost, and you will be taken to the start page of this game.", preferredStyle: .alert)
+        let alert = UIAlertController(title: "Are you sure you would like to exit?", message: "All progress wil be lost, and you will be taken back to the learn page.", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Continue", style: UIAlertAction.Style.default, handler: { _ in
             self.presentingViewController?.presentingViewController?.dismiss(animated: true, completion: nil)
         }))

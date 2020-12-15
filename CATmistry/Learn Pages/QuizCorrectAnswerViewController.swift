@@ -10,9 +10,7 @@ import UIKit
 
 class QuizCorrectAnswerViewController: UIViewController {
     
-    var isSeperation: Bool?
-    var currentLevel: Int!
-    var currentGame: Int!
+    var currentQuestion: Int! = 
 
     @IBOutlet var nextQuestionButton: UIButton!
     @IBOutlet var congratsLabel: UILabel!
@@ -23,17 +21,13 @@ class QuizCorrectAnswerViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         nextQuestionButton.layer.cornerRadius = 25
-        if isSeperation != nil {
-            congratsLabel.text = "Yay good job you saved the cat!"
-            nextQuestionButton.setTitle("Go Back Home", for: .normal)
-            goBackLearningButton.isHidden = true
+        
+        if 9 - currentQuestion == 0 {
+            congratsLabel.text = ""
         } else {
-            congratsLabel.text = "Congrats! \n\nThrough your hard work, your cat has been able to avoid the danger. \n\nYou have \(String(9 - currentGame)) rounds remaining in Level \(String(currentLevel + 1)). Keep up the good work!"
-            if 9 - currentGame == 0 {
-                nextQuestionButton.setTitle("Go Back Home", for: .normal)
-                goBackLearningButton.setTitle("Restart", for: .normal)
-            }
+            congratsLabel.text = "Well done! You got the answer right. \n\nYou have \(String(9 - currentQuestion)) questions left in this quiz, keep up the good work!"
         }
+        
         let confettiView = SwiftConfettiView(frame: view.bounds)
         view.addSubview(confettiView)
         confettiView.isUserInteractionEnabled = false
@@ -41,9 +35,7 @@ class QuizCorrectAnswerViewController: UIViewController {
     }
 
     @IBAction func nextGameClicked(_: Any) {
-        if isSeperation != nil {
-            presentingViewController?.presentingViewController?.dismiss(animated: true, completion: nil)
-        } else if 9 - currentGame == 0 {
+        if 9 - currentQuestion == 0 {
             presentingViewController?.presentingViewController?.dismiss(animated: true, completion: nil)
         } else {
             dismiss(animated: true, completion: nil)
@@ -51,7 +43,7 @@ class QuizCorrectAnswerViewController: UIViewController {
     }
 
     @IBAction func restartClicked(_: Any) {
-        let alert = UIAlertController(title: "Are you sure you would like to restart?", message: "All progress wil be lost, and you will be taken to the start page of this game.", preferredStyle: .alert)
+        let alert = UIAlertController(title: "Are you sure you would like to exit?", message: "All progress wil be lost, and you will be taken back to the learn page.", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Continue", style: UIAlertAction.Style.default, handler: { _ in
             self.presentingViewController?.presentingViewController?.dismiss(animated: true, completion: nil)
         }))

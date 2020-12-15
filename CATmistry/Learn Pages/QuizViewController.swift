@@ -99,15 +99,23 @@ class QuizViewController: UIViewController {
         }
         index += 1
     }
-    /*
+    
      // MARK: - Navigation
 
      // In a storyboard-based application, you will often want to do a little preparation before navigation
      override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
      // Get the new view controller using segue.destination.
      // Pass the selected object to the new view controller.
+        if segue.identifier == "correctAns" {
+            let destVC = segue.destination as! QuizCorrectAnswerViewController
+            destVC.currentQuestion = index
+        } else if segue.identifier == "wrongAns" {
+            let destVC = segue.destination as! QuizWrongAnswerViewController
+            destVC.currentQuestion = index
+        }
      }
-     */
+     
+    
     @objc func updateProgressView(){
         timeLeft.progress += 0.005
         if (timeLeft.progress == 1.0) {
