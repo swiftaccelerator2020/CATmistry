@@ -45,10 +45,7 @@ class QuizCorrectAnswerViewController: UIViewController {
     @IBAction func restartClicked(_: Any) {
         let alert = UIAlertController(title: "Are you sure you would like to exit?", message: "All progress wil be lost, and you will be taken back to the learn page.", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Continue", style: UIAlertAction.Style.default, handler: { _ in
-            self.navigationController?.setNavigationBarHidden(false, animated: false)
-            self.tabBarController?.tabBar.isHidden = false
             self.view.window?.rootViewController?.dismiss(animated: true, completion: nil)
-            self.navigationController?.popToRootViewController(animated: true)
         }))
         alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel, handler: nil))
         present(alert, animated: true, completion: nil)

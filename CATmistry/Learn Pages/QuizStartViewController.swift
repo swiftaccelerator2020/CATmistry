@@ -11,13 +11,23 @@ class QuizStartViewController: UIViewController {
     
     var question: [QuizQuestion]!
 
+    @IBOutlet weak var startButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        tabBarController?.tabBar.isHidden = true
+        navigationController?.setNavigationBarHidden(true, animated: false)
+        startButton.layer.cornerRadius = 15
     }
     
-
+    @IBAction func goBackPressed(_ sender: Any) {
+        tabBarController?.tabBar.isHidden = false
+        navigationController?.setNavigationBarHidden(false, animated: false)
+        self.navigationController?.popViewController(animated: true)
+    }
+    
     
     // MARK: - Navigation
 

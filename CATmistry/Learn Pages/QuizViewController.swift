@@ -21,6 +21,8 @@ class QuizViewController: UIViewController {
     var question: [QuizQuestion]!
 
     override func viewDidLoad() {
+        super.viewDidLoad()
+        
         // Do any additional setup after loading the view.
         timeLeft.transform = timeLeft.transform.scaledBy(x: 1, y: 2)
 
