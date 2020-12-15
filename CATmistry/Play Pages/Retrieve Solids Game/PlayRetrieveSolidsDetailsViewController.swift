@@ -26,7 +26,7 @@ class PlayRetrieveSolidsDetailsViewController: UIViewController, UITableViewDele
     @IBOutlet weak var seperationTableView: UITableView!
     @IBOutlet weak var choicesTableView: UITableView!
     @IBOutlet weak var selectedChoiceLabel: UIButton!
-//    @IBOutlet weak var isWrong: UILabel!
+    //    @IBOutlet weak var isWrong: UILabel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,6 +44,9 @@ class PlayRetrieveSolidsDetailsViewController: UIViewController, UITableViewDele
             let color = UIColor(rgb: 0xFF0000)
             self.view.backgroundColor = color
         }
+        
+        seperationTableView.layer.cornerRadius = 15
+        choicesTableView.layer.cornerRadius = 15
 
         seperationTableView.dataSource = self
         seperationTableView.delegate = self
@@ -52,8 +55,12 @@ class PlayRetrieveSolidsDetailsViewController: UIViewController, UITableViewDele
         choicesTableView.delegate = self
         self.choicesTableView.allowsSelection = true
         self.choicesTableView.tableFooterView = UIView()
-
-        selectedChoiceLabel.isHidden = true
+        
+        selectedChoiceLabel.layer.cornerRadius = 15
+        selectedChoiceLabel.layer.masksToBounds = true
+        selectedChoiceLabel.isEnabled = false
+        
+//        selectedChoiceLabel.isHidden = true
 //        isWrong.isHidden = true
 
         progressView.transform = CGAffineTransform(rotationAngle: .pi / -2)
@@ -135,13 +142,13 @@ class PlayRetrieveSolidsDetailsViewController: UIViewController, UITableViewDele
         if (tableView == seperationTableView){
             selectedElement = indexPath.row
             tableView.deselectRow(at: indexPath, animated: true)
-            selectedChoiceLabel.isHidden = true
+            selectedChoiceLabel.isEnabled = false
             index = indexPath.row
             choicesTableView.reloadData()
         } else if (tableView == choicesTableView){
-            selectedChoiceLabel.setTitle("Submit: \(elements[selectedElement!].givenMethods.methods[indexPath.row].methodName)", for: .normal)
+//            selectedChoiceLabel.setTitle("Submit: \(elements[selectedElement!].givenMethods.methods[indexPath.row].methodName)", for: .normal)
             isCorrect = elements[selectedElement!].givenMethods.methods[indexPath.row].isCorrect
-            selectedChoiceLabel.isHidden = false
+            selectedChoiceLabel.isEnabled = false
             tableView.deselectRow(at: indexPath, animated: true)
         }
     }
@@ -158,7 +165,7 @@ class PlayRetrieveSolidsDetailsViewController: UIViewController, UITableViewDele
         } else if (isCorrect!) {
 //            isWrong.text = "CORRECT"
 //            isWrong.backgroundColor = .green
-            selectedChoiceLabel.isHidden = true
+            selectedChoiceLabel.isEnabled = false
             selectedElement = nil
             index = 0
             choicesTableView.reloadData()
