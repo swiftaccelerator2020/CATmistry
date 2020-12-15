@@ -26,7 +26,7 @@ class PlayRetrieveSolidsDetailsViewController: UIViewController, UITableViewDele
     @IBOutlet weak var seperationTableView: UITableView!
     @IBOutlet weak var choicesTableView: UITableView!
     @IBOutlet weak var selectedChoiceLabel: UIButton!
-    @IBOutlet weak var isWrong: UILabel!
+//    @IBOutlet weak var isWrong: UILabel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,12 +54,12 @@ class PlayRetrieveSolidsDetailsViewController: UIViewController, UITableViewDele
         self.choicesTableView.tableFooterView = UIView()
 
         selectedChoiceLabel.isHidden = true
-        isWrong.isHidden = true
+//        isWrong.isHidden = true
 
         progressView.transform = CGAffineTransform(rotationAngle: .pi / -2)
         progressView.transform = progressView.transform.scaledBy(x: 1, y: 30)
 
-        isWrong.layer.cornerRadius = 25
+//        isWrong.layer.cornerRadius = 25
 
         progressView.progress = Float(numOfItems)/10
 
@@ -149,15 +149,15 @@ class PlayRetrieveSolidsDetailsViewController: UIViewController, UITableViewDele
     var index = 0
 
     @IBAction func submitChoice(_ sender: Any) {
-        isWrong.isHidden = false
+//        isWrong.isHidden = false
         if (!isCorrect!) {
-            isWrong.text = "WRONG"
-            isWrong.backgroundColor = .red
+//            isWrong.text = "WRONG"
+//            isWrong.backgroundColor = .red
             numOfItems += 1
             progressView.progress += 0.1
         } else if (isCorrect!) {
-            isWrong.text = "CORRECT"
-            isWrong.backgroundColor = .green
+//            isWrong.text = "CORRECT"
+//            isWrong.backgroundColor = .green
             selectedChoiceLabel.isHidden = true
             selectedElement = nil
             index = 0
@@ -177,7 +177,7 @@ class PlayRetrieveSolidsDetailsViewController: UIViewController, UITableViewDele
         seperationTableView.reloadData()
         let seconds = 4.0
         DispatchQueue.main.asyncAfter(deadline: .now() + seconds) {
-            self.isWrong.isHidden = true
+//            self.isWrong.isHidden = true
         }
     }
 
