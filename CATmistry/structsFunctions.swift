@@ -91,7 +91,7 @@ struct specificSeperationMethod: Hashable{
     var name: String
     var properties: String
     var givenMethods: GivenSeperationMethods
-    
+
     func hash(into hasher: inout Hasher) {
         hasher.combine(name)
         hasher.combine(properties)
@@ -100,9 +100,9 @@ struct specificSeperationMethod: Hashable{
 }
 
 struct GivenSeperationMethods: Hashable{
-    
+
     var methods: [SeperationMethods]
-    
+
     func hash(into hasher: inout Hasher) {
         hasher.combine(methods)
     }
@@ -111,7 +111,7 @@ struct GivenSeperationMethods: Hashable{
 struct SeperationMethods: Hashable{
     var methodName: String
     var isCorrect: Bool
-    
+
     func hash(into hasher: inout Hasher) {
         hasher.combine(methodName)
         hasher.combine(isCorrect)
@@ -128,7 +128,7 @@ struct PhOption: Hashable {
     var image: String
     var turnUniversalTankColour: String
     var isAcidic: Bool? = true
-    
+
     func hash(into hasher: inout Hasher) {
         hasher.combine(name)
         hasher.combine(image)
@@ -166,11 +166,11 @@ var learnTopics = [
         SubTopic(title: "Take the Quiz", pic: "quiz.png", needSlider: false, content: SubContent(definition: ""), subTopics: [], navTitle: "Take the Quiz")
     ], errorLabel: "",questions:
         [
-            
+
         ]),
-    
+
     // MARK: - SEPARATION METHODS
-    
+
     Topic(
         title: "Separation Methods",
         pic: "separation-methods.png",
@@ -259,7 +259,7 @@ var learnTopics = [
                                     "Sand",
                                     "Milo powder"
                                 ], correctAnswer: 3),
-                
+
                 QuizQuestion(question: "I want to separate some rocks from liquid. Which separation method do I use?", options:
                                 [
                                     "Simple distillation",
@@ -267,11 +267,11 @@ var learnTopics = [
                                     "Fractional distillation",
                                     "Separating funnel"
                                 ], correctAnswer: 2)
-                
+
             ]),
-    
+
     // MARK: - PH AND INDICATORS
-    
+
     Topic(title: "pH and Indicators", pic: "pH-and-indicators.png", pointsNeeded: 20, subTopics: [
         SubTopic(title: "What is pH?", pic: "pH.png", needSlider: true, content: SubContent(definition: "pH means Power of Hydrogen (concentration of hydrogen ions). \n\nIt is represented on a scale of 1 to 14, which is used to specify the acidity or basicity/alkalinity of a solution. \n\npH 1 - 6.9: Acidic \npH 7.1 - 14:  Alkaline \npH 7: Neutral (neither acidic nor alkaline)"), subTopics: nil, navTitle: "pH", contentHeightDifference: 250),
         SubTopic(title: "What are Indicators?", pic: "pH-and-indicators.png", needSlider: false, content: SubContent(definition: "Indicators are chemicals which turn into different colours depending on the pH of the solution. \n\nThe transition range is the range in which the indicator changes from one colour to the other."), subTopics: [
@@ -294,7 +294,7 @@ var learnTopics = [
                                 "Lime juice",
                                 "Caustic soda"
                             ], correctAnswer: 4),
-            
+
             QuizQuestion(question: "What is the pH value of any acidic solution?", options:
                             [
                                 "pH 7",
@@ -302,7 +302,7 @@ var learnTopics = [
                                 "pH 14",
                                 "Above pH 14"
                             ], correctAnswer: 2),
-            
+
             QuizQuestion(question: "Which of the following statements about an acid is not true?", options:
                             [
                                 "It contains hydrogen ions in solution",
@@ -310,7 +310,7 @@ var learnTopics = [
                                 "It contains oxygen",
                                 "It tastes sour"
                             ], correctAnswer: 3),
-            
+
             QuizQuestion(question: "A sample of pond water has a pH value of 9. This means that the water is", options:
                             [
                                 "neutral",
@@ -318,7 +318,7 @@ var learnTopics = [
                                 "weakly acidic",
                                 "weakly alkaline"
                             ], correctAnswer: 4),
-            
+
             QuizQuestion(question: "Universal Indicator turns red in solution Y. What could solution Y be?", options:
                             [
                                 "acidic",
@@ -326,7 +326,7 @@ var learnTopics = [
                                 "neutral",
                                 "an indicator"
                             ], correctAnswer: 1),
-            
+
             QuizQuestion(question: "If dry citric acid crystals are placed on dry blue litmus paper, they will", options:
                             [
                                 "turn red",
@@ -334,7 +334,7 @@ var learnTopics = [
                                 "be bleached",
                                 "remain unchanged"
                             ], correctAnswer: 4),
-            
+
             QuizQuestion(question: "Citric acid is a white solid. Which statement shows that it must be an acid?", options:
                             [
                                 "It is soluble in water",
@@ -342,7 +342,7 @@ var learnTopics = [
                                 "It changes the colour of indicators",
                                 "It gives hydrogen ions in water"
                             ], correctAnswer: 4),
-            
+
             QuizQuestion(question: "A strong acid always", options:
                             [
                                 "contains hydroxide ions",
@@ -350,7 +350,7 @@ var learnTopics = [
                                 "ionises completely when it is dissolved in water",
                                 "contains oxygen"
                             ], correctAnswer: 3),
-            
+
         ]),
     // MARK: - PERIODIC TABLE
     Topic(title: "Periodic Table", pic: "periodic-table.png", pointsNeeded: 30, subTopics: [
@@ -396,7 +396,7 @@ var learnTopics = [
                                 "Copper",
                                 "Platinum"
                             ], correctAnswer: 2),
-            
+
             QuizQuestion(question: "What is the chemical symbol for Helium?", options:
                             [
                                 "H",
@@ -404,7 +404,7 @@ var learnTopics = [
                                 "Hhe",
                                 "He"
                             ], correctAnswer: 4),
-            
+
             QuizQuestion(question: "What kind of element would you find on the far left-hand side of the periodic table?", options:
                             [
                                 "A metal",
@@ -412,7 +412,7 @@ var learnTopics = [
                                 "A negative ion",
                                 "A halogen"
                             ], correctAnswer: 1),
-            
+
             QuizQuestion(question: "Which of the following is a noble gas?", options:
                             [
                                 "Nitrogen",
@@ -420,7 +420,7 @@ var learnTopics = [
                                 "Argon",
                                 "Carbon Dioxide"
                             ], correctAnswer: 3),
-            
+
             QuizQuestion(question: "What is the lightest element in the periodic table?", options:
                             [
                                 "Helium",
@@ -428,7 +428,7 @@ var learnTopics = [
                                 "Air",
                                 "Neon"
                             ], correctAnswer: 2),
-            
+
             QuizQuestion(question: "What is the atomic number of carbon?", options:
                             [
                                 "2",
@@ -436,67 +436,139 @@ var learnTopics = [
                                 "6",
                                 "8"
                             ], correctAnswer: 3),
-            
+
             QuizQuestion(question: "Which of the following elements have the greatest number of valence electrons?", options: [
                             "Calcium",
                             "Fluorine",
                             "Neon",
                             "Potassium"], correctAnswer: 3),
-            
+
             QuizQuestion(question: "How are the elements in the Periodic Table arranged?", options: [
                             "Increasing proton number",
                             "Decreasing proton number",
                             "Increasing number of valence electrons",
                             "Decreasing number of valence electrons"], correctAnswer: 1),
-            
+
             QuizQuestion(question: "Which of the following elements are nobles gases?", options: [
                             "Calcium",
                             "Helium",
                             "Sulfur",
                             "Iodine"], correctAnswer: 2),
-            
+
             QuizQuestion(question: "What does the number of valence electrons represent in the Periodic Table?", options: [
                             "Groups",
                             "Columns",
                             "Rows",
                             "Periods"], correctAnswer: 1),
-            
+
             QuizQuestion(question: "Which of the following is a Group I metal?", options: [
                             "Iron",
                             "Magnesium",
                             "Sodium",
                             "Titanium"], correctAnswer: 3),
-            
+
             QuizQuestion(question: "Which of the following elements have their valence shell fully occupied?", options: [
                             "Helium",
                             "Fluorine",
                             "Lithium",
                             "Hydrogen"], correctAnswer: 1),
-            
+
             QuizQuestion(question: "How many electron shells do period 2 elements have?", options: [
                             "1",
                             "2",
                             "3",
                             "4"], correctAnswer: 2),
-            
+
             QuizQuestion(question: "What is the relative mass of an neutron?", options: [
                             "0",
                             "1",
                             "-1",
                             "1/1840"], correctAnswer: 2),
-            
+
             QuizQuestion(question: "What is the relative charge of an electron?", options: [
                             "0",
                             "1",
                             "-1",
                             "1/1840"], correctAnswer: 3),
-            
+
             QuizQuestion(question: "Which of the following is equals to the group number?", options: [
                             "Number of valence electrons",
                             "Number of electron shells",
                             "Number of protons",
-                            "Number of electrons"], correctAnswer: 1)
+                            "Number of electrons"], correctAnswer: 1),
+            QuizQuestion(question: "What is the atomic symbol of Hydrogen?", options:
+                            [
+                                "Hy",
+                                "Hyd",
+                                "Hye",
+                                "H"
+                            ], correctAnswer: 4),
+
+            QuizQuestion(question: "What is the atomic symbol of Nitrogen", options:
+                            [
+                                "N",
+                                "Ni",
+                                "Nt",
+                                "Ny"
+                            ], correctAnswer: 1),
+
+            QuizQuestion(question: "What is the atomic symbol of Sulfur", options:
+                            [
+                                "Su",
+                                "S",
+                                "Sul",
+                                "Sf"
+                            ], correctAnswer: 2),
+
+            QuizQuestion(question: "What is the atomic symbol of Carbon", options:
+                            [
+                                "Ca",
+                                "Cb",
+                                "C",
+                                "Car"
+                            ], correctAnswer: 3),
+
+            QuizQuestion(question: "What is the atomic symbol of Carbon", options:
+                            [
+                                "Ca",
+                                "Cb",
+                                "C",
+                                "Car"
+                            ], correctAnswer: 3),
+
+            QuizQuestion(question: "Where are the metal elements found in the periodic table?", options:
+                            [
+                                "the middle",
+                                "far right hand side",
+                                "far left hand side",
+                                "nowhere, metals aren't in the periodic table"
+                            ], correctAnswer: 2),
+
+            QuizQuestion(question: "What is copper's atmoic symbol?", options:
+                            [
+                                "Cu",
+                                "Co",
+                                "C",
+                                "Cp"
+                            ], correctAnswer: 1),
+
+            QuizQuestion(question: "Which of the following isn't a noble gas?", options:
+                            [
+                                "Fluorine",
+                                "Chlorine",
+                                "Sulfur",
+                                "Bromine"
+                            ], correctAnswer: 3),
+
+            QuizQuestion(question: "Which of the following is a noble gas?", options:
+                            [
+                                "Astatine",
+                                "Boron",
+                                "Silicon",
+                                "Iodine"
+                            ], correctAnswer: 4),
         ]),
+
 ]
 
 var gameTopics = [
@@ -525,7 +597,7 @@ var phGameArray = [
         PhGame(startIsAcidic: false),
         PhGame(startIsAcidic: false)
     ],
-    
+
     //LEVEL 2
     [
         PhGame(startIsAcidic: false),
@@ -539,7 +611,7 @@ var phGameArray = [
         PhGame(startIsAcidic: true),
         PhGame(startIsAcidic: false)
     ],
-    
+
     //LEVEL 3
     [
         PhGame(startIsAcidic: true),
