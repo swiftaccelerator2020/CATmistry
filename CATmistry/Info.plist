@@ -69,5 +69,7 @@
 		<string>OpenDyslexic-Italic</string>
 		<string>OpenDyslexic-Regular</string>
 	</array>
+	<key>UIUserInterfaceStyle</key>
+	<string>Light</string>
 </dict>
 </plist>
