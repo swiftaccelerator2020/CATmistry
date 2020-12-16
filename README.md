@@ -48,7 +48,7 @@ Contribution is welcome! Feel free to fork our repo and create a pull request in
 
 ### Special Thanks To:
 1. YJ Soon, for leading the Swift Accelerator Programme amid COVID-19
-2. Stephanie Ann Koh, for consulting us during the development phase of CATmistry
+2. Stephanie Ann Koh, our consultatnt, who advised us on the design element of CATmistry and provided us with unconditional support
 3. The Swift Accelerator Programme Alumni, who provided us with emotional, design, and code support
 
 ### Others:
