@@ -64,10 +64,10 @@
 	</array>
 	<key>UIAppFonts</key>
 	<array>
-		<string>OpenDyslexic-Bold</string>
-		<string>OpenDyslexic-BoldItalic</string>
-		<string>OpenDyslexic-Italic</string>
-		<string>OpenDyslexic-Regular</string>
+		<string>OpenDyslexic-Bold.otf</string>
+		<string>OpenDyslexic-BoldItalic.otf</string>
+		<string>OpenDyslexic-Italic.otf</string>
+		<string>OpenDyslexic-Regular.otf</string>
 	</array>
 	<key>UIUserInterfaceStyle</key>
 	<string>Light</string>

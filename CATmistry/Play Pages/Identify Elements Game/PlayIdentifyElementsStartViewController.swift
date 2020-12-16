@@ -41,7 +41,7 @@ class PlayIdentifyElementsStartViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "goToIdentifyElementDetails"){
             let destVC = segue.destination as! PlayIdentifyElementsSecondViewController
-            destVC.gameTopic = perioicTable[currentLevel].randomElement()
+            destVC.gameTopic = periodicTable[currentLevel].randomElement()
             destVC.level = currentLevel+1
         }
         // Get the new view controller using segue.destination.

@@ -10,7 +10,9 @@ import UIKit
 class PlayRetrieveSolidsDetailsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     // MARK: - Variable Declaration
-
+    
+    var timeLimit = 5
+    var currentTime = 5
     var selectedElement: Int?
     var isCorrect: Bool?
     var numOfItems = 4
@@ -19,9 +21,10 @@ class PlayRetrieveSolidsDetailsViewController: UIViewController, UITableViewDele
     var specificSeperationMethodSet = Set<specificSeperationMethod>()
     var elements: Array<specificSeperationMethod>!
     var hardMode = true
-
+    
     // MARK: - IBOutlets Declaration
-
+    
+    @IBOutlet weak var timeLeftToAddElementsLabel: UILabel!
     @IBOutlet weak var progressView: UIProgressView!
     @IBOutlet weak var seperationTableView: UITableView!
     @IBOutlet weak var choicesTableView: UITableView!
@@ -31,7 +34,11 @@ class PlayRetrieveSolidsDetailsViewController: UIViewController, UITableViewDele
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        selectedChoiceLabel.isHidden = true
 
+        timeLeftToAddElementsLabel.text = "\(currentTime) seconds left"
+        
         if (currentLevel == 2){
             hardMode = true
         } else {
@@ -39,10 +46,8 @@ class PlayRetrieveSolidsDetailsViewController: UIViewController, UITableViewDele
         }
 
         if (!hardMode) {
+            timeLeftToAddElementsLabel.isHidden = true
             let color = UIColor(rgb: 0x7CC2F5)
-            self.view.backgroundColor = color
-        } else {
-            let color = UIColor(rgb: 0xFF0000)
             self.view.backgroundColor = color
         }
         
@@ -81,29 +86,12 @@ class PlayRetrieveSolidsDetailsViewController: UIViewController, UITableViewDele
         elements = Array(specificSeperationMethodSet)
 
         if (hardMode) {
-            self.progressBarTimer = Timer.scheduledTimer(timeInterval: 2, target: self, selector: #selector(PlayRetrieveSolidsDetailsViewController.updateProgressView), userInfo: nil, repeats: true)
+            self.progressBarTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(PlayRetrieveSolidsDetailsViewController.updateProgressView), userInfo: nil, repeats: true)
         }
 
         // Do any additional setup after loading the view.
     }
 
-    override func viewDidAppear(_ animated: Bool) {
-        /*
-        let color = UIColor(rgb: 0xFF0000)
-        let darkRed = UIColor(rgb: 0xCC0000)
-        self.view.backgroundColor = color
-
-        let view2 = UIView()
-        self.view.addSubview(view2)
-        view2.isUserInteractionEnabled = false
-
-        if (hardMode) {
-            UIView.animate(withDuration: 2, delay: 0.0, options:[UIView.AnimationOptions.repeat, UIView.AnimationOptions.autoreverse], animations: {
-                 view2.backgroundColor = color
-                 view2.backgroundColor = darkRed
-            }, completion: nil)
-        } */
-    }
     // MARK: - First Table View
 
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -113,7 +101,6 @@ class PlayRetrieveSolidsDetailsViewController: UIViewController, UITableViewDele
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if (tableView == self.seperationTableView){
-            print(indexPath.row)
             let cell = tableView.dequeueReusableCell(withIdentifier: "loremIpsum", for: indexPath)
             cell.textLabel?.text = "\(elements[indexPath.row].name) - \(elements[indexPath.row].properties)"
             return cell
@@ -147,7 +134,7 @@ class PlayRetrieveSolidsDetailsViewController: UIViewController, UITableViewDele
             tableView.deselectRow(at: indexPath, animated: true)
             selectedChoiceLabel.isEnabled = false
             selectedChoiceLabel.setTitleColor(UIColor.darkGray, for: .normal)
-//            selectedChoiceLabel.isHidden = true
+            selectedChoiceLabel.isHidden = true
             index = indexPath.row
             choicesTableView.reloadData()
         } else if (tableView == choicesTableView){
@@ -155,7 +142,7 @@ class PlayRetrieveSolidsDetailsViewController: UIViewController, UITableViewDele
             isCorrect = elements[selectedElement!].givenMethods.methods[indexPath.row].isCorrect
             selectedChoiceLabel.isEnabled = true
             selectedChoiceLabel.setTitleColor(UIColor.black, for: .normal)
-//            selectedChoiceLabel.isHidden = false
+            selectedChoiceLabel.isHidden = false
             tableView.deselectRow(at: indexPath, animated: true)
         }
     }
@@ -163,24 +150,25 @@ class PlayRetrieveSolidsDetailsViewController: UIViewController, UITableViewDele
     var index = 0
 
     @IBAction func submitChoice(_ sender: Any) {
-//        isWrong.isHidden = false
         if (!isCorrect!) {
-//            isWrong.text = "WRONG"
-//            isWrong.backgroundColor = .red
             numOfItems += 1
             progressView.progress += 0.1
+            choicesTableView.reloadData()
+            seperationTableView.reloadData()
         } else if (isCorrect!) {
-//            isWrong.text = "CORRECT"
-//            isWrong.backgroundColor = .green
-//            selectedChoiceLabel.isHidden = true
+            selectedChoiceLabel.isHidden = true
             selectedChoiceLabel.isEnabled = true
             selectedChoiceLabel.setTitleColor(UIColor.black, for: .normal)
             selectedElement = nil
             index = 0
-            choicesTableView.reloadData()
+            elements.shuffle()
             numOfItems -= 1
             progressView.progress -= 0.1
+            choicesTableView.reloadData()
+            seperationTableView.reloadData()
+
         }
+
         if (numOfItems <= 0) {
             // win
             changePoints(10)
@@ -198,8 +186,13 @@ class PlayRetrieveSolidsDetailsViewController: UIViewController, UITableViewDele
     }
 
     @objc func updateProgressView(){
-        numOfItems += 1
-        progressView.progress += 0.1
+        currentTime -= 1
+        if currentTime == 0 {
+            numOfItems += 1
+            progressView.progress += 0.1
+            currentTime = 5
+        }
+        timeLeftToAddElementsLabel.text = "\(currentTime) seconds left"
         if (progressView.progress <= 0) {
             // win
             changePoints(10)
