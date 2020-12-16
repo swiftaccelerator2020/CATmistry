@@ -137,7 +137,7 @@ struct PhOption: Hashable {
     }
 }
 
-struct periodicTableGame {
+struct PeriodicTableGame {
     var properties: String
     var correctAns1: Int
     var correctAns2: Int
@@ -158,14 +158,84 @@ var learnTopics = [
         SubTopic(title: "What are Gas Tests?", pic: "gas-tests.png", needSlider: false, content:
                     SubContent(definition: "Our Earth's atmosphere is made up of a wide variety of gases, with some of the most abundant being nitrogen, oxygen, and argon. \n\nSome chemistry reactions give out a specific type of gas, and we then need to test this gas to identify what kind of reaction it is. In this chapter, we will be covering the gas tests of the following few gases. Click to find out more!"),
                  subTopics: [
-                    SubSubTopic(topic: "Test for CO₂", picture: "carbon-dioxide.png", id: 2, content: SubSubContent(image: "carbon-dioxide.png", firstAttributionText: "Carbon Dioxide (CO₂) is the gas all living organisms give out when they respire, and is also the gas that plants take in for photosynthesis.", secondAttributionText: "How the gas test works: \n1. There was effervescence of a colourless, odourless gas. \n2. Bubble the gas into limewater. \n3. A white precipitate (the \"clouds\") was formed in the limewater. \n4. Carbon Dioxide gas was formed.", thirdAttributionText: "")),
+                    SubSubTopic(topic: "Test for CO₂", picture: "carbon-dioxide.png", id: 2, content: SubSubContent(image: "carbon-dioxide.png", firstAttributionText: "Carbon Dioxide (CO₂) is the gas all living organisms give out when they respire, and is also the gas that plants take in for photosynthesis.", secondAttributionText: "How the gas test works: \n1. There was effervescence of a colourless, odourless gas. \n2. Bubble the gas into limewater(also known as aqueous calcium hydroxide). \n3. A white precipitate (the \"clouds\") was formed in the limewater. \n4. Carbon Dioxide gas was formed.", thirdAttributionText: "")),
                     SubSubTopic(topic: "Test for H₂", picture: "hydrogen.png", id: 1, content: SubSubContent(image: "hydrogen.png", firstAttributionText: "Hydrogen (H₂) is a gas that is less dense than the atmosphere, meaning it floats extremely well. It was hence used in airships in the past as an alternative to planes for air travel.", secondAttributionText: "How the gas test works: \n1. There was effervescence of a colourless, odourless gas. \n2. Insert a lighted splint. \n3. The lighted splint extinguished with a 'pop' sound. \n4. Hydrogen gas was formed.", thirdAttributionText: "", warningText: "⚠️ Lighted splint, not glowing splint")),
                     SubSubTopic(topic: "Test for O₂", picture: "oxygen.png", id: 3, content: SubSubContent(image: "oxygen.png", firstAttributionText: "Oxygen (O₂) is a colourless, odourless, tasteless gas essential to living organisms, as it is taken up by them for respiration. Plants, in turn, take up carbon dioxide during photosynthesis and gives out oxygen in the process of photosynthesis.", secondAttributionText: "How the gas test works: \n1. There was effervescence of a colourless, odourless gas. \n2. Insert a glowing splint. \n3. The glowing splint re-ignited. \n4. Oxygen gas was formed.", thirdAttributionText: "", warningText: "⚠️ Glowing splint, not lighted splint")),
-                    SubSubTopic(topic: "Test for NH₃", picture: "ph-11.png", id: 4, content: SubSubContent(image: "ph-11.png", firstAttributionText: "Ammonia (NH₃) is an alkaline gas which has a distinct odour (it is slightly smelly!). It is produced naturally in the human body and in nature—in water, soil and air, even in tiny bacteria molecules. In human health, ammonia and the ammonium ion are vital components of metabolic processes.", secondAttributionText: "How the gas test works: \n1. Heat the test tube over a flame. \n2. A colourless, pungent (smelly!) gas was liberated (freed). \n3. Hold a moist red litmus paper over the test tube. \n4. Moist red litmus paper turned blue. \n5. Ammonia gas was formed.", thirdAttributionText: "", warningText: "⚠️ Remember to heat the mixture first!"))
+                    SubSubTopic(topic: "Test for NH₃", picture: "ph-11.png", id: 4, content: SubSubContent(image: "ph-11.png", firstAttributionText: "Ammonia (NH₃) is an alkaline gas which has a distinct odour (it is slightly smelly!). It is produced naturally in the human body and in nature—in water, soil and air, even in tiny bacteria molecules. In human health, ammonia and the ammonium ion are vital components of metabolic processes.", secondAttributionText: "How the gas test works: \n1. Heat the test tube over a flame. \n2. A colourless, pungent (smelly!) gas was liberated (released). \n3. Hold a moist red litmus paper over the test tube. \n4. Moist red litmus paper turned blue. \n5. Ammonia gas was formed.", thirdAttributionText: "", warningText: "⚠️ Remember to heat the mixture first!"))
                  ], navTitle: "Gas Tests", contentHeightDifference: 250),
         SubTopic(title: "Take the Quiz", pic: "quiz.png", needSlider: false, content: SubContent(definition: ""), subTopics: [], navTitle: "Take the Quiz")
-    ], errorLabel: "",questions:
+    ], errorLabel: "Please complete Chapter 1",questions:
         [
+            QuizQuestion(question: "The test for Ammonia involves:", options:
+                            [
+                                "Dry blue litmus paper",
+                                "Dry red litmus paper",
+                                "Moist red litmus paper",
+                                "Moist blue litmus paper"
+                            ], correctAnswer: 3),
+            QuizQuestion(question: "Which gases can be easily tested?", options:
+                            [
+                                "Argon",
+                                "Hydrogen",
+                                "Neon",
+                                "Xenon"
+                            ], correctAnswer: 2),
+            QuizQuestion(question: "The test for Oxygen involves:", options:
+                            [
+                                "Glowing splint",
+                                "Broken splint",
+                                "Lighted splint",
+                                "Burnt splint"
+                            ], correctAnswer: 1),
+            QuizQuestion(question: "The test for Carbon Dioxide involves:", options:
+                            [
+                                "Limewater",
+                                "Sulfuric Acid",
+                                "Burning splint",
+                                "Moist blue litmus paper"
+                            ], correctAnswer: 1),
+            QuizQuestion(question: "The test for Hydrogen involves:", options:
+                            [
+                                "Glowing splint",
+                                "Water",
+                                "Balloons",
+                                "Lighted splint"
+                            ], correctAnswer: 4),
+            QuizQuestion(question: "Gas tests can be used to identify:", options:
+                            [
+                                "The type of chemical reaction that has occurred",
+                                "The pH of a solution",
+                                "The material of a chair",
+                                "The density of an object"
+                            ], correctAnswer: 1),
+            QuizQuestion(question: "Which property of a gas can be used to determine what type of gas test to use?", options:
+                            [
+                                "The colour of the gas",
+                                "The pH of the gas",
+                                "The origin of the gas",
+                                "The density of the gas"
+                            ], correctAnswer: 2),
+            QuizQuestion(question: "What's the difference between the gas tests for Oxygen and Hydrogen?", options:
+                            [
+                                "O₂ test: Lighted splint, H₂ test: Glowing Splint",
+                                "There is no difference",
+                                "O₂ test: Glowing splint, H₂ test: Lighted Splint",
+                                "O₂ test: Broken splint, H₂ test : Unbroken Splint"
+                            ], correctAnswer: 3),
+            QuizQuestion(question: "What happens to the lighted splint in a Hydrogen test?", options:
+                            [
+                                "The splint breaks",
+                                "The flame intensifies",
+                                "The splint extinguishes with a 'pop' sound",
+                                "The lighted splint extinguishes silently"
+                            ], correctAnswer: 3),
+            QuizQuestion(question: "What happens to the glowing splint in an Oxygen test?", options:
+                            [
+                                "Nothing happens to it",
+                                "The glowing splint reignites",
+                                "The splint extinguishes with a 'pop' sound",
+                                "The splint breaks"
+                            ], correctAnswer: 2),
 
         ]),
 
@@ -250,7 +320,7 @@ var learnTopics = [
                 navTitle: "Take the Quiz"
             )
         ],
-        errorLabel: "Please complete Chapter 1", questions:
+        errorLabel: "Please complete Chapter 2", questions:
             [
                 QuizQuestion(question: "Which of the following is insoluble?", options:
                                 [
@@ -305,6 +375,48 @@ var learnTopics = [
                       "Thermometer",
                       "Condenser"
                 ], correctAnswer: 2),
+              
+                QuizQuestion(question: "Which of the following can be separated using magnetic attraction", options: [
+                      "Iron and Plastic",
+                      "Zinc and Gold",
+                      "Nickel and Cobalt",
+                      "Rubber and Plastic"], correctAnswer: 1),
+
+                QuizQuestion(question: "Which equipments are NOT usually needed for filtration", options: [
+                      "Filter funnel",
+                      "Filter paper",
+                      "Bunsen burner",
+                      "Beaker"], correctAnswer: 3),
+
+                QuizQuestion(question: "Which of the following methods is the best to separate iron from sand", options: [
+                      "Magnetic Attraction",
+                      "Crystallization",
+                      "Diffusion",
+                      "Filtration"], correctAnswer: 1),
+
+                QuizQuestion(question: "How can you obtain salt from a salt solution?", options: [
+                      "Crystallization",
+                      "Diffusion",
+                      "Filtration",
+                      "Evaporation"], correctAnswer: 4),
+
+                QuizQuestion(question: "What is the best way to obtain sugar from a sugar solution?", options: [
+                      "Filtration",
+                      "Crystallization",
+                      "Diffusion",
+                      "Evaporation"], correctAnswer: 2),
+
+                QuizQuestion(question: "Which of the following can be used to separate sand and water?", options: [
+                      "Filtration",
+                      "Diffusion",
+                      "Evaporation",
+                      "Crystallization"], correctAnswer: 3),
+
+                QuizQuestion(question: "Which of the following can be used to separate chalk powder from water?", options: [
+                      "Magnetic Attraction",
+                      "Sublimation",
+                      "Diffusion",
+                      "Filtration"], correctAnswer: 4),
 
                 QuizQuestion(question: "What information can be obtained from the melting and boiling point of a substance?", options: [
                       "Weight of substance",
@@ -334,7 +446,66 @@ var learnTopics = [
                       "Beaker"
                 ], correctAnswer: 3),
 
+                QuizQuestion(question: "Which solutions can be separated with crystallisation", options: [
+                      "Sugar and salt",
+                      "Iron and salt",
+                      "Potassium chloride and salt",
+                      "Sulfur dioxide and salt"], correctAnswer: 1),
 
+                QuizQuestion(question: "Which apparatus is not used for simple distillation", options: [
+                      "Boiling Chips",
+                      "Fractionating column",
+                      "Thermometer",
+                      "Condenser"], correctAnswer: 2),
+
+                QuizQuestion(question: "Which substance is best separated with filtration?", options: [
+                                      "Diesel from crude oil",
+                                      "Water from a mixture of water and sand",
+                                      "Orange fibre from orange juice",
+                                      "Different inks from a mixture of inks"
+                                ], correctAnswer: 3),
+
+                QuizQuestion(question: "When is crystallisation used", options: [
+                      "When evaporation to dryness cannot be used",
+                      "When the solvent needs to be obtained in a very pure form",
+                      "When heat cannot be used",
+                      "When substances being separated have a very high boiling point"], correctAnswer: 2),
+
+                QuizQuestion(question: "Chromatography works because:", options: [
+                      "Substances travel at different rates up the paper",
+                      "Not all substances are soluble in the solvent",
+                      "The solvent travels up the paper at a different rate",
+                      "Substances have a different rate and travel up the paper at different rates"], correctAnswer: 1),
+
+                QuizQuestion(question: "What is the use of chromatography", options: [
+                      "Getting a large amount of salt from water",
+                      "Separating paint into different colors for painting",
+                      "Removing water from fruit juice",
+                                "Checking if ink is genuine"], correctAnswer: 4),
+
+
+                QuizQuestion(question: "What is the difference between simple and fractional distillation?", options:
+                                                [
+                                                    "Fractional distillation is more complex",
+                                                    "One is simple and one is not",
+                                                    "Simple distillation uses a fractioning columm",
+                                                    "Fractional distillation is simpler"
+                                                ], correctAnswer: 1),
+
+                QuizQuestion(question: "Which of the following can be seperated by magnetic seperation?", options:
+                                                [
+                                                    "Chocolate and ice",
+                                                    "Salt and sugar",
+                                                    "Gummy bears and gum",
+                                                    "Sand and iron filings"
+                                                ], correctAnswer: 4),
+
+                QuizQuestion(question: "Which solutions can be separated with crystallisation", options: [
+                                      "Sugar and salt",
+                                      "Iron and salt",
+                                      "Potassium chloride and salt",
+                                      "Sulfur dioxide and salt"
+                                ], correctAnswer: 1)
             ]),
 
     // MARK: - PH AND INDICATORS
@@ -352,7 +523,7 @@ var learnTopics = [
             SubSubTopic(topic: "Universal Indicator", picture: "universal-indicator-1.png", id: 1, content: SubSubContent(image: "universal-indicator-2.png", firstAttributionText: "", secondAttributionText: "", thirdAttributionText: "Try out the interactive slider below:", lowpH: 1, highpH: 1, lowpHColor: "", middlepHColor: "", highpHColor: "", lowpHColorName: "", middlepHColorName: "", highpHColorName: ""))
         ], navTitle: "Indicators", contentHeightDifference: 0),
         SubTopic(title: "Take the Quiz", pic: "quiz.png", needSlider: false, content: SubContent(definition: ""), subTopics: [], navTitle: "Take the Quiz")
-    ], errorLabel: "Please complete Chapter 2", questions:
+    ], errorLabel: "Please complete Chapter 3", questions:
         [
             QuizQuestion(question: "Which of the following has the highest pH value?", options:
                             [
@@ -418,6 +589,47 @@ var learnTopics = [
                                 "contains oxygen"
                             ], correctAnswer: 3),
 
+            QuizQuestion(question: "What is the pH value of any acidic solution?", options: [
+                                  "pH 7",
+                                  "Below pH 7",
+                                  "pH 14",
+                                  "Above pH 14"
+                            ], correctAnswer: 2),
+
+            QuizQuestion(question: "If air is bubbled through pure water, the pH slowly changes from 7 to 5.7. Which of the following gases in the air could be responsible for this change?", options: [
+                                  "Carbon Monoxide",
+                                  "Carbon Dioxide",
+                                  "Oxygen",
+                                  "Nitrogen"
+                            ], correctAnswer: 2),
+
+            QuizQuestion(question: "predict the colour of the universal indicator in lemon juice", options: [
+                                  "Green",
+                                  "Blue",
+                                  "Orange",
+                                  "Rainbow colour"
+                            ], correctAnswer: 3),
+
+            QuizQuestion(question: "Which  substance  does not produce  copper(II)  sulfate  when  added  to  dilute sulfuric acid?", options: [
+                                  "Copper",
+                                  "Copper(II) hydroxide",
+                                  "Copper(II) oxide",
+                                  "Copper(II) carbonate"
+                            ], correctAnswer: 1),
+
+            QuizQuestion(question: "Which of the following is the correct ionic equation for neutralisation?", options: [
+                                  "H⁺ (g) + OH⁻ (aq) -> H₂O (l)",
+                                  "H⁺ (aq) + OH⁻ (aq) -> H₂O (l)",
+                                  "H⁺ (aq) + OH⁻ (aq) -> H₂O (aq)",
+                                  "H⁺ (g) + OH⁻ (aq) -> H₂O (aq)"
+                            ], correctAnswer: 2),
+
+            QuizQuestion(question: "The pH of an aqueous solution of hydrochloric acid is 2. What is the pH of the solution when  10g of sodium chloride (neutral salt) is added to it?", options: [
+                                  "1",
+                                  "2",
+                                  "7",
+                                  "9"
+                            ], correctAnswer: 2),
         ]),
     // MARK: - PERIODIC TABLE
     Topic(title: "Periodic Table", pic: "periodic-table.png", pointsNeeded: 30, subTopics: [
@@ -451,10 +663,10 @@ var learnTopics = [
             SubSubTopic(topic: "Group 5", picture: "5.png", id: 5, content: SubSubContent(image: "5.png", firstAttributionText: "Metallic character: Metal/Non-metal/Metalloid \nAppearance: Dull", secondAttributionText: "Reactivity: Decreases as you go down the columm \nMelting Point: Wide range of low and high", thirdAttributionText: "Hardness: -")),
             SubSubTopic(topic: "Group 6", picture: "6.png", id: 6, content: SubSubContent(image: "6.png", firstAttributionText: "Metallic character: Metal/Non-metal/Metalloid \nAppearance: Mostly dull", secondAttributionText: "Reactivity: Decreases moving down the group \nMelting Point: Increases going down the group", thirdAttributionText: "Hardness: -")),
             SubSubTopic(topic: "Group 7", picture: "7.png", id: 7, content: SubSubContent(image: "7.png", firstAttributionText: "Metallic character: Non-metal \nAppearance: -", secondAttributionText: "Reactivity: Gets less reactive as you go down the group \nMelting Point: Increases as you go down the group", thirdAttributionText: "Hardness: -")),
-            SubSubTopic(topic: "Group 0", picture: "0.png", id: 0, content: SubSubContent(image: "0.png", firstAttributionText: "Metallic character: Non-metal \nAppearance: -", secondAttributionText: "Reactivity: Low \nMelting Point: Low", thirdAttributionText: "Hardness: -"))
+             SubSubTopic(topic: "Group 0", picture: "0.png", id: 0, content: SubSubContent(image: "0.png", firstAttributionText: "Metallic character: Non-metal \nAppearance: -", secondAttributionText: "Reactivity: Low \nMelting Point: Low", thirdAttributionText: "Hardness: -"))
         ], navTitle: "Groups' Properties", contentHeightDifference: 80),
         SubTopic(title: "Take the Quiz", pic: "quiz.png", needSlider: false, content: SubContent(definition: ""), subTopics: [], navTitle: "Take the Quiz")
-    ], errorLabel: "Please complete Chapter 3", questions:
+    ], errorLabel: "Please complete Chapter 4", questions:
         [
             QuizQuestion(question: "Which is not a metal?", options:
                             [
@@ -563,6 +775,7 @@ var learnTopics = [
                             "Number of electron shells",
                             "Number of protons",
                             "Number of electrons"], correctAnswer: 1),
+
             QuizQuestion(question: "What is the atomic symbol of Hydrogen?", options:
                             [
                                 "Hy",
@@ -586,6 +799,7 @@ var learnTopics = [
                                 "Sul",
                                 "Sf"
                             ], correctAnswer: 2),
+
 
             QuizQuestion(question: "What is the atomic symbol of Carbon", options:
                             [
@@ -730,30 +944,30 @@ var phGameAcidicUniversalStartColour = "monster-ph4.png"
 
 var phGameAlkalinUniversalStartColour = "monster-ph10.png"
 
-var perioicTable = [
+var periodicTable = [
     // LEVEL 1
     [
-        periodicTableGame(properties: "Silver, reactive, high melting point and hard", correctAns1: 1, correctAns2: 1, timeGiven: 20),
-        periodicTableGame(properties: "HALO", correctAns1: 1, correctAns2: 2, timeGiven: 20),
-        periodicTableGame(properties: "bai", correctAns1: 1, correctAns2: 3, timeGiven: 20)
+        PeriodicTableGame(properties: "Silver, reactive, high melting point and hard", correctAns1: 1, correctAns2: 1, timeGiven: 20),
+        PeriodicTableGame(properties: "HALO", correctAns1: 1, correctAns2: 2, timeGiven: 20),
+        PeriodicTableGame(properties: "bai", correctAns1: 1, correctAns2: 3, timeGiven: 20)
     ],
     // LEVEL 2
     [
-        periodicTableGame(properties: "Silver, reactive, high melting point and hard", correctAns1: 1, correctAns2: 1, timeGiven: 15),
-        periodicTableGame(properties: "HALO", correctAns1: 1, correctAns2: 2, timeGiven: 15),
-        periodicTableGame(properties: "bai", correctAns1: 1, correctAns2: 3, timeGiven: 15)
+        PeriodicTableGame(properties: "Silver, reactive, high melting point and hard", correctAns1: 1, correctAns2: 1, timeGiven: 15),
+        PeriodicTableGame(properties: "HALO", correctAns1: 1, correctAns2: 2, timeGiven: 15),
+        PeriodicTableGame(properties: "bai", correctAns1: 1, correctAns2: 3, timeGiven: 15)
     ],
     // LEVEL 3
     [
-        periodicTableGame(properties: "Silver, reactive, high melting point and hard", correctAns1: 1, correctAns2: 1, timeGiven: 10),
-        periodicTableGame(properties: "HALO", correctAns1: 1, correctAns2: 2, timeGiven: 10),
-        periodicTableGame(properties: "bai", correctAns1: 1, correctAns2: 3, timeGiven: 10)
+        PeriodicTableGame(properties: "Silver, reactive, high melting point and hard", correctAns1: 1, correctAns2: 1, timeGiven: 10),
+        PeriodicTableGame(properties: "HALO", correctAns1: 1, correctAns2: 2, timeGiven: 10),
+        PeriodicTableGame(properties: "bai", correctAns1: 1, correctAns2: 3, timeGiven: 10)
     ],
     // LEVEL 4
     [
-        periodicTableGame(properties: "Silver, reactive, high melting point and hard", correctAns1: 1, correctAns2: 1, timeGiven: 5),
-        periodicTableGame(properties: "HALO", correctAns1: 1, correctAns2: 2, timeGiven: 5),
-        periodicTableGame(properties: "bai", correctAns1: 1, correctAns2: 3, timeGiven: 5)
+        PeriodicTableGame(properties: "Silver, reactive, high melting point and hard", correctAns1: 1, correctAns2: 1, timeGiven: 5),
+        PeriodicTableGame(properties: "HALO", correctAns1: 1, correctAns2: 2, timeGiven: 5),
+        PeriodicTableGame(properties: "bai", correctAns1: 1, correctAns2: 3, timeGiven: 5)
     ]
 ]
 
@@ -784,4 +998,82 @@ func changePoints(_ valueChanged: Int){
     }
     let ud = UserDefaults.standard
     ud.set(points, forKey: "points")
+}
+
+// MARK: - Fonts
+
+import UIKit
+
+struct AppFontName {
+    static let regular = "OpenDyslexic-Regular"
+    static let bold = "OpenDyslexic-Bold"
+    static let italic = "OpenDyslexic-Italic"
+}
+
+extension UIFontDescriptor.AttributeName {
+    static let nsctFontUIUsage = UIFontDescriptor.AttributeName(rawValue: "NSCTFontUIUsageAttribute")
+}
+
+extension UIFont {
+    static var isOverrided: Bool = false
+
+    @objc class func mySystemFont(ofSize size: CGFloat) -> UIFont {
+        return UIFont(name: AppFontName.regular, size: size)!
+    }
+
+    @objc class func myBoldSystemFont(ofSize size: CGFloat) -> UIFont {
+        return UIFont(name: AppFontName.bold, size: size)!
+    }
+
+    @objc class func myItalicSystemFont(ofSize size: CGFloat) -> UIFont {
+        return UIFont(name: AppFontName.italic, size: size)!
+    }
+
+    @objc convenience init(myCoder aDecoder: NSCoder) {
+        guard
+            let fontDescriptor = aDecoder.decodeObject(forKey: "UIFontDescriptor") as? UIFontDescriptor,
+            let fontAttribute = fontDescriptor.fontAttributes[.nsctFontUIUsage] as? String else {
+                self.init(myCoder: aDecoder)
+                return
+        }
+        var fontName = ""
+        switch fontAttribute {
+        case "CTFontRegularUsage":
+            fontName = AppFontName.regular
+        case "CTFontEmphasizedUsage", "CTFontBoldUsage":
+            fontName = AppFontName.bold
+        case "CTFontObliqueUsage":
+            fontName = AppFontName.italic
+        default:
+            fontName = AppFontName.regular
+        }
+        self.init(name: fontName, size: fontDescriptor.pointSize)!
+    }
+
+    class func overrideInitialize() {
+        guard self == UIFont.self, !isOverrided else { return }
+
+        // Avoid method swizzling run twice and revert to original initialize function
+        isOverrided = true
+
+        if let systemFontMethod = class_getClassMethod(self, #selector(systemFont(ofSize:))),
+            let mySystemFontMethod = class_getClassMethod(self, #selector(mySystemFont(ofSize:))) {
+            method_exchangeImplementations(systemFontMethod, mySystemFontMethod)
+        }
+
+        if let boldSystemFontMethod = class_getClassMethod(self, #selector(boldSystemFont(ofSize:))),
+            let myBoldSystemFontMethod = class_getClassMethod(self, #selector(myBoldSystemFont(ofSize:))) {
+            method_exchangeImplementations(boldSystemFontMethod, myBoldSystemFontMethod)
+        }
+
+        if let italicSystemFontMethod = class_getClassMethod(self, #selector(italicSystemFont(ofSize:))),
+            let myItalicSystemFontMethod = class_getClassMethod(self, #selector(myItalicSystemFont(ofSize:))) {
+            method_exchangeImplementations(italicSystemFontMethod, myItalicSystemFontMethod)
+        }
+
+        if let initCoderMethod = class_getInstanceMethod(self, #selector(UIFontDescriptor.init(coder:))), // Trick to get over the lack of UIFont.init(coder:))
+            let myInitCoderMethod = class_getInstanceMethod(self, #selector(UIFont.init(myCoder:))) {
+            method_exchangeImplementations(initCoderMethod, myInitCoderMethod)
+        }
+    }
 }

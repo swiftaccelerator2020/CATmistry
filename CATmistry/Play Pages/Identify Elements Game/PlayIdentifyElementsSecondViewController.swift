@@ -20,10 +20,11 @@ class PlayIdentifyElementsSecondViewController: UIViewController {
     @IBOutlet weak var groupTwo: UIButton!
     @IBOutlet weak var groupOne: UIButton!
     @IBOutlet weak var timeLeft: UILabel!
+    
     var currentRound = 0
 
     var progressBarTimer: Timer!
-    var gameTopic: periodicTableGame!
+    var gameTopic: PeriodicTableGame!
     var timeLeftTrack: Int!
     var level: Int!
 
@@ -31,13 +32,7 @@ class PlayIdentifyElementsSecondViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        timeLeftTrack = gameTopic.timeGiven
-
-        timeLeft.text = "\(timeLeftTrack!) seconds left"
-
-        desc.text = gameTopic.properties
-
+        
         timeLeft.layer.masksToBounds = true
         timeLeft.layer.cornerRadius = 20
         groupOne.clipsToBounds = true
@@ -61,13 +56,20 @@ class PlayIdentifyElementsSecondViewController: UIViewController {
         nonMetal.clipsToBounds = true
         nonMetal.layer.cornerRadius = 0.5 * nonMetal.bounds.size.height
 
-        self.progressBarTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(PlayIdentifyElementsSecondViewController.updateProgressView), userInfo: nil, repeats: true)
-
         // Do any additional setup after loading the view.
     }
 
     override func viewDidAppear(_ animated: Bool) {
         currentRound += 1
+        
+        self.progressBarTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(PlayIdentifyElementsSecondViewController.updateProgressView), userInfo: nil, repeats: true)
+        
+        timeLeftTrack = gameTopic.timeGiven
+
+        timeLeft.text = "\(timeLeftTrack!) seconds left"
+
+        desc.text = gameTopic.properties
+
     }
 
     var selectedButton: UIButton!
@@ -274,10 +276,12 @@ class PlayIdentifyElementsSecondViewController: UIViewController {
             let destVC = segue.destination as! PlayCorrectAnswerViewController
             destVC.currentLevel = currentLevel+1
             destVC.currentGame = currentRound
+            destVC.gameType = 4
         } else if segue.identifier == "identifyElementsGameLose" {
             let destVC = segue.destination as! PlayWrongAnswerViewController
             destVC.currentLevel = currentLevel+1
             destVC.currentGame = currentRound
+            destVC.gameType = 4
         }
     }
 }

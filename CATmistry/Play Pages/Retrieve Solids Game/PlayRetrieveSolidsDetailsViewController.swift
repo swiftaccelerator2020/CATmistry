@@ -10,7 +10,9 @@ import UIKit
 class PlayRetrieveSolidsDetailsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     // MARK: - Variable Declaration
-
+    
+    var timeLimit = 5
+    var currentTime = 5
     var selectedElement: Int?
     var isCorrect: Bool?
     var numOfItems = 4
@@ -19,18 +21,24 @@ class PlayRetrieveSolidsDetailsViewController: UIViewController, UITableViewDele
     var specificSeperationMethodSet = Set<specificSeperationMethod>()
     var elements: Array<specificSeperationMethod>!
     var hardMode = true
-
+    
     // MARK: - IBOutlets Declaration
-
+    
+    @IBOutlet weak var timeLeftToAddElementsLabel: UILabel!
     @IBOutlet weak var progressView: UIProgressView!
     @IBOutlet weak var seperationTableView: UITableView!
     @IBOutlet weak var choicesTableView: UITableView!
     @IBOutlet weak var selectedChoiceLabel: UIButton!
-    @IBOutlet weak var isWrong: UILabel!
+    @IBOutlet weak var contentView: UIView!
+    //    @IBOutlet weak var isWrong: UILabel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        selectedChoiceLabel.isHidden = true
 
+        timeLeftToAddElementsLabel.text = "\(currentTime) seconds left"
+        
         if (currentLevel == 2){
             hardMode = true
         } else {
@@ -38,12 +46,14 @@ class PlayRetrieveSolidsDetailsViewController: UIViewController, UITableViewDele
         }
 
         if (!hardMode) {
+            timeLeftToAddElementsLabel.isHidden = true
             let color = UIColor(rgb: 0x7CC2F5)
             self.view.backgroundColor = color
-        } else {
-            let color = UIColor(rgb: 0xFF0000)
-            self.view.backgroundColor = color
         }
+        
+        seperationTableView.layer.cornerRadius = 15
+        choicesTableView.layer.cornerRadius = 15
+        contentView.layer.cornerRadius = 15
 
         seperationTableView.dataSource = self
         seperationTableView.delegate = self
@@ -52,14 +62,19 @@ class PlayRetrieveSolidsDetailsViewController: UIViewController, UITableViewDele
         choicesTableView.delegate = self
         self.choicesTableView.allowsSelection = true
         self.choicesTableView.tableFooterView = UIView()
-
-        selectedChoiceLabel.isHidden = true
-        isWrong.isHidden = true
+        
+        selectedChoiceLabel.layer.cornerRadius = 25
+        selectedChoiceLabel.layer.masksToBounds = true
+        selectedChoiceLabel.isEnabled = false
+        selectedChoiceLabel.setTitleColor(UIColor.darkGray, for: .normal)
+//        selectedChoiceLabel.isHidden = true
+        
+//        isWrong.isHidden = true
 
         progressView.transform = CGAffineTransform(rotationAngle: .pi / -2)
         progressView.transform = progressView.transform.scaledBy(x: 1, y: 30)
 
-        isWrong.layer.cornerRadius = 25
+//        isWrong.layer.cornerRadius = 25
 
         progressView.progress = Float(numOfItems)/10
 
@@ -71,29 +86,12 @@ class PlayRetrieveSolidsDetailsViewController: UIViewController, UITableViewDele
         elements = Array(specificSeperationMethodSet)
 
         if (hardMode) {
-            self.progressBarTimer = Timer.scheduledTimer(timeInterval: 2, target: self, selector: #selector(PlayRetrieveSolidsDetailsViewController.updateProgressView), userInfo: nil, repeats: true)
+            self.progressBarTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(PlayRetrieveSolidsDetailsViewController.updateProgressView), userInfo: nil, repeats: true)
         }
 
         // Do any additional setup after loading the view.
     }
 
-    override func viewDidAppear(_ animated: Bool) {
-        /*
-        let color = UIColor(rgb: 0xFF0000)
-        let darkRed = UIColor(rgb: 0xCC0000)
-        self.view.backgroundColor = color
-
-        let view2 = UIView()
-        self.view.addSubview(view2)
-        view2.isUserInteractionEnabled = false
-
-        if (hardMode) {
-            UIView.animate(withDuration: 2, delay: 0.0, options:[UIView.AnimationOptions.repeat, UIView.AnimationOptions.autoreverse], animations: {
-                 view2.backgroundColor = color
-                 view2.backgroundColor = darkRed
-            }, completion: nil)
-        } */
-    }
     // MARK: - First Table View
 
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -103,7 +101,6 @@ class PlayRetrieveSolidsDetailsViewController: UIViewController, UITableViewDele
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if (tableView == self.seperationTableView){
-            print(indexPath.row)
             let cell = tableView.dequeueReusableCell(withIdentifier: "loremIpsum", for: indexPath)
             cell.textLabel?.text = "\(elements[indexPath.row].name) - \(elements[indexPath.row].properties)"
             return cell
@@ -135,12 +132,16 @@ class PlayRetrieveSolidsDetailsViewController: UIViewController, UITableViewDele
         if (tableView == seperationTableView){
             selectedElement = indexPath.row
             tableView.deselectRow(at: indexPath, animated: true)
+            selectedChoiceLabel.isEnabled = false
+            selectedChoiceLabel.setTitleColor(UIColor.darkGray, for: .normal)
             selectedChoiceLabel.isHidden = true
             index = indexPath.row
             choicesTableView.reloadData()
         } else if (tableView == choicesTableView){
             selectedChoiceLabel.setTitle("Submit: \(elements[selectedElement!].givenMethods.methods[indexPath.row].methodName)", for: .normal)
             isCorrect = elements[selectedElement!].givenMethods.methods[indexPath.row].isCorrect
+            selectedChoiceLabel.isEnabled = true
+            selectedChoiceLabel.setTitleColor(UIColor.black, for: .normal)
             selectedChoiceLabel.isHidden = false
             tableView.deselectRow(at: indexPath, animated: true)
         }
@@ -149,22 +150,25 @@ class PlayRetrieveSolidsDetailsViewController: UIViewController, UITableViewDele
     var index = 0
 
     @IBAction func submitChoice(_ sender: Any) {
-        isWrong.isHidden = false
         if (!isCorrect!) {
-            isWrong.text = "WRONG"
-            isWrong.backgroundColor = .red
             numOfItems += 1
             progressView.progress += 0.1
+            choicesTableView.reloadData()
+            seperationTableView.reloadData()
         } else if (isCorrect!) {
-            isWrong.text = "CORRECT"
-            isWrong.backgroundColor = .green
             selectedChoiceLabel.isHidden = true
+            selectedChoiceLabel.isEnabled = true
+            selectedChoiceLabel.setTitleColor(UIColor.black, for: .normal)
             selectedElement = nil
             index = 0
-            choicesTableView.reloadData()
+            elements.shuffle()
             numOfItems -= 1
             progressView.progress -= 0.1
+            choicesTableView.reloadData()
+            seperationTableView.reloadData()
+
         }
+
         if (numOfItems <= 0) {
             // win
             changePoints(10)
@@ -177,13 +181,18 @@ class PlayRetrieveSolidsDetailsViewController: UIViewController, UITableViewDele
         seperationTableView.reloadData()
         let seconds = 4.0
         DispatchQueue.main.asyncAfter(deadline: .now() + seconds) {
-            self.isWrong.isHidden = true
+//            self.isWrong.isHidden = true
         }
     }
 
     @objc func updateProgressView(){
-        numOfItems += 1
-        progressView.progress += 0.1
+        currentTime -= 1
+        if currentTime == 0 {
+            numOfItems += 1
+            progressView.progress += 0.1
+            currentTime = 5
+        }
+        timeLeftToAddElementsLabel.text = "\(currentTime) seconds left"
         if (progressView.progress <= 0) {
             // win
             changePoints(10)
@@ -201,12 +210,14 @@ class PlayRetrieveSolidsDetailsViewController: UIViewController, UITableViewDele
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "seperationGameLose"){
-            let dest = segue.destination as! PlayWrongAnswerViewController
-            dest.isSeperation = true
+            let destVC = segue.destination as! PlayWrongAnswerViewController
+            destVC.isSeperation = true
+            destVC.gameType = 2
         }
         if (segue.identifier == "seperationGameWIn"){
-            let dest = segue.destination as! PlayCorrectAnswerViewController
-            dest.isSeperation = true
+            let destVC = segue.destination as! PlayCorrectAnswerViewController
+            destVC.isSeperation = true
+            destVC.gameType = 2
         }
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.

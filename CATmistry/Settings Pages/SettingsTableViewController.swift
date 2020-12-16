@@ -7,15 +7,26 @@
 
 import UIKit
 
+var quizOneAttempts = ud.integer(forKey: "quizOneAttempts")
+var quizTwoAttempts = ud.integer(forKey: "quizTwoAttempts")
+var quizThreeAttempts = ud.integer(forKey: "quizThreeAttempts")
+var quizFourAttempts = ud.integer(forKey: "quizFourAttempts")
+var gameOneAttempts = ud.integer(forKey: "gameOneAttempts")
+var gameTwoAttempts = ud.integer(forKey: "gameTwoAttempts")
+var gameThreeAttempts = ud.integer(forKey: "gameThreeAttempts")
+var gameFourAttempts = ud.integer(forKey: "gameFourAttempts")
+
 class SettingsTableViewController: UITableViewController {
 
     var settingsHeaderArray = [
         "Accessibility Settings",
-        "General Statistics",
-        "Find Gas Game",
-        "Retrieve Solids Game",
-        "Adjust pH Game",
-        "Identify Elements Game",
+        "Quiz Attempts",
+        "Game Attempts",
+//        "General Statistics",
+//        "Find Gas Game",
+//        "Retrieve Solids Game",
+//        "Adjust pH Game",
+//        "Identify Elements Game",
         "Authors and Acknoledgements",
         ""
     ]
@@ -38,71 +49,117 @@ class SettingsTableViewController: UITableViewController {
                 emojiImage: "🌙"
             ),
         ],
-
+        
         [
             SettingsContent(
-                labelText: "Chapters Covered:",
+                labelText: "Gas Tests: \(String(quizOneAttempts))",
                 type: "detailAccessoryCell",
-                emojiImage: "📚"
+                emojiImage: ""
             ),
             SettingsContent(
-                labelText: "Hours Spent Learning:",
+                labelText: "Separation Methods: \(String(quizTwoAttempts))",
+                type: "switchCell",
+                emojiImage: "detailAccessoryCell"
+            ),
+            SettingsContent(
+                labelText: "pH and Indicators: \(String(quizThreeAttempts))",
+                type: "switchCell",
+                emojiImage: "detailAccessoryCell"
+            ),
+            SettingsContent(
+                labelText: "Periodic Table: \(String(quizFourAttempts))",
+                type: "switchCell",
+                emojiImage: "detailAccessoryCell"
+            ),
+        ],
+        
+        [
+            SettingsContent(
+                labelText: "Gas Tests: \(String(gameOneAttempts))",
                 type: "detailAccessoryCell",
-                emojiImage: "⏰"
+                emojiImage: ""
+            ),
+            SettingsContent(
+                labelText: "Separation Methods: \(String(gameTwoAttempts))",
+                type: "switchCell",
+                emojiImage: "detailAccessoryCell"
+            ),
+            SettingsContent(
+                labelText: "pH and Indicators: \(String(gameThreeAttempts))",
+                type: "switchCell",
+                emojiImage: "detailAccessoryCell"
+            ),
+            SettingsContent(
+                labelText: "Periodic Table: \(String(gameFourAttempts))",
+                type: "switchCell",
+                emojiImage: "detailAccessoryCell"
             ),
         ],
 
-        [
-            SettingsContent(
-                labelText: "Number of Times Played: ",
-                type: "detailAccessoryCell",
-                emojiImage: "🎮"
-            ),
-            SettingsContent(
-                labelText: "High Score: ",
-                type: "disclosureIndicatorCell",
-                emojiImage: "🏅"
-            ),
-        ],
-
-        [
-            SettingsContent(
-                labelText: "Number of Times Played: ",
-                type: "detailAccessoryCell",
-                emojiImage: "🎮"
-            ),
-            SettingsContent(
-                labelText: "High Score: ",
-                type: "disclosureIndicatorCell",
-                emojiImage: "🏅"
-            ),
-        ],
-
-        [
-            SettingsContent(
-                labelText: "Number of Times Played: ",
-                type: "detailAccessoryCell",
-                emojiImage: "🎮"
-            ),
-            SettingsContent(
-                labelText: "High Score: ",
-                type: "disclosureIndicatorCell",
-                emojiImage: "🏅"
-            ),
-        ],
-
-        [
-            SettingsContent(
-                labelText: "Number of Times Played: ",
-                type: "detailAccessoryCell",
-                emojiImage: "🎮"
-            ),
-            SettingsContent(
-                labelText: "High Score: ",
-                type: "disclosureIndicatorCell",
-                emojiImage: "🏅"
-            ),
-        ],
+//        [
+//            SettingsContent(
+//                labelText: "Chapters Covered:",
+//                type: "detailAccessoryCell",
+//                emojiImage: "📚"
+//            ),
+//            SettingsContent(
+//                labelText: "Hours Spent Learning:",
+//                type: "detailAccessoryCell",
+//                emojiImage: "⏰"
+//            ),
+//        ],
+//
+//        [
+//            SettingsContent(
+//                labelText: "Number of Times Played: ",
+//                type: "detailAccessoryCell",
+//                emojiImage: "🎮"
+//            ),
+//            SettingsContent(
+//                labelText: "High Score: ",
+//                type: "disclosureIndicatorCell",
+//                emojiImage: "🏅"
+//            ),
+//        ],
+//
+//        [
+//            SettingsContent(
+//                labelText: "Number of Times Played: ",
+//                type: "detailAccessoryCell",
+//                emojiImage: "🎮"
+//            ),
+//            SettingsContent(
+//                labelText: "High Score: ",
+//                type: "disclosureIndicatorCell",
+//                emojiImage: "🏅"
+//            ),
+//        ],
+//
+//        [
+//            SettingsContent(
+//                labelText: "Number of Times Played: ",
+//                type: "detailAccessoryCell",
+//                emojiImage: "🎮"
+//            ),
+//            SettingsContent(
+//                labelText: "High Score: ",
+//                type: "disclosureIndicatorCell",
+//                emojiImage: "🏅"
+//            ),
+//        ],
+//
+//        [
+//            SettingsContent(
+//                labelText: "Number of Times Played: ",
+//                type: "detailAccessoryCell",
+//                emojiImage: "🎮"
+//            ),
+//            SettingsContent(
+//                labelText: "High Score: ",
+//                type: "disclosureIndicatorCell",
+//                emojiImage: "🏅"
+//            ),
+//        ],
 
         [
             SettingsContent(
@@ -145,6 +202,17 @@ class SettingsTableViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        quizOneAttempts = ud.integer(forKey: "quizOneAttempts")
+        quizTwoAttempts = ud.integer(forKey: "quizTwoAttempts")
+        quizThreeAttempts = ud.integer(forKey: "quizThreeAttempts")
+        quizFourAttempts = ud.integer(forKey: "quizFourAttempts")
+        gameOneAttempts = ud.integer(forKey: "gameOneAttempts")
+        gameTwoAttempts = ud.integer(forKey: "gameTwoAttempts")
+        gameThreeAttempts = ud.integer(forKey: "gameThreeAttempts")
+        gameFourAttempts = ud.integer(forKey: "gameFourAttempts")
+    }
 
     @IBAction func doneButtonClicked(_ sender: Any) {
         dismiss(animated: true, completion: nil)
@@ -164,7 +232,7 @@ class SettingsTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: settingsContentArray[indexPath.section][indexPath.row].type, for: indexPath)
-
+        
         // Configure the cell...
         if let cell = cell as? SettingsTableViewCell {
             if cell.reuseIdentifier != "shareCell" && cell.reuseIdentifier != "buttonCell" {

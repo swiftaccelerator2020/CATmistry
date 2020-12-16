@@ -10,6 +10,9 @@ import UIKit
 class QuizWrongAnswerViewController: UIViewController {
 
     var currentQuestion: Int!
+    var correctAnswers: Int!
+    var wrongAnswers: Int!
+    var subTopic: String!
 
     @IBOutlet var nextQuestionButton: UIButton!
     @IBOutlet var goBackLearningButton: UIButton!
@@ -22,9 +25,35 @@ class QuizWrongAnswerViewController: UIViewController {
         nextQuestionButton.layer.cornerRadius = 25
 
         if 9 - currentQuestion == 0 {
-            sadLabel.text = ""
+            if correctAnswers >= 7 {
+                sadLabel.text = "Oh no! \n\nYour answer was wrong, but not to worry! You got \(String(correctAnswers)) of 10 questions in this quiz right. Excellent!"
+                if subTopic == "Gas Tests" {
+                    let ud = UserDefaults.standard
+                    ud.set(true, forKey: "chOneDone")
+                    chOneDone = true
+                } else if subTopic == "Separation Methods" {
+                    let ud = UserDefaults.standard
+                    ud.set(true, forKey: "chTwoDone")
+                    chTwoDone = true
+                } else if subTopic == "pH and Indicators" {
+                    let ud = UserDefaults.standard
+                    ud.set(true, forKey: "chThreeDone")
+                    chThreeDone = true
+                } else if subTopic == "Periodic Table" {
+                    let ud = UserDefaults.standard
+                    ud.set(true, forKey: "chFourDone")
+                    chFourDone = true
+                }
+            } else {
+                sadLabel.text = "Oh no! \n\nYour answer was wrong, and you only scored \(String(correctAnswers)) out of 10 in this quiz. You need at least 7 out of 10 to pass. Try harder next time!"
+            }
         } else {
             sadLabel.text = "Oh no! \n\nYour answer was wrong, but don't worry! You have \(String(9 - currentQuestion)) questions left in this quiz. Try harder next time!"
+        }
+        
+        if 9 - currentQuestion == 0 {
+            goBackLearningButton.isHidden = true
+            nextQuestionButton.setTitle("Go Back Home", for: .normal)
         }
     }
 

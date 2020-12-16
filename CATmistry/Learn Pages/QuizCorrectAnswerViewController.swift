@@ -11,6 +11,9 @@ import UIKit
 class QuizCorrectAnswerViewController: UIViewController {
 
     var currentQuestion: Int!
+    var correctAnswers: Int!
+    var wrongAnswers: Int!
+    var subTopic: String!
 
     @IBOutlet var nextQuestionButton: UIButton!
     @IBOutlet var congratsLabel: UILabel!
@@ -23,9 +26,39 @@ class QuizCorrectAnswerViewController: UIViewController {
         nextQuestionButton.layer.cornerRadius = 25
 
         if 9 - currentQuestion == 0 {
-            congratsLabel.text = ""
+            if correctAnswers >= 7 {
+                congratsLabel.text = "Well done! You got the answer right. \n\nThe quiz has come to an end, and you got \(String(correctAnswers)) of 10 questions right. Excellent!"
+                if subTopic == "Gas Tests" {
+                    ud.set(true, forKey: "chOneDone")
+//                    chOneDone = true
+                    UserDefaults.incrementIntegerForKey(key: "quizOneAttempts")
+//                    gameOneAttempts += 1
+                } else if subTopic == "Separation Methods" {
+                    ud.set(true, forKey: "chTwoDone")
+//                    chTwoDone = true
+                    UserDefaults.incrementIntegerForKey(key: "quizTwoAttempts")
+//                    gameTwoAttempts += 1
+                } else if subTopic == "pH and Indicators" {
+                    ud.set(true, forKey: "chThreeDone")
+//                    chThreeDone = true
+                    UserDefaults.incrementIntegerForKey(key: "quizThreeAttempts")
+//                    gameThreeAttempts += 1
+                } else if subTopic == "Periodic Table" {
+                    ud.set(true, forKey: "chFourDone")
+//                    chFourDone = true
+                    UserDefaults.incrementIntegerForKey(key: "quizFourAttempts")
+//                    gameFourAttempts += 1
+                }
+            } else {
+                congratsLabel.text = "Well done! You got the answer right. \n\nHowever, you only scored \(String(correctAnswers)) out of 10 in this quiz. You need at least 7 out of 10 to pass. Try harder next time!"
+            }
         } else {
             congratsLabel.text = "Well done! You got the answer right. \n\nYou have \(String(9 - currentQuestion)) questions left in this quiz, keep up the good work!"
+        }
+        
+        if 9 - currentQuestion == 0 {
+            goBackLearningButton.isHidden = true
+            nextQuestionButton.setTitle("Go Back Home", for: .normal)
         }
 
         let confettiView = SwiftConfettiView(frame: view.bounds)
@@ -61,4 +94,12 @@ class QuizCorrectAnswerViewController: UIViewController {
      }
      */
 
+}
+
+extension UserDefaults {
+    class func incrementIntegerForKey(key:String) {
+        let defaults = standard
+        let int = defaults.integer(forKey: key)
+        defaults.set(int+1, forKey:key)
+    }
 }

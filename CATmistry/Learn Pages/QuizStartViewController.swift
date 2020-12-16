@@ -11,7 +11,8 @@ import UIKit
 class QuizStartViewController: UIViewController {
 
     var question: [QuizQuestion]!
-
+    var subTopic: String!
+    
     @IBOutlet weak var startButton: UIButton!
 
     override func viewDidLoad() {
@@ -44,6 +45,7 @@ class QuizStartViewController: UIViewController {
         if segue.identifier == "startQuiz" {
             let destVC = segue.destination as! QuizViewController
             destVC.question = question
+            destVC.subTopic = subTopic
         }
     }
 
