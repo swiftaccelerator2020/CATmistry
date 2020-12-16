@@ -29,13 +29,18 @@ class QuizCorrectAnswerViewController: UIViewController {
             if correctAnswers >= 7 {
                 congratsLabel.text = "Well done! You got the answer right. \n\nThe quiz has come to an end, and you got \(String(correctAnswers)) of 10 questions right. Excellent!"
                 if subTopic == "Gas Tests" {
+                    let ud = UserDefaults.standard
+                    ud.set(true, forKey: "chOneDone")
                     chOneDone = true
                 } else if subTopic == "Separation Methods" {
-                    chTwoDone = true
+                    let ud = UserDefaults.standard
+                    ud.set(true, forKey: "chTwoDone")
                 } else if subTopic == "pH and Indicators" {
-                    chThreeDone = true
+                    let ud = UserDefaults.standard
+                    ud.set(true, forKey: "chThreeDone")
                 } else if subTopic == "Periodic Table" {
-                    chFourDone = true
+                    let ud = UserDefaults.standard
+                    ud.set(true, forKey: "chFourDone")
                 }
             } else {
                 congratsLabel.text = "Well done! You got the answer right. \n\nHowever, you only scored \(String(correctAnswers)) out of 10 in this quiz. You need at least 7 out of 10 to pass. Try harder next time!"
