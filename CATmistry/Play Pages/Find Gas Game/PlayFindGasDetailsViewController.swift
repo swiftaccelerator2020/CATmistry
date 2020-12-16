@@ -32,7 +32,7 @@ class PlayFindGasDetailsViewController: UIViewController {
     @IBOutlet weak var timerLabel: UILabel!
     @IBOutlet weak var questionLabel: UILabel!
     
-    var gasesArray = [GasTestGame(firstGasTank: "Hydrogen", secondGasTank: "Oxygen", thirdGasTank: "Carbon Dioxide", fourthGasTank: "Ammonia", firstGasIsPositive: [false, false, false, true], secondGasIsPositive: [false, false, false, true], thirdGasIsPositive: [false, false, false, true], forthGasIsPositive: [false, false, false, true], correctGasTank: "Hydrogen")]
+    var gasesArray = [GasTestGame(firstGasTank: "Hydrogen", secondGasTank: "Oxygen", thirdGasTank: "Carbon Dioxide", fourthGasTank: "Ammonia", firstGasIsPositive: [false, true, false, false], secondGasIsPositive: [false, false, true, false], thirdGasIsPositive: [true, false, false, false], forthGasIsPositive: [false, false, false, true], correctGasTank: "Hydrogen")]
     
     var gases: GasTestGame!
 
