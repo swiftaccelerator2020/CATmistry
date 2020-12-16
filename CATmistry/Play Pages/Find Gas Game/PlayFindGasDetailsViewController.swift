@@ -14,8 +14,8 @@ class PlayFindGasDetailsViewController: UIViewController {
     var selectedGasTankString: String!
     var selectedGasTest: Int!
     var currentRound = 0
-    var timeLeft = 20
     var timer: Timer!
+    var timeLeft = 20
     @IBOutlet weak var limewaterView: UIView!
     @IBOutlet weak var lightedSplintView: UIView!
     @IBOutlet weak var glowingSplintView: UIView!
@@ -30,8 +30,11 @@ class PlayFindGasDetailsViewController: UIViewController {
     @IBOutlet weak var gas4Check: UIImageView!
     @IBOutlet weak var submitButton: UIButton!
     @IBOutlet weak var timerLabel: UILabel!
+    @IBOutlet weak var questionLabel: UILabel!
     
-    var gases = GasTestGame(firstGasTank: "Hydrogen", secondGasTank: "Oxygen", thirdGasTank: "Carbon Dioxide", fourthGasTank: "Ammonia", firstGasIsPositive: [false, false, false, true], secondGasIsPositive: [false, false, false, true], thirdGasIsPositive: [false, false, false, true], forthGasIsPositive: [false, false, false, true], correctGasTank: "Hydrogen")
+    var gasesArray = [GasTestGame(firstGasTank: "Hydrogen", secondGasTank: "Oxygen", thirdGasTank: "Carbon Dioxide", fourthGasTank: "Ammonia", firstGasIsPositive: [false, false, false, true], secondGasIsPositive: [false, false, false, true], thirdGasIsPositive: [false, false, false, true], forthGasIsPositive: [false, false, false, true], correctGasTank: "Hydrogen")]
+    
+    var gases: GasTestGame!
 
     // var initialCenter = CGPoint()  // The initial center point of the view.
 
@@ -46,13 +49,15 @@ class PlayFindGasDetailsViewController: UIViewController {
     }
 
     override func viewWillAppear(_ animated: Bool) {
-        
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.updateTimer), userInfo: nil, repeats: true)
+        timeLeft = 20
+        gases = gasesArray[currentRound]
         submitButton.isHidden = true
         gas1Check.isHidden = true
         gas2Check.isHidden = true
         gas3Check.isHidden = true
         gas4Check.isHidden = true
+        questionLabel.text = gases.correctGasTank
         currentRound += 1
     }
 
