@@ -218,7 +218,6 @@ As your cat can only live in a certain type of gas, your task is to use your kno
                                     <constraint firstItem="bu6-o8-Ecw" firstAttribute="leading" secondItem="amq-j8-pX9" secondAttribute="leading" constant="15" id="JTZ-NC-Nab"/>
                                     <constraint firstAttribute="trailing" secondItem="bu6-o8-Ecw" secondAttribute="trailing" constant="15" id="kSl-wJ-KfX"/>
                                     <constraint firstAttribute="bottom" secondItem="bu6-o8-Ecw" secondAttribute="bottom" constant="5" id="nY6-sx-PeP"/>
-                                    <constraint firstAttribute="height" constant="260" id="vP6-zd-OEw"/>
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wf9-10-D2Q">
@@ -665,15 +664,31 @@ As your cat can only live in a certain type of gas, your task is to use your kno
                         <outlet property="litmusView" destination="zhw-91-4dW" id="2WJ-mW-pkH"/>
                         <outlet property="submitButton" destination="Hkd-yq-HKg" id="v3a-4B-kEX"/>
                         <outlet property="timerLabel" destination="fgY-OB-NKG" id="Fzu-ie-Nc2"/>
-                        <segue destination="FWf-eu-FKe" kind="showDetail" identifier="findGasCorrect" id="xa7-EN-bjL"/>
-                        <segue destination="i8X-Sz-8XG" kind="showDetail" identifier="findGasWrong" id="8zc-2j-Gbh"/>
+                        <segue destination="FWf-eu-FKe" kind="presentation" identifier="findGasCorrect" modalPresentationStyle="fullScreen" id="xa7-EN-bjL"/>
+                        <segue destination="i8X-Sz-8XG" kind="presentation" identifier="findGasWrong" modalPresentationStyle="fullScreen" id="8zc-2j-Gbh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FlL-F4-Kc6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="ahn-QF-Vec" userLabel="limewater"/>
-                <tapGestureRecognizer id="uks-Q7-Ir7" userLabel="lightedSplint"/>
-                <tapGestureRecognizer id="wBA-Yb-gqO" userLabel="glowingSplint"/>
-                <tapGestureRecognizer id="Dau-4l-A0v" userLabel="litmusPaper"/>
+                <tapGestureRecognizer id="ahn-QF-Vec" userLabel="limewater">
+                    <connections>
+                        <action selector="limewaterTestClicked:" destination="qsu-L3-DGc" id="af8-t8-v9U"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="uks-Q7-Ir7" userLabel="lightedSplint">
+                    <connections>
+                        <action selector="lightedSplintTestClicked:" destination="qsu-L3-DGc" id="MiN-7T-IWq"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="wBA-Yb-gqO" userLabel="glowingSplint">
+                    <connections>
+                        <action selector="glowingSplintTestClicked:" destination="qsu-L3-DGc" id="cwo-1D-3Ob"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="Dau-4l-A0v" userLabel="litmusPaper">
+                    <connections>
+                        <action selector="litmusPaperTestClicked:" destination="qsu-L3-DGc" id="Yzg-cg-cVK"/>
+                    </connections>
+                </tapGestureRecognizer>
                 <tapGestureRecognizer id="WDb-O8-LTC" userLabel="gas1">
                     <connections>
                         <action selector="gas1Selected:" destination="qsu-L3-DGc" id="YsN-iS-YOb"/>
@@ -835,8 +850,8 @@ As your cat can only live in a certain type of gas, your task is to use your kno
                         <outlet property="selectedChoiceLabel" destination="afY-Wp-Swo" id="OSg-1Y-HXO"/>
                         <outlet property="seperationTableView" destination="cfL-g4-aRp" id="Vba-S0-81B"/>
                         <outlet property="timeLeftToAddElementsLabel" destination="Xuo-Mf-QSv" id="r0v-En-XNt"/>
-                        <segue destination="FWf-eu-FKe" kind="showDetail" identifier="seperationGameWIn" id="KGp-Wk-Y1U"/>
-                        <segue destination="i8X-Sz-8XG" kind="showDetail" identifier="seperationGameLose" id="cAs-Qz-eXZ"/>
+                        <segue destination="FWf-eu-FKe" kind="presentation" identifier="seperationGameWIn" modalPresentationStyle="fullScreen" id="KGp-Wk-Y1U"/>
+                        <segue destination="i8X-Sz-8XG" kind="presentation" identifier="seperationGameLose" modalPresentationStyle="fullScreen" id="cAs-Qz-eXZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QgB-vC-p4j" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1603,8 +1618,8 @@ Given the properties of each Group of the periodic table, select the correct gro
                         <outlet property="nonMetal" destination="Ddq-95-qRR" id="ltS-Ox-hEj"/>
                         <outlet property="timeLeft" destination="2Bq-Tb-1J1" id="RFk-SX-Q2b"/>
                         <outlet property="transitionMetal" destination="lwW-4g-ESC" id="m2E-LD-3rp"/>
-                        <segue destination="FWf-eu-FKe" kind="showDetail" identifier="identifyElementsGameWIn" id="SnY-zI-Ehk"/>
-                        <segue destination="i8X-Sz-8XG" kind="showDetail" identifier="identifyElementsGameLose" id="orq-5T-Gly"/>
+                        <segue destination="FWf-eu-FKe" kind="presentation" identifier="identifyElementsGameWIn" modalPresentationStyle="fullScreen" id="SnY-zI-Ehk"/>
+                        <segue destination="i8X-Sz-8XG" kind="presentation" identifier="identifyElementsGameLose" modalPresentationStyle="fullScreen" id="orq-5T-Gly"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mVe-KW-IaH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1884,8 +1899,8 @@ scroll down to submit</string>
                         <outlet property="thirdOptionImageView" destination="4r0-oT-BIz" id="Uuf-aL-3cU"/>
                         <outlet property="thirdOptionStackView" destination="SY4-DI-2yI" id="DN1-OI-q3B"/>
                         <outlet property="timerLabel" destination="28d-ID-N6R" id="T35-Kx-Du2"/>
-                        <segue destination="FWf-eu-FKe" kind="showDetail" identifier="adjustPhCorrect" id="1zV-QA-rV2"/>
-                        <segue destination="i8X-Sz-8XG" kind="showDetail" identifier="adjustPhWrong" id="GDV-4V-Yxl"/>
+                        <segue destination="FWf-eu-FKe" kind="presentation" identifier="adjustPhCorrect" modalPresentationStyle="fullScreen" id="1zV-QA-rV2"/>
+                        <segue destination="i8X-Sz-8XG" kind="presentation" identifier="adjustPhWrong" modalPresentationStyle="fullScreen" id="GDV-4V-Yxl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="r6k-y5-7Ng" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -2023,7 +2038,7 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
                 <navigationController id="8Us-es-0oa" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Learn" image="books.vertical.fill" catalog="system" selectedImage="books.vertical.fill" id="ZOw-bY-pdm"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="OvI-u8-jpf">
-                        <rect key="frame" x="0.0" y="44" width="390" height="104.33333333333334"/>
+                        <rect key="frame" x="0.0" y="44" width="390" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" red="0.95419245959999999" green="0.83945876360000005" blue="0.47016263009999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -3153,7 +3168,7 @@ Your answer was wrong, but don't worry! You have \(String(10 - currentQuestion))
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="GnF-zJ-RVj"/>
+        <segue reference="YEM-b9-J01"/>
         <segue reference="s4T-H5-cTx"/>
         <segue reference="l86-7T-ukz"/>
         <segue reference="8zc-2j-Gbh"/>

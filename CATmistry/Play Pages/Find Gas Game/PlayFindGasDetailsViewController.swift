@@ -63,21 +63,136 @@ class PlayFindGasDetailsViewController: UIViewController {
 
 
     @IBAction func gas1Selected(_ sender: Any) {
+        print("HI")
+
         if selectedGasTest != nil {
             if gases.firstGasIsPositive[selectedGasTest] == false {
-                
+                gas1Check.image = UIImage(named: "close.png")
+            } else {
+                gas1Check.image = UIImage(named: "check.png")
+            }
+            if gases.secondGasIsPositive[selectedGasTest] == false {
+                gas2Check.image = UIImage(named: "close.png")
+            } else {
+                gas2Check.image = UIImage(named: "check.png")
+            }
+            if gases.thirdGasIsPositive[selectedGasTest] == false {
+                gas3Check.image = UIImage(named: "close.png")
+            } else {
+                gas3Check.image = UIImage(named: "check.png")
+            }
+            if gases.forthGasIsPositive[selectedGasTest] == false {
+                gas4Check.image = UIImage(named: "close.png")
+            } else {
+                gas4Check.image = UIImage(named: "check.png")
             }
         }
+    
     }
     
     @IBAction func gas2Selected(_ sender: Any) {
+        print("HI")
+
+        if selectedGasTest != nil {
+            if gases.firstGasIsPositive[selectedGasTest] == false {
+                gas1Check.image = UIImage(named: "close.png")
+            } else {
+                gas1Check.image = UIImage(named: "check.png")
+            }
+            if gases.secondGasIsPositive[selectedGasTest] == false {
+                gas2Check.image = UIImage(named: "close.png")
+            } else {
+                gas2Check.image = UIImage(named: "check.png")
+            }
+            if gases.thirdGasIsPositive[selectedGasTest] == false {
+                gas3Check.image = UIImage(named: "close.png")
+            } else {
+                gas3Check.image = UIImage(named: "check.png")
+            }
+            if gases.forthGasIsPositive[selectedGasTest] == false {
+                gas4Check.image = UIImage(named: "close.png")
+            } else {
+                gas4Check.image = UIImage(named: "check.png")
+            }
+        }
+
     }
     
     @IBAction func gas3Selected(_ sender: Any) {
+        print("HI")
+
+        if selectedGasTest != nil {
+            if gases.firstGasIsPositive[selectedGasTest] == false {
+                gas1Check.image = UIImage(named: "close.png")
+            } else {
+                gas1Check.image = UIImage(named: "check.png")
+            }
+            if gases.secondGasIsPositive[selectedGasTest] == false {
+                gas2Check.image = UIImage(named: "close.png")
+            } else {
+                gas2Check.image = UIImage(named: "check.png")
+            }
+            if gases.thirdGasIsPositive[selectedGasTest] == false {
+                gas3Check.image = UIImage(named: "close.png")
+            } else {
+                gas3Check.image = UIImage(named: "check.png")
+            }
+            if gases.forthGasIsPositive[selectedGasTest] == false {
+                gas4Check.image = UIImage(named: "close.png")
+            } else {
+                gas4Check.image = UIImage(named: "check.png")
+            }
+        }
+
     }
     
     @IBAction func gas4Selected(_ sender: Any) {
+        print("HI")
+        if selectedGasTest != nil {
+            if gases.firstGasIsPositive[selectedGasTest] == false {
+                gas1Check.image = UIImage(named: "close.png")
+            } else {
+                gas1Check.image = UIImage(named: "check.png")
+            }
+            if gases.secondGasIsPositive[selectedGasTest] == false {
+                gas2Check.image = UIImage(named: "close.png")
+            } else {
+                gas2Check.image = UIImage(named: "check.png")
+            }
+            if gases.thirdGasIsPositive[selectedGasTest] == false {
+                gas3Check.image = UIImage(named: "close.png")
+            } else {
+                gas3Check.image = UIImage(named: "check.png")
+            }
+            if gases.forthGasIsPositive[selectedGasTest] == false {
+                gas4Check.image = UIImage(named: "close.png")
+            } else {
+                gas4Check.image = UIImage(named: "check.png")
+            }
+        }
+
     }
+    
+    @IBAction func limewaterTestClicked(_ sender: Any) {
+        print("HI")
+        selectedGasTest = 0
+    }
+    
+    @IBAction func lightedSplintTestClicked(_ sender: Any) {
+        print("HI")
+        selectedGasTest = 1
+    }
+    
+    @IBAction func glowingSplintTestClicked(_ sender: Any) {
+        print("HI")
+        selectedGasTest = 2
+    }
+    
+    @IBAction func litmusPaperTestClicked(_ sender: Any) {
+        print("HI")
+        selectedGasTest = 3
+    }
+    
     /*
      @IBAction func panPiece(_ gestureRecognizer : UIPanGestureRecognizer) {
        guard gestureRecognizer.view != nil else {return}
