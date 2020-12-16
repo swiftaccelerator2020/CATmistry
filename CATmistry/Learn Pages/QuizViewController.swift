@@ -21,6 +21,7 @@ class QuizViewController: UIViewController {
     var question: [QuizQuestion]!
     var correctAnswers = 0
     var wrongAnswers = 0
+    var subTopic: String!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,10 +44,10 @@ class QuizViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         timeLeft.progress = 0
 
-//        if (index >= question.count){
+        if (index >= question.count){
 //            stopTimer()
 //            performSegue(withIdentifier: "quizEnded", sender: nil)
-//        } else {
+        } else {
 
             optionOne.setTitle(question[index].options[0], for: .normal)
 
@@ -60,7 +61,7 @@ class QuizViewController: UIViewController {
 
             self.progressBarTimer = Timer.scheduledTimer(timeInterval: 0.025, target: self, selector: #selector(QuizViewController.updateProgressView), userInfo: nil, repeats: true)
 
-//        }
+        }
     }
 
     @IBAction func optionOneClicked(_ sender: Any) {
@@ -122,11 +123,13 @@ class QuizViewController: UIViewController {
             destVC.currentQuestion = index
             destVC.correctAnswers = correctAnswers
             destVC.wrongAnswers = wrongAnswers
+            destVC.subTopic = subTopic
         } else if segue.identifier == "wrongAns" {
             let destVC = segue.destination as! QuizWrongAnswerViewController
             destVC.currentQuestion = index
             destVC.correctAnswers = correctAnswers
             destVC.wrongAnswers = wrongAnswers
+            destVC.subTopic = subTopic
         }
      }
 
