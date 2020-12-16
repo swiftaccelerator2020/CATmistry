@@ -15,14 +15,12 @@ var chFourDone = ud.bool(forKey: "chFourDone")
 var points = ud.integer(forKey: "points")
 
 class LearnHomePageTableViewController: UITableViewController {
-    
     var chapterApproved = [
         true,
         chOneDone,
         chTwoDone,
         chThreeDone,
     ]
-
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.tableFooterView = UIView()
@@ -38,6 +36,12 @@ class LearnHomePageTableViewController: UITableViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        chapterApproved = [
+            true,
+            chOneDone,
+            chTwoDone,
+            chThreeDone,
+        ]
         tableView.reloadData()
     }
 

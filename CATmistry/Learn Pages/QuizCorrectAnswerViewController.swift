@@ -35,12 +35,15 @@ class QuizCorrectAnswerViewController: UIViewController {
                 } else if subTopic == "Separation Methods" {
                     let ud = UserDefaults.standard
                     ud.set(true, forKey: "chTwoDone")
+                    chTwoDone = true
                 } else if subTopic == "pH and Indicators" {
                     let ud = UserDefaults.standard
                     ud.set(true, forKey: "chThreeDone")
+                    chThreeDone = true
                 } else if subTopic == "Periodic Table" {
                     let ud = UserDefaults.standard
                     ud.set(true, forKey: "chFourDone")
+                    chFourDone = true
                 }
             } else {
                 congratsLabel.text = "Well done! You got the answer right. \n\nHowever, you only scored \(String(correctAnswers)) out of 10 in this quiz. You need at least 7 out of 10 to pass. Try harder next time!"
