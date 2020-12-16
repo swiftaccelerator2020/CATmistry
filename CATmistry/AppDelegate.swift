@@ -12,7 +12,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         override init() {
             super.init()
-            UIFont.overrideInitialize()
+//            UIFont.overrideInitialize()
         }
     
 
