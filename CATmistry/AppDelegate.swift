@@ -12,7 +12,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         override init() {
             super.init()
-            UIFont.overrideInitialize()
+            let ud = UserDefaults.standard
+            let isDyslexic = ud.bool(forKey: "dyslexic")
+            
+            if isDyslexic == true {
+                UIFont.overrideInitialize()
+            }
         }
     
 

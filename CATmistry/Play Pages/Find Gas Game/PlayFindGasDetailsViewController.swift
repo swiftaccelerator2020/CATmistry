@@ -24,6 +24,10 @@ class PlayFindGasDetailsViewController: UIViewController {
     @IBOutlet weak var gas2: UIView!
     @IBOutlet weak var gas3: UIView!
     @IBOutlet weak var gas4: UIView!
+    @IBOutlet weak var gas1Check: UIImageView!
+    @IBOutlet weak var gas2Check: UIImageView!
+    @IBOutlet weak var gas3Check: UIImageView!
+    @IBOutlet weak var gas4Check: UIImageView!
     @IBOutlet weak var submitButton: UIButton!
     @IBOutlet weak var timerLabel: UILabel!
     
@@ -58,118 +62,22 @@ class PlayFindGasDetailsViewController: UIViewController {
     }
 
 
-     @IBAction func limewaterTest(_ sender: Any) {
-        selectedGasTank = nil
-        selectedGasTest = 0
-     }
-
-    @IBAction func lightedSplintTest(_ sender: Any) {
-        selectedGasTank = nil
-        selectedGasTest = 1
-    }
-
-    @IBAction func glowingSplintTest(_ sender: Any) {
-        selectedGasTank = nil
-        selectedGasTest = 2
-    }
-
-    @IBAction func litmusPaper(_ sender: Any) {
-        selectedGasTank = nil
-        selectedGasTest = 3
-    }
-
-    @IBAction func selectGas1(_ sender: Any) {
-        if selectedGasTank != gas1 {
-            selectedGasTank = gas1
-        } else {
-            selectedGasTank = nil
-        }
+    @IBAction func gas1Selected(_ sender: Any) {
         if selectedGasTest != nil {
-//            resultsLabel.isHidden = false
-//            if gases.firstGasIsPositive[selectedGasTest] {
-//                resultsLabel.text = "positive"
-//            } else {
-//                resultsLabel.text = "negative"
-//            }
-            selectedGasTank = nil
-            selectedGasTest = nil
-            selectedGasTankString = nil
-        }
-        if selectedGasTank != nil && selectedGasTest == nil {
-            selectedGasTankString = gases.firstGasTank
-            submitButton.isHidden = false
+            if gases.firstGasIsPositive[selectedGasTest] == false {
+                
+            }
         }
     }
-
-    @IBAction func selectGas2(_ sender: Any) {
-        if selectedGasTank != gas2 {
-            selectedGasTank = gas2
-        } else {
-            selectedGasTank = nil
-        }
-        if selectedGasTest != nil {
-//            resultsLabel.isHidden = false
-//            if gases.secondGasIsPositive[selectedGasTest] {
-//                resultsLabel.text = "positive"
-//            } else {
-//                resultsLabel.text = "negative"
-//            }
-            selectedGasTank = nil
-            selectedGasTest = nil
-            selectedGasTankString = nil
-        }
-        if selectedGasTank != nil && selectedGasTest == nil {
-            selectedGasTankString = gases.secondGasTank
-            submitButton.isHidden = false
-        }
+    
+    @IBAction func gas2Selected(_ sender: Any) {
     }
-
-    @IBAction func selectGas3(_ sender: Any) {
-        if selectedGasTank != gas3 {
-            selectedGasTank = gas3
-        } else {
-            selectedGasTank = nil
-        }
-        if selectedGasTest != nil {
-//            resultsLabel.isHidden = false
-//            if gases.thirdGasIsPositive[selectedGasTest] {
-//                resultsLabel.text = "positive"
-//            } else {
-//                resultsLabel.text = "negative"
-//            }
-            selectedGasTank = nil
-            selectedGasTest = nil
-            selectedGasTankString = nil
-        }
-        if selectedGasTank != nil && selectedGasTest == nil {
-            selectedGasTankString = gases.thirdGasTank
-            submitButton.isHidden = false
-        }
+    
+    @IBAction func gas3Selected(_ sender: Any) {
     }
-
-    @IBAction func selectGas4(_ sender: Any) {
-        if selectedGasTank != gas4 {
-            selectedGasTank = gas4
-        } else {
-            selectedGasTank = nil
-        }
-        if selectedGasTest != nil {
-//            resultsLabel.isHidden = false
-//            if gases.forthGasIsPositive[selectedGasTest] {
-//                resultsLabel.text = "positive"
-//            } else {
-//                resultsLabel.text = "negative"
-//            }
-            selectedGasTank = nil
-            selectedGasTest = nil
-            selectedGasTankString = nil
-        }
-        if selectedGasTank != nil && selectedGasTest == nil {
-            selectedGasTankString = gases.thirdGasTank
-            submitButton.isHidden = false
-        }
+    
+    @IBAction func gas4Selected(_ sender: Any) {
     }
-
     /*
      @IBAction func panPiece(_ gestureRecognizer : UIPanGestureRecognizer) {
        guard gestureRecognizer.view != nil else {return}

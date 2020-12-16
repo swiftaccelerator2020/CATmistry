@@ -358,6 +358,10 @@ As your cat can only live in a certain type of gas, your task is to use your kno
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="limewater" translatesAutoresizingMaskIntoConstraints="NO" id="Ick-Ku-ScQ">
                                                 <rect key="frame" x="10" y="10" width="42" height="80"/>
+                                                <gestureRecognizers/>
+                                                <connections>
+                                                    <outletCollection property="gestureRecognizers" destination="ahn-QF-Vec" appends="YES" id="pT0-23-pkb"/>
+                                                </connections>
                                             </imageView>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -368,9 +372,6 @@ As your cat can only live in a certain type of gas, your task is to use your kno
                                             <constraint firstItem="Ick-Ku-ScQ" firstAttribute="leading" secondItem="KjD-zc-qXD" secondAttribute="leading" constant="10" id="bu2-59-GUK"/>
                                             <constraint firstAttribute="bottom" secondItem="Ick-Ku-ScQ" secondAttribute="bottom" constant="10" id="rTo-bD-d2v"/>
                                         </constraints>
-                                        <connections>
-                                            <outletCollection property="gestureRecognizers" destination="s27-Qi-X6Q" appends="YES" id="NaJ-f3-oFi"/>
-                                        </connections>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZBx-iJ-bIt">
                                         <rect key="frame" x="72" y="0.0" width="62" height="100"/>
@@ -388,7 +389,7 @@ As your cat can only live in a certain type of gas, your task is to use your kno
                                             <constraint firstAttribute="bottom" secondItem="wg5-5x-aYZ" secondAttribute="bottom" constant="10" id="uDV-Iz-0BS"/>
                                         </constraints>
                                         <connections>
-                                            <outletCollection property="gestureRecognizers" destination="XNG-8B-T2s" appends="YES" id="t5r-le-6rd"/>
+                                            <outletCollection property="gestureRecognizers" destination="uks-Q7-Ir7" appends="YES" id="60R-cQ-byV"/>
                                         </connections>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ctl-Eq-n0j">
@@ -407,7 +408,7 @@ As your cat can only live in a certain type of gas, your task is to use your kno
                                             <constraint firstItem="dSd-lK-7ZV" firstAttribute="leading" secondItem="ctl-Eq-n0j" secondAttribute="leading" constant="10" id="fwm-Tj-HOP"/>
                                         </constraints>
                                         <connections>
-                                            <outletCollection property="gestureRecognizers" destination="HTb-gh-POL" appends="YES" id="ebw-Ql-Beh"/>
+                                            <outletCollection property="gestureRecognizers" destination="wBA-Yb-gqO" appends="YES" id="jg9-gv-ZZX"/>
                                         </connections>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zhw-91-4dW">
@@ -426,7 +427,7 @@ As your cat can only live in a certain type of gas, your task is to use your kno
                                             <constraint firstItem="6Kz-ts-5ut" firstAttribute="top" secondItem="zhw-91-4dW" secondAttribute="top" constant="10" id="fuz-lr-dMJ"/>
                                         </constraints>
                                         <connections>
-                                            <outletCollection property="gestureRecognizers" destination="9pD-kg-wKX" appends="YES" id="r4e-ma-oo1"/>
+                                            <outletCollection property="gestureRecognizers" destination="Dau-4l-A0v" appends="YES" id="40Z-PE-vsn"/>
                                         </connections>
                                     </view>
                                 </subviews>
@@ -470,7 +471,7 @@ As your cat can only live in a certain type of gas, your task is to use your kno
                                                             <constraint firstAttribute="bottom" secondItem="yZ8-eN-c0o" secondAttribute="bottom" constant="10" id="zc3-Uz-JMo"/>
                                                         </constraints>
                                                         <connections>
-                                                            <outletCollection property="gestureRecognizers" destination="4VR-hM-MzW" appends="YES" id="Nnu-DT-wCc"/>
+                                                            <outletCollection property="gestureRecognizers" destination="WDb-O8-LTC" appends="YES" id="nkX-Ms-gdf"/>
                                                         </connections>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5o1-J3-3Tj">
@@ -479,6 +480,10 @@ As your cat can only live in a certain type of gas, your task is to use your kno
                                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gas-tank" translatesAutoresizingMaskIntoConstraints="NO" id="1MM-HG-qEp">
                                                                 <rect key="frame" x="0.0" y="0.0" width="75" height="100"/>
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <gestureRecognizers/>
+                                                                <connections>
+                                                                    <outletCollection property="gestureRecognizers" destination="yLf-F6-Ikx" appends="YES" id="WOJ-po-k8y"/>
+                                                                </connections>
                                                             </imageView>
                                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="close" translatesAutoresizingMaskIntoConstraints="NO" id="qEX-dY-ctk">
                                                                 <rect key="frame" x="10" y="10" width="55" height="80"/>
@@ -496,9 +501,6 @@ As your cat can only live in a certain type of gas, your task is to use your kno
                                                             <constraint firstAttribute="bottom" secondItem="1MM-HG-qEp" secondAttribute="bottom" id="avc-BD-mJS"/>
                                                             <constraint firstAttribute="trailing" secondItem="qEX-dY-ctk" secondAttribute="trailing" constant="10" id="iLR-2p-Gir"/>
                                                         </constraints>
-                                                        <connections>
-                                                            <outletCollection property="gestureRecognizers" destination="Kc3-nt-v5D" appends="YES" id="bc0-Qb-MEh"/>
-                                                        </connections>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7FT-cy-B06">
                                                         <rect key="frame" x="150" y="0.0" width="75" height="100"/>
@@ -524,7 +526,7 @@ As your cat can only live in a certain type of gas, your task is to use your kno
                                                             <constraint firstItem="wcH-To-RfN" firstAttribute="top" secondItem="7FT-cy-B06" secondAttribute="top" id="Okz-Mp-wjs"/>
                                                         </constraints>
                                                         <connections>
-                                                            <outletCollection property="gestureRecognizers" destination="jVy-4z-Rl2" appends="YES" id="Jk6-CC-0e8"/>
+                                                            <outletCollection property="gestureRecognizers" destination="X0Y-eS-WkF" appends="YES" id="QUU-0q-S3R"/>
                                                         </connections>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mba-TN-Dj4">
@@ -551,7 +553,7 @@ As your cat can only live in a certain type of gas, your task is to use your kno
                                                             <constraint firstAttribute="bottom" secondItem="X2u-ou-vvt" secondAttribute="bottom" constant="10" id="req-Sr-QhR"/>
                                                         </constraints>
                                                         <connections>
-                                                            <outletCollection property="gestureRecognizers" destination="P22-gs-4Tz" appends="YES" id="Mp6-sv-Hg2"/>
+                                                            <outletCollection property="gestureRecognizers" destination="Von-By-kr0" appends="YES" id="Kkx-RV-oqm"/>
                                                         </connections>
                                                     </view>
                                                 </subviews>
@@ -586,6 +588,7 @@ As your cat can only live in a certain type of gas, your task is to use your kno
                                             </label>
                                         </subviews>
                                         <color key="backgroundColor" red="0.4953809381" green="0.67837697269999997" blue="0.85103112459999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <gestureRecognizers/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="305" id="8du-vq-5VT"/>
                                             <constraint firstItem="Fem-Ps-gaG" firstAttribute="top" secondItem="dKZ-zl-Phq" secondAttribute="bottom" constant="30" id="AWO-O8-k2Z"/>
@@ -649,9 +652,13 @@ As your cat can only live in a certain type of gas, your task is to use your kno
                     <navigationItem key="navigationItem" id="iMh-nS-fJv"/>
                     <connections>
                         <outlet property="gas1" destination="ii7-e7-ODy" id="vw2-QS-5ji"/>
+                        <outlet property="gas1Check" destination="yZ8-eN-c0o" id="hxd-PN-KZu"/>
                         <outlet property="gas2" destination="1MM-HG-qEp" id="PFo-MI-FZl"/>
+                        <outlet property="gas2Check" destination="qEX-dY-ctk" id="Pnn-OA-OQh"/>
                         <outlet property="gas3" destination="wcH-To-RfN" id="fLP-ba-gEl"/>
+                        <outlet property="gas3Check" destination="geX-3W-4EM" id="ghe-uZ-Hsx"/>
                         <outlet property="gas4" destination="v1h-Gv-7vB" id="3AB-tf-ROu"/>
+                        <outlet property="gas4Check" destination="X2u-ou-vvt" id="C9u-vX-12e"/>
                         <outlet property="glowingSplintView" destination="ctl-Eq-n0j" id="JwR-Sd-WK0"/>
                         <outlet property="lightedSplintView" destination="ZBx-iJ-bIt" id="bwK-dd-tRc"/>
                         <outlet property="limewaterView" destination="KjD-zc-qXD" id="paT-42-sZQ"/>
@@ -663,48 +670,32 @@ As your cat can only live in a certain type of gas, your task is to use your kno
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FlL-F4-Kc6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="s27-Qi-X6Q">
+                <tapGestureRecognizer id="ahn-QF-Vec" userLabel="limewater"/>
+                <tapGestureRecognizer id="uks-Q7-Ir7" userLabel="lightedSplint"/>
+                <tapGestureRecognizer id="wBA-Yb-gqO" userLabel="glowingSplint"/>
+                <tapGestureRecognizer id="Dau-4l-A0v" userLabel="litmusPaper"/>
+                <tapGestureRecognizer id="WDb-O8-LTC" userLabel="gas1">
                     <connections>
-                        <action selector="limewaterTest:" destination="qsu-L3-DGc" id="HFQ-1I-rKz"/>
+                        <action selector="gas1Selected:" destination="qsu-L3-DGc" id="YsN-iS-YOb"/>
                     </connections>
                 </tapGestureRecognizer>
-                <tapGestureRecognizer id="XNG-8B-T2s">
+                <tapGestureRecognizer id="yLf-F6-Ikx" userLabel="gas2">
                     <connections>
-                        <action selector="lightedSplintTest:" destination="qsu-L3-DGc" id="Zvt-Am-eAk"/>
+                        <action selector="gas2Selected:" destination="qsu-L3-DGc" id="FYq-Gn-6MA"/>
                     </connections>
                 </tapGestureRecognizer>
-                <tapGestureRecognizer id="HTb-gh-POL">
+                <tapGestureRecognizer id="X0Y-eS-WkF" userLabel="gas3">
                     <connections>
-                        <action selector="glowingSplintTest:" destination="qsu-L3-DGc" id="JUu-7q-cKL"/>
+                        <action selector="gas3Selected:" destination="qsu-L3-DGc" id="xra-LV-bdd"/>
                     </connections>
                 </tapGestureRecognizer>
-                <tapGestureRecognizer id="9pD-kg-wKX">
+                <tapGestureRecognizer id="Von-By-kr0" userLabel="gas4">
                     <connections>
-                        <action selector="litmusPaper:" destination="qsu-L3-DGc" id="a86-lD-7h3"/>
-                    </connections>
-                </tapGestureRecognizer>
-                <tapGestureRecognizer id="4VR-hM-MzW">
-                    <connections>
-                        <action selector="selectGas1:" destination="qsu-L3-DGc" id="q68-gk-muj"/>
-                    </connections>
-                </tapGestureRecognizer>
-                <tapGestureRecognizer id="Kc3-nt-v5D">
-                    <connections>
-                        <action selector="selectGas2:" destination="qsu-L3-DGc" id="37d-Ts-xEf"/>
-                    </connections>
-                </tapGestureRecognizer>
-                <tapGestureRecognizer id="jVy-4z-Rl2">
-                    <connections>
-                        <action selector="selectGas3:" destination="qsu-L3-DGc" id="vOK-RJ-eye"/>
-                    </connections>
-                </tapGestureRecognizer>
-                <tapGestureRecognizer id="P22-gs-4Tz">
-                    <connections>
-                        <action selector="selectGas4:" destination="qsu-L3-DGc" id="TGj-u0-80U"/>
+                        <action selector="gas4Selected:" destination="qsu-L3-DGc" id="IS6-sK-W60"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="-1969.2307692307691" y="2009.7156398104264"/>
+            <point key="canvasLocation" x="-1040" y="2012"/>
         </scene>
         <!--Play Retrieve Solids Details View Controller-->
         <scene sceneID="zzc-Tf-4lt">
@@ -850,7 +841,7 @@ As your cat can only live in a certain type of gas, your task is to use your kno
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QgB-vC-p4j" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1003.0769230769231" y="2009.7156398104264"/>
+            <point key="canvasLocation" x="-74" y="2012"/>
         </scene>
         <!--Play Correct Answer View Controller-->
         <scene sceneID="y0b-6v-pbE">
@@ -955,7 +946,7 @@ You have \(String(10 - currentGame)) rounds remaining in Level \(String(currentL
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jbW-Je-uDO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1106.1538461538462" y="2752.6066350710898"/>
+            <point key="canvasLocation" x="246" y="2748"/>
         </scene>
         <!--Retreive the Solids-->
         <scene sceneID="aPN-6E-YL3">
@@ -1619,7 +1610,7 @@ Given the properties of each Group of the periodic table, select the correct gro
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mVe-KW-IaH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="833.84615384615381" y="2009.7156398104264"/>
+            <point key="canvasLocation" x="1763" y="2012"/>
         </scene>
         <!--Play Adjust Ph Details View Controller-->
         <scene sceneID="R0f-XJ-3nM">
@@ -1920,7 +1911,7 @@ scroll down to submit</string>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="-69.230769230769226" y="2009.7156398104264"/>
+            <point key="canvasLocation" x="860" y="2012"/>
         </scene>
         <!--Play Wrong Answer View Controller-->
         <scene sceneID="bZQ-v1-4GD">
@@ -2025,7 +2016,7 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cub-mN-ssa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-89.230769230769226" y="2752.6066350710898"/>
+            <point key="canvasLocation" x="1263" y="2748"/>
         </scene>
         <!--Learn-->
         <scene sceneID="NwW-Ny-3ld">
@@ -2283,7 +2274,7 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
                     <tabBarItem key="tabBarItem" title="Play" image="gamecontroller.fill" catalog="system" selectedImage="gamecontroller.fill" id="Xs1-53-ugV"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="eFe-la-nb9">
-                        <rect key="frame" x="0.0" y="44" width="390" height="96"/>
+                        <rect key="frame" x="0.0" y="44" width="390" height="104.33333333333334"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" red="0.396078431372549" green="0.77647058823529413" blue="0.94117647058823528" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -2556,7 +2547,7 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QUe-cY-thK">
-                                <rect key="frame" x="0.0" y="140" width="390" height="621"/>
+                                <rect key="frame" x="0.0" y="148.33333333333331" width="390" height="612.66666666666652"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zMu-Qc-3rs">
                                         <rect key="frame" x="0.0" y="0.0" width="390" height="590"/>
@@ -2584,7 +2575,7 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Attribute 2" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cYj-Ro-1Mx">
-                                                <rect key="frame" x="25" y="360.33333333333331" width="340" height="20.333333333333314"/>
+                                                <rect key="frame" x="25" y="360.33333333333337" width="340" height="20.333333333333314"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -3163,7 +3154,7 @@ Your answer was wrong, but don't worry! You have \(String(10 - currentQuestion))
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="YEM-b9-J01"/>
+        <segue reference="GnF-zJ-RVj"/>
         <segue reference="s4T-H5-cTx"/>
         <segue reference="l86-7T-ukz"/>
         <segue reference="8zc-2j-Gbh"/>
