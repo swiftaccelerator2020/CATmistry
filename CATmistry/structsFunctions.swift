@@ -215,6 +215,27 @@ var learnTopics = [
                                 "The origin of the gas",
                                 "The density of the gas"
                             ], correctAnswer: 2),
+            QuizQuestion(question: "What's the difference between the gas tests for Oxygen and Hydrogen?", options:
+                            [
+                                "A lighted splint is used for the Oxygen test while a glowing splint is used for the Hydrogen test",
+                                "There is no difference",
+                                "A glowing splint is used for the Oxygen test while a lighted splint is used for the Hydrogen test",
+                                "Oxygen test uses red litmus paper while Hydrogen test uses blue litmus paper"
+                            ], correctAnswer: 3),
+            QuizQuestion(question: "What happens to the lighted splint in a Hydrogen test?", options:
+                            [
+                                "The splint breaks",
+                                "The flame intensifies",
+                                "The lighted splint extinguishes with a popping sound",
+                                "The lighted splint extinguishes silently"
+                            ], correctAnswer: 3),
+            QuizQuestion(question: "What happens to the glowing splint in an Oxygen test?", options:
+                            [
+                                "Nothing happens to it",
+                                "The glowing splint reignites",
+                                "The glowing splint extinguishes with a popping sound",
+                                "The splint breaks"
+                            ], correctAnswer: 2),
         ]),
 
     // MARK: - SEPARATION METHODS
