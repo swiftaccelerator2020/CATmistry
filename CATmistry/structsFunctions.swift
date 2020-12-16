@@ -217,23 +217,23 @@ var learnTopics = [
                             ], correctAnswer: 2),
             QuizQuestion(question: "What's the difference between the gas tests for Oxygen and Hydrogen?", options:
                             [
-                                "A lighted splint is used for the Oxygen test while a glowing splint is used for the Hydrogen test",
+                                "O₂ test: Lighted splint, H₂ test: Glowing Splint",
                                 "There is no difference",
-                                "A glowing splint is used for the Oxygen test while a lighted splint is used for the Hydrogen test",
-                                "Oxygen test uses red litmus paper while Hydrogen test uses blue litmus paper"
+                                "O₂ test: Glowing splint, H₂ test: Lighted Splint",
+                                "O₂ test: Broken splint, H₂ test : Unbroken Splint"
                             ], correctAnswer: 3),
             QuizQuestion(question: "What happens to the lighted splint in a Hydrogen test?", options:
                             [
                                 "The splint breaks",
                                 "The flame intensifies",
-                                "The lighted splint extinguishes with a popping sound",
+                                "The splint extinguishes with a 'pop' sound",
                                 "The lighted splint extinguishes silently"
                             ], correctAnswer: 3),
             QuizQuestion(question: "What happens to the glowing splint in an Oxygen test?", options:
                             [
                                 "Nothing happens to it",
                                 "The glowing splint reignites",
-                                "The glowing splint extinguishes with a popping sound",
+                                "The splint extinguishes with a 'pop' sound",
                                 "The splint breaks"
                             ], correctAnswer: 2),
         ]),
@@ -339,11 +339,11 @@ var learnTopics = [
 
                 QuizQuestion(question: "Which of the following can be separated using magnetic attraction", options: [
                       "Iron and Plastic",
-                      "Steel and Gold",
+                      "Zinc and Gold",
                       "Nickel and Cobalt",
                       "Rubber and Plastic"], correctAnswer: 1),
 
-                QuizQuestion(question: "Which equipments are NOT needed for filtration", options: [
+                QuizQuestion(question: "Which equipments are NOT usually needed for filtration", options: [
                       "Filter funnel",
                       "Filter paper",
                       "Bunsen burner",
