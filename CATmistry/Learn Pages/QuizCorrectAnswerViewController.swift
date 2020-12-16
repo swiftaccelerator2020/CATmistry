@@ -96,7 +96,7 @@ class QuizCorrectAnswerViewController: UIViewController {
 
 }
 
-extension UserDefaults {
+public extension UserDefaults {
     class func incrementIntegerForKey(key:String) {
         let defaults = standard
         let int = defaults.integer(forKey: key)

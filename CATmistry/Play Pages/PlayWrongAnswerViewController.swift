@@ -12,7 +12,7 @@ class PlayWrongAnswerViewController: UIViewController {
     var currentLevel: Int!
     var currentGame: Int!
     var isSeperation: Bool?
-    var gameType: Int
+    var gameType: Int!
 
     @IBOutlet weak var nextGameButton: UIButton!
     @IBOutlet weak var goHomeButton: UIButton!
@@ -73,12 +73,4 @@ class PlayWrongAnswerViewController: UIViewController {
      }
      */
 
-}
-
-extension UserDefaults {
-    class func incrementIntegerForKey(key:String) {
-        let defaults = standard
-        let int = defaults.integer(forKey: key)
-        defaults.set(int+1, forKey:key)
-    }
 }
