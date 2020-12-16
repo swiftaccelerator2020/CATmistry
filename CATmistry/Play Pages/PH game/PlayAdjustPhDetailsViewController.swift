@@ -91,7 +91,7 @@ class PlayAdjustPhDetailsViewController: UIViewController {
     }
 
     override func viewDidAppear(_ animated: Bool) {
-        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(PlayIdentifyElementsSecondViewController.updateProgressView), userInfo: nil, repeats: true)
+        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(PlayAdjustPhDetailsViewController.updateTimer), userInfo: nil, repeats: true)
     }
     @IBAction func clickAddUniversalIndicator(_ sender: Any) {
         if addFirstIndicatorButton.titleLabel!.text == "Add Universal Indicator" {

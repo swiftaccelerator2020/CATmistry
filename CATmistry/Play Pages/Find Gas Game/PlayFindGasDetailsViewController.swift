@@ -48,7 +48,7 @@ class PlayFindGasDetailsViewController: UIViewController {
 
     override func viewDidAppear(_ animated: Bool) {
         
-        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(PlayIdentifyElementsSecondViewController.updateProgressView), userInfo: nil, repeats: true)
+        // timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateProgressView), userInfo: nil, repeats: true)
 
         currentRound += 1
     }
