@@ -8,9 +8,20 @@
 import UIKit
 
 let ud = UserDefaults.standard
+var chOneDone = ud.bool(forKey: "chOneDone")
+var chTwoDone = ud.bool(forKey: "chTwoDone")
+var chThreeDone = ud.bool(forKey: "chThreeDone")
+var chFourDone = ud.bool(forKey: "chFourDone")
 var points = ud.integer(forKey: "points")
 
 class LearnHomePageTableViewController: UITableViewController {
+    
+    var chapterApproved = [
+        true,
+        chOneDone,
+        chTwoDone,
+        chThreeDone,
+    ]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,15 +30,15 @@ class LearnHomePageTableViewController: UITableViewController {
         let navbar = UINavigationBarAppearance()
         navbar.backgroundColor = UIColor(red: 242/255, green: 214/255, blue: 112/255, alpha: 1)
         self.navigationController?.navigationBar.scrollEdgeAppearance = navbar
-        
-        points = 10000
-
-
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        tableView.reloadData()
     }
 
     // MARK: - Table view data source
@@ -49,7 +60,7 @@ class LearnHomePageTableViewController: UITableViewController {
         let currentTopic = learnTopics[indexPath.row]
 
         if let cell = cell as? LearnHomePageTableViewCell{
-            if (points < currentTopic.pointsNeeded) {
+            if chapterApproved[indexPath.row] == false {
                 cell.selectionStyle = .none
                 cell.learnChapterLabel.isEnabled = false
                 cell.needMorePointsLabel?.isHidden = false
@@ -124,7 +135,7 @@ class LearnHomePageTableViewController: UITableViewController {
         if let ident = identifier {
             if ident == "goToSubTopic" {
                 let indexPath = tableView.indexPathForSelectedRow!
-                if points < learnTopics[indexPath.row].pointsNeeded{
+                if chapterApproved[indexPath.row] == false {
                     return false
                 }
             }

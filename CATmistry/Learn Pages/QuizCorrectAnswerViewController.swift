@@ -13,6 +13,7 @@ class QuizCorrectAnswerViewController: UIViewController {
     var currentQuestion: Int!
     var correctAnswers: Int!
     var wrongAnswers: Int!
+    var subTopic: String!
 
     @IBOutlet var nextQuestionButton: UIButton!
     @IBOutlet var congratsLabel: UILabel!
@@ -27,6 +28,20 @@ class QuizCorrectAnswerViewController: UIViewController {
         if 9 - currentQuestion == 0 {
             if correctAnswers >= 7 {
                 congratsLabel.text = "Well done! You got the answer right. \n\nThe quiz has come to an end, and you got \(String(correctAnswers)) of 10 questions right. Excellent!"
+                if subTopic == "Gas Tests" {
+                    let ud = UserDefaults.standard
+                    ud.set(true, forKey: "chOneDone")
+                    chOneDone = true
+                } else if subTopic == "Separation Methods" {
+                    let ud = UserDefaults.standard
+                    ud.set(true, forKey: "chTwoDone")
+                } else if subTopic == "pH and Indicators" {
+                    let ud = UserDefaults.standard
+                    ud.set(true, forKey: "chThreeDone")
+                } else if subTopic == "Periodic Table" {
+                    let ud = UserDefaults.standard
+                    ud.set(true, forKey: "chFourDone")
+                }
             } else {
                 congratsLabel.text = "Well done! You got the answer right. \n\nHowever, you only scored \(String(correctAnswers)) out of 10 in this quiz. You need at least 7 out of 10 to pass. Try harder next time!"
             }
