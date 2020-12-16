@@ -277,10 +277,12 @@ class PlayAdjustPhDetailsViewController: UIViewController {
             let destVC = segue.destination as! PlayCorrectAnswerViewController
             destVC.currentLevel = currentLevel
             destVC.currentGame = currentGame
+            destVC.gameType = 3
         } else if segue.identifier == "adjustPhWrong" {
             let destVC = segue.destination as! PlayWrongAnswerViewController
             destVC.currentLevel = currentLevel
             destVC.currentGame = currentGame
+            destVC.gameType = 3
         }
     }
     

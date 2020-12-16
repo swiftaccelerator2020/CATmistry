@@ -276,10 +276,12 @@ class PlayIdentifyElementsSecondViewController: UIViewController {
             let destVC = segue.destination as! PlayCorrectAnswerViewController
             destVC.currentLevel = currentLevel+1
             destVC.currentGame = currentRound
+            destVC.gameType = 4
         } else if segue.identifier == "identifyElementsGameLose" {
             let destVC = segue.destination as! PlayWrongAnswerViewController
             destVC.currentLevel = currentLevel+1
             destVC.currentGame = currentRound
+            destVC.gameType = 4
         }
     }
 }

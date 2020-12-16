@@ -13,6 +13,7 @@ class PlayCorrectAnswerViewController: UIViewController {
     var isSeperation: Bool?
     var currentLevel: Int!
     var currentGame: Int!
+    var gameType: Int!
 
     @IBOutlet weak var nextGameButton: UIButton!
     @IBOutlet weak var congratsLabel: UILabel!
@@ -23,15 +24,23 @@ class PlayCorrectAnswerViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         nextGameButton.layer.cornerRadius = 25
-        if (isSeperation != nil){
+        if isSeperation != nil {
             congratsLabel.text = "Yay good job you saved the cat!"
             nextGameButton.setTitle("Go Back Home", for: .normal)
             goHomeButton.isHidden = true
+            UserDefaults.incrementIntegerForKey(key: "gameTwoAttempts")
         } else {
             congratsLabel.text = "Congrats! \n\nThrough your hard work, your cat has been able to avoid the danger. \n\nYou have \(String(9 - currentGame)) rounds remaining in Level \(String(currentLevel + 1)). Keep up the good work!"
             if 9 - self.currentGame == 0 {
                 nextGameButton.setTitle("Go Back Home", for: .normal)
                 goHomeButton.setTitle("Restart", for: .normal)
+                if gameType == 1 {
+                    UserDefaults.incrementIntegerForKey(key: "gameOneAttempts")
+                } else if gameType == 3 {
+                    UserDefaults.incrementIntegerForKey(key: "gameThreeAttempts")
+                } else if gameType == 4 {
+                    UserDefaults.incrementIntegerForKey(key: "gameFourAttempts")
+                }
             }
         }
         let confettiView = SwiftConfettiView(frame: self.view.bounds)
