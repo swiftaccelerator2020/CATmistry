@@ -267,10 +267,12 @@ class PlayFindGasDetailsViewController: UIViewController {
             let destVC = segue.destination as! PlayCorrectAnswerViewController
             destVC.currentLevel = currentLevel
             destVC.currentGame = currentRound
+            destVC.gameType = 1
         } else if segue.identifier == "findGasWrong" {
             let destVC = segue.destination as! PlayWrongAnswerViewController
             destVC.currentLevel = currentLevel
             destVC.currentGame = currentRound
+            destVC.gameType = 1
         }
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.

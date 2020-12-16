@@ -31,22 +31,22 @@ class QuizCorrectAnswerViewController: UIViewController {
                 if subTopic == "Gas Tests" {
                     ud.set(true, forKey: "chOneDone")
 //                    chOneDone = true
-                    UserDefaults.incrementIntegerForKey(key: "gameOneAttempts")
+                    UserDefaults.incrementIntegerForKey(key: "quizOneAttempts")
 //                    gameOneAttempts += 1
                 } else if subTopic == "Separation Methods" {
                     ud.set(true, forKey: "chTwoDone")
 //                    chTwoDone = true
-                    UserDefaults.incrementIntegerForKey(key: "gameTwoAttempts")
+                    UserDefaults.incrementIntegerForKey(key: "quizTwoAttempts")
 //                    gameTwoAttempts += 1
                 } else if subTopic == "pH and Indicators" {
                     ud.set(true, forKey: "chThreeDone")
 //                    chThreeDone = true
-                    UserDefaults.incrementIntegerForKey(key: "gameThreeAttempts")
+                    UserDefaults.incrementIntegerForKey(key: "quizThreeAttempts")
 //                    gameThreeAttempts += 1
                 } else if subTopic == "Periodic Table" {
                     ud.set(true, forKey: "chFourDone")
 //                    chFourDone = true
-                    UserDefaults.incrementIntegerForKey(key: "gameFourAttempts")
+                    UserDefaults.incrementIntegerForKey(key: "quizFourAttempts")
 //                    gameFourAttempts += 1
                 }
             } else {

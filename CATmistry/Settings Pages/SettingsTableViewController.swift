@@ -20,11 +20,13 @@ class SettingsTableViewController: UITableViewController {
 
     var settingsHeaderArray = [
         "Accessibility Settings",
-        "General Statistics",
-        "Find Gas Game",
-        "Retrieve Solids Game",
-        "Adjust pH Game",
-        "Identify Elements Game",
+        "Quiz Attempts",
+        "Game Attempts",
+//        "General Statistics",
+//        "Find Gas Game",
+//        "Retrieve Solids Game",
+//        "Adjust pH Game",
+//        "Identify Elements Game",
         "Authors and Acknoledgements",
         ""
     ]
@@ -47,71 +49,117 @@ class SettingsTableViewController: UITableViewController {
                 emojiImage: "🌙"
             ),
         ],
-
+        
         [
             SettingsContent(
-                labelText: "Chapters Covered:",
+                labelText: "Gas Tests: \(String(quizOneAttempts))",
                 type: "detailAccessoryCell",
-                emojiImage: "📚"
+                emojiImage: ""
             ),
             SettingsContent(
-                labelText: "Hours Spent Learning:",
+                labelText: "Separation Methods: \(String(quizTwoAttempts))",
+                type: "switchCell",
+                emojiImage: "detailAccessoryCell"
+            ),
+            SettingsContent(
+                labelText: "pH and Indicators: \(String(quizThreeAttempts))",
+                type: "switchCell",
+                emojiImage: "detailAccessoryCell"
+            ),
+            SettingsContent(
+                labelText: "Periodic Table: \(String(quizFourAttempts))",
+                type: "switchCell",
+                emojiImage: "detailAccessoryCell"
+            ),
+        ],
+        
+        [
+            SettingsContent(
+                labelText: "Gas Tests: \(String(gameOneAttempts))",
                 type: "detailAccessoryCell",
-                emojiImage: "⏰"
+                emojiImage: ""
+            ),
+            SettingsContent(
+                labelText: "Separation Methods: \(String(gameTwoAttempts))",
+                type: "switchCell",
+                emojiImage: "detailAccessoryCell"
+            ),
+            SettingsContent(
+                labelText: "pH and Indicators: \(String(gameThreeAttempts))",
+                type: "switchCell",
+                emojiImage: "detailAccessoryCell"
+            ),
+            SettingsContent(
+                labelText: "Periodic Table: \(String(gameFourAttempts))",
+                type: "switchCell",
+                emojiImage: "detailAccessoryCell"
             ),
         ],
 
-        [
-            SettingsContent(
-                labelText: "Number of Times Played: ",
-                type: "detailAccessoryCell",
-                emojiImage: "🎮"
-            ),
-            SettingsContent(
-                labelText: "High Score: ",
-                type: "disclosureIndicatorCell",
-                emojiImage: "🏅"
-            ),
-        ],
-
-        [
-            SettingsContent(
-                labelText: "Number of Times Played: ",
-                type: "detailAccessoryCell",
-                emojiImage: "🎮"
-            ),
-            SettingsContent(
-                labelText: "High Score: ",
-                type: "disclosureIndicatorCell",
-                emojiImage: "🏅"
-            ),
-        ],
-
-        [
-            SettingsContent(
-                labelText: "Number of Times Played: ",
-                type: "detailAccessoryCell",
-                emojiImage: "🎮"
-            ),
-            SettingsContent(
-                labelText: "High Score: ",
-                type: "disclosureIndicatorCell",
-                emojiImage: "🏅"
-            ),
-        ],
-
-        [
-            SettingsContent(
-                labelText: "Number of Times Played: ",
-                type: "detailAccessoryCell",
-                emojiImage: "🎮"
-            ),
-            SettingsContent(
-                labelText: "High Score: ",
-                type: "disclosureIndicatorCell",
-                emojiImage: "🏅"
-            ),
-        ],
+//        [
+//            SettingsContent(
+//                labelText: "Chapters Covered:",
+//                type: "detailAccessoryCell",
+//                emojiImage: "📚"
+//            ),
+//            SettingsContent(
+//                labelText: "Hours Spent Learning:",
+//                type: "detailAccessoryCell",
+//                emojiImage: "⏰"
+//            ),
+//        ],
+//
+//        [
+//            SettingsContent(
+//                labelText: "Number of Times Played: ",
+//                type: "detailAccessoryCell",
+//                emojiImage: "🎮"
+//            ),
+//            SettingsContent(
+//                labelText: "High Score: ",
+//                type: "disclosureIndicatorCell",
+//                emojiImage: "🏅"
+//            ),
+//        ],
+//
+//        [
+//            SettingsContent(
+//                labelText: "Number of Times Played: ",
+//                type: "detailAccessoryCell",
+//                emojiImage: "🎮"
+//            ),
+//            SettingsContent(
+//                labelText: "High Score: ",
+//                type: "disclosureIndicatorCell",
+//                emojiImage: "🏅"
+//            ),
+//        ],
+//
+//        [
+//            SettingsContent(
+//                labelText: "Number of Times Played: ",
+//                type: "detailAccessoryCell",
+//                emojiImage: "🎮"
+//            ),
+//            SettingsContent(
+//                labelText: "High Score: ",
+//                type: "disclosureIndicatorCell",
+//                emojiImage: "🏅"
+//            ),
+//        ],
+//
+//        [
+//            SettingsContent(
+//                labelText: "Number of Times Played: ",
+//                type: "detailAccessoryCell",
+//                emojiImage: "🎮"
+//            ),
+//            SettingsContent(
+//                labelText: "High Score: ",
+//                type: "disclosureIndicatorCell",
+//                emojiImage: "🏅"
+//            ),
+//        ],
 
         [
             SettingsContent(
