@@ -49,9 +49,6 @@ class PlayRetrieveSolidsDetailsViewController: UIViewController, UITableViewDele
             timeLeftToAddElementsLabel.isHidden = true
             let color = UIColor(rgb: 0x7CC2F5)
             self.view.backgroundColor = color
-        } else {
-            let color = UIColor(rgb: 0xFF0000)
-            self.view.backgroundColor = color
         }
         
         seperationTableView.layer.cornerRadius = 15
@@ -153,9 +150,7 @@ class PlayRetrieveSolidsDetailsViewController: UIViewController, UITableViewDele
     var index = 0
 
     @IBAction func submitChoice(_ sender: Any) {
-        print(numOfItems)
         if (!isCorrect!) {
-//            isWrong.backgroundColor = .red
             numOfItems += 1
             progressView.progress += 0.1
             choicesTableView.reloadData()
@@ -173,7 +168,6 @@ class PlayRetrieveSolidsDetailsViewController: UIViewController, UITableViewDele
             seperationTableView.reloadData()
 
         }
-        print(numOfItems)
 
         if (numOfItems <= 0) {
             // win
@@ -198,6 +192,7 @@ class PlayRetrieveSolidsDetailsViewController: UIViewController, UITableViewDele
             progressView.progress += 0.1
             currentTime = 5
         }
+        timeLeftToAddElementsLabel.text = "\(currentTime) seconds left"
         if (progressView.progress <= 0) {
             // win
             changePoints(10)
