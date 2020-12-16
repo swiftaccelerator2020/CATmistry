@@ -289,7 +289,7 @@ class PlayAdjustPhDetailsViewController: UIViewController {
         timerLabel.text = "\(timeLeft) seconds left"
         if (timeLeft == 0) {
             currentGame -= 1
-            performSegue(withIdentifier: "findGasWrong", sender: nil)
+            optionWrong()
         }
     }
 }
