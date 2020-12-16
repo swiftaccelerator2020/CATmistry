@@ -39,17 +39,20 @@ class PlayFindGasDetailsViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        submitButton.isHidden = true
         limewaterView.layer.cornerRadius = 15
         lightedSplintView.layer.cornerRadius = 15
         glowingSplintView.layer.cornerRadius = 15
         litmusView.layer.cornerRadius = 15
     }
 
-    override func viewDidAppear(_ animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         
-        // timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateProgressView), userInfo: nil, repeats: true)
-
+        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.updateTimer), userInfo: nil, repeats: true)
+        submitButton.isHidden = true
+        gas1Check.isHidden = true
+        gas2Check.isHidden = true
+        gas3Check.isHidden = true
+        gas4Check.isHidden = true
         currentRound += 1
     }
 
@@ -66,6 +69,10 @@ class PlayFindGasDetailsViewController: UIViewController {
         print("HI")
 
         if selectedGasTest != nil {
+            gas1Check.isHidden = false
+            gas2Check.isHidden = false
+            gas3Check.isHidden = false
+            gas4Check.isHidden = false
             if gases.firstGasIsPositive[selectedGasTest] == false {
                 gas1Check.image = UIImage(named: "close.png")
             } else {
@@ -86,6 +93,11 @@ class PlayFindGasDetailsViewController: UIViewController {
             } else {
                 gas4Check.image = UIImage(named: "check.png")
             }
+            selectedGasTest = nil
+        } else {
+            selectedGasTankString = gases.firstGasTank
+            submitButton.isHidden = false
+            submitButton.setTitle("Submit Gas 1", for: .normal)
         }
     
     }
@@ -94,6 +106,10 @@ class PlayFindGasDetailsViewController: UIViewController {
         print("HI")
 
         if selectedGasTest != nil {
+            gas1Check.isHidden = false
+            gas2Check.isHidden = false
+            gas3Check.isHidden = false
+            gas4Check.isHidden = false
             if gases.firstGasIsPositive[selectedGasTest] == false {
                 gas1Check.image = UIImage(named: "close.png")
             } else {
@@ -114,6 +130,12 @@ class PlayFindGasDetailsViewController: UIViewController {
             } else {
                 gas4Check.image = UIImage(named: "check.png")
             }
+            selectedGasTest = nil
+
+        } else {
+            selectedGasTankString = gases.secondGasTank
+            submitButton.isHidden = false
+            submitButton.setTitle("Submit Gas 2", for: .normal)
         }
 
     }
@@ -122,6 +144,10 @@ class PlayFindGasDetailsViewController: UIViewController {
         print("HI")
 
         if selectedGasTest != nil {
+            gas1Check.isHidden = false
+            gas2Check.isHidden = false
+            gas3Check.isHidden = false
+            gas4Check.isHidden = false
             if gases.firstGasIsPositive[selectedGasTest] == false {
                 gas1Check.image = UIImage(named: "close.png")
             } else {
@@ -142,13 +168,23 @@ class PlayFindGasDetailsViewController: UIViewController {
             } else {
                 gas4Check.image = UIImage(named: "check.png")
             }
+            selectedGasTest = nil
+        } else {
+            selectedGasTankString = gases.thirdGasTank
+            submitButton.isHidden = false
+            submitButton.setTitle("Submit Gas 3", for: .normal)
         }
 
     }
     
     @IBAction func gas4Selected(_ sender: Any) {
         print("HI")
+        
         if selectedGasTest != nil {
+            gas1Check.isHidden = false
+            gas2Check.isHidden = false
+            gas3Check.isHidden = false
+            gas4Check.isHidden = false
             if gases.firstGasIsPositive[selectedGasTest] == false {
                 gas1Check.image = UIImage(named: "close.png")
             } else {
@@ -169,6 +205,11 @@ class PlayFindGasDetailsViewController: UIViewController {
             } else {
                 gas4Check.image = UIImage(named: "check.png")
             }
+            selectedGasTest = nil
+        } else {
+            selectedGasTankString = gases.fourthGasTank
+            submitButton.isHidden = false
+            submitButton.setTitle("Submit Gas 4", for: .normal)
         }
 
     }
@@ -240,6 +281,8 @@ class PlayFindGasDetailsViewController: UIViewController {
         timerLabel.text = "\(timeLeft) seconds left"
         if (timeLeft == 0) {
             currentRound -= 1
+            timer.invalidate()
+            timer = nil
             performSegue(withIdentifier: "findGasWrong", sender: nil)
         }
     }
