@@ -7,6 +7,15 @@
 
 import UIKit
 
+var quizOneAttempts = ud.integer(forKey: "quizOneAttempts")
+var quizTwoAttempts = ud.integer(forKey: "quizTwoAttempts")
+var quizThreeAttempts = ud.integer(forKey: "quizThreeAttempts")
+var quizFourAttempts = ud.integer(forKey: "quizFourAttempts")
+var gameOneAttempts = ud.integer(forKey: "gameOneAttempts")
+var gameTwoAttempts = ud.integer(forKey: "gameTwoAttempts")
+var gameThreeAttempts = ud.integer(forKey: "gameThreeAttempts")
+var gameFourAttempts = ud.integer(forKey: "gameFourAttempts")
+
 class SettingsTableViewController: UITableViewController {
 
     var settingsHeaderArray = [
@@ -144,6 +153,17 @@ class SettingsTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        quizOneAttempts = ud.integer(forKey: "quizOneAttempts")
+        quizTwoAttempts = ud.integer(forKey: "quizTwoAttempts")
+        quizThreeAttempts = ud.integer(forKey: "quizThreeAttempts")
+        quizFourAttempts = ud.integer(forKey: "quizFourAttempts")
+        gameOneAttempts = ud.integer(forKey: "gameOneAttempts")
+        gameTwoAttempts = ud.integer(forKey: "gameTwoAttempts")
+        gameThreeAttempts = ud.integer(forKey: "gameThreeAttempts")
+        gameFourAttempts = ud.integer(forKey: "gameFourAttempts")
     }
 
     @IBAction func doneButtonClicked(_ sender: Any) {

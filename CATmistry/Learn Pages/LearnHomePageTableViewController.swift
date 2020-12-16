@@ -36,6 +36,9 @@ class LearnHomePageTableViewController: UITableViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        chTwoDone = ud.bool(forKey: "chTwoDone")
+        chThreeDone = ud.bool(forKey: "chThreeDone")
+        chFourDone = ud.bool(forKey: "chFourDone")
         chapterApproved = [
             true,
             chOneDone,
