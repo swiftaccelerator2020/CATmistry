@@ -53,12 +53,14 @@ Contribution is welcome! Feel free to fork our repo and create a pull request in
 
 ### Others:
 A big thank you to:
+
 1. Rochelle Teh Xin Yue
 2. Shu Yinjia
 3. Wang Yunze
 4. Vincent
 5. Chenghao
-\nwho readily extended a helping hand and aided us greatly in the content.
+
+who readily extended a helping hand and aided us greatly in the content.
 
 ## About the Swift Accelerator Programme
 
