@@ -135,7 +135,7 @@ class QuizViewController: UIViewController {
 
 
     @objc func updateProgressView(){
-        timeLeft.progress += 0.005
+        timeLeft.progress += 0.0025
         if (timeLeft.progress == 1.0) {
             stopTimer()
             performSegue(withIdentifier: "wrongAns", sender: nil)
