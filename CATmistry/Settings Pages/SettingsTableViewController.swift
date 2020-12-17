@@ -263,7 +263,7 @@ class SettingsTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, titleForFooterInSection
                                 section: Int) -> String? {
         if settingsHeaderArray[section] == "" {
-            return "© 2020, Neo Hao Jun and Wang Zerui"
+            return "© 2020, Neo Hao Jun & Wang Zerui"
         } else {
             return nil
         }
