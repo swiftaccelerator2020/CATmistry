@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="DyY-vl-FYk">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="DyY-vl-FYk">
     <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -269,26 +269,19 @@ As your cat can only live in a certain type of gas, your task is to use your kno
                                     <action selector="levelClicked:" destination="e4r-tI-S0A" eventType="valueChanged" id="OVw-fs-lft"/>
                                 </connections>
                             </segmentedControl>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gas-tank" translatesAutoresizingMaskIntoConstraints="NO" id="nAQ-Oh-dED">
-                                <rect key="frame" x="0.0" y="667" width="390" height="97"/>
-                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="dY3-Y6-cVQ"/>
                         <color key="backgroundColor" red="0.52549019607843139" green="0.75686274509803919" blue="0.9137254901960784" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="Wf9-10-D2Q" firstAttribute="leading" secondItem="dY3-Y6-cVQ" secondAttribute="leading" constant="80" id="0LT-yX-eQ8"/>
-                            <constraint firstItem="TX4-D1-VgR" firstAttribute="top" secondItem="nAQ-Oh-dED" secondAttribute="bottom" id="2OJ-hB-M76"/>
                             <constraint firstItem="IXm-kH-T0m" firstAttribute="leading" secondItem="dY3-Y6-cVQ" secondAttribute="leading" constant="40" id="5JF-fl-iPm"/>
                             <constraint firstItem="TX4-D1-VgR" firstAttribute="leading" secondItem="dY3-Y6-cVQ" secondAttribute="leading" id="87b-PZ-s0M"/>
-                            <constraint firstItem="nAQ-Oh-dED" firstAttribute="top" secondItem="o91-86-BzP" secondAttribute="bottom" constant="3" id="CE5-pt-SYd"/>
                             <constraint firstAttribute="bottom" secondItem="68x-vD-9BS" secondAttribute="bottom" id="ClU-0k-gqg"/>
                             <constraint firstItem="68x-vD-9BS" firstAttribute="leading" secondItem="dY3-Y6-cVQ" secondAttribute="leading" id="JAK-d8-P8N"/>
                             <constraint firstItem="dY3-Y6-cVQ" firstAttribute="trailing" secondItem="bFT-oU-B0V" secondAttribute="trailing" constant="100" id="Jj4-le-9ry"/>
                             <constraint firstItem="amq-j8-pX9" firstAttribute="leading" secondItem="dY3-Y6-cVQ" secondAttribute="leading" constant="40" id="McL-qv-ZMU"/>
                             <constraint firstItem="dY3-Y6-cVQ" firstAttribute="trailing" secondItem="Wf9-10-D2Q" secondAttribute="trailing" constant="80" id="SVS-QL-pta"/>
                             <constraint firstItem="amq-j8-pX9" firstAttribute="top" relation="lessThanOrEqual" secondItem="dY3-Y6-cVQ" secondAttribute="top" constant="150" id="Wz3-wT-hgC"/>
-                            <constraint firstItem="dY3-Y6-cVQ" firstAttribute="trailing" secondItem="nAQ-Oh-dED" secondAttribute="trailing" id="Yq4-mI-ipW"/>
-                            <constraint firstItem="nAQ-Oh-dED" firstAttribute="leading" secondItem="dY3-Y6-cVQ" secondAttribute="leading" id="Yvu-Y3-vyv"/>
                             <constraint firstItem="dY3-Y6-cVQ" firstAttribute="trailing" secondItem="IXm-kH-T0m" secondAttribute="trailing" constant="40" id="acH-fb-LhQ"/>
                             <constraint firstItem="bFT-oU-B0V" firstAttribute="leading" secondItem="dY3-Y6-cVQ" secondAttribute="leading" constant="100" id="dAZ-7B-SLb"/>
                             <constraint firstItem="dY3-Y6-cVQ" firstAttribute="trailing" secondItem="68x-vD-9BS" secondAttribute="trailing" id="ddG-TE-rqh"/>
@@ -583,7 +576,7 @@ As your cat can only live in a certain type of gas, your task is to use your kno
                                                     <action selector="submitChoice:" destination="qsu-L3-DGc" eventType="touchUpInside" id="qpU-qr-w0s"/>
                                                 </connections>
                                             </button>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dKZ-zl-Phq">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dKZ-zl-Phq">
                                                 <rect key="frame" x="40" y="30" width="260" height="50"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="C4n-tZ-yyQ"/>
@@ -600,8 +593,8 @@ As your cat can only live in a certain type of gas, your task is to use your kno
                                             <constraint firstItem="Fem-Ps-gaG" firstAttribute="top" secondItem="dKZ-zl-Phq" secondAttribute="bottom" constant="30" id="AWO-O8-k2Z"/>
                                             <constraint firstItem="Fem-Ps-gaG" firstAttribute="leading" secondItem="UuK-ME-cyu" secondAttribute="leading" constant="20" id="CjJ-WF-FNz"/>
                                             <constraint firstAttribute="bottom" secondItem="Hkd-yq-HKg" secondAttribute="bottom" constant="15" id="ND1-hk-xjs"/>
-                                            <constraint firstItem="Hkd-yq-HKg" firstAttribute="left" secondItem="UuK-ME-cyu" secondAttribute="left" constant="40" id="Nhr-LD-jRo"/>
-                                            <constraint firstItem="dKZ-zl-Phq" firstAttribute="left" secondItem="UuK-ME-cyu" secondAttribute="left" constant="40" id="PVv-Gf-tMo"/>
+                                            <constraint firstItem="Hkd-yq-HKg" firstAttribute="leading" secondItem="UuK-ME-cyu" secondAttribute="leading" constant="40" id="Nhr-LD-jRo"/>
+                                            <constraint firstItem="dKZ-zl-Phq" firstAttribute="leading" secondItem="UuK-ME-cyu" secondAttribute="leading" constant="40" id="PVv-Gf-tMo"/>
                                             <constraint firstItem="dKZ-zl-Phq" firstAttribute="top" secondItem="UuK-ME-cyu" secondAttribute="top" constant="30" id="WS9-R5-zhk"/>
                                             <constraint firstAttribute="trailing" secondItem="Hkd-yq-HKg" secondAttribute="trailing" constant="40" id="keJ-Dh-gkY"/>
                                             <constraint firstAttribute="trailing" secondItem="Fem-Ps-gaG" secondAttribute="trailing" constant="20" id="oZf-MM-2I6"/>
@@ -620,7 +613,7 @@ As your cat can only live in a certain type of gas, your task is to use your kno
                                 <viewLayoutGuide key="contentLayoutGuide" id="hOC-Fw-oPp"/>
                                 <viewLayoutGuide key="frameLayoutGuide" id="IhJ-dQ-Cyq"/>
                             </scrollView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="20 seconds left" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fgY-OB-NKG">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="20 seconds left" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fgY-OB-NKG">
                                 <rect key="frame" x="215" y="64" width="150" height="40"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -631,17 +624,6 @@ As your cat can only live in a certain type of gas, your task is to use your kno
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="connect-gas" translatesAutoresizingMaskIntoConstraints="NO" id="2wT-J9-z3D">
-                                <rect key="frame" x="92" y="573" width="39" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gas-tank" translatesAutoresizingMaskIntoConstraints="NO" id="CIg-88-5el">
-                                <rect key="frame" x="68" y="661" width="62" height="103"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="103" id="2mZ-FF-vj4"/>
-                                    <constraint firstAttribute="width" constant="62" id="3Yk-Wq-1BM"/>
-                                </constraints>
-                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="LtP-tT-GK7"/>
                         <color key="backgroundColor" red="0.54710417990000004" green="0.75682848690000004" blue="0.93781065939999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -650,7 +632,6 @@ As your cat can only live in a certain type of gas, your task is to use your kno
                             <constraint firstItem="cWk-gy-0aZ" firstAttribute="leading" secondItem="LtP-tT-GK7" secondAttribute="leading" id="5hX-hA-oLC"/>
                             <constraint firstItem="cWk-gy-0aZ" firstAttribute="trailing" secondItem="LtP-tT-GK7" secondAttribute="trailing" id="CL8-9i-BNq"/>
                             <constraint firstItem="tDL-B1-4sj" firstAttribute="trailing" secondItem="LtP-tT-GK7" secondAttribute="trailing" id="EZw-Mu-hkG"/>
-                            <constraint firstItem="tDL-B1-4sj" firstAttribute="top" secondItem="CIg-88-5el" secondAttribute="bottom" id="HY6-YD-Kse"/>
                             <constraint firstItem="fgY-OB-NKG" firstAttribute="top" secondItem="LtP-tT-GK7" secondAttribute="top" constant="20" id="Jal-FL-oJB"/>
                             <constraint firstItem="LtP-tT-GK7" firstAttribute="trailing" secondItem="p1h-t2-lUh" secondAttribute="trailing" constant="25" id="JfH-yw-ZSE"/>
                             <constraint firstAttribute="trailing" secondItem="HSf-1d-jg6" secondAttribute="trailing" constant="25" id="RDm-Hz-kHy"/>
@@ -664,7 +645,6 @@ As your cat can only live in a certain type of gas, your task is to use your kno
                             <constraint firstItem="cWk-gy-0aZ" firstAttribute="top" secondItem="tDL-B1-4sj" secondAttribute="bottom" id="rre-AY-a0k"/>
                             <constraint firstItem="p1h-t2-lUh" firstAttribute="top" secondItem="HSf-1d-jg6" secondAttribute="bottom" constant="25" id="vTT-Hq-UrX"/>
                             <constraint firstItem="p1h-t2-lUh" firstAttribute="leading" secondItem="LtP-tT-GK7" secondAttribute="leading" constant="25" id="xUk-yp-cjt"/>
-                            <constraint firstItem="9RP-HW-EJm" firstAttribute="leading" secondItem="CIg-88-5el" secondAttribute="trailing" id="zPc-wU-K95"/>
                             <constraint firstItem="HSf-1d-jg6" firstAttribute="leading" secondItem="LtP-tT-GK7" secondAttribute="leading" constant="25" id="zep-Wq-Rfr"/>
                         </constraints>
                     </view>
@@ -731,7 +711,7 @@ As your cat can only live in a certain type of gas, your task is to use your kno
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="-1040" y="2011.8483412322273"/>
+            <point key="canvasLocation" x="-1040" y="2012"/>
         </scene>
         <!--Play Retrieve Solids Details View Controller-->
         <scene sceneID="zzc-Tf-4lt">
@@ -812,7 +792,7 @@ As your cat can only live in a certain type of gas, your task is to use your kno
                                     <constraint firstItem="t21-rT-gDl" firstAttribute="height" secondItem="cfL-g4-aRp" secondAttribute="height" id="5fE-Oz-1Gd"/>
                                     <constraint firstAttribute="trailing" secondItem="t21-rT-gDl" secondAttribute="trailing" constant="20" id="81O-05-lcp"/>
                                     <constraint firstAttribute="trailing" secondItem="afY-Wp-Swo" secondAttribute="trailing" constant="55" id="DIl-4p-oKr"/>
-                                    <constraint firstItem="afY-Wp-Swo" firstAttribute="left" secondItem="dlK-Bu-bNc" secondAttribute="left" constant="55" id="Jfa-jT-1S8"/>
+                                    <constraint firstItem="afY-Wp-Swo" firstAttribute="leading" secondItem="dlK-Bu-bNc" secondAttribute="leading" constant="55" id="Jfa-jT-1S8"/>
                                     <constraint firstItem="cfL-g4-aRp" firstAttribute="leading" secondItem="dlK-Bu-bNc" secondAttribute="leading" constant="20" id="Ka1-rf-2fV"/>
                                     <constraint firstAttribute="trailing" secondItem="cfL-g4-aRp" secondAttribute="trailing" constant="20" id="gCb-Gl-8zN"/>
                                     <constraint firstItem="t21-rT-gDl" firstAttribute="leading" secondItem="dlK-Bu-bNc" secondAttribute="leading" constant="20" id="h22-CF-hia"/>
@@ -822,7 +802,7 @@ As your cat can only live in a certain type of gas, your task is to use your kno
                                     <constraint firstItem="cfL-g4-aRp" firstAttribute="top" secondItem="dlK-Bu-bNc" secondAttribute="top" constant="20" id="zAc-cp-mSm"/>
                                 </constraints>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="20 seconds left" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xuo-Mf-QSv">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="20 seconds left" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xuo-Mf-QSv">
                                 <rect key="frame" x="220" y="64" width="150" height="40"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -1077,15 +1057,15 @@ Separate all the elements in his beaker or the wizard will cast a spell on your 
                                     <action selector="levelClicked:" destination="0jR-6D-YOT" eventType="valueChanged" id="USY-Bq-vmG"/>
                                 </connections>
                             </segmentedControl>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wizard" translatesAutoresizingMaskIntoConstraints="NO" id="O6I-RQ-Vuw">
-                                <rect key="frame" x="0.0" y="667" width="390" height="97"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="wizard" translatesAutoresizingMaskIntoConstraints="NO" id="O6I-RQ-Vuw">
+                                <rect key="frame" x="246" y="634" width="144" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Ieg-ok-ug3"/>
                         <color key="backgroundColor" red="0.52424961329999997" green="0.75689440969999999" blue="0.91346889730000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="bX0-O2-5ts" firstAttribute="leading" secondItem="Ieg-ok-ug3" secondAttribute="leading" constant="40" id="0YC-tc-FVo"/>
-                            <constraint firstItem="O6I-RQ-Vuw" firstAttribute="trailing" secondItem="Ieg-ok-ug3" secondAttribute="trailing" id="110-4j-rD7"/>
                             <constraint firstItem="c1E-ZM-b3t" firstAttribute="top" secondItem="BEJ-jg-Dsp" secondAttribute="bottom" id="1mm-QF-Son"/>
                             <constraint firstItem="Ieg-ok-ug3" firstAttribute="trailing" secondItem="bX0-O2-5ts" secondAttribute="trailing" constant="40" id="6C3-KL-Zzo"/>
                             <constraint firstItem="RGe-0H-Yq2" firstAttribute="leading" secondItem="Ieg-ok-ug3" secondAttribute="leading" constant="40" id="6FU-iP-sxb"/>
@@ -1096,7 +1076,6 @@ Separate all the elements in his beaker or the wizard will cast a spell on your 
                             <constraint firstItem="RGe-0H-Yq2" firstAttribute="top" secondItem="bX0-O2-5ts" secondAttribute="bottom" constant="30" id="Mbb-Gf-Z3M"/>
                             <constraint firstItem="6M8-1i-jac" firstAttribute="top" secondItem="xQb-T1-JaO" secondAttribute="bottom" constant="30" id="O4d-I4-Od4"/>
                             <constraint firstItem="Ieg-ok-ug3" firstAttribute="trailing" secondItem="BEJ-jg-Dsp" secondAttribute="trailing" id="PxC-Ve-uLA"/>
-                            <constraint firstItem="O6I-RQ-Vuw" firstAttribute="leading" secondItem="Ieg-ok-ug3" secondAttribute="leading" id="U2k-xg-I0Z"/>
                             <constraint firstItem="bX0-O2-5ts" firstAttribute="top" relation="lessThanOrEqual" secondItem="Ieg-ok-ug3" secondAttribute="top" constant="150" id="VkX-EU-x8d"/>
                             <constraint firstItem="Z2n-td-ccW" firstAttribute="top" secondItem="6M8-1i-jac" secondAttribute="bottom" constant="8" id="WSJ-eX-3Uz"/>
                             <constraint firstItem="BEJ-jg-Dsp" firstAttribute="leading" secondItem="Ieg-ok-ug3" secondAttribute="leading" id="bC0-P5-B7I"/>
@@ -1108,8 +1087,6 @@ Separate all the elements in his beaker or the wizard will cast a spell on your 
                             <constraint firstItem="BEJ-jg-Dsp" firstAttribute="top" secondItem="Z2n-td-ccW" secondAttribute="bottom" constant="100" id="rcH-Fa-3k9"/>
                             <constraint firstItem="Ieg-ok-ug3" firstAttribute="trailing" secondItem="xQb-T1-JaO" secondAttribute="trailing" constant="100" id="tcQ-y8-kNG"/>
                             <constraint firstItem="Z2n-td-ccW" firstAttribute="leading" secondItem="Ieg-ok-ug3" secondAttribute="leading" constant="40" id="uUF-0v-k98"/>
-                            <constraint firstItem="BEJ-jg-Dsp" firstAttribute="top" secondItem="O6I-RQ-Vuw" secondAttribute="bottom" id="ubz-00-6BN"/>
-                            <constraint firstItem="O6I-RQ-Vuw" firstAttribute="top" secondItem="Z2n-td-ccW" secondAttribute="bottom" constant="3" id="zLG-F9-fGe"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Retreive the Solids" id="rbB-eb-zzQ"/>
@@ -1217,15 +1194,11 @@ The monster is currently living in the right conditions, and your task is to use
                                     <action selector="levelClicked:" destination="MYy-Hk-xqZ" eventType="valueChanged" id="s12-Mo-JQE"/>
                                 </connections>
                             </segmentedControl>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="meowster" translatesAutoresizingMaskIntoConstraints="NO" id="gx3-lI-OoE">
-                                <rect key="frame" x="0.0" y="667" width="390" height="97"/>
-                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Bm7-DL-tuY"/>
                         <color key="backgroundColor" red="0.52424961329999997" green="0.75689440969999999" blue="0.91346889730000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="oGs-Vn-alh" firstAttribute="leading" secondItem="Bm7-DL-tuY" secondAttribute="leading" id="1wS-uu-eiP"/>
-                            <constraint firstItem="gx3-lI-OoE" firstAttribute="top" secondItem="Jrc-1e-7XR" secondAttribute="bottom" constant="3" id="3Eb-ks-oF2"/>
                             <constraint firstItem="Bm7-DL-tuY" firstAttribute="trailing" secondItem="oGs-Vn-alh" secondAttribute="trailing" id="A1y-y1-u0X"/>
                             <constraint firstItem="j3h-rP-Q8S" firstAttribute="top" secondItem="sVL-LJ-I3y" secondAttribute="bottom" constant="30" id="AGV-cD-AWh"/>
                             <constraint firstItem="ZL3-LC-bQI" firstAttribute="leading" secondItem="Bm7-DL-tuY" secondAttribute="leading" constant="80" id="E5x-kr-OZF"/>
@@ -1238,12 +1211,9 @@ The monster is currently living in the right conditions, and your task is to use
                             <constraint firstItem="Jrc-1e-7XR" firstAttribute="top" secondItem="ZL3-LC-bQI" secondAttribute="bottom" constant="8" id="Yuf-Iw-q3D"/>
                             <constraint firstItem="j3h-rP-Q8S" firstAttribute="leading" secondItem="Bm7-DL-tuY" secondAttribute="leading" constant="40" id="ZCo-yw-etj"/>
                             <constraint firstItem="SEV-9I-ACR" firstAttribute="top" secondItem="j3h-rP-Q8S" secondAttribute="bottom" constant="8" id="adg-Ye-4TK"/>
-                            <constraint firstItem="gx3-lI-OoE" firstAttribute="leading" secondItem="Bm7-DL-tuY" secondAttribute="leading" id="ahd-JR-fYG"/>
                             <constraint firstItem="SEV-9I-ACR" firstAttribute="leading" secondItem="Bm7-DL-tuY" secondAttribute="leading" constant="100" id="cFh-Qo-UR2"/>
                             <constraint firstAttribute="bottom" secondItem="oGs-Vn-alh" secondAttribute="bottom" id="cH0-Td-ogB"/>
-                            <constraint firstItem="Bm7-DL-tuY" firstAttribute="trailing" secondItem="gx3-lI-OoE" secondAttribute="trailing" id="cR4-CB-YbR"/>
                             <constraint firstItem="Bm7-DL-tuY" firstAttribute="trailing" secondItem="50f-yV-puJ" secondAttribute="trailing" id="eB0-rt-Jlw"/>
-                            <constraint firstItem="50f-yV-puJ" firstAttribute="top" secondItem="gx3-lI-OoE" secondAttribute="bottom" id="ksQ-lU-h63"/>
                             <constraint firstItem="Bm7-DL-tuY" firstAttribute="trailing" secondItem="j3h-rP-Q8S" secondAttribute="trailing" constant="40" id="lLy-td-1e8"/>
                             <constraint firstItem="Bm7-DL-tuY" firstAttribute="trailing" secondItem="SEV-9I-ACR" secondAttribute="trailing" constant="100" id="ltf-Ff-zUb"/>
                             <constraint firstItem="sVL-LJ-I3y" firstAttribute="leading" secondItem="Bm7-DL-tuY" secondAttribute="leading" constant="40" id="rmV-Md-Jqe"/>
@@ -1273,6 +1243,10 @@ The monster is currently living in the right conditions, and your task is to use
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="cat" translatesAutoresizingMaskIntoConstraints="NO" id="HxV-Tr-60R">
+                                <rect key="frame" x="263" y="633" width="106" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XnT-Qh-CmY">
                                 <rect key="frame" x="80" y="576" width="230" height="50"/>
                                 <color key="backgroundColor" red="0.96862745098039216" green="0.83921568627450982" blue="0.8784313725490196" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1287,8 +1261,9 @@ The monster is currently living in the right conditions, and your task is to use
                                     <segue destination="Vph-Yc-cjH" kind="presentation" identifier="goToIdentifyElementDetails" modalPresentationStyle="fullScreen" id="tAl-fe-g5g"/>
                                 </connections>
                             </button>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bowl" translatesAutoresizingMaskIntoConstraints="NO" id="ryL-fI-Fif">
-                                <rect key="frame" x="0.0" y="667" width="390" height="97"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="bowl" translatesAutoresizingMaskIntoConstraints="NO" id="ryL-fI-Fif">
+                                <rect key="frame" x="16" y="648" width="140" height="125"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Cj-lx-b83">
                                 <rect key="frame" x="0.0" y="784" width="390" height="60"/>
@@ -1374,17 +1349,13 @@ Given the properties of each Group of the periodic table, select the correct gro
                             <constraint firstItem="5Cj-lx-b83" firstAttribute="leading" secondItem="BKy-cn-q26" secondAttribute="leading" id="KK6-R3-jN0"/>
                             <constraint firstItem="M0I-Op-FFw" firstAttribute="top" secondItem="6dT-Hx-ynf" secondAttribute="bottom" constant="100" id="KeT-xn-B3D"/>
                             <constraint firstItem="BKy-cn-q26" firstAttribute="trailing" secondItem="M0I-Op-FFw" secondAttribute="trailing" id="LBU-t4-VoQ"/>
-                            <constraint firstItem="BKy-cn-q26" firstAttribute="trailing" secondItem="ryL-fI-Fif" secondAttribute="trailing" id="O1L-W0-5ic"/>
                             <constraint firstItem="aKs-9U-qBf" firstAttribute="top" secondItem="mrp-jh-fji" secondAttribute="bottom" constant="30" id="OfE-so-DVM"/>
                             <constraint firstItem="BKy-cn-q26" firstAttribute="trailing" secondItem="5Cj-lx-b83" secondAttribute="trailing" id="PtM-zl-2Za"/>
                             <constraint firstItem="mrp-jh-fji" firstAttribute="leading" secondItem="BKy-cn-q26" secondAttribute="leading" constant="40" id="Tgf-fu-Rbb"/>
-                            <constraint firstItem="ryL-fI-Fif" firstAttribute="top" secondItem="6dT-Hx-ynf" secondAttribute="bottom" constant="3" id="bG9-up-vmp"/>
                             <constraint firstItem="XnT-Qh-CmY" firstAttribute="top" secondItem="m4u-Iu-U2B" secondAttribute="bottom" constant="30" id="cZ7-Bx-iXJ"/>
                             <constraint firstItem="BKy-cn-q26" firstAttribute="trailing" secondItem="6dT-Hx-ynf" secondAttribute="trailing" constant="40" id="e00-RA-gom"/>
                             <constraint firstItem="6dT-Hx-ynf" firstAttribute="top" secondItem="XnT-Qh-CmY" secondAttribute="bottom" constant="8" id="fzD-nP-EHH"/>
                             <constraint firstItem="XnT-Qh-CmY" firstAttribute="leading" secondItem="BKy-cn-q26" secondAttribute="leading" constant="80" id="jQ0-XG-Kc5"/>
-                            <constraint firstItem="M0I-Op-FFw" firstAttribute="top" secondItem="ryL-fI-Fif" secondAttribute="bottom" id="lew-Ps-QZ2"/>
-                            <constraint firstItem="ryL-fI-Fif" firstAttribute="leading" secondItem="BKy-cn-q26" secondAttribute="leading" id="nP9-yE-Ocz"/>
                             <constraint firstItem="BKy-cn-q26" firstAttribute="trailing" secondItem="XnT-Qh-CmY" secondAttribute="trailing" constant="80" id="oE0-7C-zat"/>
                             <constraint firstItem="M0I-Op-FFw" firstAttribute="leading" secondItem="BKy-cn-q26" secondAttribute="leading" id="pho-bK-kuR"/>
                             <constraint firstItem="m4u-Iu-U2B" firstAttribute="top" secondItem="aKs-9U-qBf" secondAttribute="bottom" constant="8" id="sec-Ol-P4b"/>
@@ -1639,7 +1610,6 @@ Given the properties of each Group of the periodic table, select the correct gro
                     </view>
                     <navigationItem key="navigationItem" id="X9m-AO-FC8"/>
                     <connections>
-                        <outlet property="choicesView" destination="DHf-c7-5G5" id="W0T-bR-HvI"/>
                         <outlet property="desc" destination="6nO-os-1tY" id="VVW-g8-tub"/>
                         <outlet property="groupFour" destination="60r-ze-aOG" id="4me-oZ-iyK"/>
                         <outlet property="groupOne" destination="s5Z-jQ-t5b" id="HdY-a9-DDf"/>
@@ -1647,7 +1617,6 @@ Given the properties of each Group of the periodic table, select the correct gro
                         <outlet property="groupTwo" destination="O7J-Hd-b7c" id="IhE-uK-vYP"/>
                         <outlet property="metal" destination="o3r-UY-MyN" id="aZy-J6-u6u"/>
                         <outlet property="nonMetal" destination="Ddq-95-qRR" id="ltS-Ox-hEj"/>
-                        <outlet property="propertiesView" destination="6nO-os-1tY" id="EKy-9B-TjQ"/>
                         <outlet property="timeLeft" destination="2Bq-Tb-1J1" id="RFk-SX-Q2b"/>
                         <outlet property="transitionMetal" destination="lwW-4g-ESC" id="m2E-LD-3rp"/>
                         <segue destination="FWf-eu-FKe" kind="presentation" identifier="identifyElementsGameWIn" modalPresentationStyle="fullScreen" id="SnY-zI-Ehk"/>
@@ -1889,7 +1858,6 @@ scroll down to submit</string>
                                     <constraint firstItem="Inh-Cc-vSE" firstAttribute="bottom" secondItem="gay-63-2WH" secondAttribute="bottom" id="7eT-NO-fWH"/>
                                     <constraint firstItem="Inh-Cc-vSE" firstAttribute="top" secondItem="gay-63-2WH" secondAttribute="top" id="8oq-4J-mg0"/>
                                     <constraint firstItem="Inh-Cc-vSE" firstAttribute="width" secondItem="KxI-MU-1H9" secondAttribute="width" id="REN-aA-6p9"/>
-                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="311" id="SqI-p5-saz"/>
                                     <constraint firstItem="Inh-Cc-vSE" firstAttribute="trailing" secondItem="gay-63-2WH" secondAttribute="trailing" id="iwG-no-hjX"/>
                                     <constraint firstItem="Inh-Cc-vSE" firstAttribute="leading" secondItem="gay-63-2WH" secondAttribute="leading" id="tKg-MU-rbI"/>
                                 </constraints>
@@ -2086,7 +2054,7 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
                 <navigationController id="8Us-es-0oa" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Learn" image="books.vertical.fill" catalog="system" selectedImage="books.vertical.fill" id="ZOw-bY-pdm"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="OvI-u8-jpf">
-                        <rect key="frame" x="0.0" y="44" width="390" height="104.33333333333334"/>
+                        <rect key="frame" x="0.0" y="44" width="390" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" red="0.95419245959999999" green="0.83945876360000005" blue="0.47016263009999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -2339,7 +2307,7 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
                     <tabBarItem key="tabBarItem" title="Play" image="gamecontroller.fill" catalog="system" selectedImage="gamecontroller.fill" id="Xs1-53-ugV"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="eFe-la-nb9">
-                        <rect key="frame" x="0.0" y="44" width="390" height="104.33333333333334"/>
+                        <rect key="frame" x="0.0" y="44" width="390" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" red="0.396078431372549" green="0.77647058823529413" blue="0.94117647058823528" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -2935,7 +2903,7 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
                                     <constraint firstAttribute="bottom" secondItem="cl8-Nd-3wn" secondAttribute="bottom" constant="20" id="4U0-Yk-IzG"/>
                                     <constraint firstItem="EEk-UP-cq2" firstAttribute="leading" secondItem="PqB-AB-jef" secondAttribute="leading" constant="10" id="FFL-ms-gyH"/>
                                     <constraint firstAttribute="trailing" secondItem="cl8-Nd-3wn" secondAttribute="trailing" constant="40" id="Zuz-Wl-0hq"/>
-                                    <constraint firstItem="cl8-Nd-3wn" firstAttribute="left" secondItem="PqB-AB-jef" secondAttribute="left" constant="40" id="cjc-tp-jHe"/>
+                                    <constraint firstItem="cl8-Nd-3wn" firstAttribute="leading" secondItem="PqB-AB-jef" secondAttribute="leading" constant="40" id="cjc-tp-jHe"/>
                                     <constraint firstAttribute="trailing" secondItem="EEk-UP-cq2" secondAttribute="trailing" constant="10" id="gzT-CV-o1R"/>
                                     <constraint firstItem="EEk-UP-cq2" firstAttribute="top" secondItem="PqB-AB-jef" secondAttribute="top" constant="40" id="nhM-pC-gRd"/>
                                     <constraint firstItem="cl8-Nd-3wn" firstAttribute="top" secondItem="EEk-UP-cq2" secondAttribute="bottom" constant="40" id="vyz-UO-C5S"/>
@@ -3222,17 +3190,17 @@ Your answer was wrong, but don't worry! You have \(String(10 - currentQuestion))
         <segue reference="GnF-zJ-RVj"/>
         <segue reference="s4T-H5-cTx"/>
         <segue reference="l86-7T-ukz"/>
-        <segue reference="orq-5T-Gly"/>
-        <segue reference="SnY-zI-Ehk"/>
+        <segue reference="cAs-Qz-eXZ"/>
+        <segue reference="KGp-Wk-Y1U"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="books.vertical.fill" catalog="system" width="128" height="100"/>
         <image name="bowl" width="130" height="109"/>
+        <image name="cat" width="156" height="197.33332824707031"/>
         <image name="cat-dead" width="834" height="1143"/>
         <image name="cat-happy" width="494" height="647"/>
         <image name="check" width="512" height="512"/>
         <image name="close" width="512" height="512"/>
-        <image name="connect-gas" width="40" height="40"/>
         <image name="gamecontroller.fill" catalog="system" width="128" height="80"/>
         <image name="gas-tank" width="302" height="827"/>
         <image name="gear" catalog="system" width="128" height="119"/>

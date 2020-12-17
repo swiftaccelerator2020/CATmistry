@@ -14,8 +14,8 @@ class PlayAdjustPhDetailsViewController: UIViewController {
     var chosenOption = 0
     var correctGames = 0
     var wrongGames = 0
-    var indicatorPresent = false
     var timeLeft = 20
+    var indicatorPresent = false
     var phOptionsSet = Set<PhOption>()
     var phOptionsArray: Array<PhOption>!
     var timer: Timer!
@@ -91,6 +91,7 @@ class PlayAdjustPhDetailsViewController: UIViewController {
     }
 
     override func viewDidAppear(_ animated: Bool) {
+        timeLeft = 20
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(PlayAdjustPhDetailsViewController.updateTimer), userInfo: nil, repeats: true)
     }
     @IBAction func clickAddUniversalIndicator(_ sender: Any) {
