@@ -8,7 +8,7 @@
 import UIKit
 
 class PlayFindGasDetailsViewController: UIViewController {
-
+    
     var currentLevel = 0
     var selectedGasTank: UIView?
     var selectedGasTankString: String!
@@ -31,22 +31,41 @@ class PlayFindGasDetailsViewController: UIViewController {
     @IBOutlet weak var submitButton: UIButton!
     @IBOutlet weak var timerLabel: UILabel!
     @IBOutlet weak var questionLabel: UILabel!
+    
+    var gasesArray = [GasTestGame(firstGasTank: "Ammonia", secondGasTank: "Carbon Dioxide", thirdGasTank: "Oxygen", fourthGasTank: "Hydrogen", firstGasIsPositive: [false, true, false, false], secondGasIsPositive: [false, false, false, true], thirdGasIsPositive: [false, false, true, false], forthGasIsPositive: [true, false, false, false], correctGasTank: "Hydrogen"), GasTestGame(firstGasTank: "Ammonia", secondGasTank: "Carbon Dioxide", thirdGasTank: "Hydrogen", fourthGasTank: "Oxygen", firstGasIsPositive: [false, true, false, false], secondGasIsPositive: [false, false, true, false], thirdGasIsPositive: [false, false, false, true], forthGasIsPositive: [true, false, false, false], correctGasTank: "Hydrogen"), GasTestGame(firstGasTank: "Ammonia", secondGasTank: "Oxygen", thirdGasTank: "Carbon Dioxide", fourthGasTank: "Hydrogen", firstGasIsPositive: [false, false, true, false], secondGasIsPositive: [false, false, false, true], thirdGasIsPositive: [false, true, false, false], forthGasIsPositive: [true, false, false, false], correctGasTank: "Oxygen"), GasTestGame(firstGasTank: "Ammonia", secondGasTank: "Oxygen", thirdGasTank: "Hydrogen", fourthGasTank: "Carbon Dioxide", firstGasIsPositive: [false, false, false, true], secondGasIsPositive: [false, false, true, false], thirdGasIsPositive: [false, true, false, false], forthGasIsPositive: [true, false, false, false], correctGasTank: "Hydrogen"), GasTestGame(firstGasTank: "Ammonia", secondGasTank: "Hydrogen", thirdGasTank: "Oxygen", fourthGasTank: "Carbon Dioxide", firstGasIsPositive: [false, false, false, true], secondGasIsPositive: [false, true, false, false], thirdGasIsPositive: [false, false, true, false], forthGasIsPositive: [true, false, false, false], correctGasTank: "Ammonia"), GasTestGame(firstGasTank: "Ammonia", secondGasTank: "Hydrogen", thirdGasTank: "Carbon Dioxide", fourthGasTank: "Oxygen", firstGasIsPositive: [false, false, true, false], secondGasIsPositive: [false, true, false, false], thirdGasIsPositive: [false, false, false, true], forthGasIsPositive: [true, false, false, false], correctGasTank: "Carbon Dioxide"), GasTestGame(firstGasTank: "Carbon Dioxide", secondGasTank: "Ammonia", thirdGasTank: "Hydrogen", fourthGasTank: "Oxygen", firstGasIsPositive: [true, false, false, false], secondGasIsPositive: [false, false, true, false], thirdGasIsPositive: [false, false, false, true], forthGasIsPositive: [false, true, false, false], correctGasTank: "Hydrogen"), GasTestGame(firstGasTank: "Carbon Dioxide", secondGasTank: "Ammonia", thirdGasTank: "Oxygen", fourthGasTank: "Hydrogen", firstGasIsPositive: [true, false, false, false], secondGasIsPositive: [false, false, false, true], thirdGasIsPositive: [false, false, true, false], forthGasIsPositive: [false, true, false, false], correctGasTank: "Oxygen"), GasTestGame(firstGasTank: "Carbon Dioxide", secondGasTank: "Hydrogen", thirdGasTank: "Oxygen", fourthGasTank: "Ammonia",  firstGasIsPositive: [true, false, false, false], secondGasIsPositive: [false, true, false, false], thirdGasIsPositive: [false, false, true, false], forthGasIsPositive: [false, false, false, true], correctGasTank: "Hydrogen"), GasTestGame(firstGasTank: "Carbon Dioxide", secondGasTank: "Hydrogen", thirdGasTank: "Ammonia", fourthGasTank: "Oxygen", firstGasIsPositive: [true, false, false, false], secondGasIsPositive: [false, true, false, false], thirdGasIsPositive: [false, false, false, true], forthGasIsPositive: [false, false, true, false], correctGasTank: "Carbon Dioxide"), GasTestGame(firstGasTank: "Carbon Dioxide", secondGasTank: "Oxygen", thirdGasTank: "Ammonia", fourthGasTank: "Hydrogen", firstGasIsPositive: [true, false, false, false], secondGasIsPositive: [false, false, false, true], thirdGasIsPositive: [false, true, false, false], forthGasIsPositive: [false, false, true, false], correctGasTank: "Ammonia"), GasTestGame(firstGasTank: "Carbon Dioxide", secondGasTank: "Oxygen", thirdGasTank: "Hydrogen", fourthGasTank: "Ammonia", firstGasIsPositive: [true, false, false, false], secondGasIsPositive: [false, false, true, false], thirdGasIsPositive: [false, true, false, false], forthGasIsPositive: [false, false, false, true], correctGasTank: "Oxygen"),GasTestGame(firstGasTank: "Oxygen", secondGasTank: "Hydrogen", thirdGasTank: "Carbon Dioxide", fourthGasTank: "Ammonia", firstGasIsPositive: [false, false, true, false], secondGasIsPositive: [false, true, false, false], thirdGasIsPositive: [true, false, false, false], forthGasIsPositive: [false, false, false, true], correctGasTank: "Carbon Dioxide"),
+                      
+                      GasTestGame(firstGasTank: "Oxygen", secondGasTank: "Hydrogen", thirdGasTank: "Ammonia", fourthGasTank: "Carbon Dioxide", firstGasIsPositive: [false, false, true, false], secondGasIsPositive: [false, true, false, false], thirdGasIsPositive: [false, false, false, true], forthGasIsPositive: [true, false, false, false], correctGasTank: "Ammonia"),
+                      
+                      GasTestGame(firstGasTank: "Oxygen", secondGasTank: "Carbon Dioxide", thirdGasTank: "Hydrogen", fourthGasTank: "Ammonia", firstGasIsPositive: [false, false, true, false], secondGasIsPositive: [true, false, false, false], thirdGasIsPositive: [false, true, false, false], forthGasIsPositive: [false, false, false, true], correctGasTank: "Hydrogen"),
+                      GasTestGame(firstGasTank: "Oxygen", secondGasTank: "Carbon Dioxide", thirdGasTank: "Ammonia", fourthGasTank: "Hydrogen", firstGasIsPositive: [false, false, true, false], secondGasIsPositive: [true, false, false, false], thirdGasIsPositive: [false, false, false, true], forthGasIsPositive: [false, true, false, false], correctGasTank: "Oxygen"),
+                      
+                      GasTestGame(firstGasTank: "Oxygen", secondGasTank: "Ammonia", thirdGasTank: "Hydrogen", fourthGasTank: "Carbon Dioxide", firstGasIsPositive: [false, false, true, false], secondGasIsPositive: [false, false, false, true], thirdGasIsPositive: [false, true, false, false], forthGasIsPositive: [true, false, false, false], correctGasTank: "Carbon Dioxide"),
+                      
+                      GasTestGame(firstGasTank: "Oxygen", secondGasTank: "Ammonia", thirdGasTank: "Carbon Dioxide", fourthGasTank: "Hydrogen", firstGasIsPositive: [false, false, true, false], secondGasIsPositive: [false, false, false, true], thirdGasIsPositive: [true, false, false, false], forthGasIsPositive: [false, true, false, false], correctGasTank: "Ammonia"),GasTestGame(firstGasTank: "Hydrogen", secondGasTank: "Oxygen", thirdGasTank: "Carbon Dioxide", fourthGasTank: "Ammonia", firstGasIsPositive: [false, true, false, false], secondGasIsPositive: [false, false, true, false], thirdGasIsPositive: [true, false, false, false], forthGasIsPositive: [false, false, false, true], correctGasTank: "Hydrogen"),
+                      
+                      GasTestGame(firstGasTank: "Hydrogen", secondGasTank: "Oxygen", thirdGasTank: "Ammonia", fourthGasTank: "Carbon Dioxide", firstGasIsPositive: [false, true, false, false], secondGasIsPositive: [false, false, true, false], thirdGasIsPositive: [false, false, false, true], forthGasIsPositive: [true, false, false, false], correctGasTank: "Oxygen"),
 
-    var gasesArray = [GasTestGame(firstGasTank: "Hydrogen", secondGasTank: "Oxygen", thirdGasTank: "Carbon Dioxide", fourthGasTank: "Ammonia", firstGasIsPositive: [false, false, false, true], secondGasIsPositive: [false, false, false, true], thirdGasIsPositive: [false, false, false, true], forthGasIsPositive: [false, false, false, true], correctGasTank: "Hydrogen"), GasTestGame(firstGasTank: "Ammonia", secondGasTank: "Carbon Dioxide", thirdGasTank: "Oxygen", fourthGasTank: "Hydrogen", firstGasIsPositive: [false, true, false, false], secondGasIsPositive: [false, false, false, true], thirdGasIsPositive: [false, false, true, false], forthGasIsPositive: [true, false, false, false], correctGasTank: "Hydrogen"), GasTestGame(firstGasTank: "Ammonia", secondGasTank: "Carbon Dioxide", thirdGasTank: "Hydrogen", fourthGasTank: "Oxygen", firstGasIsPositive: [false, true, false, false], secondGasIsPositive: [false, false, true, false], thirdGasIsPositive: [false, false, false, true], forthGasIsPositive: [true, false, false, false], correctGasTank: "Hydrogen"), GasTestGame(firstGasTank: "Ammonia", secondGasTank: "Oxygen", thirdGasTank: "Carbon Dioxide", fourthGasTank: "Hydrogen", firstGasIsPositive: [false, false, true, false], secondGasIsPositive: [false, false, false, true], thirdGasIsPositive: [false, true, false, false], forthGasIsPositive: [true, false, false, false], correctGasTank: "Oxygen"), GasTestGame(firstGasTank: "Ammonia", secondGasTank: "Oxygen", thirdGasTank: "Hydrogen", fourthGasTank: "Carbon Dioxide", firstGasIsPositive: [false, false, false, true], secondGasIsPositive: [false, false, true, false], thirdGasIsPositive: [false, true, false, false], forthGasIsPositive: [true, false, false, false], correctGasTank: "Hydrogen"), GasTestGame(firstGasTank: "Ammonia", secondGasTank: "Hydrogen", thirdGasTank: "Oxygen", fourthGasTank: "Carbon Dioxide", firstGasIsPositive: [false, false, false, true], secondGasIsPositive: [false, true, false, false], thirdGasIsPositive: [false, false, true, false], forthGasIsPositive: [true, false, false, false], correctGasTank: "Ammonia"), GasTestGame(firstGasTank: "Ammonia", secondGasTank: "Hydrogen", thirdGasTank: "Carbon Dioxide", fourthGasTank: "Oxygen", firstGasIsPositive: [false, false, true, false], secondGasIsPositive: [false, true, false, false], thirdGasIsPositive: [false, false, false, true], forthGasIsPositive: [true, false, false, false], correctGasTank: "Carbon Dioxide"), GasTestGame(firstGasTank: "Carbon Dioxide", secondGasTank: "Ammonia", thirdGasTank: "Hydrogen", fourthGasTank: "Oxygen", firstGasIsPositive: [true, false, false, false], secondGasIsPositive: [false, false, true, false], thirdGasIsPositive: [false, false, false, true], forthGasIsPositive: [false, true, false, false], correctGasTank: "Hydrogen"), GasTestGame(firstGasTank: "Carbon Dioxide", secondGasTank: "Ammonia", thirdGasTank: "Oxygen", fourthGasTank: "Hydrogen", firstGasIsPositive: [true, false, false, false], secondGasIsPositive: [false, false, false, true], thirdGasIsPositive: [false, false, true, false], forthGasIsPositive: [false, true, false, false], correctGasTank: "Oxygen"), GasTestGame(firstGasTank: "Carbon Dioxide", secondGasTank: "Hydrogen", thirdGasTank: "Oxygen", fourthGasTank: "Ammonia",  firstGasIsPositive: [true, false, false, false], secondGasIsPositive: [false, true, false, false], thirdGasIsPositive: [false, false, true, false], forthGasIsPositive: [false, false, false, true], correctGasTank: "Hydrogen"), GasTestGame(firstGasTank: "Carbon Dioxide", secondGasTank: "Hydrogen", thirdGasTank: "Ammonia", fourthGasTank: "Oxygen", firstGasIsPositive: [true, false, false, false], secondGasIsPositive: [false, true, false, false], thirdGasIsPositive: [false, false, false, true], forthGasIsPositive: [false, false, true, false], correctGasTank: "Carbon Dioxide"), GasTestGame(firstGasTank: "Carbon Dioxide", secondGasTank: "Oxygen", thirdGasTank: "Ammonia", fourthGasTank: "Hydrogen", firstGasIsPositive: [true, false, false, false], secondGasIsPositive: [false, false, false, true], thirdGasIsPositive: [false, true, false, false], forthGasIsPositive: [false, false, true, false], correctGasTank: "Ammonia"), GasTestGame(firstGasTank: "Carbon Dioxide", secondGasTank: "Oxygen", thirdGasTank: "Hydrogen", fourthGasTank: "Ammonia", firstGasIsPositive: [true, false, false, false], secondGasIsPositive: [false, false, true, false], thirdGasIsPositive: [false, true, false, false], forthGasIsPositive: [false, false, false, true], correctGasTank: "Oxygen")]
+                      GasTestGame(firstGasTank: "Hydrogen", secondGasTank: "Carbon Dioxide", thirdGasTank: "Ammonia", fourthGasTank: "Oxygen", firstGasIsPositive: [false, true, false, false], secondGasIsPositive: [true, false, false, false], thirdGasIsPositive: [false, false, false, true], forthGasIsPositive: [false, false, true, false], correctGasTank: "Carbon Dioxide"),
+                      GasTestGame(firstGasTank: "Hydrogen", secondGasTank: "Carbon Dioxide", thirdGasTank: "Oxygen", fourthGasTank: "Ammonia", firstGasIsPositive: [false, true, false, false], secondGasIsPositive: [true, false, false, false], thirdGasIsPositive: [false, false, true, false], forthGasIsPositive: [false, false, false, true], correctGasTank: "Ammonia"),
+
+                      GasTestGame(firstGasTank: "Hydrogen", secondGasTank: "Ammonia", thirdGasTank: "Oxygen", fourthGasTank: "Carbon Dioxide", firstGasIsPositive: [false, true, false, false], secondGasIsPositive: [false, false, false, true], thirdGasIsPositive: [false, false, true, false], forthGasIsPositive: [true, false, false, false], correctGasTank: "Hydrogen"),
+
+                      GasTestGame(firstGasTank: "Hydrogen", secondGasTank: "Ammonia", thirdGasTank: "Carbon Dioxide", fourthGasTank: "Oxygen", firstGasIsPositive: [false, true, false, false], secondGasIsPositive: [false, false, false, true], thirdGasIsPositive: [true, false, false, false], forthGasIsPositive: [false, false, true, false], correctGasTank: "Oxygen"),]
+    
     var gases: GasTestGame!
-
+    
     // var initialCenter = CGPoint()  // The initial center point of the view.
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
         limewaterView.layer.cornerRadius = 15
         lightedSplintView.layer.cornerRadius = 15
         glowingSplintView.layer.cornerRadius = 15
         litmusView.layer.cornerRadius = 15
     }
-
+    
     override func viewWillAppear(_ animated: Bool) {
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.updateTimer), userInfo: nil, repeats: true)
         timeLeft = 20
@@ -59,7 +78,7 @@ class PlayFindGasDetailsViewController: UIViewController {
         questionLabel.text = gases.correctGasTank
         currentRound += 1
     }
-
+    
     @IBAction func submitChoice(_ sender: Any) {
         if selectedGasTankString == gases.correctGasTank {
             performSegue(withIdentifier: "findGasCorrect", sender: nil)
@@ -67,11 +86,11 @@ class PlayFindGasDetailsViewController: UIViewController {
             performSegue(withIdentifier: "findGasWrong", sender: nil)
         }
     }
-
-
+    
+    
     @IBAction func gas1Selected(_ sender: Any) {
         print("HI")
-
+        
         if selectedGasTest != nil {
             gas1Check.isHidden = false
             gas2Check.isHidden = false
@@ -104,10 +123,10 @@ class PlayFindGasDetailsViewController: UIViewController {
             submitButton.setTitle("Submit Gas 1", for: .normal)
         }
     }
-
+    
     @IBAction func gas2Selected(_ sender: Any) {
         print("HI")
-
+        
         if selectedGasTest != nil {
             gas1Check.isHidden = false
             gas2Check.isHidden = false
@@ -134,18 +153,18 @@ class PlayFindGasDetailsViewController: UIViewController {
                 gas4Check.image = UIImage(named: "check.png")
             }
             selectedGasTest = nil
-
+            
         } else {
             selectedGasTankString = gases.secondGasTank
             submitButton.isHidden = false
             submitButton.setTitle("Submit Gas 2", for: .normal)
         }
-
+        
     }
-
+    
     @IBAction func gas3Selected(_ sender: Any) {
         print("HI")
-
+        
         if selectedGasTest != nil {
             gas1Check.isHidden = false
             gas2Check.isHidden = false
@@ -177,12 +196,12 @@ class PlayFindGasDetailsViewController: UIViewController {
             submitButton.isHidden = false
             submitButton.setTitle("Submit Gas 3", for: .normal)
         }
-
+        
     }
-
+    
     @IBAction func gas4Selected(_ sender: Any) {
         print("HI")
-
+        
         if selectedGasTest != nil {
             gas1Check.isHidden = false
             gas2Check.isHidden = false
@@ -214,29 +233,29 @@ class PlayFindGasDetailsViewController: UIViewController {
             submitButton.isHidden = false
             submitButton.setTitle("Submit Gas 4", for: .normal)
         }
-
+        
     }
-
+    
     @IBAction func limewaterTestClicked(_ sender: Any) {
         print("HI")
         selectedGasTest = 0
     }
-
+    
     @IBAction func lightedSplintTestClicked(_ sender: Any) {
         print("HI")
         selectedGasTest = 1
     }
-
+    
     @IBAction func glowingSplintTestClicked(_ sender: Any) {
         print("HI")
         selectedGasTest = 2
     }
-
+    
     @IBAction func litmusPaperTestClicked(_ sender: Any) {
         print("HI")
         selectedGasTest = 3
     }
-
+    
     /*
      @IBAction func panPiece(_ gestureRecognizer : UIPanGestureRecognizer) {
      guard gestureRecognizer.view != nil else {return}
@@ -260,12 +279,12 @@ class PlayFindGasDetailsViewController: UIViewController {
      }
      }
      */
-
+    
     // MARK: - Navigation
-
+    
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-
+        
         if segue.identifier == "findGasCorrect" {
             let destVC = segue.destination as! PlayCorrectAnswerViewController
             destVC.currentLevel = currentLevel
@@ -280,7 +299,7 @@ class PlayFindGasDetailsViewController: UIViewController {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
     }
-
+    
     @objc func updateTimer() {
         timeLeft -= 1
         timerLabel.text = "\(timeLeft) seconds left"
