@@ -24,7 +24,8 @@ class LearnHomePageTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.tableFooterView = UIView()
-
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(didUpdateUserDefaults), name: UserDefaults.didChangeNotification, object: nil)
         let navbar = UINavigationBarAppearance()
         navbar.backgroundColor = UIColor(red: 242/255, green: 214/255, blue: 112/255, alpha: 1)
         self.navigationController?.navigationBar.scrollEdgeAppearance = navbar
@@ -75,6 +76,10 @@ class LearnHomePageTableViewController: UITableViewController {
                 cell.learnChapterImageView?.image = UIImage(named: "lock.png")
             } else {
                 cell.learnChapterImageView?.image = UIImage(named: currentTopic.pic)
+                cell.learnChapterLabel.isEnabled = true
+                cell.needMorePointsLabel?.isHidden = true
+
+
             }
             cell.learnChapterLabel.text = currentTopic.title
         }
@@ -134,7 +139,7 @@ class LearnHomePageTableViewController: UITableViewController {
             let indexPath = tableView.indexPathForSelectedRow!
             dest.flexibleTitle = learnTopics[indexPath.row].title
             dest.specificChapter = learnTopics[indexPath.row].subTopics
-            dest.quizTopic = learnTopics[indexPath.row].questions
+            dest.quizTopic = learnTopics[indexPath.row].questions.shuffled()
         }
     }
 
@@ -149,5 +154,16 @@ class LearnHomePageTableViewController: UITableViewController {
         }
         return true
     }
-
+    @objc func didUpdateUserDefaults() {
+        chTwoDone = ud.bool(forKey: "chTwoDone")
+        chThreeDone = ud.bool(forKey: "chThreeDone")
+        chFourDone = ud.bool(forKey: "chFourDone")
+        chapterApproved = [
+            true,
+            chOneDone,
+            chTwoDone,
+            chThreeDone,
+        ]
+        tableView.reloadData()
+    }
 }

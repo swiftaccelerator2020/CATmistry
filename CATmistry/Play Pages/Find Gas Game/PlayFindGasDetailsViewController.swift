@@ -60,6 +60,8 @@ class PlayFindGasDetailsViewController: UIViewController {
     }
     
     @IBAction func submitChoice(_ sender: Any) {
+        timer.invalidate()
+        timer = nil
         if selectedGasTankString == gases.correctGasTank {
             performSegue(withIdentifier: "findGasCorrect", sender: nil)
         } else {
@@ -284,7 +286,7 @@ class PlayFindGasDetailsViewController: UIViewController {
         timeLeft -= 1
         timerLabel.text = "\(timeLeft) seconds left"
         if (timeLeft == 0) {
-            currentRound -= 1
+            currentRound += 1
             timer.invalidate()
             timer = nil
             performSegue(withIdentifier: "findGasWrong", sender: nil)
