@@ -112,7 +112,7 @@ class LearnChapterSubTopicsTableViewController: UITableViewController {
 
         if segue.identifier == "goToQuiz" {
             let destVC = segue.destination as! QuizStartViewController
-            destVC.question = quizTopic
+            destVC.question = quizTopic.shuffled()
             destVC.subTopic = self.title
         }
     }
