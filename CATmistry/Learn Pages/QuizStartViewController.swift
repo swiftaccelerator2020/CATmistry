@@ -12,7 +12,7 @@ class QuizStartViewController: UIViewController {
 
     var question: [QuizQuestion]!
     var subTopic: String!
-    
+
     @IBOutlet weak var startButton: UIButton!
 
     override func viewDidLoad() {

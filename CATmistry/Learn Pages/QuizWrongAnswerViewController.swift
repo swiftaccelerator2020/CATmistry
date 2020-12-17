@@ -50,7 +50,7 @@ class QuizWrongAnswerViewController: UIViewController {
         } else {
             sadLabel.text = "Oh no! \n\nYour answer was wrong, but don't worry! You have \(String(9 - currentQuestion)) questions left in this quiz. Try harder next time!"
         }
-        
+
         if 9 - currentQuestion == 0 {
             goBackLearningButton.isHidden = true
             nextQuestionButton.setTitle("Go Back Home", for: .normal)

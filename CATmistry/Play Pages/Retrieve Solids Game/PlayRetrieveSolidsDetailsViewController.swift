@@ -10,7 +10,7 @@ import UIKit
 class PlayRetrieveSolidsDetailsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     // MARK: - Variable Declaration
-    
+
     var timeLimit = 5
     var currentTime = 5
     var selectedElement: Int?
@@ -21,9 +21,9 @@ class PlayRetrieveSolidsDetailsViewController: UIViewController, UITableViewDele
     var specificSeperationMethodSet = Set<specificSeperationMethod>()
     var elements: Array<specificSeperationMethod>!
     var hardMode = true
-    
+
     // MARK: - IBOutlets Declaration
-    
+
     @IBOutlet weak var timeLeftToAddElementsLabel: UILabel!
     @IBOutlet weak var progressView: UIProgressView!
     @IBOutlet weak var seperationTableView: UITableView!
@@ -34,11 +34,11 @@ class PlayRetrieveSolidsDetailsViewController: UIViewController, UITableViewDele
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         selectedChoiceLabel.isHidden = true
 
         timeLeftToAddElementsLabel.text = "\(currentTime) seconds left"
-        
+
         if (currentLevel == 2){
             hardMode = true
         } else {
@@ -50,7 +50,7 @@ class PlayRetrieveSolidsDetailsViewController: UIViewController, UITableViewDele
             let color = UIColor(rgb: 0x7CC2F5)
             self.view.backgroundColor = color
         }
-        
+
         seperationTableView.layer.cornerRadius = 15
         choicesTableView.layer.cornerRadius = 15
         contentView.layer.cornerRadius = 15
@@ -62,13 +62,13 @@ class PlayRetrieveSolidsDetailsViewController: UIViewController, UITableViewDele
         choicesTableView.delegate = self
         self.choicesTableView.allowsSelection = true
         self.choicesTableView.tableFooterView = UIView()
-        
+
         selectedChoiceLabel.layer.cornerRadius = 25
         selectedChoiceLabel.layer.masksToBounds = true
         selectedChoiceLabel.isEnabled = false
         selectedChoiceLabel.setTitleColor(UIColor.darkGray, for: .normal)
 //        selectedChoiceLabel.isHidden = true
-        
+
 //        isWrong.isHidden = true
 
         progressView.transform = CGAffineTransform(rotationAngle: .pi / -2)

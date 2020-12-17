@@ -19,7 +19,7 @@ class PlayAdjustPhDetailsViewController: UIViewController {
     var phOptionsSet = Set<PhOption>()
     var phOptionsArray: Array<PhOption>!
     var timer: Timer!
-    
+
     @IBOutlet weak var addFirstIndicatorButton: UIButton!
     @IBOutlet weak var monsterImageView: UIImageView!
     @IBOutlet weak var firstOptionImageView: UIImageView!
@@ -286,7 +286,7 @@ class PlayAdjustPhDetailsViewController: UIViewController {
             destVC.gameType = 3
         }
     }
-    
+
     @objc func updateTimer() {
         timeLeft -= 1
         timerLabel.text = "\(timeLeft) seconds left"

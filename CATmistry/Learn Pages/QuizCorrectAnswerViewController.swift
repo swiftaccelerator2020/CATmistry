@@ -55,7 +55,7 @@ class QuizCorrectAnswerViewController: UIViewController {
         } else {
             congratsLabel.text = "Well done! You got the answer right. \n\nYou have \(String(9 - currentQuestion)) questions left in this quiz, keep up the good work!"
         }
-        
+
         if 9 - currentQuestion == 0 {
             goBackLearningButton.isHidden = true
             nextQuestionButton.setTitle("Go Back Home", for: .normal)
