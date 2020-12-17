@@ -1639,6 +1639,7 @@ Given the properties of each Group of the periodic table, select the correct gro
                     </view>
                     <navigationItem key="navigationItem" id="X9m-AO-FC8"/>
                     <connections>
+                        <outlet property="choicesView" destination="DHf-c7-5G5" id="W0T-bR-HvI"/>
                         <outlet property="desc" destination="6nO-os-1tY" id="VVW-g8-tub"/>
                         <outlet property="groupFour" destination="60r-ze-aOG" id="4me-oZ-iyK"/>
                         <outlet property="groupOne" destination="s5Z-jQ-t5b" id="HdY-a9-DDf"/>
@@ -1646,6 +1647,7 @@ Given the properties of each Group of the periodic table, select the correct gro
                         <outlet property="groupTwo" destination="O7J-Hd-b7c" id="IhE-uK-vYP"/>
                         <outlet property="metal" destination="o3r-UY-MyN" id="aZy-J6-u6u"/>
                         <outlet property="nonMetal" destination="Ddq-95-qRR" id="ltS-Ox-hEj"/>
+                        <outlet property="propertiesView" destination="6nO-os-1tY" id="EKy-9B-TjQ"/>
                         <outlet property="timeLeft" destination="2Bq-Tb-1J1" id="RFk-SX-Q2b"/>
                         <outlet property="transitionMetal" destination="lwW-4g-ESC" id="m2E-LD-3rp"/>
                         <segue destination="FWf-eu-FKe" kind="presentation" identifier="identifyElementsGameWIn" modalPresentationStyle="fullScreen" id="SnY-zI-Ehk"/>
@@ -2084,7 +2086,7 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
                 <navigationController id="8Us-es-0oa" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Learn" image="books.vertical.fill" catalog="system" selectedImage="books.vertical.fill" id="ZOw-bY-pdm"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="OvI-u8-jpf">
-                        <rect key="frame" x="0.0" y="44" width="390" height="96"/>
+                        <rect key="frame" x="0.0" y="44" width="390" height="104.33333333333334"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" red="0.95419245959999999" green="0.83945876360000005" blue="0.47016263009999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -2972,7 +2974,7 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="q0c-Zz-aob" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="jRP-bA-vTs">
-                        <rect key="frame" x="0.0" y="44" width="390" height="96"/>
+                        <rect key="frame" x="0.0" y="44" width="390" height="104.33333333333334"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -3217,8 +3219,8 @@ Your answer was wrong, but don't worry! You have \(String(10 - currentQuestion))
         <segue reference="YEM-b9-J01"/>
         <segue reference="s4T-H5-cTx"/>
         <segue reference="l86-7T-ukz"/>
-        <segue reference="8zc-2j-Gbh"/>
-        <segue reference="xa7-EN-bjL"/>
+        <segue reference="orq-5T-Gly"/>
+        <segue reference="SnY-zI-Ehk"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="books.vertical.fill" catalog="system" width="128" height="100"/>
