@@ -39,7 +39,7 @@ class QuizViewController: UIViewController {
         optionTwo.layer.cornerRadius = 15
         optionThree.layer.cornerRadius = 15
         optionFour.layer.cornerRadius = 15
-        
+
         optionOne.titleLabel?.lineBreakMode = .byWordWrapping
         optionTwo.titleLabel?.lineBreakMode = .byWordWrapping
         optionThree.titleLabel?.lineBreakMode = .byWordWrapping

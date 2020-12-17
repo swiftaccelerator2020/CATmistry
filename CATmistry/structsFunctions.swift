@@ -375,7 +375,7 @@ var learnTopics = [
                       "Thermometer",
                       "Condenser"
                 ], correctAnswer: 2),
-              
+
                 QuizQuestion(question: "Which of the following can be separated using magnetic attraction", options: [
                       "Iron and Plastic",
                       "Zinc and Gold",
