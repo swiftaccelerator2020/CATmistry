@@ -16,6 +16,9 @@ class PlayFindGasDetailsViewController: UIViewController {
     var currentRound = 0
     var timer: Timer!
     var timeLeft = 20
+    
+    let color = UIColor(red: 123, green: 211, blue: 247)
+    
     @IBOutlet weak var limewaterView: UIView!
     @IBOutlet weak var lightedSplintView: UIView!
     @IBOutlet weak var glowingSplintView: UIView!
@@ -31,7 +34,7 @@ class PlayFindGasDetailsViewController: UIViewController {
     @IBOutlet weak var submitButton: UIButton!
     @IBOutlet weak var timerLabel: UILabel!
     @IBOutlet weak var questionLabel: UILabel!
-        
+    
     var gases: GasTestGame!
     
     // var initialCenter = CGPoint()  // The initial center point of the view.
@@ -103,6 +106,9 @@ class PlayFindGasDetailsViewController: UIViewController {
             selectedGasTankString = gases.firstGasTank
             submitButton.isHidden = false
             submitButton.setTitle("Submit Gas 1", for: .normal)
+            selectedGasTank?.backgroundColor = .none
+            gas1.backgroundColor = color
+            selectedGasTank = gas1
         }
     }
     
@@ -140,6 +146,9 @@ class PlayFindGasDetailsViewController: UIViewController {
             selectedGasTankString = gases.secondGasTank
             submitButton.isHidden = false
             submitButton.setTitle("Submit Gas 2", for: .normal)
+            selectedGasTank?.backgroundColor = .none
+            gas2.backgroundColor = color
+            selectedGasTank = gas2
         }
         
     }
@@ -177,6 +186,9 @@ class PlayFindGasDetailsViewController: UIViewController {
             selectedGasTankString = gases.thirdGasTank
             submitButton.isHidden = false
             submitButton.setTitle("Submit Gas 3", for: .normal)
+            selectedGasTank?.backgroundColor = .none
+            gas3.backgroundColor = color
+            selectedGasTank = gas3
         }
         
     }
@@ -214,6 +226,9 @@ class PlayFindGasDetailsViewController: UIViewController {
             selectedGasTankString = gases.fourthGasTank
             submitButton.isHidden = false
             submitButton.setTitle("Submit Gas 4", for: .normal)
+            selectedGasTank?.backgroundColor = .none
+            gas4.backgroundColor = color
+            selectedGasTank = gas4
         }
         
     }

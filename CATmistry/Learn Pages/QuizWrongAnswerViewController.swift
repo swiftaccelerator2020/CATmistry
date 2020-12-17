@@ -31,18 +31,22 @@ class QuizWrongAnswerViewController: UIViewController {
                     ud.set(true, forKey: "chOneDone")
                     chOneDone = true
                     UserDefaults.incrementIntegerForKey(key: "quizOneAttempts")
+                    quizOneAttempts += 1
                 } else if subTopic == "Separation Methods" {
                     ud.set(true, forKey: "chTwoDone")
                     chTwoDone = true
                     UserDefaults.incrementIntegerForKey(key: "quizTwoAttempts")
+                    quizTwoAttempts += 1
                 } else if subTopic == "pH and Indicators" {
                     ud.set(true, forKey: "chThreeDone")
                     chThreeDone = true
                     UserDefaults.incrementIntegerForKey(key: "quizThreeAttempts")
+                    quizThreeAttempts += 1
                 } else if subTopic == "Periodic Table" {
                     ud.set(true, forKey: "chFourDone")
                     chFourDone = true
                     UserDefaults.incrementIntegerForKey(key: "quizFourAttempts")
+                    quizFourAttempts += 1
                 }
             } else {
                 sadLabel.text = "Oh no! \n\nYour answer was wrong, and you only scored \(String(correctAnswers)) out of 10 in this quiz. You need at least 7 out of 10 to pass. Try harder next time!"
