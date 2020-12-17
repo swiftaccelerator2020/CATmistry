@@ -32,7 +32,7 @@ class PlayWrongAnswerViewController: UIViewController {
             sadLabel.text = "Oh no! \n\nYour answer was wrong, and your cat died. \n\nDon't worry though, a cat has 9 lives, and you still have \(String(9 - currentGame)) rounds remaining in Level \(String(currentLevel + 1)). Good luck!"
             if 9 - self.currentGame == 0 {
                 nextGameButton.setTitle("Go Back Home", for: .normal)
-                goHomeButton.setTitle("Restart", for: .normal)
+                goHomeButton.isHidden = true
                 if gameType == 1 {
                     UserDefaults.incrementIntegerForKey(key: "gameOneAttempts")
                 } else if gameType == 3 {

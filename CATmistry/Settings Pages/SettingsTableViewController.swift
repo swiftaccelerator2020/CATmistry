@@ -54,22 +54,22 @@ class SettingsTableViewController: UITableViewController {
             SettingsContent(
                 labelText: "Gas Tests: \(String(quizOneAttempts))",
                 type: "detailAccessoryCell",
-                emojiImage: ""
+                emojiImage: "1️⃣"
             ),
             SettingsContent(
                 labelText: "Separation Methods: \(String(quizTwoAttempts))",
                 type: "detailAccessoryCell",
-                emojiImage: ""
+                emojiImage: "2️⃣"
             ),
             SettingsContent(
                 labelText: "pH and Indicators: \(String(quizThreeAttempts))",
                 type: "detailAccessoryCell",
-                emojiImage: ""
+                emojiImage: "3️⃣"
             ),
             SettingsContent(
                 labelText: "Periodic Table: \(String(quizFourAttempts))",
                 type: "detailAccessoryCell",
-                emojiImage: ""
+                emojiImage: "4️⃣"
             ),
         ],
         
@@ -77,22 +77,22 @@ class SettingsTableViewController: UITableViewController {
             SettingsContent(
                 labelText: "Gas Tests: \(String(gameOneAttempts))",
                 type: "detailAccessoryCell",
-                emojiImage: ""
+                emojiImage: "1️⃣"
             ),
             SettingsContent(
                 labelText: "Separation Methods: \(String(gameTwoAttempts))",
                 type: "detailAccessoryCell",
-                emojiImage: ""
+                emojiImage: "2️⃣"
             ),
             SettingsContent(
                 labelText: "pH and Indicators: \(String(gameThreeAttempts))",
                 type: "detailAccessoryCell",
-                emojiImage: ""
+                emojiImage: "3️⃣"
             ),
             SettingsContent(
                 labelText: "Periodic Table: \(String(gameFourAttempts))",
                 type: "detailAccessoryCell",
-                emojiImage: ""
+                emojiImage: "4️⃣"
             ),
         ],
 
@@ -276,7 +276,6 @@ class SettingsTableViewController: UITableViewController {
             return 45.0
         }
     }
-
 
     /*
      // Override to support conditional editing of the table view.

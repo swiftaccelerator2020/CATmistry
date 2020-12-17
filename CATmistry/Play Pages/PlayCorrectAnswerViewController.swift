@@ -33,7 +33,7 @@ class PlayCorrectAnswerViewController: UIViewController {
             congratsLabel.text = "Congrats! \n\nThrough your hard work, your cat has been able to avoid the danger. \n\nYou have \(String(9 - currentGame)) rounds remaining in Level \(String(currentLevel + 1)). Keep up the good work!"
             if 9 - self.currentGame == 0 {
                 nextGameButton.setTitle("Go Back Home", for: .normal)
-                goHomeButton.setTitle("Restart", for: .normal)
+                goHomeButton.isHidden = true
                 if gameType == 1 {
                     UserDefaults.incrementIntegerForKey(key: "gameOneAttempts")
                 } else if gameType == 3 {

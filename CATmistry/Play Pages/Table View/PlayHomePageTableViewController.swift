@@ -119,7 +119,10 @@ class PlayHomePageTableViewController: UITableViewController{
      }
      */
 
-
+    @IBAction func settingsButtonClicked(_ sender: Any) {
+        
+    }
+    
         override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
             if chapterApproved[indexPath.row] == true {
                 performSegue(withIdentifier: gameTopics[indexPath.row].segDesti, sender: nil)

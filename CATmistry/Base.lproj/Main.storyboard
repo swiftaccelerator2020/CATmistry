@@ -2269,6 +2269,9 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VjU-a8-zD6">
                                             <rect key="frame" x="20" y="10" width="310" height="25"/>
                                             <state key="normal" title="Share CATmistry with Your Friends"/>
+                                            <connections>
+                                                <action selector="shareButtonClicked:" destination="OpB-z3-98J" eventType="touchUpInside" id="gyV-bd-RdV"/>
+                                            </connections>
                                         </button>
                                     </subviews>
                                     <constraints>
@@ -3216,7 +3219,7 @@ Your answer was wrong, but don't worry! You have \(String(10 - currentQuestion))
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="YEM-b9-J01"/>
+        <segue reference="GnF-zJ-RVj"/>
         <segue reference="s4T-H5-cTx"/>
         <segue reference="l86-7T-ukz"/>
         <segue reference="orq-5T-Gly"/>
