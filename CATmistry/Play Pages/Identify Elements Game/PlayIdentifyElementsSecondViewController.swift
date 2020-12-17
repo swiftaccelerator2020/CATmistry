@@ -22,7 +22,7 @@ class PlayIdentifyElementsSecondViewController: UIViewController {
     @IBOutlet weak var timeLeft: UILabel!
     @IBOutlet weak var propertiesView: UILabel!
     @IBOutlet weak var choicesView: UIView!
-    
+
     var currentRound = 0
 
     var progressBarTimer: Timer!
@@ -34,7 +34,7 @@ class PlayIdentifyElementsSecondViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         timeLeft.layer.masksToBounds = true
         timeLeft.layer.cornerRadius = 20
         groupOne.clipsToBounds = true
@@ -57,7 +57,7 @@ class PlayIdentifyElementsSecondViewController: UIViewController {
 
         nonMetal.clipsToBounds = true
         nonMetal.layer.cornerRadius = 0.5 * nonMetal.bounds.size.height
-        
+
         propertiesView.layer.cornerRadius = 15
         choicesView.layer.cornerRadius = 15
 
@@ -66,9 +66,9 @@ class PlayIdentifyElementsSecondViewController: UIViewController {
 
     override func viewDidAppear(_ animated: Bool) {
         currentRound += 1
-        
+
         self.progressBarTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(PlayIdentifyElementsSecondViewController.updateProgressView), userInfo: nil, repeats: true)
-        
+
         timeLeftTrack = gameTopic.timeGiven
 
         timeLeft.text = "\(timeLeftTrack!) seconds left"

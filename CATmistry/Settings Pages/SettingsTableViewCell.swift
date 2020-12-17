@@ -30,5 +30,5 @@ class SettingsTableViewCell: UITableViewCell {
         let vc = UIActivityViewController(activityItems: [shareText, shareURL], applicationActivities: [])
         self.window?.rootViewController?.present(vc, animated: true, completion: nil)
     }
-    
+
 }
