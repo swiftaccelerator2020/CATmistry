@@ -77,31 +77,7 @@ class PlayFindGasDetailsViewController: UIViewController {
         print("HI")
         
         if selectedGasTest != nil {
-            gas1Check.isHidden = false
-            gas2Check.isHidden = false
-            gas3Check.isHidden = false
-            gas4Check.isHidden = false
-            if gases.firstGasIsPositive[selectedGasTest] == false {
-                gas1Check.image = UIImage(named: "close.png")
-            } else {
-                gas1Check.image = UIImage(named: "check.png")
-            }
-            if gases.secondGasIsPositive[selectedGasTest] == false {
-                gas2Check.image = UIImage(named: "close.png")
-            } else {
-                gas2Check.image = UIImage(named: "check.png")
-            }
-            if gases.thirdGasIsPositive[selectedGasTest] == false {
-                gas3Check.image = UIImage(named: "close.png")
-            } else {
-                gas3Check.image = UIImage(named: "check.png")
-            }
-            if gases.forthGasIsPositive[selectedGasTest] == false {
-                gas4Check.image = UIImage(named: "close.png")
-            } else {
-                gas4Check.image = UIImage(named: "check.png")
-            }
-            selectedGasTest = nil
+ 
         } else {
             selectedGasTankString = gases.firstGasTank
             submitButton.isHidden = false
@@ -116,31 +92,7 @@ class PlayFindGasDetailsViewController: UIViewController {
         print("HI")
         
         if selectedGasTest != nil {
-            gas1Check.isHidden = false
-            gas2Check.isHidden = false
-            gas3Check.isHidden = false
-            gas4Check.isHidden = false
-            if gases.firstGasIsPositive[selectedGasTest] == false {
-                gas1Check.image = UIImage(named: "close.png")
-            } else {
-                gas1Check.image = UIImage(named: "check.png")
-            }
-            if gases.secondGasIsPositive[selectedGasTest] == false {
-                gas2Check.image = UIImage(named: "close.png")
-            } else {
-                gas2Check.image = UIImage(named: "check.png")
-            }
-            if gases.thirdGasIsPositive[selectedGasTest] == false {
-                gas3Check.image = UIImage(named: "close.png")
-            } else {
-                gas3Check.image = UIImage(named: "check.png")
-            }
-            if gases.forthGasIsPositive[selectedGasTest] == false {
-                gas4Check.image = UIImage(named: "close.png")
-            } else {
-                gas4Check.image = UIImage(named: "check.png")
-            }
-            selectedGasTest = nil
+
             
         } else {
             selectedGasTankString = gases.secondGasTank
@@ -157,31 +109,7 @@ class PlayFindGasDetailsViewController: UIViewController {
         print("HI")
         
         if selectedGasTest != nil {
-            gas1Check.isHidden = false
-            gas2Check.isHidden = false
-            gas3Check.isHidden = false
-            gas4Check.isHidden = false
-            if gases.firstGasIsPositive[selectedGasTest] == false {
-                gas1Check.image = UIImage(named: "close.png")
-            } else {
-                gas1Check.image = UIImage(named: "check.png")
-            }
-            if gases.secondGasIsPositive[selectedGasTest] == false {
-                gas2Check.image = UIImage(named: "close.png")
-            } else {
-                gas2Check.image = UIImage(named: "check.png")
-            }
-            if gases.thirdGasIsPositive[selectedGasTest] == false {
-                gas3Check.image = UIImage(named: "close.png")
-            } else {
-                gas3Check.image = UIImage(named: "check.png")
-            }
-            if gases.forthGasIsPositive[selectedGasTest] == false {
-                gas4Check.image = UIImage(named: "close.png")
-            } else {
-                gas4Check.image = UIImage(named: "check.png")
-            }
-            selectedGasTest = nil
+
         } else {
             selectedGasTankString = gases.thirdGasTank
             submitButton.isHidden = false
@@ -197,31 +125,7 @@ class PlayFindGasDetailsViewController: UIViewController {
         print("HI")
         
         if selectedGasTest != nil {
-            gas1Check.isHidden = false
-            gas2Check.isHidden = false
-            gas3Check.isHidden = false
-            gas4Check.isHidden = false
-            if gases.firstGasIsPositive[selectedGasTest] == false {
-                gas1Check.image = UIImage(named: "close.png")
-            } else {
-                gas1Check.image = UIImage(named: "check.png")
-            }
-            if gases.secondGasIsPositive[selectedGasTest] == false {
-                gas2Check.image = UIImage(named: "close.png")
-            } else {
-                gas2Check.image = UIImage(named: "check.png")
-            }
-            if gases.thirdGasIsPositive[selectedGasTest] == false {
-                gas3Check.image = UIImage(named: "close.png")
-            } else {
-                gas3Check.image = UIImage(named: "check.png")
-            }
-            if gases.forthGasIsPositive[selectedGasTest] == false {
-                gas4Check.image = UIImage(named: "close.png")
-            } else {
-                gas4Check.image = UIImage(named: "check.png")
-            }
-            selectedGasTest = nil
+            
         } else {
             selectedGasTankString = gases.fourthGasTank
             submitButton.isHidden = false
@@ -236,21 +140,31 @@ class PlayFindGasDetailsViewController: UIViewController {
     @IBAction func limewaterTestClicked(_ sender: Any) {
         print("HI")
         selectedGasTest = 0
+        showResults()
+        selectedGasTest = nil
     }
     
     @IBAction func lightedSplintTestClicked(_ sender: Any) {
         print("HI")
         selectedGasTest = 1
+        showResults()
+        selectedGasTest = nil
     }
     
     @IBAction func glowingSplintTestClicked(_ sender: Any) {
         print("HI")
         selectedGasTest = 2
+        showResults()
+        selectedGasTest = nil
     }
     
     @IBAction func litmusPaperTestClicked(_ sender: Any) {
         print("HI")
         selectedGasTest = 3
+        
+        showResults()
+        
+        selectedGasTest = nil
     }
     
     /*
@@ -306,5 +220,33 @@ class PlayFindGasDetailsViewController: UIViewController {
             timer = nil
             performSegue(withIdentifier: "findGasWrong", sender: nil)
         }
+    }
+    
+    func showResults() {
+        gas1Check.isHidden = false
+        gas2Check.isHidden = false
+        gas3Check.isHidden = false
+        gas4Check.isHidden = false
+        if gases.firstGasIsPositive[selectedGasTest] == false {
+            gas1Check.image = UIImage(named: "close.png")
+        } else {
+            gas1Check.image = UIImage(named: "check.png")
+        }
+        if gases.secondGasIsPositive[selectedGasTest] == false {
+            gas2Check.image = UIImage(named: "close.png")
+        } else {
+            gas2Check.image = UIImage(named: "check.png")
+        }
+        if gases.thirdGasIsPositive[selectedGasTest] == false {
+            gas3Check.image = UIImage(named: "close.png")
+        } else {
+            gas3Check.image = UIImage(named: "check.png")
+        }
+        if gases.forthGasIsPositive[selectedGasTest] == false {
+            gas4Check.image = UIImage(named: "close.png")
+        } else {
+            gas4Check.image = UIImage(named: "check.png")
+        }
+        selectedGasTest = nil
     }
 }
