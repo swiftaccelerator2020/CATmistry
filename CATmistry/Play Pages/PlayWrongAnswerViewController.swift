@@ -27,6 +27,7 @@ class PlayWrongAnswerViewController: UIViewController {
             sadLabel.text = "The wizard's beaker overflowed! Now your cat is under a spell...\nReview [Separation Methods] to save your cat. "
             nextGameButton.setTitle("Go Back Home", for: .normal)
             goHomeButton.isHidden = true
+            gameTwoAttempts += 1
             UserDefaults.incrementIntegerForKey(key: "gameTwoAttempts")
         } else {
             sadLabel.text = "Oh no! \n\nYour answer was wrong, and your cat died. \n\nDon't worry though, a cat has 9 lives, and you still have \(String(9 - currentGame)) rounds remaining in Level \(String(currentLevel + 1)). Good luck!"
@@ -34,10 +35,13 @@ class PlayWrongAnswerViewController: UIViewController {
                 nextGameButton.setTitle("Go Back Home", for: .normal)
                 goHomeButton.isHidden = true
                 if gameType == 1 {
+                    gameOneAttempts += 1
                     UserDefaults.incrementIntegerForKey(key: "gameOneAttempts")
                 } else if gameType == 3 {
+                    gameThreeAttempts += 1
                     UserDefaults.incrementIntegerForKey(key: "gameThreeAttempts")
                 } else if gameType == 4 {
+                    gameFourAttempts += 1
                     UserDefaults.incrementIntegerForKey(key: "gameFourAttempts")
                 }
             }

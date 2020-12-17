@@ -26,28 +26,28 @@ class QuizCorrectAnswerViewController: UIViewController {
         nextQuestionButton.layer.cornerRadius = 25
 
         if 9 - currentQuestion == 0 {
-            if correctAnswers >= 7 {
-                congratsLabel.text = "Well done! You got the answer right. \n\nThe quiz has come to an end, and you got \(String(correctAnswers)) of 10 questions right. Excellent!"
+            if correctAnswers >= 0 {
+                congratsLabel.text = "Well done! You got the answer right. \n\nThe quiz has to an end, and you got \(String(correctAnswers)) of 10 questions right. Excellent!"
                 if subTopic == "Gas Tests" {
                     ud.set(true, forKey: "chOneDone")
-//                    chOneDone = true
+                    chOneDone = true
                     UserDefaults.incrementIntegerForKey(key: "quizOneAttempts")
-//                    gameOneAttempts += 1
+                    quizOneAttempts += 1
                 } else if subTopic == "Separation Methods" {
                     ud.set(true, forKey: "chTwoDone")
-//                    chTwoDone = true
+                    chTwoDone = true
                     UserDefaults.incrementIntegerForKey(key: "quizTwoAttempts")
-//                    gameTwoAttempts += 1
+                    quizTwoAttempts += 1
                 } else if subTopic == "pH and Indicators" {
                     ud.set(true, forKey: "chThreeDone")
-//                    chThreeDone = true
+                    chThreeDone = true
                     UserDefaults.incrementIntegerForKey(key: "quizThreeAttempts")
-//                    gameThreeAttempts += 1
+                    quizThreeAttempts += 1
                 } else if subTopic == "Periodic Table" {
                     ud.set(true, forKey: "chFourDone")
-//                    chFourDone = true
+                    chFourDone = true
                     UserDefaults.incrementIntegerForKey(key: "quizFourAttempts")
-//                    gameFourAttempts += 1
+                    quizFourAttempts += 1
                 }
             } else {
                 congratsLabel.text = "Well done! You got the answer right. \n\nHowever, you only scored \(String(correctAnswers)) out of 10 in this quiz. You need at least 7 out of 10 to pass. Try harder next time!"

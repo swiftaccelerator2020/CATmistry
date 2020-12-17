@@ -38,16 +38,16 @@ class SettingsTableViewController: UITableViewController {
                 type: "switchCell",
                 emojiImage: "🅰️"
             ),
-            SettingsContent(
-                labelText: "Haptics",
-                type: "switchCell",
-                emojiImage: "📳"
-            ),
-            SettingsContent(
-                labelText: "Dark Mode",
-                type: "switchCell",
-                emojiImage: "🌙"
-            ),
+//            SettingsContent(
+//                labelText: "Haptics",
+//                type: "switchCell",
+//                emojiImage: "📳"
+//            ),
+//            SettingsContent(
+//                labelText: "Dark Mode",
+//                type: "switchCell",
+//                emojiImage: "🌙"
+//            ),
         ],
 
         [
@@ -174,13 +174,13 @@ class SettingsTableViewController: UITableViewController {
             ),
         ],
 
-        [
-            SettingsContent(
-                labelText: "",
-                type: "buttonCell",
-                emojiImage: ""
-            ),
-        ],
+//        [
+//            SettingsContent(
+//                labelText: "",
+//                type: "buttonCell",
+//                emojiImage: ""
+//            ),
+//        ],
     ]
 
     @IBOutlet var settingsTableView: UITableView!
@@ -262,7 +262,7 @@ class SettingsTableViewController: UITableViewController {
     // Table Footer
     override func tableView(_ tableView: UITableView, titleForFooterInSection
                                 section: Int) -> String? {
-        if settingsHeaderArray[section] == "" {
+        if settingsHeaderArray[section] == "Authors and Acknoledgements" {
             return "© 2020, Neo Hao Jun & Wang Zerui"
         } else {
             return nil
