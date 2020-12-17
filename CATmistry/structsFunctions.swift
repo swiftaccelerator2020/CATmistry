@@ -967,7 +967,7 @@ var phGameAlkalinUniversalStartColour = "monster-ph10.png"
 var periodicTable = [
     // LEVEL 1
     [
-        PeriodicTableGame(properties: "Silver, reactive, high melting point and hard", correctAns1: 1, correctAns2: 1, timeGiven: 20),
+        PeriodicTableGame(properties: "1. Shiny \n2. Reactive \n3. High melting point \n4. Hard", correctAns1: 1, correctAns2: 1, timeGiven: 20),
         PeriodicTableGame(properties: "HALO", correctAns1: 1, correctAns2: 2, timeGiven: 20),
         PeriodicTableGame(properties: "bai", correctAns1: 1, correctAns2: 3, timeGiven: 20)
     ],
