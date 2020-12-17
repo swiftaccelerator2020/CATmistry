@@ -32,7 +32,8 @@ CATmistry is available for iOS and iPadOS 14 on the [App Store]() (not yet!)
 
 ## Contributing
 
-Contribution is welcome! Feel free to fork our repo and create a pull request into development!
+Contribution is welcome! Feel free to fork our repo and create a pull request
+into development!
 
 ## Authors and Acknoledgements
 
@@ -41,17 +42,22 @@ Contribution is welcome! Feel free to fork our repo and create a pull request in
 </a>
 
 ### The CATmistry Team:
+
 1. Neo Hao Jun - CEO
 2. Wang Zerui - CTO
 3. Chanel Tan - CDO (Design)
 4. Ryu Hwina - CMO (Marketing)
 
 ### Special Thanks To:
+
 1. YJ Soon, for leading the Swift Accelerator Programme amid COVID-19
-2. Stephanie Ann Koh, our consultatnt, who advised us on the design element of CATmistry and provided us with unconditional support
-3. The Swift Accelerator Programme Alumni, who provided us with emotional, design, and code support
+2. Stephanie Ann Koh, our consultatnt, who advised us on the design element of
+   CATmistry and provided us with unconditional support
+3. The Swift Accelerator Programme Alumni, who provided us with emotional,
+   design, and code support
 
 ### Others:
+
 A big thank you to:
 
 1. Rochelle Teh Xinyue
