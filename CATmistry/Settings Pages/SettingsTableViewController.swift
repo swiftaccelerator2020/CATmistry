@@ -58,18 +58,18 @@ class SettingsTableViewController: UITableViewController {
             ),
             SettingsContent(
                 labelText: "Separation Methods: \(String(quizTwoAttempts))",
-                type: "switchCell",
-                emojiImage: "detailAccessoryCell"
+                type: "detailAccessoryCell",
+                emojiImage: ""
             ),
             SettingsContent(
                 labelText: "pH and Indicators: \(String(quizThreeAttempts))",
-                type: "switchCell",
-                emojiImage: "detailAccessoryCell"
+                type: "detailAccessoryCell",
+                emojiImage: ""
             ),
             SettingsContent(
                 labelText: "Periodic Table: \(String(quizFourAttempts))",
-                type: "switchCell",
-                emojiImage: "detailAccessoryCell"
+                type: "detailAccessoryCell",
+                emojiImage: ""
             ),
         ],
         
@@ -81,18 +81,18 @@ class SettingsTableViewController: UITableViewController {
             ),
             SettingsContent(
                 labelText: "Separation Methods: \(String(gameTwoAttempts))",
-                type: "switchCell",
-                emojiImage: "detailAccessoryCell"
+                type: "detailAccessoryCell",
+                emojiImage: ""
             ),
             SettingsContent(
                 labelText: "pH and Indicators: \(String(gameThreeAttempts))",
-                type: "switchCell",
-                emojiImage: "detailAccessoryCell"
+                type: "detailAccessoryCell",
+                emojiImage: ""
             ),
             SettingsContent(
                 labelText: "Periodic Table: \(String(gameFourAttempts))",
-                type: "switchCell",
-                emojiImage: "detailAccessoryCell"
+                type: "detailAccessoryCell",
+                emojiImage: ""
             ),
         ],
 
