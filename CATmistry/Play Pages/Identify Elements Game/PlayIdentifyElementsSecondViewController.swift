@@ -20,6 +20,8 @@ class PlayIdentifyElementsSecondViewController: UIViewController {
     @IBOutlet weak var groupTwo: UIButton!
     @IBOutlet weak var groupOne: UIButton!
     @IBOutlet weak var timeLeft: UILabel!
+    @IBOutlet weak var propertiesView: UILabel!
+    @IBOutlet weak var choicesView: UIView!
     
     var currentRound = 0
 
@@ -55,6 +57,9 @@ class PlayIdentifyElementsSecondViewController: UIViewController {
 
         nonMetal.clipsToBounds = true
         nonMetal.layer.cornerRadius = 0.5 * nonMetal.bounds.size.height
+        
+        propertiesView.layer.cornerRadius = 15
+        choicesView.layer.cornerRadius = 15
 
         // Do any additional setup after loading the view.
     }

@@ -28,21 +28,21 @@ class QuizWrongAnswerViewController: UIViewController {
             if correctAnswers >= 7 {
                 sadLabel.text = "Oh no! \n\nYour answer was wrong, but not to worry! You got \(String(correctAnswers)) of 10 questions in this quiz right. Excellent!"
                 if subTopic == "Gas Tests" {
-                    let ud = UserDefaults.standard
                     ud.set(true, forKey: "chOneDone")
-                    chOneDone = true
+//                    chOneDone = true
+                    UserDefaults.incrementIntegerForKey(key: "quizOneAttempts")
                 } else if subTopic == "Separation Methods" {
-                    let ud = UserDefaults.standard
                     ud.set(true, forKey: "chTwoDone")
-                    chTwoDone = true
+//                    chTwoDone = true
+                    UserDefaults.incrementIntegerForKey(key: "quizTwoAttempts")
                 } else if subTopic == "pH and Indicators" {
-                    let ud = UserDefaults.standard
                     ud.set(true, forKey: "chThreeDone")
-                    chThreeDone = true
+//                    chThreeDone = true
+                    UserDefaults.incrementIntegerForKey(key: "quizThreeAttempts")
                 } else if subTopic == "Periodic Table" {
-                    let ud = UserDefaults.standard
                     ud.set(true, forKey: "chFourDone")
-                    chFourDone = true
+//                    chFourDone = true
+                    UserDefaults.incrementIntegerForKey(key: "quizFourAttempts")
                 }
             } else {
                 sadLabel.text = "Oh no! \n\nYour answer was wrong, and you only scored \(String(correctAnswers)) out of 10 in this quiz. You need at least 7 out of 10 to pass. Try harder next time!"

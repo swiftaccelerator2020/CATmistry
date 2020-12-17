@@ -58,18 +58,18 @@ class SettingsTableViewController: UITableViewController {
             ),
             SettingsContent(
                 labelText: "Separation Methods: \(String(quizTwoAttempts))",
-                type: "switchCell",
-                emojiImage: "detailAccessoryCell"
+                type: "detailAccessoryCell",
+                emojiImage: ""
             ),
             SettingsContent(
                 labelText: "pH and Indicators: \(String(quizThreeAttempts))",
-                type: "switchCell",
-                emojiImage: "detailAccessoryCell"
+                type: "detailAccessoryCell",
+                emojiImage: ""
             ),
             SettingsContent(
                 labelText: "Periodic Table: \(String(quizFourAttempts))",
-                type: "switchCell",
-                emojiImage: "detailAccessoryCell"
+                type: "detailAccessoryCell",
+                emojiImage: ""
             ),
         ],
         
@@ -81,18 +81,18 @@ class SettingsTableViewController: UITableViewController {
             ),
             SettingsContent(
                 labelText: "Separation Methods: \(String(gameTwoAttempts))",
-                type: "switchCell",
-                emojiImage: "detailAccessoryCell"
+                type: "detailAccessoryCell",
+                emojiImage: ""
             ),
             SettingsContent(
                 labelText: "pH and Indicators: \(String(gameThreeAttempts))",
-                type: "switchCell",
-                emojiImage: "detailAccessoryCell"
+                type: "detailAccessoryCell",
+                emojiImage: ""
             ),
             SettingsContent(
                 labelText: "Periodic Table: \(String(gameFourAttempts))",
-                type: "switchCell",
-                emojiImage: "detailAccessoryCell"
+                type: "detailAccessoryCell",
+                emojiImage: ""
             ),
         ],
 
@@ -212,6 +212,7 @@ class SettingsTableViewController: UITableViewController {
         gameTwoAttempts = ud.integer(forKey: "gameTwoAttempts")
         gameThreeAttempts = ud.integer(forKey: "gameThreeAttempts")
         gameFourAttempts = ud.integer(forKey: "gameFourAttempts")
+        tableView.reloadData()
     }
 
     @IBAction func doneButtonClicked(_ sender: Any) {
@@ -262,7 +263,7 @@ class SettingsTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, titleForFooterInSection
                                 section: Int) -> String? {
         if settingsHeaderArray[section] == "" {
-            return "© 2020, Neo Hao Jun and Wang Zerui"
+            return "© 2020, Neo Hao Jun & Wang Zerui"
         } else {
             return nil
         }
