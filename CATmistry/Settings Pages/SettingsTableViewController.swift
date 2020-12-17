@@ -212,6 +212,7 @@ class SettingsTableViewController: UITableViewController {
         gameTwoAttempts = ud.integer(forKey: "gameTwoAttempts")
         gameThreeAttempts = ud.integer(forKey: "gameThreeAttempts")
         gameFourAttempts = ud.integer(forKey: "gameFourAttempts")
+        tableView.reloadData()
     }
 
     @IBAction func doneButtonClicked(_ sender: Any) {
