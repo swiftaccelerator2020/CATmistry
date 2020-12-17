@@ -139,7 +139,7 @@ class LearnHomePageTableViewController: UITableViewController {
             let indexPath = tableView.indexPathForSelectedRow!
             dest.flexibleTitle = learnTopics[indexPath.row].title
             dest.specificChapter = learnTopics[indexPath.row].subTopics
-            dest.quizTopic = learnTopics[indexPath.row].questions
+            dest.quizTopic = learnTopics[indexPath.row].questions.shuffled()
         }
     }
 
