@@ -992,10 +992,10 @@ var periodicTable = [
 ]
 
 var retrieveSolidsArray = [
-    specificSeperationMethod(name: "aa", properties: "filter", givenMethods: GivenSeperationMethods(methods: [SeperationMethods(methodName: "N.A", isCorrect: false),SeperationMethods(methodName: "Correct", isCorrect: true)])),
-    specificSeperationMethod(name: "bbb", properties: "filter", givenMethods: GivenSeperationMethods(methods: [SeperationMethods(methodName: "N.A", isCorrect: false),SeperationMethods(methodName: "Correct", isCorrect: true)])),
-    specificSeperationMethod(name: "ccc", properties: "filter", givenMethods: GivenSeperationMethods(methods: [SeperationMethods(methodName: "N.A", isCorrect: false),SeperationMethods(methodName: "Correct", isCorrect: true)])),
-    specificSeperationMethod(name: "ddd", properties: "filter", givenMethods: GivenSeperationMethods(methods: [SeperationMethods(methodName: "N.A", isCorrect: false),SeperationMethods(methodName: "Correct", isCorrect: true)])),
+    specificSeperationMethod(name: "Iron", properties: "Magnetic", givenMethods: GivenSeperationMethods(methods: [SeperationMethods(methodName: "N.A", isCorrect: false),SeperationMethods(methodName: "Magnetism", isCorrect: true)])),
+    specificSeperationMethod(name: "Nickel", properties: "Magnetic", givenMethods: GivenSeperationMethods(methods: [SeperationMethods(methodName: "N.A", isCorrect: false),SeperationMethods(methodName: "Magnetism", isCorrect: true)])),
+    specificSeperationMethod(name: "Cobalt", properties: "Magnetic", givenMethods: GivenSeperationMethods(methods: [SeperationMethods(methodName: "N.A", isCorrect: false),SeperationMethods(methodName: "Magnetism", isCorrect: true)])),
+    specificSeperationMethod(name: "Alumnium", properties: "Magnetic", givenMethods: GivenSeperationMethods(methods: [SeperationMethods(methodName: "N.A", isCorrect: false),SeperationMethods(methodName: "Magnetism", isCorrect: true)])),
     specificSeperationMethod(name: "eee", properties: "filter", givenMethods: GivenSeperationMethods(methods: [SeperationMethods(methodName: "N.A", isCorrect: false),SeperationMethods(methodName: "Correct", isCorrect: true)])),
     specificSeperationMethod(name: "ff", properties: "filter", givenMethods: GivenSeperationMethods(methods: [SeperationMethods(methodName: "N.A", isCorrect: false),SeperationMethods(methodName: "Correct", isCorrect: true)])),
     specificSeperationMethod(name: "gg", properties: "filter", givenMethods: GivenSeperationMethods(methods: [SeperationMethods(methodName: "N.A", isCorrect: false),SeperationMethods(methodName: "Correct", isCorrect: true)])),
