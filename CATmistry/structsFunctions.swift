@@ -967,27 +967,31 @@ var phGameAlkalinUniversalStartColour = "monster-ph10.png"
 var periodicTable = [
     // LEVEL 1
     [
-        PeriodicTableGame(properties: "1. Shiny \n2. Reactive \n3. High melting point \n4. Hard", correctAns1: 1, correctAns2: 1, timeGiven: 20),
-        PeriodicTableGame(properties: "HALO", correctAns1: 1, correctAns2: 2, timeGiven: 20),
-        PeriodicTableGame(properties: "bai", correctAns1: 1, correctAns2: 3, timeGiven: 20)
+        PeriodicTableGame(properties: "1. Shiny \n2. Highly Reactive \n3. Low melting point \n4. Hard", correctAns1: 1, correctAns2: 1, timeGiven: 20),
+        PeriodicTableGame(properties: "1. Dull \n2. Unreactive \n3. Low melting point", correctAns1: 4, correctAns2: 3, timeGiven: 20),
+        PeriodicTableGame(properties: "1. Shiny, silvery-white \n2. Somewhat Reactive \n3. Low melting point \n4. Soft", correctAns1: 2, correctAns2: 1, timeGiven: 20),
+        PeriodicTableGame(properties: "1. Dull \n2. Highly Reactive \n3. High melting point", correctAns1: 3, correctAns2: 3, timeGiven: 20),
     ],
     // LEVEL 2
     [
-        PeriodicTableGame(properties: "Silver, reactive, high melting point and hard", correctAns1: 1, correctAns2: 1, timeGiven: 15),
-        PeriodicTableGame(properties: "HALO", correctAns1: 1, correctAns2: 2, timeGiven: 15),
-        PeriodicTableGame(properties: "bai", correctAns1: 1, correctAns2: 3, timeGiven: 15)
+        PeriodicTableGame(properties: "1. Shiny \n2. Highly Reactive \n3. Low melting point \n4. Hard", correctAns1: 1, correctAns2: 1, timeGiven: 15),
+        PeriodicTableGame(properties: "1. Dull \n2. Unreactive \n3. Low melting point", correctAns1: 4, correctAns2: 3, timeGiven: 15),
+        PeriodicTableGame(properties: "1. Shiny, silvery-white \n2. Somewhat Reactive \n3. Low melting point \n4. Soft", correctAns1: 2, correctAns2: 1, timeGiven: 15),
+        PeriodicTableGame(properties: "1. Dull \n2. Highly Reactive \n3. High melting point", correctAns1: 3, correctAns2: 3, timeGiven: 15),
     ],
     // LEVEL 3
     [
-        PeriodicTableGame(properties: "Silver, reactive, high melting point and hard", correctAns1: 1, correctAns2: 1, timeGiven: 10),
-        PeriodicTableGame(properties: "HALO", correctAns1: 1, correctAns2: 2, timeGiven: 10),
-        PeriodicTableGame(properties: "bai", correctAns1: 1, correctAns2: 3, timeGiven: 10)
+        PeriodicTableGame(properties: "1. Shiny \n2. Highly Reactive \n3. Low melting point \n4. Hard", correctAns1: 1, correctAns2: 1, timeGiven: 10),
+        PeriodicTableGame(properties: "1. Dull \n2. Unreactive \n3. Low melting point", correctAns1: 4, correctAns2: 3, timeGiven: 10),
+        PeriodicTableGame(properties: "1. Shiny, silvery-white \n2. Somewhat Reactive \n3. Low melting point \n4. Soft", correctAns1: 2, correctAns2: 1, timeGiven: 10),
+        PeriodicTableGame(properties: "1. Dull \n2. Highly Reactive \n3. High melting point", correctAns1: 3, correctAns2: 3, timeGiven: 10),
     ],
     // LEVEL 4
     [
-        PeriodicTableGame(properties: "Silver, reactive, high melting point and hard", correctAns1: 1, correctAns2: 1, timeGiven: 5),
-        PeriodicTableGame(properties: "HALO", correctAns1: 1, correctAns2: 2, timeGiven: 5),
-        PeriodicTableGame(properties: "bai", correctAns1: 1, correctAns2: 3, timeGiven: 5)
+        PeriodicTableGame(properties: "1. Shiny \n2. Highly Reactive \n3. Low melting point \n4. Hard", correctAns1: 1, correctAns2: 1, timeGiven: 5),
+        PeriodicTableGame(properties: "1. Dull \n2. Unreactive \n3. Low melting point", correctAns1: 4, correctAns2: 3, timeGiven: 5),
+        PeriodicTableGame(properties: "1. Shiny, silvery-white \n2. Somewhat Reactive \n3. Low melting point \n4. Soft", correctAns1: 2, correctAns2: 1, timeGiven: 5),
+        PeriodicTableGame(properties: "1. Dull \n2. Highly Reactive \n3. High melting point", correctAns1: 3, correctAns2: 3, timeGiven: 5),
     ]
 ]
 
