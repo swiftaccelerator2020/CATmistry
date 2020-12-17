@@ -1,20 +1,16 @@
 PODS:
-  - LayoutHelper (0.1.5)
   - SwiftConfettiView (0.1.0)
 
 DEPENDENCIES:
-  - LayoutHelper
   - SwiftConfettiView
 
 SPEC REPOS:
   trunk:
-    - LayoutHelper
     - SwiftConfettiView
 
 SPEC CHECKSUMS:
-  LayoutHelper: 54b1e44cf7a5bb5d8256f0ad805fce633454175d
   SwiftConfettiView: 1bdbc2e6913b6b1c76d8070802b212508ad5c352
 
-PODFILE CHECKSUM: 7482d9a6186c2d90d526589dc3fde0d33ce2260f
+PODFILE CHECKSUM: d6a59c0a8a7d2f2fbda70f5aea0528d03d64e7e6
 
-COCOAPODS: 1.10.0
+COCOAPODS: 1.9.3
