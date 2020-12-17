@@ -10,6 +10,15 @@ import UIKit
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
+        override init() {
+            super.init()
+            let ud = UserDefaults.standard
+            let isDyslexic = ud.bool(forKey: "dyslexic")
+
+            if isDyslexic == true {
+                UIFont.overrideInitialize()
+            }
+        }
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
@@ -33,4 +42,3 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
 }
-

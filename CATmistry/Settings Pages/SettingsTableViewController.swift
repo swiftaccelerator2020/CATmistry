@@ -7,15 +7,26 @@
 
 import UIKit
 
+var quizOneAttempts = ud.integer(forKey: "quizOneAttempts")
+var quizTwoAttempts = ud.integer(forKey: "quizTwoAttempts")
+var quizThreeAttempts = ud.integer(forKey: "quizThreeAttempts")
+var quizFourAttempts = ud.integer(forKey: "quizFourAttempts")
+var gameOneAttempts = ud.integer(forKey: "gameOneAttempts")
+var gameTwoAttempts = ud.integer(forKey: "gameTwoAttempts")
+var gameThreeAttempts = ud.integer(forKey: "gameThreeAttempts")
+var gameFourAttempts = ud.integer(forKey: "gameFourAttempts")
+
 class SettingsTableViewController: UITableViewController {
 
     var settingsHeaderArray = [
         "Accessibility Settings",
-        "General Statistics",
-        "Find Gas Game",
-        "Retrieve Solids Game",
-        "Adjust pH Game",
-        "Identify Elements Game",
+        "Quiz Attempts",
+        "Game Attempts",
+//        "General Statistics",
+//        "Find Gas Game",
+//        "Retrieve Solids Game",
+//        "Adjust pH Game",
+//        "Identify Elements Game",
         "Authors and Acknoledgements",
         ""
     ]
@@ -41,68 +52,114 @@ class SettingsTableViewController: UITableViewController {
 
         [
             SettingsContent(
-                labelText: "Chapters Covered:",
+                labelText: "Gas Tests: \(String(quizOneAttempts))",
                 type: "detailAccessoryCell",
-                emojiImage: "📚"
+                emojiImage: "1️⃣"
             ),
             SettingsContent(
-                labelText: "Hours Spent Learning:",
+                labelText: "Separation Methods: \(String(quizTwoAttempts))",
                 type: "detailAccessoryCell",
-                emojiImage: "⏰"
+                emojiImage: "2️⃣"
+            ),
+            SettingsContent(
+                labelText: "pH and Indicators: \(String(quizThreeAttempts))",
+                type: "detailAccessoryCell",
+                emojiImage: "3️⃣"
+            ),
+            SettingsContent(
+                labelText: "Periodic Table: \(String(quizFourAttempts))",
+                type: "detailAccessoryCell",
+                emojiImage: "4️⃣"
             ),
         ],
 
         [
             SettingsContent(
-                labelText: "Number of Times Played: ",
+                labelText: "Gas Tests: \(String(gameOneAttempts))",
                 type: "detailAccessoryCell",
-                emojiImage: "🎮"
+                emojiImage: "1️⃣"
             ),
             SettingsContent(
-                labelText: "High Score: ",
-                type: "disclosureIndicatorCell",
-                emojiImage: "🏅"
+                labelText: "Separation Methods: \(String(gameTwoAttempts))",
+                type: "detailAccessoryCell",
+                emojiImage: "2️⃣"
+            ),
+            SettingsContent(
+                labelText: "pH and Indicators: \(String(gameThreeAttempts))",
+                type: "detailAccessoryCell",
+                emojiImage: "3️⃣"
+            ),
+            SettingsContent(
+                labelText: "Periodic Table: \(String(gameFourAttempts))",
+                type: "detailAccessoryCell",
+                emojiImage: "4️⃣"
             ),
         ],
 
-        [
-            SettingsContent(
-                labelText: "Number of Times Played: ",
-                type: "detailAccessoryCell",
-                emojiImage: "🎮"
-            ),
-            SettingsContent(
-                labelText: "High Score: ",
-                type: "disclosureIndicatorCell",
-                emojiImage: "🏅"
-            ),
-        ],
-
-        [
-            SettingsContent(
-                labelText: "Number of Times Played: ",
-                type: "detailAccessoryCell",
-                emojiImage: "🎮"
-            ),
-            SettingsContent(
-                labelText: "High Score: ",
-                type: "disclosureIndicatorCell",
-                emojiImage: "🏅"
-            ),
-        ],
-
-        [
-            SettingsContent(
-                labelText: "Number of Times Played: ",
-                type: "detailAccessoryCell",
-                emojiImage: "🎮"
-            ),
-            SettingsContent(
-                labelText: "High Score: ",
-                type: "disclosureIndicatorCell",
-                emojiImage: "🏅"
-            ),
-        ],
+//        [
+//            SettingsContent(
+//                labelText: "Chapters Covered:",
+//                type: "detailAccessoryCell",
+//                emojiImage: "📚"
+//            ),
+//            SettingsContent(
+//                labelText: "Hours Spent Learning:",
+//                type: "detailAccessoryCell",
+//                emojiImage: "⏰"
+//            ),
+//        ],
+//
+//        [
+//            SettingsContent(
+//                labelText: "Number of Times Played: ",
+//                type: "detailAccessoryCell",
+//                emojiImage: "🎮"
+//            ),
+//            SettingsContent(
+//                labelText: "High Score: ",
+//                type: "disclosureIndicatorCell",
+//                emojiImage: "🏅"
+//            ),
+//        ],
+//
+//        [
+//            SettingsContent(
+//                labelText: "Number of Times Played: ",
+//                type: "detailAccessoryCell",
+//                emojiImage: "🎮"
+//            ),
+//            SettingsContent(
+//                labelText: "High Score: ",
+//                type: "disclosureIndicatorCell",
+//                emojiImage: "🏅"
+//            ),
+//        ],
+//
+//        [
+//            SettingsContent(
+//                labelText: "Number of Times Played: ",
+//                type: "detailAccessoryCell",
+//                emojiImage: "🎮"
+//            ),
+//            SettingsContent(
+//                labelText: "High Score: ",
+//                type: "disclosureIndicatorCell",
+//                emojiImage: "🏅"
+//            ),
+//        ],
+//
+//        [
+//            SettingsContent(
+//                labelText: "Number of Times Played: ",
+//                type: "detailAccessoryCell",
+//                emojiImage: "🎮"
+//            ),
+//            SettingsContent(
+//                labelText: "High Score: ",
+//                type: "disclosureIndicatorCell",
+//                emojiImage: "🏅"
+//            ),
+//        ],
 
         [
             SettingsContent(
@@ -144,6 +201,18 @@ class SettingsTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
+        quizOneAttempts = ud.integer(forKey: "quizOneAttempts")
+        quizTwoAttempts = ud.integer(forKey: "quizTwoAttempts")
+        quizThreeAttempts = ud.integer(forKey: "quizThreeAttempts")
+        quizFourAttempts = ud.integer(forKey: "quizFourAttempts")
+        gameOneAttempts = ud.integer(forKey: "gameOneAttempts")
+        gameTwoAttempts = ud.integer(forKey: "gameTwoAttempts")
+        gameThreeAttempts = ud.integer(forKey: "gameThreeAttempts")
+        gameFourAttempts = ud.integer(forKey: "gameFourAttempts")
+        tableView.reloadData()
     }
 
     @IBAction func doneButtonClicked(_ sender: Any) {
@@ -194,7 +263,7 @@ class SettingsTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, titleForFooterInSection
                                 section: Int) -> String? {
         if settingsHeaderArray[section] == "" {
-            return "© 2020, Neo Hao Jun and Wang Zerui"
+            return "© 2020, Neo Hao Jun & Wang Zerui"
         } else {
             return nil
         }
@@ -207,7 +276,6 @@ class SettingsTableViewController: UITableViewController {
             return 45.0
         }
     }
-
 
     /*
      // Override to support conditional editing of the table view.

@@ -14,20 +14,22 @@ class PlayAdjustPhDetailsViewController: UIViewController {
     var chosenOption = 0
     var correctGames = 0
     var wrongGames = 0
+    var timeLeft = 20
     var indicatorPresent = false
     var phOptionsSet = Set<PhOption>()
     var phOptionsArray: Array<PhOption>!
+    var timer: Timer!
 
     @IBOutlet weak var addFirstIndicatorButton: UIButton!
     @IBOutlet weak var monsterImageView: UIImageView!
     @IBOutlet weak var firstOptionImageView: UIImageView!
-    @IBOutlet weak var firstOptionLabel: UILabel!
+//    @IBOutlet weak var firstOptionLabel: UILabel!
     @IBOutlet weak var secondOptionImageView: UIImageView!
-    @IBOutlet weak var secondOptionLabel: UILabel!
+//    @IBOutlet weak var secondOptionLabel: UILabel!
     @IBOutlet weak var thirdOptionImageView: UIImageView!
-    @IBOutlet weak var thirdOptionLabel: UILabel!
+//    @IBOutlet weak var thirdOptionLabel: UILabel!
     @IBOutlet weak var fourthOptionImageView: UIImageView!
-    @IBOutlet weak var fourthOptionLabel: UILabel!
+//    @IBOutlet weak var fourthOptionLabel: UILabel!
     @IBOutlet weak var firstOptionStackView: UIStackView!
     @IBOutlet weak var secondOptionStackView: UIStackView!
     @IBOutlet weak var thirdOptionStackView: UIStackView!
@@ -82,12 +84,16 @@ class PlayAdjustPhDetailsViewController: UIViewController {
         thirdOptionImageView.image = UIImage(named: phOptionsArray[2].image)
         fourthOptionImageView.image = UIImage(named: phOptionsArray[3].image)
 
-        firstOptionLabel.text = phOptionsArray[0].name
-        secondOptionLabel.text = phOptionsArray[1].name
-        thirdOptionLabel.text = phOptionsArray[2].name
-        fourthOptionLabel.text = phOptionsArray[3].name
+//        firstOptionLabel.text = phOptionsArray[0].name
+//        secondOptionLabel.text = phOptionsArray[1].name
+//        thirdOptionLabel.text = phOptionsArray[2].name
+//        fourthOptionLabel.text = phOptionsArray[3].name
     }
 
+    override func viewDidAppear(_ animated: Bool) {
+        timeLeft = 20
+        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(PlayAdjustPhDetailsViewController.updateTimer), userInfo: nil, repeats: true)
+    }
     @IBAction func clickAddUniversalIndicator(_ sender: Any) {
         if addFirstIndicatorButton.titleLabel!.text == "Add Universal Indicator" {
             indicatorPresent = true
@@ -245,10 +251,10 @@ class PlayAdjustPhDetailsViewController: UIViewController {
         thirdOptionImageView.image = UIImage(named: phOptionsArray[2].image)
         fourthOptionImageView.image = UIImage(named: phOptionsArray[3].image)
 
-        firstOptionLabel.text = phOptionsArray[0].name
-        secondOptionLabel.text = phOptionsArray[1].name
-        thirdOptionLabel.text = phOptionsArray[2].name
-        fourthOptionLabel.text = phOptionsArray[3].name
+//        firstOptionLabel.text = phOptionsArray[0].name
+//        secondOptionLabel.text = phOptionsArray[1].name
+//        thirdOptionLabel.text = phOptionsArray[2].name
+//        fourthOptionLabel.text = phOptionsArray[3].name
     }
 
     func optionCorrect() {
@@ -272,10 +278,21 @@ class PlayAdjustPhDetailsViewController: UIViewController {
             let destVC = segue.destination as! PlayCorrectAnswerViewController
             destVC.currentLevel = currentLevel
             destVC.currentGame = currentGame
+            destVC.gameType = 3
         } else if segue.identifier == "adjustPhWrong" {
             let destVC = segue.destination as! PlayWrongAnswerViewController
             destVC.currentLevel = currentLevel
             destVC.currentGame = currentGame
+            destVC.gameType = 3
+        }
+    }
+
+    @objc func updateTimer() {
+        timeLeft -= 1
+        timerLabel.text = "\(timeLeft) seconds left"
+        if (timeLeft == 0) {
+            currentGame -= 1
+            optionWrong()
         }
     }
 }

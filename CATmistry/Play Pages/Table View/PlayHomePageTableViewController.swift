@@ -9,7 +9,12 @@ import UIKit
 
 class PlayHomePageTableViewController: UITableViewController{
 
-    var points = 1000
+    var chapterApproved = [
+        chOneDone,
+        chTwoDone,
+        chThreeDone,
+        chFourDone,
+    ]
 
     @IBOutlet var playPageTable: UITableView!
 
@@ -49,7 +54,7 @@ class PlayHomePageTableViewController: UITableViewController{
         let currentTopic = gameTopics[indexPath.row]
 
         if let cell = cell as? PlayHomePageTableViewCell{
-            if (points < currentTopic.pointsNeeded){
+            if chapterApproved[indexPath.row] == false {
                 cell.selectionStyle = .none
                 cell.playChapterLabel.isEnabled = false
                 cell.needMorePointsLabel.isHidden = false
@@ -114,9 +119,12 @@ class PlayHomePageTableViewController: UITableViewController{
      }
      */
 
+    @IBAction func settingsButtonClicked(_ sender: Any) {
+
+    }
 
         override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-            if gameTopics[indexPath.row].pointsNeeded < points{
+            if chapterApproved[indexPath.row] == true {
                 performSegue(withIdentifier: gameTopics[indexPath.row].segDesti, sender: nil)
             }
         }

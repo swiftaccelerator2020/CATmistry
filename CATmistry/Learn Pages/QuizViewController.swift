@@ -19,30 +19,39 @@ class QuizViewController: UIViewController {
 
     var index = 0
     var question: [QuizQuestion]!
+    var correctAnswers = 0
+    var wrongAnswers = 0
+    var subTopic: String!
 
     override func viewDidLoad() {
+        super.viewDidLoad()
 
+        // Do any additional setup after loading the view.
         timeLeft.transform = timeLeft.transform.scaledBy(x: 1, y: 2)
 
         optionOne.setTitle(question[index].options[0], for: .normal)
-
         optionTwo.setTitle(question[index].options[1], for: .normal)
-
         optionThree.setTitle(question[index].options[2], for: .normal)
-
         optionFour.setTitle(question[index].options[3], for: .normal)
-
         questionLabel.text = question[index].question
 
-        // Do any additional setup after loading the view.
+        optionOne.layer.cornerRadius = 15
+        optionTwo.layer.cornerRadius = 15
+        optionThree.layer.cornerRadius = 15
+        optionFour.layer.cornerRadius = 15
+
+        optionOne.titleLabel?.lineBreakMode = .byWordWrapping
+        optionTwo.titleLabel?.lineBreakMode = .byWordWrapping
+        optionThree.titleLabel?.lineBreakMode = .byWordWrapping
+        optionFour.titleLabel?.lineBreakMode = .byWordWrapping
     }
 
     override func viewDidAppear(_ animated: Bool) {
         timeLeft.progress = 0
 
         if (index >= question.count){
-            stopTimer()
-            performSegue(withIdentifier: "quizEnded", sender: nil)
+//            stopTimer()
+//            performSegue(withIdentifier: "quizEnded", sender: nil)
         } else {
 
             optionOne.setTitle(question[index].options[0], for: .normal)
@@ -64,8 +73,10 @@ class QuizViewController: UIViewController {
         stopTimer()
         if (question[index].correctAnswer == 1) {
             performSegue(withIdentifier: "correctAns", sender: nil)
+            correctAnswers += 1
         } else {
             performSegue(withIdentifier: "wrongAns", sender: nil)
+            wrongAnswers += 1
         }
         index += 1
     }
@@ -74,8 +85,10 @@ class QuizViewController: UIViewController {
         stopTimer()
         if (question[index].correctAnswer == 2) {
             performSegue(withIdentifier: "correctAns", sender: nil)
+            correctAnswers += 1
         } else {
             performSegue(withIdentifier: "wrongAns", sender: nil)
+            wrongAnswers += 1
         }
         index += 1
     }
@@ -84,8 +97,10 @@ class QuizViewController: UIViewController {
         stopTimer()
         if (question[index].correctAnswer == 3) {
             performSegue(withIdentifier: "correctAns", sender: nil)
+            correctAnswers += 1
         } else {
             performSegue(withIdentifier: "wrongAns", sender: nil)
+            wrongAnswers += 1
         }
         index += 1
     }
@@ -94,22 +109,38 @@ class QuizViewController: UIViewController {
         stopTimer()
         if (question[index].correctAnswer == 4) {
             performSegue(withIdentifier: "correctAns", sender: nil)
+            correctAnswers += 1
         } else {
             performSegue(withIdentifier: "wrongAns", sender: nil)
+            wrongAnswers += 1
         }
         index += 1
     }
-    /*
+
      // MARK: - Navigation
 
      // In a storyboard-based application, you will often want to do a little preparation before navigation
      override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
      // Get the new view controller using segue.destination.
      // Pass the selected object to the new view controller.
+        if segue.identifier == "correctAns" {
+            let destVC = segue.destination as! QuizCorrectAnswerViewController
+            destVC.currentQuestion = index
+            destVC.correctAnswers = correctAnswers
+            destVC.wrongAnswers = wrongAnswers
+            destVC.subTopic = subTopic
+        } else if segue.identifier == "wrongAns" {
+            let destVC = segue.destination as! QuizWrongAnswerViewController
+            destVC.currentQuestion = index
+            destVC.correctAnswers = correctAnswers
+            destVC.wrongAnswers = wrongAnswers
+            destVC.subTopic = subTopic
+        }
      }
-     */
+
+
     @objc func updateProgressView(){
-        timeLeft.progress += 0.005
+        timeLeft.progress += 0.0025
         if (timeLeft.progress == 1.0) {
             stopTimer()
             performSegue(withIdentifier: "wrongAns", sender: nil)
