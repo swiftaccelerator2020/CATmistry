@@ -28,6 +28,7 @@ class PlayCorrectAnswerViewController: UIViewController {
             congratsLabel.text = "Yay good job you saved the cat!"
             nextGameButton.setTitle("Go Back Home", for: .normal)
             goHomeButton.isHidden = true
+            gameTwoAttempts += 1
             UserDefaults.incrementIntegerForKey(key: "gameTwoAttempts")
         } else {
             congratsLabel.text = "Congrats! \n\nThrough your hard work, your cat has been able to avoid the danger. \n\nYou have \(String(9 - currentGame)) rounds remaining in Level \(String(currentLevel + 1)). Keep up the good work!"
@@ -35,10 +36,13 @@ class PlayCorrectAnswerViewController: UIViewController {
                 nextGameButton.setTitle("Go Back Home", for: .normal)
                 goHomeButton.isHidden = true
                 if gameType == 1 {
+                    gameOneAttempts += 1
                     UserDefaults.incrementIntegerForKey(key: "gameOneAttempts")
                 } else if gameType == 3 {
+                    gameThreeAttempts += 1
                     UserDefaults.incrementIntegerForKey(key: "gameThreeAttempts")
                 } else if gameType == 4 {
+                    gameFourAttempts += 1
                     UserDefaults.incrementIntegerForKey(key: "gameFourAttempts")
                 }
             }
