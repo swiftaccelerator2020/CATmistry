@@ -354,14 +354,6 @@ var learnTopics = [
                                     "Fractional distillation is simpler"
                                 ], correctAnswer: 1),
 
-                QuizQuestion(question: "Which of the following can be seperated by magnetic seperation?", options:
-                                [
-                                    "Chocolate and ice",
-                                    "Salt and sugar",
-                                    "Gummy bears and gum",
-                                    "Sand and iron filings"
-                                ], correctAnswer: 4),
-
                 QuizQuestion(question: "Which solutions can be separated with crystallisation", options: [
                       "Sugar and salt",
                       "Iron and salt",
@@ -463,7 +455,7 @@ var learnTopics = [
                                       "Water from a mixture of water and sand",
                                       "Orange fibre from orange juice",
                                       "Different inks from a mixture of inks"
-                                ], correctAnswer: 3),
+                                ], correctAnswer: 2),
 
                 QuizQuestion(question: "When is crystallisation used", options: [
                       "When evaporation to dryness cannot be used",
@@ -823,7 +815,7 @@ var learnTopics = [
                                 "far right hand side",
                                 "far left hand side",
                                 "nowhere, metals aren't in the periodic table"
-                            ], correctAnswer: 2),
+                            ], correctAnswer: 3),
 
             QuizQuestion(question: "What is copper's atmoic symbol?", options:
                             [
@@ -876,24 +868,28 @@ var gameTopics = [
 ]
 
 var gasesArray = [
-    GasTestGame(firstGasTank: "Ammonia", secondGasTank: "Carbon Dioxide", thirdGasTank: "Oxygen", fourthGasTank: "Hydrogen", firstGasIsPositive: [false, true, false, false], secondGasIsPositive: [false, false, false, true], thirdGasIsPositive: [false, false, true, false], forthGasIsPositive: [true, false, false, false], correctGasTank: "Hydrogen"),
-    GasTestGame(firstGasTank: "Ammonia", secondGasTank: "Carbon Dioxide", thirdGasTank: "Hydrogen", fourthGasTank: "Oxygen", firstGasIsPositive: [false, true, false, false], secondGasIsPositive: [false, false, true, false], thirdGasIsPositive: [false, false, false, true], forthGasIsPositive: [true, false, false, false], correctGasTank: "Hydrogen"),
-    GasTestGame(firstGasTank: "Ammonia", secondGasTank: "Oxygen", thirdGasTank: "Carbon Dioxide", fourthGasTank: "Hydrogen", firstGasIsPositive: [false, false, true, false], secondGasIsPositive: [false, false, false, true], thirdGasIsPositive: [false, true, false, false], forthGasIsPositive: [true, false, false, false], correctGasTank: "Oxygen"),
+    GasTestGame(firstGasTank: "Ammonia", secondGasTank: "Carbon Dioxide", thirdGasTank: "Oxygen", fourthGasTank: "Hydrogen", firstGasIsPositive: [false, false, false, true], secondGasIsPositive: [true, false, false, false], thirdGasIsPositive: [false, false, true, false], forthGasIsPositive: [false, true, false, false], correctGasTank: "Hydrogen"),
+    GasTestGame(firstGasTank: "Ammonia", secondGasTank: "Carbon Dioxide", thirdGasTank: "Hydrogen", fourthGasTank: "Oxygen", firstGasIsPositive: [false, false, false, true], secondGasIsPositive: [true, false, false, false], thirdGasIsPositive: [false, true, false, false], forthGasIsPositive: [false, false, true, false], correctGasTank: "Hydrogen"),
+    GasTestGame(firstGasTank: "Ammonia", secondGasTank: "Oxygen", thirdGasTank: "Carbon Dioxide", fourthGasTank: "Hydrogen", firstGasIsPositive: [false, false, false, true], secondGasIsPositive: [false, false, true, false], thirdGasIsPositive: [true, false, false, false], forthGasIsPositive: [false, true, false, false], correctGasTank: "Oxygen"),
     GasTestGame(firstGasTank: "Ammonia", secondGasTank: "Oxygen", thirdGasTank: "Hydrogen", fourthGasTank: "Carbon Dioxide", firstGasIsPositive: [false, false, false, true], secondGasIsPositive: [false, false, true, false], thirdGasIsPositive: [false, true, false, false], forthGasIsPositive: [true, false, false, false], correctGasTank: "Hydrogen"),
     GasTestGame(firstGasTank: "Ammonia", secondGasTank: "Hydrogen", thirdGasTank: "Oxygen", fourthGasTank: "Carbon Dioxide", firstGasIsPositive: [false, false, false, true], secondGasIsPositive: [false, true, false, false], thirdGasIsPositive: [false, false, true, false], forthGasIsPositive: [true, false, false, false], correctGasTank: "Ammonia"),
     GasTestGame(firstGasTank: "Ammonia", secondGasTank: "Hydrogen", thirdGasTank: "Carbon Dioxide", fourthGasTank: "Oxygen", firstGasIsPositive: [false, false, true, false], secondGasIsPositive: [false, true, false, false], thirdGasIsPositive: [false, false, false, true], forthGasIsPositive: [true, false, false, false], correctGasTank: "Carbon Dioxide"),
+    
     GasTestGame(firstGasTank: "Carbon Dioxide", secondGasTank: "Ammonia", thirdGasTank: "Hydrogen", fourthGasTank: "Oxygen", firstGasIsPositive: [true, false, false, false], secondGasIsPositive: [false, false, true, false], thirdGasIsPositive: [false, false, false, true], forthGasIsPositive: [false, true, false, false], correctGasTank: "Hydrogen"),
     GasTestGame(firstGasTank: "Carbon Dioxide", secondGasTank: "Ammonia", thirdGasTank: "Oxygen", fourthGasTank: "Hydrogen", firstGasIsPositive: [true, false, false, false], secondGasIsPositive: [false, false, false, true], thirdGasIsPositive: [false, false, true, false], forthGasIsPositive: [false, true, false, false], correctGasTank: "Oxygen"),
     GasTestGame(firstGasTank: "Carbon Dioxide", secondGasTank: "Hydrogen", thirdGasTank: "Oxygen", fourthGasTank: "Ammonia",  firstGasIsPositive: [true, false, false, false], secondGasIsPositive: [false, true, false, false], thirdGasIsPositive: [false, false, true, false], forthGasIsPositive: [false, false, false, true], correctGasTank: "Hydrogen"),
     GasTestGame(firstGasTank: "Carbon Dioxide", secondGasTank: "Hydrogen", thirdGasTank: "Ammonia", fourthGasTank: "Oxygen", firstGasIsPositive: [true, false, false, false], secondGasIsPositive: [false, true, false, false], thirdGasIsPositive: [false, false, false, true], forthGasIsPositive: [false, false, true, false], correctGasTank: "Carbon Dioxide"),
     GasTestGame(firstGasTank: "Carbon Dioxide", secondGasTank: "Oxygen", thirdGasTank: "Ammonia", fourthGasTank: "Hydrogen", firstGasIsPositive: [true, false, false, false], secondGasIsPositive: [false, false, false, true], thirdGasIsPositive: [false, true, false, false], forthGasIsPositive: [false, false, true, false], correctGasTank: "Ammonia"),
     GasTestGame(firstGasTank: "Carbon Dioxide", secondGasTank: "Oxygen", thirdGasTank: "Hydrogen", fourthGasTank: "Ammonia", firstGasIsPositive: [true, false, false, false], secondGasIsPositive: [false, false, true, false], thirdGasIsPositive: [false, true, false, false], forthGasIsPositive: [false, false, false, true], correctGasTank: "Oxygen"),
+    
     GasTestGame(firstGasTank: "Oxygen", secondGasTank: "Hydrogen", thirdGasTank: "Carbon Dioxide", fourthGasTank: "Ammonia", firstGasIsPositive: [false, false, true, false], secondGasIsPositive: [false, true, false, false], thirdGasIsPositive: [true, false, false, false], forthGasIsPositive: [false, false, false, true], correctGasTank: "Carbon Dioxide"),
     GasTestGame(firstGasTank: "Oxygen", secondGasTank: "Hydrogen", thirdGasTank: "Ammonia", fourthGasTank: "Carbon Dioxide", firstGasIsPositive: [false, false, true, false], secondGasIsPositive: [false, true, false, false], thirdGasIsPositive: [false, false, false, true], forthGasIsPositive: [true, false, false, false], correctGasTank: "Ammonia"),
     GasTestGame(firstGasTank: "Oxygen", secondGasTank: "Carbon Dioxide", thirdGasTank: "Hydrogen", fourthGasTank: "Ammonia", firstGasIsPositive: [false, false, true, false], secondGasIsPositive: [true, false, false, false], thirdGasIsPositive: [false, true, false, false], forthGasIsPositive: [false, false, false, true], correctGasTank: "Hydrogen"),
     GasTestGame(firstGasTank: "Oxygen", secondGasTank: "Carbon Dioxide", thirdGasTank: "Ammonia", fourthGasTank: "Hydrogen", firstGasIsPositive: [false, false, true, false], secondGasIsPositive: [true, false, false, false], thirdGasIsPositive: [false, false, false, true], forthGasIsPositive: [false, true, false, false], correctGasTank: "Oxygen"),
     GasTestGame(firstGasTank: "Oxygen", secondGasTank: "Ammonia", thirdGasTank: "Hydrogen", fourthGasTank: "Carbon Dioxide", firstGasIsPositive: [false, false, true, false], secondGasIsPositive: [false, false, false, true], thirdGasIsPositive: [false, true, false, false], forthGasIsPositive: [true, false, false, false], correctGasTank: "Carbon Dioxide"),
-    GasTestGame(firstGasTank: "Oxygen", secondGasTank: "Ammonia", thirdGasTank: "Carbon Dioxide", fourthGasTank: "Hydrogen", firstGasIsPositive: [false, false, true, false], secondGasIsPositive: [false, false, false, true], thirdGasIsPositive: [true, false, false, false], forthGasIsPositive: [false, true, false, false], correctGasTank: "Ammonia"),GasTestGame(firstGasTank: "Hydrogen", secondGasTank: "Oxygen", thirdGasTank: "Carbon Dioxide", fourthGasTank: "Ammonia", firstGasIsPositive: [false, true, false, false], secondGasIsPositive: [false, false, true, false], thirdGasIsPositive: [true, false, false, false], forthGasIsPositive: [false, false, false, true], correctGasTank: "Hydrogen"),
+    GasTestGame(firstGasTank: "Oxygen", secondGasTank: "Ammonia", thirdGasTank: "Carbon Dioxide", fourthGasTank: "Hydrogen", firstGasIsPositive: [false, false, true, false], secondGasIsPositive: [false, false, false, true], thirdGasIsPositive: [true, false, false, false], forthGasIsPositive: [false, true, false, false], correctGasTank: "Ammonia"),
+    
+    GasTestGame(firstGasTank: "Hydrogen", secondGasTank: "Oxygen", thirdGasTank: "Carbon Dioxide", fourthGasTank: "Ammonia", firstGasIsPositive: [false, true, false, false], secondGasIsPositive: [false, false, true, false], thirdGasIsPositive: [true, false, false, false], forthGasIsPositive: [false, false, false, true], correctGasTank: "Hydrogen"),
     GasTestGame(firstGasTank: "Hydrogen", secondGasTank: "Oxygen", thirdGasTank: "Ammonia", fourthGasTank: "Carbon Dioxide", firstGasIsPositive: [false, true, false, false], secondGasIsPositive: [false, false, true, false], thirdGasIsPositive: [false, false, false, true], forthGasIsPositive: [true, false, false, false], correctGasTank: "Oxygen"),
     GasTestGame(firstGasTank: "Hydrogen", secondGasTank: "Carbon Dioxide", thirdGasTank: "Ammonia", fourthGasTank: "Oxygen", firstGasIsPositive: [false, true, false, false], secondGasIsPositive: [true, false, false, false], thirdGasIsPositive: [false, false, false, true], forthGasIsPositive: [false, false, true, false], correctGasTank: "Carbon Dioxide"),
     GasTestGame(firstGasTank: "Hydrogen", secondGasTank: "Carbon Dioxide", thirdGasTank: "Oxygen", fourthGasTank: "Ammonia", firstGasIsPositive: [false, true, false, false], secondGasIsPositive: [true, false, false, false], thirdGasIsPositive: [false, false, true, false], forthGasIsPositive: [false, false, false, true], correctGasTank: "Ammonia"),
@@ -1005,6 +1001,7 @@ var retrieveSolidsArray = [
     specificSeperationMethod(name: "Cobalt", properties: "Magnetic", givenMethods: GivenSeperationMethods(methods: [SeperationMethods(methodName: "Evaporation", isCorrect: false), SeperationMethods(methodName: "Distillation", isCorrect: false), SeperationMethods(methodName: "Filtration", isCorrect: false), SeperationMethods(methodName: "Magnetism", isCorrect: true), SeperationMethods(methodName: "Crystallisation", isCorrect: false)])),
     specificSeperationMethod(name: "Alumnium", properties: "Magnetic", givenMethods: GivenSeperationMethods(methods: [SeperationMethods(methodName: "Evaporation", isCorrect: false), SeperationMethods(methodName: "Distillation", isCorrect: false), SeperationMethods(methodName: "Filtration", isCorrect: false), SeperationMethods(methodName: "Magnetism", isCorrect: true), SeperationMethods(methodName: "Crystallisation", isCorrect: false)])),
     specificSeperationMethod(name: "Sugar", properties: "Soluble in water", givenMethods: GivenSeperationMethods(methods: [SeperationMethods(methodName: "Evaporation", isCorrect: false), SeperationMethods(methodName: "Distillation", isCorrect: false), SeperationMethods(methodName: "Filtration", isCorrect: false), SeperationMethods(methodName: "Magnetism", isCorrect: false), SeperationMethods(methodName: "Crystallisation", isCorrect: true)])),
+    specificSeperationMethod(name: "oil", properties: "insoluble and floats on water", givenMethods: GivenSeperationMethods(methods: [SeperationMethods(methodName: "Evaporation", isCorrect: false), SeperationMethods(methodName: "Distillation", isCorrect: true), SeperationMethods(methodName: "Filtration", isCorrect: false), SeperationMethods(methodName: "Magnetism", isCorrect: false), SeperationMethods(methodName: "Crystallisation", isCorrect: false)]))
 ]
 
 // MARK: - Functions
@@ -1020,13 +1017,16 @@ func changePoints(_ valueChanged: Int){
 
 // MARK: - Fonts
 
-import UIKit
-
-struct AppFontName {
-    static let regular = "OpenDyslexic-Regular"
-    static let bold = "OpenDyslexic-Bold"
-    static let italic = "OpenDyslexic-Italic"
+// import UIKit
+/*
+struct AppFontNameStruct {
+    
+    static let regular: String
+    static let bold: String
+    static let italic: String
 }
+
+var AppFontName = AppFontNameStruct(regular: "OpenDyslexic-Regular.otf", bold: "OpenDyslexic-Bold", italic: "OpenDyslexic-Italic")
 
 extension UIFontDescriptor.AttributeName {
     static let nsctFontUIUsage = UIFontDescriptor.AttributeName(rawValue: "NSCTFontUIUsageAttribute")
@@ -1036,7 +1036,7 @@ extension UIFont {
     static var isOverrided: Bool = false
 
     @objc class func mySystemFont(ofSize size: CGFloat) -> UIFont {
-        return UIFont(name: AppFontName.regular, size: size)!
+        return UIFont(name: AppFontName.regular, size: size) ?? UIFont()
     }
 
     @objc class func myBoldSystemFont(ofSize size: CGFloat) -> UIFont {
@@ -1095,3 +1095,4 @@ extension UIFont {
         }
     }
 }
+*/

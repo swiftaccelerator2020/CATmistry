@@ -26,9 +26,14 @@ class LearnHomePageTableViewController: UITableViewController {
         tableView.tableFooterView = UIView()
         
         NotificationCenter.default.addObserver(self, selector: #selector(didUpdateUserDefaults), name: UserDefaults.didChangeNotification, object: nil)
-        let navbar = UINavigationBarAppearance()
-        navbar.backgroundColor = UIColor(red: 242/255, green: 214/255, blue: 112/255, alpha: 1)
-        self.navigationController?.navigationBar.scrollEdgeAppearance = navbar
+        if #available(iOS 13.0, *) {
+            let navbar = UINavigationBarAppearance()
+            navbar.backgroundColor = UIColor(red: 242/255, green: 214/255, blue: 112/255, alpha: 1)
+            self.navigationController?.navigationBar.scrollEdgeAppearance = navbar
+        } else {
+            // Fallback on earlier versions
+        }
+
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 

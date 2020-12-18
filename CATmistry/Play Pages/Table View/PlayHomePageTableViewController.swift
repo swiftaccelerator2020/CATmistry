@@ -25,9 +25,16 @@ class PlayHomePageTableViewController: UITableViewController{
         playPageTable.delegate = self
         playPageTable.dataSource = self
         
-        let navbar = UINavigationBarAppearance()
-        navbar.backgroundColor = UIColor(red: 104/255, green: 198/255, blue: 242/255, alpha: 1)
-        self.navigationController?.navigationBar.scrollEdgeAppearance = navbar
+        
+        
+        if #available(iOS 13.0, *) {
+            let navbar = UINavigationBarAppearance()
+            navbar.backgroundColor = UIColor(red: 104/255, green: 198/255, blue: 242/255, alpha: 1)
+            self.navigationController?.navigationBar.scrollEdgeAppearance = navbar
+        } else {
+            self.navigationController?.navigationBar.backgroundColor = UIColor(red: 104/255, green: 198/255, blue: 242/255, alpha: 1)
+            // Fallback on earlier versions
+        }
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -37,6 +44,16 @@ class PlayHomePageTableViewController: UITableViewController{
     }
     
     // MARK: - Table view data source
+    
+    override func viewWillAppear(_ animated: Bool) {
+        chapterApproved = [
+            chOneDone,
+            chTwoDone,
+            chThreeDone,
+            chFourDone,
+        ]
+        tableView.reloadData()
+    }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
@@ -62,6 +79,9 @@ class PlayHomePageTableViewController: UITableViewController{
                 cell.playChapterImageView?.image = UIImage(named: "lock.png")
             } else {
                 cell.playChapterImageView?.image = UIImage(named: currentTopic.pic)
+                cell.playChapterLabel.isEnabled = true
+                cell.needMorePointsLabel.isHidden = true
+                cell.needMorePointsLabel.text = currentTopic.errorLabel
             }
             cell.playChapterLabel.text = currentTopic.title
         }

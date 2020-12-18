@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="DyY-vl-FYk">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="8Us-es-0oa">
     <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -2070,7 +2071,7 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
                 <navigationController id="8Us-es-0oa" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Learn" image="books.vertical.fill" catalog="system" selectedImage="books.vertical.fill" id="ZOw-bY-pdm"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="OvI-u8-jpf">
-                        <rect key="frame" x="0.0" y="44" width="390" height="96"/>
+                        <rect key="frame" x="0.0" y="44" width="390" height="104.33333333333334"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" red="0.95419245959999999" green="0.83945876360000005" blue="0.47016263009999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -2765,7 +2766,7 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="FaB-d6-X5c"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="wEn-aq-CEr">
-                        <rect key="frame" x="0.0" y="44" width="390" height="96"/>
+                        <rect key="frame" x="0.0" y="44" width="390" height="104.33333333333334"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -2886,7 +2887,7 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p7j-Px-jZ7">
                                         <rect key="frame" x="0.0" y="240" width="350" height="60"/>
                                         <color key="backgroundColor" red="0.73333333333333328" green="0.90196078431372551" blue="0.67843137254901964" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <state key="normal" title="Option 4">
+                                        <state key="normal" title="Option 4 ">
                                             <color key="titleColor" systemColor="labelColor"/>
                                         </state>
                                         <connections>

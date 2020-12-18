@@ -19,7 +19,7 @@ var gameFourAttempts = ud.integer(forKey: "gameFourAttempts")
 class SettingsTableViewController: UITableViewController {
 
     var settingsHeaderArray = [
-        "Accessibility Settings",
+ //       "Accessibility Settings",
         "Quiz Attempts",
         "Game Attempts",
 //        "General Statistics",
@@ -33,11 +33,11 @@ class SettingsTableViewController: UITableViewController {
 
     var settingsContentArray = [
         [
-            SettingsContent(
-                labelText: "Dyslexic Text",
-                type: "switchCell",
-                emojiImage: "🅰️"
-            ),
+//            SettingsContent(
+//                labelText: "Dyslexic Text",
+//                type: "switchCell",
+//                emojiImage: "🅰️"
+//            ),
 //            SettingsContent(
 //                labelText: "Haptics",
 //                type: "switchCell",
@@ -190,9 +190,15 @@ class SettingsTableViewController: UITableViewController {
 
         tableView.tableFooterView = UIView()
 
-        let navbar = UINavigationBarAppearance()
-        navbar.backgroundColor = UIColor(red: 196/255, green: 169/255, blue: 124/255, alpha: 1)
-        self.navigationController?.navigationBar.scrollEdgeAppearance = navbar
+        /*
+        if #available(iOS 13.0, *) {
+            let navbar = UINavigationBarAppearance()
+            navbar.backgroundColor = UIColor(red: 196/255, green: 169/255, blue: 124/255, alpha: 1)
+            self.navigationController?.navigationBar.scrollEdgeAppearance = navbar
+        } else {
+            self.navigationController?.navigationBar.backgroundColor = UIColor(red: 104/255, green: 198/255, blue: 242/255, alpha: 1)
+            // Fallback on earlier versions
+        }*/
 
         //        gamePointsLabel.text = " You have \(points) points"
 
