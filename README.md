@@ -22,9 +22,9 @@ Programme.
 
 ## Installation
 
-CATmistry is available for iOS and iPadOS 14 on the [App Store]() (not yet!)
+CATmistry is available for iOS and iPadOS 14 on the [App Store](https://apps.apple.com/us/app/catmistry/id1545311327)
 
-[![App Store](https://upload.wikimedia.org/wikipedia/commons/3/3c/Download_on_the_App_Store_Badge.svg)]()
+[![App Store](https://upload.wikimedia.org/wikipedia/commons/3/3c/Download_on_the_App_Store_Badge.svg)](https://apps.apple.com/us/app/catmistry/id1545311327)
 
 ## Usage
 
