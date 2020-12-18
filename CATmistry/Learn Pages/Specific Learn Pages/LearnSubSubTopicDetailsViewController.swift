@@ -101,7 +101,7 @@ class LearnSubSubTopicDetailsViewController: UIViewController {
                 "Purple",
                 "Dark Purple"
             ]
-            indicatorSliderValueLabel.text = "Current pH: " + String(format: "%.2f", indicatorSlider.value) + "\n" + universalIndicatorColourNamesArray[Int(round(indicatorSlider.value)) - 1]
+            indicatorSliderValueLabel.text = "Current pH: " + String(round(indicatorSlider.value)) + "\n" + universalIndicatorColourNamesArray[Int(round(indicatorSlider.value)) - 1]
             indicatorSliderView.backgroundColor = hexStringToUIColor(hex: universalIndicatorColoursArray[Int(round(indicatorSlider.value)) - 1])
         } else {
             if (indicatorSlider.value < specificChapter.content.lowpH!) {
