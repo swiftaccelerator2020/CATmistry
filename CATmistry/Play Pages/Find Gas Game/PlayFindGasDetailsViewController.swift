@@ -53,6 +53,7 @@ class PlayFindGasDetailsViewController: UIViewController {
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.updateTimer), userInfo: nil, repeats: true)
         timeLeft = 20
         gases = gasesArray[currentRound]
+        timerLabel.text = "\(20) seconds left"
         submitButton.isHidden = true
         gas1Check.isHidden = true
         gas2Check.isHidden = true
