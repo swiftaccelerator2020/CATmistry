@@ -21,6 +21,13 @@ class PlayHomePageTableViewController: UITableViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        chapterApproved = [
+            chOneDone,
+            chTwoDone,
+            chThreeDone,
+            chFourDone,
+        ]
+        
         playPageTable.tableFooterView = UIView()
         playPageTable.delegate = self
         playPageTable.dataSource = self
