@@ -320,7 +320,7 @@ var learnTopics = [
                 navTitle: "Take the Quiz"
             )
         ],
-        errorLabel: "Please complete Chapter 2", questions:
+        errorLabel: "Please complete Chapter 1", questions:
             [
                 QuizQuestion(question: "Which of the following is insoluble?", options:
                                 [
@@ -523,7 +523,7 @@ var learnTopics = [
             SubSubTopic(topic: "Universal Indicator", picture: "universal-indicator-1.png", id: 1, content: SubSubContent(image: "universal-indicator-2.png", firstAttributionText: "", secondAttributionText: "", thirdAttributionText: "Try out the interactive slider below:", lowpH: 1, highpH: 1, lowpHColor: "", middlepHColor: "", highpHColor: "", lowpHColorName: "", middlepHColorName: "", highpHColorName: ""))
         ], navTitle: "Indicators", contentHeightDifference: 0),
         SubTopic(title: "Take the Quiz", pic: "quiz.png", needSlider: false, content: SubContent(definition: ""), subTopics: [], navTitle: "Take the Quiz")
-    ], errorLabel: "Please complete Chapter 3", questions:
+    ], errorLabel: "Please complete Chapter 2", questions:
         [
             QuizQuestion(question: "Which of the following has the highest pH value?", options:
                             [
@@ -666,7 +666,7 @@ var learnTopics = [
              SubSubTopic(topic: "Group 0", picture: "0.png", id: 0, content: SubSubContent(image: "0.png", firstAttributionText: "Metallic character: Non-metal \nAppearance: Colourless Gases", secondAttributionText: "Reactivity: Very Unreactive \nMelting Point: Low", thirdAttributionText: "Hardness: N.A."))
         ], navTitle: "Groups' Properties", contentHeightDifference: 80),
         SubTopic(title: "Take the Quiz", pic: "quiz.png", needSlider: false, content: SubContent(definition: ""), subTopics: [], navTitle: "Take the Quiz")
-    ], errorLabel: "Please complete Chapter 4", questions:
+    ], errorLabel: "Please complete Chapter 3", questions:
         [
             QuizQuestion(question: "Which is not a metal?", options:
                             [
