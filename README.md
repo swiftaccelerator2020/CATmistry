@@ -36,7 +36,7 @@ CATmistry is available for iOS and iPadOS 14 on the
 Contribution is welcome! Feel free to fork our repo and create a pull request
 into development!
 
-## Authors and Acknoledgements
+## Authors and Acknowledgements
 
 <a href="https://github.com/swiftaccelerator2020/CATmistry/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=swiftaccelerator2020/catmistry" />
