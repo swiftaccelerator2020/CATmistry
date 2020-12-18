@@ -20,7 +20,7 @@ class PlayHomePageTableViewController: UITableViewController{
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         playPageTable.tableFooterView = UIView()
         playPageTable.delegate = self
         playPageTable.dataSource = self
@@ -38,6 +38,15 @@ class PlayHomePageTableViewController: UITableViewController{
 
     // MARK: - Table view data source
 
+    override func viewWillAppear(_ animated: Bool) {
+        chapterApproved = [
+            chOneDone,
+            chTwoDone,
+            chThreeDone,
+            chFourDone,
+        ]
+        tableView.reloadData()
+    }
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 1
