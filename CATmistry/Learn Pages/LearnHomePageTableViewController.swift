@@ -24,7 +24,7 @@ class LearnHomePageTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.tableFooterView = UIView()
-        
+
         NotificationCenter.default.addObserver(self, selector: #selector(didUpdateUserDefaults), name: UserDefaults.didChangeNotification, object: nil)
         if #available(iOS 13.0, *) {
             let navbar = UINavigationBarAppearance()
