@@ -66,6 +66,8 @@ class PlayFindGasDetailsViewController: UIViewController {
     @IBAction func submitChoice(_ sender: Any) {
         timer.invalidate()
         timer = nil
+        selectedGasTank?.backgroundColor = .none
+        selectedGasTank = nil
         if selectedGasTankString == gases.correctGasTank {
             performSegue(withIdentifier: "findGasCorrect", sender: nil)
         } else {
