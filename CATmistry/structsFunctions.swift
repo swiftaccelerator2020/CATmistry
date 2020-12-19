@@ -260,10 +260,11 @@ var learnTopics = [
                         id: 1, content: SubSubContent(
                             image: "evaporation.png",
                             firstAttributionText: "Separates: Soluble Solid from Solution",
-                            secondAttributionText: "Properties Involed: Themal Stability of Solid",
-                            thirdAttributionText: "Principle of Separation: Liquid evaportes away, leaving behind solid"
+                            secondAttributionText: "Properties Involved: Thermal Stability of Solid",
+                            thirdAttributionText: "Principle of Separation: Liquid evaporates away, leaving behind solid"
                         )
                     ),
+                    
                     SubSubTopic(
                         topic: "Distillation",
                         picture: "distillation.png",
