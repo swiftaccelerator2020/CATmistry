@@ -43,7 +43,7 @@ class LearnSubSubTopicDetailsViewController: UIViewController {
             warningIsVisibleConstraint?.isActive = true
             warningIsHiddenConstraint?.isActive = false
         } else {
-            warningLabel.isHidden = true
+            warningView.isHidden = true
             warningIsVisibleConstraint?.isActive = false
             warningIsHiddenConstraint?.isActive = true
         }

@@ -2072,7 +2072,7 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
                 <navigationController id="8Us-es-0oa" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Learn" image="books.vertical.fill" catalog="system" selectedImage="books.vertical.fill" id="ZOw-bY-pdm"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="OvI-u8-jpf">
-                        <rect key="frame" x="0.0" y="44" width="390" height="96"/>
+                        <rect key="frame" x="0.0" y="44" width="390" height="104.33333333333334"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" red="0.95419245959999999" green="0.83945876360000005" blue="0.47016263009999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -2774,7 +2774,7 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
                         <outlet property="thirdAttributeLabel" destination="ZON-sx-e8W" id="Xsj-nz-Y9P"/>
                         <outlet property="warningImageView" destination="AKc-go-JCl" id="IHX-jO-q6r"/>
                         <outlet property="warningIsHiddenConstraint" destination="Ut7-VZ-S72" id="xHQ-JJ-3nV"/>
-                        <outlet property="warningIsVisibleConstraint" destination="8Me-Yk-6LT" id="9jo-xB-MbB"/>
+                        <outlet property="warningIsVisibleConstraint" destination="ZRR-Jz-mcz" id="0CC-OK-WTv"/>
                         <outlet property="warningLabel" destination="8Me-Yk-6LT" id="yjh-dF-JMB"/>
                         <outlet property="warningView" destination="LkP-a6-qG7" id="7At-fi-dqk"/>
                     </connections>
@@ -2790,7 +2790,7 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="FaB-d6-X5c"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="wEn-aq-CEr">
-                        <rect key="frame" x="0.0" y="44" width="390" height="96"/>
+                        <rect key="frame" x="0.0" y="44" width="390" height="104.33333333333334"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -2986,7 +2986,7 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="q0c-Zz-aob" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="jRP-bA-vTs">
-                        <rect key="frame" x="0.0" y="44" width="390" height="96"/>
+                        <rect key="frame" x="0.0" y="44" width="390" height="104.33333333333334"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
