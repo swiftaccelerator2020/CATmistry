@@ -15,6 +15,8 @@ class LearnSubSubTopicDetailsViewController: UIViewController {
     var subTopicName: String!
 
     @IBOutlet weak var subSubTopicImageView: UIImageView!
+    @IBOutlet weak var warningView: UIView!
+    @IBOutlet weak var warningImageView: UIImageView!
     @IBOutlet weak var warningLabel: UILabel!
     @IBOutlet weak var firstAttributeLabel: UILabel!
     @IBOutlet weak var secondAttributeLabel: UILabel!
@@ -34,9 +36,9 @@ class LearnSubSubTopicDetailsViewController: UIViewController {
         // Do any additional setup after loading the view.
         self.title = flexibleTitle
 
-        if (specificChapter.content.warningText != nil) {
-            warningLabel.layer.cornerRadius = 5
-            warningLabel.layer.masksToBounds = true
+        if specificChapter.content.warningText != nil {
+            warningView.layer.cornerRadius = 5
+            warningImageView.image = "⚠️".image()
             warningLabel.text = specificChapter.content.warningText
             warningIsVisibleConstraint?.isActive = true
             warningIsHiddenConstraint?.isActive = false

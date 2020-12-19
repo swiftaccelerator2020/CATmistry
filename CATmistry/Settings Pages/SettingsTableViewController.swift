@@ -324,10 +324,8 @@ class SettingsTableViewController: UITableViewController {
 
 }
 
-extension String
-{
-    func image(fontSize:CGFloat = 40, bgColor:UIColor = UIColor.clear, imageSize:CGSize? = nil) -> UIImage?
-    {
+public extension String {
+    func image(fontSize:CGFloat = 40, bgColor:UIColor = UIColor.clear, imageSize:CGSize? = nil) -> UIImage? {
         let font = UIFont.systemFont(ofSize: fontSize)
         let attributes = [NSAttributedString.Key.font: font]
         let imageSize = imageSize ?? self.size(withAttributes: attributes)
