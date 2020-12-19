@@ -19,7 +19,7 @@ var gameFourAttempts = ud.integer(forKey: "gameFourAttempts")
 class SettingsTableViewController: UITableViewController {
 
     var settingsHeaderArray = [
-//        "Accessibility Settings",
+        "Accessibility Settings",
         "Quiz Attempts",
         "Game Attempts",
 //        "General Statistics",
@@ -32,23 +32,23 @@ class SettingsTableViewController: UITableViewController {
     ]
 
     var settingsContentArray = [
-//        [
-//            SettingsContent(
-//                labelText: "Dyslexic Text",
-//                type: "switchCell",
-//                emojiImage: "🅰️"
-//            ),
-//            SettingsContent(
-//                labelText: "Haptics",
-//                type: "switchCell",
-//                emojiImage: "📳"
-//            ),
-//            SettingsContent(
-//                labelText: "Dark Mode",
-//                type: "switchCell",
-//                emojiImage: "🌙"
-//            ),
-//        ],
+        [
+            SettingsContent(
+                labelText: "Dyslexic Text",
+                type: "switchCell",
+                emojiImage: "🅰️"
+            ),
+            SettingsContent(
+                labelText: "Haptics",
+                type: "switchCell",
+                emojiImage: "📳"
+            ),
+            SettingsContent(
+                labelText: "Dark Mode",
+                type: "switchCell",
+                emojiImage: "🌙"
+            ),
+        ],
 
         [
             SettingsContent(
@@ -174,13 +174,13 @@ class SettingsTableViewController: UITableViewController {
             ),
         ],
 
-//        [
-//            SettingsContent(
-//                labelText: "",
-//                type: "buttonCell",
-//                emojiImage: ""
-//            ),
-//        ],
+        [
+            SettingsContent(
+                labelText: "",
+                type: "buttonCell",
+                emojiImage: ""
+            ),
+        ],
     ]
 
     @IBOutlet var settingsTableView: UITableView!
@@ -262,7 +262,7 @@ class SettingsTableViewController: UITableViewController {
     // Table Footer
     override func tableView(_ tableView: UITableView, titleForFooterInSection
                                 section: Int) -> String? {
-        if settingsHeaderArray[section] == "Authors and Acknoledgements" {
+        if settingsHeaderArray[section] == "" {
             return "© 2020, Neo Hao Jun & Wang Zerui"
         } else {
             return nil
