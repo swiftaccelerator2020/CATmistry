@@ -91,7 +91,7 @@ struct specificSeperationMethod: Hashable{
     var name: String
     var properties: String
     var givenMethods: GivenSeperationMethods
-
+    
     func hash(into hasher: inout Hasher) {
         hasher.combine(name)
         hasher.combine(properties)
@@ -100,9 +100,9 @@ struct specificSeperationMethod: Hashable{
 }
 
 struct GivenSeperationMethods: Hashable{
-
+    
     var methods: [SeperationMethods]
-
+    
     func hash(into hasher: inout Hasher) {
         hasher.combine(methods)
     }
@@ -111,7 +111,7 @@ struct GivenSeperationMethods: Hashable{
 struct SeperationMethods: Hashable{
     var methodName: String
     var isCorrect: Bool
-
+    
     func hash(into hasher: inout Hasher) {
         hasher.combine(methodName)
         hasher.combine(isCorrect)
@@ -128,7 +128,7 @@ struct PhOption: Hashable {
     var image: String
     var turnUniversalTankColour: String
     var isAcidic: Bool? = true
-
+    
     func hash(into hasher: inout Hasher) {
         hasher.combine(name)
         hasher.combine(image)
@@ -236,11 +236,11 @@ var learnTopics = [
                                 "The splint extinguishes with a 'pop' sound",
                                 "The splint breaks"
                             ], correctAnswer: 2),
-
+            
         ]),
-
+    
     // MARK: - SEPARATION METHODS
-
+    
     Topic(
         title: "Separation Methods",
         pic: "separation-methods.png",
@@ -329,7 +329,7 @@ var learnTopics = [
                                     "Sand",
                                     "Milo powder"
                                 ], correctAnswer: 3),
-
+                
                 QuizQuestion(question: "I want to separate some rocks from liquid. Which separation method do I use?", options:
                                 [
                                     "Simple distillation",
@@ -337,7 +337,7 @@ var learnTopics = [
                                     "Fractional distillation",
                                     "Separating funnel"
                                 ], correctAnswer: 2),
-
+                
                 QuizQuestion(question: "What is not needed in the process of filtration?", options:
                                 [
                                     "Filter funnel",
@@ -345,7 +345,7 @@ var learnTopics = [
                                     "Filter paper",
                                     "Gravity"
                                 ], correctAnswer: 2),
-
+                
                 QuizQuestion(question: "What is the difference between simple and fractional distillation?", options:
                                 [
                                     "Fractional distillation is more complex",
@@ -353,7 +353,7 @@ var learnTopics = [
                                     "Simple distillation uses a fractioning columm",
                                     "Fractional distillation is simpler"
                                 ], correctAnswer: 1),
-
+                
                 QuizQuestion(question: "Which of the following can be seperated by magnetic seperation?", options:
                                 [
                                     "Chocolate and ice",
@@ -361,155 +361,155 @@ var learnTopics = [
                                     "Gummy bears and gum",
                                     "Sand and iron filings"
                                 ], correctAnswer: 4),
-
+                
                 QuizQuestion(question: "Which solutions can be separated with crystallisation", options: [
-                      "Sugar and salt",
-                      "Iron and salt",
-                      "Potassium chloride and salt",
-                      "Sulfur dioxide and salt"
+                    "Sugar and salt",
+                    "Iron and salt",
+                    "Potassium chloride and salt",
+                    "Sulfur dioxide and salt"
                 ], correctAnswer: 1),
-
+                
                 QuizQuestion(question: "Which apparatus is not used for simple distillation", options: [
-                      "Boiling Chips",
-                      "Fractionating column",
-                      "Thermometer",
-                      "Condenser"
+                    "Boiling Chips",
+                    "Fractionating column",
+                    "Thermometer",
+                    "Condenser"
                 ], correctAnswer: 2),
-
+                
                 QuizQuestion(question: "Which of the following can be separated using magnetic attraction", options: [
-                      "Iron and Plastic",
-                      "Zinc and Gold",
-                      "Nickel and Cobalt",
-                      "Rubber and Plastic"], correctAnswer: 1),
-
+                                "Iron and Plastic",
+                                "Zinc and Gold",
+                                "Nickel and Cobalt",
+                                "Rubber and Plastic"], correctAnswer: 1),
+                
                 QuizQuestion(question: "Which equipments are NOT usually needed for filtration", options: [
-                      "Filter funnel",
-                      "Filter paper",
-                      "Bunsen burner",
-                      "Beaker"], correctAnswer: 3),
-
+                                "Filter funnel",
+                                "Filter paper",
+                                "Bunsen burner",
+                                "Beaker"], correctAnswer: 3),
+                
                 QuizQuestion(question: "Which of the following methods is the best to separate iron from sand", options: [
-                      "Magnetic Attraction",
-                      "Crystallization",
-                      "Diffusion",
-                      "Filtration"], correctAnswer: 1),
-
+                                "Magnetic Attraction",
+                                "Crystallization",
+                                "Diffusion",
+                                "Filtration"], correctAnswer: 1),
+                
                 QuizQuestion(question: "How can you obtain salt from a salt solution?", options: [
-                      "Crystallization",
-                      "Diffusion",
-                      "Filtration",
-                      "Evaporation"], correctAnswer: 4),
-
+                                "Crystallization",
+                                "Diffusion",
+                                "Filtration",
+                                "Evaporation"], correctAnswer: 4),
+                
                 QuizQuestion(question: "What is the best way to obtain sugar from a sugar solution?", options: [
-                      "Filtration",
-                      "Crystallization",
-                      "Diffusion",
-                      "Evaporation"], correctAnswer: 2),
-
+                                "Filtration",
+                                "Crystallization",
+                                "Diffusion",
+                                "Evaporation"], correctAnswer: 2),
+                
                 QuizQuestion(question: "Which of the following can be used to separate sand and water?", options: [
-                      "Filtration",
-                      "Diffusion",
-                      "Evaporation",
-                      "Crystallization"], correctAnswer: 3),
-
+                                "Filtration",
+                                "Diffusion",
+                                "Evaporation",
+                                "Crystallization"], correctAnswer: 3),
+                
                 QuizQuestion(question: "Which of the following can be used to separate chalk powder from water?", options: [
-                      "Magnetic Attraction",
-                      "Sublimation",
-                      "Diffusion",
-                      "Filtration"], correctAnswer: 4),
-
+                                "Magnetic Attraction",
+                                "Sublimation",
+                                "Diffusion",
+                                "Filtration"], correctAnswer: 4),
+                
                 QuizQuestion(question: "What information can be obtained from the melting and boiling point of a substance?", options: [
-                      "Weight of substance",
-                      "Density of substance",
-                      "Purity",
-                      "Head conductivity"
+                    "Weight of substance",
+                    "Density of substance",
+                    "Purity",
+                    "Head conductivity"
                 ], correctAnswer: 3),
-
+                
                 QuizQuestion(question: "What separation method can be used to obtain Ethanol (boils at 78°C) mixed with water (boils at 100°C)", options: [
-                      "Simple distillation",
-                      "Filtration",
-                      "Evaporation to dryness",
-                      "Fractional distillation"
+                    "Simple distillation",
+                    "Filtration",
+                    "Evaporation to dryness",
+                    "Fractional distillation"
                 ], correctAnswer: 4),
-
+                
                 QuizQuestion(question: "Which of the following can be separated using magnetic attraction", options: [
-                      "Iron and Plastic",
-                      "Steel and Gold",
-                      "Nickel and Cobalt",
-                      "Rubber and Plastic"
+                    "Iron and Plastic",
+                    "Steel and Gold",
+                    "Nickel and Cobalt",
+                    "Rubber and Plastic"
                 ], correctAnswer: 1),
-
+                
                 QuizQuestion(question: "Which equipments are NOT needed for filtration", options: [
-                      "Filter funnel",
-                      "Filter paper",
-                      "Bunsen burner",
-                      "Beaker"
+                    "Filter funnel",
+                    "Filter paper",
+                    "Bunsen burner",
+                    "Beaker"
                 ], correctAnswer: 3),
-
+                
                 QuizQuestion(question: "Which solutions can be separated with crystallisation", options: [
-                      "Sugar and salt",
-                      "Iron and salt",
-                      "Potassium chloride and salt",
-                      "Sulfur dioxide and salt"], correctAnswer: 1),
-
+                                "Sugar and salt",
+                                "Iron and salt",
+                                "Potassium chloride and salt",
+                                "Sulfur dioxide and salt"], correctAnswer: 1),
+                
                 QuizQuestion(question: "Which apparatus is not used for simple distillation", options: [
-                      "Boiling Chips",
-                      "Fractionating column",
-                      "Thermometer",
-                      "Condenser"], correctAnswer: 2),
-
+                                "Boiling Chips",
+                                "Fractionating column",
+                                "Thermometer",
+                                "Condenser"], correctAnswer: 2),
+                
                 QuizQuestion(question: "Which substance is best separated with filtration?", options: [
-                                      "Diesel from crude oil",
-                                      "Water from a mixture of water and sand",
-                                      "Orange fibre from orange juice",
-                                      "Different inks from a mixture of inks"
-                                ], correctAnswer: 3),
-
+                    "Diesel from crude oil",
+                    "Water from a mixture of water and sand",
+                    "Orange fibre from orange juice",
+                    "Different inks from a mixture of inks"
+                ], correctAnswer: 3),
+                
                 QuizQuestion(question: "When is crystallisation used", options: [
-                      "When evaporation to dryness cannot be used",
-                      "When the solvent needs to be obtained in a very pure form",
-                      "When heat cannot be used",
-                      "When substances being separated have a very high boiling point"], correctAnswer: 2),
-
+                                "When evaporation to dryness cannot be used",
+                                "When the solvent needs to be obtained in a very pure form",
+                                "When heat cannot be used",
+                                "When substances being separated have a very high boiling point"], correctAnswer: 2),
+                
                 QuizQuestion(question: "Chromatography works because:", options: [
-                      "Substances travel at different rates up the paper",
-                      "Not all substances are soluble in the solvent",
-                      "The solvent travels up the paper at a different rate",
-                      "Substances have a different rate and travel up the paper at different rates"], correctAnswer: 1),
-
+                                "Substances travel at different rates up the paper",
+                                "Not all substances are soluble in the solvent",
+                                "The solvent travels up the paper at a different rate",
+                                "Substances have a different rate and travel up the paper at different rates"], correctAnswer: 1),
+                
                 QuizQuestion(question: "What is the use of chromatography", options: [
-                      "Getting a large amount of salt from water",
-                      "Separating paint into different colors for painting",
-                      "Removing water from fruit juice",
+                                "Getting a large amount of salt from water",
+                                "Separating paint into different colors for painting",
+                                "Removing water from fruit juice",
                                 "Checking if ink is genuine"], correctAnswer: 4),
-
-
+                
+                
                 QuizQuestion(question: "What is the difference between simple and fractional distillation?", options:
-                                                [
-                                                    "Fractional distillation is more complex",
-                                                    "One is simple and one is not",
-                                                    "Simple distillation uses a fractioning columm",
-                                                    "Fractional distillation is simpler"
-                                                ], correctAnswer: 1),
-
+                                [
+                                    "Fractional distillation is more complex",
+                                    "One is simple and one is not",
+                                    "Simple distillation uses a fractioning columm",
+                                    "Fractional distillation is simpler"
+                                ], correctAnswer: 1),
+                
                 QuizQuestion(question: "Which of the following can be seperated by magnetic seperation?", options:
-                                                [
-                                                    "Chocolate and ice",
-                                                    "Salt and sugar",
-                                                    "Gummy bears and gum",
-                                                    "Sand and iron filings"
-                                                ], correctAnswer: 4),
-
+                                [
+                                    "Chocolate and ice",
+                                    "Salt and sugar",
+                                    "Gummy bears and gum",
+                                    "Sand and iron filings"
+                                ], correctAnswer: 4),
+                
                 QuizQuestion(question: "Which solutions can be separated with crystallisation", options: [
-                                      "Sugar and salt",
-                                      "Iron and salt",
-                                      "Potassium chloride and salt",
-                                      "Sulfur dioxide and salt"
-                                ], correctAnswer: 1)
+                    "Sugar and salt",
+                    "Iron and salt",
+                    "Potassium chloride and salt",
+                    "Sulfur dioxide and salt"
+                ], correctAnswer: 1)
             ]),
-
+    
     // MARK: - PH AND INDICATORS
-
+    
     Topic(title: "pH and Indicators", pic: "pH-and-indicators.png", pointsNeeded: 20, subTopics: [
         SubTopic(title: "What is pH?", pic: "pH.png", needSlider: true, content: SubContent(definition: "pH means Power of Hydrogen (concentration of hydrogen ions). \n\nIt is represented on a scale of 1 to 14, which is used to specify the acidity or basicity/alkalinity of a solution. \n\npH 1 - 6.9: Acidic \npH 7.1 - 14:  Alkaline \npH 7: Neutral (neither acidic nor alkaline)"), subTopics: nil, navTitle: "pH", contentHeightDifference: 250),
         SubTopic(title: "What are Indicators?", pic: "pH-and-indicators.png", needSlider: false, content: SubContent(definition: "Indicators are chemicals which turn into different colours depending on the pH of the solution. \n\nThe transition range is the range in which the indicator changes from one colour to the other."), subTopics: [
@@ -532,7 +532,7 @@ var learnTopics = [
                                 "Lime juice",
                                 "Caustic soda"
                             ], correctAnswer: 4),
-
+            
             QuizQuestion(question: "What is the pH value of any acidic solution?", options:
                             [
                                 "pH 7",
@@ -540,7 +540,7 @@ var learnTopics = [
                                 "pH 14",
                                 "Above pH 14"
                             ], correctAnswer: 2),
-
+            
             QuizQuestion(question: "Which of the following statements about an acid is not true?", options:
                             [
                                 "It contains hydrogen ions in solution",
@@ -548,7 +548,7 @@ var learnTopics = [
                                 "It contains oxygen",
                                 "It tastes sour"
                             ], correctAnswer: 3),
-
+            
             QuizQuestion(question: "A sample of pond water has a pH value of 9. This means that the water is", options:
                             [
                                 "neutral",
@@ -556,7 +556,7 @@ var learnTopics = [
                                 "weakly acidic",
                                 "weakly alkaline"
                             ], correctAnswer: 4),
-
+            
             QuizQuestion(question: "Universal Indicator turns red in solution Y. What could solution Y be?", options:
                             [
                                 "acidic",
@@ -564,7 +564,7 @@ var learnTopics = [
                                 "neutral",
                                 "an indicator"
                             ], correctAnswer: 1),
-
+            
             QuizQuestion(question: "If dry citric acid crystals are placed on dry blue litmus paper, they will", options:
                             [
                                 "turn red",
@@ -572,7 +572,7 @@ var learnTopics = [
                                 "be bleached",
                                 "remain unchanged"
                             ], correctAnswer: 4),
-
+            
             QuizQuestion(question: "Citric acid is a white solid. Which statement shows that it must be an acid?", options:
                             [
                                 "It is soluble in water",
@@ -580,7 +580,7 @@ var learnTopics = [
                                 "It changes the colour of indicators",
                                 "It gives hydrogen ions in water"
                             ], correctAnswer: 4),
-
+            
             QuizQuestion(question: "A strong acid always", options:
                             [
                                 "contains hydroxide ions",
@@ -588,48 +588,48 @@ var learnTopics = [
                                 "ionises completely when it is dissolved in water",
                                 "contains oxygen"
                             ], correctAnswer: 3),
-
+            
             QuizQuestion(question: "What is the pH value of any acidic solution?", options: [
-                                  "pH 7",
-                                  "Below pH 7",
-                                  "pH 14",
-                                  "Above pH 14"
-                            ], correctAnswer: 2),
-
+                "pH 7",
+                "Below pH 7",
+                "pH 14",
+                "Above pH 14"
+            ], correctAnswer: 2),
+            
             QuizQuestion(question: "If air is bubbled through pure water, the pH slowly changes from 7 to 5.7. Which of the following gases in the air could be responsible for this change?", options: [
-                                  "Carbon Monoxide",
-                                  "Carbon Dioxide",
-                                  "Oxygen",
-                                  "Nitrogen"
-                            ], correctAnswer: 2),
-
+                "Carbon Monoxide",
+                "Carbon Dioxide",
+                "Oxygen",
+                "Nitrogen"
+            ], correctAnswer: 2),
+            
             QuizQuestion(question: "predict the colour of the universal indicator in lemon juice", options: [
-                                  "Green",
-                                  "Blue",
-                                  "Orange",
-                                  "Rainbow colour"
-                            ], correctAnswer: 3),
-
+                "Green",
+                "Blue",
+                "Orange",
+                "Rainbow colour"
+            ], correctAnswer: 3),
+            
             QuizQuestion(question: "Which  substance  does not produce  copper(II)  sulfate  when  added  to  dilute sulfuric acid?", options: [
-                                  "Copper",
-                                  "Copper(II) hydroxide",
-                                  "Copper(II) oxide",
-                                  "Copper(II) carbonate"
-                            ], correctAnswer: 1),
-
+                "Copper",
+                "Copper(II) hydroxide",
+                "Copper(II) oxide",
+                "Copper(II) carbonate"
+            ], correctAnswer: 1),
+            
             QuizQuestion(question: "Which of the following is the correct ionic equation for neutralisation?", options: [
-                                  "H⁺ (g) + OH⁻ (aq) -> H₂O (l)",
-                                  "H⁺ (aq) + OH⁻ (aq) -> H₂O (l)",
-                                  "H⁺ (aq) + OH⁻ (aq) -> H₂O (aq)",
-                                  "H⁺ (g) + OH⁻ (aq) -> H₂O (aq)"
-                            ], correctAnswer: 2),
-
+                "H⁺ (g) + OH⁻ (aq) -> H₂O (l)",
+                "H⁺ (aq) + OH⁻ (aq) -> H₂O (l)",
+                "H⁺ (aq) + OH⁻ (aq) -> H₂O (aq)",
+                "H⁺ (g) + OH⁻ (aq) -> H₂O (aq)"
+            ], correctAnswer: 2),
+            
             QuizQuestion(question: "The pH of an aqueous solution of hydrochloric acid is 2. What is the pH of the solution when  10g of sodium chloride (neutral salt) is added to it?", options: [
-                                  "1",
-                                  "2",
-                                  "7",
-                                  "9"
-                            ], correctAnswer: 2),
+                "1",
+                "2",
+                "7",
+                "9"
+            ], correctAnswer: 2),
         ]),
     // MARK: - PERIODIC TABLE
     Topic(title: "Periodic Table", pic: "periodic-table.png", pointsNeeded: 30, subTopics: [
@@ -663,7 +663,7 @@ var learnTopics = [
             SubSubTopic(topic: "Group 5", picture: "5.png", id: 5, content: SubSubContent(image: "5.png", firstAttributionText: "Metallic character: Metal/Non-metal/Metalloid \nAppearance: Dull", secondAttributionText: "Reactivity: Decreases as you go down the columm \nMelting Point: Wide range of low and high", thirdAttributionText: "Hardness: N.A.")),
             SubSubTopic(topic: "Group 6", picture: "6.png", id: 6, content: SubSubContent(image: "6.png", firstAttributionText: "Metallic character: Metal/Non-metal/Metalloid \nAppearance: Mostly dull", secondAttributionText: "Reactivity: Slightly Reactive \nMelting Point: Low", thirdAttributionText: "Hardness: N.A.")),
             SubSubTopic(topic: "Group 7", picture: "7.png", id: 7, content: SubSubContent(image: "7.png", firstAttributionText: "Metallic character: Non-metal \nAppearance: N.A.", secondAttributionText: "Reactivity: Highly Reactive \nMelting Point: Low", thirdAttributionText: "Hardness: N.A.")),
-             SubSubTopic(topic: "Group 0", picture: "0.png", id: 0, content: SubSubContent(image: "0.png", firstAttributionText: "Metallic character: Non-metal \nAppearance: Colourless Gases", secondAttributionText: "Reactivity: Very Unreactive \nMelting Point: Low", thirdAttributionText: "Hardness: N.A."))
+            SubSubTopic(topic: "Group 0", picture: "0.png", id: 0, content: SubSubContent(image: "0.png", firstAttributionText: "Metallic character: Non-metal \nAppearance: Colourless Gases", secondAttributionText: "Reactivity: Very Unreactive \nMelting Point: Low", thirdAttributionText: "Hardness: N.A."))
         ], navTitle: "Groups' Properties", contentHeightDifference: 80),
         SubTopic(title: "Take the Quiz", pic: "quiz.png", needSlider: false, content: SubContent(definition: ""), subTopics: [], navTitle: "Take the Quiz")
     ], errorLabel: "Please complete Chapter 3", questions:
@@ -675,7 +675,7 @@ var learnTopics = [
                                 "Copper",
                                 "Platinum"
                             ], correctAnswer: 2),
-
+            
             QuizQuestion(question: "What is the chemical symbol for Helium?", options:
                             [
                                 "H",
@@ -683,7 +683,7 @@ var learnTopics = [
                                 "Hhe",
                                 "He"
                             ], correctAnswer: 4),
-
+            
             QuizQuestion(question: "What kind of element would you find on the far left-hand side of the periodic table?", options:
                             [
                                 "A metal",
@@ -691,7 +691,7 @@ var learnTopics = [
                                 "A negative ion",
                                 "A halogen"
                             ], correctAnswer: 1),
-
+            
             QuizQuestion(question: "Which of the following is a noble gas?", options:
                             [
                                 "Nitrogen",
@@ -699,7 +699,7 @@ var learnTopics = [
                                 "Argon",
                                 "Carbon Dioxide"
                             ], correctAnswer: 3),
-
+            
             QuizQuestion(question: "What is the lightest element in the periodic table?", options:
                             [
                                 "Helium",
@@ -707,7 +707,7 @@ var learnTopics = [
                                 "Air",
                                 "Neon"
                             ], correctAnswer: 2),
-
+            
             QuizQuestion(question: "What is the atomic number of carbon?", options:
                             [
                                 "2",
@@ -715,67 +715,67 @@ var learnTopics = [
                                 "6",
                                 "8"
                             ], correctAnswer: 3),
-
+            
             QuizQuestion(question: "Which of the following elements have the greatest number of valence electrons?", options: [
                             "Calcium",
                             "Fluorine",
                             "Neon",
                             "Potassium"], correctAnswer: 3),
-
+            
             QuizQuestion(question: "How are the elements in the Periodic Table arranged?", options: [
                             "Increasing proton number",
                             "Decreasing proton number",
                             "Increasing number of valence electrons",
                             "Decreasing number of valence electrons"], correctAnswer: 1),
-
+            
             QuizQuestion(question: "Which of the following elements are nobles gases?", options: [
                             "Calcium",
                             "Helium",
                             "Sulfur",
                             "Iodine"], correctAnswer: 2),
-
+            
             QuizQuestion(question: "What does the number of valence electrons represent in the Periodic Table?", options: [
                             "Groups",
                             "Columns",
                             "Rows",
                             "Periods"], correctAnswer: 1),
-
+            
             QuizQuestion(question: "Which of the following is a Group I metal?", options: [
                             "Iron",
                             "Magnesium",
                             "Sodium",
                             "Titanium"], correctAnswer: 3),
-
+            
             QuizQuestion(question: "Which of the following elements have their valence shell fully occupied?", options: [
                             "Helium",
                             "Fluorine",
                             "Lithium",
                             "Hydrogen"], correctAnswer: 1),
-
+            
             QuizQuestion(question: "How many electron shells do period 2 elements have?", options: [
                             "1",
                             "2",
                             "3",
                             "4"], correctAnswer: 2),
-
+            
             QuizQuestion(question: "What is the relative mass of an neutron?", options: [
                             "0",
                             "1",
                             "-1",
                             "1/1840"], correctAnswer: 2),
-
+            
             QuizQuestion(question: "What is the relative charge of an electron?", options: [
                             "0",
                             "1",
                             "-1",
                             "1/1840"], correctAnswer: 3),
-
+            
             QuizQuestion(question: "Which of the following is equals to the group number?", options: [
                             "Number of valence electrons",
                             "Number of electron shells",
                             "Number of protons",
                             "Number of electrons"], correctAnswer: 1),
-
+            
             QuizQuestion(question: "What is the atomic symbol of Hydrogen?", options:
                             [
                                 "Hy",
@@ -783,7 +783,7 @@ var learnTopics = [
                                 "Hye",
                                 "H"
                             ], correctAnswer: 4),
-
+            
             QuizQuestion(question: "What is the atomic symbol of Nitrogen", options:
                             [
                                 "N",
@@ -791,7 +791,7 @@ var learnTopics = [
                                 "Nt",
                                 "Ny"
                             ], correctAnswer: 1),
-
+            
             QuizQuestion(question: "What is the atomic symbol of Sulfur", options:
                             [
                                 "Su",
@@ -799,8 +799,8 @@ var learnTopics = [
                                 "Sul",
                                 "Sf"
                             ], correctAnswer: 2),
-
-
+            
+            
             QuizQuestion(question: "What is the atomic symbol of Carbon", options:
                             [
                                 "Ca",
@@ -808,7 +808,7 @@ var learnTopics = [
                                 "C",
                                 "Car"
                             ], correctAnswer: 3),
-
+            
             QuizQuestion(question: "What is the atomic symbol of Carbon", options:
                             [
                                 "Ca",
@@ -816,15 +816,15 @@ var learnTopics = [
                                 "C",
                                 "Car"
                             ], correctAnswer: 3),
-
+            
             QuizQuestion(question: "Where are the metal elements found in the periodic table?", options:
                             [
                                 "the middle",
                                 "far right hand side",
                                 "far left hand side",
                                 "nowhere, metals aren't in the periodic table"
-                            ], correctAnswer: 2),
-
+                            ], correctAnswer: 3),
+            
             QuizQuestion(question: "What is copper's atmoic symbol?", options:
                             [
                                 "Cu",
@@ -832,7 +832,7 @@ var learnTopics = [
                                 "C",
                                 "Cp"
                             ], correctAnswer: 1),
-
+            
             QuizQuestion(question: "Which of the following isn't a noble gas?", options:
                             [
                                 "Fluorine",
@@ -840,7 +840,7 @@ var learnTopics = [
                                 "Sulfur",
                                 "Bromine"
                             ], correctAnswer: 3),
-
+            
             QuizQuestion(question: "Which of the following is a noble gas?", options:
                             [
                                 "Astatine",
@@ -848,7 +848,7 @@ var learnTopics = [
                                 "Silicon",
                                 "Iodine"
                             ], correctAnswer: 4),
-
+            
             QuizQuestion(question: "What is the atomic number of Calcium?", options:
                             [
                                 "19",
@@ -856,7 +856,7 @@ var learnTopics = [
                                 "21",
                                 "22"
                             ], correctAnswer: 2),
-
+            
             QuizQuestion(question: "What is the atomic number of Potassium", options:
                             [
                                 "12",
@@ -865,7 +865,7 @@ var learnTopics = [
                                 "19"
                             ], correctAnswer: 4),
         ]),
-
+    
 ]
 
 var gameTopics = [
@@ -918,7 +918,7 @@ var phGameArray = [
         PhGame(startIsAcidic: false),
         PhGame(startIsAcidic: false)
     ],
-
+    
     //LEVEL 2
     [
         PhGame(startIsAcidic: false),
@@ -932,7 +932,7 @@ var phGameArray = [
         PhGame(startIsAcidic: true),
         PhGame(startIsAcidic: false)
     ],
-
+    
     //LEVEL 3
     [
         PhGame(startIsAcidic: true),
@@ -1009,6 +1009,8 @@ var retrieveSolidsArray = [
     specificSeperationMethod(name: "Cobalt", properties: "Magnetic", givenMethods: GivenSeperationMethods(methods: [SeperationMethods(methodName: "Evaporation", isCorrect: false), SeperationMethods(methodName: "Distillation", isCorrect: false), SeperationMethods(methodName: "Filtration", isCorrect: false), SeperationMethods(methodName: "Magnetism", isCorrect: true), SeperationMethods(methodName: "Crystallisation", isCorrect: false)])),
     specificSeperationMethod(name: "Alumnium", properties: "Magnetic", givenMethods: GivenSeperationMethods(methods: [SeperationMethods(methodName: "Evaporation", isCorrect: false), SeperationMethods(methodName: "Distillation", isCorrect: false), SeperationMethods(methodName: "Filtration", isCorrect: false), SeperationMethods(methodName: "Magnetism", isCorrect: true), SeperationMethods(methodName: "Crystallisation", isCorrect: false)])),
     specificSeperationMethod(name: "Sugar", properties: "Soluble in water", givenMethods: GivenSeperationMethods(methods: [SeperationMethods(methodName: "Evaporation", isCorrect: false), SeperationMethods(methodName: "Distillation", isCorrect: false), SeperationMethods(methodName: "Filtration", isCorrect: false), SeperationMethods(methodName: "Magnetism", isCorrect: false), SeperationMethods(methodName: "Crystallisation", isCorrect: true)])),
+    specificSeperationMethod(name: "oil", properties: "insoluble and floats on water", givenMethods: GivenSeperationMethods(methods: [SeperationMethods(methodName: "Evaporation", isCorrect: false), SeperationMethods(methodName: "Distillation", isCorrect: true), SeperationMethods(methodName: "Filtration", isCorrect: false), SeperationMethods(methodName: "Magnetism", isCorrect: false), SeperationMethods(methodName: "Crystallisation", isCorrect: false)]))
+    
 ]
 
 // MARK: - Functions
@@ -1038,25 +1040,25 @@ extension UIFontDescriptor.AttributeName {
 
 extension UIFont {
     static var isOverrided: Bool = false
-
+    
     @objc class func mySystemFont(ofSize size: CGFloat) -> UIFont {
         return UIFont(name: AppFontName.regular, size: size)!
     }
-
+    
     @objc class func myBoldSystemFont(ofSize size: CGFloat) -> UIFont {
         return UIFont(name: AppFontName.bold, size: size)!
     }
-
+    
     @objc class func myItalicSystemFont(ofSize size: CGFloat) -> UIFont {
         return UIFont(name: AppFontName.italic, size: size)!
     }
-
+    
     @objc convenience init(myCoder aDecoder: NSCoder) {
         guard
             let fontDescriptor = aDecoder.decodeObject(forKey: "UIFontDescriptor") as? UIFontDescriptor,
             let fontAttribute = fontDescriptor.fontAttributes[.nsctFontUIUsage] as? String else {
-                self.init(myCoder: aDecoder)
-                return
+            self.init(myCoder: aDecoder)
+            return
         }
         var fontName = ""
         switch fontAttribute {
@@ -1071,30 +1073,30 @@ extension UIFont {
         }
         self.init(name: fontName, size: fontDescriptor.pointSize)!
     }
-
+    
     class func overrideInitialize() {
         guard self == UIFont.self, !isOverrided else { return }
-
+        
         // Avoid method swizzling run twice and revert to original initialize function
         isOverrided = true
-
+        
         if let systemFontMethod = class_getClassMethod(self, #selector(systemFont(ofSize:))),
-            let mySystemFontMethod = class_getClassMethod(self, #selector(mySystemFont(ofSize:))) {
+           let mySystemFontMethod = class_getClassMethod(self, #selector(mySystemFont(ofSize:))) {
             method_exchangeImplementations(systemFontMethod, mySystemFontMethod)
         }
-
+        
         if let boldSystemFontMethod = class_getClassMethod(self, #selector(boldSystemFont(ofSize:))),
-            let myBoldSystemFontMethod = class_getClassMethod(self, #selector(myBoldSystemFont(ofSize:))) {
+           let myBoldSystemFontMethod = class_getClassMethod(self, #selector(myBoldSystemFont(ofSize:))) {
             method_exchangeImplementations(boldSystemFontMethod, myBoldSystemFontMethod)
         }
-
+        
         if let italicSystemFontMethod = class_getClassMethod(self, #selector(italicSystemFont(ofSize:))),
-            let myItalicSystemFontMethod = class_getClassMethod(self, #selector(myItalicSystemFont(ofSize:))) {
+           let myItalicSystemFontMethod = class_getClassMethod(self, #selector(myItalicSystemFont(ofSize:))) {
             method_exchangeImplementations(italicSystemFontMethod, myItalicSystemFontMethod)
         }
-
+        
         if let initCoderMethod = class_getInstanceMethod(self, #selector(UIFontDescriptor.init(coder:))), // Trick to get over the lack of UIFont.init(coder:))
-            let myInitCoderMethod = class_getInstanceMethod(self, #selector(UIFont.init(myCoder:))) {
+           let myInitCoderMethod = class_getInstanceMethod(self, #selector(UIFont.init(myCoder:))) {
             method_exchangeImplementations(initCoderMethod, myInitCoderMethod)
         }
     }

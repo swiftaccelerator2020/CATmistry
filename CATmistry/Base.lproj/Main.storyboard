@@ -1538,8 +1538,8 @@ Given the properties of each Group of the periodic table, select the correct gro
                                                     <constraint firstAttribute="height" constant="80" id="vmh-cT-iwv"/>
                                                 </constraints>
                                             </stackView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="RAQ-M4-OYh">
-                                                <rect key="frame" x="20" y="200" width="300" height="110"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="RAQ-M4-OYh">
+                                                <rect key="frame" x="19" y="200" width="300" height="110"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o3r-UY-MyN">
                                                         <rect key="frame" x="0.0" y="0.0" width="300" height="30"/>
@@ -2767,7 +2767,7 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="FaB-d6-X5c"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="wEn-aq-CEr">
-                        <rect key="frame" x="0.0" y="44" width="390" height="104.33333333333334"/>
+                        <rect key="frame" x="0.0" y="44" width="390" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -3208,8 +3208,8 @@ Your answer was wrong, but don't worry! You have \(String(10 - currentQuestion))
         <segue reference="GnF-zJ-RVj"/>
         <segue reference="s4T-H5-cTx"/>
         <segue reference="l86-7T-ukz"/>
-        <segue reference="8zc-2j-Gbh"/>
-        <segue reference="xa7-EN-bjL"/>
+        <segue reference="orq-5T-Gly"/>
+        <segue reference="SnY-zI-Ehk"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="books.vertical.fill" catalog="system" width="128" height="100"/>

@@ -70,6 +70,8 @@ class PlayHomePageTableViewController: UITableViewController{
                 cell.needMorePointsLabel.text = currentTopic.errorLabel
                 cell.playChapterImageView?.image = UIImage(named: "lock.png")
             } else {
+                cell.playChapterLabel.isEnabled = true
+                cell.needMorePointsLabel.isHidden = true
                 cell.playChapterImageView?.image = UIImage(named: currentTopic.pic)
             }
             cell.playChapterLabel.text = currentTopic.title

@@ -78,7 +78,7 @@ class PlayRetrieveSolidsDetailsViewController: UIViewController, UITableViewDele
 
         progressView.progress = Float(numOfItems)/10
 
-        while specificSeperationMethodSet.count <= 10 {
+        while specificSeperationMethodSet.count < 10 {
             let randomIndex = Int(arc4random_uniform(UInt32(retrieveSolidsArray.count)))
             specificSeperationMethodSet.insert(retrieveSolidsArray[randomIndex])
         }

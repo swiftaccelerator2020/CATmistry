@@ -20,12 +20,11 @@ class PlayIdentifyElementsSecondViewController: UIViewController {
     @IBOutlet weak var groupTwo: UIButton!
     @IBOutlet weak var groupOne: UIButton!
     @IBOutlet weak var timeLeft: UILabel!
-    @IBOutlet weak var propertiesView: UILabel!
-    @IBOutlet weak var choicesView: UIView!
 
     var currentRound = 0
 
     var progressBarTimer: Timer!
+    var gameTopicArray: [PeriodicTableGame]!
     var gameTopic: PeriodicTableGame!
     var timeLeftTrack: Int!
     var level: Int!
@@ -34,7 +33,7 @@ class PlayIdentifyElementsSecondViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        gameTopicArray.shuffle()
         timeLeft.layer.masksToBounds = true
         timeLeft.layer.cornerRadius = 20
         groupOne.clipsToBounds = true
@@ -58,13 +57,12 @@ class PlayIdentifyElementsSecondViewController: UIViewController {
         nonMetal.clipsToBounds = true
         nonMetal.layer.cornerRadius = 0.5 * nonMetal.bounds.size.height
 
-        propertiesView.layer.cornerRadius = 15
-        choicesView.layer.cornerRadius = 15
 
         // Do any additional setup after loading the view.
     }
 
-    override func viewDidAppear(_ animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
+        gameTopic = gameTopicArray[currentRound]
         currentRound += 1
 
         self.progressBarTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(PlayIdentifyElementsSecondViewController.updateProgressView), userInfo: nil, repeats: true)
@@ -74,7 +72,7 @@ class PlayIdentifyElementsSecondViewController: UIViewController {
         timeLeft.text = "\(timeLeftTrack!) seconds left"
 
         desc.text = gameTopic.properties
-
+        
     }
 
     var selectedButton: UIButton!

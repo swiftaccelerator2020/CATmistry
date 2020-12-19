@@ -25,7 +25,7 @@ class QuizWrongAnswerViewController: UIViewController {
         nextQuestionButton.layer.cornerRadius = 25
 
         if 9 - currentQuestion == 0 {
-            if correctAnswers >= 7 {
+            if correctAnswers >= 0 {
                 sadLabel.text = "Oh no! \n\nYour answer was wrong, but not to worry! You got \(String(correctAnswers)) of 10 questions in this quiz right. Excellent!"
                 if subTopic == "Gas Tests" {
                     ud.set(true, forKey: "chOneDone")
