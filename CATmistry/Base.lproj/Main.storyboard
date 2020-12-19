@@ -602,8 +602,8 @@ As your cat can only live in a certain type of gas, your task is to use your kno
                                             <constraint firstItem="Fem-Ps-gaG" firstAttribute="top" secondItem="dKZ-zl-Phq" secondAttribute="bottom" constant="30" id="AWO-O8-k2Z"/>
                                             <constraint firstItem="Fem-Ps-gaG" firstAttribute="leading" secondItem="UuK-ME-cyu" secondAttribute="leading" constant="20" id="CjJ-WF-FNz"/>
                                             <constraint firstAttribute="bottom" secondItem="Hkd-yq-HKg" secondAttribute="bottom" constant="15" id="ND1-hk-xjs"/>
-                                            <constraint firstItem="Hkd-yq-HKg" firstAttribute="leading" secondItem="UuK-ME-cyu" secondAttribute="leading" constant="40" id="Nhr-LD-jRo"/>
-                                            <constraint firstItem="dKZ-zl-Phq" firstAttribute="leading" secondItem="UuK-ME-cyu" secondAttribute="leading" constant="40" id="PVv-Gf-tMo"/>
+                                            <constraint firstItem="Hkd-yq-HKg" firstAttribute="left" secondItem="UuK-ME-cyu" secondAttribute="left" constant="40" id="Nhr-LD-jRo"/>
+                                            <constraint firstItem="dKZ-zl-Phq" firstAttribute="left" secondItem="UuK-ME-cyu" secondAttribute="left" constant="40" id="PVv-Gf-tMo"/>
                                             <constraint firstItem="dKZ-zl-Phq" firstAttribute="top" secondItem="UuK-ME-cyu" secondAttribute="top" constant="30" id="WS9-R5-zhk"/>
                                             <constraint firstAttribute="trailing" secondItem="Hkd-yq-HKg" secondAttribute="trailing" constant="40" id="keJ-Dh-gkY"/>
                                             <constraint firstAttribute="trailing" secondItem="Fem-Ps-gaG" secondAttribute="trailing" constant="20" id="oZf-MM-2I6"/>
@@ -622,7 +622,7 @@ As your cat can only live in a certain type of gas, your task is to use your kno
                                 <viewLayoutGuide key="contentLayoutGuide" id="hOC-Fw-oPp"/>
                                 <viewLayoutGuide key="frameLayoutGuide" id="IhJ-dQ-Cyq"/>
                             </scrollView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="20 seconds left" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fgY-OB-NKG">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="20 seconds left" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fgY-OB-NKG">
                                 <rect key="frame" x="215" y="64" width="150" height="40"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -801,7 +801,7 @@ As your cat can only live in a certain type of gas, your task is to use your kno
                                     <constraint firstItem="t21-rT-gDl" firstAttribute="height" secondItem="cfL-g4-aRp" secondAttribute="height" id="5fE-Oz-1Gd"/>
                                     <constraint firstAttribute="trailing" secondItem="t21-rT-gDl" secondAttribute="trailing" constant="20" id="81O-05-lcp"/>
                                     <constraint firstAttribute="trailing" secondItem="afY-Wp-Swo" secondAttribute="trailing" constant="55" id="DIl-4p-oKr"/>
-                                    <constraint firstItem="afY-Wp-Swo" firstAttribute="leading" secondItem="dlK-Bu-bNc" secondAttribute="leading" constant="55" id="Jfa-jT-1S8"/>
+                                    <constraint firstItem="afY-Wp-Swo" firstAttribute="left" secondItem="dlK-Bu-bNc" secondAttribute="left" constant="55" id="Jfa-jT-1S8"/>
                                     <constraint firstItem="cfL-g4-aRp" firstAttribute="leading" secondItem="dlK-Bu-bNc" secondAttribute="leading" constant="20" id="Ka1-rf-2fV"/>
                                     <constraint firstAttribute="trailing" secondItem="cfL-g4-aRp" secondAttribute="trailing" constant="20" id="gCb-Gl-8zN"/>
                                     <constraint firstItem="t21-rT-gDl" firstAttribute="leading" secondItem="dlK-Bu-bNc" secondAttribute="leading" constant="20" id="h22-CF-hia"/>
@@ -811,7 +811,7 @@ As your cat can only live in a certain type of gas, your task is to use your kno
                                     <constraint firstItem="cfL-g4-aRp" firstAttribute="top" secondItem="dlK-Bu-bNc" secondAttribute="top" constant="20" id="zAc-cp-mSm"/>
                                 </constraints>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="20 seconds left" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xuo-Mf-QSv">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="20 seconds left" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xuo-Mf-QSv">
                                 <rect key="frame" x="220" y="64" width="150" height="40"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -2072,7 +2072,7 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
                 <navigationController id="8Us-es-0oa" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Learn" image="books.vertical.fill" catalog="system" selectedImage="books.vertical.fill" id="ZOw-bY-pdm"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="OvI-u8-jpf">
-                        <rect key="frame" x="0.0" y="44" width="390" height="104.33333333333334"/>
+                        <rect key="frame" x="0.0" y="44" width="390" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" red="0.95419245959999999" green="0.83945876360000005" blue="0.47016263009999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -2325,6 +2325,7 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
                     <tabBarItem key="tabBarItem" title="Play" image="gamecontroller.fill" catalog="system" selectedImage="gamecontroller.fill" id="Xs1-53-ugV"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="eFe-la-nb9">
+                        <rect key="frame" x="0.0" y="44" width="390" height="104.33333333333334"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" red="0.396078431372549" green="0.77647058823529413" blue="0.94117647058823528" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -2410,7 +2411,7 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" contentInsetAdjustmentBehavior="never" translatesAutoresizingMaskIntoConstraints="NO" id="XVC-Ig-NQi">
-                                <rect key="frame" x="0.0" y="148.33333333333331" width="390" height="612.66666666666674"/>
+                                <rect key="frame" x="0.0" y="140" width="390" height="621"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mVw-ph-Zlg">
                                         <rect key="frame" x="0.0" y="0.0" width="390" height="850"/>
@@ -2422,7 +2423,7 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="SYZ-WC-ALx">
-                                                <rect key="frame" x="25" y="312.33333333333337" width="340" height="280"/>
+                                                <rect key="frame" x="25" y="312.33333333333331" width="340" height="279.99999999999994"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ruL-5t-Hew">
                                                         <rect key="frame" x="0.0" y="0.0" width="340" height="20"/>
@@ -2466,7 +2467,7 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="7aQ-Kb-rIM">
-                                                        <rect key="frame" x="0.0" y="109.99999999999994" width="340" height="170"/>
+                                                        <rect key="frame" x="0.0" y="110.00000000000006" width="340" height="170"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="170" id="FtG-tu-kGa"/>
                                                         </constraints>
@@ -2474,7 +2475,7 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a9P-V4-qKv">
-                                                <rect key="frame" x="0.0" y="622.33333333333326" width="390" height="227.66666666666663"/>
+                                                <rect key="frame" x="0.0" y="622.33333333333337" width="390" height="227.66666666666663"/>
                                                 <subviews>
                                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Jm5-uT-0GT">
                                                         <rect key="frame" x="0.0" y="0.0" width="390" height="227.66666666666666"/>
@@ -2766,7 +2767,7 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="FaB-d6-X5c"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="wEn-aq-CEr">
-                        <rect key="frame" x="0.0" y="44" width="390" height="96"/>
+                        <rect key="frame" x="0.0" y="44" width="390" height="104.33333333333334"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -2920,7 +2921,7 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
                                     <constraint firstAttribute="bottom" secondItem="cl8-Nd-3wn" secondAttribute="bottom" constant="20" id="4U0-Yk-IzG"/>
                                     <constraint firstItem="EEk-UP-cq2" firstAttribute="leading" secondItem="PqB-AB-jef" secondAttribute="leading" constant="10" id="FFL-ms-gyH"/>
                                     <constraint firstAttribute="trailing" secondItem="cl8-Nd-3wn" secondAttribute="trailing" constant="40" id="Zuz-Wl-0hq"/>
-                                    <constraint firstItem="cl8-Nd-3wn" firstAttribute="leading" secondItem="PqB-AB-jef" secondAttribute="leading" constant="40" id="cjc-tp-jHe"/>
+                                    <constraint firstItem="cl8-Nd-3wn" firstAttribute="left" secondItem="PqB-AB-jef" secondAttribute="left" constant="40" id="cjc-tp-jHe"/>
                                     <constraint firstAttribute="trailing" secondItem="EEk-UP-cq2" secondAttribute="trailing" constant="10" id="gzT-CV-o1R"/>
                                     <constraint firstItem="EEk-UP-cq2" firstAttribute="top" secondItem="PqB-AB-jef" secondAttribute="top" constant="40" id="nhM-pC-gRd"/>
                                     <constraint firstItem="cl8-Nd-3wn" firstAttribute="top" secondItem="EEk-UP-cq2" secondAttribute="bottom" constant="40" id="vyz-UO-C5S"/>
@@ -3207,8 +3208,8 @@ Your answer was wrong, but don't worry! You have \(String(10 - currentQuestion))
         <segue reference="GnF-zJ-RVj"/>
         <segue reference="s4T-H5-cTx"/>
         <segue reference="l86-7T-ukz"/>
-        <segue reference="orq-5T-Gly"/>
-        <segue reference="SnY-zI-Ehk"/>
+        <segue reference="8zc-2j-Gbh"/>
+        <segue reference="xa7-EN-bjL"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="books.vertical.fill" catalog="system" width="128" height="100"/>
