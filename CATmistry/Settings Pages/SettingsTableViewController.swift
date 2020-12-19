@@ -239,6 +239,13 @@ class SettingsTableViewController: UITableViewController {
             if cell.reuseIdentifier != "shareCell" && cell.reuseIdentifier != "buttonCell" {
                 cell.contentLabel.text = settingsContentArray[indexPath.section][indexPath.row].labelText
                 cell.settingsImageView.image = settingsContentArray[indexPath.section][indexPath.row].emojiImage.image()
+            } else if cell.reuseIdentifier == "buttonCell" {
+                cell.shareAction = {
+                    let shareText = "CATmistry - Chemistry, Gamified - is a Chemistry learning app specifically designed for Upper Primary to Lower Secondary students. With many interactive learning elements and fun games, CATmistry is sure to provided a fun and engaging learning experience. \n\nFind us on the app store now:"
+                    let shareURL = NSURL(fileURLWithPath: "https://apps.apple.com/us/app/catmistry/id1545311327#?platform=iphone")
+                    let vc = UIActivityViewController(activityItems: [shareText, shareURL], applicationActivities: [])
+                    self.present(vc, animated: true, completion: nil)
+                }
             }
         }
 
