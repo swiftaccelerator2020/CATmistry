@@ -30,22 +30,38 @@ class PlayWrongAnswerViewController: UIViewController {
             gameTwoAttempts += 1
             UserDefaults.incrementIntegerForKey(key: "gameTwoAttempts")
         } else {
-            sadLabel.text = "Oh no! \n\nYour answer was wrong, and your cat died. \n\nDon't worry though, a cat has 9 lives, and you still have \(String(10 - currentGame)) rounds remaining in Level \(String(currentLevel)). Good luck!"
-            if 9 - self.currentGame == 0 {
-                nextGameButton.setTitle("Go Back Home", for: .normal)
-                goHomeButton.isHidden = true
-                if gameType == 1 {
-                    gameOneAttempts += 1
-                    UserDefaults.incrementIntegerForKey(key: "gameOneAttempts")
-                } else if gameType == 3 {
-                    gameThreeAttempts += 1
-                    UserDefaults.incrementIntegerForKey(key: "gameThreeAttempts")
-                } else if gameType == 4 {
-                    gameFourAttempts += 1
-                    UserDefaults.incrementIntegerForKey(key: "gameFourAttempts")
+            if gameType == 4 {
+                sadLabel.text = "Oh no! \n\nYour answer was wrong, and your cat died. \n\nDon't worry though, a cat has 9 lives, and you still have \(String(4 - currentGame)) rounds remaining in Level \(String(currentLevel)). Good luck!"
+                if 4 - self.currentGame == 0 {
+                    nextGameButton.setTitle("Go Back Home", for: .normal)
+                    goHomeButton.isHidden = true
+                    if gameType == 1 {
+                        gameOneAttempts += 1
+                        UserDefaults.incrementIntegerForKey(key: "gameOneAttempts")
+                    } else if gameType == 3 {
+                        gameThreeAttempts += 1
+                        UserDefaults.incrementIntegerForKey(key: "gameThreeAttempts")
+                    } else if gameType == 4 {
+                        gameFourAttempts += 1
+                        UserDefaults.incrementIntegerForKey(key: "gameFourAttempts")
+                    }
                 }
-            }
-        }
+            } else {
+                sadLabel.text = "Oh no! \n\nYour answer was wrong, and your cat died. \n\nDon't worry though, a cat has 9 lives, and you still have \(String(10 - currentGame)) rounds remaining in Level \(String(currentLevel)). Good luck!"
+                if 9 - self.currentGame == 0 {
+                    nextGameButton.setTitle("Go Back Home", for: .normal)
+                    goHomeButton.isHidden = true
+                    if gameType == 1 {
+                        gameOneAttempts += 1
+                        UserDefaults.incrementIntegerForKey(key: "gameOneAttempts")
+                    } else if gameType == 3 {
+                        gameThreeAttempts += 1
+                        UserDefaults.incrementIntegerForKey(key: "gameThreeAttempts")
+                    } else if gameType == 4 {
+                        gameFourAttempts += 1
+                        UserDefaults.incrementIntegerForKey(key: "gameFourAttempts")
+                    }
+                }} }
     }
     
     @IBAction func nextGameClicked(_ sender: Any) {
