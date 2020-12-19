@@ -29,7 +29,7 @@ class PlayIdentifyElementsSecondViewController: UIViewController {
     var timeLeftTrack: Int!
     var level: Int!
 
-    let color = UIColor(red: 245/255.0, green: 214/255.0, blue: 224/255.0, alpha: 1)
+    let color = UIColor(red: 88/255, green: 214/255, blue: 141/255, alpha: 1)
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -277,12 +277,12 @@ class PlayIdentifyElementsSecondViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "identifyElementsGameWIn" {
             let destVC = segue.destination as! PlayCorrectAnswerViewController
-            destVC.currentLevel = currentLevel+1
+            destVC.currentLevel = currentLevel
             destVC.currentGame = currentRound
             destVC.gameType = 4
         } else if segue.identifier == "identifyElementsGameLose" {
             let destVC = segue.destination as! PlayWrongAnswerViewController
-            destVC.currentLevel = currentLevel+1
+            destVC.currentLevel = currentLevel
             destVC.currentGame = currentRound
             destVC.gameType = 4
         }
