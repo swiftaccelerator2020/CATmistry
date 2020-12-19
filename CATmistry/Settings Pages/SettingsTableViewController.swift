@@ -242,7 +242,7 @@ class SettingsTableViewController: UITableViewController {
             } else if cell.reuseIdentifier == "buttonCell" {
                 cell.shareAction = {
                     let shareText = "CATmistry - Chemistry, Gamified - is a Chemistry learning app specifically designed for Upper Primary to Lower Secondary students. With many interactive learning elements and fun games, CATmistry is sure to provided a fun and engaging learning experience. \n\nFind us on the app store now:"
-                    let shareURL = NSURL(fileURLWithPath: "https://apps.apple.com/us/app/catmistry/id1545311327#?platform=iphone")
+                    let shareURL = NSURL(fileURLWithPath: "http://tk.sg/sis20-catmistry")
                     let vc = UIActivityViewController(activityItems: [shareText, shareURL], applicationActivities: [])
                     self.present(vc, animated: true, completion: nil)
                 }
