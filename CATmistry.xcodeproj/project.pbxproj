@@ -105,6 +105,7 @@
 		5415C4142588E0610072B3E2 /* OpenDyslexic-BoldItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenDyslexic-BoldItalic.otf"; sourceTree = "<group>"; };
 		5415C4152588E0610072B3E2 /* OpenDyslexic-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenDyslexic-Bold.otf"; sourceTree = "<group>"; };
 		5415C4162588E0610072B3E2 /* OpenDyslexic-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenDyslexic-Regular.otf"; sourceTree = "<group>"; };
+		5432ED79258E399400832D12 /* CATmistry.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CATmistry.entitlements; sourceTree = "<group>"; };
 		54788FCC25863A2F00A16CD2 /* QuizEndedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizEndedViewController.swift; sourceTree = "<group>"; };
 		547F0AD82570F5F900A224D9 /* LearnHomePageTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearnHomePageTableViewController.swift; sourceTree = "<group>"; };
 		547F0ADD2570F66E00A224D9 /* LearnHomePageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearnHomePageTableViewCell.swift; sourceTree = "<group>"; };
@@ -187,6 +188,7 @@
 		2613B0332570DB8C00EECB4C /* CATmistry */ = {
 			isa = PBXGroup;
 			children = (
+				5432ED79258E399400832D12 /* CATmistry.entitlements */,
 				5415C4112588E0610072B3E2 /* Fonts */,
 				54FEFB172578609C0054CFF9 /* Learn Pages */,
 				54FEFB122578603A0054CFF9 /* Play Pages */,
@@ -791,6 +793,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = CATmistry/CATmistry.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = XL5JK4F896;
@@ -802,6 +805,7 @@
 				MARKETING_VERSION = 1.1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = sg.tk.2020.CATmistry;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -813,6 +817,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = CATmistry/CATmistry.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = XL5JK4F896;
@@ -825,6 +830,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = sg.tk.2020.CATmistry;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
