@@ -11,6 +11,6 @@
 #endif
 
 
-FOUNDATION_EXPORT double SwiftConfettiViewVersionNumber;
-FOUNDATION_EXPORT const unsigned char SwiftConfettiViewVersionString[];
+FOUNDATION_EXPORT double LayoutHelperVersionNumber;
+FOUNDATION_EXPORT const unsigned char LayoutHelperVersionString[];
 
