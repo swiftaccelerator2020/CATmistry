@@ -47,6 +47,11 @@ class PlayFindGasDetailsViewController: UIViewController {
         lightedSplintView.layer.cornerRadius = 15
         glowingSplintView.layer.cornerRadius = 15
         litmusView.layer.cornerRadius = 15
+        gas1.layer.cornerRadius = 15
+        gas2.layer.cornerRadius = 15
+        gas3.layer.cornerRadius = 15
+        gas4.layer.cornerRadius = 15
+        submitButton.layer.cornerRadius = 25
     }
 
     override func viewWillAppear(_ animated: Bool) {
