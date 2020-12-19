@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Foundation
 
 class LearnSubSubTopicDetailsViewController: UIViewController {
 
@@ -67,15 +68,52 @@ class LearnSubSubTopicDetailsViewController: UIViewController {
     }
 
     @IBAction func indicatorSliderValueChanged(_ sender: UISlider) {
-        if (indicatorSlider.value < specificChapter.content.lowpH!) {
-            indicatorSliderValueLabel.text = "Current pH: " + String(format: "%.2f", indicatorSlider.value) + "\n" + specificChapter.content.lowpHColorName!
-            indicatorSliderView.backgroundColor = hexStringToUIColor(hex: specificChapter.content.lowpHColor!)
-        } else if (indicatorSlider.value > specificChapter.content.lowpH! && indicatorSlider.value < specificChapter.content.highpH!) {
-            indicatorSliderValueLabel.text = "Current pH: " + String(format: "%.2f", indicatorSlider.value) + "\n" + specificChapter.content.middlepHColorName!
-            indicatorSliderView.backgroundColor = hexStringToUIColor(hex: specificChapter.content.middlepHColor!)
-        } else if (indicatorSlider.value > specificChapter.content.highpH!) {
-            indicatorSliderValueLabel.text = "Current pH: " + String(format: "%.2f", indicatorSlider.value) + "\n" + specificChapter.content.highpHColorName!
-            indicatorSliderView.backgroundColor = hexStringToUIColor(hex: specificChapter.content.highpHColor!)
+        if specificChapter.topic == "Universal Indicator" {
+            let universalIndicatorColoursArray = [
+                "EF1D2C",
+                "F6643A",
+                "F98F30",
+                "FFC33D",
+                "FFF23A",
+                "83C34D",
+                "49B751",
+                "3B9C57",
+                "00B8B6",
+                "4390CA",
+                "3753A1",
+                "5A519F",
+                "6D227E",
+                "49176C"
+            ]
+            let universalIndicatorColourNamesArray = [
+                "Red",
+                "Dark Orange",
+                "Orange",
+                "Light Orange/Dark Yellow",
+                "Yellow",
+                "Light Green",
+                "Green",
+                "Dark Green",
+                "Light Blue",
+                "Blue",
+                "Dark Blue",
+                "Light Purple",
+                "Purple",
+                "Dark Purple"
+            ]
+            indicatorSliderValueLabel.text = "Current pH: " + String(round(indicatorSlider.value)) + "\n" + universalIndicatorColourNamesArray[Int(round(indicatorSlider.value)) - 1]
+            indicatorSliderView.backgroundColor = hexStringToUIColor(hex: universalIndicatorColoursArray[Int(round(indicatorSlider.value)) - 1])
+        } else {
+            if (indicatorSlider.value < specificChapter.content.lowpH!) {
+                indicatorSliderValueLabel.text = "Current pH: " + String(format: "%.2f", indicatorSlider.value) + "\n" + specificChapter.content.lowpHColorName!
+                indicatorSliderView.backgroundColor = hexStringToUIColor(hex: specificChapter.content.lowpHColor!)
+            } else if (indicatorSlider.value > specificChapter.content.lowpH! && indicatorSlider.value < specificChapter.content.highpH!) {
+                indicatorSliderValueLabel.text = "Current pH: " + String(format: "%.2f", indicatorSlider.value) + "\n" + specificChapter.content.middlepHColorName!
+                indicatorSliderView.backgroundColor = hexStringToUIColor(hex: specificChapter.content.middlepHColor!)
+            } else if (indicatorSlider.value > specificChapter.content.highpH!) {
+                indicatorSliderValueLabel.text = "Current pH: " + String(format: "%.2f", indicatorSlider.value) + "\n" + specificChapter.content.highpHColorName!
+                indicatorSliderView.backgroundColor = hexStringToUIColor(hex: specificChapter.content.highpHColor!)
+            }
         }
     }
 
