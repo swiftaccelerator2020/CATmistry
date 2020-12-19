@@ -52,6 +52,8 @@ class PlayFindGasDetailsViewController: UIViewController {
         gas3.layer.cornerRadius = 15
         gas4.layer.cornerRadius = 15
         submitButton.layer.cornerRadius = 25
+        timerLabel.layer.cornerRadius = 15
+        timerLabel.layer.masksToBounds = true
     }
     
     override func viewWillAppear(_ animated: Bool) {
