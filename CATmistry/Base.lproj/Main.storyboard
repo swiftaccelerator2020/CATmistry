@@ -2743,6 +2743,7 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
                     <navigationItem key="navigationItem" title="Sub Sub Topic Details" largeTitleDisplayMode="always" id="mw7-i7-Hak"/>
                     <connections>
                         <outlet property="contentView" destination="zMu-Qc-3rs" id="hQI-V5-1vN"/>
+                        <outlet property="contentViewHeight" destination="weO-3y-6uA" id="YuO-jd-JTS"/>
                         <outlet property="firstAttributeLabel" destination="gbb-p3-Sjw" id="Kyb-c0-LuZ"/>
                         <outlet property="indicatorSlider" destination="ti9-et-KLQ" id="Pac-qf-4E6"/>
                         <outlet property="indicatorSliderValueLabel" destination="ZQv-92-zYh" id="WJw-sF-SuN"/>
@@ -2907,23 +2908,23 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
                                 <rect key="frame" x="0.0" y="0.0" width="390" height="450"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="UNDER CONTRUCTION" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cl8-Nd-3wn">
-                                        <rect key="frame" x="40" y="84" width="310" height="346"/>
+                                        <rect key="frame" x="40" y="104" width="310" height="326"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.10000000149011612" translatesAutoresizingMaskIntoConstraints="NO" id="EEk-UP-cq2">
-                                        <rect key="frame" x="10" y="40" width="370" height="4"/>
+                                        <rect key="frame" x="20" y="60" width="350" height="4"/>
                                     </progressView>
                                 </subviews>
                                 <color key="backgroundColor" red="0.80000000000000004" green="0.97254901960784312" blue="0.94901960784313721" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="cl8-Nd-3wn" secondAttribute="bottom" constant="20" id="4U0-Yk-IzG"/>
-                                    <constraint firstItem="EEk-UP-cq2" firstAttribute="leading" secondItem="PqB-AB-jef" secondAttribute="leading" constant="10" id="FFL-ms-gyH"/>
+                                    <constraint firstItem="EEk-UP-cq2" firstAttribute="leading" secondItem="PqB-AB-jef" secondAttribute="leading" constant="20" id="FFL-ms-gyH"/>
                                     <constraint firstAttribute="trailing" secondItem="cl8-Nd-3wn" secondAttribute="trailing" constant="40" id="Zuz-Wl-0hq"/>
                                     <constraint firstItem="cl8-Nd-3wn" firstAttribute="left" secondItem="PqB-AB-jef" secondAttribute="left" constant="40" id="cjc-tp-jHe"/>
-                                    <constraint firstAttribute="trailing" secondItem="EEk-UP-cq2" secondAttribute="trailing" constant="10" id="gzT-CV-o1R"/>
-                                    <constraint firstItem="EEk-UP-cq2" firstAttribute="top" secondItem="PqB-AB-jef" secondAttribute="top" constant="40" id="nhM-pC-gRd"/>
+                                    <constraint firstAttribute="trailing" secondItem="EEk-UP-cq2" secondAttribute="trailing" constant="20" id="gzT-CV-o1R"/>
+                                    <constraint firstItem="EEk-UP-cq2" firstAttribute="top" secondItem="PqB-AB-jef" secondAttribute="top" constant="60" id="nhM-pC-gRd"/>
                                     <constraint firstItem="cl8-Nd-3wn" firstAttribute="top" secondItem="EEk-UP-cq2" secondAttribute="bottom" constant="40" id="vyz-UO-C5S"/>
                                 </constraints>
                             </view>
@@ -3208,8 +3209,8 @@ Your answer was wrong, but don't worry! You have \(String(10 - currentQuestion))
         <segue reference="GnF-zJ-RVj"/>
         <segue reference="s4T-H5-cTx"/>
         <segue reference="l86-7T-ukz"/>
-        <segue reference="8zc-2j-Gbh"/>
-        <segue reference="xa7-EN-bjL"/>
+        <segue reference="GDV-4V-Yxl"/>
+        <segue reference="1zV-QA-rV2"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="books.vertical.fill" catalog="system" width="128" height="100"/>

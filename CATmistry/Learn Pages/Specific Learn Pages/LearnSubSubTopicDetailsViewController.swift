@@ -26,7 +26,8 @@ class LearnSubSubTopicDetailsViewController: UIViewController {
     @IBOutlet weak var indicatorSliderValueLabel: UILabel!
     @IBOutlet weak var indicatorSliderView: UIView!
     @IBOutlet weak var contentView: UIView!
-
+    @IBOutlet weak var contentViewHeight: NSLayoutConstraint!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -49,6 +50,8 @@ class LearnSubSubTopicDetailsViewController: UIViewController {
         firstAttributeLabel.text = specificChapter.content.firstAttributionText
         secondAttributeLabel.text = specificChapter.content.secondAttributionText
         thirdAttributeLabel.text = specificChapter.content.thirdAttributionText
+        
+        contentViewHeight.constant -= CGFloat(specificChapter.contentHeightDifference)
 
         if (subTopicName != "Indicators") {
             indicatorsSliderVertStack.isHidden = true
