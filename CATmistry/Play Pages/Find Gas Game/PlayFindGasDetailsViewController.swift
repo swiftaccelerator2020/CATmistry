@@ -73,6 +73,10 @@ class PlayFindGasDetailsViewController: UIViewController {
         timer = nil
         selectedGasTank?.backgroundColor = .none
         selectedGasTank = nil
+        limewaterView.backgroundColor = UIColor.white
+        lightedSplintView.backgroundColor = UIColor.white
+        glowingSplintView.backgroundColor = UIColor.white
+        litmusView.backgroundColor = UIColor.white
         if selectedGasTankString == gases.correctGasTank {
             performSegue(withIdentifier: "findGasCorrect", sender: nil)
         } else {
