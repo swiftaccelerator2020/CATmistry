@@ -19,7 +19,7 @@ var gameFourAttempts = ud.integer(forKey: "gameFourAttempts")
 class SettingsTableViewController: UITableViewController {
 
     var settingsHeaderArray = [
-        "Accessibility Settings",
+//        "Accessibility Settings",
         "Quiz Attempts",
         "Game Attempts",
 //        "General Statistics",
@@ -32,7 +32,7 @@ class SettingsTableViewController: UITableViewController {
     ]
 
     var settingsContentArray = [
-        [
+/*        [
             SettingsContent(
                 labelText: "Dyslexic Text",
                 type: "switchCell",
@@ -48,7 +48,7 @@ class SettingsTableViewController: UITableViewController {
                 type: "switchCell",
                 emojiImage: "🌙"
             ),
-        ],
+        ], */
 
         [
             SettingsContent(
