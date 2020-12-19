@@ -154,6 +154,7 @@ struct SettingsContent {
 
 var learnTopics = [
     // MARK: - GAS TESTS
+    
     Topic(title: "Gas Tests", pic: "gas-tests.png", pointsNeeded: 0, subTopics: [
         SubTopic(title: "What are Gas Tests?", pic: "gas-tests.png", needSlider: false, content:
                     SubContent(definition: "Our Earth's atmosphere is made up of a wide variety of gases, with some of the most abundant being nitrogen, oxygen, and argon. \n\nSome chemistry reactions give out a specific type of gas, and we then need to test this gas to identify what kind of reaction it is. In this chapter, we will be covering the gas tests of the following few gases. Click to find out more!"),
@@ -521,7 +522,7 @@ var learnTopics = [
             SubSubTopic(topic: "Screened Methyl Orange (2)", picture: "screened-methyl-orange-2.png", id: 1, content: SubSubContent(image: "screened-methyl-orange-2.png", firstAttributionText: "", secondAttributionText: "", thirdAttributionText: "Try out the interactive slider below:", lowpH: 3.2, highpH: 4.4, lowpHColor: "4b7b75", middlepHColor: "4b7b75", highpHColor: "01A52F", lowpHColorName: "Grey", middlepHColorName: "Grey", highpHColorName: "Green")),
             SubSubTopic(topic: "Thymol Blue (1)", picture: "thymol-blue-1.png", id: 1, content: SubSubContent(image: "thymol-blue-1.png", firstAttributionText: "", secondAttributionText: "", thirdAttributionText: "Try out the interactive slider below:", lowpH: 1.2, highpH: 2.8, lowpHColor: "FF0000", middlepHColor: "FF7500", highpHColor: "FFE600", lowpHColorName: "Red", middlepHColorName: "Orange", highpHColorName: "Yellow")),
             SubSubTopic(topic: "Thymol Blue (2)", picture: "thymol-blue-2.png", id: 1, content: SubSubContent(image: "thymol-blue-2.png", firstAttributionText: "", secondAttributionText: "", thirdAttributionText: "Try out the interactive slider below:", lowpH: 8.0, highpH: 9.6, lowpHColor: "FFE600", middlepHColor: "01A52F", highpHColor: "274ED7", lowpHColorName: "Yellow", middlepHColorName: "Green", highpHColorName: "Blue")),
-            SubSubTopic(topic: "Universal Indicator", picture: "universal-indicator-1.png", id: 1, content: SubSubContent(image: "universal-indicator-2.png", firstAttributionText: "", secondAttributionText: "", thirdAttributionText: "Try out the interactive slider below:", lowpH: 1, highpH: 1, lowpHColor: "", middlepHColor: "", highpHColor: "", lowpHColorName: "", middlepHColorName: "", highpHColorName: ""))
+            SubSubTopic(topic: "Universal Indicator", picture: "universal-indicator-1.png", id: 1, content: SubSubContent(image: "universal-indicator-2.png", firstAttributionText: "", secondAttributionText: "", thirdAttributionText: "Try out the interactive slider below:", lowpH: 1, highpH: 14, lowpHColor: "EF1D2C", middlepHColor: "49B751", highpHColor: "49176C", lowpHColorName: "Red", middlepHColorName: "Green", highpHColorName: "Purple"))
         ], navTitle: "Indicators", contentHeightDifference: 0),
         SubTopic(title: "Take the Quiz", pic: "quiz.png", needSlider: false, content: SubContent(definition: ""), subTopics: [], navTitle: "Take the Quiz")
     ], errorLabel: "Please complete Chapter 2", questions:
@@ -632,7 +633,9 @@ var learnTopics = [
                 "9"
             ], correctAnswer: 2),
         ]),
+    
     // MARK: - PERIODIC TABLE
+    
     Topic(title: "Periodic Table", pic: "periodic-table.png", pointsNeeded: 30, subTopics: [
         SubTopic(title: "What is the Periodic Table?", pic: "periodic-table.png", needSlider: false, content: SubContent(definition: "A periodic table is a chart that shows chemical elements in order of their atomic number. \n\nElements with similar properties are arranged in the same column (group), and elements with the same number of electron shells are arranged in the same row (period)."), subTopics: nil, navTitle: "Periodic Table", contentHeightDifference: 250),
         SubTopic(title: "What are Elements?", pic: "element.png", needSlider: false, content: SubContent(definition: "An element is a pure substance that cannot be broken down by chemical means. \n\nEvery element is made up of its own type of atom. \n\nHere is an example of an element and how to read it in the periodic table:"), subTopics: nil, navTitle: "Elements", contentHeightDifference: 250),
