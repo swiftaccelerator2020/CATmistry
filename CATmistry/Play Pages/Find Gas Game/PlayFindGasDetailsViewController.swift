@@ -8,7 +8,7 @@
 import UIKit
 
 class PlayFindGasDetailsViewController: UIViewController {
-
+    
     var currentLevel = 0
     var selectedGasTank: UIView?
     var selectedGasTankString: String!
@@ -16,9 +16,9 @@ class PlayFindGasDetailsViewController: UIViewController {
     var currentRound = 0
     var timer: Timer!
     var timeLeft = 20
-
-    let color = UIColor(red: 123, green: 211, blue: 247)
-
+    
+    let color = UIColor(red: 88/255, green: 214/255, blue: 141/255, alpha: 1)
+    
     @IBOutlet weak var limewaterView: UIView!
     @IBOutlet weak var lightedSplintView: UIView!
     @IBOutlet weak var glowingSplintView: UIView!
@@ -34,14 +34,14 @@ class PlayFindGasDetailsViewController: UIViewController {
     @IBOutlet weak var submitButton: UIButton!
     @IBOutlet weak var timerLabel: UILabel!
     @IBOutlet weak var questionLabel: UILabel!
-
+    
     var gases: GasTestGame!
-
+    
     // var initialCenter = CGPoint()  // The initial center point of the view.
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
         limewaterView.layer.cornerRadius = 15
         lightedSplintView.layer.cornerRadius = 15
@@ -53,7 +53,7 @@ class PlayFindGasDetailsViewController: UIViewController {
         gas4.layer.cornerRadius = 15
         submitButton.layer.cornerRadius = 25
     }
-
+    
     override func viewWillAppear(_ animated: Bool) {
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.updateTimer), userInfo: nil, repeats: true)
         timeLeft = 20
@@ -67,7 +67,7 @@ class PlayFindGasDetailsViewController: UIViewController {
         questionLabel.text = gases.correctGasTank
         currentRound += 1
     }
-
+    
     @IBAction func submitChoice(_ sender: Any) {
         timer.invalidate()
         timer = nil
@@ -79,13 +79,13 @@ class PlayFindGasDetailsViewController: UIViewController {
             performSegue(withIdentifier: "findGasWrong", sender: nil)
         }
     }
-
-
+    
+    
     @IBAction func gas1Selected(_ sender: Any) {
         print("HI")
-
+        
         if selectedGasTest != nil {
-
+            
         } else {
             selectedGasTankString = gases.firstGasTank
             submitButton.isHidden = false
@@ -95,13 +95,13 @@ class PlayFindGasDetailsViewController: UIViewController {
             selectedGasTank = gas1
         }
     }
-
+    
     @IBAction func gas2Selected(_ sender: Any) {
         print("HI")
-
+        
         if selectedGasTest != nil {
-
-
+            
+            
         } else {
             selectedGasTankString = gases.secondGasTank
             submitButton.isHidden = false
@@ -110,14 +110,14 @@ class PlayFindGasDetailsViewController: UIViewController {
             gas2.backgroundColor = color
             selectedGasTank = gas2
         }
-
+        
     }
-
+    
     @IBAction func gas3Selected(_ sender: Any) {
         print("HI")
-
+        
         if selectedGasTest != nil {
-
+            
         } else {
             selectedGasTankString = gases.thirdGasTank
             submitButton.isHidden = false
@@ -126,14 +126,14 @@ class PlayFindGasDetailsViewController: UIViewController {
             gas3.backgroundColor = color
             selectedGasTank = gas3
         }
-
+        
     }
-
+    
     @IBAction func gas4Selected(_ sender: Any) {
         print("HI")
-
+        
         if selectedGasTest != nil {
-
+            
         } else {
             selectedGasTankString = gases.fourthGasTank
             submitButton.isHidden = false
@@ -142,39 +142,53 @@ class PlayFindGasDetailsViewController: UIViewController {
             gas4.backgroundColor = color
             selectedGasTank = gas4
         }
-
+        
     }
-
+    
     @IBAction func limewaterTestClicked(_ sender: Any) {
         print("HI")
         selectedGasTest = 0
+        limewaterView.backgroundColor = UIColor(red: 88/255, green: 214/255, blue: 141/255, alpha: 1)
+        lightedSplintView.backgroundColor = UIColor.white
+        glowingSplintView.backgroundColor = UIColor.white
+        litmusView.backgroundColor = UIColor.white
         showResults()
         selectedGasTest = nil
     }
-
+    
     @IBAction func lightedSplintTestClicked(_ sender: Any) {
         print("HI")
         selectedGasTest = 1
+        limewaterView.backgroundColor = UIColor.white
+        lightedSplintView.backgroundColor = UIColor(red: 88/255, green: 214/255, blue: 141/255, alpha: 1)
+        glowingSplintView.backgroundColor = UIColor.white
+        litmusView.backgroundColor = UIColor.white
         showResults()
         selectedGasTest = nil
     }
-
+    
     @IBAction func glowingSplintTestClicked(_ sender: Any) {
         print("HI")
         selectedGasTest = 2
+        limewaterView.backgroundColor = UIColor.white
+        lightedSplintView.backgroundColor = UIColor.white
+        glowingSplintView.backgroundColor = UIColor(red: 88/255, green: 214/255, blue: 141/255, alpha: 1)
+        litmusView.backgroundColor = UIColor.white
         showResults()
         selectedGasTest = nil
     }
-
+    
     @IBAction func litmusPaperTestClicked(_ sender: Any) {
         print("HI")
         selectedGasTest = 3
-
+        limewaterView.backgroundColor = UIColor.white
+        lightedSplintView.backgroundColor = UIColor.white
+        glowingSplintView.backgroundColor = UIColor.white
+        litmusView.backgroundColor = UIColor(red: 88/255, green: 214/255, blue: 141/255, alpha: 1)
         showResults()
-
         selectedGasTest = nil
     }
-
+    
     /*
      @IBAction func panPiece(_ gestureRecognizer : UIPanGestureRecognizer) {
      guard gestureRecognizer.view != nil else {return}
@@ -198,12 +212,12 @@ class PlayFindGasDetailsViewController: UIViewController {
      }
      }
      */
-
+    
     // MARK: - Navigation
-
+    
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-
+        
         if segue.identifier == "findGasCorrect" {
             let destVC = segue.destination as! PlayCorrectAnswerViewController
             destVC.currentLevel = currentLevel
@@ -218,7 +232,7 @@ class PlayFindGasDetailsViewController: UIViewController {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
     }
-
+    
     @objc func updateTimer() {
         timeLeft -= 1
         timerLabel.text = "\(timeLeft) seconds left"
@@ -229,7 +243,7 @@ class PlayFindGasDetailsViewController: UIViewController {
             performSegue(withIdentifier: "findGasWrong", sender: nil)
         }
     }
-
+    
     func showResults() {
         gas1Check.isHidden = false
         gas2Check.isHidden = false
