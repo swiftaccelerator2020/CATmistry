@@ -19,7 +19,7 @@ var gameFourAttempts = ud.integer(forKey: "gameFourAttempts")
 class SettingsTableViewController: UITableViewController {
 
     var settingsHeaderArray = [
-        "Accessibility Settings",
+//        "Accessibility Settings",
         "Quiz Attempts",
         "Game Attempts",
 //        "General Statistics",
@@ -32,23 +32,23 @@ class SettingsTableViewController: UITableViewController {
     ]
 
     var settingsContentArray = [
-        [
-            SettingsContent(
-                labelText: "Dyslexic Text",
-                type: "switchCell",
-                emojiImage: "🅰️"
-            ),
-            SettingsContent(
-                labelText: "Haptics",
-                type: "switchCell",
-                emojiImage: "📳"
-            ),
-            SettingsContent(
-                labelText: "Dark Mode",
-                type: "switchCell",
-                emojiImage: "🌙"
-            ),
-        ],
+//        [
+//            SettingsContent(
+//                labelText: "Dyslexic Text",
+//                type: "switchCell",
+//                emojiImage: "🅰️"
+//            ),
+//            SettingsContent(
+//                labelText: "Haptics",
+//                type: "switchCell",
+//                emojiImage: "📳"
+//            ),
+//            SettingsContent(
+//                labelText: "Dark Mode",
+//                type: "switchCell",
+//                emojiImage: "🌙"
+//            ),
+//        ],
 
         [
             SettingsContent(
