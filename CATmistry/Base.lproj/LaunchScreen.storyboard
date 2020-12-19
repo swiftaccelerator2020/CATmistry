@@ -30,7 +30,9 @@
                                     </label>
                                 </subviews>
                                 <constraints>
+                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="450" id="5Pk-ON-9Xc"/>
                                     <constraint firstItem="DBk-WS-W81" firstAttribute="height" secondItem="aT9-Ww-xFw" secondAttribute="height" multiplier="0.4" id="I3o-1M-7Gm"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="150" id="gXC-U0-K0B"/>
                                 </constraints>
                             </stackView>
                         </subviews>
@@ -39,7 +41,7 @@
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="w4B-Ou-FZI" secondAttribute="trailing" constant="40" id="9mF-Ox-h1h"/>
                             <constraint firstItem="w4B-Ou-FZI" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="150" id="DsC-Lx-faY"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="w4B-Ou-FZI" secondAttribute="bottom" constant="400" id="Iwu-q1-BCX"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="w4B-Ou-FZI" secondAttribute="bottom" priority="900" constant="400" id="Iwu-q1-BCX"/>
                             <constraint firstItem="w4B-Ou-FZI" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="40" id="J71-E6-Df6"/>
                         </constraints>
                     </view>
