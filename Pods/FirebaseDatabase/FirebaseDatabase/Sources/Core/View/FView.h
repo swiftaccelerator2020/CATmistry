@@ -46,11 +46,11 @@
 
 - (void)addEventRegistration:(id<FEventRegistration>)eventRegistration;
 - (NSArray *)removeEventRegistration:(id<FEventRegistration>)eventRegistration
-                         cancelError:(NSError *)cancelError;
+    cancelError:(NSError *)cancelError;
 
 - (FViewOperationResult *)applyOperation:(id<FOperation>)operation
-                             writesCache:(FWriteTreeRef *)writesCache
-                             serverCache:(id<FNode>)optCompleteServerCache;
+    writesCache:(FWriteTreeRef *)writesCache
+    serverCache:(id<FNode>)optCompleteServerCache;
 - (NSArray *)initialEvents:(id<FEventRegistration>)registration;
 
 @end

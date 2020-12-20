@@ -32,8 +32,8 @@
 @interface FCacheNode : NSObject
 
 - (id)initWithIndexedNode:(FIndexedNode *)indexedNode
-       isFullyInitialized:(BOOL)fullyInitialized
-               isFiltered:(BOOL)filtered;
+    isFullyInitialized:(BOOL)fullyInitialized
+    isFiltered:(BOOL)filtered;
 
 - (BOOL)isCompleteForPath:(FPath *)path;
 - (BOOL)isCompleteForChild:(NSString *)childKey;

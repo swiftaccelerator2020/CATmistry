@@ -28,14 +28,14 @@ extern NSString *const kFIRInstallationsStoreUserDefaultsID;
 /// The class is responsible for storing and accessing the installations data.
 @interface FIRInstallationsStore : NSObject
 
-/**
- * The default initializer.
- * @param storage The secure storage to save installations data.
- * @param accessGroup The Keychain Access Group to store and request the
- * installations data.
- */
+    /**
+     * The default initializer.
+     * @param storage The secure storage to save installations data.
+     * @param accessGroup The Keychain Access Group to store and request the
+     * installations data.
+     */
 - (instancetype)initWithSecureStorage:(GULKeychainStorage *)storage
-                          accessGroup:(nullable NSString *)accessGroup;
+    accessGroup:(nullable NSString *)accessGroup;
 
 /**
  * Retrieves existing installation ID if there is.
@@ -48,8 +48,8 @@ extern NSString *const kFIRInstallationsStoreUserDefaultsID;
  * installation has not been found or with another possible error.
  */
 - (FBLPromise<FIRInstallationsItem *> *)installationForAppID:(NSString *)appID
-                                                     appName:
-                                                         (NSString *)appName;
+    appName:
+    (NSString *)appName;
 
 /**
  * Saves the given installation.
@@ -68,7 +68,7 @@ extern NSString *const kFIRInstallationsStoreUserDefaultsID;
  * @return Returns a promise that is resolved with `[NSNull null]` on success.
  */
 - (FBLPromise<NSNull *> *)removeInstallationForAppID:(NSString *)appID
-                                             appName:(NSString *)appName;
+    appName:(NSString *)appName;
 
 @end
 

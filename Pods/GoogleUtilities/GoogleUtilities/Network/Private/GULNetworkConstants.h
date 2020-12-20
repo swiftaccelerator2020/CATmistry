@@ -22,18 +22,18 @@
 /// decode the errors if we inadvertently altered any of these codes in a future
 /// SDK version.
 typedef NS_ENUM(NSInteger, GULNetworkErrorCode) {
-  /// Unknown error.
-  GULNetworkErrorCodeUnknown = 0,
-  /// Error occurs when the request URL is invalid.
-  GULErrorCodeNetworkInvalidURL = 1,
-  /// Error occurs when request cannot be constructed.
-  GULErrorCodeNetworkRequestCreation = 2,
-  /// Error occurs when payload cannot be compressed.
-  GULErrorCodeNetworkPayloadCompression = 3,
-  /// Error occurs when session task cannot be created.
-  GULErrorCodeNetworkSessionTaskCreation = 4,
-  /// Error occurs when there is no response.
-  GULErrorCodeNetworkInvalidResponse = 5
+    /// Unknown error.
+    GULNetworkErrorCodeUnknown = 0,
+    /// Error occurs when the request URL is invalid.
+    GULErrorCodeNetworkInvalidURL = 1,
+    /// Error occurs when request cannot be constructed.
+    GULErrorCodeNetworkRequestCreation = 2,
+    /// Error occurs when payload cannot be compressed.
+    GULErrorCodeNetworkPayloadCompression = 3,
+    /// Error occurs when session task cannot be created.
+    GULErrorCodeNetworkSessionTaskCreation = 4,
+    /// Error occurs when there is no response.
+    GULErrorCodeNetworkInvalidResponse = 5
 };
 
 #pragma mark - Network constants

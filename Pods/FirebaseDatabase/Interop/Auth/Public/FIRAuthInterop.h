@@ -26,7 +26,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 typedef void (^FIRTokenCallback)(NSString *_Nullable token,
                                  NSError *_Nullable error)
-    NS_SWIFT_NAME(TokenCallback);
+NS_SWIFT_NAME(TokenCallback);
 
 /// Common methods for Auth interoperability.
 NS_SWIFT_NAME(AuthInterop)
@@ -35,7 +35,7 @@ NS_SWIFT_NAME(AuthInterop)
 /// Retrieves the Firebase authentication token, possibly refreshing it if it
 /// has expired.
 - (void)getTokenForcingRefresh:(BOOL)forceRefresh
-                  withCallback:(FIRTokenCallback)callback;
+    withCallback:(FIRTokenCallback)callback;
 
 /// Get the current Auth user's UID. Returns nil if there is no user signed in.
 - (nullable NSString *)getUserID;

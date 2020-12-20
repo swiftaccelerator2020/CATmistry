@@ -42,11 +42,11 @@
 @end
 
 typedef enum {
-  FLogLevelDebug = 1,
-  FLogLevelInfo = 2,
-  FLogLevelWarn = 3,
-  FLogLevelError = 4,
-  FLogLevelNone = 5
+    FLogLevelDebug = 1,
+    FLogLevelInfo = 2,
+    FLogLevelWarn = 3,
+    FLogLevelError = 4,
+    FLogLevelNone = 5
 } FLogLevel;
 
 // Log tags

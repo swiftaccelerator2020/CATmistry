@@ -21,24 +21,24 @@
 @implementation FBLPromise (DelayAdditions)
 
 - (FBLPromise *)delay:(NSTimeInterval)interval {
-  return [self onQueue:FBLPromise.defaultDispatchQueue delay:interval];
+    return [self onQueue:FBLPromise.defaultDispatchQueue delay:interval];
 }
 
 - (FBLPromise *)onQueue:(dispatch_queue_t)queue delay:(NSTimeInterval)interval {
-  NSParameterAssert(queue);
+    NSParameterAssert(queue);
 
-  FBLPromise *promise = [[FBLPromise alloc] initPending];
-  [self observeOnQueue:queue
-      fulfill:^(id __nullable value) {
-        dispatch_after(dispatch_time(0, (int64_t)(interval * NSEC_PER_SEC)),
-                       queue, ^{
-                         [promise fulfill:value];
-                       });
-      }
-      reject:^(NSError *error) {
+    FBLPromise *promise = [[FBLPromise alloc] initPending];
+    [self observeOnQueue:queue
+         fulfill:^(id __nullable value) {
+             dispatch_after(dispatch_time(0, (int64_t)(interval * NSEC_PER_SEC)),
+             queue, ^ {
+                 [promise fulfill:value];
+             });
+    }
+    reject:^(NSError *error) {
         [promise reject:error];
-      }];
-  return promise;
+    }];
+    return promise;
 }
 
 @end
@@ -46,15 +46,15 @@
 @implementation FBLPromise (DotSyntax_DelayAdditions)
 
 - (FBLPromise * (^)(NSTimeInterval))delay {
-  return ^(NSTimeInterval interval) {
-    return [self delay:interval];
-  };
+    return ^(NSTimeInterval interval) {
+        return [self delay:interval];
+    };
 }
 
 - (FBLPromise * (^)(dispatch_queue_t, NSTimeInterval))delayOn {
-  return ^(dispatch_queue_t queue, NSTimeInterval interval) {
-    return [self onQueue:queue delay:interval];
-  };
+    return ^(dispatch_queue_t queue, NSTimeInterval interval) {
+        return [self onQueue:queue delay:interval];
+    };
 }
 
 @end

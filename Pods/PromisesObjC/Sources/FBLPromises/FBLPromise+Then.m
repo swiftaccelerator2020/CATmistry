@@ -21,15 +21,15 @@
 @implementation FBLPromise (ThenAdditions)
 
 - (FBLPromise *)then:(FBLPromiseThenWorkBlock)work {
-  return [self onQueue:FBLPromise.defaultDispatchQueue then:work];
+    return [self onQueue:FBLPromise.defaultDispatchQueue then:work];
 }
 
 - (FBLPromise *)onQueue:(dispatch_queue_t)queue
-                   then:(FBLPromiseThenWorkBlock)work {
-  NSParameterAssert(queue);
-  NSParameterAssert(work);
+    then:(FBLPromiseThenWorkBlock)work {
+    NSParameterAssert(queue);
+    NSParameterAssert(work);
 
-  return [self chainOnQueue:queue chainedFulfill:work chainedReject:nil];
+    return [self chainOnQueue:queue chainedFulfill:work chainedReject:nil];
 }
 
 @end
@@ -37,15 +37,15 @@
 @implementation FBLPromise (DotSyntax_ThenAdditions)
 
 - (FBLPromise * (^)(FBLPromiseThenWorkBlock))then {
-  return ^(FBLPromiseThenWorkBlock work) {
-    return [self then:work];
-  };
+    return ^(FBLPromiseThenWorkBlock work) {
+        return [self then:work];
+    };
 }
 
 - (FBLPromise * (^)(dispatch_queue_t, FBLPromiseThenWorkBlock))thenOn {
-  return ^(dispatch_queue_t queue, FBLPromiseThenWorkBlock work) {
-    return [self onQueue:queue then:work];
-  };
+    return ^(dispatch_queue_t queue, FBLPromiseThenWorkBlock work) {
+        return [self onQueue:queue then:work];
+    };
 }
 
 @end

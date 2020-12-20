@@ -20,8 +20,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface FBLPromise <Value>(ReduceAdditions)
 
-typedef id __nullable (^FBLPromiseReducerBlock)(Value __nullable partial,
-                                                id next)
+    typedef id __nullable (^FBLPromiseReducerBlock)(Value __nullable partial,
+            id next)
     NS_SWIFT_UNAVAILABLE("");
 
 /**
@@ -36,7 +36,7 @@ typedef id __nullable (^FBLPromiseReducerBlock)(Value __nullable partial,
          Or `self` if `items` is empty.
  */
 - (FBLPromise *)reduce:(NSArray *)items
-               combine:(FBLPromiseReducerBlock)reducer NS_SWIFT_UNAVAILABLE("");
+    combine:(FBLPromiseReducerBlock)reducer NS_SWIFT_UNAVAILABLE("");
 
 /**
  Sequentially reduces a collection of values to a single promise using a given
@@ -51,8 +51,8 @@ typedef id __nullable (^FBLPromiseReducerBlock)(Value __nullable partial,
          Or `self` if `items` is empty.
  */
 - (FBLPromise *)onQueue:(dispatch_queue_t)queue
-                 reduce:(NSArray *)items
-                combine:(FBLPromiseReducerBlock)reducer
+    reduce:(NSArray *)items
+    combine:(FBLPromiseReducerBlock)reducer
     NS_SWIFT_UNAVAILABLE("");
 
 @end
@@ -64,10 +64,10 @@ typedef id __nullable (^FBLPromiseReducerBlock)(Value __nullable partial,
 @interface FBLPromise <Value>(DotSyntax_ReduceAdditions)
 
 - (FBLPromise * (^)(NSArray *,
-                    FBLPromiseReducerBlock))reduce FBL_PROMISES_DOT_SYNTAX
+    FBLPromiseReducerBlock))reduce FBL_PROMISES_DOT_SYNTAX
     NS_SWIFT_UNAVAILABLE("");
 - (FBLPromise * (^)(dispatch_queue_t, NSArray *,
-                    FBLPromiseReducerBlock))reduceOn FBL_PROMISES_DOT_SYNTAX
+    FBLPromiseReducerBlock))reduceOn FBL_PROMISES_DOT_SYNTAX
     NS_SWIFT_UNAVAILABLE("");
 
 @end

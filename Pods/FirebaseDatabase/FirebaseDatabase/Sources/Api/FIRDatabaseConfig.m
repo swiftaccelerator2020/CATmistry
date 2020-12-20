@@ -30,66 +30,66 @@
 @implementation FIRDatabaseConfig
 
 - (id)init {
-  [NSException raise:NSInvalidArgumentException
-              format:@"Can't create config objects!"];
-  return nil;
+    [NSException raise:NSInvalidArgumentException
+                 format:@"Can't create config objects!"];
+    return nil;
 }
 
 - (id)initWithSessionIdentifier:(NSString *)identifier
-                    googleAppID:(NSString *)googleAppID
-              authTokenProvider:(id<FAuthTokenProvider>)authTokenProvider {
-  self = [super init];
-  if (self != nil) {
-    self->_sessionIdentifier = identifier;
-    self->_callbackQueue = dispatch_get_main_queue();
-    self->_googleAppID = googleAppID;
-    self->_persistenceCacheSizeBytes =
-        10 * 1024 * 1024; // Default cache size is 10MB
-    self->_authTokenProvider = authTokenProvider;
-  }
-  return self;
+    googleAppID:(NSString *)googleAppID
+    authTokenProvider:(id<FAuthTokenProvider>)authTokenProvider {
+    self = [super init];
+    if (self != nil) {
+        self->_sessionIdentifier = identifier;
+        self->_callbackQueue = dispatch_get_main_queue();
+        self->_googleAppID = googleAppID;
+        self->_persistenceCacheSizeBytes =
+            10 * 1024 * 1024; // Default cache size is 10MB
+        self->_authTokenProvider = authTokenProvider;
+    }
+    return self;
 }
 
 - (void)assertUnfrozen {
-  if (self.isFrozen) {
-    [NSException raise:NSGenericException
-                format:@"Can't modify config objects after they are in use "
-                       @"for FIRDatabaseReferences."];
-  }
+    if (self.isFrozen) {
+        [NSException raise:NSGenericException
+                     format:@"Can't modify config objects after they are in use "
+                     @"for FIRDatabaseReferences."];
+    }
 }
 
 - (void)setAuthTokenProvider:(id<FAuthTokenProvider>)authTokenProvider {
-  [self assertUnfrozen];
-  self->_authTokenProvider = authTokenProvider;
+    [self assertUnfrozen];
+    self->_authTokenProvider = authTokenProvider;
 }
 
 - (void)setPersistenceEnabled:(BOOL)persistenceEnabled {
-  [self assertUnfrozen];
-  self->_persistenceEnabled = persistenceEnabled;
+    [self assertUnfrozen];
+    self->_persistenceEnabled = persistenceEnabled;
 }
 
 - (void)setPersistenceCacheSizeBytes:(NSUInteger)persistenceCacheSizeBytes {
-  [self assertUnfrozen];
-  // Can't be less than 1MB
-  if (persistenceCacheSizeBytes < 1024 * 1024) {
-    [NSException raise:NSInvalidArgumentException
-                format:@"The minimum cache size must be at least 1MB"];
-  }
-  if (persistenceCacheSizeBytes > 100 * 1024 * 1024) {
-    [NSException raise:NSInvalidArgumentException
-                format:@"Firebase Database currently doesn't support a "
-                       @"cache size larger than 100MB"];
-  }
-  self->_persistenceCacheSizeBytes = persistenceCacheSizeBytes;
+    [self assertUnfrozen];
+    // Can't be less than 1MB
+    if (persistenceCacheSizeBytes < 1024 * 1024) {
+        [NSException raise:NSInvalidArgumentException
+                     format:@"The minimum cache size must be at least 1MB"];
+    }
+    if (persistenceCacheSizeBytes > 100 * 1024 * 1024) {
+        [NSException raise:NSInvalidArgumentException
+                     format:@"Firebase Database currently doesn't support a "
+                     @"cache size larger than 100MB"];
+    }
+    self->_persistenceCacheSizeBytes = persistenceCacheSizeBytes;
 }
 
 - (void)setCallbackQueue:(dispatch_queue_t)callbackQueue {
-  [self assertUnfrozen];
-  self->_callbackQueue = callbackQueue;
+    [self assertUnfrozen];
+    self->_callbackQueue = callbackQueue;
 }
 
 - (void)freeze {
-  self->_isFrozen = YES;
+    self->_isFrozen = YES;
 }
 
 @end

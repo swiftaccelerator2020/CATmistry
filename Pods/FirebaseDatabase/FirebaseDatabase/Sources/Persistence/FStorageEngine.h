@@ -28,11 +28,11 @@
 - (void)close;
 
 - (void)saveUserOverwrite:(id<FNode>)node
-                   atPath:(FPath *)path
-                  writeId:(NSUInteger)writeId;
+    atPath:(FPath *)path
+    writeId:(NSUInteger)writeId;
 - (void)saveUserMerge:(FCompoundWrite *)merge
-               atPath:(FPath *)path
-              writeId:(NSUInteger)writeId;
+    atPath:(FPath *)path
+    writeId:(NSUInteger)writeId;
 - (void)removeUserWrite:(NSUInteger)writeId;
 - (void)removeAllUserWrites;
 - (NSArray *)userWrites;
@@ -40,8 +40,8 @@
 - (id<FNode>)serverCacheAtPath:(FPath *)path;
 - (id<FNode>)serverCacheForKeys:(NSSet *)keys atPath:(FPath *)path;
 - (void)updateServerCache:(id<FNode>)node
-                   atPath:(FPath *)path
-                    merge:(BOOL)merge;
+    atPath:(FPath *)path
+    merge:(BOOL)merge;
 - (void)updateServerCacheWithMerge:(FCompoundWrite *)merge atPath:(FPath *)path;
 - (NSUInteger)serverCacheEstimatedSizeInBytes;
 
@@ -53,8 +53,8 @@
 
 - (void)setTrackedQueryKeys:(NSSet *)keys forQueryId:(NSUInteger)queryId;
 - (void)updateTrackedQueryKeysWithAddedKeys:(NSSet *)added
-                                removedKeys:(NSSet *)removed
-                                 forQueryId:(NSUInteger)queryId;
+    removedKeys:(NSSet *)removed
+    forQueryId:(NSUInteger)queryId;
 - (NSSet *)trackedQueryKeysForQuery:(NSUInteger)queryId;
 
 @end

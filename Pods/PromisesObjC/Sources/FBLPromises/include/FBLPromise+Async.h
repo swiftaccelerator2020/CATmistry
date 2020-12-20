@@ -20,12 +20,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface FBLPromise <Value>(AsyncAdditions)
 
-typedef void (^FBLPromiseFulfillBlock)(Value __nullable value)
+    typedef void (^FBLPromiseFulfillBlock)(Value __nullable value)
     NS_SWIFT_UNAVAILABLE("");
 typedef void (^FBLPromiseRejectBlock)(NSError *error) NS_SWIFT_UNAVAILABLE("");
 typedef void (^FBLPromiseAsyncWorkBlock)(FBLPromiseFulfillBlock fulfill,
-                                         FBLPromiseRejectBlock reject)
-    NS_SWIFT_UNAVAILABLE("");
+        FBLPromiseRejectBlock reject)
+NS_SWIFT_UNAVAILABLE("");
 
 /**
  Creates a pending promise and executes `work` block asynchronously.
@@ -44,7 +44,7 @@ typedef void (^FBLPromiseAsyncWorkBlock)(FBLPromiseFulfillBlock fulfill,
  @return A new pending promise.
  */
 + (instancetype)onQueue:(dispatch_queue_t)queue
-                  async:(FBLPromiseAsyncWorkBlock)work NS_REFINED_FOR_SWIFT;
+    async:(FBLPromiseAsyncWorkBlock)work NS_REFINED_FOR_SWIFT;
 
 @end
 
@@ -58,7 +58,7 @@ typedef void (^FBLPromiseAsyncWorkBlock)(FBLPromiseFulfillBlock fulfill,
 + (FBLPromise * (^)(FBLPromiseAsyncWorkBlock))async FBL_PROMISES_DOT_SYNTAX
     NS_SWIFT_UNAVAILABLE("");
 + (FBLPromise * (^)(dispatch_queue_t,
-                    FBLPromiseAsyncWorkBlock))asyncOn FBL_PROMISES_DOT_SYNTAX
+    FBLPromiseAsyncWorkBlock))asyncOn FBL_PROMISES_DOT_SYNTAX
     NS_SWIFT_UNAVAILABLE("");
 
 @end

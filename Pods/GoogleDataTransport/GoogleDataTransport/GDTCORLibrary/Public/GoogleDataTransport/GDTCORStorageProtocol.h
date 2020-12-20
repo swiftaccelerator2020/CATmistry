@@ -42,8 +42,8 @@ typedef void (^GDTCORStorageBatchBlock)(
  * event has been made.
  */
 - (void)storeEvent:(GDTCOREvent *)event
-        onComplete:(void (^_Nullable)(BOOL wasWritten,
-                                      NSError *_Nullable error))completion;
+    onComplete:(void (^_Nullable)(BOOL wasWritten,
+    NSError *_Nullable error))completion;
 
 /** Returns YES if some events have been stored for the given target, NO
  * otherwise.
@@ -52,7 +52,7 @@ typedef void (^GDTCORStorageBatchBlock)(
  * are events is done.
  */
 - (void)hasEventsForTarget:(GDTCORTarget)target
-                onComplete:(void (^)(BOOL hasEvents))onComplete;
+    onComplete:(void (^)(BOOL hasEvents))onComplete;
 
 /** Constructs an event batch with the given event selector. Events in this
  * batch will not be returned in any queries or other batches until the batch is
@@ -66,9 +66,9 @@ typedef void (^GDTCORStorageBatchBlock)(
  * been fetched.
  */
 - (void)batchWithEventSelector:
-            (nonnull GDTCORStorageEventSelector *)eventSelector
-               batchExpiration:(nonnull NSDate *)expiration
-                    onComplete:(nonnull GDTCORStorageBatchBlock)onComplete;
+    (nonnull GDTCORStorageEventSelector *)eventSelector
+    batchExpiration:(nonnull NSDate *)expiration
+    onComplete:(nonnull GDTCORStorageBatchBlock)onComplete;
 
 /** Removes the event batch.
  *
@@ -78,8 +78,8 @@ typedef void (^GDTCORStorageBatchBlock)(
  * process has completed.
  */
 - (void)removeBatchWithID:(NSNumber *)batchID
-             deleteEvents:(BOOL)deleteEvents
-               onComplete:(void (^_Nullable)(void))onComplete;
+    deleteEvents:(BOOL)deleteEvents
+    onComplete:(void (^_Nullable)(void))onComplete;
 
 /** Finds the batchIDs for the given target and calls the callback block.
  *
@@ -87,8 +87,8 @@ typedef void (^GDTCORStorageBatchBlock)(
  * @param onComplete The block to invoke with the set of current batchIDs.
  */
 - (void)batchIDsForTarget:(GDTCORTarget)target
-               onComplete:
-                   (void (^)(NSSet<NSNumber *> *_Nullable batchIDs))onComplete;
+    onComplete:
+    (void (^)(NSSet<NSNumber *> *_Nullable batchIDs))onComplete;
 
 /** Checks the storage for expired events and batches, deletes them if they're
  * expired. */
@@ -101,9 +101,9 @@ typedef void (^GDTCORStorageBatchBlock)(
  * @param onComplete An block to be run when storage of the data is complete.
  */
 - (void)storeLibraryData:(NSData *)data
-                  forKey:(NSString *)key
-              onComplete:
-                  (nullable void (^)(NSError *_Nullable error))onComplete;
+    forKey:(NSString *)key
+    onComplete:
+    (nullable void (^)(NSError *_Nullable error))onComplete;
 
 /** Retrieves the stored data for the given key and optionally sets a new value.
  *
@@ -113,10 +113,10 @@ typedef void (^GDTCORStorageBatchBlock)(
  * @param setValueBlock This optional block can provide a new value to set.
  */
 - (void)libraryDataForKey:(nonnull NSString *)key
-          onFetchComplete:
-              (nonnull void (^)(NSData *_Nullable data,
-                                NSError *_Nullable error))onFetchComplete
-              setNewValue:(NSData *_Nullable (^_Nullable)(void))setValueBlock;
+    onFetchComplete:
+    (nonnull void (^)(NSData *_Nullable data,
+    NSError *_Nullable error))onFetchComplete
+    setNewValue:(NSData *_Nullable (^_Nullable)(void))setValueBlock;
 
 /** Removes data from storage and calls the callback when complete.
  *
@@ -125,7 +125,7 @@ typedef void (^GDTCORStorageBatchBlock)(
  * complete.
  */
 - (void)removeLibraryDataForKey:(NSString *)key
-                     onComplete:(void (^)(NSError *_Nullable error))onComplete;
+    onComplete:(void (^)(NSError *_Nullable error))onComplete;
 
 /** Calculates and returns the total disk size that this storage consumes.
  *

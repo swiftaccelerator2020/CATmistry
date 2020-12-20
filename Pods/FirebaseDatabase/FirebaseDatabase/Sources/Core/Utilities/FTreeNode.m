@@ -23,13 +23,13 @@
 @synthesize value;
 
 - (id)init {
-  self = [super init];
-  if (self) {
-    self.children = [[NSMutableDictionary alloc] init];
-    self.childCount = 0;
-    self.value = nil;
-  }
-  return self;
+    self = [super init];
+    if (self) {
+        self.children = [[NSMutableDictionary alloc] init];
+        self.childCount = 0;
+        self.value = nil;
+    }
+    return self;
 }
 
 @end

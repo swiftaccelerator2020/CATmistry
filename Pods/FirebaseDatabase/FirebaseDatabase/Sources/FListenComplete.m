@@ -26,30 +26,30 @@
 
 @implementation FListenComplete
 - (id)initWithSource:(FOperationSource *)aSource path:(FPath *)aPath {
-  NSAssert(!aSource.fromUser,
-           @"Can't have a listen complete from a user source");
-  self = [super init];
-  if (self) {
-    self.source = aSource;
-    self.path = aPath;
-    self.type = FOperationTypeListenComplete;
-  }
-  return self;
+    NSAssert(!aSource.fromUser,
+             @"Can't have a listen complete from a user source");
+    self = [super init];
+    if (self) {
+        self.source = aSource;
+        self.path = aPath;
+        self.type = FOperationTypeListenComplete;
+    }
+    return self;
 }
 
 - (id<FOperation>)operationForChild:(NSString *)childKey {
-  if ([self.path isEmpty]) {
-    return [[FListenComplete alloc] initWithSource:self.source
-                                              path:[FPath empty]];
-  } else {
-    return [[FListenComplete alloc] initWithSource:self.source
-                                              path:[self.path popFront]];
-  }
+    if ([self.path isEmpty]) {
+        return [[FListenComplete alloc] initWithSource:self.source
+                                        path:[FPath empty]];
+    } else {
+        return [[FListenComplete alloc] initWithSource:self.source
+                                        path:[self.path popFront]];
+    }
 }
 
 - (NSString *)description {
-  return [NSString stringWithFormat:@"FListenComplete { path=%@, source=%@ }",
-                                    self.path, self.source];
+    return [NSString stringWithFormat:@"FListenComplete { path=%@, source=%@ }",
+                     self.path, self.source];
 }
 
 @end

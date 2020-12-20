@@ -17,7 +17,7 @@
 #import "FirebaseDatabase/Sources/Utilities/FAtomicNumber.h"
 
 @interface FAtomicNumber () {
-  unsigned long number;
+    unsigned long number;
 }
 
 @property(nonatomic, strong) NSLock *lock;
@@ -29,27 +29,27 @@
 @synthesize lock;
 
 - (id)init {
-  self = [super init];
-  if (self) {
-    number = 1;
-    self.lock = [[NSLock alloc] init];
-  }
-  return self;
+    self = [super init];
+    if (self) {
+        number = 1;
+        self.lock = [[NSLock alloc] init];
+    }
+    return self;
 }
 
 - (NSNumber *)getAndIncrement {
-  NSNumber *result;
+    NSNumber *result;
 
-  // See:
-  // http://developer.apple.com/library/ios/#DOCUMENTATION/Cocoa/Conceptual/Multithreading/ThreadSafety/ThreadSafety.html#//apple_ref/doc/uid/10000057i-CH8-SW14
-  // to improve, etc.
+    // See:
+    // http://developer.apple.com/library/ios/#DOCUMENTATION/Cocoa/Conceptual/Multithreading/ThreadSafety/ThreadSafety.html#//apple_ref/doc/uid/10000057i-CH8-SW14
+    // to improve, etc.
 
-  [self.lock lock];
-  result = [NSNumber numberWithUnsignedLong:number];
-  number = number + 1;
-  [self.lock unlock];
+    [self.lock lock];
+    result = [NSNumber numberWithUnsignedLong:number];
+    number = number + 1;
+    [self.lock unlock];
 
-  return result;
+    return result;
 }
 
 @end

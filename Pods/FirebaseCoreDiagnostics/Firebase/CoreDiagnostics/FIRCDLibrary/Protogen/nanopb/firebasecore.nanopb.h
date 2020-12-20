@@ -28,10 +28,10 @@
 
 /* Enum definitions */
 typedef enum _logs_proto_mobilesdk_ios_ICoreConfiguration_ConfigurationType {
-  logs_proto_mobilesdk_ios_ICoreConfiguration_ConfigurationType_UNKNOWN_CONFIGURATION_TYPE =
-      0,
-  logs_proto_mobilesdk_ios_ICoreConfiguration_ConfigurationType_CORE = 1,
-  logs_proto_mobilesdk_ios_ICoreConfiguration_ConfigurationType_SDK = 2
+    logs_proto_mobilesdk_ios_ICoreConfiguration_ConfigurationType_UNKNOWN_CONFIGURATION_TYPE =
+        0,
+    logs_proto_mobilesdk_ios_ICoreConfiguration_ConfigurationType_CORE = 1,
+    logs_proto_mobilesdk_ios_ICoreConfiguration_ConfigurationType_SDK = 2
 } logs_proto_mobilesdk_ios_ICoreConfiguration_ConfigurationType;
 #define _logs_proto_mobilesdk_ios_ICoreConfiguration_ConfigurationType_MIN     \
   logs_proto_mobilesdk_ios_ICoreConfiguration_ConfigurationType_UNKNOWN_CONFIGURATION_TYPE
@@ -42,10 +42,10 @@ typedef enum _logs_proto_mobilesdk_ios_ICoreConfiguration_ConfigurationType {
       logs_proto_mobilesdk_ios_ICoreConfiguration_ConfigurationType_SDK + 1))
 
 typedef enum _logs_proto_mobilesdk_ios_ICoreConfiguration_BuildType {
-  logs_proto_mobilesdk_ios_ICoreConfiguration_BuildType_UNKNOWN_BUILD_TYPE = 0,
-  logs_proto_mobilesdk_ios_ICoreConfiguration_BuildType_INTERNAL = 1,
-  logs_proto_mobilesdk_ios_ICoreConfiguration_BuildType_EAP = 2,
-  logs_proto_mobilesdk_ios_ICoreConfiguration_BuildType_PROD = 3
+    logs_proto_mobilesdk_ios_ICoreConfiguration_BuildType_UNKNOWN_BUILD_TYPE = 0,
+    logs_proto_mobilesdk_ios_ICoreConfiguration_BuildType_INTERNAL = 1,
+    logs_proto_mobilesdk_ios_ICoreConfiguration_BuildType_EAP = 2,
+    logs_proto_mobilesdk_ios_ICoreConfiguration_BuildType_PROD = 3
 } logs_proto_mobilesdk_ios_ICoreConfiguration_BuildType;
 #define _logs_proto_mobilesdk_ios_ICoreConfiguration_BuildType_MIN             \
   logs_proto_mobilesdk_ios_ICoreConfiguration_BuildType_UNKNOWN_BUILD_TYPE
@@ -56,50 +56,50 @@ typedef enum _logs_proto_mobilesdk_ios_ICoreConfiguration_BuildType {
       logs_proto_mobilesdk_ios_ICoreConfiguration_BuildType_PROD + 1))
 
 typedef enum _logs_proto_mobilesdk_ios_ICoreConfiguration_ServiceType {
-  logs_proto_mobilesdk_ios_ICoreConfiguration_ServiceType_UNKNOWN_SDK_SERVICE =
-      0,
-  logs_proto_mobilesdk_ios_ICoreConfiguration_ServiceType_ICORE = 1,
-  logs_proto_mobilesdk_ios_ICoreConfiguration_ServiceType_ADMOB = 2,
-  logs_proto_mobilesdk_ios_ICoreConfiguration_ServiceType_APP_INVITE = 3,
-  logs_proto_mobilesdk_ios_ICoreConfiguration_ServiceType_SIGN_IN = 5,
-  logs_proto_mobilesdk_ios_ICoreConfiguration_ServiceType_GCM = 6,
-  logs_proto_mobilesdk_ios_ICoreConfiguration_ServiceType_MAPS = 7,
-  logs_proto_mobilesdk_ios_ICoreConfiguration_ServiceType_SCION = 8,
-  logs_proto_mobilesdk_ios_ICoreConfiguration_ServiceType_ANALYTICS = 9,
-  logs_proto_mobilesdk_ios_ICoreConfiguration_ServiceType_APP_INDEXING = 10,
-  logs_proto_mobilesdk_ios_ICoreConfiguration_ServiceType_CONFIG = 11,
-  logs_proto_mobilesdk_ios_ICoreConfiguration_ServiceType_DURABLE_DEEP_LINKS =
-      12,
-  logs_proto_mobilesdk_ios_ICoreConfiguration_ServiceType_CRASH = 13,
-  logs_proto_mobilesdk_ios_ICoreConfiguration_ServiceType_AUTH = 14,
-  logs_proto_mobilesdk_ios_ICoreConfiguration_ServiceType_DATABASE = 15,
-  logs_proto_mobilesdk_ios_ICoreConfiguration_ServiceType_STORAGE = 16,
-  logs_proto_mobilesdk_ios_ICoreConfiguration_ServiceType_MESSAGING = 17,
-  logs_proto_mobilesdk_ios_ICoreConfiguration_ServiceType_MEASUREMENT = 18,
-  logs_proto_mobilesdk_ios_ICoreConfiguration_ServiceType_REMOTE_CONFIG = 19,
-  logs_proto_mobilesdk_ios_ICoreConfiguration_ServiceType_DYNAMIC_LINKS = 20,
-  logs_proto_mobilesdk_ios_ICoreConfiguration_ServiceType_INVITES = 21,
-  logs_proto_mobilesdk_ios_ICoreConfiguration_ServiceType_AUTH_UI = 22,
-  logs_proto_mobilesdk_ios_ICoreConfiguration_ServiceType_FIRESTORE = 23,
-  logs_proto_mobilesdk_ios_ICoreConfiguration_ServiceType_PERFORMANCE = 24,
-  logs_proto_mobilesdk_ios_ICoreConfiguration_ServiceType_ML_VISION_ON_DEVICE_FACE =
-      26,
-  logs_proto_mobilesdk_ios_ICoreConfiguration_ServiceType_ML_VISION_ON_DEVICE_BARCODE =
-      27,
-  logs_proto_mobilesdk_ios_ICoreConfiguration_ServiceType_ML_VISION_ON_DEVICE_TEXT =
-      28,
-  logs_proto_mobilesdk_ios_ICoreConfiguration_ServiceType_ML_VISION_ON_DEVICE_LABEL =
-      29,
-  logs_proto_mobilesdk_ios_ICoreConfiguration_ServiceType_ML_MODEL_INTERPRETER =
-      30,
-  logs_proto_mobilesdk_ios_ICoreConfiguration_ServiceType_IN_APP_MESSAGING = 31,
-  logs_proto_mobilesdk_ios_ICoreConfiguration_ServiceType_FUNCTIONS = 32,
-  logs_proto_mobilesdk_ios_ICoreConfiguration_ServiceType_ML_NATURAL_LANGUAGE =
-      33,
-  logs_proto_mobilesdk_ios_ICoreConfiguration_ServiceType_ML_VISION_ON_DEVICE_AUTOML =
-      34,
-  logs_proto_mobilesdk_ios_ICoreConfiguration_ServiceType_ML_VISION_ON_DEVICE_OBJECT_DETECTION =
-      35
+    logs_proto_mobilesdk_ios_ICoreConfiguration_ServiceType_UNKNOWN_SDK_SERVICE =
+        0,
+    logs_proto_mobilesdk_ios_ICoreConfiguration_ServiceType_ICORE = 1,
+    logs_proto_mobilesdk_ios_ICoreConfiguration_ServiceType_ADMOB = 2,
+    logs_proto_mobilesdk_ios_ICoreConfiguration_ServiceType_APP_INVITE = 3,
+    logs_proto_mobilesdk_ios_ICoreConfiguration_ServiceType_SIGN_IN = 5,
+    logs_proto_mobilesdk_ios_ICoreConfiguration_ServiceType_GCM = 6,
+    logs_proto_mobilesdk_ios_ICoreConfiguration_ServiceType_MAPS = 7,
+    logs_proto_mobilesdk_ios_ICoreConfiguration_ServiceType_SCION = 8,
+    logs_proto_mobilesdk_ios_ICoreConfiguration_ServiceType_ANALYTICS = 9,
+    logs_proto_mobilesdk_ios_ICoreConfiguration_ServiceType_APP_INDEXING = 10,
+    logs_proto_mobilesdk_ios_ICoreConfiguration_ServiceType_CONFIG = 11,
+    logs_proto_mobilesdk_ios_ICoreConfiguration_ServiceType_DURABLE_DEEP_LINKS =
+        12,
+    logs_proto_mobilesdk_ios_ICoreConfiguration_ServiceType_CRASH = 13,
+    logs_proto_mobilesdk_ios_ICoreConfiguration_ServiceType_AUTH = 14,
+    logs_proto_mobilesdk_ios_ICoreConfiguration_ServiceType_DATABASE = 15,
+    logs_proto_mobilesdk_ios_ICoreConfiguration_ServiceType_STORAGE = 16,
+    logs_proto_mobilesdk_ios_ICoreConfiguration_ServiceType_MESSAGING = 17,
+    logs_proto_mobilesdk_ios_ICoreConfiguration_ServiceType_MEASUREMENT = 18,
+    logs_proto_mobilesdk_ios_ICoreConfiguration_ServiceType_REMOTE_CONFIG = 19,
+    logs_proto_mobilesdk_ios_ICoreConfiguration_ServiceType_DYNAMIC_LINKS = 20,
+    logs_proto_mobilesdk_ios_ICoreConfiguration_ServiceType_INVITES = 21,
+    logs_proto_mobilesdk_ios_ICoreConfiguration_ServiceType_AUTH_UI = 22,
+    logs_proto_mobilesdk_ios_ICoreConfiguration_ServiceType_FIRESTORE = 23,
+    logs_proto_mobilesdk_ios_ICoreConfiguration_ServiceType_PERFORMANCE = 24,
+    logs_proto_mobilesdk_ios_ICoreConfiguration_ServiceType_ML_VISION_ON_DEVICE_FACE =
+        26,
+    logs_proto_mobilesdk_ios_ICoreConfiguration_ServiceType_ML_VISION_ON_DEVICE_BARCODE =
+        27,
+    logs_proto_mobilesdk_ios_ICoreConfiguration_ServiceType_ML_VISION_ON_DEVICE_TEXT =
+        28,
+    logs_proto_mobilesdk_ios_ICoreConfiguration_ServiceType_ML_VISION_ON_DEVICE_LABEL =
+        29,
+    logs_proto_mobilesdk_ios_ICoreConfiguration_ServiceType_ML_MODEL_INTERPRETER =
+        30,
+    logs_proto_mobilesdk_ios_ICoreConfiguration_ServiceType_IN_APP_MESSAGING = 31,
+    logs_proto_mobilesdk_ios_ICoreConfiguration_ServiceType_FUNCTIONS = 32,
+    logs_proto_mobilesdk_ios_ICoreConfiguration_ServiceType_ML_NATURAL_LANGUAGE =
+        33,
+    logs_proto_mobilesdk_ios_ICoreConfiguration_ServiceType_ML_VISION_ON_DEVICE_AUTOML =
+        34,
+    logs_proto_mobilesdk_ios_ICoreConfiguration_ServiceType_ML_VISION_ON_DEVICE_OBJECT_DETECTION =
+        35
 } logs_proto_mobilesdk_ios_ICoreConfiguration_ServiceType;
 #define _logs_proto_mobilesdk_ios_ICoreConfiguration_ServiceType_MIN           \
   logs_proto_mobilesdk_ios_ICoreConfiguration_ServiceType_UNKNOWN_SDK_SERVICE
@@ -111,9 +111,9 @@ typedef enum _logs_proto_mobilesdk_ios_ICoreConfiguration_ServiceType {
       1))
 
 typedef enum _logs_proto_mobilesdk_ios_ICoreConfiguration_PodName {
-  logs_proto_mobilesdk_ios_ICoreConfiguration_PodName_UNKNOWN_POD_NAME = 0,
-  logs_proto_mobilesdk_ios_ICoreConfiguration_PodName_GOOGLE = 1,
-  logs_proto_mobilesdk_ios_ICoreConfiguration_PodName_FIREBASE = 2
+    logs_proto_mobilesdk_ios_ICoreConfiguration_PodName_UNKNOWN_POD_NAME = 0,
+    logs_proto_mobilesdk_ios_ICoreConfiguration_PodName_GOOGLE = 1,
+    logs_proto_mobilesdk_ios_ICoreConfiguration_PodName_FIREBASE = 2
 } logs_proto_mobilesdk_ios_ICoreConfiguration_PodName;
 #define _logs_proto_mobilesdk_ios_ICoreConfiguration_PodName_MIN               \
   logs_proto_mobilesdk_ios_ICoreConfiguration_PodName_UNKNOWN_POD_NAME
@@ -124,11 +124,11 @@ typedef enum _logs_proto_mobilesdk_ios_ICoreConfiguration_PodName {
       logs_proto_mobilesdk_ios_ICoreConfiguration_PodName_FIREBASE + 1))
 
 typedef enum _logs_proto_mobilesdk_ios_ICoreConfiguration_DeploymentType {
-  logs_proto_mobilesdk_ios_ICoreConfiguration_DeploymentType_UNKNOWN = 0,
-  logs_proto_mobilesdk_ios_ICoreConfiguration_DeploymentType_COCOAPODS = 1,
-  logs_proto_mobilesdk_ios_ICoreConfiguration_DeploymentType_ZIP_FILE = 2,
-  logs_proto_mobilesdk_ios_ICoreConfiguration_DeploymentType_CARTHAGE = 3,
-  logs_proto_mobilesdk_ios_ICoreConfiguration_DeploymentType_SPM = 4
+    logs_proto_mobilesdk_ios_ICoreConfiguration_DeploymentType_UNKNOWN = 0,
+    logs_proto_mobilesdk_ios_ICoreConfiguration_DeploymentType_COCOAPODS = 1,
+    logs_proto_mobilesdk_ios_ICoreConfiguration_DeploymentType_ZIP_FILE = 2,
+    logs_proto_mobilesdk_ios_ICoreConfiguration_DeploymentType_CARTHAGE = 3,
+    logs_proto_mobilesdk_ios_ICoreConfiguration_DeploymentType_SPM = 4
 } logs_proto_mobilesdk_ios_ICoreConfiguration_DeploymentType;
 #define _logs_proto_mobilesdk_ios_ICoreConfiguration_DeploymentType_MIN        \
   logs_proto_mobilesdk_ios_ICoreConfiguration_DeploymentType_UNKNOWN
@@ -140,43 +140,43 @@ typedef enum _logs_proto_mobilesdk_ios_ICoreConfiguration_DeploymentType {
 
 /* Struct definitions */
 typedef struct _logs_proto_mobilesdk_ios_ICoreConfiguration {
-  bool has_configuration_type;
-  logs_proto_mobilesdk_ios_ICoreConfiguration_ConfigurationType
-      configuration_type;
-  pb_size_t sdk_service_installed_count;
-  logs_proto_mobilesdk_ios_ICoreConfiguration_ServiceType
-      *sdk_service_installed;
-  pb_bytes_array_t *device_model;
-  pb_bytes_array_t *app_id;
-  pb_bytes_array_t *bundle_id;
-  bool has_pod_name;
-  logs_proto_mobilesdk_ios_ICoreConfiguration_PodName pod_name;
-  pb_bytes_array_t *icore_version;
-  pb_bytes_array_t *sdk_version;
-  bool has_sdk_name;
-  logs_proto_mobilesdk_ios_ICoreConfiguration_ServiceType sdk_name;
-  bool has_app_count;
-  int32_t app_count;
-  pb_bytes_array_t *os_version;
-  pb_bytes_array_t *min_supported_ios_version;
-  bool has_use_default_app;
-  bool use_default_app;
-  bool has_deployed_in_app_store;
-  bool deployed_in_app_store;
-  bool has_dynamic_framework_count;
-  int32_t dynamic_framework_count;
-  pb_bytes_array_t *apple_framework_version;
-  bool has_using_zip_file;
-  bool using_zip_file;
-  bool has_deployment_type;
-  logs_proto_mobilesdk_ios_ICoreConfiguration_DeploymentType deployment_type;
-  pb_bytes_array_t *platform_info;
-  bool has_swizzling_enabled;
-  bool swizzling_enabled;
-  bool has_using_gdt;
-  bool using_gdt;
-  /* @@protoc_insertion_point(struct:logs_proto_mobilesdk_ios_ICoreConfiguration)
-   */
+    bool has_configuration_type;
+    logs_proto_mobilesdk_ios_ICoreConfiguration_ConfigurationType
+    configuration_type;
+    pb_size_t sdk_service_installed_count;
+    logs_proto_mobilesdk_ios_ICoreConfiguration_ServiceType
+    *sdk_service_installed;
+    pb_bytes_array_t *device_model;
+    pb_bytes_array_t *app_id;
+    pb_bytes_array_t *bundle_id;
+    bool has_pod_name;
+    logs_proto_mobilesdk_ios_ICoreConfiguration_PodName pod_name;
+    pb_bytes_array_t *icore_version;
+    pb_bytes_array_t *sdk_version;
+    bool has_sdk_name;
+    logs_proto_mobilesdk_ios_ICoreConfiguration_ServiceType sdk_name;
+    bool has_app_count;
+    int32_t app_count;
+    pb_bytes_array_t *os_version;
+    pb_bytes_array_t *min_supported_ios_version;
+    bool has_use_default_app;
+    bool use_default_app;
+    bool has_deployed_in_app_store;
+    bool deployed_in_app_store;
+    bool has_dynamic_framework_count;
+    int32_t dynamic_framework_count;
+    pb_bytes_array_t *apple_framework_version;
+    bool has_using_zip_file;
+    bool using_zip_file;
+    bool has_deployment_type;
+    logs_proto_mobilesdk_ios_ICoreConfiguration_DeploymentType deployment_type;
+    pb_bytes_array_t *platform_info;
+    bool has_swizzling_enabled;
+    bool swizzling_enabled;
+    bool has_using_gdt;
+    bool using_gdt;
+    /* @@protoc_insertion_point(struct:logs_proto_mobilesdk_ios_ICoreConfiguration)
+     */
 } logs_proto_mobilesdk_ios_ICoreConfiguration;
 
 /* Default values for struct fields */

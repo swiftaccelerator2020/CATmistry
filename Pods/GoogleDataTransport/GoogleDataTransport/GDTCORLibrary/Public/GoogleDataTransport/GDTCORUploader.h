@@ -27,20 +27,20 @@ NS_ASSUME_NONNULL_BEGIN
  */
 typedef NS_OPTIONS(NSInteger, GDTCORUploadConditions) {
 
-  /** An upload shouldn't be attempted, because there's no network. */
-  GDTCORUploadConditionNoNetwork = 1 << 0,
+    /** An upload shouldn't be attempted, because there's no network. */
+    GDTCORUploadConditionNoNetwork = 1 << 0,
 
-  /** An upload would likely use mobile data. */
-  GDTCORUploadConditionMobileData = 1 << 1,
+    /** An upload would likely use mobile data. */
+    GDTCORUploadConditionMobileData = 1 << 1,
 
-  /** An upload would likely use wifi data. */
-  GDTCORUploadConditionWifiData = 1 << 2,
+    /** An upload would likely use wifi data. */
+    GDTCORUploadConditionWifiData = 1 << 2,
 
-  /** An upload uses some sort of network connection, but it's unclear which. */
-  GDTCORUploadConditionUnclearConnection = 1 << 3,
+    /** An upload uses some sort of network connection, but it's unclear which. */
+    GDTCORUploadConditionUnclearConnection = 1 << 3,
 
-  /** A high priority event has occurred. */
-  GDTCORUploadConditionHighPriority = 1 << 4,
+    /** A high priority event has occurred. */
+    GDTCORUploadConditionHighPriority = 1 << 4,
 };
 
 /** This protocol defines the common interface for uploader implementations. */
@@ -54,7 +54,7 @@ typedef NS_OPTIONS(NSInteger, GDTCORUploadConditions) {
  * under.
  */
 - (void)uploadTarget:(GDTCORTarget)target
-      withConditions:(GDTCORUploadConditions)conditions;
+    withConditions:(GDTCORUploadConditions)conditions;
 
 @end
 

@@ -31,27 +31,27 @@
 @synthesize path;
 
 - (id)initWithEventRegistration:(id<FEventRegistration>)registration
-                          error:(NSError *)anError
-                           path:(FPath *)aPath {
-  self = [super init];
-  if (self) {
-    self.eventRegistration = registration;
-    self.error = anError;
-    self.path = aPath;
-  }
-  return self;
+    error:(NSError *)anError
+    path:(FPath *)aPath {
+    self = [super init];
+    if (self) {
+        self.eventRegistration = registration;
+        self.error = anError;
+        self.path = aPath;
+    }
+    return self;
 }
 
 - (void)fireEventOnQueue:(dispatch_queue_t)queue {
-  [self.eventRegistration fireEvent:self queue:queue];
+    [self.eventRegistration fireEvent:self queue:queue];
 }
 
 - (BOOL)isCancelEvent {
-  return YES;
+    return YES;
 }
 
 - (NSString *)description {
-  return [NSString stringWithFormat:@"%@: cancel", self.path];
+    return [NSString stringWithFormat:@"%@: cancel", self.path];
 }
 
 @end

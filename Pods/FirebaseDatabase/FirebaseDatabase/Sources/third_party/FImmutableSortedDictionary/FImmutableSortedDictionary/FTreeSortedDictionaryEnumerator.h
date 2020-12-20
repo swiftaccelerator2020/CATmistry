@@ -4,8 +4,8 @@
 @interface FTreeSortedDictionaryEnumerator : NSEnumerator
 
 - (id)initWithImmutableSortedDictionary:(FTreeSortedDictionary *)aDict
-                               startKey:(id)startKey
-                              isReverse:(BOOL)reverse;
+    startKey:(id)startKey
+    isReverse:(BOOL)reverse;
 - (id)nextObject;
 
 @end

@@ -22,29 +22,29 @@
 @synthesize data;
 
 - (id)initWithPath:(FPath *)aPath andData:(id)aData andPriority:(id)aPriority {
-  self = [super init];
-  if (self) {
-    self.path = aPath;
-    self.data = aData;
-    self.priority = aPriority;
-  }
-  return self;
+    self = [super init];
+    if (self) {
+        self.path = aPath;
+        self.data = aData;
+        self.priority = aPriority;
+    }
+    return self;
 }
 
 - (void)encodeWithCoder:(NSCoder *)aCoder {
-  [aCoder encodeObject:[self.path description] forKey:@"path"];
-  [aCoder encodeObject:self.data forKey:@"data"];
-  [aCoder encodeObject:self.priority forKey:@"priority"];
+    [aCoder encodeObject:[self.path description] forKey:@"path"];
+    [aCoder encodeObject:self.data forKey:@"data"];
+    [aCoder encodeObject:self.priority forKey:@"priority"];
 }
 
 - (id)initWithCoder:(NSCoder *)aDecoder {
-  self = [super init];
-  if (self) {
-    self.path = [[FPath alloc] initWith:[aDecoder decodeObjectForKey:@"path"]];
-    self.data = [aDecoder decodeObjectForKey:@"data"];
-    self.priority = [aDecoder decodeObjectForKey:@"priority"];
-  }
-  return self;
+    self = [super init];
+    if (self) {
+        self.path = [[FPath alloc] initWith:[aDecoder decodeObjectForKey:@"path"]];
+        self.data = [aDecoder decodeObjectForKey:@"data"];
+        self.priority = [aDecoder decodeObjectForKey:@"priority"];
+    }
+    return self;
 }
 
 @end
@@ -55,26 +55,26 @@
 @synthesize priority;
 
 - (id)initWithPath:(FPath *)aPath andPriority:(id)aPriority {
-  self = [super init];
-  if (self) {
-    self.path = aPath;
-    self.priority = aPriority;
-  }
-  return self;
+    self = [super init];
+    if (self) {
+        self.path = aPath;
+        self.priority = aPriority;
+    }
+    return self;
 }
 
 - (void)encodeWithCoder:(NSCoder *)aCoder {
-  [aCoder encodeObject:[self.path description] forKey:@"path"];
-  [aCoder encodeObject:self.priority forKey:@"priority"];
+    [aCoder encodeObject:[self.path description] forKey:@"path"];
+    [aCoder encodeObject:self.priority forKey:@"priority"];
 }
 
 - (id)initWithCoder:(NSCoder *)aDecoder {
-  self = [super init];
-  if (self) {
-    self.path = [[FPath alloc] initWith:[aDecoder decodeObjectForKey:@"path"]];
-    self.priority = [aDecoder decodeObjectForKey:@"priority"];
-  }
-  return self;
+    self = [super init];
+    if (self) {
+        self.path = [[FPath alloc] initWith:[aDecoder decodeObjectForKey:@"path"]];
+        self.priority = [aDecoder decodeObjectForKey:@"priority"];
+    }
+    return self;
 }
 
 @end
@@ -85,26 +85,26 @@
 @synthesize data;
 
 - (id)initWithPath:(FPath *)aPath andData:(id)aData {
-  self = [super init];
-  if (self) {
-    self.path = aPath;
-    self.data = aData;
-  }
-  return self;
+    self = [super init];
+    if (self) {
+        self.path = aPath;
+        self.data = aData;
+    }
+    return self;
 }
 
 - (void)encodeWithCoder:(NSCoder *)aCoder {
-  [aCoder encodeObject:[self.path description] forKey:@"path"];
-  [aCoder encodeObject:self.data forKey:@"data"];
+    [aCoder encodeObject:[self.path description] forKey:@"path"];
+    [aCoder encodeObject:self.data forKey:@"data"];
 }
 
 - (id)initWithCoder:(NSCoder *)aDecoder {
-  self = [super init];
-  if (self) {
-    self.path = [[FPath alloc] initWith:[aDecoder decodeObjectForKey:@"path"]];
-    self.data = [aDecoder decodeObjectForKey:@"data"];
-  }
-  return self;
+    self = [super init];
+    if (self) {
+        self.path = [[FPath alloc] initWith:[aDecoder decodeObjectForKey:@"path"]];
+        self.data = [aDecoder decodeObjectForKey:@"data"];
+    }
+    return self;
 }
 
 @end

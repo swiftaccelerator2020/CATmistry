@@ -21,14 +21,14 @@
 @implementation FIRNoopAuthTokenProvider
 
 - (void)fetchTokenForcingRefresh:(BOOL)forceRefresh
-                    withCallback:(fbt_void_nsstring_nserror)callback {
-  dispatch_async([FIRDatabaseQuery sharedQueue], ^{
-    callback(nil, nil);
-  });
+    withCallback:(fbt_void_nsstring_nserror)callback {
+    dispatch_async([FIRDatabaseQuery sharedQueue], ^ {
+        callback(nil, nil);
+    });
 }
 
 - (void)listenForTokenChanges:(fbt_void_nsstring)listener {
-  // no-op, because token never changes
+    // no-op, because token never changes
 }
 
 @end

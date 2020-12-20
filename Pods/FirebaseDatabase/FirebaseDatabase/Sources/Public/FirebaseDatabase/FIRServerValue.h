@@ -26,9 +26,9 @@ NS_ASSUME_NONNULL_BEGIN
 NS_SWIFT_NAME(ServerValue)
 @interface FIRServerValue : NSObject
 
-/**
- * Placeholder value for the number of milliseconds since the Unix epoch
- */
+    /**
+     * Placeholder value for the number of milliseconds since the Unix epoch
+     */
 + (NSDictionary *)timestamp;
 
 /**

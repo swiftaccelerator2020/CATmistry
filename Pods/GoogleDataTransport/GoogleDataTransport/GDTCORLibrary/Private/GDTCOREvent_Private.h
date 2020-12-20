@@ -22,7 +22,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface GDTCOREvent ()
 
-/** The unique ID of the event. This property is for testing only. */
+    /** The unique ID of the event. This property is for testing only. */
 @property(nonatomic, readwrite) NSString *eventID;
 
 /** Generates a unique event ID. */

@@ -28,7 +28,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface FIRInstallationsSingleOperationPromiseCache<__covariant ResultType>
     : NSObject
 
-- (instancetype)init NS_UNAVAILABLE;
+  - (instancetype)init NS_UNAVAILABLE;
 
 /**
  * The designated initializer.

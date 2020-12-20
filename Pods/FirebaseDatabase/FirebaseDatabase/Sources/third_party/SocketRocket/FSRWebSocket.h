@@ -18,10 +18,10 @@
 #import <Security/SecCertificate.h>
 
 typedef enum {
-  SR_CONNECTING = 0,
-  SR_OPEN = 1,
-  SR_CLOSING = 2,
-  SR_CLOSED = 3,
+    SR_CONNECTING = 0,
+    SR_OPEN = 1,
+    SR_CLOSING = 2,
+    SR_CLOSED = 3,
 
 } FSRReadyState;
 
@@ -44,15 +44,15 @@ extern NSString *const FSRWebSocketErrorDomain;
 
 // Protocols should be an array of strings that turn into Sec-WebSocket-Protocol
 - (id)initWithURLRequest:(NSURLRequest *)request
-               protocols:(NSArray *)protocols
-                   queue:(dispatch_queue_t)queue
-             googleAppID:(NSString *)googleAppID
-            andUserAgent:(NSString *)userAgent;
+    protocols:(NSArray *)protocols
+    queue:(dispatch_queue_t)queue
+    googleAppID:(NSString *)googleAppID
+    andUserAgent:(NSString *)userAgent;
 - (id)initWithURLRequest:(NSURLRequest *)request protocols:(NSArray *)protocols;
 - (id)initWithURLRequest:(NSURLRequest *)request
-                   queue:(dispatch_queue_t)queue
-             googleAppID:(NSString *)googleAppID
-            andUserAgent:(NSString *)userAgent;
+    queue:(dispatch_queue_t)queue
+    googleAppID:(NSString *)googleAppID
+    andUserAgent:(NSString *)userAgent;
 - (id)initWithURLRequest:(NSURLRequest *)request;
 
 // Some helper constructors
@@ -93,8 +93,8 @@ extern NSString *const FSRWebSocketErrorDomain;
 - (void)webSocket:(FSRWebSocket *)webSocket didFailWithError:(NSError *)error;
 - (void)webSocket:(FSRWebSocket *)webSocket
     didCloseWithCode:(NSInteger)code
-              reason:(NSString *)reason
-            wasClean:(BOOL)wasClean;
+    reason:(NSString *)reason
+    wasClean:(BOOL)wasClean;
 
 @end
 

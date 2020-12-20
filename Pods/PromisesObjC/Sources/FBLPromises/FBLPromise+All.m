@@ -22,53 +22,53 @@
 @implementation FBLPromise (AllAdditions)
 
 + (FBLPromise<NSArray *> *)all:(NSArray *)promises {
-  return [self onQueue:self.defaultDispatchQueue all:promises];
+    return [self onQueue:self.defaultDispatchQueue all:promises];
 }
 
 + (FBLPromise<NSArray *> *)onQueue:(dispatch_queue_t)queue
-                               all:(NSArray *)allPromises {
-  NSParameterAssert(queue);
-  NSParameterAssert(allPromises);
+    all:(NSArray *)allPromises {
+    NSParameterAssert(queue);
+    NSParameterAssert(allPromises);
 
-  if (allPromises.count == 0) {
-    return [[FBLPromise alloc] initWithResolution:@[]];
-  }
-  NSMutableArray *promises = [allPromises mutableCopy];
-  return [FBLPromise
-      onQueue:queue
-        async:^(FBLPromiseFulfillBlock fulfill, FBLPromiseRejectBlock reject) {
-          for (NSUInteger i = 0; i < promises.count; ++i) {
+    if (allPromises.count == 0) {
+        return [[FBLPromise alloc] initWithResolution:@[]];
+    }
+    NSMutableArray *promises = [allPromises mutableCopy];
+    return [FBLPromise
+            onQueue:queue
+    async:^(FBLPromiseFulfillBlock fulfill, FBLPromiseRejectBlock reject) {
+        for (NSUInteger i = 0; i < promises.count; ++i) {
             id promise = promises[i];
             if ([promise isKindOfClass:self]) {
-              continue;
+                continue;
             } else if ([promise isKindOfClass:[NSError class]]) {
-              reject(promise);
-              return;
+                reject(promise);
+                return;
             } else {
-              [promises replaceObjectAtIndex:i
-                                  withObject:[[FBLPromise alloc]
-                                                 initWithResolution:promise]];
+                [promises replaceObjectAtIndex:i
+                          withObject:[[FBLPromise alloc]
+                             initWithResolution:promise]];
             }
-          }
-          for (FBLPromise *promise in promises) {
+        }
+        for (FBLPromise *promise in promises) {
             [promise observeOnQueue:queue
-                fulfill:^(id __unused _) {
-                  // Wait until all are fulfilled.
-                  for (FBLPromise *promise in promises) {
-                    if (!promise.isFulfilled) {
-                      return;
-                    }
-                  }
-                  // If called multiple times, only the first one affects the
-                  // result.
-                  fulfill([promises
-                      valueForKey:NSStringFromSelector(@selector(value))]);
-                }
-                reject:^(NSError *error) {
-                  reject(error);
-                }];
-          }
-        }];
+                    fulfill:^(id __unused _) {
+                        // Wait until all are fulfilled.
+                        for (FBLPromise *promise in promises) {
+                            if (!promise.isFulfilled) {
+                                return;
+                            }
+                        }
+                        // If called multiple times, only the first one affects the
+                        // result.
+                fulfill([promises
+                         valueForKey:NSStringFromSelector(@selector(value))]);
+            }
+            reject:^(NSError *error) {
+                reject(error);
+            }];
+        }
+    }];
 }
 
 @end
@@ -76,15 +76,15 @@
 @implementation FBLPromise (DotSyntax_AllAdditions)
 
 + (FBLPromise<NSArray *> * (^)(NSArray *))all {
-  return ^(NSArray<FBLPromise *> *promises) {
-    return [self all:promises];
-  };
+    return ^(NSArray<FBLPromise *> *promises) {
+        return [self all:promises];
+    };
 }
 
 + (FBLPromise<NSArray *> * (^)(dispatch_queue_t, NSArray *))allOn {
-  return ^(dispatch_queue_t queue, NSArray<FBLPromise *> *promises) {
-    return [self onQueue:queue all:promises];
-  };
+    return ^(dispatch_queue_t queue, NSArray<FBLPromise *> *promises) {
+        return [self onQueue:queue all:promises];
+    };
 }
 
 @end

@@ -25,7 +25,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GDTCORStorageEventSelector : NSObject
 
-/** The target to find events for. Required. */
+    /** The target to find events for. Required. */
 @property(readonly, nonatomic) GDTCORTarget selectedTarget;
 
 /** Finds a specific event. */
@@ -54,9 +54,9 @@ NS_ASSUME_NONNULL_BEGIN
  * @return An immutable event selector instance.
  */
 - (instancetype)initWithTarget:(GDTCORTarget)target
-                      eventIDs:(nullable NSSet<NSString *> *)eventIDs
-                    mappingIDs:(nullable NSSet<NSString *> *)mappingIDs
-                      qosTiers:(nullable NSSet<NSNumber *> *)qosTiers;
+    eventIDs:(nullable NSSet<NSString *> *)eventIDs
+    mappingIDs:(nullable NSSet<NSString *> *)mappingIDs
+    qosTiers:(nullable NSSet<NSNumber *> *)qosTiers;
 
 @end
 

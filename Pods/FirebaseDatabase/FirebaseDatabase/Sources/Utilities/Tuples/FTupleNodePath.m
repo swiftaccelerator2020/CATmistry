@@ -22,12 +22,12 @@
 @synthesize node;
 
 - (id)initWithNode:(id<FNode>)aNode andPath:(FPath *)aPath {
-  self = [super init];
-  if (self) {
-    self.path = aPath;
-    self.node = aNode;
-  }
-  return self;
+    self = [super init];
+    if (self) {
+        self.path = aPath;
+        self.node = aNode;
+    }
+    return self;
 }
 
 @end

@@ -43,9 +43,9 @@ NS_ASSUME_NONNULL_BEGIN
  * Keychain error.
  */
 - (FBLPromise<id<NSSecureCoding>> *)getObjectForKey:(NSString *)key
-                                        objectClass:(Class)objectClass
-                                        accessGroup:
-                                            (nullable NSString *)accessGroup;
+    objectClass:(Class)objectClass
+    accessGroup:
+    (nullable NSString *)accessGroup;
 
 /**
  * Saves the given object by the given key.
@@ -57,8 +57,8 @@ NS_ASSUME_NONNULL_BEGIN
  * @return Returns which is resolved with `[NSNull null]` on success.
  */
 - (FBLPromise<NSNull *> *)setObject:(id<NSSecureCoding>)object
-                             forKey:(NSString *)key
-                        accessGroup:(nullable NSString *)accessGroup;
+    forKey:(NSString *)key
+    accessGroup:(nullable NSString *)accessGroup;
 
 /**
  * Removes the object by the given key.
@@ -69,7 +69,7 @@ NS_ASSUME_NONNULL_BEGIN
  * @return Returns which is resolved with `[NSNull null]` on success.
  */
 - (FBLPromise<NSNull *> *)removeObjectForKey:(NSString *)key
-                                 accessGroup:(nullable NSString *)accessGroup;
+    accessGroup:(nullable NSString *)accessGroup;
 
 #if TARGET_OS_OSX
 /// If not `nil`, then only this keychain will be used to save and read data

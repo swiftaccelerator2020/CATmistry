@@ -18,18 +18,18 @@
 
 @interface GDTCORRegistrar ()
 
-NS_ASSUME_NONNULL_BEGIN
+    NS_ASSUME_NONNULL_BEGIN
 
-/** The concurrent queue on which all registration occurs. */
+    /** The concurrent queue on which all registration occurs. */
 @property(nonatomic, readonly) dispatch_queue_t registrarQueue;
 
 /** A map of targets to backend implementations. */
 @property(atomic, readonly)
-    NSMutableDictionary<NSNumber *, id<GDTCORUploader>> *targetToUploader;
+NSMutableDictionary<NSNumber *, id<GDTCORUploader>> *targetToUploader;
 
 /** A map of targets to storage instances. */
 @property(atomic, readonly)
-    NSMutableDictionary<NSNumber *, id<GDTCORStorageProtocol>> *targetToStorage;
+NSMutableDictionary<NSNumber *, id<GDTCORStorageProtocol>> *targetToStorage;
 
 @end
 

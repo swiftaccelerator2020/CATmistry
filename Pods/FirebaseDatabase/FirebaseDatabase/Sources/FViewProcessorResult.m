@@ -24,12 +24,12 @@
 
 @implementation FViewProcessorResult
 - (id)initWithViewCache:(FViewCache *)viewCache changes:(NSArray *)changes {
-  self = [super init];
-  if (self) {
-    self.viewCache = viewCache;
-    self.changes = changes;
-  }
-  return self;
+    self = [super init];
+    if (self) {
+        self.viewCache = viewCache;
+        self.changes = changes;
+    }
+    return self;
 }
 
 @end

@@ -27,11 +27,11 @@ NSString *const kFIRInstallationsMessageCodeUnexpectedAPIRequestResponse =
     @"I-FIS001004";
 NSString *const kFIRInstallationsMessageCodeParsingAPIResponse = @"I-FIS001005";
 NSString
-    *const kFIRInstallationsMessageCodeAPIResponseParsingInstallationFailed =
-        @"I-FIS001006";
+*const kFIRInstallationsMessageCodeAPIResponseParsingInstallationFailed =
+    @"I-FIS001006";
 NSString
-    *const kFIRInstallationsMessageCodeAPIResponseParsingInstallationSucceed =
-        @"I-FIS001007";
+*const kFIRInstallationsMessageCodeAPIResponseParsingInstallationSucceed =
+    @"I-FIS001007";
 NSString *const kFIRInstallationsMessageCodeAPIResponseParsingAuthTokenFailed =
     @"I-FIS001008";
 NSString *const kFIRInstallationsMessageCodeAPIResponseParsingAuthTokenSucceed =
@@ -43,8 +43,8 @@ NSString *const kFIRInstallationsMessageCodeNewGetInstallationOperationCreated =
 NSString *const kFIRInstallationsMessageCodeNewGetAuthTokenOperationCreated =
     @"I-FIS002001";
 NSString
-    *const kFIRInstallationsMessageCodeNewDeleteInstallationOperationCreated =
-        @"I-FIS002002";
+*const kFIRInstallationsMessageCodeNewDeleteInstallationOperationCreated =
+    @"I-FIS002002";
 NSString *const kFIRInstallationsMessageCodeInvalidFirebaseConfiguration =
     @"I-FIS002003";
 

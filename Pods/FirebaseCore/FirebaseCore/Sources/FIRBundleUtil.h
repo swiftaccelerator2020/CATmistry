@@ -21,9 +21,9 @@
  */
 @interface FIRBundleUtil : NSObject
 
-/**
- * Finds all relevant bundles, starting with [NSBundle mainBundle].
- */
+    /**
+     * Finds all relevant bundles, starting with [NSBundle mainBundle].
+     */
 + (NSArray *)relevantBundles;
 
 /**
@@ -35,8 +35,8 @@
  * +[FIRBundleUtil relevantBundles].
  */
 + (NSString *)optionsDictionaryPathWithResourceName:(NSString *)resourceName
-                                        andFileType:(NSString *)fileType
-                                          inBundles:(NSArray *)bundles;
+    andFileType:(NSString *)fileType
+    inBundles:(NSArray *)bundles;
 
 /**
  * Finds URL schemes defined in all relevant bundles, starting with those from
@@ -49,6 +49,6 @@
  * (removing extension suffixes).
  */
 + (BOOL)hasBundleIdentifierPrefix:(NSString *)bundleIdentifier
-                        inBundles:(NSArray *)bundles;
+    inBundles:(NSArray *)bundles;
 
 @end

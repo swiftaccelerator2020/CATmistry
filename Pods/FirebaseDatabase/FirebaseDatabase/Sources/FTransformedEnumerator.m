@@ -23,22 +23,22 @@
 
 @implementation FTransformedEnumerator
 - (id)initWithEnumerator:(NSEnumerator *)enumerator
-            andTransform:(id (^)(id))transform {
-  self = [super init];
-  if (self) {
-    self.enumerator = enumerator;
-    self.transform = transform;
-  }
-  return self;
+    andTransform:(id (^)(id))transform {
+    self = [super init];
+    if (self) {
+        self.enumerator = enumerator;
+        self.transform = transform;
+    }
+    return self;
 }
 
 - (id)nextObject {
-  id next = self.enumerator.nextObject;
-  if (next != nil) {
-    return self.transform(next);
-  } else {
-    return nil;
-  }
+    id next = self.enumerator.nextObject;
+    if (next != nil) {
+        return self.transform(next);
+    } else {
+        return nil;
+    }
 }
 
 @end

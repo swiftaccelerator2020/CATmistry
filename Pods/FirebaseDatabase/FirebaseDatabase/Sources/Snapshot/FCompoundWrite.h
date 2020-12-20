@@ -45,7 +45,7 @@
 - (FCompoundWrite *)addWrite:(id<FNode>)node atPath:(FPath *)path;
 - (FCompoundWrite *)addWrite:(id<FNode>)node atKey:(NSString *)key;
 - (FCompoundWrite *)addCompoundWrite:(FCompoundWrite *)node
-                              atPath:(FPath *)path;
+    atPath:(FPath *)path;
 - (FCompoundWrite *)removeWriteAtPath:(FPath *)path;
 - (id<FNode>)rootWrite;
 - (BOOL)hasCompleteWriteAtPath:(FPath *)path;
@@ -55,7 +55,7 @@
 - (FCompoundWrite *)childCompoundWriteAtPath:(FPath *)path;
 - (id<FNode>)applyToNode:(id<FNode>)node;
 - (void)enumerateWrites:(void (^)(FPath *path, id<FNode> node,
-                                  BOOL *stop))block;
+    BOOL *stop))block;
 
 - (NSDictionary *)valForExport:(BOOL)exportFormat;
 

@@ -27,12 +27,12 @@
 @synthesize value;
 
 - (id)initWithPath:(FPath *)aPath value:(id)aValue {
-  self = [super init];
-  if (self) {
-    self.value = aValue;
-    self.path = aPath;
-  }
-  return self;
+    self = [super init];
+    if (self) {
+        self.value = aValue;
+        self.path = aPath;
+    }
+    return self;
 }
 
 @end

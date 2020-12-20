@@ -25,48 +25,48 @@
 @implementation FChange
 
 - (id)initWithType:(FIRDataEventType)type
-       indexedNode:(FIndexedNode *)indexedNode {
-  return [self initWithType:type
-                indexedNode:indexedNode
-                   childKey:nil
-             oldIndexedNode:nil];
+    indexedNode:(FIndexedNode *)indexedNode {
+    return [self initWithType:type
+                 indexedNode:indexedNode
+                 childKey:nil
+                 oldIndexedNode:nil];
 }
 
 - (id)initWithType:(FIRDataEventType)type
-       indexedNode:(FIndexedNode *)indexedNode
-          childKey:(NSString *)childKey {
-  return [self initWithType:type
-                indexedNode:indexedNode
-                   childKey:childKey
-             oldIndexedNode:nil];
+    indexedNode:(FIndexedNode *)indexedNode
+    childKey:(NSString *)childKey {
+    return [self initWithType:type
+                 indexedNode:indexedNode
+                 childKey:childKey
+                 oldIndexedNode:nil];
 }
 
 - (id)initWithType:(FIRDataEventType)type
-       indexedNode:(FIndexedNode *)indexedNode
-          childKey:(NSString *)childKey
+    indexedNode:(FIndexedNode *)indexedNode
+    childKey:(NSString *)childKey
     oldIndexedNode:(FIndexedNode *)oldIndexedNode {
-  self = [super init];
-  if (self != nil) {
-    self->_type = type;
-    self->_indexedNode = indexedNode;
-    self->_childKey = childKey;
-    self->_oldIndexedNode = oldIndexedNode;
-  }
-  return self;
+    self = [super init];
+    if (self != nil) {
+        self->_type = type;
+        self->_indexedNode = indexedNode;
+        self->_childKey = childKey;
+        self->_oldIndexedNode = oldIndexedNode;
+    }
+    return self;
 }
 
 - (FChange *)changeWithPrevKey:(NSString *)prevKey {
-  FChange *newChange = [[FChange alloc] initWithType:self.type
-                                         indexedNode:self.indexedNode
-                                            childKey:self.childKey
-                                      oldIndexedNode:self.oldIndexedNode];
-  newChange.prevKey = prevKey;
-  return newChange;
+    FChange *newChange = [[FChange alloc] initWithType:self.type
+                                          indexedNode:self.indexedNode
+                                          childKey:self.childKey
+                                          oldIndexedNode:self.oldIndexedNode];
+    newChange.prevKey = prevKey;
+    return newChange;
 }
 
 - (NSString *)description {
-  return [NSString stringWithFormat:@"event: %d, data: %@", (int)self.type,
-                                    [self.indexedNode.node val]];
+    return [NSString stringWithFormat:@"event: %d, data: %@", (int)self.type,
+                     [self.indexedNode.node val]];
 }
 
 @end

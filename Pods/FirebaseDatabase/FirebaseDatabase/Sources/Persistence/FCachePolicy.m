@@ -29,29 +29,29 @@ static const float kFPercentOfQueriesToPruneAtOnce = 0.2f;
 @implementation FLRUCachePolicy
 
 - (id)initWithMaxSize:(NSUInteger)maxSize {
-  self = [super init];
-  if (self != nil) {
-    self->_maxSize = maxSize;
-  }
-  return self;
+    self = [super init];
+    if (self != nil) {
+        self->_maxSize = maxSize;
+    }
+    return self;
 }
 
 - (BOOL)shouldPruneCacheWithSize:(NSUInteger)cacheSize
-          numberOfTrackedQueries:(NSUInteger)numTrackedQueries {
-  return cacheSize > self.maxSize ||
-         numTrackedQueries > kFMaxNumberOfPrunableQueriesToKeep;
+    numberOfTrackedQueries:(NSUInteger)numTrackedQueries {
+    return cacheSize > self.maxSize ||
+           numTrackedQueries > kFMaxNumberOfPrunableQueriesToKeep;
 }
 
 - (BOOL)shouldCheckCacheSize:(NSUInteger)serverUpdatesSinceLastCheck {
-  return serverUpdatesSinceLastCheck > kFServerUpdatesBetweenCacheSizeChecks;
+    return serverUpdatesSinceLastCheck > kFServerUpdatesBetweenCacheSizeChecks;
 }
 
 - (float)percentOfQueriesToPruneAtOnce {
-  return kFPercentOfQueriesToPruneAtOnce;
+    return kFPercentOfQueriesToPruneAtOnce;
 }
 
 - (NSUInteger)maxNumberOfQueriesToKeep {
-  return kFMaxNumberOfPrunableQueriesToKeep;
+    return kFMaxNumberOfPrunableQueriesToKeep;
 }
 
 @end
@@ -59,24 +59,24 @@ static const float kFPercentOfQueriesToPruneAtOnce = 0.2f;
 @implementation FNoCachePolicy
 
 + (FNoCachePolicy *)noCachePolicy {
-  return [[FNoCachePolicy alloc] init];
+    return [[FNoCachePolicy alloc] init];
 }
 
 - (BOOL)shouldPruneCacheWithSize:(NSUInteger)cacheSize
-          numberOfTrackedQueries:(NSUInteger)numTrackedQueries {
-  return NO;
+    numberOfTrackedQueries:(NSUInteger)numTrackedQueries {
+    return NO;
 }
 
 - (BOOL)shouldCheckCacheSize:(NSUInteger)serverUpdatesSinceLastCheck {
-  return NO;
+    return NO;
 }
 
 - (float)percentOfQueriesToPruneAtOnce {
-  return 0;
+    return 0;
 }
 
 - (NSUInteger)maxNumberOfQueriesToKeep {
-  return NSUIntegerMax;
+    return NSUIntegerMax;
 }
 
 @end

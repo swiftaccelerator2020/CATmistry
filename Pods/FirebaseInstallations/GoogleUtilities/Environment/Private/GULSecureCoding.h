@@ -22,15 +22,15 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GULSecureCoding : NSObject
 
 + (nullable id)unarchivedObjectOfClasses:(NSSet<Class> *)classes
-                                fromData:(NSData *)data
-                                   error:(NSError **)outError;
+    fromData:(NSData *)data
+    error:(NSError **)outError;
 
 + (nullable id)unarchivedObjectOfClass:(Class)class
-                              fromData:(NSData *)data
-                                 error:(NSError **)outError;
+        fromData:(NSData *)data
+        error:(NSError **)outError;
 
 + (nullable NSData *)archivedDataWithRootObject:(id<NSCoding>)object
-                                          error:(NSError **)outError;
+    error:(NSError **)outError;
 
 @end
 

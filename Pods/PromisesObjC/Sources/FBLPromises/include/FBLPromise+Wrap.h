@@ -23,29 +23,29 @@ NS_ASSUME_NONNULL_BEGIN
  */
 typedef void (^FBLPromiseCompletion)(void) NS_SWIFT_UNAVAILABLE("");
 typedef void (^FBLPromiseObjectCompletion)(id __nullable)
-    NS_SWIFT_UNAVAILABLE("");
+NS_SWIFT_UNAVAILABLE("");
 typedef void (^FBLPromiseErrorCompletion)(NSError *__nullable)
-    NS_SWIFT_UNAVAILABLE("");
+NS_SWIFT_UNAVAILABLE("");
 typedef void (^FBLPromiseObjectOrErrorCompletion)(id __nullable,
-                                                  NSError *__nullable)
-    NS_SWIFT_UNAVAILABLE("");
+        NSError *__nullable)
+NS_SWIFT_UNAVAILABLE("");
 typedef void (^FBLPromiseErrorOrObjectCompletion)(NSError *__nullable,
-                                                  id __nullable)
-    NS_SWIFT_UNAVAILABLE("");
+        id __nullable)
+NS_SWIFT_UNAVAILABLE("");
 typedef void (^FBLPromise2ObjectsOrErrorCompletion)(id __nullable,
-                                                    id __nullable,
-                                                    NSError *__nullable)
-    NS_SWIFT_UNAVAILABLE("");
+        id __nullable,
+        NSError *__nullable)
+NS_SWIFT_UNAVAILABLE("");
 typedef void (^FBLPromiseBoolCompletion)(BOOL) NS_SWIFT_UNAVAILABLE("");
 typedef void (^FBLPromiseBoolOrErrorCompletion)(BOOL, NSError *__nullable)
-    NS_SWIFT_UNAVAILABLE("");
+NS_SWIFT_UNAVAILABLE("");
 typedef void (^FBLPromiseIntegerCompletion)(NSInteger) NS_SWIFT_UNAVAILABLE("");
 typedef void (^FBLPromiseIntegerOrErrorCompletion)(NSInteger,
-                                                   NSError *__nullable)
-    NS_SWIFT_UNAVAILABLE("");
+        NSError *__nullable)
+NS_SWIFT_UNAVAILABLE("");
 typedef void (^FBLPromiseDoubleCompletion)(double) NS_SWIFT_UNAVAILABLE("");
 typedef void (^FBLPromiseDoubleOrErrorCompletion)(double, NSError *__nullable)
-    NS_SWIFT_UNAVAILABLE("");
+NS_SWIFT_UNAVAILABLE("");
 
 /**
  Provides an easy way to convert methods that use common callback patterns into
@@ -53,10 +53,10 @@ typedef void (^FBLPromiseDoubleOrErrorCompletion)(double, NSError *__nullable)
  */
 @interface FBLPromise <Value>(WrapAdditions)
 
-/**
- @param work A block to perform any operations needed to resolve the promise.
- @returns A promise that resolves with `nil` when completion handler is invoked.
- */
+    /**
+     @param work A block to perform any operations needed to resolve the promise.
+     @returns A promise that resolves with `nil` when completion handler is invoked.
+     */
 + (instancetype)wrapCompletion:(void (^)(FBLPromiseCompletion handler))work
     NS_SWIFT_UNAVAILABLE("");
 
@@ -66,7 +66,7 @@ typedef void (^FBLPromiseDoubleOrErrorCompletion)(double, NSError *__nullable)
  @returns A promise that resolves with `nil` when completion handler is invoked.
  */
 + (instancetype)onQueue:(dispatch_queue_t)queue
-         wrapCompletion:(void (^)(FBLPromiseCompletion handler))work
+    wrapCompletion:(void (^)(FBLPromiseCompletion handler))work
     NS_SWIFT_UNAVAILABLE("");
 
 /**
@@ -120,7 +120,7 @@ typedef void (^FBLPromiseDoubleOrErrorCompletion)(double, NSError *__nullable)
  */
 + (instancetype)onQueue:(dispatch_queue_t)queue
     wrapObjectOrErrorCompletion:
-        (void (^)(FBLPromiseObjectOrErrorCompletion handler))work
+    (void (^)(FBLPromiseObjectOrErrorCompletion handler))work
     NS_SWIFT_UNAVAILABLE("");
 
 /**
@@ -140,7 +140,7 @@ typedef void (^FBLPromiseDoubleOrErrorCompletion)(double, NSError *__nullable)
  */
 + (instancetype)onQueue:(dispatch_queue_t)queue
     wrapErrorOrObjectCompletion:
-        (void (^)(FBLPromiseErrorOrObjectCompletion handler))work
+    (void (^)(FBLPromiseErrorOrObjectCompletion handler))work
     NS_SWIFT_UNAVAILABLE("");
 
 /**
@@ -161,8 +161,8 @@ typedef void (^FBLPromiseDoubleOrErrorCompletion)(double, NSError *__nullable)
  error.
  */
 + (FBLPromise<NSArray *> *)onQueue:(dispatch_queue_t)queue
-     wrap2ObjectsOrErrorCompletion:
-         (void (^)(FBLPromise2ObjectsOrErrorCompletion handler))work
+    wrap2ObjectsOrErrorCompletion:
+    (void (^)(FBLPromise2ObjectsOrErrorCompletion handler))work
     NS_SWIFT_UNAVAILABLE("");
 
 /**
@@ -178,8 +178,8 @@ typedef void (^FBLPromiseDoubleOrErrorCompletion)(double, NSError *__nullable)
  @returns A promise that resolves with an `NSNumber` wrapping YES/NO.
  */
 + (FBLPromise<NSNumber *> *)onQueue:(dispatch_queue_t)queue
-                 wrapBoolCompletion:
-                     (void (^)(FBLPromiseBoolCompletion handler))work
+    wrapBoolCompletion:
+    (void (^)(FBLPromiseBoolCompletion handler))work
     NS_SWIFT_UNAVAILABLE("");
 
 /**
@@ -198,8 +198,8 @@ typedef void (^FBLPromiseDoubleOrErrorCompletion)(double, NSError *__nullable)
  is `nil`. Otherwise rejects with the error.
  */
 + (FBLPromise<NSNumber *> *)onQueue:(dispatch_queue_t)queue
-          wrapBoolOrErrorCompletion:
-              (void (^)(FBLPromiseBoolOrErrorCompletion handler))work
+    wrapBoolOrErrorCompletion:
+    (void (^)(FBLPromiseBoolOrErrorCompletion handler))work
     NS_SWIFT_UNAVAILABLE("");
 
 /**
@@ -216,8 +216,8 @@ typedef void (^FBLPromiseDoubleOrErrorCompletion)(double, NSError *__nullable)
  @returns A promise that resolves with an `NSNumber` wrapping an integer.
  */
 + (FBLPromise<NSNumber *> *)onQueue:(dispatch_queue_t)queue
-              wrapIntegerCompletion:
-                  (void (^)(FBLPromiseIntegerCompletion handler))work
+    wrapIntegerCompletion:
+    (void (^)(FBLPromiseIntegerCompletion handler))work
     NS_SWIFT_UNAVAILABLE("");
 
 /**
@@ -236,8 +236,8 @@ typedef void (^FBLPromiseDoubleOrErrorCompletion)(double, NSError *__nullable)
  error is `nil`. Otherwise rejects with the error.
  */
 + (FBLPromise<NSNumber *> *)onQueue:(dispatch_queue_t)queue
-       wrapIntegerOrErrorCompletion:
-           (void (^)(FBLPromiseIntegerOrErrorCompletion handler))work
+    wrapIntegerOrErrorCompletion:
+    (void (^)(FBLPromiseIntegerOrErrorCompletion handler))work
     NS_SWIFT_UNAVAILABLE("");
 
 /**
@@ -253,8 +253,8 @@ typedef void (^FBLPromiseDoubleOrErrorCompletion)(double, NSError *__nullable)
  @returns A promise that resolves with an `NSNumber` wrapping a double.
  */
 + (FBLPromise<NSNumber *> *)onQueue:(dispatch_queue_t)queue
-               wrapDoubleCompletion:
-                   (void (^)(FBLPromiseDoubleCompletion handler))work
+    wrapDoubleCompletion:
+    (void (^)(FBLPromiseDoubleCompletion handler))work
     NS_SWIFT_UNAVAILABLE("");
 
 /**
@@ -273,8 +273,8 @@ typedef void (^FBLPromiseDoubleOrErrorCompletion)(double, NSError *__nullable)
  error is `nil`. Otherwise rejects with the error.
  */
 + (FBLPromise<NSNumber *> *)onQueue:(dispatch_queue_t)queue
-        wrapDoubleOrErrorCompletion:
-            (void (^)(FBLPromiseDoubleOrErrorCompletion handler))work
+    wrapDoubleOrErrorCompletion:
+    (void (^)(FBLPromiseDoubleOrErrorCompletion handler))work
     NS_SWIFT_UNAVAILABLE("");
 
 @end
@@ -301,56 +301,56 @@ typedef void (^FBLPromiseDoubleOrErrorCompletion)(double, NSError *__nullable)
     wrapObjectOrErrorCompletion FBL_PROMISES_DOT_SYNTAX
     NS_SWIFT_UNAVAILABLE("");
 + (FBLPromise * (^)(dispatch_queue_t,
-                    void (^)(FBLPromiseObjectOrErrorCompletion)))
+    void (^)(FBLPromiseObjectOrErrorCompletion)))
     wrapObjectOrErrorCompletionOn FBL_PROMISES_DOT_SYNTAX
     NS_SWIFT_UNAVAILABLE("");
 + (FBLPromise * (^)(void (^)(FBLPromiseErrorOrObjectCompletion)))
     wrapErrorOrObjectCompletion FBL_PROMISES_DOT_SYNTAX
     NS_SWIFT_UNAVAILABLE("");
 + (FBLPromise * (^)(dispatch_queue_t,
-                    void (^)(FBLPromiseErrorOrObjectCompletion)))
+    void (^)(FBLPromiseErrorOrObjectCompletion)))
     wrapErrorOrObjectCompletionOn FBL_PROMISES_DOT_SYNTAX
     NS_SWIFT_UNAVAILABLE("");
 + (FBLPromise<NSArray *> * (^)(void (^)(FBLPromise2ObjectsOrErrorCompletion)))
     wrap2ObjectsOrErrorCompletion FBL_PROMISES_DOT_SYNTAX
     NS_SWIFT_UNAVAILABLE("");
 + (FBLPromise<NSArray *> * (^)(dispatch_queue_t,
-                               void (^)(FBLPromise2ObjectsOrErrorCompletion)))
+    void (^)(FBLPromise2ObjectsOrErrorCompletion)))
     wrap2ObjectsOrErrorCompletionOn FBL_PROMISES_DOT_SYNTAX
     NS_SWIFT_UNAVAILABLE("");
 + (FBLPromise<NSNumber *> * (^)(void (^)(FBLPromiseBoolCompletion)))
     wrapBoolCompletion FBL_PROMISES_DOT_SYNTAX NS_SWIFT_UNAVAILABLE("");
 + (FBLPromise<NSNumber *> * (^)(dispatch_queue_t,
-                                void (^)(FBLPromiseBoolCompletion)))
+    void (^)(FBLPromiseBoolCompletion)))
     wrapBoolCompletionOn FBL_PROMISES_DOT_SYNTAX NS_SWIFT_UNAVAILABLE("");
 + (FBLPromise<NSNumber *> * (^)(void (^)(FBLPromiseBoolOrErrorCompletion)))
     wrapBoolOrErrorCompletion FBL_PROMISES_DOT_SYNTAX NS_SWIFT_UNAVAILABLE("");
 + (FBLPromise<NSNumber *> * (^)(dispatch_queue_t,
-                                void (^)(FBLPromiseBoolOrErrorCompletion)))
+    void (^)(FBLPromiseBoolOrErrorCompletion)))
     wrapBoolOrErrorCompletionOn FBL_PROMISES_DOT_SYNTAX
     NS_SWIFT_UNAVAILABLE("");
 + (FBLPromise<NSNumber *> * (^)(void (^)(FBLPromiseIntegerCompletion)))
     wrapIntegerCompletion FBL_PROMISES_DOT_SYNTAX NS_SWIFT_UNAVAILABLE("");
 + (FBLPromise<NSNumber *> * (^)(dispatch_queue_t,
-                                void (^)(FBLPromiseIntegerCompletion)))
+    void (^)(FBLPromiseIntegerCompletion)))
     wrapIntegerCompletionOn FBL_PROMISES_DOT_SYNTAX NS_SWIFT_UNAVAILABLE("");
 + (FBLPromise<NSNumber *> * (^)(void (^)(FBLPromiseIntegerOrErrorCompletion)))
     wrapIntegerOrErrorCompletion FBL_PROMISES_DOT_SYNTAX
     NS_SWIFT_UNAVAILABLE("");
 + (FBLPromise<NSNumber *> * (^)(dispatch_queue_t,
-                                void (^)(FBLPromiseIntegerOrErrorCompletion)))
+    void (^)(FBLPromiseIntegerOrErrorCompletion)))
     wrapIntegerOrErrorCompletionOn FBL_PROMISES_DOT_SYNTAX
     NS_SWIFT_UNAVAILABLE("");
 + (FBLPromise<NSNumber *> * (^)(void (^)(FBLPromiseDoubleCompletion)))
     wrapDoubleCompletion FBL_PROMISES_DOT_SYNTAX NS_SWIFT_UNAVAILABLE("");
 + (FBLPromise<NSNumber *> * (^)(dispatch_queue_t,
-                                void (^)(FBLPromiseDoubleCompletion)))
+    void (^)(FBLPromiseDoubleCompletion)))
     wrapDoubleCompletionOn FBL_PROMISES_DOT_SYNTAX NS_SWIFT_UNAVAILABLE("");
 + (FBLPromise<NSNumber *> * (^)(void (^)(FBLPromiseDoubleOrErrorCompletion)))
     wrapDoubleOrErrorCompletion FBL_PROMISES_DOT_SYNTAX
     NS_SWIFT_UNAVAILABLE("");
 + (FBLPromise<NSNumber *> * (^)(dispatch_queue_t,
-                                void (^)(FBLPromiseDoubleOrErrorCompletion)))
+    void (^)(FBLPromiseDoubleOrErrorCompletion)))
     wrapDoubleOrErrorCompletionOn FBL_PROMISES_DOT_SYNTAX
     NS_SWIFT_UNAVAILABLE("");
 

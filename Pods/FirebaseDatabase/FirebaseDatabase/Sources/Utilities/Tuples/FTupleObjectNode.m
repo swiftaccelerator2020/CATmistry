@@ -21,12 +21,12 @@
 @synthesize node;
 
 - (id)initWithObject:(id)aObj andNode:(id<FNode>)aNode {
-  self = [super init];
-  if (self) {
-    self.obj = aObj;
-    self.node = aNode;
-  }
-  return self;
+    self = [super init];
+    if (self) {
+        self.obj = aObj;
+        self.node = aNode;
+    }
+    return self;
 }
 
 @end

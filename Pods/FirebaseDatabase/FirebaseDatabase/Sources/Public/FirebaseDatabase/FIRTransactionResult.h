@@ -26,14 +26,14 @@ NS_ASSUME_NONNULL_BEGIN
 NS_SWIFT_NAME(TransactionResult)
 @interface FIRTransactionResult : NSObject
 
-/**
- * Used for runTransactionBlock:. Indicates that the new value should be saved
- * at this location
- *
- * @param value A FIRMutableData instance containing the new value to be set
- * @return An FIRTransactionResult instance that can be used as a return value
- * from the block given to runTransactionBlock:
- */
+    /**
+     * Used for runTransactionBlock:. Indicates that the new value should be saved
+     * at this location
+     *
+     * @param value A FIRMutableData instance containing the new value to be set
+     * @return An FIRTransactionResult instance that can be used as a return value
+     * from the block given to runTransactionBlock:
+     */
 + (FIRTransactionResult *)successWithValue:(FIRMutableData *)value;
 
 /**

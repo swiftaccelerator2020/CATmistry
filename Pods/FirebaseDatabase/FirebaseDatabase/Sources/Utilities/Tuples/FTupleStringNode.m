@@ -22,12 +22,12 @@
 @synthesize node;
 
 - (id)initWithString:(NSString *)aString andNode:(id<FNode>)aNode {
-  self = [super init];
-  if (self) {
-    self.string = aString;
-    self.node = aNode;
-  }
-  return self;
+    self = [super init];
+    if (self) {
+        self.string = aString;
+        self.node = aNode;
+    }
+    return self;
 }
 
 @end

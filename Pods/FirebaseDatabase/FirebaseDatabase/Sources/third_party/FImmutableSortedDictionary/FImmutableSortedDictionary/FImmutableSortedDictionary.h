@@ -29,7 +29,7 @@
 + (FImmutableSortedDictionary *)dictionaryWithComparator:
     (NSComparator)comparator;
 + (FImmutableSortedDictionary *)fromDictionary:(NSDictionary *)dictionary
-                                withComparator:(NSComparator)comparator;
+    withComparator:(NSComparator)comparator;
 
 - (FImmutableSortedDictionary *)insertKey:(id)aKey withValue:(id)aValue;
 - (FImmutableSortedDictionary *)removeKey:(id)aKey;
@@ -40,10 +40,10 @@
 - (id)minKey;
 - (id)maxKey;
 - (void)enumerateKeysAndObjectsUsingBlock:(void (^)(id key, id value,
-                                                    BOOL *stop))block;
+    BOOL *stop))block;
 - (void)enumerateKeysAndObjectsReverse:(BOOL)reverse
-                            usingBlock:
-                                (void (^)(id key, id value, BOOL *stop))block;
+    usingBlock:
+    (void (^)(id key, id value, BOOL *stop))block;
 - (BOOL)contains:(id)key;
 - (NSEnumerator *)keyEnumerator;
 - (NSEnumerator *)keyEnumeratorFrom:(id)startKey;

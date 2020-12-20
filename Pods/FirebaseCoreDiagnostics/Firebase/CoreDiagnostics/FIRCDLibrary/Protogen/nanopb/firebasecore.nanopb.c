@@ -87,6 +87,7 @@ const pb_field_t logs_proto_mobilesdk_ios_ICoreConfiguration_fields[22] = {
     PB_FIELD(36, BOOL, OPTIONAL, STATIC, OTHER,
              logs_proto_mobilesdk_ios_ICoreConfiguration, using_gdt,
              swizzling_enabled, 0),
-    PB_LAST_FIELD};
+    PB_LAST_FIELD
+};
 
 /* @@protoc_insertion_point(eof) */

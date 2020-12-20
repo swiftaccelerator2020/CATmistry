@@ -20,12 +20,12 @@
 #import <Foundation/Foundation.h>
 
 typedef NS_ENUM(NSInteger, FTransactionStatus) {
-  FTransactionInitializing,   // 0
-  FTransactionRun,            // 1
-  FTransactionSent,           // 2
-  FTransactionCompleted,      // 3
-  FTransactionSentNeedsAbort, // 4
-  FTransactionNeedsAbort      // 5
+    FTransactionInitializing,   // 0
+    FTransactionRun,            // 1
+    FTransactionSent,           // 2
+    FTransactionCompleted,      // 3
+    FTransactionSentNeedsAbort, // 4
+    FTransactionNeedsAbort      // 5
 };
 
 @protocol FNode;
@@ -36,8 +36,8 @@ typedef NS_ENUM(NSInteger, FTransactionStatus) {
 @class FCompoundHash;
 
 typedef void (^fbt_void_nserror_bool_datasnapshot)(NSError *error,
-                                                   BOOL committed,
-                                                   FIRDataSnapshot *snapshot);
+        BOOL committed,
+        FIRDataSnapshot *snapshot);
 typedef FIRTransactionResult * (^fbt_transactionresult_mutabledata)(
     FIRMutableData *currentData);
 typedef void (^fbt_void_path_node)(FPath *, id<FNode>);

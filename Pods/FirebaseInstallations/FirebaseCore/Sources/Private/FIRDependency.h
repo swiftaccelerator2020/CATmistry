@@ -36,7 +36,7 @@ NS_SWIFT_NAME(Dependency)
 /// Creates a dependency on the specified protocol's functionality and specify
 /// if it's required for the class's functionality.
 + (instancetype)dependencyWithProtocol:(Protocol *)protocol
-                            isRequired:(BOOL)required;
+    isRequired:(BOOL)required;
 
 /// Use `dependencyWithProtocol:isRequired:` instead.
 - (instancetype)init NS_UNAVAILABLE;

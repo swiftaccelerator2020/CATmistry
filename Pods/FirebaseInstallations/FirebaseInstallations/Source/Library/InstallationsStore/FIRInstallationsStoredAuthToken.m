@@ -30,59 +30,59 @@ NSInteger const kFIRInstallationsStoredAuthTokenStorageVersion = 1;
 @implementation FIRInstallationsStoredAuthToken
 
 - (NSInteger)storageVersion {
-  return kFIRInstallationsStoredAuthTokenStorageVersion;
+    return kFIRInstallationsStoredAuthTokenStorageVersion;
 }
 
 - (nonnull id)copyWithZone:(nullable NSZone *)zone {
-  FIRInstallationsStoredAuthToken *clone =
-      [[FIRInstallationsStoredAuthToken alloc] init];
-  clone.status = self.status;
-  clone.token = [self.token copy];
-  clone.expirationDate = self.expirationDate;
-  return clone;
+    FIRInstallationsStoredAuthToken *clone =
+        [[FIRInstallationsStoredAuthToken alloc] init];
+    clone.status = self.status;
+    clone.token = [self.token copy];
+    clone.expirationDate = self.expirationDate;
+    return clone;
 }
 
 - (void)encodeWithCoder:(nonnull NSCoder *)aCoder {
-  [aCoder encodeInteger:self.status
-                 forKey:kFIRInstallationsStoredAuthTokenStatusKey];
-  [aCoder encodeObject:self.token
-                forKey:kFIRInstallationsStoredAuthTokenTokenKey];
-  [aCoder encodeObject:self.expirationDate
-                forKey:kFIRInstallationsStoredAuthTokenExpirationDateKey];
-  [aCoder encodeInteger:self.storageVersion
-                 forKey:kFIRInstallationsStoredAuthTokenStorageVersionKey];
+    [aCoder encodeInteger:self.status
+            forKey:kFIRInstallationsStoredAuthTokenStatusKey];
+    [aCoder encodeObject:self.token
+            forKey:kFIRInstallationsStoredAuthTokenTokenKey];
+    [aCoder encodeObject:self.expirationDate
+            forKey:kFIRInstallationsStoredAuthTokenExpirationDateKey];
+    [aCoder encodeInteger:self.storageVersion
+            forKey:kFIRInstallationsStoredAuthTokenStorageVersionKey];
 }
 
 - (nullable instancetype)initWithCoder:(nonnull NSCoder *)aDecoder {
-  NSInteger storageVersion = [aDecoder
-      decodeIntegerForKey:kFIRInstallationsStoredAuthTokenStorageVersionKey];
-  if (storageVersion > kFIRInstallationsStoredAuthTokenStorageVersion) {
-    FIRLogWarning(
-        kFIRLoggerInstallations,
-        kFIRInstallationsMessageCodeAuthTokenCoderVersionMismatch,
-        @"FIRInstallationsStoredAuthToken was encoded by a newer coder version "
-        @"%ld. "
-        @"Current coder version is %ld. Some auth token data may be lost.",
-        (long)storageVersion,
-        (long)kFIRInstallationsStoredAuthTokenStorageVersion);
-  }
+    NSInteger storageVersion = [aDecoder
+                                decodeIntegerForKey:kFIRInstallationsStoredAuthTokenStorageVersionKey];
+    if (storageVersion > kFIRInstallationsStoredAuthTokenStorageVersion) {
+        FIRLogWarning(
+            kFIRLoggerInstallations,
+            kFIRInstallationsMessageCodeAuthTokenCoderVersionMismatch,
+            @"FIRInstallationsStoredAuthToken was encoded by a newer coder version "
+            @"%ld. "
+            @"Current coder version is %ld. Some auth token data may be lost.",
+            (long)storageVersion,
+            (long)kFIRInstallationsStoredAuthTokenStorageVersion);
+    }
 
-  FIRInstallationsStoredAuthToken *object =
-      [[FIRInstallationsStoredAuthToken alloc] init];
-  object.status =
-      [aDecoder decodeIntegerForKey:kFIRInstallationsStoredAuthTokenStatusKey];
-  object.token =
-      [aDecoder decodeObjectOfClass:[NSString class]
-                             forKey:kFIRInstallationsStoredAuthTokenTokenKey];
-  object.expirationDate = [aDecoder
-      decodeObjectOfClass:[NSDate class]
-                   forKey:kFIRInstallationsStoredAuthTokenExpirationDateKey];
+    FIRInstallationsStoredAuthToken *object =
+        [[FIRInstallationsStoredAuthToken alloc] init];
+    object.status =
+        [aDecoder decodeIntegerForKey:kFIRInstallationsStoredAuthTokenStatusKey];
+    object.token =
+        [aDecoder decodeObjectOfClass:[NSString class]
+                  forKey:kFIRInstallationsStoredAuthTokenTokenKey];
+    object.expirationDate = [aDecoder
+                             decodeObjectOfClass:[NSDate class]
+                             forKey:kFIRInstallationsStoredAuthTokenExpirationDateKey];
 
-  return object;
+    return object;
 }
 
 + (BOOL)supportsSecureCoding {
-  return YES;
+    return YES;
 }
 
 @end

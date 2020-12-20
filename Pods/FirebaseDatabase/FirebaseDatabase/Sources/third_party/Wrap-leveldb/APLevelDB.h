@@ -34,7 +34,7 @@ extern NSString *const APLevelDBErrorDomain;
 @property(nonatomic, readonly, strong) NSString *path;
 
 + (APLevelDB *)levelDBWithPath:(NSString *)path
-                         error:(NSError *__autoreleasing *)errorOut;
+    error:(NSError *__autoreleasing *)errorOut;
 - (void)close;
 
 - (BOOL)setData:(NSData *)data forKey:(NSString *)key;
@@ -49,19 +49,19 @@ extern NSString *const APLevelDBErrorDomain;
 
 - (void)enumerateKeys:(void (^)(NSString *key, BOOL *stop))block;
 - (void)enumerateKeysWithPrefix:(NSString *)prefix
-                     usingBlock:(void (^)(NSString *key, BOOL *stop))block;
+    usingBlock:(void (^)(NSString *key, BOOL *stop))block;
 
 - (void)enumerateKeysAndValuesAsStrings:
     (void (^)(NSString *key, NSString *value, BOOL *stop))block;
 - (void)enumerateKeysWithPrefix:(NSString *)prefix
-                      asStrings:(void (^)(NSString *key, NSString *value,
-                                          BOOL *stop))block;
+    asStrings:(void (^)(NSString *key, NSString *value,
+    BOOL *stop))block;
 
 - (void)enumerateKeysAndValuesAsData:(void (^)(NSString *key, NSData *value,
-                                               BOOL *stop))block;
+    BOOL *stop))block;
 - (void)enumerateKeysWithPrefix:(NSString *)prefix
-                         asData:(void (^)(NSString *key, NSData *value,
-                                          BOOL *stop))block;
+    asData:(void (^)(NSString *key, NSData *value,
+    BOOL *stop))block;
 
 - (NSUInteger)approximateSizeFrom:(NSString *)from to:(NSString *)to;
 - (NSUInteger)exactSizeFrom:(NSString *)from to:(NSString *)to;

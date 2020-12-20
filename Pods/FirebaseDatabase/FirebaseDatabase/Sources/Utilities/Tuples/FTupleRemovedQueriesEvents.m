@@ -26,12 +26,12 @@
 @synthesize cancelEvents;
 
 - (id)initWithRemovedQueries:(NSArray *)removed cancelEvents:(NSArray *)events {
-  self = [super init];
-  if (self) {
-    self.removedQueries = removed;
-    self.cancelEvents = events;
-  }
-  return self;
+    self = [super init];
+    if (self) {
+        self.removedQueries = removed;
+        self.cancelEvents = events;
+    }
+    return self;
 }
 
 @end

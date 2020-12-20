@@ -65,7 +65,7 @@ NS_SWIFT_NAME(Analytics)
 ///     "firebase_", "google_", and "ga_" prefixes are reserved and should not
 ///     be used for parameter names.
 + (void)logEventWithName:(NSString *)name
-              parameters:(nullable NSDictionary<NSString *, id> *)parameters
+    parameters:(nullable NSDictionary<NSString *, id> *)parameters
     NS_SWIFT_NAME(logEvent(_:parameters:));
 
 /// Sets a user property to a given value. Up to 25 user property names are
@@ -88,7 +88,7 @@ NS_SWIFT_NAME(Analytics)
 ///     "firebase_", "google_", and "ga_" prefixes are reserved and should not
 ///     be used for user property names.
 + (void)setUserPropertyString:(nullable NSString *)value
-                      forName:(NSString *)name
+    forName:(NSString *)name
     NS_SWIFT_NAME(setUserProperty(_:forName:));
 
 /// Sets the user ID property. This feature must be used in accordance with
@@ -134,10 +134,10 @@ NS_SWIFT_NAME(Analytics)
 ///     default this is the class name of the current UIViewController. Set to
 ///     nil to revert to the default class name.
 + (void)setScreenName:(nullable NSString *)screenName
-          screenClass:(nullable NSString *)screenClassOverride
+    screenClass:(nullable NSString *)screenClassOverride
     DEPRECATED_MSG_ATTRIBUTE(
-        "Use +[FIRAnalytics logEventWithName:kFIREventScreenView parameters:] "
-        "instead.");
+    "Use +[FIRAnalytics logEventWithName:kFIREventScreenView parameters:] "
+    "instead.");
 
 /// Sets whether analytics collection is enabled for this app on this device.
 /// This setting is persisted across app sessions. By default it is enabled.

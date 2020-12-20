@@ -22,7 +22,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** A block that takes a BOOL and has no return value. */
 typedef void (^FIRAppVoidBoolCallback)(BOOL success)
-    NS_SWIFT_NAME(FirebaseAppVoidBoolCallback);
+NS_SWIFT_NAME(FirebaseAppVoidBoolCallback);
 
 /**
  * The entry point of Firebase SDKs.
@@ -48,13 +48,13 @@ typedef void (^FIRAppVoidBoolCallback)(BOOL success)
 NS_SWIFT_NAME(FirebaseApp)
 @interface FIRApp : NSObject
 
-/**
- * Configures a default Firebase app. Raises an exception if any configuration
- * step fails. The default app is named "__FIRAPP_DEFAULT". This method should
- * be called after the app is launched and before using Firebase services. This
- * method should be called from the main thread and contains synchronous file
- * I/O (reading GoogleService-Info.plist from disk).
- */
+    /**
+     * Configures a default Firebase app. Raises an exception if any configuration
+     * step fails. The default app is named "__FIRAPP_DEFAULT". This method should
+     * be called after the app is launched and before using Firebase services. This
+     * method should be called from the main thread and contains synchronous file
+     * I/O (reading GoogleService-Info.plist from disk).
+     */
 + (void)configure;
 
 /**
@@ -100,7 +100,7 @@ NS_SWIFT_NAME(FirebaseApp)
  * instances. This method is thread safe.
  */
 @property(class, readonly, nullable)
-    NSDictionary<NSString *, FIRApp *> *allApps;
+NSDictionary<NSString *, FIRApp *> *allApps;
 
 /**
  * Cleans up the current FIRApp, freeing associated data and returning its name
@@ -133,7 +133,7 @@ NS_SWIFT_NAME(FirebaseApp)
  * so that it can be set once when users have consented to collection.
  */
 @property(nonatomic, readwrite, getter=isDataCollectionDefaultEnabled)
-    BOOL dataCollectionDefaultEnabled;
+BOOL dataCollectionDefaultEnabled;
 
 @end
 

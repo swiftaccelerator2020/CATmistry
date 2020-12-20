@@ -19,11 +19,11 @@ NS_ASSUME_NONNULL_BEGIN
 @interface FIRHeartbeatInfo : NSObject
 
 // Enum representing the different heartbeat codes.
-typedef NS_ENUM(NSInteger, FIRHeartbeatInfoCode) {
-  FIRHeartbeatInfoCodeNone = 0,
-  FIRHeartbeatInfoCodeSDK = 1,
-  FIRHeartbeatInfoCodeGlobal = 2,
-  FIRHeartbeatInfoCodeCombined = 3,
+    typedef NS_ENUM(NSInteger, FIRHeartbeatInfoCode) {
+    FIRHeartbeatInfoCodeNone = 0,
+    FIRHeartbeatInfoCodeSDK = 1,
+    FIRHeartbeatInfoCodeGlobal = 2,
+    FIRHeartbeatInfoCodeCombined = 3,
 };
 
 /**

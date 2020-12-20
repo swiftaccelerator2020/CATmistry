@@ -25,22 +25,22 @@
 @implementation FIRDependency
 
 + (instancetype)dependencyWithProtocol:(Protocol *)protocol {
-  return [[self alloc] initWithProtocol:protocol isRequired:YES];
+    return [[self alloc] initWithProtocol:protocol isRequired:YES];
 }
 
 + (instancetype)dependencyWithProtocol:(Protocol *)protocol
-                            isRequired:(BOOL)required {
-  return [[self alloc] initWithProtocol:protocol isRequired:required];
+    isRequired:(BOOL)required {
+    return [[self alloc] initWithProtocol:protocol isRequired:required];
 }
 
 - (instancetype)initWithProtocol:(Protocol *)protocol
-                      isRequired:(BOOL)required {
-  self = [super init];
-  if (self) {
-    _protocol = protocol;
-    _isRequired = required;
-  }
-  return self;
+    isRequired:(BOOL)required {
+    self = [super init];
+    if (self) {
+        _protocol = protocol;
+        _isRequired = required;
+    }
+    return self;
 }
 
 @end

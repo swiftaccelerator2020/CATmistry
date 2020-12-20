@@ -82,7 +82,7 @@ gdt_cct_BatchedLogRequest GDTCCTConstructBatchedLogRequest(
  */
 FOUNDATION_EXPORT
 gdt_cct_LogRequest GDTCCTConstructLogRequest(int32_t logSource,
-                                             NSSet<GDTCOREvent *> *logSet);
+        NSSet<GDTCOREvent *> *logSet);
 
 /** Constructs a gdt_cct_LogEvent given a GDTCOREvent*.
  *

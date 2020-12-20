@@ -21,15 +21,15 @@
 @interface FEventEmitter : NSObject
 
 - (id)initWithAllowedEvents:(NSArray *)theAllowedEvents
-                      queue:(dispatch_queue_t)queue;
+    queue:(dispatch_queue_t)queue;
 
 - (id)getInitialEventForType:(NSString *)eventType;
 - (void)triggerEventType:(NSString *)eventType data:(id)data;
 
 - (FIRDatabaseHandle)observeEventType:(NSString *)eventType
-                            withBlock:(fbt_void_id)block;
+    withBlock:(fbt_void_id)block;
 - (void)removeObserverForEventType:(NSString *)eventType
-                        withHandle:(FIRDatabaseHandle)handle;
+    withHandle:(FIRDatabaseHandle)handle;
 
 - (void)validateEventType:(NSString *)eventType;
 

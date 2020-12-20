@@ -89,7 +89,7 @@ extern void GULLogBasic(GULLoggerLevel level, GULLoggerService service,
 #else
                         va_list _Nullable args_ptr
 #endif
-);
+                       );
 
 /**
  * The following functions accept the following parameters in order:
@@ -105,19 +105,19 @@ extern void GULLogBasic(GULLoggerLevel level, GULLoggerService service,
  */
 extern void GULLogError(GULLoggerService service, BOOL force,
                         NSString *messageCode, NSString *message, ...)
-    NS_FORMAT_FUNCTION(4, 5);
+NS_FORMAT_FUNCTION(4, 5);
 extern void GULLogWarning(GULLoggerService service, BOOL force,
                           NSString *messageCode, NSString *message, ...)
-    NS_FORMAT_FUNCTION(4, 5);
+NS_FORMAT_FUNCTION(4, 5);
 extern void GULLogNotice(GULLoggerService service, BOOL force,
                          NSString *messageCode, NSString *message, ...)
-    NS_FORMAT_FUNCTION(4, 5);
+NS_FORMAT_FUNCTION(4, 5);
 extern void GULLogInfo(GULLoggerService service, BOOL force,
                        NSString *messageCode, NSString *message, ...)
-    NS_FORMAT_FUNCTION(4, 5);
+NS_FORMAT_FUNCTION(4, 5);
 extern void GULLogDebug(GULLoggerService service, BOOL force,
                         NSString *messageCode, NSString *message, ...)
-    NS_FORMAT_FUNCTION(4, 5);
+NS_FORMAT_FUNCTION(4, 5);
 
 #ifdef __cplusplus
 } // extern "C"
@@ -125,23 +125,23 @@ extern void GULLogDebug(GULLoggerService service, BOOL force,
 
 @interface GULLoggerWrapper : NSObject
 
-/**
- * Objective-C wrapper for GULLogBasic to allow weak linking to GULLogger
- * (required) log level (one of the GULLoggerLevel enum values).
- * (required) service name of type GULLoggerService.
- * (required) message code starting with "I-" which means iOS, followed by a
- * capitalized three-character service identifier and a six digit integer
- * message ID that is unique within the service. An example of the message code
- * is @"I-COR000001". (required) message string which can be a format string.
- * (optional) variable arguments list obtained from calling va_start, used when
- * message is a format string.
- */
+    /**
+     * Objective-C wrapper for GULLogBasic to allow weak linking to GULLogger
+     * (required) log level (one of the GULLoggerLevel enum values).
+     * (required) service name of type GULLoggerService.
+     * (required) message code starting with "I-" which means iOS, followed by a
+     * capitalized three-character service identifier and a six digit integer
+     * message ID that is unique within the service. An example of the message code
+     * is @"I-COR000001". (required) message string which can be a format string.
+     * (optional) variable arguments list obtained from calling va_start, used when
+     * message is a format string.
+     */
 
 + (void)logWithLevel:(GULLoggerLevel)level
-         withService:(GULLoggerService)service
-            withCode:(NSString *)messageCode
-         withMessage:(NSString *)message
-            withArgs:(va_list)args;
+    withService:(GULLoggerService)service
+    withCode:(NSString *)messageCode
+    withMessage:(NSString *)message
+    withArgs:(va_list)args;
 
 @end
 

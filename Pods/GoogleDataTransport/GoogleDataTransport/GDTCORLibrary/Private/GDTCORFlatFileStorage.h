@@ -62,8 +62,8 @@ FOUNDATION_EXPORT NSString *const kGDTCORBatchComponentsExpirationKey;
 @interface GDTCORFlatFileStorage
     : NSObject <GDTCORStorageProtocol, GDTCORLifecycleProtocol>
 
-/** The queue on which all storage work will occur. */
-@property(nonatomic) dispatch_queue_t storageQueue;
+      /** The queue on which all storage work will occur. */
+  @property(nonatomic) dispatch_queue_t storageQueue;
 
 /** The upload coordinator instance used by this storage instance. */
 @property(nonatomic) GDTCORUploadCoordinator *uploadCoordinator;
@@ -94,8 +94,8 @@ FOUNDATION_EXPORT NSString *const kGDTCORBatchComponentsExpirationKey;
 
 /** */
 + (NSString *)batchPathForTarget:(GDTCORTarget)target
-                         batchID:(NSNumber *)batchID
-                  expirationDate:(NSDate *)expirationDate;
+    batchID:(NSNumber *)batchID
+    expirationDate:(NSDate *)expirationDate;
 
 /** Returns a constructed storage path based on the given values. This path may
  * not exist.
@@ -108,10 +108,10 @@ FOUNDATION_EXPORT NSString *const kGDTCORBatchComponentsExpirationKey;
  * @return The path representing the combination of the given parameters.
  */
 + (NSString *)pathForTarget:(GDTCORTarget)target
-                    eventID:(NSString *)eventID
-                    qosTier:(NSNumber *)qosTier
-             expirationDate:(NSDate *)expirationDate
-                  mappingID:(NSString *)mappingID;
+    eventID:(NSString *)eventID
+    qosTier:(NSNumber *)qosTier
+    expirationDate:(NSDate *)expirationDate
+    mappingID:(NSString *)mappingID;
 
 /** Returns extant paths that match all of the given parameters.
  *
@@ -121,10 +121,10 @@ FOUNDATION_EXPORT NSString *const kGDTCORBatchComponentsExpirationKey;
  * @param onComplete The completion to call once the paths have been discovered.
  */
 - (void)pathsForTarget:(GDTCORTarget)target
-              eventIDs:(nullable NSSet<NSString *> *)eventIDs
-              qosTiers:(nullable NSSet<NSNumber *> *)qosTiers
-            mappingIDs:(nullable NSSet<NSString *> *)mappingIDs
-            onComplete:(void (^)(NSSet<NSString *> *paths))onComplete;
+    eventIDs:(nullable NSSet<NSString *> *)eventIDs
+    qosTiers:(nullable NSSet<NSNumber *> *)qosTiers
+    mappingIDs:(nullable NSSet<NSString *> *)mappingIDs
+    onComplete:(void (^)(NSSet<NSString *> *paths))onComplete;
 
 /** Fetches the current batchID counter value from library storage, increments
  * it, and sets the new value. Returns nil if a batchID was not able to be

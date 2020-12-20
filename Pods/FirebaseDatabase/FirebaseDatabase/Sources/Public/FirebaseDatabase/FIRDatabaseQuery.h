@@ -40,23 +40,23 @@ NS_SWIFT_NAME(DatabaseQuery)
 
 #pragma mark - Attach observers to read data
 
-/**
- * observeEventType:withBlock: is used to listen for data changes at a
- * particular location. This is the primary way to read data from the Firebase
- * Database. Your block will be triggered for the initial data and again
- * whenever the data changes.
- *
- * Use removeObserverWithHandle: to stop receiving updates.
- *
- * @param eventType The type of event to listen for.
- * @param block The block that should be called with initial data and updates.
- * It is passed the data as a FIRDataSnapshot.
- * @return A handle used to unregister this block later using
- * removeObserverWithHandle:
- */
+    /**
+     * observeEventType:withBlock: is used to listen for data changes at a
+     * particular location. This is the primary way to read data from the Firebase
+     * Database. Your block will be triggered for the initial data and again
+     * whenever the data changes.
+     *
+     * Use removeObserverWithHandle: to stop receiving updates.
+     *
+     * @param eventType The type of event to listen for.
+     * @param block The block that should be called with initial data and updates.
+     * It is passed the data as a FIRDataSnapshot.
+     * @return A handle used to unregister this block later using
+     * removeObserverWithHandle:
+     */
 - (FIRDatabaseHandle)observeEventType:(FIRDataEventType)eventType
-                            withBlock:
-                                (void (^)(FIRDataSnapshot *snapshot))block;
+    withBlock:
+    (void (^)(FIRDataSnapshot *snapshot))block;
 
 /**
  * observeEventType:andPreviousSiblingKeyWithBlock: is used to listen for data
@@ -75,9 +75,9 @@ NS_SWIFT_NAME(DatabaseQuery)
  * removeObserverWithHandle:
  */
 - (FIRDatabaseHandle)observeEventType:(FIRDataEventType)eventType
-       andPreviousSiblingKeyWithBlock:
-           (void (^)(FIRDataSnapshot *snapshot,
-                     NSString *__nullable prevKey))block;
+    andPreviousSiblingKeyWithBlock:
+    (void (^)(FIRDataSnapshot *snapshot,
+    NSString *__nullable prevKey))block;
 
 /**
  * observeEventType:withBlock: is used to listen for data changes at a
@@ -99,9 +99,9 @@ NS_SWIFT_NAME(DatabaseQuery)
  * removeObserverWithHandle:
  */
 - (FIRDatabaseHandle)observeEventType:(FIRDataEventType)eventType
-                            withBlock:(void (^)(FIRDataSnapshot *snapshot))block
-                      withCancelBlock:
-                          (nullable void (^)(NSError *error))cancelBlock;
+    withBlock:(void (^)(FIRDataSnapshot *snapshot))block
+    withCancelBlock:
+    (nullable void (^)(NSError *error))cancelBlock;
 
 /**
  * observeEventType:andPreviousSiblingKeyWithBlock: is used to listen for data
@@ -125,11 +125,11 @@ NS_SWIFT_NAME(DatabaseQuery)
  * removeObserverWithHandle:
  */
 - (FIRDatabaseHandle)observeEventType:(FIRDataEventType)eventType
-       andPreviousSiblingKeyWithBlock:
-           (void (^)(FIRDataSnapshot *snapshot,
-                     NSString *__nullable prevKey))block
-                      withCancelBlock:
-                          (nullable void (^)(NSError *error))cancelBlock;
+    andPreviousSiblingKeyWithBlock:
+    (void (^)(FIRDataSnapshot *snapshot,
+    NSString *__nullable prevKey))block
+    withCancelBlock:
+    (nullable void (^)(NSError *error))cancelBlock;
 
 /**
  * This is equivalent to observeEventType:withBlock:, except the block is
@@ -140,7 +140,7 @@ NS_SWIFT_NAME(DatabaseQuery)
  * FIRDataSnapshot.
  */
 - (void)observeSingleEventOfType:(FIRDataEventType)eventType
-                       withBlock:(void (^)(FIRDataSnapshot *snapshot))block;
+    withBlock:(void (^)(FIRDataSnapshot *snapshot))block;
 
 /**
  * This is equivalent to observeEventType:withBlock:, except the block is
@@ -155,8 +155,8 @@ NS_SWIFT_NAME(DatabaseQuery)
  */
 - (void)observeSingleEventOfType:(FIRDataEventType)eventType
     andPreviousSiblingKeyWithBlock:
-        (void (^)(FIRDataSnapshot *snapshot,
-                  NSString *__nullable prevKey))block;
+    (void (^)(FIRDataSnapshot *snapshot,
+    NSString *__nullable prevKey))block;
 
 /**
  * This is equivalent to observeEventType:withBlock:, except the block is
@@ -172,8 +172,8 @@ NS_SWIFT_NAME(DatabaseQuery)
  * to access this data
  */
 - (void)observeSingleEventOfType:(FIRDataEventType)eventType
-                       withBlock:(void (^)(FIRDataSnapshot *snapshot))block
-                 withCancelBlock:(nullable void (^)(NSError *error))cancelBlock;
+    withBlock:(void (^)(FIRDataSnapshot *snapshot))block
+    withCancelBlock:(nullable void (^)(NSError *error))cancelBlock;
 
 /**
  * This is equivalent to observeEventType:withBlock:, except the block is
@@ -193,9 +193,9 @@ NS_SWIFT_NAME(DatabaseQuery)
  */
 - (void)observeSingleEventOfType:(FIRDataEventType)eventType
     andPreviousSiblingKeyWithBlock:(void (^)(FIRDataSnapshot *snapshot,
-                                             NSString *__nullable prevKey))block
-                   withCancelBlock:
-                       (nullable void (^)(NSError *error))cancelBlock;
+    NSString *__nullable prevKey))block
+    withCancelBlock:
+    (nullable void (^)(NSError *error))cancelBlock;
 
 #pragma mark - Detaching observers
 
@@ -320,7 +320,7 @@ NS_SWIFT_NAME(DatabaseQuery)
  * or equal to startValue
  */
 - (FIRDatabaseQuery *)queryStartingAtValue:(nullable id)startValue
-                                  childKey:(nullable NSString *)childKey;
+    childKey:(nullable NSString *)childKey;
 
 /**
  * queryEndingAtValue: is used to generate a reference to a limited view of the
@@ -351,7 +351,7 @@ NS_SWIFT_NAME(DatabaseQuery)
  * equal to endValue
  */
 - (FIRDatabaseQuery *)queryEndingAtValue:(nullable id)endValue
-                                childKey:(nullable NSString *)childKey;
+    childKey:(nullable NSString *)childKey;
 
 /**
  * queryEqualToValue: is used to generate a reference to a limited view of the
@@ -379,7 +379,7 @@ NS_SWIFT_NAME(DatabaseQuery)
  * and the key.
  */
 - (FIRDatabaseQuery *)queryEqualToValue:(nullable id)value
-                               childKey:(nullable NSString *)childKey;
+    childKey:(nullable NSString *)childKey;
 
 #pragma mark - Properties
 

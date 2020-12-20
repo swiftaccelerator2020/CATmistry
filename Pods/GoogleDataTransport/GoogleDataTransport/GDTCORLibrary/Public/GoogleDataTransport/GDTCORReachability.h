@@ -23,7 +23,7 @@ NS_ASSUME_NONNULL_BEGIN
 /** This class helps determine upload conditions by determining connectivity. */
 @interface GDTCORReachability : NSObject
 
-/** The current set flags indicating network conditions */
+    /** The current set flags indicating network conditions */
 + (GDTCORNetworkReachabilityFlags)currentFlags;
 
 @end

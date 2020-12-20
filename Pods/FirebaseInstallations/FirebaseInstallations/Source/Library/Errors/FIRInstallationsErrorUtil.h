@@ -31,10 +31,10 @@ void FIRInstallationsItemSetErrorToPointer(NSError *error, NSError **pointer);
 + (NSError *)keyedArchiverErrorWithError:(NSError *)error;
 
 + (NSError *)keychainErrorWithFunction:(NSString *)keychainFunction
-                                status:(OSStatus)status;
+    status:(OSStatus)status;
 
 + (NSError *)installationItemNotFoundForAppID:(NSString *)appID
-                                      appName:(NSString *)appName;
+    appName:(NSString *)appName;
 
 + (NSError *)JSONSerializationError:(NSError *)error;
 
@@ -46,8 +46,8 @@ void FIRInstallationsItemSetErrorToPointer(NSError *error, NSError **pointer);
 + (NSError *)corruptedIIDTokenData;
 
 + (FIRInstallationsHTTPError *)APIErrorWithHTTPResponse:
-                                   (NSHTTPURLResponse *)HTTPResponse
-                                                   data:(nullable NSData *)data;
+    (NSHTTPURLResponse *)HTTPResponse
+    data:(nullable NSData *)data;
 + (BOOL)isAPIError:(NSError *)error withHTTPCode:(NSInteger)HTTPCode;
 
 + (NSError *)backoffIntervalWaitError;

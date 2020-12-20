@@ -61,65 +61,65 @@ static NSRegularExpression *sMessageCodeRegex;
 #endif
 
 void FIRLoggerInitializeASL() {
-  dispatch_once(&sFIRLoggerOnceToken, ^{
-    // Register Firebase Version with GULLogger.
-    GULLoggerRegisterVersion(FIRVersionString);
+    dispatch_once(&sFIRLoggerOnceToken, ^ {
+        // Register Firebase Version with GULLogger.
+        GULLoggerRegisterVersion(FIRVersionString);
 
-    // Override the aslOptions to ASL_OPT_STDERR if the override argument is
-    // passed in.
-    NSArray *arguments = [NSProcessInfo processInfo].arguments;
-    BOOL overrideSTDERR =
+        // Override the aslOptions to ASL_OPT_STDERR if the override argument is
+        // passed in.
+        NSArray *arguments = [NSProcessInfo processInfo].arguments;
+        BOOL overrideSTDERR =
         [arguments containsObject:kFIRLoggerForceSDTERRApplicationArgument];
 
-    // Use the standard NSUserDefaults if it hasn't been explicitly set.
-    if (sFIRLoggerUserDefaults == nil) {
-      sFIRLoggerUserDefaults = [NSUserDefaults standardUserDefaults];
-    }
+        // Use the standard NSUserDefaults if it hasn't been explicitly set.
+        if (sFIRLoggerUserDefaults == nil) {
+            sFIRLoggerUserDefaults = [NSUserDefaults standardUserDefaults];
+        }
 
-    BOOL forceDebugMode = NO;
-    BOOL debugMode =
+        BOOL forceDebugMode = NO;
+        BOOL debugMode =
         [sFIRLoggerUserDefaults boolForKey:kFIRPersistedDebugModeKey];
-    if ([arguments
-            containsObject:kFIRDisableDebugModeApplicationArgument]) { // Default
-                                                                       // mode
-      [sFIRLoggerUserDefaults removeObjectForKey:kFIRPersistedDebugModeKey];
-    } else if ([arguments
-                   containsObject:kFIREnableDebugModeApplicationArgument] ||
-               debugMode) { // Debug mode
-      [sFIRLoggerUserDefaults setBool:YES forKey:kFIRPersistedDebugModeKey];
-      forceDebugMode = YES;
-    }
-    GULLoggerInitializeASL();
-    if (overrideSTDERR) {
-      GULLoggerEnableSTDERR();
-    }
-    if (forceDebugMode) {
-      GULLoggerForceDebug();
-    }
-  });
+        if ([arguments
+                containsObject:kFIRDisableDebugModeApplicationArgument]) { // Default
+            // mode
+            [sFIRLoggerUserDefaults removeObjectForKey:kFIRPersistedDebugModeKey];
+        } else if ([arguments
+                    containsObject:kFIREnableDebugModeApplicationArgument] ||
+                   debugMode) { // Debug mode
+            [sFIRLoggerUserDefaults setBool:YES forKey:kFIRPersistedDebugModeKey];
+            forceDebugMode = YES;
+        }
+        GULLoggerInitializeASL();
+        if (overrideSTDERR) {
+            GULLoggerEnableSTDERR();
+        }
+        if (forceDebugMode) {
+            GULLoggerForceDebug();
+        }
+    });
 }
 
 __attribute__((no_sanitize("thread"))) void
 FIRSetAnalyticsDebugMode(BOOL analyticsDebugMode) {
-  sFIRAnalyticsDebugMode = analyticsDebugMode;
+    sFIRAnalyticsDebugMode = analyticsDebugMode;
 }
 
 void FIRSetLoggerLevel(FIRLoggerLevel loggerLevel) {
-  FIRLoggerInitializeASL();
-  GULSetLoggerLevel((GULLoggerLevel)loggerLevel);
+    FIRLoggerInitializeASL();
+    GULSetLoggerLevel((GULLoggerLevel)loggerLevel);
 }
 
 #ifdef DEBUG
 void FIRResetLogger() {
-  extern void GULResetLogger(void);
-  sFIRLoggerOnceToken = 0;
-  [sFIRLoggerUserDefaults removeObjectForKey:kFIRPersistedDebugModeKey];
-  sFIRLoggerUserDefaults = nil;
-  GULResetLogger();
+    extern void GULResetLogger(void);
+    sFIRLoggerOnceToken = 0;
+    [sFIRLoggerUserDefaults removeObjectForKey:kFIRPersistedDebugModeKey];
+    sFIRLoggerUserDefaults = nil;
+    GULResetLogger();
 }
 
 void FIRSetLoggerUserDefaults(NSUserDefaults *defaults) {
-  sFIRLoggerUserDefaults = defaults;
+    sFIRLoggerUserDefaults = defaults;
 }
 #endif
 
@@ -131,20 +131,20 @@ void FIRSetLoggerUserDefaults(NSUserDefaults *defaults) {
  */
 __attribute__((no_sanitize("thread"))) BOOL
 FIRIsLoggableLevel(FIRLoggerLevel loggerLevel, BOOL analyticsComponent) {
-  FIRLoggerInitializeASL();
-  if (sFIRAnalyticsDebugMode && analyticsComponent) {
-    return YES;
-  }
-  return GULIsLoggableLevel((GULLoggerLevel)loggerLevel);
+    FIRLoggerInitializeASL();
+    if (sFIRAnalyticsDebugMode && analyticsComponent) {
+        return YES;
+    }
+    return GULIsLoggableLevel((GULLoggerLevel)loggerLevel);
 }
 
 void FIRLogBasic(FIRLoggerLevel level, FIRLoggerService service,
                  NSString *messageCode, NSString *message, va_list args_ptr) {
-  FIRLoggerInitializeASL();
-  GULLogBasic((GULLoggerLevel)level, service,
-              sFIRAnalyticsDebugMode &&
-                  [kFIRLoggerAnalytics isEqualToString:service],
-              messageCode, message, args_ptr);
+    FIRLoggerInitializeASL();
+    GULLogBasic((GULLoggerLevel)level, service,
+                sFIRAnalyticsDebugMode &&
+                [kFIRLoggerAnalytics isEqualToString:service],
+                messageCode, message, args_ptr);
 }
 
 /**
@@ -180,11 +180,11 @@ FIR_LOGGING_FUNCTION(Debug)
 @implementation FIRLoggerWrapper
 
 + (void)logWithLevel:(FIRLoggerLevel)level
-         withService:(FIRLoggerService)service
-            withCode:(NSString *)messageCode
-         withMessage:(NSString *)message
-            withArgs:(va_list)args {
-  FIRLogBasic(level, service, messageCode, message, args);
+    withService:(FIRLoggerService)service
+    withCode:(NSString *)messageCode
+    withMessage:(NSString *)message
+    withArgs:(va_list)args {
+    FIRLogBasic(level, service, messageCode, message, args);
 }
 
 @end

@@ -32,7 +32,7 @@ typedef void (^GDTCORAssertionBlock)(void);
  * @return A block that can be run instead of normal assert printing.
  */
 FOUNDATION_EXPORT
-    GDTCORAssertionBlock _Nullable GDTCORAssertionBlockToRunInstead(void);
+GDTCORAssertionBlock _Nullable GDTCORAssertionBlockToRunInstead(void);
 
 #if defined(NS_BLOCK_ASSERTIONS)
 

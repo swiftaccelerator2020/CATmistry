@@ -22,7 +22,7 @@ NS_ASSUME_NONNULL_BEGIN
  * time. */
 @interface GDTCORClock : NSObject <NSSecureCoding>
 
-/** The wallclock time, UTC, in milliseconds. */
+    /** The wallclock time, UTC, in milliseconds. */
 @property(nonatomic, readonly) int64_t timeMillis;
 
 /** The offset from UTC in seconds. */

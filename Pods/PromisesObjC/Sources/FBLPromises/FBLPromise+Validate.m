@@ -21,25 +21,25 @@
 @implementation FBLPromise (ValidateAdditions)
 
 - (FBLPromise *)validate:(FBLPromiseValidateWorkBlock)predicate {
-  return [self onQueue:FBLPromise.defaultDispatchQueue validate:predicate];
+    return [self onQueue:FBLPromise.defaultDispatchQueue validate:predicate];
 }
 
 - (FBLPromise *)onQueue:(dispatch_queue_t)queue
-               validate:(FBLPromiseValidateWorkBlock)predicate {
-  NSParameterAssert(queue);
-  NSParameterAssert(predicate);
+    validate:(FBLPromiseValidateWorkBlock)predicate {
+    NSParameterAssert(queue);
+    NSParameterAssert(predicate);
 
-  FBLPromiseChainedFulfillBlock chainedFulfill = ^id(id value) {
-    return predicate(value)
+    FBLPromiseChainedFulfillBlock chainedFulfill = ^id(id value) {
+        return predicate(value)
                ? value
                : [[NSError alloc]
-                     initWithDomain:FBLPromiseErrorDomain
-                               code:FBLPromiseErrorCodeValidationFailure
-                           userInfo:nil];
-  };
-  return [self chainOnQueue:queue
-             chainedFulfill:chainedFulfill
-              chainedReject:nil];
+                  initWithDomain:FBLPromiseErrorDomain
+                  code:FBLPromiseErrorCodeValidationFailure
+                  userInfo:nil];
+    };
+    return [self chainOnQueue:queue
+                 chainedFulfill:chainedFulfill
+                 chainedReject:nil];
 }
 
 @end
@@ -47,15 +47,15 @@
 @implementation FBLPromise (DotSyntax_ValidateAdditions)
 
 - (FBLPromise * (^)(FBLPromiseValidateWorkBlock))validate {
-  return ^(FBLPromiseValidateWorkBlock predicate) {
-    return [self validate:predicate];
-  };
+    return ^(FBLPromiseValidateWorkBlock predicate) {
+        return [self validate:predicate];
+    };
 }
 
 - (FBLPromise * (^)(dispatch_queue_t, FBLPromiseValidateWorkBlock))validateOn {
-  return ^(dispatch_queue_t queue, FBLPromiseValidateWorkBlock predicate) {
-    return [self onQueue:queue validate:predicate];
-  };
+    return ^(dispatch_queue_t queue, FBLPromiseValidateWorkBlock predicate) {
+        return [self onQueue:queue validate:predicate];
+    };
 }
 
 @end

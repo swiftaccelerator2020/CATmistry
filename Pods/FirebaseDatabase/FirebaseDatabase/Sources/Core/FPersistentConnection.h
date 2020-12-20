@@ -31,34 +31,34 @@
 @property(nonatomic) BOOL pauseWrites;
 
 - (id)initWithRepoInfo:(FRepoInfo *)repoInfo
-         dispatchQueue:(dispatch_queue_t)queue
-                config:(FIRDatabaseConfig *)config;
+    dispatchQueue:(dispatch_queue_t)queue
+    config:(FIRDatabaseConfig *)config;
 
 - (void)open;
 
 - (void)putData:(id)data
-         forPath:(NSString *)pathString
-        withHash:(NSString *)hash
+    forPath:(NSString *)pathString
+    withHash:(NSString *)hash
     withCallback:(fbt_void_nsstring_nsstring)onComplete;
 - (void)mergeData:(id)data
-          forPath:(NSString *)pathString
-     withCallback:(fbt_void_nsstring_nsstring)onComplete;
+    forPath:(NSString *)pathString
+    withCallback:(fbt_void_nsstring_nsstring)onComplete;
 
 - (void)listen:(FQuerySpec *)query
-         tagId:(NSNumber *)tagId
-          hash:(id<FSyncTreeHash>)hash
+    tagId:(NSNumber *)tagId
+    hash:(id<FSyncTreeHash>)hash
     onComplete:(fbt_void_nsstring)onComplete;
 
 - (void)unlisten:(FQuerySpec *)query tagId:(NSNumber *)tagId;
 - (void)refreshAuthToken:(NSString *)token;
 - (void)onDisconnectPutData:(id)data
-                    forPath:(FPath *)path
-               withCallback:(fbt_void_nsstring_nsstring)callback;
+    forPath:(FPath *)path
+    withCallback:(fbt_void_nsstring_nsstring)callback;
 - (void)onDisconnectMergeData:(id)data
-                      forPath:(FPath *)path
-                 withCallback:(fbt_void_nsstring_nsstring)callback;
+    forPath:(FPath *)path
+    withCallback:(fbt_void_nsstring_nsstring)callback;
 - (void)onDisconnectCancelPath:(FPath *)path
-                  withCallback:(fbt_void_nsstring_nsstring)callback;
+    withCallback:(fbt_void_nsstring_nsstring)callback;
 - (void)ackPuts;
 - (void)purgeOutstandingWrites;
 
@@ -68,12 +68,12 @@
 
 // FConnection delegate methods
 - (void)onReady:(FConnection *)fconnection
-         atTime:(NSNumber *)timestamp
-      sessionID:(NSString *)sessionID;
+    atTime:(NSNumber *)timestamp
+    sessionID:(NSString *)sessionID;
 - (void)onDataMessage:(FConnection *)fconnection
-          withMessage:(NSDictionary *)message;
+    withMessage:(NSDictionary *)message;
 - (void)onDisconnect:(FConnection *)fconnection
-          withReason:(FDisconnectReason)reason;
+    withReason:(FDisconnectReason)reason;
 - (void)onKill:(FConnection *)fconnection withReason:(NSString *)reason;
 
 // Testing methods
@@ -84,16 +84,16 @@
 @protocol FPersistentConnectionDelegate <NSObject>
 
 - (void)onDataUpdate:(FPersistentConnection *)fpconnection
-             forPath:(NSString *)pathString
-             message:(id)message
-             isMerge:(BOOL)isMerge
-               tagId:(NSNumber *)tagId;
+    forPath:(NSString *)pathString
+    message:(id)message
+    isMerge:(BOOL)isMerge
+    tagId:(NSNumber *)tagId;
 - (void)onRangeMerge:(NSArray *)ranges
-             forPath:(NSString *)path
-               tagId:(NSNumber *)tag;
+    forPath:(NSString *)path
+    tagId:(NSNumber *)tag;
 - (void)onConnect:(FPersistentConnection *)fpconnection;
 - (void)onDisconnect:(FPersistentConnection *)fpconnection;
 - (void)onServerInfoUpdate:(FPersistentConnection *)fpconnection
-                   updates:(NSDictionary *)updates;
+    updates:(NSDictionary *)updates;
 
 @end

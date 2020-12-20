@@ -19,31 +19,31 @@
 #import "FBLPromisePrivate.h"
 
 id __nullable FBLPromiseAwait(FBLPromise *promise, NSError **outError) {
-  assert(promise);
+    assert(promise);
 
-  static dispatch_once_t onceToken;
-  static dispatch_queue_t queue;
-  dispatch_once(&onceToken, ^{
-    queue = dispatch_queue_create("com.google.FBLPromises.Await",
-                                  DISPATCH_QUEUE_CONCURRENT);
-  });
-  dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
-  id __block resolution;
-  NSError __block *blockError;
-  [promise chainOnQueue:queue
-      chainedFulfill:^id(id value) {
-        resolution = value;
-        dispatch_semaphore_signal(semaphore);
+    static dispatch_once_t onceToken;
+    static dispatch_queue_t queue;
+    dispatch_once(&onceToken, ^ {
+        queue = dispatch_queue_create("com.google.FBLPromises.Await",
+                                      DISPATCH_QUEUE_CONCURRENT);
+    });
+    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+    id __block resolution;
+    NSError __block *blockError;
+    [promise chainOnQueue:queue
+            chainedFulfill:^id(id value) {
+                resolution = value;
+                dispatch_semaphore_signal(semaphore);
         return value;
-      }
-      chainedReject:^id(NSError *error) {
+    }
+    chainedReject:^id(NSError *error) {
         blockError = error;
         dispatch_semaphore_signal(semaphore);
         return error;
-      }];
-  dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER);
-  if (outError) {
-    *outError = blockError;
-  }
-  return resolution;
+    }];
+    dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER);
+    if (outError) {
+        *outError = blockError;
+    }
+    return resolution;
 }

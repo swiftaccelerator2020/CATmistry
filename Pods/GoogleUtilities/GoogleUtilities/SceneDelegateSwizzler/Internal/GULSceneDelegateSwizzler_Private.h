@@ -24,12 +24,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 #if UISCENE_SUPPORTED
 
-/** Returns a dictionary containing interceptor IDs mapped to a
- * GULZeroingWeakContainer.
- *
- *  @return A dictionary of the form {NSString : GULZeroingWeakContainer}, where
- * the NSString is the interceptorID.
- */
+    /** Returns a dictionary containing interceptor IDs mapped to a
+     * GULZeroingWeakContainer.
+     *
+     *  @return A dictionary of the form {NSString : GULZeroingWeakContainer}, where
+     * the NSString is the interceptorID.
+     */
 + (GULMutableDictionary *)interceptors;
 
 /** Deletes all the registered interceptors. */
