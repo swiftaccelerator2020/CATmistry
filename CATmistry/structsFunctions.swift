@@ -1139,7 +1139,7 @@ func loadData() {
     var ref: DatabaseReference!
 
     ref = Database.database().reference(withPath: "learnTopics")
-    
+    ref.keepSynced(true)
     ref!.observe(.value, with: { (snapshot) in
         
         let jsonData = try! JSONSerialization.data(withJSONObject: snapshot.value!, options: .prettyPrinted)
@@ -1148,9 +1148,9 @@ func loadData() {
 
     })
     
-    ref = Database.database().reference(withPath: "gasesArray")
-    
-    ref!.observe(.value, with: { (snapshot) in
+    let ref2 = Database.database().reference(withPath: "gasesArray")
+    ref2.keepSynced(true)
+    ref2.observe(.value, with: { (snapshot) in
         
         let jsonData = try! JSONSerialization.data(withJSONObject: snapshot.value!, options: .prettyPrinted)
         
@@ -1160,9 +1160,9 @@ func loadData() {
 
     })
     
-    ref = Database.database().reference(withPath: "gameTopics")
-    
-    ref!.observe(.value, with: { (snapshot) in
+    let ref3 = Database.database().reference(withPath: "gameTopics")
+    ref3.keepSynced(true)
+    ref3.observe(.value, with: { (snapshot) in
         
         let jsonData = try! JSONSerialization.data(withJSONObject: snapshot.value!, options: .prettyPrinted)
         
@@ -1170,9 +1170,9 @@ func loadData() {
 
     })
     
-    ref = Database.database().reference(withPath: "periodicTable")
-    
-    ref!.observe(.value, with: { (snapshot) in
+    let ref4 = Database.database().reference(withPath: "periodicTable")
+    ref4.keepSynced(true)
+    ref4.observe(.value, with: { (snapshot) in
         
         let jsonData = try! JSONSerialization.data(withJSONObject: snapshot.value!, options: .prettyPrinted)
         
@@ -1180,9 +1180,9 @@ func loadData() {
 
     })
     
-    ref = Database.database().reference(withPath: "phGameArray")
-    
-    ref!.observe(.value, with: { (snapshot) in
+    let ref5 = Database.database().reference(withPath: "phGameArray")
+    ref5.keepSynced(true)
+    ref5.observe(.value, with: { (snapshot) in
         
         let jsonData = try! JSONSerialization.data(withJSONObject: snapshot.value!, options: .prettyPrinted)
         
@@ -1190,9 +1190,9 @@ func loadData() {
 
     })
     
-    ref = Database.database().reference(withPath: "phGameOptionsArray")
-    
-    ref!.observe(.value, with: { (snapshot) in
+    let ref6 = Database.database().reference(withPath: "phGameOptionsArray")
+    ref6.keepSynced(true)
+    ref6.observe(.value, with: { (snapshot) in
         
         let jsonData = try! JSONSerialization.data(withJSONObject: snapshot.value!, options: .prettyPrinted)
         
@@ -1200,9 +1200,9 @@ func loadData() {
 
     })
     
-    ref = Database.database().reference(withPath: "retrieveSolidsArray")
-    
-    ref!.observe(.value, with: { (snapshot) in
+    let ref7 = Database.database().reference(withPath: "retrieveSolidsArray")
+    ref7.keepSynced(true)
+    ref7.observe(.value, with: { (snapshot) in
         
         let jsonData = try! JSONSerialization.data(withJSONObject: snapshot.value!, options: .prettyPrinted)
         
