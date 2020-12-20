@@ -27,15 +27,15 @@
 @implementation FTupleTransaction
 
 - (void)setAbortStatus:(NSString *)abortStatus reason:(NSString *)reason {
-    self.abortStatus = abortStatus;
-    self.abortReason = reason;
+  self.abortStatus = abortStatus;
+  self.abortReason = reason;
 }
 
 - (NSError *)abortError {
-    return (self.abortStatus != nil)
-           ? [FUtilities errorForStatus:self.abortStatus
-                         andReason:self.abortReason]
-           : nil;
+  return (self.abortStatus != nil)
+             ? [FUtilities errorForStatus:self.abortStatus
+                                andReason:self.abortReason]
+             : nil;
 }
 
 @end

@@ -22,41 +22,44 @@
 #pragma clang diagnostic pop
 
 + (FIRAnalyticsConfiguration *)sharedInstance {
-    static FIRAnalyticsConfiguration *sharedInstance = nil;
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^ {
-        sharedInstance = [[FIRAnalyticsConfiguration alloc] init];
-    });
-    return sharedInstance;
+  static FIRAnalyticsConfiguration *sharedInstance = nil;
+  static dispatch_once_t onceToken;
+  dispatch_once(&onceToken, ^{
+    sharedInstance = [[FIRAnalyticsConfiguration alloc] init];
+  });
+  return sharedInstance;
 }
 
 - (void)postNotificationName:(NSString *)name value:(id)value {
-    if (!name.length || !value) {
-        return;
-    }
-    [[NSNotificationCenter defaultCenter] postNotificationName:name
-                                          object:self
-                                          userInfo:@ {name : value}];
+  if (!name.length || !value) {
+    return;
+  }
+  [[NSNotificationCenter defaultCenter] postNotificationName:name
+                                                      object:self
+                                                    userInfo:@{name : value}];
 }
 
 - (void)setAnalyticsCollectionEnabled:(BOOL)analyticsCollectionEnabled {
-    [self setAnalyticsCollectionEnabled:analyticsCollectionEnabled persistSetting:YES];
+  [self setAnalyticsCollectionEnabled:analyticsCollectionEnabled
+                       persistSetting:YES];
 }
 
 - (void)setAnalyticsCollectionEnabled:(BOOL)analyticsCollectionEnabled
-    persistSetting:(BOOL)shouldPersist {
-    // Persist the measurementEnabledState. Use FIRAnalyticsEnabledState values instead of YES/NO.
-    FIRAnalyticsEnabledState analyticsEnabledState =
-        analyticsCollectionEnabled ? kFIRAnalyticsEnabledStateSetYes : kFIRAnalyticsEnabledStateSetNo;
-    if (shouldPersist) {
-        NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-        [userDefaults setObject:@(analyticsEnabledState)
-                      forKey:kFIRAPersistedConfigMeasurementEnabledStateKey];
-        [userDefaults synchronize];
-    }
+                       persistSetting:(BOOL)shouldPersist {
+  // Persist the measurementEnabledState. Use FIRAnalyticsEnabledState values
+  // instead of YES/NO.
+  FIRAnalyticsEnabledState analyticsEnabledState =
+      analyticsCollectionEnabled ? kFIRAnalyticsEnabledStateSetYes
+                                 : kFIRAnalyticsEnabledStateSetNo;
+  if (shouldPersist) {
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    [userDefaults setObject:@(analyticsEnabledState)
+                     forKey:kFIRAPersistedConfigMeasurementEnabledStateKey];
+    [userDefaults synchronize];
+  }
 
-    [self postNotificationName:kFIRAnalyticsConfigurationSetEnabledNotification
-          value:@(analyticsCollectionEnabled)];
+  [self postNotificationName:kFIRAnalyticsConfigurationSetEnabledNotification
+                       value:@(analyticsCollectionEnabled)];
 }
 
 @end

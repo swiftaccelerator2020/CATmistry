@@ -37,20 +37,20 @@
 
 - (id<FNode>)
     calculateEventCacheAfterServerOverwriteWithChildPath:(FPath *)childPath
-    existingEventSnap:
-    (id<FNode>)existingEventSnap
-    existingServerSnap:
-    (id<FNode>)existingServerSnap;
+                                       existingEventSnap:
+                                           (id<FNode>)existingEventSnap
+                                      existingServerSnap:
+                                          (id<FNode>)existingServerSnap;
 
 - (id<FNode>)shadowingWriteAtPath:(FPath *)path;
 
 - (FNamedNode *)calculateNextNodeAfterPost:(FNamedNode *)post
-    completeServerData:(id<FNode>)completeServerData
-    reverse:(BOOL)reverse
-    index:(id<FIndex>)index;
+                        completeServerData:(id<FNode>)completeServerData
+                                   reverse:(BOOL)reverse
+                                     index:(id<FIndex>)index;
 
 - (id<FNode>)calculateCompleteChild:(NSString *)childKey
-    cache:(FCacheNode *)existingServerCache;
+                              cache:(FCacheNode *)existingServerCache;
 
 - (FWriteTreeRef *)childWriteTreeRef:(NSString *)childKey;
 

@@ -23,12 +23,12 @@
 @interface FWriteRecord : NSObject
 
 - initWithPath:(FPath *)path
-    overwrite:(id<FNode>)overwrite
-    writeId:(NSInteger)writeId
-    visible:(BOOL)isVisible;
+     overwrite:(id<FNode>)overwrite
+       writeId:(NSInteger)writeId
+       visible:(BOOL)isVisible;
 - initWithPath:(FPath *)path
-    merge:(FCompoundWrite *)merge
-    writeId:(NSInteger)writeId;
+         merge:(FCompoundWrite *)merge
+       writeId:(NSInteger)writeId;
 
 @property(nonatomic, readonly) NSInteger writeId;
 @property(nonatomic, strong, readonly) FPath *path;

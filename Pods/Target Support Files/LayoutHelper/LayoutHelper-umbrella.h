@@ -10,7 +10,5 @@
 #endif
 #endif
 
-
 FOUNDATION_EXPORT double LayoutHelperVersionNumber;
 FOUNDATION_EXPORT const unsigned char LayoutHelperVersionString[];
-

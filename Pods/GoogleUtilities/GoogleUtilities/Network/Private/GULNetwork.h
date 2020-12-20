@@ -23,31 +23,35 @@
 /// Delegate protocol for GULNetwork events.
 @protocol GULNetworkReachabilityDelegate
 
-/// Tells the delegate to handle events when the network reachability changes to connected or not
-/// connected.
+/// Tells the delegate to handle events when the network reachability changes to
+/// connected or not connected.
 - (void)reachabilityDidChange;
 
 @end
 
-/// The Network component that provides network status and handles network requests and responses.
-/// This is not thread safe.
+/// The Network component that provides network status and handles network
+/// requests and responses. This is not thread safe.
 ///
 /// NOTE:
-/// User must add FIRAnalytics handleEventsForBackgroundURLSessionID:completionHandler to the
-/// AppDelegate application:handleEventsForBackgroundURLSession:completionHandler:
+/// User must add FIRAnalytics
+/// handleEventsForBackgroundURLSessionID:completionHandler to the AppDelegate
+/// application:handleEventsForBackgroundURLSession:completionHandler:
 @interface GULNetwork : NSObject
 
 /// Indicates if network connectivity is available.
 @property(nonatomic, readonly, getter=isNetworkConnected) BOOL networkConnected;
 
 /// Indicates if there are any uploads in progress.
-@property(nonatomic, readonly, getter=hasUploadInProgress) BOOL uploadInProgress;
+@property(nonatomic, readonly, getter=hasUploadInProgress)
+    BOOL uploadInProgress;
 
-/// An optional delegate that can be used in the event when network reachability changes.
-@property(nonatomic, weak) id<GULNetworkReachabilityDelegate> reachabilityDelegate;
+/// An optional delegate that can be used in the event when network reachability
+/// changes.
+@property(nonatomic, weak) id<GULNetworkReachabilityDelegate>
+    reachabilityDelegate;
 
-/// An optional delegate that can be used to log messages, warnings or errors that occur in the
-/// network operations.
+/// An optional delegate that can be used to log messages, warnings or errors
+/// that occur in the network operations.
 @property(nonatomic, weak) id<GULNetworkLoggerDelegate> loggerDelegate;
 
 /// Indicates whether the logger should display debug messages.
@@ -64,24 +68,27 @@
 
 /// Handles events when background session with the given ID has finished.
 + (void)handleEventsForBackgroundURLSessionID:(NSString *)sessionID
-    completionHandler:(GULNetworkSystemCompletionHandler)completionHandler;
+                            completionHandler:
+                                (GULNetworkSystemCompletionHandler)
+                                    completionHandler;
 
-/// Compresses and sends a POST request with the provided data to the URL. The session will be
-/// background session if usingBackgroundSession is YES. Otherwise, the POST session is default
-/// session. Returns a session ID or nil if an error occurs.
+/// Compresses and sends a POST request with the provided data to the URL. The
+/// session will be background session if usingBackgroundSession is YES.
+/// Otherwise, the POST session is default session. Returns a session ID or nil
+/// if an error occurs.
 - (NSString *)postURL:(NSURL *)url
-    payload:(NSData *)payload
-    queue:(dispatch_queue_t)queue
+                   payload:(NSData *)payload
+                     queue:(dispatch_queue_t)queue
     usingBackgroundSession:(BOOL)usingBackgroundSession
-    completionHandler:(GULNetworkCompletionHandler)handler;
+         completionHandler:(GULNetworkCompletionHandler)handler;
 
-/// Sends a GET request with the provided data to the URL. The session will be background session
-/// if usingBackgroundSession is YES. Otherwise, the GET session is default session. Returns a
-/// session ID or nil if an error occurs.
+/// Sends a GET request with the provided data to the URL. The session will be
+/// background session if usingBackgroundSession is YES. Otherwise, the GET
+/// session is default session. Returns a session ID or nil if an error occurs.
 - (NSString *)getURL:(NSURL *)url
-    headers:(NSDictionary *)headers
-    queue:(dispatch_queue_t)queue
+                   headers:(NSDictionary *)headers
+                     queue:(dispatch_queue_t)queue
     usingBackgroundSession:(BOOL)usingBackgroundSession
-    completionHandler:(GULNetworkCompletionHandler)handler;
+         completionHandler:(GULNetworkCompletionHandler)handler;
 
 @end

@@ -29,12 +29,12 @@ NS_ASSUME_NONNULL_BEGIN
 NS_SWIFT_NAME(Database)
 @interface FIRDatabase : NSObject
 
-    /**
-     * The NSObject initializer that has been marked as unavailable. Use the
-     * `database` method instead
-     *
-     * @return An instancetype instance
-     */
+/**
+ * The NSObject initializer that has been marked as unavailable. Use the
+ * `database` method instead
+ *
+ * @return An instancetype instance
+ */
 - (instancetype)init
     __attribute__((unavailable("use the database method instead")));
 
@@ -143,7 +143,7 @@ NS_SWIFT_NAME(Database)
  *
  */
 @property(nonatomic) BOOL persistenceEnabled NS_SWIFT_NAME(isPersistenceEnabled)
-;
+    ;
 
 /**
  * By default the Firebase Database client will use up to 10MB of disk space to

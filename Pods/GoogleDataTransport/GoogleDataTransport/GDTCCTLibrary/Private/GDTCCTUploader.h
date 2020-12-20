@@ -21,14 +21,15 @@
 NS_ASSUME_NONNULL_BEGIN
 
 #if !NDEBUG
-/** A notification fired when uploading is complete, detailing the number of events uploaded. */
+/** A notification fired when uploading is complete, detailing the number of
+ * events uploaded. */
 extern NSNotificationName const GDTCCTUploadCompleteNotification;
-#endif  // #if !NDEBUG
+#endif // #if !NDEBUG
 
 /** Class capable of uploading events to the CCT backend. */
 @interface GDTCCTUploader : NSObject <GDTCORUploader>
 
-    /** The queue on which all CCT uploading will occur. */
+/** The queue on which all CCT uploading will occur. */
 @property(nonatomic, readonly) dispatch_queue_t uploaderQueue;
 
 /** The URL session that will attempt upload. */
@@ -47,7 +48,7 @@ extern NSNotificationName const GDTCCTUploadCompleteNotification;
 /** An upload URL used across all targets. For testing only. */
 @property(nullable, nonatomic) NSURL *testServerURL;
 
-#endif  // !NDEBUG
+#endif // !NDEBUG
 
 /** Creates and/or returns the singleton instance of this class.
  *

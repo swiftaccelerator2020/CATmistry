@@ -28,54 +28,68 @@ NS_ASSUME_NONNULL_BEGIN
 // Please use the designated initializer.
 - (instancetype)init NS_UNAVAILABLE;
 
-/** Initializes a new transport that will send events to the given target backend.
+/** Initializes a new transport that will send events to the given target
+ * backend.
  *
- * @param mappingID The mapping identifier used by the backend to map the data object transport
- * bytes to a proto.
- * @param transformers A list of transformers to be applied to events that are sent.
+ * @param mappingID The mapping identifier used by the backend to map the data
+ * object transport bytes to a proto.
+ * @param transformers A list of transformers to be applied to events that are
+ * sent.
  * @param target The target backend of this transport.
  * @return A transport that will send events.
  */
-- (nullable instancetype)initWithMappingID:(NSString *)mappingID
-    transformers:
-    (nullable NSArray<id<GDTCOREventTransformer>> *)transformers
-    target:(GDTCORTarget)target NS_DESIGNATED_INITIALIZER;
+- (nullable instancetype)
+    initWithMappingID:(NSString *)mappingID
+         transformers:
+             (nullable NSArray<id<GDTCOREventTransformer>> *)transformers
+               target:(GDTCORTarget)target NS_DESIGNATED_INITIALIZER;
 
-/** Copies and sends an internal telemetry event. Events sent using this API are lower in priority,
- * and sometimes won't be sent on their own.
+/** Copies and sends an internal telemetry event. Events sent using this API are
+ * lower in priority, and sometimes won't be sent on their own.
  *
- * @note This will convert the event's data object to data and release the original event.
+ * @note This will convert the event's data object to data and release the
+ * original event.
  *
  * @param event The event to send.
- * @param completion A block that will be called when the event has been written or dropped.
+ * @param completion A block that will be called when the event has been written
+ * or dropped.
  */
 - (void)sendTelemetryEvent:(GDTCOREvent *)event
-    onComplete:(void (^_Nullable)(BOOL wasWritten, NSError *_Nullable error))completion;
+                onComplete:
+                    (void (^_Nullable)(BOOL wasWritten,
+                                       NSError *_Nullable error))completion;
 
-/** Copies and sends an internal telemetry event. Events sent using this API are lower in priority,
- * and sometimes won't be sent on their own.
+/** Copies and sends an internal telemetry event. Events sent using this API are
+ * lower in priority, and sometimes won't be sent on their own.
  *
- * @note This will convert the event's data object to data and release the original event.
+ * @note This will convert the event's data object to data and release the
+ * original event.
  *
  * @param event The event to send.
  */
 - (void)sendTelemetryEvent:(GDTCOREvent *)event;
 
-/** Copies and sends an SDK service data event. Events send using this API are higher in priority,
- * and will cause a network request at some point in the relative near future.
+/** Copies and sends an SDK service data event. Events send using this API are
+ * higher in priority, and will cause a network request at some point in the
+ * relative near future.
  *
- * @note This will convert the event's data object to data and release the original event.
+ * @note This will convert the event's data object to data and release the
+ * original event.
  *
  * @param event The event to send.
- * @param completion A block that will be called when the event has been written or dropped.
+ * @param completion A block that will be called when the event has been written
+ * or dropped.
  */
 - (void)sendDataEvent:(GDTCOREvent *)event
-    onComplete:(void (^_Nullable)(BOOL wasWritten, NSError *_Nullable error))completion;
+           onComplete:(void (^_Nullable)(BOOL wasWritten,
+                                         NSError *_Nullable error))completion;
 
-/** Copies and sends an SDK service data event. Events send using this API are higher in priority,
- * and will cause a network request at some point in the relative near future.
+/** Copies and sends an SDK service data event. Events send using this API are
+ * higher in priority, and will cause a network request at some point in the
+ * relative near future.
  *
- * @note This will convert the event's data object to data and release the original event.
+ * @note This will convert the event's data object to data and release the
+ * original event.
  *
  * @param event The event to send.
  */

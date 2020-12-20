@@ -19,10 +19,10 @@
 @interface FIRRetryHelper : NSObject
 
 - (instancetype)initWithDispatchQueue:(dispatch_queue_t)dispatchQueue
-    minRetryDelayAfterFailure:(NSTimeInterval)minRetryDelayAfterFailure
-    maxRetryDelay:(NSTimeInterval)maxRetryDelay
-    retryExponent:(double)retryExponent
-    jitterFactor:(double)jitterFactor;
+            minRetryDelayAfterFailure:(NSTimeInterval)minRetryDelayAfterFailure
+                        maxRetryDelay:(NSTimeInterval)maxRetryDelay
+                        retryExponent:(double)retryExponent
+                         jitterFactor:(double)jitterFactor;
 
 - (void)retry:(void (^)(void))block;
 

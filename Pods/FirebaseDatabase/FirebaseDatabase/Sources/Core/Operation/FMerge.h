@@ -21,8 +21,8 @@
 @interface FMerge : NSObject <FOperation>
 
 - (id)initWithSource:(FOperationSource *)aSource
-    path:(FPath *)aPath
-    children:(FCompoundWrite *)children;
+                path:(FPath *)aPath
+            children:(FCompoundWrite *)children;
 
 @property(nonatomic, strong, readonly) FOperationSource *source;
 @property(nonatomic, readonly) FOperationType type;

@@ -29,7 +29,7 @@
 - (id<FNode>)getChild:(FPath *)path;
 - (NSString *)predecessorChildKey:(NSString *)childKey;
 - (id<FNode>)updateImmediateChild:(NSString *)childKey
-    withNewChild:(id<FNode>)newChildNode;
+                     withNewChild:(id<FNode>)newChildNode;
 - (id<FNode>)updateChild:(FPath *)path withNewChild:(id<FNode>)newChildNode;
 - (BOOL)hasChild:(NSString *)childKey;
 - (BOOL)isEmpty;
@@ -40,10 +40,10 @@
 - (NSComparisonResult)compare:(id<FNode>)other;
 - (BOOL)isEqual:(id<FNode>)other;
 - (void)enumerateChildrenUsingBlock:(void (^)(NSString *key, id<FNode> node,
-    BOOL *stop))block;
+                                              BOOL *stop))block;
 - (void)enumerateChildrenReverse:(BOOL)reverse
-    usingBlock:(void (^)(NSString *key, id<FNode> node,
-    BOOL *stop))block;
+                      usingBlock:(void (^)(NSString *key, id<FNode> node,
+                                           BOOL *stop))block;
 
 - (NSEnumerator *)childEnumerator;
 

@@ -27,15 +27,16 @@ NS_ASSUME_NONNULL_BEGIN
 @interface FIRInstallationsIDController : NSObject
 
 - (instancetype)initWithGoogleAppID:(NSString *)appID
-    appName:(NSString *)appName
-    APIKey:(NSString *)APIKey
-    projectID:(NSString *)projectID
-    GCMSenderID:(NSString *)GCMSenderID
-    accessGroup:(nullable NSString *)accessGroup;
+                            appName:(NSString *)appName
+                             APIKey:(NSString *)APIKey
+                          projectID:(NSString *)projectID
+                        GCMSenderID:(NSString *)GCMSenderID
+                        accessGroup:(nullable NSString *)accessGroup;
 
 - (FBLPromise<FIRInstallationsItem *> *)getInstallationItem;
 
-- (FBLPromise<FIRInstallationsItem *> *)getAuthTokenForcingRefresh:(BOOL)forceRefresh;
+- (FBLPromise<FIRInstallationsItem *> *)getAuthTokenForcingRefresh:
+    (BOOL)forceRefresh;
 
 - (FBLPromise<NSNull *> *)deleteInstallation;
 

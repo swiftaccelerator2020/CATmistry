@@ -17,9 +17,9 @@
 #import <Foundation/Foundation.h>
 
 @interface FTupleRemovedQueriesEvents : NSObject
-    /**
-     * `FIRDatabaseQuery`s removed with [SyncPoint removeEventRegistration:]
-     */
+/**
+ * `FIRDatabaseQuery`s removed with [SyncPoint removeEventRegistration:]
+ */
 @property(nonatomic, strong, readonly) NSArray *removedQueries;
 /**
  * cancel events as FEvent

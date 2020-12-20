@@ -31,7 +31,7 @@
 
 typedef void (^fbt_void_void)(void);
 typedef void (^fbt_void_datasnapshot_nsstring)(FIRDataSnapshot *snapshot,
-        NSString *prevName);
+                                               NSString *prevName);
 typedef void (^fbt_void_datasnapshot)(FIRDataSnapshot *snapshot);
 typedef void (^fbt_void_user)(FAuthData *user);
 typedef void (^fbt_void_nsstring_id)(NSString *status, id data);

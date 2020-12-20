@@ -14,25 +14,26 @@
  * limitations under the License.
  */
 
-#import <Foundation/Foundation.h>
 #import "GoogleUtilities/Logger/Private/GULLogger.h"
+#import <Foundation/Foundation.h>
 
 /// Error codes in Firebase Network error domain.
-/// Note: these error codes should never change. It would make it harder to decode the errors if
-/// we inadvertently altered any of these codes in a future SDK version.
+/// Note: these error codes should never change. It would make it harder to
+/// decode the errors if we inadvertently altered any of these codes in a future
+/// SDK version.
 typedef NS_ENUM(NSInteger, GULNetworkErrorCode) {
-    /// Unknown error.
-    GULNetworkErrorCodeUnknown = 0,
-    /// Error occurs when the request URL is invalid.
-    GULErrorCodeNetworkInvalidURL = 1,
-    /// Error occurs when request cannot be constructed.
-    GULErrorCodeNetworkRequestCreation = 2,
-    /// Error occurs when payload cannot be compressed.
-    GULErrorCodeNetworkPayloadCompression = 3,
-    /// Error occurs when session task cannot be created.
-    GULErrorCodeNetworkSessionTaskCreation = 4,
-    /// Error occurs when there is no response.
-    GULErrorCodeNetworkInvalidResponse = 5
+  /// Unknown error.
+  GULNetworkErrorCodeUnknown = 0,
+  /// Error occurs when the request URL is invalid.
+  GULErrorCodeNetworkInvalidURL = 1,
+  /// Error occurs when request cannot be constructed.
+  GULErrorCodeNetworkRequestCreation = 2,
+  /// Error occurs when payload cannot be compressed.
+  GULErrorCodeNetworkPayloadCompression = 3,
+  /// Error occurs when session task cannot be created.
+  GULErrorCodeNetworkSessionTaskCreation = 4,
+  /// Error occurs when there is no response.
+  GULErrorCodeNetworkInvalidResponse = 5
 };
 
 #pragma mark - Network constants
@@ -40,7 +41,8 @@ typedef NS_ENUM(NSInteger, GULNetworkErrorCode) {
 /// The prefix of the ID of the background session.
 extern NSString *const kGULNetworkBackgroundSessionConfigIDPrefix;
 
-/// The sub directory to store the files of data that is being uploaded in the background.
+/// The sub directory to store the files of data that is being uploaded in the
+/// background.
 extern NSString *const kGULNetworkApplicationSupportSubdirectory;
 
 /// Name of the temporary directory that stores files for background uploading.

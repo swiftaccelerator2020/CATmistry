@@ -18,31 +18,34 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-//  TODO: Remove this once Auth moves over to Core's instance registration system.
+//  TODO: Remove this once Auth moves over to Core's instance registration
+//  system.
 /** @class FIRAppAssociationRegistration
-    @brief Manages object associations as a singleton-dependent: At most one object is
-        registered for any given host/key pair, and the object shall be created on-the-fly when
-        asked for.
+    @brief Manages object associations as a singleton-dependent: At most one
+   object is registered for any given host/key pair, and the object shall be
+   created on-the-fly when asked for.
  */
 @interface FIRAppAssociationRegistration<ObjectType> : NSObject
 
-    /** @fn registeredObjectWithHost:key:creationBlock:
-        @brief Retrieves the registered object with a particular host and key.
-        @param host The host object.
-        @param key The key to specify the registered object on the host.
-        @param creationBlock The block to return the object to be registered if not already.
-            The block is executed immediately before this method returns if it is executed at all.
-            It can also be executed multiple times across different method invocations if previous
-            execution of the block returns @c nil.
-        @return The registered object for the host/key pair, or @c nil if no object is registered
-            and @c creationBlock returns @c nil.
-        @remarks The method is thread-safe but non-reentrant in the sense that attempting to call this
-            method again within the @c creationBlock with the same host/key pair raises an exception.
-            The registered object is retained by the host.
-     */
+/** @fn registeredObjectWithHost:key:creationBlock:
+    @brief Retrieves the registered object with a particular host and key.
+    @param host The host object.
+    @param key The key to specify the registered object on the host.
+    @param creationBlock The block to return the object to be registered if not
+   already. The block is executed immediately before this method returns if it
+   is executed at all. It can also be executed multiple times across different
+   method invocations if previous execution of the block returns @c nil.
+    @return The registered object for the host/key pair, or @c nil if no object
+   is registered and @c creationBlock returns @c nil.
+    @remarks The method is thread-safe but non-reentrant in the sense that
+   attempting to call this method again within the @c creationBlock with the
+   same host/key pair raises an exception. The registered object is retained by
+   the host.
+ */
 + (nullable ObjectType)registeredObjectWithHost:(id)host
-    key:(NSString *)key
-    creationBlock:(ObjectType _Nullable (^)(void))creationBlock;
+                                            key:(NSString *)key
+                                  creationBlock:(ObjectType _Nullable (^)(void))
+                                                    creationBlock;
 
 @end
 

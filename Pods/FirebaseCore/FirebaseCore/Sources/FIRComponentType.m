@@ -20,9 +20,10 @@
 
 @implementation FIRComponentType
 
-+ (id)instanceForProtocol:(Protocol *)protocol inContainer:(FIRComponentContainer *)container {
-    // Forward the call to the container.
-    return [container instanceForProtocol:protocol];
++ (id)instanceForProtocol:(Protocol *)protocol
+              inContainer:(FIRComponentContainer *)container {
+  // Forward the call to the container.
+  return [container instanceForProtocol:protocol];
 }
 
 @end

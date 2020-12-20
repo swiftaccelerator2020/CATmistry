@@ -18,23 +18,24 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-/** A string sets in customBytes as a key paired to @YES if current event needs to
- * populate network connection info data, @NO otherwise.
+/** A string sets in customBytes as a key paired to @YES if current event needs
+ * to populate network connection info data, @NO otherwise.
  */
 FOUNDATION_EXPORT NSString *const GDTCCTNeedsNetworkConnectionInfo;
 
-/** A string sets in customBytes as a key paired to the network connection info data
- * of current event.
+/** A string sets in customBytes as a key paired to the network connection info
+ * data of current event.
  */
 FOUNDATION_EXPORT NSString *const GDTCCTNetworkConnectionInfo;
 
-/** A category that uses the customBytes property of a GDTCOREvent to store network connection info.
+/** A category that uses the customBytes property of a GDTCOREvent to store
+ * network connection info.
  */
 @interface GDTCOREvent (GDTCCTSupport)
 
-    /** If YES, needs the network connection info field set during prioritization.
-     * @note Uses the GDTCOREvent customBytes property.
-     */
+/** If YES, needs the network connection info field set during prioritization.
+ * @note Uses the GDTCOREvent customBytes property.
+ */
 @property(nonatomic) BOOL needsNetworkConnectionInfoPopulated;
 
 /** The network connection info as collected at the time of the event.

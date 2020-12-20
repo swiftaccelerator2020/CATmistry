@@ -22,45 +22,44 @@
 @implementation FAckUserWrite
 
 - (id)initWithPath:(FPath *)operationPath
-    affectedTree:(FImmutableTree *)tree
-    revert:(BOOL)shouldRevert {
-    self = [super init];
-    if (self) {
-        self->_source = [FOperationSource userInstance];
-        self->_type = FOperationTypeAckUserWrite;
-        self->_path = operationPath;
-        self->_affectedTree = tree;
-        self->_revert = shouldRevert;
-    }
-    return self;
+      affectedTree:(FImmutableTree *)tree
+            revert:(BOOL)shouldRevert {
+  self = [super init];
+  if (self) {
+    self->_source = [FOperationSource userInstance];
+    self->_type = FOperationTypeAckUserWrite;
+    self->_path = operationPath;
+    self->_affectedTree = tree;
+    self->_revert = shouldRevert;
+  }
+  return self;
 }
 
 - (FAckUserWrite *)operationForChild:(NSString *)childKey {
-    if (![self.path isEmpty]) {
-        NSAssert([self.path.getFront isEqualToString:childKey],
-                 @"operationForChild called for unrelated child.");
-        return [[FAckUserWrite alloc] initWithPath:[self.path popFront]
-                                      affectedTree:self.affectedTree
-                                      revert:self.revert];
-    } else if (self.affectedTree.value != nil) {
-        NSAssert(self.affectedTree.children.isEmpty,
-                 @"affectedTree should not have overlapping affected paths.");
-        // All child locations are affected as well; just return same operation.
-        return self;
-    } else {
-        FImmutableTree *childTree =
-            [self.affectedTree subtreeAtPath:[[FPath alloc] initWith:childKey]];
-        return [[FAckUserWrite alloc] initWithPath:[FPath empty]
-                                      affectedTree:childTree
-                                      revert:self.revert];
-    }
+  if (![self.path isEmpty]) {
+    NSAssert([self.path.getFront isEqualToString:childKey],
+             @"operationForChild called for unrelated child.");
+    return [[FAckUserWrite alloc] initWithPath:[self.path popFront]
+                                  affectedTree:self.affectedTree
+                                        revert:self.revert];
+  } else if (self.affectedTree.value != nil) {
+    NSAssert(self.affectedTree.children.isEmpty,
+             @"affectedTree should not have overlapping affected paths.");
+    // All child locations are affected as well; just return same operation.
+    return self;
+  } else {
+    FImmutableTree *childTree =
+        [self.affectedTree subtreeAtPath:[[FPath alloc] initWith:childKey]];
+    return [[FAckUserWrite alloc] initWithPath:[FPath empty]
+                                  affectedTree:childTree
+                                        revert:self.revert];
+  }
 }
 
 - (NSString *)description {
-    return
-        [NSString stringWithFormat:
-                  @"FAckUserWrite { path=%@, revert=%d, affectedTree=%@ }",
-                  self.path, self.revert, self.affectedTree];
+  return [NSString
+      stringWithFormat:@"FAckUserWrite { path=%@, revert=%d, affectedTree=%@ }",
+                       self.path, self.revert, self.affectedTree];
 }
 
 @end

@@ -19,7 +19,7 @@
 @protocol FCachePolicy <NSObject>
 
 - (BOOL)shouldPruneCacheWithSize:(NSUInteger)cacheSize
-    numberOfTrackedQueries:(NSUInteger)numTrackedQueries;
+          numberOfTrackedQueries:(NSUInteger)numTrackedQueries;
 - (BOOL)shouldCheckCacheSize:(NSUInteger)serverUpdatesSinceLastCheck;
 - (float)percentOfQueriesToPruneAtOnce;
 - (NSUInteger)maxNumberOfQueriesToKeep;

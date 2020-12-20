@@ -26,9 +26,9 @@
 @property(nonatomic, strong, readonly) FQueryParams *queryParams;
 
 - initWithFromUser:(BOOL)isFromUser
-    fromServer:(BOOL)isFromServer
-    queryParams:(FQueryParams *)params
-    tagged:(BOOL)isTagged;
+        fromServer:(BOOL)isFromServer
+       queryParams:(FQueryParams *)params
+            tagged:(BOOL)isTagged;
 
 + (FOperationSource *)userInstance;
 + (FOperationSource *)serverInstance;

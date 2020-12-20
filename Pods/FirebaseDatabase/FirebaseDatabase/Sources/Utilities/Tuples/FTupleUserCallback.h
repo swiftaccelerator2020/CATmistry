@@ -23,7 +23,7 @@
 - (id)initWithHandle:(NSUInteger)handle;
 
 @property(nonatomic, copy)
-fbt_void_datasnapshot_nsstring datasnapshotPrevnameCallback;
+    fbt_void_datasnapshot_nsstring datasnapshotPrevnameCallback;
 @property(nonatomic, copy) fbt_void_datasnapshot datasnapshotCallback;
 @property(nonatomic, copy) fbt_void_nserror cancelCallback;
 @property(nonatomic, copy) FQueryParams *queryParams;
