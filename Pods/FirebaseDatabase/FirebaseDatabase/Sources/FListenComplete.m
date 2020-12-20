@@ -40,16 +40,16 @@
 - (id<FOperation>)operationForChild:(NSString *)childKey {
     if ([self.path isEmpty]) {
         return [[FListenComplete alloc] initWithSource:self.source
-                                                  path:[FPath empty]];
+                                        path:[FPath empty]];
     } else {
         return [[FListenComplete alloc] initWithSource:self.source
-                                                  path:[self.path popFront]];
+                                        path:[self.path popFront]];
     }
 }
 
 - (NSString *)description {
     return [NSString stringWithFormat:@"FListenComplete { path=%@, source=%@ }",
-                                      self.path, self.source];
+                     self.path, self.source];
 }
 
 @end

@@ -26,7 +26,7 @@
 @interface FIRMutableData ()
 
 - (id)initWithPrefixPath:(FPath *)path
-       andSnapshotHolder:(FSnapshotHolder *)snapshotHolder;
+    andSnapshotHolder:(FSnapshotHolder *)snapshotHolder;
 
 @property(strong, nonatomic) FSnapshotHolder *data;
 @property(strong, nonatomic) FPath *prefixPath;
@@ -46,7 +46,7 @@
 }
 
 - (id)initWithPrefixPath:(FPath *)path
-       andSnapshotHolder:(FSnapshotHolder *)snapshotHolder {
+    andSnapshotHolder:(FSnapshotHolder *)snapshotHolder {
     self = [super init];
     if (self) {
         self.prefixPath = path;
@@ -58,7 +58,7 @@
 - (FIRMutableData *)childDataByAppendingPath:(NSString *)path {
     FPath *wholePath = [self.prefixPath childFromString:path];
     return [[FIRMutableData alloc] initWithPrefixPath:wholePath
-                                    andSnapshotHolder:self.data];
+                                   andSnapshotHolder:self.data];
 }
 
 - (FIRMutableData *)parent {
@@ -67,13 +67,13 @@
     } else {
         FPath *path = [self.prefixPath parent];
         return [[FIRMutableData alloc] initWithPrefixPath:path
-                                        andSnapshotHolder:self.data];
+                                       andSnapshotHolder:self.data];
     }
 }
 
 - (void)setValue:(id)aValue {
     id<FNode> node = [FSnapshotUtilities nodeFrom:aValue
-                               withValidationFrom:@"setValue:"];
+                                         withValidationFrom:@"setValue:"];
     [self.data updateSnapshot:self.prefixPath withNewSnapshot:node];
 }
 
@@ -119,30 +119,30 @@
     FIndexedNode *indexedNode =
         [FIndexedNode indexedNodeWithNode:self.nodeValue];
     return [[FTransformedEnumerator alloc]
-        initWithEnumerator:[indexedNode childEnumerator]
-              andTransform:^id(FNamedNode *node) {
-                FPath *childPath = [self.prefixPath childFromString:node.name];
-                FIRMutableData *childData =
-                    [[FIRMutableData alloc] initWithPrefixPath:childPath
-                                             andSnapshotHolder:self.data];
-                return childData;
-              }];
+            initWithEnumerator:[indexedNode childEnumerator]
+    andTransform:^id(FNamedNode *node) {
+        FPath *childPath = [self.prefixPath childFromString:node.name];
+        FIRMutableData *childData =
+            [[FIRMutableData alloc] initWithPrefixPath:childPath
+                                    andSnapshotHolder:self.data];
+        return childData;
+    }];
 }
 
 - (BOOL)isEqualToData:(FIRMutableData *)other {
     return self.data == other.data &&
            [[self.prefixPath description]
-               isEqualToString:[other.prefixPath description]];
+            isEqualToString:[other.prefixPath description]];
 }
 
 - (NSString *)description {
     if (self.key == nil) {
         return [NSString
-            stringWithFormat:@"FIRMutableData (top-most transaction) %@ %@",
-                             self.key, self.value];
+                stringWithFormat:@"FIRMutableData (top-most transaction) %@ %@",
+                self.key, self.value];
     } else {
         return [NSString
-            stringWithFormat:@"FIRMutableData (%@) %@", self.key, self.value];
+                stringWithFormat:@"FIRMutableData (%@) %@", self.key, self.value];
     }
 }
 

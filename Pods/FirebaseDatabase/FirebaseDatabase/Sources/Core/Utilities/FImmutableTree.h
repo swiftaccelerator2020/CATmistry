@@ -22,13 +22,13 @@
 
 - (id)initWithValue:(id)aValue;
 - (id)initWithValue:(id)aValue
-           children:(FImmutableSortedDictionary *)childrenMap;
+    children:(FImmutableSortedDictionary *)childrenMap;
 
 + (FImmutableTree *)empty;
 - (BOOL)isEmpty;
 
 - (FTuplePathValue *)findRootMostMatchingPath:(FPath *)relativePath
-                                    predicate:(BOOL (^)(id))predicate;
+    predicate:(BOOL (^)(id))predicate;
 - (FTuplePathValue *)findRootMostValueAndPath:(FPath *)relativePath;
 - (FImmutableTree *)subtreeAtPath:(FPath *)relativePath;
 - (FImmutableTree *)setValue:(id)newValue atPath:(FPath *)relativePath;
@@ -38,18 +38,18 @@
 - (id)rootMostValueOnPath:(FPath *)path matching:(BOOL (^)(id))predicate;
 - (id)leafMostValueOnPath:(FPath *)path;
 - (id)leafMostValueOnPath:(FPath *)relativePath
-                 matching:(BOOL (^)(id))predicate;
+    matching:(BOOL (^)(id))predicate;
 - (BOOL)containsValueMatching:(BOOL (^)(id))predicate;
 - (FImmutableTree *)setTree:(FImmutableTree *)newTree
-                     atPath:(FPath *)relativePath;
+    atPath:(FPath *)relativePath;
 - (id)foldWithBlock:(id (^)(FPath *path, id value,
-                            NSDictionary *foldedChildren))block;
+    NSDictionary *foldedChildren))block;
 - (id)findOnPath:(FPath *)path
     andApplyBlock:(id (^)(FPath *path, id value))block;
 - (FPath *)forEachOnPath:(FPath *)path
-              whileBlock:(BOOL (^)(FPath *path, id value))block;
+    whileBlock:(BOOL (^)(FPath *path, id value))block;
 - (FImmutableTree *)forEachOnPath:(FPath *)path
-                     performBlock:(void (^)(FPath *path, id value))block;
+    performBlock:(void (^)(FPath *path, id value))block;
 - (void)forEach:(void (^)(FPath *path, id value))block;
 - (void)forEachChild:(void (^)(NSString *childKey, id childValue))block;
 

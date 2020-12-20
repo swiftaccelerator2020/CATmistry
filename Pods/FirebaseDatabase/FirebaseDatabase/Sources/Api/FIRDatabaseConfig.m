@@ -31,13 +31,13 @@
 
 - (id)init {
     [NSException raise:NSInvalidArgumentException
-                format:@"Can't create config objects!"];
+                 format:@"Can't create config objects!"];
     return nil;
 }
 
 - (id)initWithSessionIdentifier:(NSString *)identifier
-                    googleAppID:(NSString *)googleAppID
-              authTokenProvider:(id<FAuthTokenProvider>)authTokenProvider {
+    googleAppID:(NSString *)googleAppID
+    authTokenProvider:(id<FAuthTokenProvider>)authTokenProvider {
     self = [super init];
     if (self != nil) {
         self->_sessionIdentifier = identifier;
@@ -53,8 +53,8 @@
 - (void)assertUnfrozen {
     if (self.isFrozen) {
         [NSException raise:NSGenericException
-                    format:@"Can't modify config objects after they are in use "
-                           @"for FIRDatabaseReferences."];
+                     format:@"Can't modify config objects after they are in use "
+                     @"for FIRDatabaseReferences."];
     }
 }
 
@@ -73,12 +73,12 @@
     // Can't be less than 1MB
     if (persistenceCacheSizeBytes < 1024 * 1024) {
         [NSException raise:NSInvalidArgumentException
-                    format:@"The minimum cache size must be at least 1MB"];
+                     format:@"The minimum cache size must be at least 1MB"];
     }
     if (persistenceCacheSizeBytes > 100 * 1024 * 1024) {
         [NSException raise:NSInvalidArgumentException
-                    format:@"Firebase Database currently doesn't support a "
-                           @"cache size larger than 100MB"];
+                     format:@"Firebase Database currently doesn't support a "
+                     @"cache size larger than 100MB"];
     }
     self->_persistenceCacheSizeBytes = persistenceCacheSizeBytes;
 }

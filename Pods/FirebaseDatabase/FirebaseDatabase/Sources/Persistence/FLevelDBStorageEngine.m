@@ -72,22 +72,22 @@ static NSString *writeRecordKey(NSUInteger writeId) {
 
 static NSString *serverCacheKey(FPath *path) {
     return [NSString stringWithFormat:@"%@%@", kFServerCachePrefix,
-                                      ([path toStringWithTrailingSlash])];
+                     ([path toStringWithTrailingSlash])];
 }
 
 static NSString *trackedQueryKey(NSUInteger trackedQueryId) {
     return [NSString stringWithFormat:@"%@%lu", kFTrackedQueriesPrefix,
-                                      (unsigned long)trackedQueryId];
+                     (unsigned long)trackedQueryId];
 }
 
 static NSString *trackedQueryKeysKeyPrefix(NSUInteger trackedQueryId) {
     return [NSString stringWithFormat:@"%@%lu/", kFTrackedQueryKeysPrefix,
-                                      (unsigned long)trackedQueryId];
+                     (unsigned long)trackedQueryId];
 }
 
 static NSString *trackedQueryKeysKey(NSUInteger trackedQueryId, NSString *key) {
     return [NSString stringWithFormat:@"%@%lu/%@", kFTrackedQueryKeysPrefix,
-                                      (unsigned long)trackedQueryId, key];
+                     (unsigned long)trackedQueryId, key];
 }
 
 @implementation FLevelDBStorageEngine
@@ -97,7 +97,7 @@ static NSString *trackedQueryKeysKey(NSUInteger trackedQueryId, NSString *key) {
     self = [super init];
     if (self) {
         self.basePath = [[FLevelDBStorageEngine firebaseDir]
-            stringByAppendingPathComponent:dbPath];
+                         stringByAppendingPathComponent:dbPath];
         /* For reference:
          serverDataDB = [aPersistence createDbByName:@"server_data"];
          FPangolinDB *completenessDb = [aPersistence
@@ -118,14 +118,14 @@ static NSString *trackedQueryKeysKey(NSUInteger trackedQueryId, NSString *key) {
     NSError *error;
     NSString *oldVersion =
         [NSString stringWithContentsOfFile:versionFile
-                                  encoding:NSUTF8StringEncoding
-                                     error:&error];
+                  encoding:NSUTF8StringEncoding
+                  error:&error];
     if (!oldVersion) {
         // This is probably fine, we don't have a version file yet
         BOOL success = [kFPersistenceVersion writeToFile:versionFile
-                                              atomically:NO
-                                                encoding:NSUTF8StringEncoding
-                                                   error:&error];
+                                             atomically:NO
+                                             encoding:NSUTF8StringEncoding
+                                             error:&error];
         if (!success) {
             FFWarn(@"I-RDB076001", @"Failed to write version for database: %@",
                    error);
@@ -138,13 +138,13 @@ static NSString *trackedQueryKeysKey(NSUInteger trackedQueryId, NSString *key) {
     } else {
         // If we add more versions in the future, we need to run migration here
         [NSException raise:NSInternalInconsistencyException
-                    format:@"Unrecognized database version: %@", oldVersion];
+                     format:@"Unrecognized database version: %@", oldVersion];
     }
 }
 
 - (void)runLegacyMigration:(FRepoInfo *)info {
     NSArray *dirPaths = NSSearchPathForDirectoriesInDomains(
-        NSDocumentDirectory, NSUserDomainMask, YES);
+                            NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentsDir = [dirPaths objectAtIndex:0];
     NSString *firebaseDir =
         [documentsDir stringByAppendingPathComponent:@"firebase"];
@@ -157,52 +157,52 @@ static NSString *trackedQueryKeysKey(NSUInteger trackedQueryId, NSString *key) {
         // We only need to migrate writes
         NSError *error = nil;
         APLevelDB *writes = [APLevelDB
-            levelDBWithPath:[legacyBaseDir stringByAppendingPathComponent:
-                                               @"outstanding_puts"]
-                      error:&error];
+                             levelDBWithPath:[legacyBaseDir stringByAppendingPathComponent:
+                                              @"outstanding_puts"]
+                             error:&error];
         if (writes != nil) {
             __block NSUInteger numberOfWritesRestored = 0;
             // Maybe we could use write batches, but what the heck, I'm sure
             // it'll go fine :P
             [writes enumerateKeysAndValuesAsData:^(NSString *key, NSData *data,
-                                                   BOOL *stop) {
-              id pendingPut = [NSKeyedUnarchiver unarchiveObjectWithData:data];
-              if ([pendingPut isKindOfClass:[FPendingPut class]]) {
-                  FPendingPut *put = pendingPut;
-                  id<FNode> newNode =
-                      [FSnapshotUtilities nodeFrom:put.data
-                                          priority:put.priority];
-                  [self saveUserOverwrite:newNode
-                                   atPath:put.path
-                                  writeId:[key integerValue]];
-                  numberOfWritesRestored++;
-              } else if ([pendingPut
-                             isKindOfClass:[FPendingPutPriority class]]) {
-                  // This is for backwards compatibility. Older clients will
-                  // save FPendingPutPriority. New ones will need to read it and
-                  // translate.
-                  FPendingPutPriority *putPriority = pendingPut;
-                  FPath *priorityPath =
-                      [putPriority.path childFromString:@".priority"];
-                  id<FNode> newNode =
-                      [FSnapshotUtilities nodeFrom:putPriority.priority
-                                          priority:nil];
-                  [self saveUserOverwrite:newNode
-                                   atPath:priorityPath
-                                  writeId:[key integerValue]];
-                  numberOfWritesRestored++;
-              } else if ([pendingPut isKindOfClass:[FPendingUpdate class]]) {
-                  FPendingUpdate *update = pendingPut;
-                  FCompoundWrite *merge = [FCompoundWrite
-                      compoundWriteWithValueDictionary:update.data];
-                  [self saveUserMerge:merge
-                               atPath:update.path
-                              writeId:[key integerValue]];
-                  numberOfWritesRestored++;
-              } else {
-                  FFWarn(@"I-RDB076003",
-                         @"Failed to migrate legacy write, meh!");
-              }
+                   BOOL *stop) {
+                       id pendingPut = [NSKeyedUnarchiver unarchiveObjectWithData:data];
+                if ([pendingPut isKindOfClass:[FPendingPut class]]) {
+                    FPendingPut *put = pendingPut;
+                    id<FNode> newNode =
+                        [FSnapshotUtilities nodeFrom:put.data
+                                            priority:put.priority];
+                    [self saveUserOverwrite:newNode
+                          atPath:put.path
+                          writeId:[key integerValue]];
+                    numberOfWritesRestored++;
+                } else if ([pendingPut
+                            isKindOfClass:[FPendingPutPriority class]]) {
+                    // This is for backwards compatibility. Older clients will
+                    // save FPendingPutPriority. New ones will need to read it and
+                    // translate.
+                    FPendingPutPriority *putPriority = pendingPut;
+                    FPath *priorityPath =
+                        [putPriority.path childFromString:@".priority"];
+                    id<FNode> newNode =
+                        [FSnapshotUtilities nodeFrom:putPriority.priority
+                                            priority:nil];
+                    [self saveUserOverwrite:newNode
+                          atPath:priorityPath
+                          writeId:[key integerValue]];
+                    numberOfWritesRestored++;
+                } else if ([pendingPut isKindOfClass:[FPendingUpdate class]]) {
+                    FPendingUpdate *update = pendingPut;
+                    FCompoundWrite *merge = [FCompoundWrite
+                                             compoundWriteWithValueDictionary:update.data];
+                    [self saveUserMerge:merge
+                          atPath:update.path
+                          writeId:[key integerValue]];
+                    numberOfWritesRestored++;
+                } else {
+                    FFWarn(@"I-RDB076003",
+                           @"Failed to migrate legacy write, meh!");
+                }
             }];
             FFWarn(@"I-RDB076004", @"Migrated %lu writes",
                    (unsigned long)numberOfWritesRestored);
@@ -210,7 +210,7 @@ static NSString *trackedQueryKeysKey(NSUInteger trackedQueryId, NSString *key) {
             FFWarn(@"I-RDB076005", @"Deleting legacy database...");
             BOOL success =
                 [[NSFileManager defaultManager] removeItemAtPath:legacyBaseDir
-                                                           error:&error];
+                                                error:&error];
             if (!success) {
                 FFWarn(@"I-RDB076006", @"Failed to delete legacy database: %@",
                        error);
@@ -234,10 +234,10 @@ static NSString *trackedQueryKeysKey(NSUInteger trackedQueryId, NSString *key) {
     NSError *error;
     FFWarn(@"I-RDB076009", @"Deleting database at path %@", path);
     BOOL success = [[NSFileManager defaultManager] removeItemAtPath:path
-                                                              error:&error];
+                                                   error:&error];
     if (!success) {
         [NSException raise:NSInternalInconsistencyException
-                    format:@"Failed to delete database files: %@", error];
+                     format:@"Failed to delete database files: %@", error];
     }
 }
 
@@ -245,9 +245,9 @@ static NSString *trackedQueryKeysKey(NSUInteger trackedQueryId, NSString *key) {
     [self close];
     [@[ kFServerDBPath, kFWritesDBPath ]
         enumerateObjectsUsingBlock:^(NSString *dbPath, NSUInteger idx,
-                                     BOOL *stop) {
-          [self purgeDatabase:dbPath];
-        }];
+       BOOL *stop) {
+           [self purgeDatabase:dbPath];
+       }];
 
     [self openDatabases];
 }
@@ -265,7 +265,7 @@ static NSString *trackedQueryKeysKey(NSUInteger trackedQueryId, NSString *key) {
 + (NSString *)firebaseDir {
 #if TARGET_OS_IOS || TARGET_OS_TV
     NSArray *dirPaths = NSSearchPathForDirectoriesInDomains(
-        NSDocumentDirectory, NSUserDomainMask, YES);
+                            NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentsDir = [dirPaths objectAtIndex:0];
     return [documentsDir stringByAppendingPathComponent:@"firebase"];
 #elif TARGET_OS_OSX
@@ -290,12 +290,12 @@ static NSString *trackedQueryKeysKey(NSUInteger trackedQueryId, NSString *key) {
 
         if (err) {
             NSString *reason = [NSString
-                stringWithFormat:@"Error initializing persistence: %@",
-                                 [err description]];
+                                stringWithFormat:@"Error initializing persistence: %@",
+                                [err description]];
             @throw [NSException
-                exceptionWithName:@"FirebaseDatabasePersistenceFailure"
-                           reason:reason
-                         userInfo:nil];
+                    exceptionWithName:@"FirebaseDatabasePersistenceFailure"
+                    reason:reason
+                    userInfo:nil];
         }
     }
 
@@ -303,34 +303,40 @@ static NSString *trackedQueryKeysKey(NSUInteger trackedQueryId, NSString *key) {
 }
 
 - (void)saveUserOverwrite:(id<FNode>)node
-                   atPath:(FPath *)path
-                  writeId:(NSUInteger)writeId {
-    NSDictionary *write = @{
-        kFUserWriteId : @(writeId),
-        kFUserWritePath : [path toStringWithTrailingSlash],
-        kFUserWriteOverwrite : [node valForExport:YES]
+    atPath:(FPath *)path
+    writeId:(NSUInteger)writeId {
+    NSDictionary *write = @ {
+kFUserWriteId :
+        @(writeId),
+kFUserWritePath :
+        [path toStringWithTrailingSlash],
+kFUserWriteOverwrite :
+        [node valForExport:YES]
     };
     NSError *error = nil;
     NSData *data = [NSJSONSerialization dataWithJSONObject:write
-                                                   options:0
-                                                     error:&error];
+                                        options:0
+                                        error:&error];
     NSAssert(data, @"Failed to serialize user overwrite: %@, (Error: %@)",
              write, error);
     [self.writesDB setData:data forKey:writeRecordKey(writeId)];
 }
 
 - (void)saveUserMerge:(FCompoundWrite *)merge
-               atPath:(FPath *)path
-              writeId:(NSUInteger)writeId {
-    NSDictionary *write = @{
-        kFUserWriteId : @(writeId),
-        kFUserWritePath : [path toStringWithTrailingSlash],
-        kFUserWriteMerge : [merge valForExport:YES]
+    atPath:(FPath *)path
+    writeId:(NSUInteger)writeId {
+    NSDictionary *write = @ {
+kFUserWriteId :
+        @(writeId),
+kFUserWritePath :
+        [path toStringWithTrailingSlash],
+kFUserWriteMerge :
+        [merge valForExport:YES]
     };
     NSError *error = nil;
     NSData *data = [NSJSONSerialization dataWithJSONObject:write
-                                                   options:0
-                                                     error:&error];
+                                        options:0
+                                        error:&error];
     NSAssert(data, @"Failed to serialize user merge: %@ (Error: %@)", write,
              error);
     [self.writesDB setData:data forKey:writeRecordKey(writeId)];
@@ -345,9 +351,9 @@ static NSString *trackedQueryKeysKey(NSUInteger trackedQueryId, NSString *key) {
     NSDate *start = [NSDate date];
     id<APLevelDBWriteBatch> batch = [self.writesDB beginWriteBatch];
     [self.writesDB enumerateKeys:^(NSString *key, BOOL *stop) {
-      [batch removeKey:key];
-      count++;
-    }];
+                      [batch removeKey:key];
+                      count++;
+                  }];
     BOOL success = [batch commit];
     if (!success) {
         FFWarn(@"I-RDB076010", @"Failed to remove all users writes on disk!");
@@ -361,61 +367,61 @@ static NSString *trackedQueryKeysKey(NSUInteger trackedQueryId, NSString *key) {
     NSDate *date = [NSDate date];
     NSMutableArray *writes = [NSMutableArray array];
     [self.writesDB enumerateKeysAndValuesAsData:^(NSString *key, NSData *data,
-                                                  BOOL *stop) {
-      NSError *error = nil;
-      NSDictionary *writeJSON = [NSJSONSerialization JSONObjectWithData:data
-                                                                options:0
-                                                                  error:&error];
-      if (writeJSON == nil) {
-          if (error.code == kFNanFailureCode) {
-              FFWarn(@"I-RDB076012",
-                     @"Failed to deserialize write (%@), likely because of out "
-                     @"of range doubles (Error: %@)",
-                     [[NSString alloc] initWithData:data
-                                           encoding:NSUTF8StringEncoding],
-                     error);
-              FFWarn(@"I-RDB076013", @"Removing failed write with key %@", key);
-              [self.writesDB removeKey:key];
-          } else {
-              [NSException raise:NSInternalInconsistencyException
-                          format:@"Failed to deserialize write: %@", error];
-          }
-      } else {
-          NSInteger writeId =
-              ((NSNumber *)writeJSON[kFUserWriteId]).integerValue;
-          FPath *path = [FPath pathWithString:writeJSON[kFUserWritePath]];
-          FWriteRecord *writeRecord;
-          if (writeJSON[kFUserWriteMerge] != nil) {
-              // It's a merge
-              FCompoundWrite *merge = [FCompoundWrite
-                  compoundWriteWithValueDictionary:writeJSON[kFUserWriteMerge]];
-              writeRecord = [[FWriteRecord alloc] initWithPath:path
-                                                         merge:merge
-                                                       writeId:writeId];
-          } else {
-              // It's an overwrite
-              NSAssert(writeJSON[kFUserWriteOverwrite] != nil,
-                       @"Persisted write did not contain merge or overwrite!");
-              id<FNode> node =
-                  [FSnapshotUtilities nodeFrom:writeJSON[kFUserWriteOverwrite]];
-              writeRecord = [[FWriteRecord alloc] initWithPath:path
-                                                     overwrite:node
-                                                       writeId:writeId
-                                                       visible:YES];
-          }
-          [writes addObject:writeRecord];
-      }
+                  BOOL *stop) {
+                      NSError *error = nil;
+        NSDictionary *writeJSON = [NSJSONSerialization JSONObjectWithData:data
+                                                       options:0
+                                                       error:&error];
+        if (writeJSON == nil) {
+            if (error.code == kFNanFailureCode) {
+                FFWarn(@"I-RDB076012",
+                       @"Failed to deserialize write (%@), likely because of out "
+                       @"of range doubles (Error: %@)",
+                       [[NSString alloc] initWithData:data
+                                         encoding:NSUTF8StringEncoding],
+                       error);
+                FFWarn(@"I-RDB076013", @"Removing failed write with key %@", key);
+                [self.writesDB removeKey:key];
+            } else {
+                [NSException raise:NSInternalInconsistencyException
+                             format:@"Failed to deserialize write: %@", error];
+            }
+        } else {
+            NSInteger writeId =
+                ((NSNumber *)writeJSON[kFUserWriteId]).integerValue;
+            FPath *path = [FPath pathWithString:writeJSON[kFUserWritePath]];
+            FWriteRecord *writeRecord;
+            if (writeJSON[kFUserWriteMerge] != nil) {
+                // It's a merge
+                FCompoundWrite *merge = [FCompoundWrite
+                                         compoundWriteWithValueDictionary:writeJSON[kFUserWriteMerge]];
+                writeRecord = [[FWriteRecord alloc] initWithPath:path
+                                                    merge:merge
+                                                    writeId:writeId];
+            } else {
+                // It's an overwrite
+                NSAssert(writeJSON[kFUserWriteOverwrite] != nil,
+                         @"Persisted write did not contain merge or overwrite!");
+                id<FNode> node =
+                    [FSnapshotUtilities nodeFrom:writeJSON[kFUserWriteOverwrite]];
+                writeRecord = [[FWriteRecord alloc] initWithPath:path
+                                                    overwrite:node
+                                                    writeId:writeId
+                                                    visible:YES];
+            }
+            [writes addObject:writeRecord];
+        }
     }];
     // Make sure writes are sorted
     [writes sortUsingComparator:^NSComparisonResult(FWriteRecord *one,
-                                                    FWriteRecord *two) {
-      if (one.writeId < two.writeId) {
-          return NSOrderedAscending;
-      } else if (one.writeId > two.writeId) {
-          return NSOrderedDescending;
-      } else {
-          return NSOrderedSame;
-      }
+           FWriteRecord *two) {
+               if (one.writeId < two.writeId) {
+                   return NSOrderedAscending;
+               } else if (one.writeId > two.writeId) {
+            return NSOrderedDescending;
+        } else {
+            return NSOrderedSame;
+        }
     }];
     FFDebug(@"I-RDB076014", @"Loaded %lu writes in %fms",
             (unsigned long)writes.count, [date timeIntervalSinceNow] * -1000);
@@ -435,9 +441,9 @@ static NSString *trackedQueryKeysKey(NSUInteger trackedQueryId, NSString *key) {
     NSDate *start = [NSDate date];
     __block id<FNode> node = [FEmptyNode emptyNode];
     [keys enumerateObjectsUsingBlock:^(NSString *key, BOOL *stop) {
-      id data = [self internalNestedDataForPath:[path childFromString:key]];
-      node = [node updateImmediateChild:key
-                           withNewChild:[FSnapshotUtilities nodeFrom:data]];
+             id data = [self internalNestedDataForPath:[path childFromString:key]];
+        node = [node updateImmediateChild:key
+                     withNewChild:[FSnapshotUtilities nodeFrom:data]];
     }];
     FFDebug(@"I-RDB076016",
             @"Loaded node with %d children for %lu keys at %@ in %fms",
@@ -447,8 +453,8 @@ static NSString *trackedQueryKeysKey(NSUInteger trackedQueryId, NSString *key) {
 }
 
 - (void)updateServerCache:(id<FNode>)node
-                   atPath:(FPath *)path
-                    merge:(BOOL)merge {
+    atPath:(FPath *)path
+    merge:(BOOL)merge {
     NSDate *start = [NSDate date];
     id<APLevelDBWriteBatch> batch = [self.serverCacheDB beginWriteBatch];
     // Remove any leaf nodes that might be higher up
@@ -457,21 +463,21 @@ static NSString *trackedQueryKeysKey(NSUInteger trackedQueryId, NSString *key) {
     if (merge) {
         // remove any children that exist
         [node enumerateChildrenUsingBlock:^(NSString *childKey,
-                                            id<FNode> childNode, BOOL *stop) {
-          FPath *childPath = [path childFromString:childKey];
-          [self removeAllWithPrefix:serverCacheKey(childPath)
-                              batch:batch
-                           database:self.serverCacheDB];
-          [self saveNodeInternal:childNode
-                          atPath:childPath
-                           batch:batch
-                         counter:&counter];
+             id<FNode> childNode, BOOL *stop) {
+                 FPath *childPath = [path childFromString:childKey];
+            [self removeAllWithPrefix:serverCacheKey(childPath)
+                  batch:batch
+                  database:self.serverCacheDB];
+            [self saveNodeInternal:childNode
+                  atPath:childPath
+                  batch:batch
+                  counter:&counter];
         }];
     } else {
         // remove everything
         [self removeAllWithPrefix:serverCacheKey(path)
-                            batch:batch
-                         database:self.serverCacheDB];
+              batch:batch
+              database:self.serverCacheDB];
         [self saveNodeInternal:node atPath:path batch:batch counter:&counter];
     }
     BOOL success = [batch commit];
@@ -484,21 +490,21 @@ static NSString *trackedQueryKeysKey(NSUInteger trackedQueryId, NSString *key) {
 }
 
 - (void)updateServerCacheWithMerge:(FCompoundWrite *)merge
-                            atPath:(FPath *)path {
+    atPath:(FPath *)path {
     NSDate *start = [NSDate date];
     __block NSUInteger counter = 0;
     id<APLevelDBWriteBatch> batch = [self.serverCacheDB beginWriteBatch];
     // Remove any leaf nodes that might be higher up
     [self removeAllLeafNodesOnPath:path batch:batch];
     [merge enumerateWrites:^(FPath *relativePath, id<FNode> node, BOOL *stop) {
-      FPath *childPath = [path child:relativePath];
-      [self removeAllWithPrefix:serverCacheKey(childPath)
-                          batch:batch
-                       database:self.serverCacheDB];
-      [self saveNodeInternal:node
-                      atPath:childPath
-                       batch:batch
-                     counter:&counter];
+              FPath *childPath = [path child:relativePath];
+        [self removeAllWithPrefix:serverCacheKey(childPath)
+              batch:batch
+              database:self.serverCacheDB];
+        [self saveNodeInternal:node
+              atPath:childPath
+              batch:batch
+              counter:&counter];
     }];
     BOOL success = [batch commit];
     if (!success) {
@@ -510,15 +516,15 @@ static NSString *trackedQueryKeysKey(NSUInteger trackedQueryId, NSString *key) {
 }
 
 - (void)saveNodeInternal:(id<FNode>)node
-                  atPath:(FPath *)path
-                   batch:(id<APLevelDBWriteBatch>)batch
-                 counter:(NSUInteger *)counter {
+    atPath:(FPath *)path
+    batch:(id<APLevelDBWriteBatch>)batch
+    counter:(NSUInteger *)counter {
     id data = [node valForExport:YES];
     if (data != nil && ![data isKindOfClass:[NSNull class]]) {
         [self internalSetNestedData:data
-                             forKey:serverCacheKey(path)
-                          withBatch:batch
-                            counter:counter];
+              forKey:serverCacheKey(path)
+              withBatch:batch
+              counter:counter];
     }
 }
 
@@ -527,7 +533,7 @@ static NSString *trackedQueryKeysKey(NSUInteger trackedQueryId, NSString *key) {
     // weird situations where we prune everything because no compaction is ever
     // run
     return [self.serverCacheDB exactSizeFrom:kFServerCachePrefix
-                                          to:kFServerCacheRangeEnd];
+                               to:kFServerCacheRangeEnd];
 }
 
 - (void)pruneCache:(FPruneForest *)pruneForest atPath:(FPath *)path {
@@ -541,19 +547,19 @@ static NSString *trackedQueryKeysKey(NSUInteger trackedQueryId, NSString *key) {
     id<APLevelDBWriteBatch> batch = [self.serverCacheDB beginWriteBatch];
 
     [self.serverCacheDB
-        enumerateKeysWithPrefix:prefix
-                     usingBlock:^(NSString *dbKey, BOOL *stop) {
-                       NSString *pathStr =
-                           [dbKey substringFromIndex:prefix.length];
-                       FPath *relativePath = [[FPath alloc] initWith:pathStr];
-                       if ([pruneForest shouldPruneUnkeptDescendantsAtPath:
-                                            relativePath]) {
-                           pruned++;
-                           [batch removeKey:dbKey];
-                       } else {
-                           kept++;
-                       }
-                     }];
+     enumerateKeysWithPrefix:prefix
+    usingBlock:^(NSString *dbKey, BOOL *stop) {
+        NSString *pathStr =
+            [dbKey substringFromIndex:prefix.length];
+        FPath *relativePath = [[FPath alloc] initWith:pathStr];
+        if ([pruneForest shouldPruneUnkeptDescendantsAtPath:
+                            relativePath]) {
+            pruned++;
+            [batch removeKey:dbKey];
+        } else {
+            kept++;
+        }
+    }];
     BOOL success = [batch commit];
     if (!success) {
         FFWarn(@"I-RDB076021", @"Failed to prune cache on disk!");
@@ -570,70 +576,70 @@ static NSString *trackedQueryKeysKey(NSUInteger trackedQueryId, NSString *key) {
     NSDate *date = [NSDate date];
     NSMutableArray *trackedQueries = [NSMutableArray array];
     [self.serverCacheDB
-        enumerateKeysWithPrefix:kFTrackedQueriesPrefix
-                         asData:^(NSString *key, NSData *data, BOOL *stop) {
-                           NSError *error = nil;
-                           NSDictionary *queryJSON =
-                               [NSJSONSerialization JSONObjectWithData:data
-                                                               options:0
-                                                                 error:&error];
-                           if (queryJSON == nil) {
-                               if (error.code == kFNanFailureCode) {
-                                   FFWarn(
-                                       @"I-RDB076023",
-                                       @"Failed to deserialize tracked query "
-                                       @"(%@), likely because of out of range "
-                                       @"doubles (Error: %@)",
-                                       [[NSString alloc]
-                                           initWithData:data
-                                               encoding:NSUTF8StringEncoding],
-                                       error);
-                                   FFWarn(@"I-RDB076024",
-                                          @"Removing failed tracked query with "
-                                          @"key %@",
-                                          key);
-                                   [self.serverCacheDB removeKey:key];
-                               } else {
-                                   [NSException
-                                        raise:NSInternalInconsistencyException
-                                       format:@"Failed to deserialize tracked "
-                                              @"query: %@",
-                                              error];
-                               }
-                           } else {
-                               NSUInteger queryId =
-                                   ((NSNumber *)queryJSON[kFTrackedQueryId])
-                                       .unsignedIntegerValue;
-                               FPath *path =
-                                   [FPath pathWithString:
-                                              queryJSON[kFTrackedQueryPath]];
-                               FQueryParams *params = [FQueryParams
-                                   fromQueryObject:queryJSON
-                                                       [kFTrackedQueryParams]];
-                               FQuerySpec *query =
-                                   [[FQuerySpec alloc] initWithPath:path
-                                                             params:params];
-                               BOOL isComplete =
-                                   [queryJSON[kFTrackedQueryIsComplete]
-                                       boolValue];
-                               BOOL isActive =
-                                   [queryJSON[kFTrackedQueryIsActive]
-                                       boolValue];
-                               NSTimeInterval lastUse =
-                                   [queryJSON[kFTrackedQueryLastUse]
-                                       doubleValue];
+     enumerateKeysWithPrefix:kFTrackedQueriesPrefix
+    asData:^(NSString *key, NSData *data, BOOL *stop) {
+        NSError *error = nil;
+        NSDictionary *queryJSON =
+            [NSJSONSerialization JSONObjectWithData:data
+                                 options:0
+                                 error:&error];
+        if (queryJSON == nil) {
+            if (error.code == kFNanFailureCode) {
+                FFWarn(
+                    @"I-RDB076023",
+                    @"Failed to deserialize tracked query "
+                    @"(%@), likely because of out of range "
+                    @"doubles (Error: %@)",
+                    [[NSString alloc]
+                     initWithData:data
+                     encoding:NSUTF8StringEncoding],
+                    error);
+                FFWarn(@"I-RDB076024",
+                       @"Removing failed tracked query with "
+                       @"key %@",
+                       key);
+                [self.serverCacheDB removeKey:key];
+            } else {
+                [NSException
+                 raise:NSInternalInconsistencyException
+                 format:@"Failed to deserialize tracked "
+                 @"query: %@",
+                 error];
+            }
+        } else {
+            NSUInteger queryId =
+                ((NSNumber *)queryJSON[kFTrackedQueryId])
+                .unsignedIntegerValue;
+            FPath *path =
+                [FPath pathWithString:
+                       queryJSON[kFTrackedQueryPath]];
+            FQueryParams *params = [FQueryParams
+                                    fromQueryObject:queryJSON
+                                    [kFTrackedQueryParams]];
+            FQuerySpec *query =
+                [[FQuerySpec alloc] initWithPath:path
+                                    params:params];
+            BOOL isComplete =
+                [queryJSON[kFTrackedQueryIsComplete]
+                 boolValue];
+            BOOL isActive =
+                [queryJSON[kFTrackedQueryIsActive]
+                 boolValue];
+            NSTimeInterval lastUse =
+                [queryJSON[kFTrackedQueryLastUse]
+                 doubleValue];
 
-                               FTrackedQuery *trackedQuery =
-                                   [[FTrackedQuery alloc]
-                                       initWithId:queryId
-                                            query:query
-                                          lastUse:lastUse
-                                         isActive:isActive
-                                       isComplete:isComplete];
+            FTrackedQuery *trackedQuery =
+                [[FTrackedQuery alloc]
+                 initWithId:queryId
+                 query:query
+                 lastUse:lastUse
+                 isActive:isActive
+                 isComplete:isComplete];
 
-                               [trackedQueries addObject:trackedQuery];
-                           }
-                         }];
+            [trackedQueries addObject:trackedQuery];
+        }
+    }];
     FFDebug(@"I-RDB076025", @"Loaded %lu tracked queries in %fms",
             (unsigned long)trackedQueries.count,
             [date timeIntervalSinceNow] * -1000);
@@ -646,11 +652,11 @@ static NSString *trackedQueryKeysKey(NSUInteger trackedQueryId, NSString *key) {
     [batch removeKey:trackedQueryKey(queryId)];
     __block NSUInteger keyCount = 0;
     [self.serverCacheDB
-        enumerateKeysWithPrefix:trackedQueryKeysKeyPrefix(queryId)
-                     usingBlock:^(NSString *key, BOOL *stop) {
-                       [batch removeKey:key];
-                       keyCount++;
-                     }];
+     enumerateKeysWithPrefix:trackedQueryKeysKeyPrefix(queryId)
+    usingBlock:^(NSString *key, BOOL *stop) {
+        [batch removeKey:key];
+        keyCount++;
+    }];
 
     BOOL success = [batch commit];
     if (!success) {
@@ -665,18 +671,24 @@ static NSString *trackedQueryKeysKey(NSUInteger trackedQueryId, NSString *key) {
 
 - (void)saveTrackedQuery:(FTrackedQuery *)query {
     NSDate *start = [NSDate date];
-    NSDictionary *trackedQuery = @{
-        kFTrackedQueryId : @(query.queryId),
-        kFTrackedQueryPath : [query.query.path toStringWithTrailingSlash],
-        kFTrackedQueryParams : [query.query.params wireProtocolParams],
-        kFTrackedQueryLastUse : @(query.lastUse),
-        kFTrackedQueryIsComplete : @(query.isComplete),
-        kFTrackedQueryIsActive : @(query.isActive)
+    NSDictionary *trackedQuery = @ {
+kFTrackedQueryId :
+        @(query.queryId),
+kFTrackedQueryPath :
+        [query.query.path toStringWithTrailingSlash],
+kFTrackedQueryParams :
+        [query.query.params wireProtocolParams],
+kFTrackedQueryLastUse :
+        @(query.lastUse),
+kFTrackedQueryIsComplete :
+        @(query.isComplete),
+kFTrackedQueryIsActive :
+        @(query.isActive)
     };
     NSError *error = nil;
     NSData *data = [NSJSONSerialization dataWithJSONObject:trackedQuery
-                                                   options:0
-                                                     error:&error];
+                                        options:0
+                                        error:&error];
     NSAssert(data, @"Failed to serialize tracked query (Error: %@)", error);
     [self.serverCacheDB setData:data forKey:trackedQueryKey(query.queryId)];
     FFDebug(@"I-RDB076028", @"Saved tracked query %lu in %fms",
@@ -692,27 +704,27 @@ static NSString *trackedQueryKeysKey(NSUInteger trackedQueryId, NSString *key) {
     // First, delete any keys that might be stored and are not part of the
     // current keys
     [self.serverCacheDB
-        enumerateKeysWithPrefix:trackedQueryKeysKeyPrefix(queryId)
-                      asStrings:^(NSString *dbKey, NSString *actualKey,
-                                  BOOL *stop) {
-                        if ([keys containsObject:actualKey]) {
-                            // Already in DB
-                            [seenKeys addObject:actualKey];
-                        } else {
-                            // Not part of set, delete key
-                            [batch removeKey:dbKey];
-                            removed++;
-                        }
-                      }];
+     enumerateKeysWithPrefix:trackedQueryKeysKeyPrefix(queryId)
+     asStrings:^(NSString *dbKey, NSString *actualKey,
+    BOOL *stop) {
+        if ([keys containsObject:actualKey]) {
+            // Already in DB
+            [seenKeys addObject:actualKey];
+        } else {
+            // Not part of set, delete key
+            [batch removeKey:dbKey];
+            removed++;
+        }
+    }];
 
     // Next add any keys that are missing in the database
     [keys enumerateObjectsUsingBlock:^(NSString *childKey, BOOL *stop) {
-      if (![seenKeys containsObject:childKey]) {
-          [batch setString:childKey
-                    forKey:trackedQueryKeysKey(queryId, childKey)];
-          added++;
-      }
-    }];
+             if (![seenKeys containsObject:childKey]) {
+                 [batch setString:childKey
+                  forKey:trackedQueryKeysKey(queryId, childKey)];
+                 added++;
+             }
+         }];
     BOOL success = [batch commit];
     if (!success) {
         FFWarn(@"I-RDB076029", @"Failed to set tracked queries on disk!");
@@ -727,16 +739,16 @@ static NSString *trackedQueryKeysKey(NSUInteger trackedQueryId, NSString *key) {
 }
 
 - (void)updateTrackedQueryKeysWithAddedKeys:(NSSet *)added
-                                removedKeys:(NSSet *)removed
-                                 forQueryId:(NSUInteger)queryId {
+    removedKeys:(NSSet *)removed
+    forQueryId:(NSUInteger)queryId {
     NSDate *start = [NSDate date];
     id<APLevelDBWriteBatch> batch = [self.serverCacheDB beginWriteBatch];
     [removed enumerateObjectsUsingBlock:^(NSString *key, BOOL *stop) {
-      [batch removeKey:trackedQueryKeysKey(queryId, key)];
-    }];
+                [batch removeKey:trackedQueryKeysKey(queryId, key)];
+            }];
     [added enumerateObjectsUsingBlock:^(NSString *key, BOOL *stop) {
-      [batch setString:key forKey:trackedQueryKeysKey(queryId, key)];
-    }];
+              [batch setString:key forKey:trackedQueryKeysKey(queryId, key)];
+          }];
     BOOL success = [batch commit];
     if (!success) {
         FFWarn(@"I-RDB076031", @"Failed to update tracked queries on disk!");
@@ -752,11 +764,11 @@ static NSString *trackedQueryKeysKey(NSUInteger trackedQueryId, NSString *key) {
     NSDate *start = [NSDate date];
     NSMutableSet *set = [NSMutableSet set];
     [self.serverCacheDB
-        enumerateKeysWithPrefix:trackedQueryKeysKeyPrefix(queryId)
-                      asStrings:^(NSString *dbKey, NSString *actualKey,
-                                  BOOL *stop) {
-                        [set addObject:actualKey];
-                      }];
+     enumerateKeysWithPrefix:trackedQueryKeysKeyPrefix(queryId)
+     asStrings:^(NSString *dbKey, NSString *actualKey,
+    BOOL *stop) {
+        [set addObject:actualKey];
+    }];
     FFDebug(@"I-RDB076033", @"Loaded %lu tracked keys for query %lu in %fms",
             (unsigned long)set.count, (unsigned long)queryId,
             [start timeIntervalSinceNow] * -1000);
@@ -766,7 +778,7 @@ static NSString *trackedQueryKeysKey(NSUInteger trackedQueryId, NSString *key) {
 #pragma mark - Internal methods
 
 - (void)removeAllLeafNodesOnPath:(FPath *)path
-                           batch:(id<APLevelDBWriteBatch>)batch {
+    batch:(id<APLevelDBWriteBatch>)batch {
     while (!path.isEmpty) {
         [batch removeKey:serverCacheKey(path)];
         path = [path parent];
@@ -776,33 +788,33 @@ static NSString *trackedQueryKeysKey(NSUInteger trackedQueryId, NSString *key) {
 }
 
 - (void)removeAllWithPrefix:(NSString *)prefix
-                      batch:(id<APLevelDBWriteBatch>)batch
-                   database:(APLevelDB *)database {
+    batch:(id<APLevelDBWriteBatch>)batch
+    database:(APLevelDB *)database {
     assert(prefix != nil);
 
     [database enumerateKeysWithPrefix:prefix
-                           usingBlock:^(NSString *key, BOOL *stop) {
-                             [batch removeKey:key];
-                           }];
+             usingBlock:^(NSString *key, BOOL *stop) {
+                 [batch removeKey:key];
+             }];
 }
 
 #pragma mark - Internal helper methods
 
 - (void)internalSetNestedData:(id)value
-                       forKey:(NSString *)key
-                    withBatch:(id<APLevelDBWriteBatch>)batch
-                      counter:(NSUInteger *)counter {
+    forKey:(NSString *)key
+    withBatch:(id<APLevelDBWriteBatch>)batch
+    counter:(NSUInteger *)counter {
     if ([value isKindOfClass:[NSDictionary class]]) {
         NSDictionary *dictionary = value;
         [dictionary enumerateKeysAndObjectsUsingBlock:^(id childKey, id obj,
-                                                        BOOL *stop) {
-          assert(obj != nil);
-          NSString *childPath =
-              [NSString stringWithFormat:@"%@%@/", key, childKey];
-          [self internalSetNestedData:obj
-                               forKey:childPath
-                            withBatch:batch
-                              counter:counter];
+                   BOOL *stop) {
+                       assert(obj != nil);
+                       NSString *childPath =
+                [NSString stringWithFormat:@"%@%@/", key, childKey];
+            [self internalSetNestedData:obj
+                  forKey:childPath
+                  withBatch:batch
+                  counter:counter];
         }];
     } else {
         NSData *data = [self serializePrimitive:value];
@@ -820,7 +832,7 @@ static NSString *trackedQueryKeysKey(NSUInteger trackedQueryId, NSString *key) {
     // is deleted before iter, you get an access violation).
     @autoreleasepool {
         APLevelDBIterator *iter =
-            [APLevelDBIterator iteratorWithLevelDB:self.serverCacheDB];
+        [APLevelDBIterator iteratorWithLevelDB:self.serverCacheDB];
 
         [iter seekToKey:baseKey];
         if (iter.key == nil || ![iter.key hasPrefix:baseKey]) {
@@ -828,13 +840,13 @@ static NSString *trackedQueryKeysKey(NSUInteger trackedQueryId, NSString *key) {
             return nil;
         } else {
             return [self internalNestedDataFromIterator:iter
-                                           andKeyPrefix:baseKey];
+                         andKeyPrefix:baseKey];
         }
     }
 }
 
 - (id)internalNestedDataFromIterator:(APLevelDBIterator *)iterator
-                        andKeyPrefix:(NSString *)prefix {
+    andKeyPrefix:(NSString *)prefix {
     NSString *key = iterator.key;
 
     if ([key isEqualToString:prefix]) {
@@ -852,7 +864,7 @@ static NSString *trackedQueryKeysKey(NSUInteger trackedQueryId, NSString *key) {
             NSString *childPath =
                 [NSString stringWithFormat:@"%@%@/", prefix, childName];
             id childValue = [self internalNestedDataFromIterator:iterator
-                                                    andKeyPrefix:childPath];
+                                  andKeyPrefix:childPath];
             [dict setValue:childValue forKey:childName];
 
             key = iterator.key;
@@ -867,8 +879,8 @@ static NSString *trackedQueryKeysKey(NSUInteger trackedQueryId, NSString *key) {
     // ]).
     NSError *error = nil;
     NSData *data = [NSJSONSerialization dataWithJSONObject:@[ value ]
-                                                   options:0
-                                                     error:&error];
+                                        options:0
+                                        error:&error];
     NSAssert(data, @"Failed to serialize primitive: %@", error);
 
     return [data subdataWithRange:NSMakeRange(1, data.length - 2)];
@@ -938,8 +950,8 @@ static NSString *trackedQueryKeysKey(NSUInteger trackedQueryId, NSString *key) {
     NSError *error = nil;
     id result =
         [NSJSONSerialization JSONObjectWithData:data
-                                        options:NSJSONReadingAllowFragments
-                                          error:&error];
+                             options:NSJSONReadingAllowFragments
+                             error:&error];
     if (result != nil) {
         return [self fixDoubleParsing:result];
     } else {
@@ -948,12 +960,12 @@ static NSString *trackedQueryKeysKey(NSUInteger trackedQueryId, NSString *key) {
                    @"Failed to load primitive %@, likely because doubles where "
                    @"out of range (Error: %@)",
                    [[NSString alloc] initWithData:data
-                                         encoding:NSUTF8StringEncoding],
+                                     encoding:NSUTF8StringEncoding],
                    error);
             return [NSNull null];
         } else {
             [NSException raise:NSInternalInconsistencyException
-                        format:@"Failed to deserialiaze primitive: %@", error];
+                         format:@"Failed to deserialiaze primitive: %@", error];
             return nil;
         }
     }
@@ -963,29 +975,29 @@ static NSString *trackedQueryKeysKey(NSUInteger trackedQueryId, NSString *key) {
     NSError *error;
     BOOL success =
         [[NSFileManager defaultManager] createDirectoryAtPath:path
-                                  withIntermediateDirectories:YES
-                                                   attributes:nil
-                                                        error:&error];
+                                        withIntermediateDirectories:YES
+                                        attributes:nil
+                                        error:&error];
     if (!success) {
         @throw [NSException
-            exceptionWithName:@"FailedToCreatePersistenceDir"
-                       reason:@"Failed to create persistence directory."
-                     userInfo:@{@"path" : path}];
+                exceptionWithName:@"FailedToCreatePersistenceDir"
+                reason:@"Failed to create persistence directory."
+                userInfo:@ {@"path" : path}];
     }
 
     if (markAsDoNotBackup) {
         NSURL *firebaseDirURL = [NSURL fileURLWithPath:path];
         success = [firebaseDirURL setResourceValue:@YES
-                                            forKey:NSURLIsExcludedFromBackupKey
-                                             error:&error];
+                                  forKey:NSURLIsExcludedFromBackupKey
+                                  error:&error];
         if (!success) {
             FFWarn(
                 @"I-RDB076035",
                 @"Failed to mark firebase database folder as do not backup: %@",
                 error);
             [NSException raise:@"Error marking as do not backup"
-                        format:@"Failed to mark folder %@ as do not backup",
-                               firebaseDirURL];
+                         format:@"Failed to mark folder %@ as do not backup",
+                         firebaseDirURL];
         }
     }
 }

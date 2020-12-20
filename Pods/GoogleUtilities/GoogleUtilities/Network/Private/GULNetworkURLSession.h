@@ -21,12 +21,12 @@
 NS_ASSUME_NONNULL_BEGIN
 
 typedef void (^GULNetworkCompletionHandler)(NSHTTPURLResponse *_Nullable response,
-                                            NSData *_Nullable data,
-                                            NSError *_Nullable error);
+        NSData *_Nullable data,
+        NSError *_Nullable error);
 typedef void (^GULNetworkURLSessionCompletionHandler)(NSHTTPURLResponse *_Nullable response,
-                                                      NSData *_Nullable data,
-                                                      NSString *sessionID,
-                                                      NSError *_Nullable error);
+        NSData *_Nullable data,
+        NSString *sessionID,
+        NSError *_Nullable error);
 typedef void (^GULNetworkSystemCompletionHandler)(void);
 
 /// The protocol that uses NSURLSession for iOS >= 7.0 to handle requests and responses.
@@ -40,7 +40,7 @@ typedef void (^GULNetworkSystemCompletionHandler)(void);
 
 /// Calls the system provided completion handler after the background session is finished.
 + (void)handleEventsForBackgroundURLSessionID:(NSString *)sessionID
-                            completionHandler:(GULNetworkSystemCompletionHandler)completionHandler;
+    completionHandler:(GULNetworkSystemCompletionHandler)completionHandler;
 
 /// Initializes with logger delegate.
 - (instancetype)initWithNetworkLoggerDelegate:
@@ -51,12 +51,12 @@ typedef void (^GULNetworkSystemCompletionHandler)(void);
 /// Sends an asynchronous POST request and calls the provided completion handler when the request
 /// completes or when errors occur, and returns an ID of the session/connection.
 - (nullable NSString *)sessionIDFromAsyncPOSTRequest:(NSURLRequest *)request
-                                   completionHandler:(GULNetworkURLSessionCompletionHandler)handler;
+    completionHandler:(GULNetworkURLSessionCompletionHandler)handler;
 
 /// Sends an asynchronous GET request and calls the provided completion handler when the request
 /// completes or when errors occur, and returns an ID of the session.
 - (nullable NSString *)sessionIDFromAsyncGETRequest:(NSURLRequest *)request
-                                  completionHandler:(GULNetworkURLSessionCompletionHandler)handler;
+    completionHandler:(GULNetworkURLSessionCompletionHandler)handler;
 
 NS_ASSUME_NONNULL_END
 @end

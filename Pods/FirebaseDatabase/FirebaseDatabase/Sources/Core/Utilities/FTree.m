@@ -36,8 +36,8 @@
 }
 
 - (id)initWithName:(NSString *)aName
-        withParent:(FTree *)aParent
-          withNode:(FTreeNode *)aNode {
+    withParent:(FTree *)aParent
+    withNode:(FTreeNode *)aNode {
     self = [super init];
     if (self) {
         self.name = aName != nil ? aName : @"";
@@ -56,8 +56,8 @@
             childNode = [[FTreeNode alloc] init];
         }
         child = [[FTree alloc] initWithName:next
-                                 withParent:child
-                                   withNode:childNode];
+                               withParent:child
+                               withNode:childNode];
         path = [path popFront];
         next = [path getFront];
     }
@@ -91,8 +91,8 @@
 - (void)forEachChild:(void (^)(FTree *))action {
     for (NSString *key in self.node.children) {
         action([[FTree alloc]
-            initWithName:key
-              withParent:self
+                initWithName:key
+                withParent:self
                 withNode:[self.node.children objectForKey:key]]);
     }
 }
@@ -100,8 +100,8 @@
 - (void)forEachChildMutationSafe:(void (^)(FTree *))action {
     for (NSString *key in [self.node.children copy]) {
         action([[FTree alloc]
-            initWithName:key
-              withParent:self
+                initWithName:key
+                withParent:self
                 withNode:[self.node.children objectForKey:key]]);
     }
 }
@@ -111,15 +111,15 @@
 }
 
 - (void)forEachDescendant:(void (^)(FTree *))action
-              includeSelf:(BOOL)incSelf
-            childrenFirst:(BOOL)childFirst {
+    includeSelf:(BOOL)incSelf
+    childrenFirst:(BOOL)childFirst {
     if (incSelf && !childFirst) {
         action(self);
     }
 
     [self forEachChild:^(FTree *child) {
-      [child forEachDescendant:action includeSelf:YES childrenFirst:childFirst];
-    }];
+             [child forEachDescendant:action includeSelf:YES childrenFirst:childFirst];
+         }];
 
     if (incSelf && childFirst) {
         action(self);
@@ -143,11 +143,11 @@
 
 - (void)forEachImmediateDescendantWithValue:(void (^)(FTree *))action {
     [self forEachChild:^(FTree *child) {
-      if ([child getValue] != nil) {
-          action(child);
-      } else {
-          [child forEachImmediateDescendantWithValue:action];
-      }
+             if ([child getValue] != nil) {
+                 action(child);
+             } else {
+            [child forEachImmediateDescendantWithValue:action];
+        }
     }];
 }
 
@@ -166,10 +166,10 @@
 
 - (FPath *)path {
     return [[FPath alloc]
-        initWith:(self.parent == nil)
-                     ? self.name
-                     : [NSString stringWithFormat:@"%@/%@", [self.parent path],
-                                                  self.name]];
+            initWith:(self.parent == nil)
+            ? self.name
+            : [NSString stringWithFormat:@"%@/%@", [self.parent path],
+               self.name]];
 }
 
 - (void)updateParents {

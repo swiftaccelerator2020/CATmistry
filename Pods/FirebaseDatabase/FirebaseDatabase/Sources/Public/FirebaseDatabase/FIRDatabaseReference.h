@@ -41,15 +41,15 @@ NS_SWIFT_NAME(DatabaseReference)
 
 #pragma mark - Getting references to children locations
 
-/**
- * Gets a FIRDatabaseReference for the location at the specified relative path.
- * The relative path can either be a simple child key (e.g. 'fred') or a
- * deeper slash-separated path (e.g. 'fred/name/first').
- *
- * @param pathString A relative path from this location to the desired child
- * location.
- * @return A FIRDatabaseReference for the specified relative path.
- */
+    /**
+     * Gets a FIRDatabaseReference for the location at the specified relative path.
+     * The relative path can either be a simple child key (e.g. 'fred') or a
+     * deeper slash-separated path (e.g. 'fred/name/first').
+     *
+     * @param pathString A relative path from this location to the desired child
+     * location.
+     * @return A FIRDatabaseReference for the specified relative path.
+     */
 - (FIRDatabaseReference *)child:(NSString *)pathString;
 
 /**
@@ -102,7 +102,7 @@ priority is meant to be preserved, you should use setValue:andPriority: instead.
  */
 - (void)setValue:(nullable id)value
     withCompletionBlock:
-        (void (^)(NSError *__nullable error, FIRDatabaseReference *ref))block;
+    (void (^)(NSError *__nullable error, FIRDatabaseReference *ref))block;
 
 /**
  * The same as setValue: with an additional priority to be attached to the data
@@ -123,9 +123,9 @@ priority is meant to be preserved, you should use setValue:andPriority: instead.
  * Firebase Database servers.
  */
 - (void)setValue:(nullable id)value
-            andPriority:(nullable id)priority
+    andPriority:(nullable id)priority
     withCompletionBlock:
-        (void (^)(NSError *__nullable error, FIRDatabaseReference *ref))block;
+    (void (^)(NSError *__nullable error, FIRDatabaseReference *ref))block;
 
 /**
  * Remove the data at this Firebase Database location. Any data at child
@@ -187,7 +187,7 @@ priority is meant to be preserved, you should use setValue:andPriority: instead.
  */
 - (void)setPriority:(nullable id)priority
     withCompletionBlock:
-        (void (^)(NSError *__nullable error, FIRDatabaseReference *ref))block;
+    (void (^)(NSError *__nullable error, FIRDatabaseReference *ref))block;
 
 /**
  * Updates the values at the specified paths in the dictionary without
@@ -206,8 +206,8 @@ priority is meant to be preserved, you should use setValue:andPriority: instead.
  * the Firebase Database servers
  */
 - (void)updateChildValues:(NSDictionary *)values
-      withCompletionBlock:
-          (void (^)(NSError *__nullable error, FIRDatabaseReference *ref))block;
+    withCompletionBlock:
+    (void (^)(NSError *__nullable error, FIRDatabaseReference *ref))block;
 
 #pragma mark - Attaching observers to read data
 
@@ -225,8 +225,8 @@ priority is meant to be preserved, you should use setValue:andPriority: instead.
  * removeObserverWithHandle:
  */
 - (FIRDatabaseHandle)observeEventType:(FIRDataEventType)eventType
-                            withBlock:
-                                (void (^)(FIRDataSnapshot *snapshot))block;
+    withBlock:
+    (void (^)(FIRDataSnapshot *snapshot))block;
 
 /**
  * observeEventType:andPreviousSiblingKeyWithBlock: is used to listen for data
@@ -245,9 +245,9 @@ priority is meant to be preserved, you should use setValue:andPriority: instead.
  * removeObserverWithHandle:
  */
 - (FIRDatabaseHandle)observeEventType:(FIRDataEventType)eventType
-       andPreviousSiblingKeyWithBlock:
-           (void (^)(FIRDataSnapshot *snapshot,
-                     NSString *__nullable prevKey))block;
+    andPreviousSiblingKeyWithBlock:
+    (void (^)(FIRDataSnapshot *snapshot,
+    NSString *__nullable prevKey))block;
 
 /**
  * observeEventType:withBlock: is used to listen for data changes at a
@@ -269,9 +269,9 @@ priority is meant to be preserved, you should use setValue:andPriority: instead.
  * removeObserverWithHandle:
  */
 - (FIRDatabaseHandle)observeEventType:(FIRDataEventType)eventType
-                            withBlock:(void (^)(FIRDataSnapshot *snapshot))block
-                      withCancelBlock:
-                          (nullable void (^)(NSError *error))cancelBlock;
+    withBlock:(void (^)(FIRDataSnapshot *snapshot))block
+    withCancelBlock:
+    (nullable void (^)(NSError *error))cancelBlock;
 
 /**
  * observeEventType:andPreviousSiblingKeyWithBlock: is used to listen for data
@@ -295,11 +295,11 @@ priority is meant to be preserved, you should use setValue:andPriority: instead.
  * removeObserverWithHandle:
  */
 - (FIRDatabaseHandle)observeEventType:(FIRDataEventType)eventType
-       andPreviousSiblingKeyWithBlock:
-           (void (^)(FIRDataSnapshot *snapshot,
-                     NSString *__nullable prevKey))block
-                      withCancelBlock:
-                          (nullable void (^)(NSError *error))cancelBlock;
+    andPreviousSiblingKeyWithBlock:
+    (void (^)(FIRDataSnapshot *snapshot,
+    NSString *__nullable prevKey))block
+    withCancelBlock:
+    (nullable void (^)(NSError *error))cancelBlock;
 
 /**
  * This is equivalent to observeEventType:withBlock:, except the block is
@@ -310,7 +310,7 @@ priority is meant to be preserved, you should use setValue:andPriority: instead.
  * FIRDataSnapshot.
  */
 - (void)observeSingleEventOfType:(FIRDataEventType)eventType
-                       withBlock:(void (^)(FIRDataSnapshot *snapshot))block;
+    withBlock:(void (^)(FIRDataSnapshot *snapshot))block;
 
 /**
  * This is equivalent to observeEventType:withBlock:, except the block is
@@ -325,8 +325,8 @@ priority is meant to be preserved, you should use setValue:andPriority: instead.
  */
 - (void)observeSingleEventOfType:(FIRDataEventType)eventType
     andPreviousSiblingKeyWithBlock:
-        (void (^)(FIRDataSnapshot *snapshot,
-                  NSString *__nullable prevKey))block;
+    (void (^)(FIRDataSnapshot *snapshot,
+    NSString *__nullable prevKey))block;
 
 /**
  * This is equivalent to observeEventType:withBlock:, except the block is
@@ -342,8 +342,8 @@ priority is meant to be preserved, you should use setValue:andPriority: instead.
  * to access this data
  */
 - (void)observeSingleEventOfType:(FIRDataEventType)eventType
-                       withBlock:(void (^)(FIRDataSnapshot *snapshot))block
-                 withCancelBlock:(nullable void (^)(NSError *error))cancelBlock;
+    withBlock:(void (^)(FIRDataSnapshot *snapshot))block
+    withCancelBlock:(nullable void (^)(NSError *error))cancelBlock;
 
 /**
  * This is equivalent to observeEventType:withBlock:, except the block is
@@ -363,9 +363,9 @@ priority is meant to be preserved, you should use setValue:andPriority: instead.
  */
 - (void)observeSingleEventOfType:(FIRDataEventType)eventType
     andPreviousSiblingKeyWithBlock:(void (^)(FIRDataSnapshot *snapshot,
-                                             NSString *__nullable prevKey))block
-                   withCancelBlock:
-                       (nullable void (^)(NSError *error))cancelBlock;
+    NSString *__nullable prevKey))block
+    withCancelBlock:
+    (nullable void (^)(NSError *error))cancelBlock;
 
 #pragma mark - Detaching observers
 
@@ -481,7 +481,7 @@ priority is meant to be preserved, you should use setValue:andPriority: instead.
  * or equal to startValue
  */
 - (FIRDatabaseQuery *)queryStartingAtValue:(nullable id)startValue
-                                  childKey:(nullable NSString *)childKey;
+    childKey:(nullable NSString *)childKey;
 
 /**
  * queryEndingAtValue: is used to generate a reference to a limited view of the
@@ -511,7 +511,7 @@ priority is meant to be preserved, you should use setValue:andPriority: instead.
  * equal to endValue
  */
 - (FIRDatabaseQuery *)queryEndingAtValue:(nullable id)endValue
-                                childKey:(nullable NSString *)childKey;
+    childKey:(nullable NSString *)childKey;
 
 /**
  * queryEqualToValue: is used to generate a reference to a limited view of the
@@ -539,7 +539,7 @@ priority is meant to be preserved, you should use setValue:andPriority: instead.
  * and the key.
  */
 - (FIRDatabaseQuery *)queryEqualToValue:(nullable id)value
-                               childKey:(nullable NSString *)childKey;
+    childKey:(nullable NSString *)childKey;
 
 #pragma mark - Managing presence
 
@@ -569,8 +569,8 @@ priority is meant to be preserved, you should use setValue:andPriority: instead.
  * the Firebase Database servers
  */
 - (void)onDisconnectSetValue:(nullable id)value
-         withCompletionBlock:(void (^)(NSError *__nullable error,
-                                       FIRDatabaseReference *ref))block;
+    withCompletionBlock:(void (^)(NSError *__nullable error,
+    FIRDatabaseReference *ref))block;
 
 /**
  * Ensure the data at this location is set to the specified value and priority
@@ -596,9 +596,9 @@ priority is meant to be preserved, you should use setValue:andPriority: instead.
  * the Firebase Database servers
  */
 - (void)onDisconnectSetValue:(nullable id)value
-                 andPriority:(nullable id)priority
-         withCompletionBlock:(void (^)(NSError *__nullable error,
-                                       FIRDatabaseReference *ref))block;
+    andPriority:(nullable id)priority
+    withCompletionBlock:(void (^)(NSError *__nullable error,
+    FIRDatabaseReference *ref))block;
 
 /**
  * Ensure the data at this location is removed when
@@ -647,9 +647,9 @@ priority is meant to be preserved, you should use setValue:andPriority: instead.
  * up on the Firebase Database servers
  */
 - (void)onDisconnectUpdateChildValues:(NSDictionary *)values
-                  withCompletionBlock:
-                      (void (^)(NSError *__nullable error,
-                                FIRDatabaseReference *ref))block;
+    withCompletionBlock:
+    (void (^)(NSError *__nullable error,
+    FIRDatabaseReference *ref))block;
 
 /**
  * Cancel any operations that are set to run on disconnect. If you previously
@@ -670,7 +670,7 @@ priority is meant to be preserved, you should use setValue:andPriority: instead.
  */
 - (void)cancelDisconnectOperationsWithCompletionBlock:
     (nullable void (^)(NSError *__nullable error,
-                       FIRDatabaseReference *ref))block;
+    FIRDatabaseReference *ref))block;
 
 #pragma mark - Manual Connection Management
 
@@ -765,10 +765,10 @@ priority is meant to be preserved, you should use setValue:andPriority: instead.
  * the data at this location is.
  */
 - (void)runTransactionBlock:
-            (FIRTransactionResult * (^)(FIRMutableData *currentData))block
-         andCompletionBlock:
-             (void (^)(NSError *__nullable error, BOOL committed,
-                       FIRDataSnapshot *__nullable snapshot))completionBlock;
+    (FIRTransactionResult * (^)(FIRMutableData *currentData))block
+    andCompletionBlock:
+    (void (^)(NSError *__nullable error, BOOL committed,
+    FIRDataSnapshot *__nullable snapshot))completionBlock;
 
 /**
  * Performs an optimistic-concurrency transactional update to the data at this
@@ -799,12 +799,12 @@ priority is meant to be preserved, you should use setValue:andPriority: instead.
  * states, and only get events based on the final state of the transaction.
  */
 - (void)runTransactionBlock:
-            (FIRTransactionResult * (^)(FIRMutableData *currentData))block
-         andCompletionBlock:
-             (nullable void (^)(NSError *__nullable error, BOOL committed,
-                                FIRDataSnapshot *__nullable snapshot))
-                 completionBlock
-            withLocalEvents:(BOOL)localEvents;
+    (FIRTransactionResult * (^)(FIRMutableData *currentData))block
+    andCompletionBlock:
+    (nullable void (^)(NSError *__nullable error, BOOL committed,
+    FIRDataSnapshot *__nullable snapshot))
+    completionBlock
+    withLocalEvents:(BOOL)localEvents;
 
 #pragma mark - Retrieving String Representation
 

@@ -33,8 +33,8 @@
 @synthesize snap;
 
 - (id)initWithSource:(FOperationSource *)aSource
-                path:(FPath *)aPath
-                snap:(id<FNode>)aSnap {
+    path:(FPath *)aPath
+    snap:(id<FNode>)aSnap {
     self = [super init];
     if (self) {
         self.source = aSource;
@@ -48,20 +48,20 @@
 - (FOverwrite *)operationForChild:(NSString *)childKey {
     if ([self.path isEmpty]) {
         return [[FOverwrite alloc]
-            initWithSource:self.source
-                      path:[FPath empty]
-                      snap:[self.snap getImmediateChild:childKey]];
+                initWithSource:self.source
+                path:[FPath empty]
+                snap:[self.snap getImmediateChild:childKey]];
     } else {
         return [[FOverwrite alloc] initWithSource:self.source
-                                             path:[self.path popFront]
-                                             snap:self.snap];
+                                   path:[self.path popFront]
+                                   snap:self.snap];
     }
 }
 
 - (NSString *)description {
     return [NSString
-        stringWithFormat:@"FOverwrite { path=%@, source=%@, snapshot=%@ }",
-                         self.path, self.source, self.snap];
+            stringWithFormat:@"FOverwrite { path=%@, source=%@, snapshot=%@ }",
+            self.path, self.source, self.snap];
 }
 
 @end

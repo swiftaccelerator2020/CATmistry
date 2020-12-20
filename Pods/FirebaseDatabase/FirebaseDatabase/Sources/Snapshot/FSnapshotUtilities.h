@@ -33,16 +33,16 @@ typedef NS_ENUM(NSInteger, FDataHashVersion) {
 + (id<FNode>)nodeFrom:(id)val priority:(id)priority;
 + (id<FNode>)nodeFrom:(id)val withValidationFrom:(NSString *)fn;
 + (id<FNode>)nodeFrom:(id)val
-              priority:(id)priority
+    priority:(id)priority
     withValidationFrom:(NSString *)fn;
 + (FCompoundWrite *)compoundWriteFromDictionary:(NSDictionary *)values
-                             withValidationFrom:(NSString *)fn;
+    withValidationFrom:(NSString *)fn;
 + (void)validatePriorityNode:(id<FNode>)priorityNode;
 + (void)appendHashRepresentationForLeafNode:(FLeafNode *)val
-                                   toString:(NSMutableString *)string
-                                hashVersion:(FDataHashVersion)hashVersion;
+    toString:(NSMutableString *)string
+    hashVersion:(FDataHashVersion)hashVersion;
 + (void)appendHashV2RepresentationForString:(NSString *)string
-                                   toString:(NSMutableString *)mutableString;
+    toString:(NSMutableString *)mutableString;
 
 + (NSUInteger)estimateSerializedNodeSize:(id<FNode>)node;
 

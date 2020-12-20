@@ -21,93 +21,93 @@ NSString *const kGULKeychainUtilsErrorDomain = @"com.gul.keychain.ErrorDomain";
 @implementation GULKeychainUtils
 
 + (nullable NSData *)getItemWithQuery:(NSDictionary *)query
-                                error:(NSError *_Nullable *_Nullable)outError {
-  NSMutableDictionary *mutableQuery = [query mutableCopy];
+    error:(NSError *_Nullable *_Nullable)outError {
+    NSMutableDictionary *mutableQuery = [query mutableCopy];
 
-  mutableQuery[(__bridge id)kSecReturnData] = @YES;
-  mutableQuery[(__bridge id)kSecMatchLimit] = (__bridge id)kSecMatchLimitOne;
+    mutableQuery[(__bridge id)kSecReturnData] = @YES;
+    mutableQuery[(__bridge id)kSecMatchLimit] = (__bridge id)kSecMatchLimitOne;
 
-  CFDataRef result = NULL;
-  OSStatus status =
-      SecItemCopyMatching((__bridge CFDictionaryRef)mutableQuery, (CFTypeRef *)&result);
+    CFDataRef result = NULL;
+    OSStatus status =
+        SecItemCopyMatching((__bridge CFDictionaryRef)mutableQuery, (CFTypeRef *)&result);
 
-  if (status == errSecSuccess && result != NULL) {
-    if (outError) {
-      *outError = nil;
+    if (status == errSecSuccess && result != NULL) {
+        if (outError) {
+            *outError = nil;
+        }
+
+        return (__bridge_transfer NSData *)result;
     }
 
-    return (__bridge_transfer NSData *)result;
-  }
-
-  if (status == errSecItemNotFound) {
-    if (outError) {
-      *outError = nil;
+    if (status == errSecItemNotFound) {
+        if (outError) {
+            *outError = nil;
+        }
+    } else {
+        if (outError) {
+            *outError = [self keychainErrorWithFunction:@"SecItemCopyMatching" status:status];
+        }
     }
-  } else {
-    if (outError) {
-      *outError = [self keychainErrorWithFunction:@"SecItemCopyMatching" status:status];
-    }
-  }
-  return nil;
+    return nil;
 }
 
 + (BOOL)setItem:(NSData *)item
-      withQuery:(NSDictionary *)query
-          error:(NSError *_Nullable *_Nullable)outError {
-  NSData *existingItem = [self getItemWithQuery:query error:outError];
-  if (outError && *outError) {
-    return NO;
-  }
-
-  NSMutableDictionary *mutableQuery = [query mutableCopy];
-  mutableQuery[(__bridge id)kSecAttrAccessible] =
-      (__bridge id)kSecAttrAccessibleAfterFirstUnlockThisDeviceOnly;
-
-  OSStatus status;
-  if (!existingItem) {
-    mutableQuery[(__bridge id)kSecValueData] = item;
-    status = SecItemAdd((__bridge CFDictionaryRef)mutableQuery, NULL);
-  } else {
-    NSDictionary *attributes = @{(__bridge id)kSecValueData : item};
-    status = SecItemUpdate((__bridge CFDictionaryRef)query, (__bridge CFDictionaryRef)attributes);
-  }
-
-  if (status == noErr) {
-    if (outError) {
-      *outError = nil;
+    withQuery:(NSDictionary *)query
+    error:(NSError *_Nullable *_Nullable)outError {
+    NSData *existingItem = [self getItemWithQuery:query error:outError];
+    if (outError && *outError) {
+        return NO;
     }
-    return YES;
-  }
 
-  NSString *function = existingItem ? @"SecItemUpdate" : @"SecItemAdd";
-  if (outError) {
-    *outError = [self keychainErrorWithFunction:function status:status];
-  }
-  return NO;
+    NSMutableDictionary *mutableQuery = [query mutableCopy];
+    mutableQuery[(__bridge id)kSecAttrAccessible] =
+        (__bridge id)kSecAttrAccessibleAfterFirstUnlockThisDeviceOnly;
+
+    OSStatus status;
+    if (!existingItem) {
+        mutableQuery[(__bridge id)kSecValueData] = item;
+        status = SecItemAdd((__bridge CFDictionaryRef)mutableQuery, NULL);
+    } else {
+        NSDictionary *attributes = @ {(__bridge id)kSecValueData : item};
+        status = SecItemUpdate((__bridge CFDictionaryRef)query, (__bridge CFDictionaryRef)attributes);
+    }
+
+    if (status == noErr) {
+        if (outError) {
+            *outError = nil;
+        }
+        return YES;
+    }
+
+    NSString *function = existingItem ? @"SecItemUpdate" : @"SecItemAdd";
+    if (outError) {
+        *outError = [self keychainErrorWithFunction:function status:status];
+    }
+    return NO;
 }
 
 + (BOOL)removeItemWithQuery:(NSDictionary *)query error:(NSError *_Nullable *_Nullable)outError {
-  OSStatus status = SecItemDelete((__bridge CFDictionaryRef)query);
+    OSStatus status = SecItemDelete((__bridge CFDictionaryRef)query);
 
-  if (status == noErr || status == errSecItemNotFound) {
-    if (outError) {
-      *outError = nil;
+    if (status == noErr || status == errSecItemNotFound) {
+        if (outError) {
+            *outError = nil;
+        }
+        return YES;
     }
-    return YES;
-  }
 
-  if (outError) {
-    *outError = [self keychainErrorWithFunction:@"SecItemDelete" status:status];
-  }
-  return NO;
+    if (outError) {
+        *outError = [self keychainErrorWithFunction:@"SecItemDelete" status:status];
+    }
+    return NO;
 }
 
 #pragma mark - Errors
 
 + (NSError *)keychainErrorWithFunction:(NSString *)keychainFunction status:(OSStatus)status {
-  NSString *failureReason = [NSString stringWithFormat:@"%@ (%li)", keychainFunction, (long)status];
-  NSDictionary *userInfo = @{NSLocalizedFailureReasonErrorKey : failureReason};
-  return [NSError errorWithDomain:kGULKeychainUtilsErrorDomain code:0 userInfo:userInfo];
+    NSString *failureReason = [NSString stringWithFormat:@"%@ (%li)", keychainFunction, (long)status];
+    NSDictionary *userInfo = @ {NSLocalizedFailureReasonErrorKey : failureReason};
+    return [NSError errorWithDomain:kGULKeychainUtilsErrorDomain code:0 userInfo:userInfo];
 }
 
 @end

@@ -20,16 +20,16 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface FBLPromise<Value>(RaceAdditions)
 
-/**
- Wait until any of the given promises are fulfilled.
- If one of the promises is rejected, then the returned promise is rejected with same error.
- If any other arbitrary value or `NSError` appears in the array instead of `FBLPromise`,
- it's implicitly considered a pre-fulfilled or pre-rejected `FBLPromise` correspondingly.
+    /**
+     Wait until any of the given promises are fulfilled.
+     If one of the promises is rejected, then the returned promise is rejected with same error.
+     If any other arbitrary value or `NSError` appears in the array instead of `FBLPromise`,
+     it's implicitly considered a pre-fulfilled or pre-rejected `FBLPromise` correspondingly.
 
- @param promises Promises to wait for.
- @return A new pending promise to be resolved with the same resolution as the first promise, among
-         the given ones, which was resolved.
- */
+     @param promises Promises to wait for.
+     @return A new pending promise to be resolved with the same resolution as the first promise, among
+             the given ones, which was resolved.
+     */
 + (instancetype)race:(NSArray *)promises NS_SWIFT_UNAVAILABLE("");
 
 /**

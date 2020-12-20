@@ -26,8 +26,8 @@
 
 - (id)initWith:(FRepoInfo *)aRepoInfo
     andDispatchQueue:(dispatch_queue_t)queue
-         googleAppID:(NSString *)googleAppID
-       lastSessionID:(NSString *)lastSessionID;
+    googleAppID:(NSString *)googleAppID
+    lastSessionID:(NSString *)lastSessionID;
 
 - (void)open;
 - (void)close;
@@ -35,7 +35,7 @@
 
 // FWebSocketDelegate delegate methods
 - (void)onMessage:(FWebSocketConnection *)fwebSocket
-      withMessage:(NSDictionary *)message;
+    withMessage:(NSDictionary *)message;
 - (void)onDisconnect:(FWebSocketConnection *)fwebSocket
     wasEverConnected:(BOOL)everConnected;
 
@@ -49,12 +49,12 @@ typedef enum {
 @protocol FConnectionDelegate <NSObject>
 
 - (void)onReady:(FConnection *)fconnection
-         atTime:(NSNumber *)timestamp
-      sessionID:(NSString *)sessionID;
+    atTime:(NSNumber *)timestamp
+    sessionID:(NSString *)sessionID;
 - (void)onDataMessage:(FConnection *)fconnection
-          withMessage:(NSDictionary *)message;
+    withMessage:(NSDictionary *)message;
 - (void)onDisconnect:(FConnection *)fconnection
-          withReason:(FDisconnectReason)reason;
+    withReason:(FDisconnectReason)reason;
 - (void)onKill:(FConnection *)fconnection withReason:(NSString *)reason;
 
 @end

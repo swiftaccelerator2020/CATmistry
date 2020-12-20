@@ -31,8 +31,8 @@
 @synthesize path;
 
 - (id)initWithEventRegistration:(id<FEventRegistration>)registration
-                          error:(NSError *)anError
-                           path:(FPath *)aPath {
+    error:(NSError *)anError
+    path:(FPath *)aPath {
     self = [super init];
     if (self) {
         self.eventRegistration = registration;

@@ -89,7 +89,7 @@ NSString *const kFIRCoreDiagnosticsHeartbeatDateFileName = @"FIREBASE_DIAGNOSTIC
  */
 @interface FIRCoreDiagnosticsLog : NSObject
 
-/** The config that will be converted to proto bytes. */
+    /** The config that will be converted to proto bytes. */
 @property(nonatomic) logs_proto_mobilesdk_ios_ICoreConfiguration config;
 
 @end
@@ -97,39 +97,39 @@ NSString *const kFIRCoreDiagnosticsHeartbeatDateFileName = @"FIREBASE_DIAGNOSTIC
 @implementation FIRCoreDiagnosticsLog
 
 - (instancetype)initWithConfig:(logs_proto_mobilesdk_ios_ICoreConfiguration)config {
-  self = [super init];
-  if (self) {
-    _config = config;
-  }
-  return self;
+    self = [super init];
+    if (self) {
+        _config = config;
+    }
+    return self;
 }
 
 // Provided and required by the GDTCOREventDataObject protocol.
 - (NSData *)transportBytes {
-  pb_ostream_t sizestream = PB_OSTREAM_SIZING;
+    pb_ostream_t sizestream = PB_OSTREAM_SIZING;
 
-  // Encode 1 time to determine the size.
-  if (!pb_encode(&sizestream, logs_proto_mobilesdk_ios_ICoreConfiguration_fields, &_config)) {
-    GDTCORLogError(GDTCORMCETransportBytesError, @"Error in nanopb encoding for size: %s",
-                   PB_GET_ERROR(&sizestream));
-  }
+    // Encode 1 time to determine the size.
+    if (!pb_encode(&sizestream, logs_proto_mobilesdk_ios_ICoreConfiguration_fields, &_config)) {
+        GDTCORLogError(GDTCORMCETransportBytesError, @"Error in nanopb encoding for size: %s",
+                       PB_GET_ERROR(&sizestream));
+    }
 
-  // Encode a 2nd time to actually get the bytes from it.
-  size_t bufferSize = sizestream.bytes_written;
-  CFMutableDataRef dataRef = CFDataCreateMutable(CFAllocatorGetDefault(), bufferSize);
-  CFDataSetLength(dataRef, bufferSize);
-  pb_ostream_t ostream = pb_ostream_from_buffer((void *)CFDataGetBytePtr(dataRef), bufferSize);
-  if (!pb_encode(&ostream, logs_proto_mobilesdk_ios_ICoreConfiguration_fields, &_config)) {
-    GDTCORLogError(GDTCORMCETransportBytesError, @"Error in nanopb encoding for bytes: %s",
-                   PB_GET_ERROR(&ostream));
-  }
-  CFDataSetLength(dataRef, ostream.bytes_written);
+    // Encode a 2nd time to actually get the bytes from it.
+    size_t bufferSize = sizestream.bytes_written;
+    CFMutableDataRef dataRef = CFDataCreateMutable(CFAllocatorGetDefault(), bufferSize);
+    CFDataSetLength(dataRef, bufferSize);
+    pb_ostream_t ostream = pb_ostream_from_buffer((void *)CFDataGetBytePtr(dataRef), bufferSize);
+    if (!pb_encode(&ostream, logs_proto_mobilesdk_ios_ICoreConfiguration_fields, &_config)) {
+        GDTCORLogError(GDTCORMCETransportBytesError, @"Error in nanopb encoding for bytes: %s",
+                       PB_GET_ERROR(&ostream));
+    }
+    CFDataSetLength(dataRef, ostream.bytes_written);
 
-  return CFBridgingRelease(dataRef);
+    return CFBridgingRelease(dataRef);
 }
 
 - (void)dealloc {
-  pb_release(logs_proto_mobilesdk_ios_ICoreConfiguration_fields, &_config);
+    pb_release(logs_proto_mobilesdk_ios_ICoreConfiguration_fields, &_config);
 }
 
 @end
@@ -139,7 +139,7 @@ NS_ASSUME_NONNULL_BEGIN
 /** This class produces a protobuf containing diagnostics and usage data to be logged. */
 @interface FIRCoreDiagnostics : NSObject <FIRCoreDiagnosticsInterop>
 
-/** The queue on which all diagnostics collection will occur. */
+    /** The queue on which all diagnostics collection will occur. */
 @property(nonatomic, readonly) dispatch_queue_t diagnosticsQueue;
 
 /** The transport object used to send data. */
@@ -155,23 +155,23 @@ NS_ASSUME_NONNULL_END
 @implementation FIRCoreDiagnostics
 
 + (instancetype)sharedInstance {
-  static FIRCoreDiagnostics *sharedInstance;
-  static dispatch_once_t onceToken;
-  dispatch_once(&onceToken, ^{
-    sharedInstance = [[FIRCoreDiagnostics alloc] init];
-  });
-  return sharedInstance;
+    static FIRCoreDiagnostics *sharedInstance;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^ {
+        sharedInstance = [[FIRCoreDiagnostics alloc] init];
+    });
+    return sharedInstance;
 }
 
 - (instancetype)init {
-  GDTCORTransport *transport = [[GDTCORTransport alloc] initWithMappingID:@"137"
-                                                             transformers:nil
-                                                                   target:kGDTCORTargetFLL];
+    GDTCORTransport *transport = [[GDTCORTransport alloc] initWithMappingID:@"137"
+                                                          transformers:nil
+                                                          target:kGDTCORTargetFLL];
 
-  GULHeartbeatDateStorage *dateStorage =
-      [[GULHeartbeatDateStorage alloc] initWithFileName:kFIRCoreDiagnosticsHeartbeatDateFileName];
+    GULHeartbeatDateStorage *dateStorage =
+        [[GULHeartbeatDateStorage alloc] initWithFileName:kFIRCoreDiagnosticsHeartbeatDateFileName];
 
-  return [self initWithTransport:transport heartbeatDateStorage:dateStorage];
+    return [self initWithTransport:transport heartbeatDateStorage:dateStorage];
 }
 
 /** Initializer for unit tests.
@@ -181,15 +181,15 @@ NS_ASSUME_NONNULL_END
  * @return Returns the initialized `FIRCoreDiagnostics` instance.
  */
 - (instancetype)initWithTransport:(GDTCORTransport *)transport
-             heartbeatDateStorage:(GULHeartbeatDateStorage *)heartbeatDateStorage {
-  self = [super init];
-  if (self) {
-    _diagnosticsQueue =
-        dispatch_queue_create("com.google.FIRCoreDiagnostics", DISPATCH_QUEUE_SERIAL);
-    _transport = transport;
-    _heartbeatDateStorage = heartbeatDateStorage;
-  }
-  return self;
+    heartbeatDateStorage:(GULHeartbeatDateStorage *)heartbeatDateStorage {
+    self = [super init];
+    if (self) {
+        _diagnosticsQueue =
+            dispatch_queue_create("com.google.FIRCoreDiagnostics", DISPATCH_QUEUE_SERIAL);
+        _transport = transport;
+        _heartbeatDateStorage = heartbeatDateStorage;
+    }
+    return self;
 }
 
 #pragma mark - Metadata helpers
@@ -201,13 +201,13 @@ NS_ASSUME_NONNULL_END
  * @return The device model as an NSString.
  */
 + (NSString *)deviceModel {
-  static NSString *deviceModel = nil;
-  if (deviceModel == nil) {
-    struct utsname systemInfo;
-    uname(&systemInfo);
-    deviceModel = [NSString stringWithCString:systemInfo.machine encoding:NSUTF8StringEncoding];
-  }
-  return deviceModel;
+    static NSString *deviceModel = nil;
+    if (deviceModel == nil) {
+        struct utsname systemInfo;
+        uname(&systemInfo);
+        deviceModel = [NSString stringWithCString:systemInfo.machine encoding:NSUTF8StringEncoding];
+    }
+    return deviceModel;
 }
 
 #pragma mark - nanopb helper functions
@@ -218,8 +218,8 @@ NS_ASSUME_NONNULL_END
  * @param string The string to encode as pb_bytes.
  */
 pb_bytes_array_t *FIREncodeString(NSString *string) {
-  NSData *stringBytes = [string dataUsingEncoding:NSUTF8StringEncoding];
-  return FIREncodeData(stringBytes);
+    NSData *stringBytes = [string dataUsingEncoding:NSUTF8StringEncoding];
+    return FIREncodeData(stringBytes);
 }
 
 /** Callocs a pb_bytes_array and copies the given NSData bytes into the bytes array.
@@ -228,12 +228,12 @@ pb_bytes_array_t *FIREncodeString(NSString *string) {
  * @param data The data to copy into the new bytes array.
  */
 pb_bytes_array_t *FIREncodeData(NSData *data) {
-  pb_bytes_array_t *pbBytesArray = calloc(1, PB_BYTES_ARRAY_T_ALLOCSIZE(data.length));
-  if (pbBytesArray != NULL) {
-    [data getBytes:pbBytesArray->bytes length:data.length];
-    pbBytesArray->size = (pb_size_t)data.length;
-  }
-  return pbBytesArray;
+    pb_bytes_array_t *pbBytesArray = calloc(1, PB_BYTES_ARRAY_T_ALLOCSIZE(data.length));
+    if (pbBytesArray != NULL) {
+        [data getBytes:pbBytesArray->bytes length:data.length];
+        pbBytesArray->size = (pb_size_t)data.length;
+    }
+    return pbBytesArray;
 }
 
 /** Maps a service string to the representative nanopb enum.
@@ -243,36 +243,47 @@ pb_bytes_array_t *FIREncodeData(NSData *data) {
  */
 logs_proto_mobilesdk_ios_ICoreConfiguration_ServiceType FIRMapFromServiceStringToTypeEnum(
     NSString *serviceString) {
-  static NSDictionary<NSString *, NSNumber *> *serviceStringToTypeEnum;
-  if (serviceStringToTypeEnum == nil) {
-    serviceStringToTypeEnum = @{
-      kFIRServiceAdMob : @(logs_proto_mobilesdk_ios_ICoreConfiguration_ServiceType_ADMOB),
-      kFIRServiceMessaging : @(logs_proto_mobilesdk_ios_ICoreConfiguration_ServiceType_MESSAGING),
-      kFIRServiceMeasurement :
-          @(logs_proto_mobilesdk_ios_ICoreConfiguration_ServiceType_MEASUREMENT),
-      kFIRServiceRemoteConfig :
-          @(logs_proto_mobilesdk_ios_ICoreConfiguration_ServiceType_REMOTE_CONFIG),
-      kFIRServiceDatabase : @(logs_proto_mobilesdk_ios_ICoreConfiguration_ServiceType_DATABASE),
-      kFIRServiceDynamicLinks :
-          @(logs_proto_mobilesdk_ios_ICoreConfiguration_ServiceType_DYNAMIC_LINKS),
-      kFIRServiceAuth : @(logs_proto_mobilesdk_ios_ICoreConfiguration_ServiceType_AUTH),
-      kFIRServiceAuthUI : @(logs_proto_mobilesdk_ios_ICoreConfiguration_ServiceType_AUTH_UI),
-      kFIRServiceFirestore : @(logs_proto_mobilesdk_ios_ICoreConfiguration_ServiceType_FIRESTORE),
-      kFIRServiceFunctions : @(logs_proto_mobilesdk_ios_ICoreConfiguration_ServiceType_FUNCTIONS),
-      kFIRServicePerformance :
-          @(logs_proto_mobilesdk_ios_ICoreConfiguration_ServiceType_PERFORMANCE),
-      kFIRServiceStorage : @(logs_proto_mobilesdk_ios_ICoreConfiguration_ServiceType_STORAGE),
-      kFIRServiceMLModelInterpreter :
-          @(logs_proto_mobilesdk_ios_ICoreConfiguration_ServiceType_ML_MODEL_INTERPRETER),
-      kGGLServiceAnalytics : @(logs_proto_mobilesdk_ios_ICoreConfiguration_ServiceType_ANALYTICS),
-      kGGLServiceSignIn : @(logs_proto_mobilesdk_ios_ICoreConfiguration_ServiceType_SIGN_IN),
-      kFIRServiceIAM : @(logs_proto_mobilesdk_ios_ICoreConfiguration_ServiceType_IN_APP_MESSAGING),
-    };
-  }
-  if (serviceStringToTypeEnum[serviceString] != nil) {
-    return (int32_t)serviceStringToTypeEnum[serviceString].longLongValue;
-  }
-  return logs_proto_mobilesdk_ios_ICoreConfiguration_ServiceType_UNKNOWN_SDK_SERVICE;
+    static NSDictionary<NSString *, NSNumber *> *serviceStringToTypeEnum;
+    if (serviceStringToTypeEnum == nil) {
+        serviceStringToTypeEnum = @ {
+kFIRServiceAdMob :
+            @(logs_proto_mobilesdk_ios_ICoreConfiguration_ServiceType_ADMOB),
+kFIRServiceMessaging :
+            @(logs_proto_mobilesdk_ios_ICoreConfiguration_ServiceType_MESSAGING),
+kFIRServiceMeasurement :
+            @(logs_proto_mobilesdk_ios_ICoreConfiguration_ServiceType_MEASUREMENT),
+kFIRServiceRemoteConfig :
+            @(logs_proto_mobilesdk_ios_ICoreConfiguration_ServiceType_REMOTE_CONFIG),
+kFIRServiceDatabase :
+            @(logs_proto_mobilesdk_ios_ICoreConfiguration_ServiceType_DATABASE),
+kFIRServiceDynamicLinks :
+            @(logs_proto_mobilesdk_ios_ICoreConfiguration_ServiceType_DYNAMIC_LINKS),
+kFIRServiceAuth :
+            @(logs_proto_mobilesdk_ios_ICoreConfiguration_ServiceType_AUTH),
+kFIRServiceAuthUI :
+            @(logs_proto_mobilesdk_ios_ICoreConfiguration_ServiceType_AUTH_UI),
+kFIRServiceFirestore :
+            @(logs_proto_mobilesdk_ios_ICoreConfiguration_ServiceType_FIRESTORE),
+kFIRServiceFunctions :
+            @(logs_proto_mobilesdk_ios_ICoreConfiguration_ServiceType_FUNCTIONS),
+kFIRServicePerformance :
+            @(logs_proto_mobilesdk_ios_ICoreConfiguration_ServiceType_PERFORMANCE),
+kFIRServiceStorage :
+            @(logs_proto_mobilesdk_ios_ICoreConfiguration_ServiceType_STORAGE),
+kFIRServiceMLModelInterpreter :
+            @(logs_proto_mobilesdk_ios_ICoreConfiguration_ServiceType_ML_MODEL_INTERPRETER),
+kGGLServiceAnalytics :
+            @(logs_proto_mobilesdk_ios_ICoreConfiguration_ServiceType_ANALYTICS),
+kGGLServiceSignIn :
+            @(logs_proto_mobilesdk_ios_ICoreConfiguration_ServiceType_SIGN_IN),
+kFIRServiceIAM :
+            @(logs_proto_mobilesdk_ios_ICoreConfiguration_ServiceType_IN_APP_MESSAGING),
+        };
+    }
+    if (serviceStringToTypeEnum[serviceString] != nil) {
+        return (int32_t)serviceStringToTypeEnum[serviceString].longLongValue;
+    }
+    return logs_proto_mobilesdk_ios_ICoreConfiguration_ServiceType_UNKNOWN_SDK_SERVICE;
 }
 
 #pragma mark - Proto population functions
@@ -284,35 +295,35 @@ logs_proto_mobilesdk_ios_ICoreConfiguration_ServiceType FIRMapFromServiceStringT
  * @param diagnosticObjects The dictionary of diagnostics objects.
  */
 void FIRPopulateProtoWithInfoFromUserInfoParams(logs_proto_mobilesdk_ios_ICoreConfiguration *config,
-                                                NSDictionary<NSString *, id> *diagnosticObjects) {
-  NSNumber *configurationType = diagnosticObjects[kFIRCDConfigurationTypeKey];
-  if (configurationType != nil) {
-    switch (configurationType.integerValue) {
-      case logs_proto_mobilesdk_ios_ICoreConfiguration_ConfigurationType_CORE:
-        config->configuration_type =
-            logs_proto_mobilesdk_ios_ICoreConfiguration_ConfigurationType_CORE;
-        config->has_configuration_type = 1;
-        break;
-      case logs_proto_mobilesdk_ios_ICoreConfiguration_ConfigurationType_SDK:
-        config->configuration_type =
-            logs_proto_mobilesdk_ios_ICoreConfiguration_ConfigurationType_SDK;
-        config->has_configuration_type = 1;
-        break;
-      default:
-        break;
+        NSDictionary<NSString *, id> *diagnosticObjects) {
+    NSNumber *configurationType = diagnosticObjects[kFIRCDConfigurationTypeKey];
+    if (configurationType != nil) {
+        switch (configurationType.integerValue) {
+        case logs_proto_mobilesdk_ios_ICoreConfiguration_ConfigurationType_CORE:
+            config->configuration_type =
+                logs_proto_mobilesdk_ios_ICoreConfiguration_ConfigurationType_CORE;
+            config->has_configuration_type = 1;
+            break;
+        case logs_proto_mobilesdk_ios_ICoreConfiguration_ConfigurationType_SDK:
+            config->configuration_type =
+                logs_proto_mobilesdk_ios_ICoreConfiguration_ConfigurationType_SDK;
+            config->has_configuration_type = 1;
+            break;
+        default:
+            break;
+        }
     }
-  }
 
-  NSString *sdkName = diagnosticObjects[kFIRCDSdkNameKey];
-  if (sdkName) {
-    config->sdk_name = FIRMapFromServiceStringToTypeEnum(sdkName);
-    config->has_sdk_name = 1;
-  }
+    NSString *sdkName = diagnosticObjects[kFIRCDSdkNameKey];
+    if (sdkName) {
+        config->sdk_name = FIRMapFromServiceStringToTypeEnum(sdkName);
+        config->has_sdk_name = 1;
+    }
 
-  NSString *version = diagnosticObjects[kFIRCDSdkVersionKey];
-  if (version) {
-    config->sdk_version = FIREncodeString(version);
-  }
+    NSString *version = diagnosticObjects[kFIRCDSdkVersionKey];
+    if (version) {
+        config->sdk_version = FIREncodeString(version);
+    }
 }
 
 /** Populates the given proto with data from the calling FIRApp using the given
@@ -322,59 +333,59 @@ void FIRPopulateProtoWithInfoFromUserInfoParams(logs_proto_mobilesdk_ios_ICoreCo
  * @param diagnosticObjects The dictionary of diagnostics objects.
  */
 void FIRPopulateProtoWithCommonInfoFromApp(logs_proto_mobilesdk_ios_ICoreConfiguration *config,
-                                           NSDictionary<NSString *, id> *diagnosticObjects) {
-  config->pod_name = logs_proto_mobilesdk_ios_ICoreConfiguration_PodName_FIREBASE;
-  config->has_pod_name = 1;
+        NSDictionary<NSString *, id> *diagnosticObjects) {
+    config->pod_name = logs_proto_mobilesdk_ios_ICoreConfiguration_PodName_FIREBASE;
+    config->has_pod_name = 1;
 
-  if (!diagnosticObjects[kFIRCDllAppsCountKey]) {
-    GDTCORLogError(GDTCORMCEGeneralError, @"%@",
-                   @"App count is a required value in the data dict.");
-  }
-  config->app_count = (int32_t)[diagnosticObjects[kFIRCDllAppsCountKey] integerValue];
-  config->has_app_count = 1;
+    if (!diagnosticObjects[kFIRCDllAppsCountKey]) {
+        GDTCORLogError(GDTCORMCEGeneralError, @"%@",
+                       @"App count is a required value in the data dict.");
+    }
+    config->app_count = (int32_t)[diagnosticObjects[kFIRCDllAppsCountKey] integerValue];
+    config->has_app_count = 1;
 
-  NSString *googleAppID = diagnosticObjects[kFIRCDGoogleAppIDKey];
-  if (googleAppID.length) {
-    config->app_id = FIREncodeString(googleAppID);
-  }
+    NSString *googleAppID = diagnosticObjects[kFIRCDGoogleAppIDKey];
+    if (googleAppID.length) {
+        config->app_id = FIREncodeString(googleAppID);
+    }
 
-  NSString *bundleID = diagnosticObjects[kFIRCDBundleIDKey];
-  if (bundleID.length) {
-    config->bundle_id = FIREncodeString(bundleID);
-  }
+    NSString *bundleID = diagnosticObjects[kFIRCDBundleIDKey];
+    if (bundleID.length) {
+        config->bundle_id = FIREncodeString(bundleID);
+    }
 
-  NSString *firebaseUserAgent = diagnosticObjects[kFIRCDFirebaseUserAgentKey];
-  if (firebaseUserAgent.length) {
-    config->platform_info = FIREncodeString(firebaseUserAgent);
-  }
+    NSString *firebaseUserAgent = diagnosticObjects[kFIRCDFirebaseUserAgentKey];
+    if (firebaseUserAgent.length) {
+        config->platform_info = FIREncodeString(firebaseUserAgent);
+    }
 
-  NSNumber *usingOptionsFromDefaultPlist = diagnosticObjects[kFIRCDUsingOptionsFromDefaultPlistKey];
-  if (usingOptionsFromDefaultPlist != nil) {
-    config->use_default_app = [usingOptionsFromDefaultPlist boolValue];
-    config->has_use_default_app = 1;
-  }
+    NSNumber *usingOptionsFromDefaultPlist = diagnosticObjects[kFIRCDUsingOptionsFromDefaultPlistKey];
+    if (usingOptionsFromDefaultPlist != nil) {
+        config->use_default_app = [usingOptionsFromDefaultPlist boolValue];
+        config->has_use_default_app = 1;
+    }
 
-  NSString *libraryVersionID = diagnosticObjects[kFIRCDLibraryVersionIDKey];
-  if (libraryVersionID) {
-    config->icore_version = FIREncodeString(libraryVersionID);
-  }
+    NSString *libraryVersionID = diagnosticObjects[kFIRCDLibraryVersionIDKey];
+    if (libraryVersionID) {
+        config->icore_version = FIREncodeString(libraryVersionID);
+    }
 
-  NSString *deviceModel = [FIRCoreDiagnostics deviceModel];
-  if (deviceModel.length) {
-    config->device_model = FIREncodeString(deviceModel);
-  }
+    NSString *deviceModel = [FIRCoreDiagnostics deviceModel];
+    if (deviceModel.length) {
+        config->device_model = FIREncodeString(deviceModel);
+    }
 
-  NSString *osVersion = [GULAppEnvironmentUtil systemVersion];
-  if (osVersion.length) {
-    config->os_version = FIREncodeString(osVersion);
-  }
+    NSString *osVersion = [GULAppEnvironmentUtil systemVersion];
+    if (osVersion.length) {
+        config->os_version = FIREncodeString(osVersion);
+    }
 
-  config->using_zip_file = kUsingZipFile;
-  config->has_using_zip_file = 1;
-  config->deployment_type = kDeploymentType;
-  config->has_deployment_type = 1;
-  config->deployed_in_app_store = [GULAppEnvironmentUtil isFromAppStore];
-  config->has_deployed_in_app_store = 1;
+    config->using_zip_file = kUsingZipFile;
+    config->has_using_zip_file = 1;
+    config->deployment_type = kDeploymentType;
+    config->has_deployment_type = 1;
+    config->deployed_in_app_store = [GULAppEnvironmentUtil isFromAppStore];
+    config->has_deployed_in_app_store = 1;
 }
 
 /** Populates the given proto with installed services data.
@@ -382,94 +393,94 @@ void FIRPopulateProtoWithCommonInfoFromApp(logs_proto_mobilesdk_ios_ICoreConfigu
  * @param config The proto to populate
  */
 void FIRPopulateProtoWithInstalledServices(logs_proto_mobilesdk_ios_ICoreConfiguration *config) {
-  NSMutableArray<NSNumber *> *sdkServiceInstalledArray = [NSMutableArray array];
+    NSMutableArray<NSNumber *> *sdkServiceInstalledArray = [NSMutableArray array];
 
-  // AdMob
-  if (NSClassFromString(@"GADBannerView") != nil) {
-    [sdkServiceInstalledArray addObject:@(FIRMapFromServiceStringToTypeEnum(kFIRServiceAdMob))];
-  }
-  // CloudMessaging
-  if (NSClassFromString(@"FIRMessaging") != nil) {
-    [sdkServiceInstalledArray addObject:@(FIRMapFromServiceStringToTypeEnum(kFIRServiceMessaging))];
-  }
-  // RemoteConfig
-  if (NSClassFromString(@"FIRRemoteConfig") != nil) {
-    [sdkServiceInstalledArray
-        addObject:@(FIRMapFromServiceStringToTypeEnum(kFIRServiceRemoteConfig))];
-  }
-  // Measurement/Analtyics
-  if (NSClassFromString(@"FIRAnalytics") != nil) {
-    [sdkServiceInstalledArray
-        addObject:@(FIRMapFromServiceStringToTypeEnum(kFIRServiceMeasurement))];
-  }
-  // ML Model Interpreter
-  if (NSClassFromString(@"FIRCustomModelInterpreter") != nil) {
-    [sdkServiceInstalledArray
-        addObject:@(FIRMapFromServiceStringToTypeEnum(kFIRServiceMLModelInterpreter))];
-  }
-  // Database
-  if (NSClassFromString(@"FIRDatabase") != nil) {
-    [sdkServiceInstalledArray addObject:@(FIRMapFromServiceStringToTypeEnum(kFIRServiceDatabase))];
-  }
-  // DynamicDeepLink
-  if (NSClassFromString(@"FIRDynamicLinks") != nil) {
-    [sdkServiceInstalledArray
-        addObject:@(FIRMapFromServiceStringToTypeEnum(kFIRServiceDynamicLinks))];
-  }
-  // Auth
-  if (NSClassFromString(@"FIRAuth") != nil) {
-    [sdkServiceInstalledArray addObject:@(FIRMapFromServiceStringToTypeEnum(kFIRServiceAuth))];
-  }
-  // AuthUI
-  if (NSClassFromString(@"FUIAuth") != nil) {
-    [sdkServiceInstalledArray addObject:@(FIRMapFromServiceStringToTypeEnum(kFIRServiceAuthUI))];
-  }
-  // Firestore
-  if (NSClassFromString(@"FIRFirestore") != nil) {
-    [sdkServiceInstalledArray addObject:@(FIRMapFromServiceStringToTypeEnum(kFIRServiceFirestore))];
-  }
-  // Functions
-  if (NSClassFromString(@"FIRFunctions") != nil) {
-    [sdkServiceInstalledArray addObject:@(FIRMapFromServiceStringToTypeEnum(kFIRServiceFunctions))];
-  }
-  // Performance
-  if (NSClassFromString(@"FIRPerformance") != nil) {
-    [sdkServiceInstalledArray
-        addObject:@(FIRMapFromServiceStringToTypeEnum(kFIRServicePerformance))];
-  }
-  // Storage
-  if (NSClassFromString(@"FIRStorage") != nil) {
-    [sdkServiceInstalledArray addObject:@(FIRMapFromServiceStringToTypeEnum(kFIRServiceStorage))];
-  }
-  // SignIn via Google pod
-  if (NSClassFromString(@"GIDSignIn") != nil && NSClassFromString(@"GGLContext") != nil) {
-    [sdkServiceInstalledArray addObject:@(FIRMapFromServiceStringToTypeEnum(kGGLServiceSignIn))];
-  }
-  // Analytics via Google pod
-  if (NSClassFromString(@"GAI") != nil && NSClassFromString(@"GGLContext") != nil) {
-    [sdkServiceInstalledArray addObject:@(FIRMapFromServiceStringToTypeEnum(kGGLServiceAnalytics))];
-  }
+    // AdMob
+    if (NSClassFromString(@"GADBannerView") != nil) {
+        [sdkServiceInstalledArray addObject:@(FIRMapFromServiceStringToTypeEnum(kFIRServiceAdMob))];
+    }
+    // CloudMessaging
+    if (NSClassFromString(@"FIRMessaging") != nil) {
+        [sdkServiceInstalledArray addObject:@(FIRMapFromServiceStringToTypeEnum(kFIRServiceMessaging))];
+    }
+    // RemoteConfig
+    if (NSClassFromString(@"FIRRemoteConfig") != nil) {
+        [sdkServiceInstalledArray
+         addObject:@(FIRMapFromServiceStringToTypeEnum(kFIRServiceRemoteConfig))];
+    }
+    // Measurement/Analtyics
+    if (NSClassFromString(@"FIRAnalytics") != nil) {
+        [sdkServiceInstalledArray
+         addObject:@(FIRMapFromServiceStringToTypeEnum(kFIRServiceMeasurement))];
+    }
+    // ML Model Interpreter
+    if (NSClassFromString(@"FIRCustomModelInterpreter") != nil) {
+        [sdkServiceInstalledArray
+         addObject:@(FIRMapFromServiceStringToTypeEnum(kFIRServiceMLModelInterpreter))];
+    }
+    // Database
+    if (NSClassFromString(@"FIRDatabase") != nil) {
+        [sdkServiceInstalledArray addObject:@(FIRMapFromServiceStringToTypeEnum(kFIRServiceDatabase))];
+    }
+    // DynamicDeepLink
+    if (NSClassFromString(@"FIRDynamicLinks") != nil) {
+        [sdkServiceInstalledArray
+         addObject:@(FIRMapFromServiceStringToTypeEnum(kFIRServiceDynamicLinks))];
+    }
+    // Auth
+    if (NSClassFromString(@"FIRAuth") != nil) {
+        [sdkServiceInstalledArray addObject:@(FIRMapFromServiceStringToTypeEnum(kFIRServiceAuth))];
+    }
+    // AuthUI
+    if (NSClassFromString(@"FUIAuth") != nil) {
+        [sdkServiceInstalledArray addObject:@(FIRMapFromServiceStringToTypeEnum(kFIRServiceAuthUI))];
+    }
+    // Firestore
+    if (NSClassFromString(@"FIRFirestore") != nil) {
+        [sdkServiceInstalledArray addObject:@(FIRMapFromServiceStringToTypeEnum(kFIRServiceFirestore))];
+    }
+    // Functions
+    if (NSClassFromString(@"FIRFunctions") != nil) {
+        [sdkServiceInstalledArray addObject:@(FIRMapFromServiceStringToTypeEnum(kFIRServiceFunctions))];
+    }
+    // Performance
+    if (NSClassFromString(@"FIRPerformance") != nil) {
+        [sdkServiceInstalledArray
+         addObject:@(FIRMapFromServiceStringToTypeEnum(kFIRServicePerformance))];
+    }
+    // Storage
+    if (NSClassFromString(@"FIRStorage") != nil) {
+        [sdkServiceInstalledArray addObject:@(FIRMapFromServiceStringToTypeEnum(kFIRServiceStorage))];
+    }
+    // SignIn via Google pod
+    if (NSClassFromString(@"GIDSignIn") != nil && NSClassFromString(@"GGLContext") != nil) {
+        [sdkServiceInstalledArray addObject:@(FIRMapFromServiceStringToTypeEnum(kGGLServiceSignIn))];
+    }
+    // Analytics via Google pod
+    if (NSClassFromString(@"GAI") != nil && NSClassFromString(@"GGLContext") != nil) {
+        [sdkServiceInstalledArray addObject:@(FIRMapFromServiceStringToTypeEnum(kGGLServiceAnalytics))];
+    }
 
-  // In-App Messaging
-  if (NSClassFromString(@"FIRInAppMessaging") != nil) {
-    [sdkServiceInstalledArray addObject:@(FIRMapFromServiceStringToTypeEnum(kFIRServiceIAM))];
-  }
+    // In-App Messaging
+    if (NSClassFromString(@"FIRInAppMessaging") != nil) {
+        [sdkServiceInstalledArray addObject:@(FIRMapFromServiceStringToTypeEnum(kFIRServiceIAM))];
+    }
 
-  logs_proto_mobilesdk_ios_ICoreConfiguration_ServiceType *servicesInstalled =
-      calloc(sdkServiceInstalledArray.count,
-             sizeof(logs_proto_mobilesdk_ios_ICoreConfiguration_ServiceType));
-  if (servicesInstalled == NULL) {
-    return;
-  }
-  for (NSUInteger i = 0; i < sdkServiceInstalledArray.count; i++) {
-    NSNumber *typeEnum = sdkServiceInstalledArray[i];
-    logs_proto_mobilesdk_ios_ICoreConfiguration_ServiceType serviceType =
-        (int32_t)typeEnum.integerValue;
-    servicesInstalled[i] = serviceType;
-  }
+    logs_proto_mobilesdk_ios_ICoreConfiguration_ServiceType *servicesInstalled =
+        calloc(sdkServiceInstalledArray.count,
+               sizeof(logs_proto_mobilesdk_ios_ICoreConfiguration_ServiceType));
+    if (servicesInstalled == NULL) {
+        return;
+    }
+    for (NSUInteger i = 0; i < sdkServiceInstalledArray.count; i++) {
+        NSNumber *typeEnum = sdkServiceInstalledArray[i];
+        logs_proto_mobilesdk_ios_ICoreConfiguration_ServiceType serviceType =
+            (int32_t)typeEnum.integerValue;
+        servicesInstalled[i] = serviceType;
+    }
 
-  config->sdk_service_installed = servicesInstalled;
-  config->sdk_service_installed_count = (int32_t)sdkServiceInstalledArray.count;
+    config->sdk_service_installed = servicesInstalled;
+    config->sdk_service_installed_count = (int32_t)sdkServiceInstalledArray.count;
 }
 
 /** Populates the proto with the number of linked frameworks.
@@ -478,21 +489,21 @@ void FIRPopulateProtoWithInstalledServices(logs_proto_mobilesdk_ios_ICoreConfigu
  */
 void FIRPopulateProtoWithNumberOfLinkedFrameworks(
     logs_proto_mobilesdk_ios_ICoreConfiguration *config) {
-  int numFrameworks = -1;  // Subtract the app binary itself.
-  unsigned int numImages;
-  const char **imageNames = objc_copyImageNames(&numImages);
-  for (unsigned int i = 0; i < numImages; i++) {
-    NSString *imageName = [NSString stringWithUTF8String:imageNames[i]];
-    if ([imageName rangeOfString:@"System/Library"].length != 0        // Apple .frameworks
-        || [imageName rangeOfString:@"Developer/Library"].length != 0  // Xcode debug .frameworks
-        || [imageName rangeOfString:@"usr/lib"].length != 0) {         // Public .dylibs
-      continue;
+    int numFrameworks = -1;  // Subtract the app binary itself.
+    unsigned int numImages;
+    const char **imageNames = objc_copyImageNames(&numImages);
+    for (unsigned int i = 0; i < numImages; i++) {
+        NSString *imageName = [NSString stringWithUTF8String:imageNames[i]];
+        if ([imageName rangeOfString:@"System/Library"].length != 0        // Apple .frameworks
+                || [imageName rangeOfString:@"Developer/Library"].length != 0  // Xcode debug .frameworks
+                || [imageName rangeOfString:@"usr/lib"].length != 0) {         // Public .dylibs
+            continue;
+        }
+        numFrameworks++;
     }
-    numFrameworks++;
-  }
-  free(imageNames);
-  config->dynamic_framework_count = numFrameworks;
-  config->has_dynamic_framework_count = 1;
+    free(imageNames);
+    config->dynamic_framework_count = numFrameworks;
+    config->has_dynamic_framework_count = 1;
 }
 
 /** Populates the proto with Info.plist values.
@@ -500,94 +511,94 @@ void FIRPopulateProtoWithNumberOfLinkedFrameworks(
  * @param config The proto to populate.
  */
 void FIRPopulateProtoWithInfoPlistValues(logs_proto_mobilesdk_ios_ICoreConfiguration *config) {
-  NSDictionary<NSString *, id> *info = [[NSBundle mainBundle] infoDictionary];
+    NSDictionary<NSString *, id> *info = [[NSBundle mainBundle] infoDictionary];
 
-  NSString *xcodeVersion = info[@"DTXcodeBuild"] ?: @"";
-  NSString *sdkVersion = info[@"DTSDKBuild"] ?: @"";
-  NSString *combinedVersions = [NSString stringWithFormat:@"%@-%@", xcodeVersion, sdkVersion];
-  config->apple_framework_version = FIREncodeString(combinedVersions);
+    NSString *xcodeVersion = info[@"DTXcodeBuild"] ?: @"";
+    NSString *sdkVersion = info[@"DTSDKBuild"] ?: @"";
+    NSString *combinedVersions = [NSString stringWithFormat:@"%@-%@", xcodeVersion, sdkVersion];
+    config->apple_framework_version = FIREncodeString(combinedVersions);
 
-  NSString *minVersion = info[@"MinimumOSVersion"];
-  if (minVersion) {
-    config->min_supported_ios_version = FIREncodeString(minVersion);
-  }
+    NSString *minVersion = info[@"MinimumOSVersion"];
+    if (minVersion) {
+        config->min_supported_ios_version = FIREncodeString(minVersion);
+    }
 
-  // Apps can turn off swizzling in the Info.plist, check if they've explicitly set the value and
-  // report it. It's enabled by default.
-  NSNumber *appDelegateSwizzledNum = info[@"FirebaseAppDelegateProxyEnabled"];
-  BOOL appDelegateSwizzled = YES;
-  if ([appDelegateSwizzledNum isKindOfClass:[NSNumber class]]) {
-    appDelegateSwizzled = [appDelegateSwizzledNum boolValue];
-  }
-  config->swizzling_enabled = appDelegateSwizzled;
-  config->has_swizzling_enabled = 1;
+    // Apps can turn off swizzling in the Info.plist, check if they've explicitly set the value and
+    // report it. It's enabled by default.
+    NSNumber *appDelegateSwizzledNum = info[@"FirebaseAppDelegateProxyEnabled"];
+    BOOL appDelegateSwizzled = YES;
+    if ([appDelegateSwizzledNum isKindOfClass:[NSNumber class]]) {
+        appDelegateSwizzled = [appDelegateSwizzledNum boolValue];
+    }
+    config->swizzling_enabled = appDelegateSwizzled;
+    config->has_swizzling_enabled = 1;
 }
 
 #pragma mark - FIRCoreDiagnosticsInterop
 
 + (void)sendDiagnosticsData:(nonnull id<FIRCoreDiagnosticsData>)diagnosticsData {
-  FIRCoreDiagnostics *diagnostics = [FIRCoreDiagnostics sharedInstance];
-  [diagnostics sendDiagnosticsData:diagnosticsData];
+    FIRCoreDiagnostics *diagnostics = [FIRCoreDiagnostics sharedInstance];
+    [diagnostics sendDiagnosticsData:diagnosticsData];
 }
 
 - (void)sendDiagnosticsData:(nonnull id<FIRCoreDiagnosticsData>)diagnosticsData {
-  dispatch_async(self.diagnosticsQueue, ^{
-    NSDictionary<NSString *, id> *diagnosticObjects = diagnosticsData.diagnosticObjects;
-    NSNumber *isDataCollectionDefaultEnabled =
+    dispatch_async(self.diagnosticsQueue, ^ {
+        NSDictionary<NSString *, id> *diagnosticObjects = diagnosticsData.diagnosticObjects;
+        NSNumber *isDataCollectionDefaultEnabled =
         diagnosticObjects[kFIRCDIsDataCollectionDefaultEnabledKey];
-    if (isDataCollectionDefaultEnabled && ![isDataCollectionDefaultEnabled boolValue]) {
-      return;
-    }
+        if (isDataCollectionDefaultEnabled && ![isDataCollectionDefaultEnabled boolValue]) {
+            return;
+        }
 
-    // Create the proto.
-    logs_proto_mobilesdk_ios_ICoreConfiguration icore_config =
+        // Create the proto.
+        logs_proto_mobilesdk_ios_ICoreConfiguration icore_config =
         logs_proto_mobilesdk_ios_ICoreConfiguration_init_default;
 
-    icore_config.using_gdt = 1;
-    icore_config.has_using_gdt = 1;
+        icore_config.using_gdt = 1;
+        icore_config.has_using_gdt = 1;
 
-    // Populate the proto with information.
-    FIRPopulateProtoWithInfoFromUserInfoParams(&icore_config, diagnosticObjects);
-    FIRPopulateProtoWithCommonInfoFromApp(&icore_config, diagnosticObjects);
-    FIRPopulateProtoWithInstalledServices(&icore_config);
-    FIRPopulateProtoWithNumberOfLinkedFrameworks(&icore_config);
-    FIRPopulateProtoWithInfoPlistValues(&icore_config);
-    [self setHeartbeatFlagIfNeededToConfig:&icore_config];
+        // Populate the proto with information.
+        FIRPopulateProtoWithInfoFromUserInfoParams(&icore_config, diagnosticObjects);
+        FIRPopulateProtoWithCommonInfoFromApp(&icore_config, diagnosticObjects);
+        FIRPopulateProtoWithInstalledServices(&icore_config);
+        FIRPopulateProtoWithNumberOfLinkedFrameworks(&icore_config);
+        FIRPopulateProtoWithInfoPlistValues(&icore_config);
+        [self setHeartbeatFlagIfNeededToConfig:&icore_config];
 
-    // This log object is capable of converting the proto to bytes.
-    FIRCoreDiagnosticsLog *log = [[FIRCoreDiagnosticsLog alloc] initWithConfig:icore_config];
+        // This log object is capable of converting the proto to bytes.
+        FIRCoreDiagnosticsLog *log = [[FIRCoreDiagnosticsLog alloc] initWithConfig:icore_config];
 
-    // Send the log as a telemetry event.
-    GDTCOREvent *event = [self.transport eventForTransport];
-    event.dataObject = (id<GDTCOREventDataObject>)log;
-    [self.transport sendTelemetryEvent:event];
-  });
+        // Send the log as a telemetry event.
+        GDTCOREvent *event = [self.transport eventForTransport];
+        event.dataObject = (id<GDTCOREventDataObject>)log;
+        [self.transport sendTelemetryEvent:event];
+    });
 }
 
 #pragma mark - Heartbeat
 
 - (void)setHeartbeatFlagIfNeededToConfig:(logs_proto_mobilesdk_ios_ICoreConfiguration *)config {
-  // Check if need to send a heartbeat.
-  NSDate *currentDate = [NSDate date];
-  NSDate *lastCheckin =
-      [self.heartbeatDateStorage heartbeatDateForTag:kFIRCoreDiagnosticsHeartbeatTag];
-  if (lastCheckin) {
-    // Ensure the previous checkin was on a different date in the past.
-    if ([self isDate:currentDate inSameDayOrBeforeThan:lastCheckin]) {
-      return;
+    // Check if need to send a heartbeat.
+    NSDate *currentDate = [NSDate date];
+    NSDate *lastCheckin =
+        [self.heartbeatDateStorage heartbeatDateForTag:kFIRCoreDiagnosticsHeartbeatTag];
+    if (lastCheckin) {
+        // Ensure the previous checkin was on a different date in the past.
+        if ([self isDate:currentDate inSameDayOrBeforeThan:lastCheckin]) {
+            return;
+        }
     }
-  }
 
-  // Update heartbeat sent date.
-  [self.heartbeatDateStorage setHearbeatDate:currentDate forTag:kFIRCoreDiagnosticsHeartbeatTag];
-  // Set the flag.
-  config->sdk_name = logs_proto_mobilesdk_ios_ICoreConfiguration_ServiceType_ICORE;
-  config->has_sdk_name = 1;
+    // Update heartbeat sent date.
+    [self.heartbeatDateStorage setHearbeatDate:currentDate forTag:kFIRCoreDiagnosticsHeartbeatTag];
+    // Set the flag.
+    config->sdk_name = logs_proto_mobilesdk_ios_ICoreConfiguration_ServiceType_ICORE;
+    config->has_sdk_name = 1;
 }
 
 - (BOOL)isDate:(NSDate *)date1 inSameDayOrBeforeThan:(NSDate *)date2 {
-  return [[NSCalendar currentCalendar] isDate:date1 inSameDayAsDate:date2] ||
-         [date1 compare:date2] == NSOrderedAscending;
+    return [[NSCalendar currentCalendar] isDate:date1 inSameDayAsDate:date2] ||
+           [date1 compare:date2] == NSOrderedAscending;
 }
 
 @end

@@ -23,11 +23,11 @@ NS_ASSUME_NONNULL_BEGIN
 /** Implements the FIRCoreDiagnosticsData protocol to log diagnostics data. */
 @interface FIRDiagnosticsData : NSObject <FIRCoreDiagnosticsData>
 
-/** Inserts values into the diagnosticObjects dictionary if the value isn't nil.
- *
- * @param value The value to insert if it's not nil.
- * @param key The key to associate it with.
- */
+    /** Inserts values into the diagnosticObjects dictionary if the value isn't nil.
+     *
+     * @param value The value to insert if it's not nil.
+     * @param key The key to associate it with.
+     */
 - (void)insertValue:(nullable id)value forKey:(NSString *)key;
 
 @end

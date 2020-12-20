@@ -82,7 +82,7 @@
 }
 
 - (void)enumerateCurrentPathToDepth:(NSInteger)depth
-                          withBlock:(void (^)(NSString *key))block {
+    withBlock:(void (^)(NSString *key))block {
     for (NSInteger i = 0; i < depth; i++) {
         block(self->currentPath[i]);
     }
@@ -90,7 +90,7 @@
 
 - (void)appendKey:(NSString *)key toString:(NSMutableString *)string {
     [FSnapshotUtilities appendHashV2RepresentationForString:key
-                                                   toString:string];
+                        toString:string];
 }
 
 - (void)ensureRange {
@@ -98,12 +98,12 @@
         optHashValueBuilder = [NSMutableString string];
         [optHashValueBuilder appendString:@"("];
         [self
-            enumerateCurrentPathToDepth:self->currentPathDepth
-                              withBlock:^(NSString *key) {
-                                [self appendKey:key
-                                       toString:self->optHashValueBuilder];
-                                [self->optHashValueBuilder appendString:@":("];
-                              }];
+         enumerateCurrentPathToDepth:self->currentPathDepth
+        withBlock:^(NSString *key) {
+            [self appendKey:key
+             toString:self->optHashValueBuilder];
+            [self->optHashValueBuilder appendString:@":("];
+        }];
         self->needsComma = NO;
     }
 }
@@ -113,9 +113,9 @@
 
     self->lastLeafDepth = self->currentPathDepth;
     [FSnapshotUtilities
-        appendHashRepresentationForLeafNode:leafNode
-                                   toString:self->optHashValueBuilder
-                                hashVersion:FDataHashVersionV2];
+     appendHashRepresentationForLeafNode:leafNode
+     toString:self->optHashValueBuilder
+     hashVersion:FDataHashVersionV2];
     self->needsComma = YES;
     if (self.splitStrategy(self)) {
         [self endRange];
@@ -193,8 +193,8 @@
     if (self != nil) {
         if (posts.count != hashes.count - 1) {
             [NSException raise:NSInvalidArgumentException
-                        format:@"Number of posts need to be n-1 for n hashes "
-                               @"in FCompoundHash"];
+                         format:@"Number of posts need to be n-1 for n hashes "
+                         @"in FCompoundHash"];
         }
         self.posts = posts;
         self.hashes = hashes;
@@ -215,20 +215,20 @@
     NSUInteger splitThreshold = MAX(512, (NSUInteger)sqrt(estimatedSize * 100));
 
     return ^BOOL(FCompoundHashBuilder *builder) {
-      // Never split on priorities
-      return [builder currentHashLength] > splitThreshold &&
-             ![[[builder currentPath] getBack] isEqualToString:@".priority"];
+        // Never split on priorities
+        return [builder currentHashLength] > splitThreshold &&
+               ![[[builder currentPath] getBack] isEqualToString:@".priority"];
     };
 }
 
 + (FCompoundHash *)fromNode:(id<FNode>)node {
     return [FCompoundHash
-             fromNode:node
-        splitStrategy:[FCompoundHash simpleSizeSplitStrategyForNode:node]];
+            fromNode:node
+            splitStrategy:[FCompoundHash simpleSizeSplitStrategyForNode:node]];
 }
 
 + (FCompoundHash *)fromNode:(id<FNode>)node
-              splitStrategy:(FCompoundHashSplitStrategy)strategy {
+    splitStrategy:(FCompoundHashSplitStrategy)strategy {
     if ([node isEmpty]) {
         return [[FCompoundHash alloc] initWithPosts:@[] hashes:@[ @"" ]];
     } else {
@@ -237,7 +237,7 @@
         [FCompoundHash processNode:node builder:builder];
         [builder finishHashing];
         return [[FCompoundHash alloc] initWithPosts:builder.currentPaths
-                                             hashes:builder.currentHashes];
+                                      hashes:builder.currentHashes];
     }
 }
 
@@ -248,10 +248,10 @@
         NSAssert(![node isEmpty], @"Can't calculate hash on empty node!");
         FChildrenNode *childrenNode = (FChildrenNode *)node;
         [childrenNode enumerateChildrenAndPriorityUsingBlock:^(
-                          NSString *key, id<FNode> node, BOOL *stop) {
-          [builder startChild:key];
-          [self processNode:node builder:builder];
-          [builder endChild];
+                     NSString *key, id<FNode> node, BOOL *stop) {
+                         [builder startChild:key];
+            [self processNode:node builder:builder];
+            [builder endChild];
         }];
     }
 }

@@ -51,9 +51,9 @@
 + (FNamedNode *)min {
     static FNamedNode *min = nil;
     static dispatch_once_t once;
-    dispatch_once(&once, ^{
-      min = [[FNamedNode alloc] initWithName:[FUtilities minName]
-                                     andNode:[FEmptyNode emptyNode]];
+    dispatch_once(&once, ^ {
+        min = [[FNamedNode alloc] initWithName:[FUtilities minName]
+                                  andNode:[FEmptyNode emptyNode]];
     });
     return min;
 }
@@ -61,9 +61,9 @@
 + (FNamedNode *)max {
     static FNamedNode *max = nil;
     static dispatch_once_t once;
-    dispatch_once(&once, ^{
-      max = [[FNamedNode alloc] initWithName:[FUtilities maxName]
-                                     andNode:[FMaxNode maxNode]];
+    dispatch_once(&once, ^ {
+        max = [[FNamedNode alloc] initWithName:[FUtilities maxName]
+                                  andNode:[FMaxNode maxNode]];
     });
     return max;
 }

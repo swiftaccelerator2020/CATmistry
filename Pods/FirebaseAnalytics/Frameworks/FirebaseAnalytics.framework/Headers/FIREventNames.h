@@ -108,7 +108,7 @@ static NSString *const kFIREventCheckoutProgress NS_SWIFT_NAME(AnalyticsEventChe
 ///     <li>@c kFIRParameterValue (signed 64-bit integer or double as NSNumber)</li>
 /// </ul>
 static NSString *const kFIREventEarnVirtualCurrency
-    NS_SWIFT_NAME(AnalyticsEventEarnVirtualCurrency) = @"earn_virtual_currency";
+NS_SWIFT_NAME(AnalyticsEventEarnVirtualCurrency) = @"earn_virtual_currency";
 
 /// E-Commerce Purchase event. This event signifies that an item was purchased by a user. Note:
 /// This is different from the in-app purchase event, which is reported automatically for App
@@ -323,7 +323,7 @@ static NSString *const kFIREventSignUp NS_SWIFT_NAME(AnalyticsEventSignUp) = @"s
 ///     <li>@c kFIRParameterValue (signed 64-bit integer or double as NSNumber)</li>
 /// </ul>
 static NSString *const kFIREventSpendVirtualCurrency
-    NS_SWIFT_NAME(AnalyticsEventSpendVirtualCurrency) = @"spend_virtual_currency";
+NS_SWIFT_NAME(AnalyticsEventSpendVirtualCurrency) = @"spend_virtual_currency";
 
 /// Tutorial Begin event. This event signifies the start of the on-boarding process in your app. Use
 /// this in a funnel with kFIREventTutorialComplete to understand how many users complete this

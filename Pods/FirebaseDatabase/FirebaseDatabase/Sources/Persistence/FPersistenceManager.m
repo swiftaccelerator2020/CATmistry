@@ -37,14 +37,14 @@
 @implementation FPersistenceManager
 
 - (id)initWithStorageEngine:(id<FStorageEngine>)storageEngine
-                cachePolicy:(id<FCachePolicy>)cachePolicy {
+    cachePolicy:(id<FCachePolicy>)cachePolicy {
     self = [super init];
     if (self != nil) {
         self->_storageEngine = storageEngine;
         self->_cachePolicy = cachePolicy;
         self->_trackedQueryManager = [[FTrackedQueryManager alloc]
-            initWithStorageEngine:self.storageEngine
-                            clock:[FSystemClock clock]];
+                                      initWithStorageEngine:self.storageEngine
+                                      clock:[FSystemClock clock]];
     }
     return self;
 }
@@ -56,14 +56,14 @@
 }
 
 - (void)saveUserOverwrite:(id<FNode>)node
-                   atPath:(FPath *)path
-                  writeId:(NSUInteger)writeId {
+    atPath:(FPath *)path
+    writeId:(NSUInteger)writeId {
     [self.storageEngine saveUserOverwrite:node atPath:path writeId:writeId];
 }
 
 - (void)saveUserMerge:(FCompoundWrite *)merge
-               atPath:(FPath *)path
-              writeId:(NSUInteger)writeId {
+    atPath:(FPath *)path
+    writeId:(NSUInteger)writeId {
     [self.storageEngine saveUserMerge:merge atPath:path writeId:writeId];
 }
 
@@ -90,7 +90,7 @@
             [self.trackedQueryManager findTrackedQuery:query];
         if (!query.loadsAllData && trackedQuery.isComplete) {
             trackedKeys = [self.storageEngine
-                trackedQueryKeysForQuery:trackedQuery.queryId];
+                           trackedQueryKeysForQuery:trackedQuery.queryId];
         } else {
             trackedKeys = nil;
         }
@@ -103,16 +103,16 @@
     id<FNode> node;
     if (trackedKeys != nil) {
         node = [self.storageEngine serverCacheForKeys:trackedKeys
-                                               atPath:query.path];
+                                   atPath:query.path];
     } else {
         node = [self.storageEngine serverCacheAtPath:query.path];
     }
 
     FIndexedNode *indexedNode = [FIndexedNode indexedNodeWithNode:node
-                                                            index:query.index];
+                                              index:query.index];
     return [[FCacheNode alloc] initWithIndexedNode:indexedNode
-                                isFullyInitialized:complete
-                                        isFiltered:(trackedKeys != nil)];
+                               isFullyInitialized:complete
+                               isFiltered:(trackedKeys != nil)];
 }
 
 - (void)updateServerCacheWithNode:(id<FNode>)node forQuery:(FQuerySpec *)query {
@@ -123,7 +123,7 @@
 }
 
 - (void)updateServerCacheWithMerge:(FCompoundWrite *)merge
-                            atPath:(FPath *)path {
+    atPath:(FPath *)path {
     [self.storageEngine updateServerCacheWithMerge:merge atPath:path];
     [self doPruneCheckAfterServerUpdate];
 }
@@ -132,8 +132,8 @@
     toServerCacheAtPath:(FPath *)path {
     // TODO[offline]: rework this to be more efficient
     [merge enumerateWrites:^(FPath *relativePath, id<FNode> node, BOOL *stop) {
-      [self applyUserWrite:node toServerCacheAtPath:[path child:relativePath]];
-    }];
+              [self applyUserWrite:node toServerCacheAtPath:[path child:relativePath]];
+          }];
 }
 
 - (void)applyUserWrite:(id<FNode>)write toServerCacheAtPath:(FPath *)path {
@@ -181,15 +181,15 @@
         FFDebug(@"I-RDB078002", @"Server cache size: %lu",
                 (unsigned long)cacheSize);
         while (canPrune &&
-               [self.cachePolicy
-                   shouldPruneCacheWithSize:cacheSize
-                     numberOfTrackedQueries:self.trackedQueryManager
-                                                .numberOfPrunableQueries]) {
+                [self.cachePolicy
+                 shouldPruneCacheWithSize:cacheSize
+                 numberOfTrackedQueries:self.trackedQueryManager
+                 .numberOfPrunableQueries]) {
             FPruneForest *pruneForest =
                 [self.trackedQueryManager pruneOldQueries:self.cachePolicy];
             if (pruneForest.prunesAnything) {
                 [self.storageEngine pruneCache:pruneForest
-                                        atPath:[FPath empty]];
+                                    atPath:[FPath empty]];
             } else {
                 canPrune = NO;
             }
@@ -210,12 +210,12 @@
     NSAssert(trackedQuery.isActive,
              @"We only expect tracked keys for currently-active queries.");
     [self.storageEngine setTrackedQueryKeys:keys
-                                 forQueryId:trackedQuery.queryId];
+                        forQueryId:trackedQuery.queryId];
 }
 
 - (void)updateTrackedQueryKeysWithAddedKeys:(NSSet *)added
-                                removedKeys:(NSSet *)removed
-                                   forQuery:(FQuerySpec *)query {
+    removedKeys:(NSSet *)removed
+    forQuery:(FQuerySpec *)query {
     NSAssert(!query.loadsAllData,
              @"We should only track keys for filtered queries");
     FTrackedQuery *trackedQuery =
@@ -223,9 +223,9 @@
     NSAssert(trackedQuery.isActive,
              @"We only expect tracked keys for currently-active queries.");
     [self.storageEngine
-        updateTrackedQueryKeysWithAddedKeys:added
-                                removedKeys:removed
-                                 forQueryId:trackedQuery.queryId];
+     updateTrackedQueryKeysWithAddedKeys:added
+     removedKeys:removed
+     forQueryId:trackedQuery.queryId];
 }
 
 @end

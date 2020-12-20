@@ -28,7 +28,7 @@
 - (id)copyWithZone:(NSZone *)zone;
 
 - (void)enumerateComponentsUsingBlock:(void (^)(NSString *key,
-                                                BOOL *stop))block;
+    BOOL *stop))block;
 - (NSString *)getFront;
 - (NSUInteger)length;
 - (FPath *)popFront;

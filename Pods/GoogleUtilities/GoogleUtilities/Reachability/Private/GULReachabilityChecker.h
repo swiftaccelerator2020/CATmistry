@@ -21,10 +21,10 @@
 
 /// Reachability Status
 typedef enum {
-  kGULReachabilityUnknown,  ///< Have not yet checked or been notified whether host is reachable.
-  kGULReachabilityNotReachable,  ///< Host is not reachable.
-  kGULReachabilityViaWifi,       ///< Host is reachable via Wifi.
-  kGULReachabilityViaCellular,   ///< Host is reachable via cellular.
+    kGULReachabilityUnknown,  ///< Have not yet checked or been notified whether host is reachable.
+    kGULReachabilityNotReachable,  ///< Host is not reachable.
+    kGULReachabilityViaWifi,       ///< Host is reachable via Wifi.
+    kGULReachabilityViaCellular,   ///< Host is reachable via cellular.
 } GULReachabilityStatus;
 
 const NSString *GULReachabilityStatusString(GULReachabilityStatus status);
@@ -36,7 +36,7 @@ const NSString *GULReachabilityStatusString(GULReachabilityStatus status);
 @required
 /// Called when network status has changed.
 - (void)reachability:(GULReachabilityChecker *)reachability
-       statusChanged:(GULReachabilityStatus)status;
+    statusChanged:(GULReachabilityStatus)status;
 @end
 
 /// Google Analytics iOS Network Status Checker.
@@ -61,7 +61,7 @@ const NSString *GULReachabilityStatusString(GULReachabilityStatus status);
 /// @param host The name of the host.
 ///
 - (instancetype)initWithReachabilityDelegate:(id<GULReachabilityDelegate>)reachabilityDelegate
-                                    withHost:(NSString *)host;
+    withHost:(NSString *)host;
 
 - (instancetype)init NS_UNAVAILABLE;
 

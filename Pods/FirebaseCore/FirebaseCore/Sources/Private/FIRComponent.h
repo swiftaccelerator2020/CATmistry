@@ -29,18 +29,19 @@ NS_SWIFT_NAME(ComponentLifecycleMaintainer)
 @end
 
 typedef _Nullable id (^FIRComponentCreationBlock)(FIRComponentContainer *container,
-                                                  BOOL *isCacheable)
-    NS_SWIFT_NAME(ComponentCreationBlock);
+        BOOL *isCacheable)
+NS_SWIFT_NAME(ComponentCreationBlock);
 
 @class FIRDependency;
 
 /// Describes the timing of instantiation. Note: new components should default to lazy unless there
 /// is a strong reason to be eager.
 typedef NS_ENUM(NSInteger, FIRInstantiationTiming) {
-  FIRInstantiationTimingLazy,
-  FIRInstantiationTimingAlwaysEager,
-  FIRInstantiationTimingEagerInDefaultApp
-} NS_SWIFT_NAME(InstantiationTiming);
+    FIRInstantiationTimingLazy,
+    FIRInstantiationTimingAlwaysEager,
+    FIRInstantiationTimingEagerInDefaultApp
+}
+NS_SWIFT_NAME(InstantiationTiming);
 
 /// A component that can be used from other Firebase SDKs.
 NS_SWIFT_NAME(Component)
@@ -64,8 +65,8 @@ NS_SWIFT_NAME(Component)
 
 /// Creates a component with no dependencies that will be lazily initialized.
 + (instancetype)componentWithProtocol:(Protocol *)protocol
-                        creationBlock:(FIRComponentCreationBlock)creationBlock
-NS_SWIFT_NAME(init(_:creationBlock:));
+    creationBlock:(FIRComponentCreationBlock)creationBlock
+    NS_SWIFT_NAME(init(_:creationBlock:));
 
 /// Creates a component to be registered with the component container.
 ///
@@ -76,10 +77,10 @@ NS_SWIFT_NAME(init(_:creationBlock:));
 /// @param creationBlock - A block to instantiate the component with a container, and if
 /// @return A component that can be registered with the component container.
 + (instancetype)componentWithProtocol:(Protocol *)protocol
-                  instantiationTiming:(FIRInstantiationTiming)instantiationTiming
-                         dependencies:(NSArray<FIRDependency *> *)dependencies
-                        creationBlock:(FIRComponentCreationBlock)creationBlock
-NS_SWIFT_NAME(init(_:instantiationTiming:dependencies:creationBlock:));
+    instantiationTiming:(FIRInstantiationTiming)instantiationTiming
+    dependencies:(NSArray<FIRDependency *> *)dependencies
+    creationBlock:(FIRComponentCreationBlock)creationBlock
+    NS_SWIFT_NAME(init(_:instantiationTiming:dependencies:creationBlock:));
 
 // clang-format on
 

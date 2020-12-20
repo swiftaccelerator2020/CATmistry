@@ -94,7 +94,7 @@
     }
     __block BOOL isEqual = YES;
     [self enumerateKeysAndObjectsUsingBlock:^(id key, id value, BOOL *stop) {
-        id otherValue = [other objectForKey:key];
+             id otherValue = [other objectForKey:key];
         isEqual = isEqual && (value == otherValue || [value isEqual:otherValue]);
         *stop = !isEqual;
     }];
@@ -104,8 +104,8 @@
 - (NSUInteger)hash {
     __block NSUInteger hash = 0;
     [self enumerateKeysAndObjectsUsingBlock:^(id key, id value, BOOL *stop) {
-        hash = (hash * 31 + [key hash]) * 17 + [value hash];
-    }];
+             hash = (hash * 31 + [key hash]) * 17 + [value hash];
+         }];
     return hash;
 }
 
@@ -114,10 +114,10 @@
     __block BOOL first = YES;
     [str appendString:@"{ "];
     [self enumerateKeysAndObjectsUsingBlock:^(id key, id value, BOOL *stop) {
-        if (!first) {
-            [str appendString:@", "];
-        }
-        first = NO;
+             if (!first) {
+                 [str appendString:@", "];
+             }
+             first = NO;
         [str appendString:[NSString stringWithFormat:@"%@: %@", key, value]];
     }];
     [str appendString:@" }"];

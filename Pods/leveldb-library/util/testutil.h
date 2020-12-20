@@ -29,35 +29,37 @@ Slice CompressibleString(Random* rnd, double compressed_fraction, size_t len,
 
 // A wrapper that allows injection of errors.
 class ErrorEnv : public EnvWrapper {
- public:
-  bool writable_file_error_;
-  int num_writable_file_errors_;
+public:
+    bool writable_file_error_;
+    int num_writable_file_errors_;
 
-  ErrorEnv()
-      : EnvWrapper(NewMemEnv(Env::Default())),
-        writable_file_error_(false),
-        num_writable_file_errors_(0) {}
-  ~ErrorEnv() override { delete target(); }
-
-  Status NewWritableFile(const std::string& fname,
-                         WritableFile** result) override {
-    if (writable_file_error_) {
-      ++num_writable_file_errors_;
-      *result = nullptr;
-      return Status::IOError(fname, "fake error");
+    ErrorEnv()
+        : EnvWrapper(NewMemEnv(Env::Default())),
+          writable_file_error_(false),
+          num_writable_file_errors_(0) {}
+    ~ErrorEnv() override {
+        delete target();
     }
-    return target()->NewWritableFile(fname, result);
-  }
 
-  Status NewAppendableFile(const std::string& fname,
+    Status NewWritableFile(const std::string& fname,
                            WritableFile** result) override {
-    if (writable_file_error_) {
-      ++num_writable_file_errors_;
-      *result = nullptr;
-      return Status::IOError(fname, "fake error");
+        if (writable_file_error_) {
+            ++num_writable_file_errors_;
+            *result = nullptr;
+            return Status::IOError(fname, "fake error");
+        }
+        return target()->NewWritableFile(fname, result);
     }
-    return target()->NewAppendableFile(fname, result);
-  }
+
+    Status NewAppendableFile(const std::string& fname,
+                             WritableFile** result) override {
+        if (writable_file_error_) {
+            ++num_writable_file_errors_;
+            *result = nullptr;
+            return Status::IOError(fname, "fake error");
+        }
+        return target()->NewAppendableFile(fname, result);
+    }
 };
 
 }  // namespace test

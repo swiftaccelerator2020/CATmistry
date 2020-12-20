@@ -21,25 +21,25 @@
 @implementation FBLPromise (ReduceAdditions)
 
 - (FBLPromise *)reduce:(NSArray *)items combine:(FBLPromiseReducerBlock)reducer {
-  return [self onQueue:FBLPromise.defaultDispatchQueue reduce:items combine:reducer];
+    return [self onQueue:FBLPromise.defaultDispatchQueue reduce:items combine:reducer];
 }
 
 - (FBLPromise *)onQueue:(dispatch_queue_t)queue
-                 reduce:(NSArray *)items
-                combine:(FBLPromiseReducerBlock)reducer {
-  NSParameterAssert(queue);
-  NSParameterAssert(items);
-  NSParameterAssert(reducer);
+    reduce:(NSArray *)items
+    combine:(FBLPromiseReducerBlock)reducer {
+    NSParameterAssert(queue);
+    NSParameterAssert(items);
+    NSParameterAssert(reducer);
 
-  FBLPromise *promise = self;
-  for (id item in items) {
-    promise = [promise chainOnQueue:queue
-                     chainedFulfill:^id(id value) {
-                       return reducer(value, item);
-                     }
-                      chainedReject:nil];
-  }
-  return promise;
+    FBLPromise *promise = self;
+    for (id item in items) {
+        promise = [promise chainOnQueue:queue
+                chainedFulfill:^id(id value) {
+                    return reducer(value, item);
+                }
+                chainedReject:nil];
+    }
+    return promise;
 }
 
 @end
@@ -47,15 +47,15 @@
 @implementation FBLPromise (DotSyntax_ReduceAdditions)
 
 - (FBLPromise * (^)(NSArray *, FBLPromiseReducerBlock))reduce {
-  return ^(NSArray *items, FBLPromiseReducerBlock reducer) {
-    return [self reduce:items combine:reducer];
-  };
+    return ^(NSArray *items, FBLPromiseReducerBlock reducer) {
+        return [self reduce:items combine:reducer];
+    };
 }
 
 - (FBLPromise * (^)(dispatch_queue_t, NSArray *, FBLPromiseReducerBlock))reduceOn {
-  return ^(dispatch_queue_t queue, NSArray *items, FBLPromiseReducerBlock reducer) {
-    return [self onQueue:queue reduce:items combine:reducer];
-  };
+    return ^(dispatch_queue_t queue, NSArray *items, FBLPromiseReducerBlock reducer) {
+        return [self onQueue:queue reduce:items combine:reducer];
+    };
 }
 
 @end

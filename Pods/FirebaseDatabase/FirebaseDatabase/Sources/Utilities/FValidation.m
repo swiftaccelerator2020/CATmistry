@@ -31,12 +31,12 @@ NSString *const kInvalidKeyCharacters = @"[].#$/";
 + (void)validateFrom:(NSString *)fn writablePath:(FPath *)path {
     if ([[path getFront] isEqualToString:kDotInfoPrefix]) {
         @throw [[NSException alloc]
-            initWithName:@"WritablePathValidation"
-                  reason:[NSString
-                             stringWithFormat:@"(%@) failed to path %@: Can't "
-                                              @"modify data under %@",
-                                              fn, [path description],
-                                              kDotInfoPrefix]
+                initWithName:@"WritablePathValidation"
+                reason:[NSString
+                        stringWithFormat:@"(%@) failed to path %@: Can't "
+                        @"modify data under %@",
+                        fn, [path description],
+                        kDotInfoPrefix]
                 userInfo:nil];
     }
 }
@@ -52,10 +52,10 @@ NSString *const kInvalidKeyCharacters = @"[].#$/";
         break;
     default:
         @throw [[NSException alloc]
-            initWithName:@"KnownEventTypeValidation"
-                  reason:[NSString
-                             stringWithFormat:@"(%@) Unknown event type: %d",
-                                              fn, (int)event]
+                initWithName:@"KnownEventTypeValidation"
+                reason:[NSString
+                        stringWithFormat:@"(%@) Unknown event type: %d",
+                        fn, (int)event]
                 userInfo:nil];
         break;
     }
@@ -64,23 +64,23 @@ NSString *const kInvalidKeyCharacters = @"[].#$/";
 + (BOOL)isValidPathString:(NSString *)pathString {
     static dispatch_once_t token;
     static NSCharacterSet *badPathChars = nil;
-    dispatch_once(&token, ^{
-      badPathChars = [NSCharacterSet
-          characterSetWithCharactersInString:kInvalidPathCharacters];
+    dispatch_once(&token, ^ {
+        badPathChars = [NSCharacterSet
+                        characterSetWithCharactersInString:kInvalidPathCharacters];
     });
     return pathString != nil && [pathString length] != 0 &&
            [pathString rangeOfCharacterFromSet:badPathChars].location ==
-               NSNotFound;
+           NSNotFound;
 }
 
 + (void)validateFrom:(NSString *)fn validPathString:(NSString *)pathString {
     if (![self isValidPathString:pathString]) {
         @throw [[NSException alloc]
-            initWithName:@"InvalidPathValidation"
-                  reason:[NSString stringWithFormat:
-                                       @"(%@) Must be a non-empty string and "
-                                       @"not contain '.' '#' '$' '[' or ']'",
-                                       fn]
+                initWithName:@"InvalidPathValidation"
+                reason:[NSString stringWithFormat:
+                        @"(%@) Must be a non-empty string and "
+                        @"not contain '.' '#' '$' '[' or ']'",
+                        fn]
                 userInfo:nil];
     }
 }
@@ -88,11 +88,11 @@ NSString *const kInvalidKeyCharacters = @"[].#$/";
 + (void)validateFrom:(NSString *)fn validRootPathString:(NSString *)pathString {
     static dispatch_once_t token;
     static NSRegularExpression *dotInfoRegex = nil;
-    dispatch_once(&token, ^{
-      dotInfoRegex = [NSRegularExpression
-          regularExpressionWithPattern:@"^\\/*\\.info(\\/|$)"
-                               options:0
-                                 error:nil];
+    dispatch_once(&token, ^ {
+        dotInfoRegex = [NSRegularExpression
+                        regularExpressionWithPattern:@"^\\/*\\.info(\\/|$)"
+                        options:0
+                        error:nil];
     });
 
     NSString *tempPath = pathString;
@@ -100,10 +100,10 @@ NSString *const kInvalidKeyCharacters = @"[].#$/";
     // bothering with the regex.
     if ([pathString rangeOfString:@".info"].location != NSNotFound) {
         tempPath = [dotInfoRegex
-            stringByReplacingMatchesInString:pathString
-                                     options:0
-                                       range:NSMakeRange(0, pathString.length)
-                                withTemplate:@"/"];
+                    stringByReplacingMatchesInString:pathString
+                    options:0
+                    range:NSMakeRange(0, pathString.length)
+                    withTemplate:@"/"];
     }
     [self validateFrom:fn validPathString:tempPath];
 }
@@ -111,9 +111,9 @@ NSString *const kInvalidKeyCharacters = @"[].#$/";
 + (BOOL)isValidKey:(NSString *)key {
     static dispatch_once_t token;
     static NSCharacterSet *badKeyChars = nil;
-    dispatch_once(&token, ^{
-      badKeyChars = [NSCharacterSet
-          characterSetWithCharactersInString:kInvalidKeyCharacters];
+    dispatch_once(&token, ^ {
+        badKeyChars = [NSCharacterSet
+                       characterSetWithCharactersInString:kInvalidKeyCharacters];
     });
     return key != nil && key.length > 0 &&
            [key rangeOfCharacterFromSet:badKeyChars].location == NSNotFound;
@@ -122,12 +122,12 @@ NSString *const kInvalidKeyCharacters = @"[].#$/";
 + (void)validateFrom:(NSString *)fn validKey:(NSString *)key {
     if (![self isValidKey:key]) {
         @throw [[NSException alloc]
-            initWithName:@"InvalidKeyValidation"
-                  reason:[NSString
-                             stringWithFormat:
-                                 @"(%@) Must be a non-empty string and not "
-                                 @"contain '/' '.' '#' '$' '[' or ']'",
-                                 fn]
+                initWithName:@"InvalidKeyValidation"
+                reason:[NSString
+                        stringWithFormat:
+                        @"(%@) Must be a non-empty string and not "
+                        @"contain '/' '.' '#' '$' '[' or ']'",
+                        fn]
                 userInfo:nil];
     }
 }
@@ -147,7 +147,7 @@ NSString *const kInvalidKeyCharacters = @"[].#$/";
 + (void)validateToken:(NSString *)token {
     if (![FValidation stringNonempty:token]) {
         [NSException raise:NSInvalidArgumentException
-                    format:@"Can't have empty string or nil for custom token"];
+                     format:@"Can't have empty string or nil for custom token"];
     }
 }
 
@@ -183,13 +183,13 @@ NSString *const kInvalidKeyCharacters = @"[].#$/";
 
 + (BOOL)validateFrom:(NSString *)fn
     isValidLeafValue:(id)value
-            withPath:(NSArray *)path {
+    withPath:(NSArray *)path {
     if ([value isKindOfClass:[NSString class]]) {
         // Try to avoid conversion to bytes if possible
         NSString *theString = value;
         if ([theString maximumLengthOfBytesUsingEncoding:NSUTF8StringEncoding] >
                 kFirebaseMaxLeafSize &&
-            [theString lengthOfBytesUsingEncoding:NSUTF8StringEncoding] >
+                [theString lengthOfBytesUsingEncoding:NSUTF8StringEncoding] >
                 kFirebaseMaxLeafSize) {
             NSRange range;
             range.location = 0;
@@ -197,12 +197,12 @@ NSString *const kInvalidKeyCharacters = @"[].#$/";
             NSString *pathString =
                 [[path subarrayWithRange:range] componentsJoinedByString:@"."];
             @throw [[NSException alloc]
-                initWithName:@"InvalidFirebaseData"
-                      reason:[NSString
-                                 stringWithFormat:@"(%@) String exceeds max "
-                                                  @"size of %u utf8 bytes: %@",
-                                                  fn, (int)kFirebaseMaxLeafSize,
-                                                  pathString]
+                    initWithName:@"InvalidFirebaseData"
+                    reason:[NSString
+                            stringWithFormat:@"(%@) String exceeds max "
+                            @"size of %u utf8 bytes: %@",
+                            fn, (int)kFirebaseMaxLeafSize,
+                            pathString]
                     userInfo:nil];
         }
         return YES;
@@ -217,11 +217,11 @@ NSString *const kInvalidKeyCharacters = @"[].#$/";
             NSString *pathString =
                 [[path subarrayWithRange:range] componentsJoinedByString:@"."];
             @throw [[NSException alloc]
-                initWithName:@"InvalidFirebaseData"
-                      reason:[NSString
-                                 stringWithFormat:
-                                     @"(%@) Cannot store NaN at path: %@.", fn,
-                                     pathString]
+                    initWithName:@"InvalidFirebaseData"
+                    reason:[NSString
+                            stringWithFormat:
+                            @"(%@) Cannot store NaN at path: %@.", fn,
+                            pathString]
                     userInfo:nil];
         }
         return YES;
@@ -235,13 +235,13 @@ NSString *const kInvalidKeyCharacters = @"[].#$/";
                 range.location = 0;
                 range.length = MIN(path.count, 50);
                 NSString *pathString = [[path subarrayWithRange:range]
-                    componentsJoinedByString:@"."];
+                                        componentsJoinedByString:@"."];
                 @throw [[NSException alloc]
-                    initWithName:@"InvalidFirebaseData"
-                          reason:[NSString stringWithFormat:
-                                               @"(%@) Cannot store other keys "
-                                               @"with server value keys.%@.",
-                                               fn, pathString]
+                        initWithName:@"InvalidFirebaseData"
+                        reason:[NSString stringWithFormat:
+                                @"(%@) Cannot store other keys "
+                                @"with server value keys.%@.",
+                                fn, pathString]
                         userInfo:nil];
             }
             return YES;
@@ -258,8 +258,8 @@ NSString *const kInvalidKeyCharacters = @"[].#$/";
 }
 
 + (NSString *)parseAndValidateKey:(id)keyId
-                     fromFunction:(NSString *)fn
-                             path:(NSArray *)path {
+    fromFunction:(NSString *)fn
+    path:(NSArray *)path {
     if (![keyId isKindOfClass:[NSString class]]) {
         NSRange range;
         range.location = 0;
@@ -267,11 +267,11 @@ NSString *const kInvalidKeyCharacters = @"[].#$/";
         NSString *pathString =
             [[path subarrayWithRange:range] componentsJoinedByString:@"."];
         @throw [[NSException alloc]
-            initWithName:@"InvalidFirebaseData"
-                  reason:[NSString
-                             stringWithFormat:@"(%@) Non-string keys are not "
-                                              @"allowed in object at path: %@",
-                                              fn, pathString]
+                initWithName:@"InvalidFirebaseData"
+                reason:[NSString
+                        stringWithFormat:@"(%@) Non-string keys are not "
+                        @"allowed in object at path: %@",
+                        fn, pathString]
                 userInfo:nil];
     }
     return (NSString *)keyId;
@@ -279,64 +279,64 @@ NSString *const kInvalidKeyCharacters = @"[].#$/";
 
 + (void)validateFrom:(NSString *)fn
     validDictionaryKey:(id)keyId
-              withPath:(NSArray *)path {
+    withPath:(NSArray *)path {
     NSString *key = [self parseAndValidateKey:keyId fromFunction:fn path:path];
     if (![key isEqualToString:kPayloadPriority] &&
-        ![key isEqualToString:kPayloadValue] &&
-        ![key isEqualToString:kServerValueSubKey] &&
-        ![FValidation isValidKey:key]) {
+            ![key isEqualToString:kPayloadValue] &&
+            ![key isEqualToString:kServerValueSubKey] &&
+            ![FValidation isValidKey:key]) {
         NSRange range;
         range.location = 0;
         range.length = MIN(path.count, 50);
         NSString *pathString =
             [[path subarrayWithRange:range] componentsJoinedByString:@"."];
         @throw [[NSException alloc]
-            initWithName:@"InvalidFirebaseData"
-                  reason:[NSString stringWithFormat:
-                                       @"(%@) Invalid key in object at path: "
-                                       @"%@. Keys must be non-empty and cannot "
-                                       @"contain '/' '.' '#' '$' '[' or ']'",
-                                       fn, pathString]
+                initWithName:@"InvalidFirebaseData"
+                reason:[NSString stringWithFormat:
+                        @"(%@) Invalid key in object at path: "
+                        @"%@. Keys must be non-empty and cannot "
+                        @"contain '/' '.' '#' '$' '[' or ']'",
+                        fn, pathString]
                 userInfo:nil];
     }
 }
 
 + (void)validateFrom:(NSString *)fn
     validUpdateDictionaryKey:(id)keyId
-                   withValue:(id)value {
+    withValue:(id)value {
     FPath *path = [FPath pathWithString:[self parseAndValidateKey:keyId
-                                                     fromFunction:fn
-                                                             path:@[]]];
+                                         fromFunction:fn
+                                         path:@[]]];
     __block NSInteger keyNum = 0;
     [path enumerateComponentsUsingBlock:^void(NSString *key, BOOL *stop) {
-      if ([key isEqualToString:kPayloadPriority] &&
-          keyNum == [path length] - 1) {
-          [self validateFrom:fn isValidPriorityValue:value withPath:@[]];
-      } else {
-          keyNum++;
+             if ([key isEqualToString:kPayloadPriority] &&
+                 keyNum == [path length] - 1) {
+                 [self validateFrom:fn isValidPriorityValue:value withPath:@[]];
+             } else {
+                 keyNum++;
 
-          if (![FValidation isValidKey:key]) {
-              @throw [[NSException alloc]
-                  initWithName:@"InvalidFirebaseData"
+            if (![FValidation isValidKey:key]) {
+                @throw [[NSException alloc]
+                        initWithName:@"InvalidFirebaseData"
                         reason:[NSString
-                                   stringWithFormat:
-                                       @"(%@) Invalid key in object. Keys must "
-                                       @"be non-empty and cannot contain '.' "
-                                       @"'#' '$' '[' or ']'",
-                                       fn]
-                      userInfo:nil];
-          }
-      }
+                                stringWithFormat:
+                                @"(%@) Invalid key in object. Keys must "
+                                @"be non-empty and cannot contain '.' "
+                                @"'#' '$' '[' or ']'",
+                                fn]
+                        userInfo:nil];
+            }
+        }
     }];
 }
 
 + (void)validateFrom:(NSString *)fn
     isValidPriorityValue:(id)value
-                withPath:(NSArray *)path {
+    withPath:(NSArray *)path {
     [self validateFrom:fn
-        isValidPriorityValue:value
-                    withPath:path
-                  throwError:YES];
+          isValidPriorityValue:value
+          withPath:path
+          throwError:YES];
 }
 
 /**
@@ -344,9 +344,9 @@ NSString *const kInvalidKeyCharacters = @"[].#$/";
  */
 + (BOOL)validatePriorityValue:value {
     return [self validateFrom:nil
-         isValidPriorityValue:value
-                     withPath:nil
-                   throwError:NO];
+                 isValidPriorityValue:value
+                 withPath:nil
+                 throwError:NO];
 }
 
 /**
@@ -355,8 +355,8 @@ NSString *const kInvalidKeyCharacters = @"[].#$/";
  */
 + (BOOL)validateFrom:(NSString *)fn
     isValidPriorityValue:(id)value
-                withPath:(NSArray *)path
-              throwError:(BOOL)throwError {
+    withPath:(NSArray *)path
+    throwError:(BOOL)throwError {
     if ([value isKindOfClass:[NSNumber class]]) {
         if ([[NSDecimalNumber notANumber] isEqualToNumber:value]) {
             if (throwError) {
@@ -364,13 +364,13 @@ NSString *const kInvalidKeyCharacters = @"[].#$/";
                 range.location = 0;
                 range.length = MIN(path.count, 50);
                 NSString *pathString = [[path subarrayWithRange:range]
-                    componentsJoinedByString:@"."];
+                                        componentsJoinedByString:@"."];
                 @throw [[NSException alloc]
-                    initWithName:@"InvalidFirebaseData"
-                          reason:[NSString stringWithFormat:
-                                               @"(%@) Cannot store NaN as "
-                                               @"priority at path: %@.",
-                                               fn, pathString]
+                        initWithName:@"InvalidFirebaseData"
+                        reason:[NSString stringWithFormat:
+                                @"(%@) Cannot store NaN as "
+                                @"priority at path: %@.",
+                                fn, pathString]
                         userInfo:nil];
             } else {
                 return NO;
@@ -382,13 +382,13 @@ NSString *const kInvalidKeyCharacters = @"[].#$/";
                 range.location = 0;
                 range.length = MIN(path.count, 50);
                 NSString *pathString = [[path subarrayWithRange:range]
-                    componentsJoinedByString:@"."];
+                                        componentsJoinedByString:@"."];
                 @throw [[NSException alloc]
-                    initWithName:@"InvalidFirebaseData"
-                          reason:[NSString stringWithFormat:
-                                               @"(%@) Cannot store true/false "
-                                               @"as priority at path: %@.",
-                                               fn, pathString]
+                        initWithName:@"InvalidFirebaseData"
+                        reason:[NSString stringWithFormat:
+                                @"(%@) Cannot store true/false "
+                                @"as priority at path: %@.",
+                                fn, pathString]
                         userInfo:nil];
             } else {
                 return NO;
@@ -403,15 +403,15 @@ NSString *const kInvalidKeyCharacters = @"[].#$/";
                     range.location = 0;
                     range.length = MIN(path.count, 50);
                     NSString *pathString = [[path subarrayWithRange:range]
-                        componentsJoinedByString:@"."];
+                                            componentsJoinedByString:@"."];
                     @throw [[NSException alloc]
-                        initWithName:@"InvalidFirebaseData"
-                              reason:[NSString
-                                         stringWithFormat:
-                                             @"(%@) Cannot store other keys "
-                                             @"with server value keys as "
-                                             @"priority at path: %@.",
-                                             fn, pathString]
+                            initWithName:@"InvalidFirebaseData"
+                            reason:[NSString
+                                    stringWithFormat:
+                                    @"(%@) Cannot store other keys "
+                                    @"with server value keys as "
+                                    @"priority at path: %@.",
+                                    fn, pathString]
                             userInfo:nil];
                 } else {
                     return NO;
@@ -423,14 +423,14 @@ NSString *const kInvalidKeyCharacters = @"[].#$/";
                 range.location = 0;
                 range.length = MIN(path.count, 50);
                 NSString *pathString = [[path subarrayWithRange:range]
-                    componentsJoinedByString:@"."];
+                                        componentsJoinedByString:@"."];
                 @throw [[NSException alloc]
-                    initWithName:@"InvalidFirebaseData"
-                          reason:[NSString
-                                     stringWithFormat:
-                                         @"(%@) Cannot store an NSDictionary "
-                                         @"as priority at path: %@.",
-                                         fn, pathString]
+                        initWithName:@"InvalidFirebaseData"
+                        reason:[NSString
+                                stringWithFormat:
+                                @"(%@) Cannot store an NSDictionary "
+                                @"as priority at path: %@.",
+                                fn, pathString]
                         userInfo:nil];
             } else {
                 return NO;
@@ -444,11 +444,11 @@ NSString *const kInvalidKeyCharacters = @"[].#$/";
             NSString *pathString =
                 [[path subarrayWithRange:range] componentsJoinedByString:@"."];
             @throw [[NSException alloc]
-                initWithName:@"InvalidFirebaseData"
-                      reason:[NSString stringWithFormat:
-                                           @"(%@) Cannot store an NSArray as "
-                                           @"priority at path: %@.",
-                                           fn, pathString]
+                    initWithName:@"InvalidFirebaseData"
+                    reason:[NSString stringWithFormat:
+                            @"(%@) Cannot store an NSArray as "
+                            @"priority at path: %@.",
+                            fn, pathString]
                     userInfo:nil];
         } else {
             return NO;

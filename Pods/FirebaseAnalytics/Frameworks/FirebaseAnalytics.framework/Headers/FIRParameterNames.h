@@ -30,7 +30,7 @@ static NSString *const kFIRParameterAchievementID NS_SWIFT_NAME(AnalyticsParamet
 ///     };
 /// </pre>
 static NSString *const kFIRParameterAdNetworkClickID
-    NS_SWIFT_NAME(AnalyticsParameterAdNetworkClickID) = @"aclid";
+NS_SWIFT_NAME(AnalyticsParameterAdNetworkClickID) = @"aclid";
 
 /// A product affiliation to designate a supplying company or brick and mortar store location
 /// (NSString). <pre>
@@ -84,7 +84,7 @@ static NSString *const kFIRParameterCheckoutStep NS_SWIFT_NAME(AnalyticsParamete
 /// </pre>
 /// <b>This constant has been deprecated.</b>
 static NSString *const kFIRParameterCheckoutOption
-    NS_SWIFT_NAME(AnalyticsParameterCheckoutOption) = @"checkout_option";
+NS_SWIFT_NAME(AnalyticsParameterCheckoutOption) = @"checkout_option";
 
 /// Campaign content (NSString).
 static NSString *const kFIRParameterContent NS_SWIFT_NAME(AnalyticsParameterContent) = @"content";
@@ -236,7 +236,7 @@ static NSString *const kFIRParameterItemID NS_SWIFT_NAME(AnalyticsParameterItemI
 /// </pre>
 /// <b>This constant has been deprecated. Use @c kFIRParameterLocationID constant instead.</b>
 static NSString *const kFIRParameterItemLocationID
-    NS_SWIFT_NAME(AnalyticsParameterItemLocationID) = @"item_location_id";
+NS_SWIFT_NAME(AnalyticsParameterItemLocationID) = @"item_location_id";
 
 /// Item Name (context-specific) (NSString).
 /// <pre>
@@ -308,7 +308,7 @@ static NSString *const kFIRParameterMedium NS_SWIFT_NAME(AnalyticsParameterMediu
 ///     };
 /// </pre>
 static NSString *const kFIRParameterNumberOfNights
-    NS_SWIFT_NAME(AnalyticsParameterNumberOfNights) = @"number_of_nights";
+NS_SWIFT_NAME(AnalyticsParameterNumberOfNights) = @"number_of_nights";
 
 /// Number of passengers traveling (signed 64-bit integer as NSNumber).
 /// <pre>
@@ -318,7 +318,7 @@ static NSString *const kFIRParameterNumberOfNights
 ///     };
 /// </pre>
 static NSString *const kFIRParameterNumberOfPassengers
-    NS_SWIFT_NAME(AnalyticsParameterNumberOfPassengers) = @"number_of_passengers";
+NS_SWIFT_NAME(AnalyticsParameterNumberOfPassengers) = @"number_of_passengers";
 
 /// Number of rooms for travel events (signed 64-bit integer as NSNumber).
 /// <pre>
@@ -520,7 +520,7 @@ static NSString *const kFIRParameterValue NS_SWIFT_NAME(AnalyticsParameterValue)
 ///     };
 /// </pre>
 static NSString *const kFIRParameterVirtualCurrencyName
-    NS_SWIFT_NAME(AnalyticsParameterVirtualCurrencyName) = @"virtual_currency_name";
+NS_SWIFT_NAME(AnalyticsParameterVirtualCurrencyName) = @"virtual_currency_name";
 
 /// The name of a level in a game (NSString).
 /// <pre>

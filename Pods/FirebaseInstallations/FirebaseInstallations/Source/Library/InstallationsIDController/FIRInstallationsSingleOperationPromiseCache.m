@@ -31,45 +31,45 @@
 
 - (instancetype)initWithNewOperationHandler:
     (FBLPromise<id> *_Nonnull (^)(void))newOperationHandler {
-  if (newOperationHandler == nil) {
-    [NSException raise:NSInvalidArgumentException
-                format:@"`newOperationHandler` must not be `nil`."];
-  }
+    if (newOperationHandler == nil) {
+        [NSException raise:NSInvalidArgumentException
+                     format:@"`newOperationHandler` must not be `nil`."];
+    }
 
-  self = [super init];
-  if (self) {
-    _newOperationHandler = [newOperationHandler copy];
-  }
-  return self;
+    self = [super init];
+    if (self) {
+        _newOperationHandler = [newOperationHandler copy];
+    }
+    return self;
 }
 
 - (FBLPromise *)getExistingPendingOrCreateNewPromise {
-  @synchronized(self) {
-    if (!self.pendingPromise) {
-      self.pendingPromise = self.newOperationHandler();
+    @synchronized(self) {
+        if (!self.pendingPromise) {
+            self.pendingPromise = self.newOperationHandler();
 
-      self.pendingPromise
-          .then(^id(id result) {
-            @synchronized(self) {
-              self.pendingPromise = nil;
-              return nil;
-            }
-          })
-          .catch(^void(NSError *error) {
-            @synchronized(self) {
-              self.pendingPromise = nil;
-            }
-          });
+            self.pendingPromise
+            .then(^id(id result) {
+                @synchronized(self) {
+                    self.pendingPromise = nil;
+                    return nil;
+                }
+            })
+            .catch(^void(NSError *error) {
+                @synchronized(self) {
+                    self.pendingPromise = nil;
+                }
+            });
+        }
+
+        return self.pendingPromise;
     }
-
-    return self.pendingPromise;
-  }
 }
 
 - (nullable FBLPromise *)getExistingPendingPromise {
-  @synchronized(self) {
-    return self.pendingPromise;
-  }
+    @synchronized(self) {
+        return self.pendingPromise;
+    }
 }
 
 @end

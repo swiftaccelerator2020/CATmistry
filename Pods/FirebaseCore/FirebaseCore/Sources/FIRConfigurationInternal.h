@@ -20,10 +20,10 @@
 
 @interface FIRConfiguration ()
 
-/**
- * The configuration class for Firebase Analytics. This should be removed once the logic for
- * enabling and disabling Analytics is moved to Analytics.
- */
+    /**
+     * The configuration class for Firebase Analytics. This should be removed once the logic for
+     * enabling and disabling Analytics is moved to Analytics.
+     */
 @property(nonatomic, readwrite) FIRAnalyticsConfiguration *analyticsConfiguration;
 
 @end

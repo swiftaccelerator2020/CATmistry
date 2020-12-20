@@ -23,9 +23,9 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface FBLPromise<__covariant Value> : NSObject
 
-/**
- Default dispatch queue used for `FBLPromise`, which is `main` if a queue is not specified.
- */
+    /**
+     Default dispatch queue used for `FBLPromise`, which is `main` if a queue is not specified.
+     */
 @property(class) dispatch_queue_t defaultDispatchQueue NS_REFINED_FOR_SWIFT;
 
 /**
@@ -61,12 +61,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface FBLPromise<Value>()
 
-/**
- Adds an object to the set of pending objects to keep strongly while the promise is pending.
- Used by the Swift wrappers to keep them alive until the underlying ObjC promise is resolved.
+    /**
+     Adds an object to the set of pending objects to keep strongly while the promise is pending.
+     Used by the Swift wrappers to keep them alive until the underlying ObjC promise is resolved.
 
- @param object An object to add.
- */
+     @param object An object to add.
+     */
 - (void)addPendingObject:(id)object NS_REFINED_FOR_SWIFT;
 
 @end
@@ -79,12 +79,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface FBLPromise<Value>(DotSyntaxAdditions)
 
-/**
- Convenience dot-syntax wrappers for FBLPromise.
- Usage: FBLPromise.pending()
-        FBLPromise.resolved(value)
+    /**
+     Convenience dot-syntax wrappers for FBLPromise.
+     Usage: FBLPromise.pending()
+            FBLPromise.resolved(value)
 
- */
+     */
 + (instancetype (^)(void))pending FBL_PROMISES_DOT_SYNTAX NS_SWIFT_UNAVAILABLE("");
 + (instancetype (^)(id __nullable))resolved FBL_PROMISES_DOT_SYNTAX NS_SWIFT_UNAVAILABLE("");
 

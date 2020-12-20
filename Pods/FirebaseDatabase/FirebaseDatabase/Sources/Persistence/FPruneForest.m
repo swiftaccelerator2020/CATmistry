@@ -27,18 +27,18 @@
 @implementation FPruneForest
 
 static BOOL (^kFPrunePredicate)(id) = ^BOOL(NSNumber *pruneValue) {
-  return [pruneValue boolValue];
+    return [pruneValue boolValue];
 };
 
 static BOOL (^kFKeepPredicate)(id) = ^BOOL(NSNumber *pruneValue) {
-  return ![pruneValue boolValue];
+    return ![pruneValue boolValue];
 };
 
 + (FImmutableTree *)pruneTree {
     static dispatch_once_t onceToken;
     static FImmutableTree *pruneTree;
-    dispatch_once(&onceToken, ^{
-      pruneTree = [[FImmutableTree alloc] initWithValue:@YES];
+    dispatch_once(&onceToken, ^ {
+        pruneTree = [[FImmutableTree alloc] initWithValue:@YES];
     });
     return pruneTree;
 }
@@ -46,8 +46,8 @@ static BOOL (^kFKeepPredicate)(id) = ^BOOL(NSNumber *pruneValue) {
 + (FImmutableTree *)keepTree {
     static dispatch_once_t onceToken;
     static FImmutableTree *keepTree;
-    dispatch_once(&onceToken, ^{
-      keepTree = [[FImmutableTree alloc] initWithValue:@NO];
+    dispatch_once(&onceToken, ^ {
+        keepTree = [[FImmutableTree alloc] initWithValue:@NO];
     });
     return keepTree;
 }
@@ -63,8 +63,8 @@ static BOOL (^kFKeepPredicate)(id) = ^BOOL(NSNumber *pruneValue) {
 + (FPruneForest *)empty {
     static dispatch_once_t onceToken;
     static FPruneForest *forest;
-    dispatch_once(&onceToken, ^{
-      forest = [[FPruneForest alloc] initWithForest:[FImmutableTree empty]];
+    dispatch_once(&onceToken, ^ {
+        forest = [[FPruneForest alloc] initWithForest:[FImmutableTree empty]];
     });
     return forest;
 }
@@ -93,15 +93,15 @@ static BOOL (^kFKeepPredicate)(id) = ^BOOL(NSNumber *pruneValue) {
     if (childPruneForest == nil) {
         if (self.pruneForest.value != nil) {
             childPruneForest = [self.pruneForest.value boolValue]
-                                   ? [FPruneForest pruneTree]
-                                   : [FPruneForest keepTree];
+                               ? [FPruneForest pruneTree]
+                               : [FPruneForest keepTree];
         } else {
             childPruneForest = [FImmutableTree empty];
         }
     } else {
         if (childPruneForest.value == nil && self.pruneForest.value != nil) {
             childPruneForest = [childPruneForest setValue:self.pruneForest.value
-                                                   atPath:[FPath empty]];
+                                                 atPath:[FPath empty]];
         }
     }
     return [[FPruneForest alloc] initWithForest:childPruneForest];
@@ -118,7 +118,7 @@ static BOOL (^kFKeepPredicate)(id) = ^BOOL(NSNumber *pruneValue) {
 - (FPruneForest *)prunePath:(FPath *)path {
     if ([self.pruneForest rootMostValueOnPath:path matching:kFKeepPredicate]) {
         [NSException raise:NSInvalidArgumentException
-                    format:@"Can't prune path that was kept previously!"];
+                     format:@"Can't prune path that was kept previously!"];
     }
     if ([self.pruneForest rootMostValueOnPath:path matching:kFPrunePredicate]) {
         // This path will already be pruned
@@ -147,48 +147,48 @@ static BOOL (^kFKeepPredicate)(id) = ^BOOL(NSNumber *pruneValue) {
         return self;
     } else {
         return [self setPruneValue:[FPruneForest keepTree]
-                            forAll:children
-                            atPath:path];
+                     forAll:children
+                     atPath:path];
     }
 }
 
 - (FPruneForest *)pruneAll:(NSSet *)children atPath:(FPath *)path {
     if ([self.pruneForest rootMostValueOnPath:path matching:kFKeepPredicate]) {
         [NSException raise:NSInvalidArgumentException
-                    format:@"Can't prune path that was kept previously!"];
+                     format:@"Can't prune path that was kept previously!"];
     }
     if ([self.pruneForest rootMostValueOnPath:path matching:kFPrunePredicate]) {
         // This path will already be pruned
         return self;
     } else {
         return [self setPruneValue:[FPruneForest pruneTree]
-                            forAll:children
-                            atPath:path];
+                     forAll:children
+                     atPath:path];
     }
 }
 
 - (FPruneForest *)setPruneValue:(FImmutableTree *)pruneValue
-                         forAll:(NSSet *)children
-                         atPath:(FPath *)path {
+    forAll:(NSSet *)children
+    atPath:(FPath *)path {
     FImmutableTree *subtree = [self.pruneForest subtreeAtPath:path];
     __block FImmutableSortedDictionary *childrenDictionary = subtree.children;
     [children enumerateObjectsUsingBlock:^(NSString *childKey, BOOL *stop) {
-      childrenDictionary = [childrenDictionary insertKey:childKey
-                                               withValue:pruneValue];
-    }];
+                 childrenDictionary = [childrenDictionary insertKey:childKey
+                              withValue:pruneValue];
+             }];
     FImmutableTree *newSubtree =
         [[FImmutableTree alloc] initWithValue:subtree.value
-                                     children:childrenDictionary];
+                                children:childrenDictionary];
     return [[FPruneForest alloc]
-        initWithForest:[self.pruneForest setTree:newSubtree atPath:path]];
+            initWithForest:[self.pruneForest setTree:newSubtree atPath:path]];
 }
 
 - (void)enumarateKeptNodesUsingBlock:(void (^)(FPath *))block {
     [self.pruneForest forEach:^(FPath *path, id value) {
-      if (value != nil && ![value boolValue]) {
-          block(path);
-      }
-    }];
+                         if (value != nil && ![value boolValue]) {
+                             block(path);
+                         }
+                     }];
 }
 
 @end

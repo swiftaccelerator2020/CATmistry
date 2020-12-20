@@ -40,16 +40,16 @@
 // Functions used for validating while creating snapshots in FSnapshotUtilities
 + (BOOL)validateFrom:(NSString *)fn
     isValidLeafValue:(id)value
-            withPath:(NSArray *)path;
+    withPath:(NSArray *)path;
 + (void)validateFrom:(NSString *)fn
     validDictionaryKey:(id)keyId
-              withPath:(NSArray *)path;
+    withPath:(NSArray *)path;
 + (void)validateFrom:(NSString *)fn
     validUpdateDictionaryKey:(id)keyId
-                   withValue:(id)value;
+    withValue:(id)value;
 + (void)validateFrom:(NSString *)fn
     isValidPriorityValue:(id)value
-                withPath:(NSArray *)path;
+    withPath:(NSArray *)path;
 + (BOOL)validatePriorityValue:value;
 
 @end

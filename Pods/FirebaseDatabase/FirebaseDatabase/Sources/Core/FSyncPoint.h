@@ -38,24 +38,24 @@
  * Returns array of FEvent
  */
 - (NSArray *)applyOperation:(id<FOperation>)operation
-                writesCache:(FWriteTreeRef *)writesCache
-                serverCache:(id<FNode>)optCompleteServerCache;
+    writesCache:(FWriteTreeRef *)writesCache
+    serverCache:(id<FNode>)optCompleteServerCache;
 
 /**
  * Returns array of FEvent
  */
 - (NSArray *)addEventRegistration:(id<FEventRegistration>)eventRegistration
-       forNonExistingViewForQuery:(FQuerySpec *)query
-                      writesCache:(FWriteTreeRef *)writesCache
-                      serverCache:(FCacheNode *)serverCache;
+    forNonExistingViewForQuery:(FQuerySpec *)query
+    writesCache:(FWriteTreeRef *)writesCache
+    serverCache:(FCacheNode *)serverCache;
 
 - (NSArray *)addEventRegistration:(id<FEventRegistration>)eventRegistration
-          forExistingViewForQuery:(FQuerySpec *)query;
+    forExistingViewForQuery:(FQuerySpec *)query;
 
 - (FTupleRemovedQueriesEvents *)removeEventRegistration:
-                                    (id<FEventRegistration>)eventRegistration
-                                               forQuery:(FQuerySpec *)query
-                                            cancelError:(NSError *)cancelError;
+    (id<FEventRegistration>)eventRegistration
+    forQuery:(FQuerySpec *)query
+    cancelError:(NSError *)cancelError;
 /**
  * Returns array of FViews
  */

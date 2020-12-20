@@ -93,26 +93,26 @@
         // tagged listen
         FIndexedNode *emptyIndexedNode =
             [FIndexedNode indexedNodeWithNode:[FEmptyNode emptyNode]
-                                        index:query.index];
+                          index:query.index];
         FIndexedNode *serverSnap =
             [indexFilter updateFullNode:emptyIndexedNode
-                            withNewNode:initialServerCache.indexedNode
-                            accumulator:nil];
+                         withNewNode:initialServerCache.indexedNode
+                         accumulator:nil];
         FIndexedNode *eventSnap =
             [filter updateFullNode:emptyIndexedNode
-                       withNewNode:initialEventCache.indexedNode
-                       accumulator:nil];
+                    withNewNode:initialEventCache.indexedNode
+                    accumulator:nil];
         FCacheNode *newServerCache = [[FCacheNode alloc]
-            initWithIndexedNode:serverSnap
-             isFullyInitialized:initialServerCache.isFullyInitialized
-                     isFiltered:indexFilter.filtersNodes];
+                                      initWithIndexedNode:serverSnap
+                                      isFullyInitialized:initialServerCache.isFullyInitialized
+                                      isFiltered:indexFilter.filtersNodes];
         FCacheNode *newEventCache = [[FCacheNode alloc]
-            initWithIndexedNode:eventSnap
-             isFullyInitialized:initialEventCache.isFullyInitialized
-                     isFiltered:filter.filtersNodes];
+                                     initWithIndexedNode:eventSnap
+                                     isFullyInitialized:initialEventCache.isFullyInitialized
+                                     isFiltered:filter.filtersNodes];
 
         self.viewCache = [[FViewCache alloc] initWithEventCache:newEventCache
-                                                    serverCache:newServerCache];
+                                             serverCache:newServerCache];
 
         self.eventRegistrations = [[NSMutableArray alloc] init];
 
@@ -137,8 +137,8 @@
         // complete cache and we need to see if it contains the child we're
         // interested in.
         if ([self.query loadsAllData] ||
-            (!path.isEmpty &&
-             ![cache getImmediateChild:path.getFront].isEmpty)) {
+                (!path.isEmpty &&
+                 ![cache getImmediateChild:path.getFront].isEmpty)) {
             return [cache getChild:path];
         }
     }
@@ -160,7 +160,7 @@
  * @return Cancel events, if cancelError was provided.
  */
 - (NSArray *)removeEventRegistration:(id<FEventRegistration>)eventRegistration
-                         cancelError:(NSError *)cancelError {
+    cancelError:(NSError *)cancelError {
     NSMutableArray *cancelEvents = [[NSMutableArray alloc] init];
     if (cancelError != nil) {
         NSAssert(eventRegistration == nil,
@@ -196,10 +196,10 @@
  * events and changes
  */
 - (FViewOperationResult *)applyOperation:(id<FOperation>)operation
-                             writesCache:(FWriteTreeRef *)writesCache
-                             serverCache:(id<FNode>)optCompleteServerCache {
+    writesCache:(FWriteTreeRef *)writesCache
+    serverCache:(id<FNode>)optCompleteServerCache {
     if (operation.type == FOperationTypeMerge &&
-        operation.source.queryParams != nil) {
+            operation.source.queryParams != nil) {
         NSAssert(self.viewCache.completeServerSnap != nil,
                  @"We should always have a full cache before handling merges");
         NSAssert(self.viewCache.completeEventSnap != nil,
@@ -208,47 +208,47 @@
     FViewCache *oldViewCache = self.viewCache;
     FViewProcessorResult *result =
         [self.processor applyOperationOn:oldViewCache
-                               operation:operation
-                             writesCache:writesCache
-                           completeCache:optCompleteServerCache];
+                        operation:operation
+                        writesCache:writesCache
+                        completeCache:optCompleteServerCache];
 
     NSAssert(result.viewCache.cachedServerSnap.isFullyInitialized ||
-                 !oldViewCache.cachedServerSnap.isFullyInitialized,
+             !oldViewCache.cachedServerSnap.isFullyInitialized,
              @"Once a server snap is complete, it should never go back.");
 
     self.viewCache = result.viewCache;
     NSArray *events = [self
-        generateEventsForChanges:result.changes
-                      eventCache:result.viewCache.cachedEventSnap.indexedNode
-                    registration:nil];
+                       generateEventsForChanges:result.changes
+                       eventCache:result.viewCache.cachedEventSnap.indexedNode
+                       registration:nil];
     return [[FViewOperationResult alloc] initWithChanges:result.changes
-                                                  events:events];
+                                         events:events];
 }
 
 - (NSArray *)initialEvents:(id<FEventRegistration>)registration {
     FCacheNode *eventSnap = self.viewCache.cachedEventSnap;
     NSMutableArray *initialChanges = [[NSMutableArray alloc] init];
     [eventSnap.indexedNode.node enumerateChildrenUsingBlock:^(
-                                    NSString *key, id<FNode> node, BOOL *stop) {
-      FIndexedNode *indexed = [FIndexedNode indexedNodeWithNode:node];
-      FChange *change = [[FChange alloc] initWithType:FIRDataEventTypeChildAdded
-                                          indexedNode:indexed
-                                             childKey:key];
-      [initialChanges addObject:change];
+                               NSString *key, id<FNode> node, BOOL *stop) {
+                                   FIndexedNode *indexed = [FIndexedNode indexedNodeWithNode:node];
+        FChange *change = [[FChange alloc] initWithType:FIRDataEventTypeChildAdded
+                                           indexedNode:indexed
+                                           childKey:key];
+        [initialChanges addObject:change];
     }];
     if (eventSnap.isFullyInitialized) {
         FChange *change = [[FChange alloc] initWithType:FIRDataEventTypeValue
-                                            indexedNode:eventSnap.indexedNode];
+                                           indexedNode:eventSnap.indexedNode];
         [initialChanges addObject:change];
     }
     return [self generateEventsForChanges:initialChanges
-                               eventCache:eventSnap.indexedNode
-                             registration:registration];
+                 eventCache:eventSnap.indexedNode
+                 registration:registration];
 }
 
 - (NSArray *)generateEventsForChanges:(NSArray *)changes
-                           eventCache:(FIndexedNode *)eventCache
-                         registration:(id<FEventRegistration>)registration {
+    eventCache:(FIndexedNode *)eventCache
+    registration:(id<FEventRegistration>)registration {
     NSArray *registrations;
     if (registration == nil) {
         registrations = [[NSArray alloc] initWithArray:self.eventRegistrations];
@@ -256,8 +256,8 @@
         registrations = [[NSArray alloc] initWithObjects:registration, nil];
     }
     return [self.eventGenerator generateEventsForChanges:changes
-                                              eventCache:eventCache
-                                      eventRegistrations:registrations];
+                                eventCache:eventCache
+                                eventRegistrations:registrations];
 }
 
 - (NSString *)description {

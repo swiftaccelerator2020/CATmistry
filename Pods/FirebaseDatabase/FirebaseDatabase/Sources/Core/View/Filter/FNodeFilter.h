@@ -37,26 +37,26 @@
  * in the snap, this is a no-op. The method expects an indexed snap.
  */
 - (FIndexedNode *)updateChildIn:(FIndexedNode *)oldSnap
-                    forChildKey:(NSString *)childKey
-                       newChild:(id<FNode>)newChildSnap
-                   affectedPath:(FPath *)affectedPath
-                     fromSource:(id<FCompleteChildSource>)source
-                    accumulator:(FChildChangeAccumulator *)optChangeAccumulator;
+    forChildKey:(NSString *)childKey
+    newChild:(id<FNode>)newChildSnap
+    affectedPath:(FPath *)affectedPath
+    fromSource:(id<FCompleteChildSource>)source
+    accumulator:(FChildChangeAccumulator *)optChangeAccumulator;
 
 /**
  * Update a node in full and output any resulting change from this complete
  * update.
  */
 - (FIndexedNode *)updateFullNode:(FIndexedNode *)oldSnap
-                     withNewNode:(FIndexedNode *)newSnap
-                     accumulator:
-                         (FChildChangeAccumulator *)optChangeAccumulator;
+    withNewNode:(FIndexedNode *)newSnap
+    accumulator:
+    (FChildChangeAccumulator *)optChangeAccumulator;
 
 /**
  * Update the priority of the root node
  */
 - (FIndexedNode *)updatePriority:(id<FNode>)priority
-                         forNode:(FIndexedNode *)oldSnap;
+    forNode:(FIndexedNode *)oldSnap;
 
 /**
  * Returns true if children might be filtered due to query critiera

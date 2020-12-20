@@ -10,7 +10,7 @@
 @implementation FTreeSortedDictionaryEnumerator
 
 - (id)initWithImmutableSortedDictionary:(FTreeSortedDictionary *)aDict
-                               startKey:(id)startKey isReverse:(BOOL)reverse {
+    startKey:(id)startKey isReverse:(BOOL)reverse {
     self = [super init];
     if (self) {
         self.immutableSortedDictionary = aDict;

@@ -32,84 +32,84 @@ static void GDTCORReachabilityCallback(GDTCORNetworkReachabilityRef reachability
                                        void *info);
 
 @implementation GDTCORReachability {
-  /** The reachability object. */
-  GDTCORNetworkReachabilityRef _reachabilityRef;
+    /** The reachability object. */
+    GDTCORNetworkReachabilityRef _reachabilityRef;
 
-  /** The queue on which callbacks and all work will occur. */
-  dispatch_queue_t _reachabilityQueue;
+    /** The queue on which callbacks and all work will occur. */
+    dispatch_queue_t _reachabilityQueue;
 
-  /** Flags specified by reachability callbacks. */
-  GDTCORNetworkReachabilityFlags _callbackFlags;
+    /** Flags specified by reachability callbacks. */
+    GDTCORNetworkReachabilityFlags _callbackFlags;
 }
 
 + (void)initialize {
-  [self sharedInstance];
+    [self sharedInstance];
 }
 
 + (instancetype)sharedInstance {
-  static GDTCORReachability *sharedInstance;
-  static dispatch_once_t onceToken;
-  dispatch_once(&onceToken, ^{
-    sharedInstance = [[GDTCORReachability alloc] init];
-  });
-  return sharedInstance;
+    static GDTCORReachability *sharedInstance;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^ {
+        sharedInstance = [[GDTCORReachability alloc] init];
+    });
+    return sharedInstance;
 }
 
 + (GDTCORNetworkReachabilityFlags)currentFlags {
-  __block GDTCORNetworkReachabilityFlags currentFlags;
+    __block GDTCORNetworkReachabilityFlags currentFlags;
 #if !TARGET_OS_WATCH
-  dispatch_sync([GDTCORReachability sharedInstance] -> _reachabilityQueue, ^{
-    GDTCORReachability *reachability = [GDTCORReachability sharedInstance];
-    currentFlags =
+    dispatch_sync([GDTCORReachability sharedInstance] -> _reachabilityQueue, ^ {
+        GDTCORReachability *reachability = [GDTCORReachability sharedInstance];
+        currentFlags =
         reachability->_callbackFlags ? reachability->_callbackFlags : reachability->_flags;
-    GDTCORLogDebug(@"Initial reachability flags determined: %d", currentFlags);
-  });
+        GDTCORLogDebug(@"Initial reachability flags determined: %d", currentFlags);
+    });
 #else
-  currentFlags = kGDTCORNetworkReachabilityFlagsReachable;
+    currentFlags = kGDTCORNetworkReachabilityFlagsReachable;
 #endif
-  return currentFlags;
+    return currentFlags;
 }
 
 - (instancetype)init {
-  self = [super init];
+    self = [super init];
 #if !TARGET_OS_WATCH
-  if (self) {
-    struct sockaddr_in zeroAddress;
-    bzero(&zeroAddress, sizeof(zeroAddress));
-    zeroAddress.sin_len = sizeof(zeroAddress);
-    zeroAddress.sin_family = AF_INET;
+    if (self) {
+        struct sockaddr_in zeroAddress;
+        bzero(&zeroAddress, sizeof(zeroAddress));
+        zeroAddress.sin_len = sizeof(zeroAddress);
+        zeroAddress.sin_family = AF_INET;
 
-    _reachabilityQueue =
-        dispatch_queue_create("com.google.GDTCORReachability", DISPATCH_QUEUE_SERIAL);
-    _reachabilityRef = SCNetworkReachabilityCreateWithAddress(
-        kCFAllocatorDefault, (const struct sockaddr *)&zeroAddress);
-    Boolean success = SCNetworkReachabilitySetDispatchQueue(_reachabilityRef, _reachabilityQueue);
-    if (!success) {
-      GDTCORLogWarning(GDTCORMCWReachabilityFailed, @"%@", @"The reachability queue wasn't set.");
-    }
-    success = SCNetworkReachabilitySetCallback(_reachabilityRef, GDTCORReachabilityCallback, NULL);
-    if (!success) {
-      GDTCORLogWarning(GDTCORMCWReachabilityFailed, @"%@",
-                       @"The reachability callback wasn't set.");
-    }
+        _reachabilityQueue =
+            dispatch_queue_create("com.google.GDTCORReachability", DISPATCH_QUEUE_SERIAL);
+        _reachabilityRef = SCNetworkReachabilityCreateWithAddress(
+                               kCFAllocatorDefault, (const struct sockaddr *)&zeroAddress);
+        Boolean success = SCNetworkReachabilitySetDispatchQueue(_reachabilityRef, _reachabilityQueue);
+        if (!success) {
+            GDTCORLogWarning(GDTCORMCWReachabilityFailed, @"%@", @"The reachability queue wasn't set.");
+        }
+        success = SCNetworkReachabilitySetCallback(_reachabilityRef, GDTCORReachabilityCallback, NULL);
+        if (!success) {
+            GDTCORLogWarning(GDTCORMCWReachabilityFailed, @"%@",
+                             @"The reachability callback wasn't set.");
+        }
 
-    // Get the initial set of flags.
-    dispatch_async(_reachabilityQueue, ^{
-      Boolean valid = SCNetworkReachabilityGetFlags(self->_reachabilityRef, &self->_flags);
-      if (!valid) {
-        GDTCORLogDebug(@"%@", @"Determining reachability failed.");
-        self->_flags = 0;
-      }
-    });
-  }
+        // Get the initial set of flags.
+        dispatch_async(_reachabilityQueue, ^ {
+            Boolean valid = SCNetworkReachabilityGetFlags(self->_reachabilityRef, &self->_flags);
+            if (!valid) {
+                GDTCORLogDebug(@"%@", @"Determining reachability failed.");
+                self->_flags = 0;
+            }
+        });
+    }
 #endif
-  return self;
+    return self;
 }
 
 - (void)setCallbackFlags:(GDTCORNetworkReachabilityFlags)flags {
-  if (_callbackFlags != flags) {
-    self->_callbackFlags = flags;
-  }
+    if (_callbackFlags != flags) {
+        self->_callbackFlags = flags;
+    }
 }
 
 @end
@@ -120,6 +120,6 @@ static void GDTCORReachabilityCallback(GDTCORNetworkReachabilityRef reachability
                                        GDTCORNetworkReachabilityFlags flags,
                                        void *info) {
 #pragma clang diagnostic pop
-  GDTCORLogDebug(@"Reachability changed, new flags: %d", flags);
-  [[GDTCORReachability sharedInstance] setCallbackFlags:flags];
+    GDTCORLogDebug(@"Reachability changed, new flags: %d", flags);
+    [[GDTCORReachability sharedInstance] setCallbackFlags:flags];
 }

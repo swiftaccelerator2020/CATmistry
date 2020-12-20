@@ -20,7 +20,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface FBLPromise<Value>(ThenAdditions)
 
-typedef id __nullable (^FBLPromiseThenWorkBlock)(Value __nullable value) NS_SWIFT_UNAVAILABLE("");
+    typedef id __nullable (^FBLPromiseThenWorkBlock)(Value __nullable value) NS_SWIFT_UNAVAILABLE("");
 
 /**
  Creates a pending promise which eventually gets resolved with resolution returned from `work`
@@ -44,7 +44,7 @@ typedef id __nullable (^FBLPromiseThenWorkBlock)(Value __nullable value) NS_SWIF
  @return A new pending promise to be resolved with resolution returned from the `work` block.
  */
 - (FBLPromise *)onQueue:(dispatch_queue_t)queue
-                   then:(FBLPromiseThenWorkBlock)work NS_REFINED_FOR_SWIFT;
+    then:(FBLPromiseThenWorkBlock)work NS_REFINED_FOR_SWIFT;
 
 @end
 

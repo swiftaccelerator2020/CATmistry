@@ -20,7 +20,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface FBLPromise<Value>(DoAdditions)
 
-typedef id __nullable (^FBLPromiseDoWorkBlock)(void) NS_SWIFT_UNAVAILABLE("");
+    typedef id __nullable (^FBLPromiseDoWorkBlock)(void) NS_SWIFT_UNAVAILABLE("");
 
 /**
  Creates a pending promise and executes `work` block asynchronously.

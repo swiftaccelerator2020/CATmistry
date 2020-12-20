@@ -59,8 +59,8 @@
 @synthesize connectionId;
 
 - (id)initWith:(FRepoInfo *)repoInfo
-         andQueue:(dispatch_queue_t)queue
-      googleAppID:(NSString *)googleAppID
+    andQueue:(dispatch_queue_t)queue
+    googleAppID:(NSString *)googleAppID
     lastSessionID:(NSString *)lastSessionID {
     self = [super init];
     if (self) {
@@ -78,11 +78,11 @@
               self.connectionId, connectionUrl, ua);
 
         NSURLRequest *req = [[NSURLRequest alloc]
-            initWithURL:[[NSURL alloc] initWithString:connectionUrl]];
+                             initWithURL:[[NSURL alloc] initWithString:connectionUrl]];
         self.webSocket = [[FSRWebSocket alloc] initWithURLRequest:req
-                                                            queue:queue
-                                                      googleAppID:googleAppID
-                                                     andUserAgent:ua];
+                                               queue:queue
+                                               googleAppID:googleAppID
+                                               andUserAgent:ua];
         [self.webSocket setDelegateDispatchQueue:queue];
         self.webSocket.delegate = self;
     }
@@ -107,8 +107,8 @@
 
     if (!hasUiDeviceClass) {
         NSDictionary *systemVersionDictionary = [NSDictionary
-            dictionaryWithContentsOfFile:
-                @"/System/Library/CoreServices/SystemVersion.plist"];
+                                                dictionaryWithContentsOfFile:
+                                                @"/System/Library/CoreServices/SystemVersion.plist"];
         systemVersion =
             [systemVersionDictionary objectForKey:@"ProductVersion"];
         deviceName = [systemVersionDictionary objectForKey:@"ProductName"];
@@ -124,9 +124,9 @@
     // Firebase/5/<semver>_<build date>_<git hash>/<os version>/{device model /
     // os (Mac OS X, iPhone, etc.}_<bundle id>
     NSString *ua = [NSString
-        stringWithFormat:@"Firebase/%@/%@/%@/%@_%@", kWebsocketProtocolVersion,
-                         [FIRDatabase buildVersion], systemVersion, deviceName,
-                         bundleIdentifier];
+                    stringWithFormat:@"Firebase/%@/%@/%@/%@_%@", kWebsocketProtocolVersion,
+                    [FIRDatabase buildVersion], systemVersion, deviceName,
+                    bundleIdentifier];
     return ua;
 }
 
@@ -145,9 +145,9 @@
     // TODO Assert url
     [self.webSocket open];
     dispatch_time_t when = dispatch_time(
-        DISPATCH_TIME_NOW, kWebsocketConnectTimeout * NSEC_PER_SEC);
-    dispatch_after(when, self.dispatchQueue, ^{
-      [self closeIfNeverConnected];
+                               DISPATCH_TIME_NOW, kWebsocketConnectTimeout * NSEC_PER_SEC);
+    dispatch_after(when, self.dispatchQueue, ^ {
+        [self closeIfNeverConnected];
     });
 }
 
@@ -167,11 +167,11 @@
     [self resetKeepAlive];
 
     NSData *jsonData = [NSJSONSerialization dataWithJSONObject:dictionary
-                                                       options:kNilOptions
-                                                         error:nil];
+                                            options:kNilOptions
+                                            error:nil];
 
     NSString *data = [[NSString alloc] initWithData:jsonData
-                                           encoding:NSUTF8StringEncoding];
+                                       encoding:NSUTF8StringEncoding];
 
     NSArray *dataSegs = [FUtilities splitString:data
                                     intoMaxSize:kWebsocketMaxFrameSize];
@@ -180,8 +180,8 @@
     // forthcoming
     if (dataSegs.count > 1) {
         [self.webSocket
-            send:[NSString
-                     stringWithFormat:@"%u", (unsigned int)dataSegs.count]];
+         send:[NSString
+               stringWithFormat:@"%u", (unsigned int)dataSegs.count]];
     }
 
     // Then, actually send the segments.
@@ -228,9 +228,9 @@
     if (self.totalFrames == 0) {
         // Call delegate and pass an immutable version of the frame
         NSDictionary *json = [NSJSONSerialization
-            JSONObjectWithData:[frame dataUsingEncoding:NSUTF8StringEncoding]
-                       options:kNilOptions
-                         error:nil];
+                              JSONObjectWithData:[frame dataUsingEncoding:NSUTF8StringEncoding]
+                              options:kNilOptions
+                              error:nil];
         frame = nil;
         FFLog(@"I-RDB083007",
               @"(wsc:%@) handleIncomingFrame sending complete frame: %d",
@@ -265,15 +265,15 @@
 
     everConnected = YES;
 
-    dispatch_async(dispatch_get_main_queue(), ^{
-      self->keepAlive =
-          [NSTimer scheduledTimerWithTimeInterval:kWebsocketKeepaliveInterval
-                                           target:self
-                                         selector:@selector(nop:)
-                                         userInfo:nil
-                                          repeats:YES];
-      FFLog(@"I-RDB083009", @"(wsc:%@) nop timer kicked off",
-            self.connectionId);
+    dispatch_async(dispatch_get_main_queue(), ^ {
+        self->keepAlive =
+        [NSTimer scheduledTimerWithTimeInterval:kWebsocketKeepaliveInterval
+                 target:self
+                 selector:@selector(nop:)
+                 userInfo:nil
+                 repeats:YES];
+        FFLog(@"I-RDB083009", @"(wsc:%@) nop timer kicked off",
+              self.connectionId);
     });
 }
 
@@ -285,8 +285,8 @@
 
 - (void)webSocket:(FSRWebSocket *)webSocket
     didCloseWithCode:(NSInteger)code
-              reason:(NSString *)reason
-            wasClean:(BOOL)wasClean {
+    reason:(NSString *)reason
+    wasClean:(BOOL)wasClean {
     FFLog(@"I-RDB083011", @"(wsc:%@) didCloseWithCode: %ld %@",
           self.connectionId, (long)code, reason);
     [self onClosed];

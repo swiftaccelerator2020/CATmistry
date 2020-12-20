@@ -7,7 +7,7 @@
 
 - (NSString *) description {
     return [NSString stringWithFormat:@"[key=%@ val=%@ color=%@]", key, value,
-            (color != nil ? @"true" : @"false")];
+                     (color != nil ? @"true" : @"false")];
 }
 
 - (id)initWithKey:(__unsafe_unretained id) aKey withValue:(__unsafe_unretained id) aValue withColor:(__unsafe_unretained FLLRBColor*) aColor withLeft:(__unsafe_unretained id<FLLRBNode>)aLeft withRight:(__unsafe_unretained id<FLLRBNode>)aRight
@@ -25,10 +25,10 @@
 
 - (id)copyWith:(__unsafe_unretained id) aKey withValue:(__unsafe_unretained id) aValue withColor:(__unsafe_unretained FLLRBColor*) aColor withLeft:(__unsafe_unretained id<FLLRBNode>)aLeft withRight:(__unsafe_unretained id<FLLRBNode>)aRight {
     return [[FLLRBValueNode alloc] initWithKey:(aKey != nil) ? aKey : self.key
-                                     withValue:(aValue != nil) ? aValue : self.value
-                                     withColor:(aColor != nil) ? aColor : self.color
-                                      withLeft:(aLeft != nil) ? aLeft : self.left
-                                     withRight:(aRight != nil) ? aRight : self.right];
+                                   withValue:(aValue != nil) ? aValue : self.value
+                                   withColor:(aColor != nil) ? aColor : self.color
+                                   withLeft:(aLeft != nil) ? aLeft : self.left
+                                   withRight:(aRight != nil) ? aRight : self.right];
 }
 
 - (int) count {
@@ -45,14 +45,14 @@
 */
 - (BOOL) inorderTraversal:(BOOL (^)(id key, id value))action {
     return [self.left inorderTraversal:action] ||
-        action(self.key, self.value) ||
-    [self.right inorderTraversal:action];
+           action(self.key, self.value) ||
+           [self.right inorderTraversal:action];
 }
 
 - (BOOL) reverseTraversal:(BOOL (^)(id key, id value))action {
- return [self.right reverseTraversal:action] ||
-        action(self.key, self.value) ||
-    [self.left reverseTraversal:action];
+    return [self.right reverseTraversal:action] ||
+           action(self.key, self.value) ||
+           [self.left reverseTraversal:action];
 }
 
 - (id<FLLRBNode>) min {
@@ -220,7 +220,7 @@
         @throw [[NSException alloc] initWithName:@"check" reason:err userInfo:nil];
     }
     else {
-                int ret = blackDepth + ([self isRed] ? 0 : 1);
+        int ret = blackDepth + ([self isRed] ? 0 : 1);
 //        NSLog(@"black depth is: %d; other is: %d, ret is: %d", blackDepth, ([self isRed] ? 0 : 1), ret);
         return ret;
     }

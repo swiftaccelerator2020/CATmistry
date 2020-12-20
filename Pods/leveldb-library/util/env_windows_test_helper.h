@@ -11,13 +11,13 @@ class EnvWindowsTest;
 
 // A helper for the Windows Env to facilitate testing.
 class EnvWindowsTestHelper {
- private:
-  friend class CorruptionTest;
-  friend class EnvWindowsTest;
+private:
+    friend class CorruptionTest;
+    friend class EnvWindowsTest;
 
-  // Set the maximum number of read-only files that will be mapped via mmap.
-  // Must be called before creating an Env.
-  static void SetReadOnlyMMapLimit(int limit);
+    // Set the maximum number of read-only files that will be mapped via mmap.
+    // Must be called before creating an Env.
+    static void SetReadOnlyMMapLimit(int limit);
 };
 
 }  // namespace leveldb

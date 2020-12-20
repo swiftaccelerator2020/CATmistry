@@ -21,7 +21,7 @@
 
 @interface FDataEvent ()
 @property(nonatomic, strong, readwrite) id<FEventRegistration>
-    eventRegistration;
+eventRegistration;
 @property(nonatomic, strong, readwrite) FIRDataSnapshot *snapshot;
 @property(nonatomic, strong, readwrite) NSString *prevName;
 @property(nonatomic, readwrite) FIRDataEventType eventType;
@@ -35,18 +35,18 @@
 @synthesize eventType;
 
 - (id)initWithEventType:(FIRDataEventType)type
-      eventRegistration:(id<FEventRegistration>)registration
-           dataSnapshot:(FIRDataSnapshot *)dataSnapshot {
+    eventRegistration:(id<FEventRegistration>)registration
+    dataSnapshot:(FIRDataSnapshot *)dataSnapshot {
     return [self initWithEventType:type
                  eventRegistration:registration
-                      dataSnapshot:dataSnapshot
-                          prevName:nil];
+                 dataSnapshot:dataSnapshot
+                 prevName:nil];
 }
 
 - (id)initWithEventType:(FIRDataEventType)type
-      eventRegistration:(id<FEventRegistration>)registration
-           dataSnapshot:(FIRDataSnapshot *)dataSnapshot
-               prevName:(NSString *)previousName {
+    eventRegistration:(id<FEventRegistration>)registration
+    dataSnapshot:(FIRDataSnapshot *)dataSnapshot
+    prevName:(NSString *)previousName {
     self = [super init];
     if (self) {
         self.eventRegistration = registration;
@@ -77,7 +77,7 @@
 
 - (NSString *)description {
     return [NSString stringWithFormat:@"event %d, data: %@", (int)eventType,
-                                      [snapshot value]];
+                     [snapshot value]];
 }
 
 @end

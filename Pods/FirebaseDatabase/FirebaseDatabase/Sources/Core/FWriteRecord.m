@@ -30,16 +30,16 @@
 @implementation FWriteRecord
 
 - (id)initWithPath:(FPath *)path
-         overwrite:(id<FNode>)overwrite
-           writeId:(NSInteger)writeId
-           visible:(BOOL)isVisible {
+    overwrite:(id<FNode>)overwrite
+    writeId:(NSInteger)writeId
+    visible:(BOOL)isVisible {
     self = [super init];
     if (self) {
         self.path = path;
         if (overwrite == nil) {
             [NSException raise:NSInvalidArgumentException
-                        format:@"Can't pass nil as overwrite parameter to an "
-                               @"overwrite write record"];
+                         format:@"Can't pass nil as overwrite parameter to an "
+                         @"overwrite write record"];
         }
         self.overwrite = overwrite;
         self.merge = nil;
@@ -50,15 +50,15 @@
 }
 
 - (id)initWithPath:(FPath *)path
-             merge:(FCompoundWrite *)merge
-           writeId:(NSInteger)writeId {
+    merge:(FCompoundWrite *)merge
+    writeId:(NSInteger)writeId {
     self = [super init];
     if (self) {
         self.path = path;
         if (merge == nil) {
             [NSException raise:NSInvalidArgumentException
-                        format:@"Can't pass nil as merge parameter to an merge "
-                               @"write record"];
+                         format:@"Can't pass nil as merge parameter to an merge "
+                         @"write record"];
         }
         self.overwrite = nil;
         self.merge = merge;
@@ -71,7 +71,7 @@
 - (id<FNode>)overwrite {
     if (self->_overwrite == nil) {
         [NSException raise:NSInvalidArgumentException
-                    format:@"Can't get overwrite for merge write record!"];
+                     format:@"Can't get overwrite for merge write record!"];
     }
     return self->_overwrite;
 }
@@ -79,7 +79,7 @@
 - (FCompoundWrite *)compoundWrite {
     if (self->_merge == nil) {
         [NSException raise:NSInvalidArgumentException
-                    format:@"Can't get merge for overwrite write record!"];
+                     format:@"Can't get merge for overwrite write record!"];
     }
     return self->_merge;
 }
@@ -96,12 +96,12 @@
     if (self.isOverwrite) {
         return
             [NSString stringWithFormat:@"FWriteRecord { writeId = %lu, path = "
-                                       @"%@, overwrite = %@, visible = %d }",
-                                       (unsigned long)self.writeId, self.path,
-                                       self.overwrite, self.visible];
+                      @"%@, overwrite = %@, visible = %d }",
+                      (unsigned long)self.writeId, self.path,
+                      self.overwrite, self.visible];
     } else {
         return [NSString
-            stringWithFormat:
+                stringWithFormat:
                 @"FWriteRecord { writeId = %lu, path = %@, merge = %@ }",
                 (unsigned long)self.writeId, self.path, self.merge];
     }
@@ -117,7 +117,7 @@
     if (self->_path != other->_path && ![self->_path isEqual:other->_path])
         return NO;
     if (self->_overwrite != other->_overwrite &&
-        ![self->_overwrite isEqual:other->_overwrite])
+            ![self->_overwrite isEqual:other->_overwrite])
         return NO;
     if (self->_merge != other->_merge && ![self->_merge isEqual:other->_merge])
         return NO;

@@ -38,9 +38,9 @@
 }
 
 - (void)updateSnapshot:(FPath *)path
-       withNewSnapshot:(id<FNode>)newSnapshotNode {
+    withNewSnapshot:(id<FNode>)newSnapshotNode {
     self.rootNode = [self.rootNode updateChild:path
-                                  withNewChild:newSnapshotNode];
+                                   withNewChild:newSnapshotNode];
 }
 
 @end

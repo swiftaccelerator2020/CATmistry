@@ -23,7 +23,7 @@
 
 @implementation FTransformedEnumerator
 - (id)initWithEnumerator:(NSEnumerator *)enumerator
-            andTransform:(id (^)(id))transform {
+    andTransform:(id (^)(id))transform {
     self = [super init];
     if (self) {
         self.enumerator = enumerator;

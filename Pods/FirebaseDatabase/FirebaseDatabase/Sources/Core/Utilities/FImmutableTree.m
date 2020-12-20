@@ -41,7 +41,7 @@
 }
 
 - (id)initWithValue:(id)aValue
-           children:(FImmutableSortedDictionary *)childrenMap {
+    children:(FImmutableSortedDictionary *)childrenMap {
     self = [super init];
     if (self) {
         self.value = aValue;
@@ -53,9 +53,9 @@
 + (FImmutableSortedDictionary *)emptyChildren {
     static dispatch_once_t emptyChildrenToken;
     static FImmutableSortedDictionary *emptyChildren;
-    dispatch_once(&emptyChildrenToken, ^{
-      emptyChildren = [FImmutableSortedDictionary
-          dictionaryWithComparator:[FUtilities stringComparator]];
+    dispatch_once(&emptyChildrenToken, ^ {
+        emptyChildren = [FImmutableSortedDictionary
+                         dictionaryWithComparator:[FUtilities stringComparator]];
     });
     return emptyChildren;
 }
@@ -63,8 +63,8 @@
 + (FImmutableTree *)empty {
     static dispatch_once_t emptyImmutableTreeToken;
     static FImmutableTree *emptyTree = nil;
-    dispatch_once(&emptyImmutableTreeToken, ^{
-      emptyTree = [[FImmutableTree alloc] initWithValue:nil];
+    dispatch_once(&emptyImmutableTreeToken, ^ {
+        emptyTree = [[FImmutableTree alloc] initWithValue:nil];
     });
     return emptyTree;
 }
@@ -80,10 +80,10 @@
  * on the way back out, it may be better to pass down a pathSoFar FPath
  */
 - (FTuplePathValue *)findRootMostMatchingPath:(FPath *)relativePath
-                                    predicate:(BOOL (^)(id value))predicate {
+    predicate:(BOOL (^)(id value))predicate {
     if (self.value != nil && predicate(self.value)) {
         return [[FTuplePathValue alloc] initWithPath:[FPath empty]
-                                               value:self.value];
+                                        value:self.value];
     } else {
         if ([relativePath isEmpty]) {
             return nil;
@@ -93,13 +93,13 @@
             if (child != nil) {
                 FTuplePathValue *childExistingPathAndValue =
                     [child findRootMostMatchingPath:[relativePath popFront]
-                                          predicate:predicate];
+                           predicate:predicate];
                 if (childExistingPathAndValue != nil) {
                     FPath *fullPath = [[[FPath alloc] initWith:front]
-                        child:childExistingPathAndValue.path];
+                                                      child:childExistingPathAndValue.path];
                     return [[FTuplePathValue alloc]
-                        initWithPath:fullPath
-                               value:childExistingPathAndValue.value];
+                            initWithPath:fullPath
+                            value:childExistingPathAndValue.value];
                 } else {
                     return nil;
                 }
@@ -117,16 +117,16 @@
  */
 - (FTuplePathValue *)findRootMostValueAndPath:(FPath *)relativePath {
     return [self findRootMostMatchingPath:relativePath
-                                predicate:^BOOL(__unsafe_unretained id value) {
-                                  return YES;
-                                }];
+         predicate:^BOOL(__unsafe_unretained id value) {
+             return YES;
+         }];
 }
 
 - (id)rootMostValueOnPath:(FPath *)path {
     return [self rootMostValueOnPath:path
-                            matching:^BOOL(id value) {
-                              return YES;
-                            }];
+         matching:^BOOL(id value) {
+             return YES;
+         }];
 }
 
 - (id)rootMostValueOnPath:(FPath *)path matching:(BOOL (^)(id))predicate {
@@ -136,32 +136,32 @@
         return nil;
     } else {
         return [[self.children get:path.getFront]
-            rootMostValueOnPath:[path popFront]
-                       matching:predicate];
+                rootMostValueOnPath:[path popFront]
+                matching:predicate];
     }
 }
 
 - (id)leafMostValueOnPath:(FPath *)path {
     return [self leafMostValueOnPath:path
-                            matching:^BOOL(id value) {
-                              return YES;
-                            }];
+         matching:^BOOL(id value) {
+             return YES;
+         }];
 }
 
 - (id)leafMostValueOnPath:(FPath *)relativePath
-                 matching:(BOOL (^)(id))predicate {
+    matching:(BOOL (^)(id))predicate {
     __block id currentValue = self.value;
     __block FImmutableTree *currentTree = self;
     [relativePath enumerateComponentsUsingBlock:^(NSString *key, BOOL *stop) {
-      currentTree = [currentTree.children get:key];
-      if (currentTree == nil) {
-          *stop = YES;
-      } else {
-          id treeValue = currentTree.value;
-          if (treeValue != nil && predicate(treeValue)) {
-              currentValue = treeValue;
-          }
-      }
+                     currentTree = [currentTree.children get:key];
+                     if (currentTree == nil) {
+            *stop = YES;
+        } else {
+            id treeValue = currentTree.value;
+            if (treeValue != nil && predicate(treeValue)) {
+                currentValue = treeValue;
+            }
+        }
     }];
     return currentValue;
 }
@@ -172,10 +172,10 @@
     } else {
         __block BOOL found = NO;
         [self.children enumerateKeysAndObjectsUsingBlock:^(
-                           NSString *key, FImmutableTree *subtree, BOOL *stop) {
-          found = [subtree containsValueMatching:predicate];
-          if (found)
-              *stop = YES;
+                      NSString *key, FImmutableTree *subtree, BOOL *stop) {
+                          found = [subtree containsValueMatching:predicate];
+                          if (found)
+                *stop = YES;
         }];
         return found;
     }
@@ -201,7 +201,7 @@
 - (FImmutableTree *)setValue:(id)newValue atPath:(FPath *)relativePath {
     if ([relativePath isEmpty]) {
         return [[FImmutableTree alloc] initWithValue:newValue
-                                            children:self.children];
+                                       children:self.children];
     } else {
         NSString *front = [relativePath getFront];
         FImmutableTree *child = [self.children get:front];
@@ -209,11 +209,11 @@
             child = [FImmutableTree empty];
         }
         FImmutableTree *newChild = [child setValue:newValue
-                                            atPath:[relativePath popFront]];
+                                          atPath:[relativePath popFront]];
         FImmutableSortedDictionary *newChildren =
             [self.children insertKey:front withValue:newChild];
         return [[FImmutableTree alloc] initWithValue:self.value
-                                            children:newChildren];
+                                       children:newChildren];
     }
 }
 
@@ -226,7 +226,7 @@
             return [FImmutableTree empty];
         } else {
             return [[FImmutableTree alloc] initWithValue:nil
-                                                children:self.children];
+                                           children:self.children];
         }
     } else {
         NSString *front = [relativePath getFront];
@@ -245,7 +245,7 @@
                 return [FImmutableTree empty];
             } else {
                 return [[FImmutableTree alloc] initWithValue:self.value
-                                                    children:newChildren];
+                                               children:newChildren];
             }
         } else {
             return self;
@@ -274,7 +274,7 @@
  * Replaces the subtree at the specified path with the given new tree
  */
 - (FImmutableTree *)setTree:(FImmutableTree *)newTree
-                     atPath:(FPath *)relativePath {
+    atPath:(FPath *)relativePath {
     if ([relativePath isEmpty]) {
         return newTree;
     } else {
@@ -284,7 +284,7 @@
             child = [FImmutableTree empty];
         }
         FImmutableTree *newChild = [child setTree:newTree
-                                           atPath:[relativePath popFront]];
+                                          atPath:[relativePath popFront]];
         FImmutableSortedDictionary *newChildren;
         if ([newChild isEmpty]) {
             newChildren = [self.children removeKey:front];
@@ -292,7 +292,7 @@
             newChildren = [self.children insertKey:front withValue:newChild];
         }
         return [[FImmutableTree alloc] initWithValue:self.value
-                                            children:newChildren];
+                                       children:newChildren];
     }
 }
 
@@ -302,7 +302,7 @@
  * current value, and a map of the child names to folded subtrees
  */
 - (id)foldWithBlock:(id (^)(FPath *path, id value,
-                            NSDictionary *foldedChildren))block {
+    NSDictionary *foldedChildren))block {
     return [self foldWithPathSoFar:[FPath empty] withBlock:block];
 }
 
@@ -310,16 +310,16 @@
  * Recursive helper for public facing foldWithBlock: method
  */
 - (id)foldWithPathSoFar:(FPath *)pathSoFar
-              withBlock:(id (^)(FPath *path, id value,
-                                NSDictionary *foldedChildren))block {
+    withBlock:(id (^)(FPath *path, id value,
+    NSDictionary *foldedChildren))block {
     __block NSMutableDictionary *accum = [[NSMutableDictionary alloc] init];
     [self.children
-        enumerateKeysAndObjectsUsingBlock:^(
-            NSString *childKey, FImmutableTree *childTree, BOOL *stop) {
-          accum[childKey] =
-              [childTree foldWithPathSoFar:[pathSoFar childFromString:childKey]
-                                 withBlock:block];
-        }];
+     enumerateKeysAndObjectsUsingBlock:^(
+    NSString *childKey, FImmutableTree *childTree, BOOL *stop) {
+        accum[childKey] =
+            [childTree foldWithPathSoFar:[pathSoFar childFromString:childKey]
+             withBlock:block];
+    }];
     return block(pathSoFar, self.value, accum);
 }
 
@@ -333,7 +333,7 @@
 }
 
 - (id)findOnPath:(FPath *)pathToFollow
-        pathSoFar:(FPath *)pathSoFar
+    pathSoFar:(FPath *)pathSoFar
     andApplyBlock:(id (^)(FPath *path, id value))block {
     id result = self.value ? block(pathSoFar, self.value) : nil;
     if (result != nil) {
@@ -346,8 +346,8 @@
             FImmutableTree *nextChild = [self.children get:front];
             if (nextChild != nil) {
                 return [nextChild findOnPath:[pathToFollow popFront]
-                                   pathSoFar:[pathSoFar childFromString:front]
-                               andApplyBlock:block];
+                                  pathSoFar:[pathSoFar childFromString:front]
+                                  andApplyBlock:block];
             } else {
                 return nil;
             }
@@ -364,8 +364,8 @@
 }
 
 - (FPath *)forEachOnPath:(FPath *)pathToFollow
-               pathSoFar:(FPath *)pathSoFar
-              whileBlock:(BOOL (^)(FPath *, id))block {
+    pathSoFar:(FPath *)pathSoFar
+    whileBlock:(BOOL (^)(FPath *, id))block {
     if ([pathToFollow isEmpty]) {
         if (self.value) {
             block(pathSoFar, self.value);
@@ -382,8 +382,8 @@
             if (nextChild) {
                 return
                     [nextChild forEachOnPath:[pathToFollow popFront]
-                                   pathSoFar:[pathSoFar childFromString:front]
-                                  whileBlock:block];
+                               pathSoFar:[pathSoFar childFromString:front]
+                               whileBlock:block];
             } else {
                 return pathSoFar;
             }
@@ -394,13 +394,13 @@
 }
 
 - (FImmutableTree *)forEachOnPath:(FPath *)path
-                     performBlock:(void (^)(FPath *path, id value))block {
+    performBlock:(void (^)(FPath *path, id value))block {
     return [self forEachOnPath:path pathSoFar:[FPath empty] performBlock:block];
 }
 
 - (FImmutableTree *)forEachOnPath:(FPath *)pathToFollow
-                        pathSoFar:(FPath *)pathSoFar
-                     performBlock:(void (^)(FPath *path, id value))block {
+    pathSoFar:(FPath *)pathSoFar
+    performBlock:(void (^)(FPath *path, id value))block {
     if ([pathToFollow isEmpty]) {
         return self;
     } else {
@@ -411,8 +411,8 @@
         FImmutableTree *nextChild = [self.children get:front];
         if (nextChild) {
             return [nextChild forEachOnPath:[pathToFollow popFront]
-                                  pathSoFar:[pathSoFar childFromString:front]
-                               performBlock:block];
+                              pathSoFar:[pathSoFar childFromString:front]
+                              performBlock:block];
         } else {
             return [FImmutableTree empty];
         }
@@ -427,13 +427,13 @@
 }
 
 - (void)forEachPathSoFar:(FPath *)pathSoFar
-               withBlock:(void (^)(FPath *path, id value))block {
+    withBlock:(void (^)(FPath *path, id value))block {
     [self.children
-        enumerateKeysAndObjectsUsingBlock:^(
-            NSString *childKey, FImmutableTree *childTree, BOOL *stop) {
-          [childTree forEachPathSoFar:[pathSoFar childFromString:childKey]
-                            withBlock:block];
-        }];
+     enumerateKeysAndObjectsUsingBlock:^(
+    NSString *childKey, FImmutableTree *childTree, BOOL *stop) {
+        [childTree forEachPathSoFar:[pathSoFar childFromString:childKey]
+         withBlock:block];
+    }];
     if (self.value) {
         block(pathSoFar, self.value);
     }
@@ -441,12 +441,12 @@
 
 - (void)forEachChild:(void (^)(NSString *childKey, id childValue))block {
     [self.children
-        enumerateKeysAndObjectsUsingBlock:^(
-            NSString *childKey, FImmutableTree *childTree, BOOL *stop) {
-          if (childTree.value) {
-              block(childKey, childTree.value);
-          }
-        }];
+     enumerateKeysAndObjectsUsingBlock:^(
+    NSString *childKey, FImmutableTree *childTree, BOOL *stop) {
+        if (childTree.value) {
+            block(childKey, childTree.value);
+        }
+    }];
 }
 
 - (BOOL)isEqual:(id)object {
@@ -468,13 +468,13 @@
     [string appendString:(self.value ? [self.value description] : @"<nil>")];
     [string appendString:@", children={"];
     [self.children
-        enumerateKeysAndObjectsUsingBlock:^(
-            NSString *childKey, FImmutableTree *childTree, BOOL *stop) {
-          [string appendString:@" "];
-          [string appendString:childKey];
-          [string appendString:@"="];
-          [string appendString:[childTree.value description]];
-        }];
+     enumerateKeysAndObjectsUsingBlock:^(
+    NSString *childKey, FImmutableTree *childTree, BOOL *stop) {
+        [string appendString:@" "];
+        [string appendString:childKey];
+        [string appendString:@"="];
+        [string appendString:[childTree.value description]];
+    }];
     [string appendString:@" } }"];
     return [NSString stringWithString:string];
 }

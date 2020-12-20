@@ -28,9 +28,9 @@ FOUNDATION_EXTERN BOOL FBLWaitForPromisesWithTimeout(NSTimeInterval timeout) NS_
 
 @interface FBLPromise<Value>(TestingAdditions)
 
-/**
- Dispatch group for promises that is typically used to wait for all scheduled blocks.
- */
+    /**
+     Dispatch group for promises that is typically used to wait for all scheduled blocks.
+     */
 @property(class, nonatomic, readonly) dispatch_group_t dispatchGroup NS_REFINED_FOR_SWIFT;
 
 /**

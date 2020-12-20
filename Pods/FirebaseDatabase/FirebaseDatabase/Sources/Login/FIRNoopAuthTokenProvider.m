@@ -21,9 +21,9 @@
 @implementation FIRNoopAuthTokenProvider
 
 - (void)fetchTokenForcingRefresh:(BOOL)forceRefresh
-                    withCallback:(fbt_void_nsstring_nserror)callback {
-    dispatch_async([FIRDatabaseQuery sharedQueue], ^{
-      callback(nil, nil);
+    withCallback:(fbt_void_nsstring_nserror)callback {
+    dispatch_async([FIRDatabaseQuery sharedQueue], ^ {
+        callback(nil, nil);
     });
 }
 

@@ -36,8 +36,8 @@
 NS_ASSUME_NONNULL_BEGIN
 
 typedef NS_ENUM(NSInteger, FIRConfigType) {
-  FIRConfigTypeCore = 1,
-  FIRConfigTypeSDK = 2,
+    FIRConfigTypeCore = 1,
+    FIRConfigTypeSDK = 2,
 };
 
 extern NSString *const kFIRDefaultAppName;
@@ -95,9 +95,9 @@ extern NSString *const FIRAuthStateDidChangeInternalNotificationUIDKey;
 
 @interface FIRApp ()
 
-/**
- * A flag indicating if this is the default app (has the default app name).
- */
+    /**
+     * A flag indicating if this is the default app (has the default app name).
+     */
 @property(nonatomic, readonly) BOOL isDefaultApp;
 
 /*
@@ -110,9 +110,9 @@ extern NSString *const FIRAuthStateDidChangeInternalNotificationUIDKey;
  * FIRApp notification listener.
  */
 + (NSError *)errorForSubspecConfigurationFailureWithDomain:(NSString *)domain
-                                                 errorCode:(FIRErrorCode)code
-                                                   service:(NSString *)service
-                                                    reason:(NSString *)reason;
+    errorCode:(FIRErrorCode)code
+    service:(NSString *)service
+    reason:(NSString *)reason;
 /**
  * Checks if the default app is configured without trying to configure it.
  */
@@ -136,8 +136,8 @@ extern NSString *const FIRAuthStateDidChangeInternalNotificationUIDKey;
  * @param version Version of the library.
  */
 + (void)registerInternalLibrary:(nonnull Class<FIRLibrary>)library
-                       withName:(nonnull NSString *)name
-                    withVersion:(nonnull NSString *)version;
+    withName:(nonnull NSString *)name
+    withVersion:(nonnull NSString *)version;
 
 /**
  * A concatenated string representing all the third-party libraries and version numbers.
@@ -150,8 +150,8 @@ extern NSString *const FIRAuthStateDidChangeInternalNotificationUIDKey;
  * @note This API is a no-op, please remove calls to it.
  */
 - (void)sendLogsWithServiceName:(NSString *)serviceName
-                        version:(NSString *)version
-                          error:(NSError *)error;
+    version:(NSString *)version
+    error:(NSError *)error;
 
 /**
  * Can be used by the unit tests in eack SDK to reset FIRApp. This method is thread unsafe.

@@ -20,8 +20,8 @@
 @protocol FSyncTreeHash;
 
 typedef NSArray * (^fbt_startListeningBlock)(FQuerySpec *query, NSNumber *tagId,
-                                             id<FSyncTreeHash> hash,
-                                             fbt_nsarray_nsstring onComplete);
+        id<FSyncTreeHash> hash,
+        fbt_nsarray_nsstring onComplete);
 typedef void (^fbt_stopListeningBlock)(FQuerySpec *query, NSNumber *tagId);
 
 @interface FListenProvider : NSObject

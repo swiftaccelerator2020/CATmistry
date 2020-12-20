@@ -25,14 +25,14 @@
 @implementation FRepoManager
 
 typedef NSMutableDictionary<NSString *,
-                            NSMutableDictionary<FRepoInfo *, FRepo *> *>
-    FRepoDictionary;
+        NSMutableDictionary<FRepoInfo *, FRepo *> *>
+        FRepoDictionary;
 
 + (FRepoDictionary *)configs {
     static dispatch_once_t pred = 0;
     static FRepoDictionary *configs;
-    dispatch_once(&pred, ^{
-      configs = [NSMutableDictionary dictionary];
+    dispatch_once(&pred, ^ {
+        configs = [NSMutableDictionary dictionary];
     });
     return configs;
 }
@@ -57,8 +57,8 @@ typedef NSMutableDictionary<NSString *,
 }
 
 + (FRepo *)createRepo:(FRepoInfo *)repoInfo
-               config:(FIRDatabaseConfig *)config
-             database:(FIRDatabase *)database {
+    config:(FIRDatabaseConfig *)config
+    database:(FIRDatabase *)database {
     [config freeze];
     FRepoDictionary *configs = [FRepoManager configs];
     @synchronized(configs) {
@@ -71,62 +71,62 @@ typedef NSMutableDictionary<NSString *,
         FRepo *repo = repos[repoInfo];
         if (repo == nil) {
             repo = [[FRepo alloc] initWithRepoInfo:repoInfo
-                                            config:config
-                                          database:database];
+                                  config:config
+                                  database:database];
             repos[repoInfo] = repo;
             return repo;
         } else {
             [NSException
-                 raise:@"RepoExists"
-                format:@"createRepo called for Repo that already exists."];
+             raise:@"RepoExists"
+             format:@"createRepo called for Repo that already exists."];
             return nil;
         }
     }
 }
 
 + (void)interrupt:(FIRDatabaseConfig *)config {
-    dispatch_async([FIRDatabaseQuery sharedQueue], ^{
-      FRepoDictionary *configs = [FRepoManager configs];
-      NSMutableDictionary<FRepoInfo *, FRepo *> *repos =
-          configs[config.sessionIdentifier];
-      for (FRepo *repo in [repos allValues]) {
-          [repo interrupt];
-      }
+    dispatch_async([FIRDatabaseQuery sharedQueue], ^ {
+        FRepoDictionary *configs = [FRepoManager configs];
+        NSMutableDictionary<FRepoInfo *, FRepo *> *repos =
+        configs[config.sessionIdentifier];
+        for (FRepo *repo in [repos allValues]) {
+            [repo interrupt];
+        }
     });
 }
 
 + (void)interruptAll {
-    dispatch_async([FIRDatabaseQuery sharedQueue], ^{
-      FRepoDictionary *configs = [FRepoManager configs];
-      for (NSMutableDictionary<FRepoInfo *, FRepo *> *repos in
-           [configs allValues]) {
-          for (FRepo *repo in [repos allValues]) {
-              [repo interrupt];
-          }
-      }
+    dispatch_async([FIRDatabaseQuery sharedQueue], ^ {
+        FRepoDictionary *configs = [FRepoManager configs];
+        for (NSMutableDictionary<FRepoInfo *, FRepo *> *repos in
+                [configs allValues]) {
+            for (FRepo *repo in [repos allValues]) {
+                [repo interrupt];
+            }
+        }
     });
 }
 
 + (void)resume:(FIRDatabaseConfig *)config {
-    dispatch_async([FIRDatabaseQuery sharedQueue], ^{
-      FRepoDictionary *configs = [FRepoManager configs];
-      NSMutableDictionary<FRepoInfo *, FRepo *> *repos =
-          configs[config.sessionIdentifier];
-      for (FRepo *repo in [repos allValues]) {
-          [repo resume];
-      }
+    dispatch_async([FIRDatabaseQuery sharedQueue], ^ {
+        FRepoDictionary *configs = [FRepoManager configs];
+        NSMutableDictionary<FRepoInfo *, FRepo *> *repos =
+        configs[config.sessionIdentifier];
+        for (FRepo *repo in [repos allValues]) {
+            [repo resume];
+        }
     });
 }
 
 + (void)resumeAll {
-    dispatch_async([FIRDatabaseQuery sharedQueue], ^{
-      FRepoDictionary *configs = [FRepoManager configs];
-      for (NSMutableDictionary<FRepoInfo *, FRepo *> *repos in
-           [configs allValues]) {
-          for (FRepo *repo in [repos allValues]) {
-              [repo resume];
-          }
-      }
+    dispatch_async([FIRDatabaseQuery sharedQueue], ^ {
+        FRepoDictionary *configs = [FRepoManager configs];
+        for (NSMutableDictionary<FRepoInfo *, FRepo *> *repos in
+                [configs allValues]) {
+            for (FRepo *repo in [repos allValues]) {
+                [repo resume];
+            }
+        }
     });
 }
 
@@ -134,14 +134,14 @@ typedef NSMutableDictionary<NSString *,
     // Do this synchronously to make sure we release our references to LevelDB
     // before returning, allowing LevelDB to close and release its exclusive
     // locks.
-    dispatch_sync([FIRDatabaseQuery sharedQueue], ^{
-      FFLog(@"I-RDB040001", @"Disposing all repos for Config with name %@",
-            config.sessionIdentifier);
-      NSMutableDictionary *configs = [FRepoManager configs];
-      for (FRepo *repo in [configs[config.sessionIdentifier] allValues]) {
-          [repo dispose];
-      }
-      [configs removeObjectForKey:config.sessionIdentifier];
+    dispatch_sync([FIRDatabaseQuery sharedQueue], ^ {
+        FFLog(@"I-RDB040001", @"Disposing all repos for Config with name %@",
+              config.sessionIdentifier);
+        NSMutableDictionary *configs = [FRepoManager configs];
+        for (FRepo *repo in [configs[config.sessionIdentifier] allValues]) {
+            [repo dispose];
+        }
+        [configs removeObjectForKey:config.sessionIdentifier];
     });
 }
 

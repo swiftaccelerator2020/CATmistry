@@ -44,12 +44,12 @@ typedef void (^FIRAppVoidBoolCallback)(BOOL success) NS_SWIFT_NAME(FirebaseAppVo
 NS_SWIFT_NAME(FirebaseApp)
 @interface FIRApp : NSObject
 
-/**
- * Configures a default Firebase app. Raises an exception if any configuration step fails. The
- * default app is named "__FIRAPP_DEFAULT". This method should be called after the app is launched
- * and before using Firebase services. This method should be called from the main thread and
- * contains synchronous file I/O (reading GoogleService-Info.plist from disk).
- */
+    /**
+     * Configures a default Firebase app. Raises an exception if any configuration step fails. The
+     * default app is named "__FIRAPP_DEFAULT". This method should be called after the app is launched
+     * and before using Firebase services. This method should be called from the main thread and
+     * contains synchronous file I/O (reading GoogleService-Info.plist from disk).
+     */
 + (void)configure;
 
 /**
@@ -71,7 +71,7 @@ NS_SWIFT_NAME(FirebaseApp)
  */
 // clang-format off
 + (void)configureWithName:(NSString *)name
-                  options:(FIROptions *)options NS_SWIFT_NAME(configure(name:options:));
+    options:(FIROptions *)options NS_SWIFT_NAME(configure(name:options:));
 // clang-format on
 
 /**
@@ -120,7 +120,7 @@ NS_SWIFT_NAME(FirebaseApp)
  * collection.
  */
 @property(nonatomic, readwrite, getter=isDataCollectionDefaultEnabled)
-    BOOL dataCollectionDefaultEnabled;
+BOOL dataCollectionDefaultEnabled;
 
 @end
 

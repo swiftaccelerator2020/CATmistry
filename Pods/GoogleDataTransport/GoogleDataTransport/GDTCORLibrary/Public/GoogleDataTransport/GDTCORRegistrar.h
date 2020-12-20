@@ -25,10 +25,10 @@ NS_ASSUME_NONNULL_BEGIN
 /** Manages the registration of targets with the transport SDK. */
 @interface GDTCORRegistrar : NSObject <GDTCORLifecycleProtocol>
 
-/** Creates and/or returns the singleton instance.
- *
- * @return The singleton instance of this class.
- */
+    /** Creates and/or returns the singleton instance.
+     *
+     * @return The singleton instance of this class.
+     */
 + (instancetype)sharedInstance;
 
 /** Registers a backend implementation with the GoogleDataTransport infrastructure.

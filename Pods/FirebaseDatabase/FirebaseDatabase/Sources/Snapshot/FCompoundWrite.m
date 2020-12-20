@@ -39,11 +39,11 @@
     (NSDictionary *)dictionary {
     __block FImmutableTree *writeTree = [FImmutableTree empty];
     [dictionary enumerateKeysAndObjectsUsingBlock:^(NSString *pathString,
-                                                    id value, BOOL *stop) {
-      id<FNode> node = [FSnapshotUtilities nodeFrom:value];
-      FImmutableTree *tree = [[FImmutableTree alloc] initWithValue:node];
-      writeTree = [writeTree setTree:tree
-                              atPath:[[FPath alloc] initWith:pathString]];
+               id value, BOOL *stop) {
+                   id<FNode> node = [FSnapshotUtilities nodeFrom:value];
+        FImmutableTree *tree = [[FImmutableTree alloc] initWithValue:node];
+        writeTree = [writeTree setTree:tree
+                               atPath:[[FPath alloc] initWith:pathString]];
     }];
     return [[FCompoundWrite alloc] initWithWriteTree:writeTree];
 }
@@ -51,10 +51,10 @@
 + (FCompoundWrite *)compoundWriteWithNodeDictionary:(NSDictionary *)dictionary {
     __block FImmutableTree *writeTree = [FImmutableTree empty];
     [dictionary enumerateKeysAndObjectsUsingBlock:^(NSString *pathString,
-                                                    id node, BOOL *stop) {
-      FImmutableTree *tree = [[FImmutableTree alloc] initWithValue:node];
-      writeTree = [writeTree setTree:tree
-                              atPath:[[FPath alloc] initWith:pathString]];
+               id node, BOOL *stop) {
+                   FImmutableTree *tree = [[FImmutableTree alloc] initWithValue:node];
+        writeTree = [writeTree setTree:tree
+                               atPath:[[FPath alloc] initWith:pathString]];
     }];
     return [[FCompoundWrite alloc] initWithWriteTree:writeTree];
 }
@@ -62,9 +62,9 @@
 + (FCompoundWrite *)emptyWrite {
     static dispatch_once_t pred = 0;
     static FCompoundWrite *empty = nil;
-    dispatch_once(&pred, ^{
-      empty = [[FCompoundWrite alloc]
-          initWithWriteTree:[[FImmutableTree alloc] initWithValue:nil]];
+    dispatch_once(&pred, ^ {
+        empty = [[FCompoundWrite alloc]
+                 initWithWriteTree:[[FImmutableTree alloc] initWithValue:nil]];
     });
     return empty;
 }
@@ -72,23 +72,23 @@
 - (FCompoundWrite *)addWrite:(id<FNode>)node atPath:(FPath *)path {
     if (path.isEmpty) {
         return [[FCompoundWrite alloc]
-            initWithWriteTree:[[FImmutableTree alloc] initWithValue:node]];
+                initWithWriteTree:[[FImmutableTree alloc] initWithValue:node]];
     } else {
         FTuplePathValue *rootMost =
             [self.writeTree findRootMostValueAndPath:path];
         if (rootMost != nil) {
             FPath *relativePath = [FPath relativePathFrom:rootMost.path
-                                                       to:path];
+                                         to:path];
             id<FNode> value = [rootMost.value updateChild:relativePath
-                                             withNewChild:node];
+                                              withNewChild:node];
             return [[FCompoundWrite alloc]
-                initWithWriteTree:[self.writeTree setValue:value
-                                                    atPath:rootMost.path]];
+                    initWithWriteTree:[self.writeTree setValue:value
+                                       atPath:rootMost.path]];
         } else {
             FImmutableTree *subtree =
                 [[FImmutableTree alloc] initWithValue:node];
             FImmutableTree *newWriteTree = [self.writeTree setTree:subtree
-                                                            atPath:path];
+                                                           atPath:path];
             return [[FCompoundWrite alloc] initWithWriteTree:newWriteTree];
         }
     }
@@ -99,11 +99,11 @@
 }
 
 - (FCompoundWrite *)addCompoundWrite:(FCompoundWrite *)compoundWrite
-                              atPath:(FPath *)path {
+    atPath:(FPath *)path {
     __block FCompoundWrite *newWrite = self;
     [compoundWrite.writeTree forEach:^(FPath *childPath, id<FNode> value) {
-      newWrite = [newWrite addWrite:value atPath:[path child:childPath]];
-    }];
+                                newWrite = [newWrite addWrite:value atPath:[path child:childPath]];
+                            }];
     return newWrite;
 }
 
@@ -158,20 +158,20 @@
     if (self.writeTree.value != nil) {
         id<FNode> node = self.writeTree.value;
         [node enumerateChildrenUsingBlock:^(NSString *key, id<FNode> node,
-                                            BOOL *stop) {
-          [children addObject:[[FNamedNode alloc] initWithName:key
-                                                       andNode:node]];
-        }];
+             BOOL *stop) {
+                 [children addObject:[[FNamedNode alloc] initWithName:key
+                                 andNode:node]];
+             }];
     } else {
         [self.writeTree.children
-            enumerateKeysAndObjectsUsingBlock:^(
-                NSString *childKey, FImmutableTree *childTree, BOOL *stop) {
-              if (childTree.value != nil) {
-                  [children addObject:[[FNamedNode alloc]
-                                          initWithName:childKey
-                                               andNode:childTree.value]];
-              }
-            }];
+         enumerateKeysAndObjectsUsingBlock:^(
+        NSString *childKey, FImmutableTree *childTree, BOOL *stop) {
+            if (childTree.value != nil) {
+                [children addObject:[[FNamedNode alloc]
+                                     initWithName:childKey
+                                     andNode:childTree.value]];
+            }
+        }];
     }
     return children;
 }
@@ -180,10 +180,10 @@
 - (NSDictionary *)childCompoundWrites {
     NSMutableDictionary *dict = [NSMutableDictionary dictionary];
     [self.writeTree.children
-        enumerateKeysAndObjectsUsingBlock:^(
-            NSString *key, FImmutableTree *childWrite, BOOL *stop) {
-          dict[key] = [[FCompoundWrite alloc] initWithWriteTree:childWrite];
-        }];
+     enumerateKeysAndObjectsUsingBlock:^(
+    NSString *key, FImmutableTree *childWrite, BOOL *stop) {
+        dict[key] = [[FCompoundWrite alloc] initWithWriteTree:childWrite];
+    }];
     return dict;
 }
 
@@ -194,18 +194,18 @@
         id<FNode> shadowingNode = [self completeNodeAtPath:path];
         if (shadowingNode != nil) {
             return [[FCompoundWrite alloc]
-                initWithWriteTree:[[FImmutableTree alloc]
-                                      initWithValue:shadowingNode]];
+                    initWithWriteTree:[[FImmutableTree alloc]
+                                       initWithValue:shadowingNode]];
         } else {
             return [[FCompoundWrite alloc]
-                initWithWriteTree:[self.writeTree subtreeAtPath:path]];
+                    initWithWriteTree:[self.writeTree subtreeAtPath:path]];
         }
     }
 }
 
 - (id<FNode>)applySubtreeWrite:(FImmutableTree *)subtreeWrite
-                        atPath:(FPath *)relativePath
-                        toNode:(id<FNode>)node {
+    atPath:(FPath *)relativePath
+    toNode:(id<FNode>)node {
     if (subtreeWrite.value != nil) {
         // Since a write there is always a leaf, we're done here.
         return [node updateChild:relativePath withNewChild:subtreeWrite.value];
@@ -213,29 +213,29 @@
         __block id<FNode> priorityWrite = nil;
         __block id<FNode> blockNode = node;
         [subtreeWrite.children
-            enumerateKeysAndObjectsUsingBlock:^(
-                NSString *childKey, FImmutableTree *childTree, BOOL *stop) {
-              if ([childKey isEqualToString:@".priority"]) {
-                  // Apply priorities at the end so we don't update priorities
-                  // for either empty nodes or forget to apply priorities to
-                  // empty nodes that are later filled.
-                  NSAssert(childTree.value != nil,
-                           @"Priority writes must always be leaf nodes");
-                  priorityWrite = childTree.value;
-              } else {
-                  blockNode = [self
-                      applySubtreeWrite:childTree
-                                 atPath:[relativePath childFromString:childKey]
-                                 toNode:blockNode];
-              }
-            }];
+         enumerateKeysAndObjectsUsingBlock:^(
+        NSString *childKey, FImmutableTree *childTree, BOOL *stop) {
+            if ([childKey isEqualToString:@".priority"]) {
+                // Apply priorities at the end so we don't update priorities
+                // for either empty nodes or forget to apply priorities to
+                // empty nodes that are later filled.
+                NSAssert(childTree.value != nil,
+                         @"Priority writes must always be leaf nodes");
+                priorityWrite = childTree.value;
+            } else {
+                blockNode = [self
+                             applySubtreeWrite:childTree
+                             atPath:[relativePath childFromString:childKey]
+                             toNode:blockNode];
+            }
+        }];
         // If there was a priority write, we only apply it if the node is not
         // empty
         if (![blockNode getChild:relativePath].isEmpty &&
-            priorityWrite != nil) {
+                priorityWrite != nil) {
             blockNode = [blockNode
-                 updateChild:[relativePath childFromString:@".priority"]
-                withNewChild:priorityWrite];
+                         updateChild:[relativePath childFromString:@".priority"]
+                         withNewChild:priorityWrite];
         }
         return blockNode;
     }
@@ -245,10 +245,10 @@
     __block BOOL stop = NO;
     // TODO: add stop to tree iterator...
     [self.writeTree forEach:^(FPath *path, id value) {
-      if (!stop) {
-          block(path, value, &stop);
-      }
-    }];
+                       if (!stop) {
+                           block(path, value, &stop);
+                       }
+                   }];
 }
 
 /**
@@ -259,8 +259,8 @@
  */
 - (id<FNode>)applyToNode:(id<FNode>)node {
     return [self applySubtreeWrite:self.writeTree
-                            atPath:[FPath empty]
-                            toNode:node];
+                 atPath:[FPath empty]
+                 toNode:node];
 }
 
 /**
@@ -292,8 +292,8 @@
 - (NSDictionary *)valForExport:(BOOL)exportFormat {
     NSMutableDictionary *dictionary = [NSMutableDictionary dictionary];
     [self.writeTree forEach:^(FPath *path, id<FNode> value) {
-      dictionary[path.wireFormat] = [value valForExport:exportFormat];
-    }];
+                       dictionary[path.wireFormat] = [value valForExport:exportFormat];
+                   }];
     return dictionary;
 }
 

@@ -20,7 +20,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface FBLPromise<Value>(RecoverAdditions)
 
-typedef id __nullable (^FBLPromiseRecoverWorkBlock)(NSError *error) NS_SWIFT_UNAVAILABLE("");
+    typedef id __nullable (^FBLPromiseRecoverWorkBlock)(NSError *error) NS_SWIFT_UNAVAILABLE("");
 
 /**
  Provides a new promise to recover in case the receiver gets rejected.
@@ -40,7 +40,7 @@ typedef id __nullable (^FBLPromiseRecoverWorkBlock)(NSError *error) NS_SWIFT_UNA
          returned from `recovery` block.
  */
 - (FBLPromise *)onQueue:(dispatch_queue_t)queue
-                recover:(FBLPromiseRecoverWorkBlock)recovery NS_REFINED_FOR_SWIFT;
+    recover:(FBLPromiseRecoverWorkBlock)recovery NS_REFINED_FOR_SWIFT;
 
 @end
 

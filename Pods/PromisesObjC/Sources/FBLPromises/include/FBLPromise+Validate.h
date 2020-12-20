@@ -20,7 +20,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface FBLPromise<Value>(ValidateAdditions)
 
-typedef BOOL (^FBLPromiseValidateWorkBlock)(Value __nullable value) NS_SWIFT_UNAVAILABLE("");
+    typedef BOOL (^FBLPromiseValidateWorkBlock)(Value __nullable value) NS_SWIFT_UNAVAILABLE("");
 
 /**
  Validates a fulfilled value or rejects the value if it can not be validated.
@@ -40,7 +40,7 @@ typedef BOOL (^FBLPromiseValidateWorkBlock)(Value __nullable value) NS_SWIFT_UNA
          rejected with `FBLPromiseErrorCodeValidationFailure` error code in `FBLPromiseErrorDomain`.
  */
 - (FBLPromise *)onQueue:(dispatch_queue_t)queue
-               validate:(FBLPromiseValidateWorkBlock)predicate NS_REFINED_FOR_SWIFT;
+    validate:(FBLPromiseValidateWorkBlock)predicate NS_REFINED_FOR_SWIFT;
 
 @end
 

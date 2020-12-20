@@ -35,15 +35,15 @@ FOUNDATION_EXPORT NSString *const GULNSDataZlibErrorKey;           // NSNumber
 FOUNDATION_EXPORT NSString *const GULNSDataZlibRemainingBytesKey;  // NSNumber
 
 typedef NS_ENUM(NSInteger, GULNSDataZlibError) {
-  GULNSDataZlibErrorGreaterThan32BitsToCompress = 1024,
-  // An internal zlib error.
-  // GULNSDataZlibErrorKey will contain the error value.
-  // NSLocalizedDescriptionKey may contain an error string from zlib.
-  // Look in zlib.h for list of errors.
-  GULNSDataZlibErrorInternal,
-  // There was left over data in the buffer that was not used.
-  // GULNSDataZlibRemainingBytesKey will contain number of remaining bytes.
-  GULNSDataZlibErrorDataRemaining
+    GULNSDataZlibErrorGreaterThan32BitsToCompress = 1024,
+    // An internal zlib error.
+    // GULNSDataZlibErrorKey will contain the error value.
+    // NSLocalizedDescriptionKey may contain an error string from zlib.
+    // Look in zlib.h for list of errors.
+    GULNSDataZlibErrorInternal,
+    // There was left over data in the buffer that was not used.
+    // GULNSDataZlibRemainingBytesKey will contain number of remaining bytes.
+    GULNSDataZlibErrorDataRemaining
 };
 
 @end

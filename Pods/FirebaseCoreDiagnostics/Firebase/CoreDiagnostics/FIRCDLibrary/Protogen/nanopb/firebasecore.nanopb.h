@@ -142,7 +142,7 @@ typedef struct _logs_proto_mobilesdk_ios_ICoreConfiguration {
     bool swizzling_enabled;
     bool has_using_gdt;
     bool using_gdt;
-/* @@protoc_insertion_point(struct:logs_proto_mobilesdk_ios_ICoreConfiguration) */
+    /* @@protoc_insertion_point(struct:logs_proto_mobilesdk_ios_ICoreConfiguration) */
 } logs_proto_mobilesdk_ios_ICoreConfiguration;
 
 /* Default values for struct fields */

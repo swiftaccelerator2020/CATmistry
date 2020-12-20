@@ -23,8 +23,8 @@
 @interface FValueEventRegistration : NSObject <FEventRegistration>
 
 - (id)initWithRepo:(FRepo *)repo
-            handle:(FIRDatabaseHandle)fHandle
-          callback:(fbt_void_datasnapshot)callbackBlock
+    handle:(FIRDatabaseHandle)fHandle
+    callback:(fbt_void_datasnapshot)callbackBlock
     cancelCallback:(fbt_void_nserror)cancelCallbackBlock;
 
 @property(nonatomic, copy, readonly) fbt_void_datasnapshot callback;

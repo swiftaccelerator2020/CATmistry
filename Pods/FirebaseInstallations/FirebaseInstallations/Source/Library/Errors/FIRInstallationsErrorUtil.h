@@ -43,7 +43,7 @@ void FIRInstallationsItemSetErrorToPointer(NSError *error, NSError **pointer);
 + (NSError *)corruptedIIDTokenData;
 
 + (FIRInstallationsHTTPError *)APIErrorWithHTTPResponse:(NSHTTPURLResponse *)HTTPResponse
-                                                   data:(nullable NSData *)data;
+    data:(nullable NSData *)data;
 + (BOOL)isAPIError:(NSError *)error withHTTPCode:(NSInteger)HTTPCode;
 
 + (NSError *)backoffIntervalWaitError;

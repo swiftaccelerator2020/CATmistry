@@ -31,10 +31,10 @@
 @implementation FTrackedQuery
 
 - (id)initWithId:(NSUInteger)queryId
-           query:(FQuerySpec *)query
-         lastUse:(NSTimeInterval)lastUse
-        isActive:(BOOL)isActive
-      isComplete:(BOOL)isComplete {
+    query:(FQuerySpec *)query
+    lastUse:(NSTimeInterval)lastUse
+    isActive:(BOOL)isActive
+    isComplete:(BOOL)isComplete {
     self = [super init];
     if (self != nil) {
         self->_queryId = queryId;
@@ -47,37 +47,37 @@
 }
 
 - (id)initWithId:(NSUInteger)queryId
-           query:(FQuerySpec *)query
-         lastUse:(NSTimeInterval)lastUse
-        isActive:(BOOL)isActive {
+    query:(FQuerySpec *)query
+    lastUse:(NSTimeInterval)lastUse
+    isActive:(BOOL)isActive {
     return [self initWithId:queryId
-                      query:query
-                    lastUse:lastUse
-                   isActive:isActive
+                 query:query
+                 lastUse:lastUse
+                 isActive:isActive
                  isComplete:NO];
 }
 
 - (FTrackedQuery *)updateLastUse:(NSTimeInterval)lastUse {
     return [[FTrackedQuery alloc] initWithId:self.queryId
-                                       query:self.query
-                                     lastUse:lastUse
-                                    isActive:self.isActive
+                                  query:self.query
+                                  lastUse:lastUse
+                                  isActive:self.isActive
                                   isComplete:self.isComplete];
 }
 
 - (FTrackedQuery *)setComplete {
     return [[FTrackedQuery alloc] initWithId:self.queryId
-                                       query:self.query
-                                     lastUse:self.lastUse
-                                    isActive:self.isActive
+                                  query:self.query
+                                  lastUse:self.lastUse
+                                  isActive:self.isActive
                                   isComplete:YES];
 }
 
 - (FTrackedQuery *)setActiveState:(BOOL)isActive {
     return [[FTrackedQuery alloc] initWithId:self.queryId
-                                       query:self.query
-                                     lastUse:self.lastUse
-                                    isActive:isActive
+                                  query:self.query
+                                  lastUse:self.lastUse
+                                  isActive:isActive
                                   isComplete:self.isComplete];
 }
 
