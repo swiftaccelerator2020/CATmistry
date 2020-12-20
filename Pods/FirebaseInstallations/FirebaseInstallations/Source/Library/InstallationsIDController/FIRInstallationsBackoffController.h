@@ -21,9 +21,9 @@
 NS_ASSUME_NONNULL_BEGIN
 
 typedef NS_ENUM(NSInteger, FIRInstallationsBackoffEvent) {
-    FIRInstallationsBackoffEventSuccess,
-    FIRInstallationsBackoffEventRecoverableFailure,
-    FIRInstallationsBackoffEventUnrecoverableFailure
+  FIRInstallationsBackoffEventSuccess,
+  FIRInstallationsBackoffEventRecoverableFailure,
+  FIRInstallationsBackoffEventUnrecoverableFailure
 };
 
 /** The protocol defines API for a class that encapsulates backoff logic that
@@ -50,8 +50,8 @@ typedef NS_ENUM(NSInteger, FIRInstallationsBackoffEvent) {
 @interface FIRInstallationsBackoffController
     : NSObject <FIRInstallationsBackoffControllerProtocol>
 
-  - (instancetype)initWithCurrentDateProvider:
-  (FIRCurrentDateProvider)currentDateProvider;
+- (instancetype)initWithCurrentDateProvider:
+    (FIRCurrentDateProvider)currentDateProvider;
 
 @end
 

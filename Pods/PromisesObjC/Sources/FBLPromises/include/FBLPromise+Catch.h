@@ -20,7 +20,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface FBLPromise <Value>(CatchAdditions)
 
-    typedef void (^FBLPromiseCatchWorkBlock)(NSError *error)
+typedef void (^FBLPromiseCatchWorkBlock)(NSError *error)
     NS_SWIFT_UNAVAILABLE("");
 
 /**
@@ -43,7 +43,7 @@ NS_ASSUME_NONNULL_BEGIN
  @return A new pending promise.
  */
 - (FBLPromise *)onQueue:(dispatch_queue_t)queue
-    catch:(FBLPromiseCatchWorkBlock)reject NS_REFINED_FOR_SWIFT;
+                  catch:(FBLPromiseCatchWorkBlock)reject NS_REFINED_FOR_SWIFT;
 
 @end
 
@@ -54,9 +54,9 @@ NS_ASSUME_NONNULL_BEGIN
 @interface FBLPromise <Value>(DotSyntax_CatchAdditions)
 
 - (FBLPromise * (^)(FBLPromiseCatchWorkBlock))catch FBL_PROMISES_DOT_SYNTAX
-        NS_SWIFT_UNAVAILABLE("");
+    NS_SWIFT_UNAVAILABLE("");
 - (FBLPromise * (^)(dispatch_queue_t,
-    FBLPromiseCatchWorkBlock))catchOn FBL_PROMISES_DOT_SYNTAX
+                    FBLPromiseCatchWorkBlock))catchOn FBL_PROMISES_DOT_SYNTAX
     NS_SWIFT_UNAVAILABLE("");
 
 @end

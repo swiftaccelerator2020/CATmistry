@@ -28,10 +28,10 @@ NS_ASSUME_NONNULL_BEGIN
  * migration code added.
  */
 typedef NS_ENUM(NSInteger, FIRInstallationsAuthTokenStatus) {
-    /// An initial status or an undefined value.
-    FIRInstallationsAuthTokenStatusUnknown,
-    /// The auth token has been received from the server.
-    FIRInstallationsAuthTokenStatusTokenReceived
+  /// An initial status or an undefined value.
+  FIRInstallationsAuthTokenStatusUnknown,
+  /// The auth token has been received from the server.
+  FIRInstallationsAuthTokenStatusTokenReceived
 };
 
 /**
@@ -47,7 +47,7 @@ typedef NS_ENUM(NSInteger, FIRInstallationsAuthTokenStatus) {
  */
 @interface FIRInstallationsStoredAuthToken
     : NSObject <NSSecureCoding, NSCopying>
-  @property FIRInstallationsAuthTokenStatus status;
+@property FIRInstallationsAuthTokenStatus status;
 
 /// The token that can be used to authorize requests to Firebase backend.
 @property(nullable, copy) NSString *token;

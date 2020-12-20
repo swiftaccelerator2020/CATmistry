@@ -28,11 +28,11 @@
 #import "FirebaseDatabase/Sources/Snapshot/FNode.h"
 
 @interface FWriteTree ()
-    /**
-     * A tree tracking the results of applying all visible writes. This does not
-     * include transactions with applyLocally=false or writes that are completely
-     * shadowed by other writes. Contains id<FNode> as values.
-     */
+/**
+ * A tree tracking the results of applying all visible writes. This does not
+ * include transactions with applyLocally=false or writes that are completely
+ * shadowed by other writes. Contains id<FNode> as values.
+ */
 @property(nonatomic, strong) FCompoundWrite *visibleWrites;
 /**
  * A list of pending writes, regardless of visibility and shadowed-ness. Used to
@@ -56,13 +56,13 @@
 @synthesize lastWriteId;
 
 - (id)init {
-    self = [super init];
-    if (self) {
-        self.visibleWrites = [FCompoundWrite emptyWrite];
-        self.allWrites = [[NSMutableArray alloc] init];
-        self.lastWriteId = -1;
-    }
-    return self;
+  self = [super init];
+  if (self) {
+    self.visibleWrites = [FCompoundWrite emptyWrite];
+    self.allWrites = [[NSMutableArray alloc] init];
+    self.lastWriteId = -1;
+  }
+  return self;
 }
 
 /**
@@ -70,7 +70,7 @@
  * at the given path.
  */
 - (FWriteTreeRef *)childWritesForPath:(FPath *)path {
-    return [[FWriteTreeRef alloc] initWithPath:path writeTree:self];
+  return [[FWriteTreeRef alloc] initWithPath:path writeTree:self];
 }
 
 /**
@@ -79,22 +79,22 @@
  * from event caches.
  */
 - (void)addOverwriteAtPath:(FPath *)path
-    newData:(id<FNode>)newData
-    writeId:(NSInteger)writeId
-    isVisible:(BOOL)visible {
-    NSAssert(writeId > self.lastWriteId,
-             @"Stacking an older write on top of a newer one");
-    FWriteRecord *record = [[FWriteRecord alloc] initWithPath:path
-                                                 overwrite:newData
-                                                 writeId:writeId
-                                                 visible:visible];
-    [self.allWrites addObject:record];
+                   newData:(id<FNode>)newData
+                   writeId:(NSInteger)writeId
+                 isVisible:(BOOL)visible {
+  NSAssert(writeId > self.lastWriteId,
+           @"Stacking an older write on top of a newer one");
+  FWriteRecord *record = [[FWriteRecord alloc] initWithPath:path
+                                                  overwrite:newData
+                                                    writeId:writeId
+                                                    visible:visible];
+  [self.allWrites addObject:record];
 
-    if (visible) {
-        self.visibleWrites = [self.visibleWrites addWrite:newData atPath:path];
-    }
+  if (visible) {
+    self.visibleWrites = [self.visibleWrites addWrite:newData atPath:path];
+  }
 
-    self.lastWriteId = writeId;
+  self.lastWriteId = writeId;
 }
 
 /**
@@ -102,27 +102,27 @@
  * @param changedChildren maps NSString -> id<FNode>
  */
 - (void)addMergeAtPath:(FPath *)path
-    changedChildren:(FCompoundWrite *)changedChildren
-    writeId:(NSInteger)writeId {
-    NSAssert(writeId > self.lastWriteId,
-             @"Stacking an older merge on top of newer one");
-    FWriteRecord *record = [[FWriteRecord alloc] initWithPath:path
-                                                 merge:changedChildren
-                                                 writeId:writeId];
-    [self.allWrites addObject:record];
+       changedChildren:(FCompoundWrite *)changedChildren
+               writeId:(NSInteger)writeId {
+  NSAssert(writeId > self.lastWriteId,
+           @"Stacking an older merge on top of newer one");
+  FWriteRecord *record = [[FWriteRecord alloc] initWithPath:path
+                                                      merge:changedChildren
+                                                    writeId:writeId];
+  [self.allWrites addObject:record];
 
-    self.visibleWrites = [self.visibleWrites addCompoundWrite:changedChildren
-                                             atPath:path];
-    self.lastWriteId = writeId;
+  self.visibleWrites = [self.visibleWrites addCompoundWrite:changedChildren
+                                                     atPath:path];
+  self.lastWriteId = writeId;
 }
 
 - (FWriteRecord *)writeForId:(NSInteger)writeId {
-    NSUInteger index = [self.allWrites
-                        indexOfObjectPassingTest:^BOOL(FWriteRecord *write, NSUInteger idx,
-    BOOL *stop) {
+  NSUInteger index = [self.allWrites
+      indexOfObjectPassingTest:^BOOL(FWriteRecord *write, NSUInteger idx,
+                                     BOOL *stop) {
         return write.writeId == writeId;
-    }];
-    return (index == NSNotFound) ? nil : self.allWrites[index];
+      }];
+  return (index == NSNotFound) ? nil : self.allWrites[index];
 }
 
 /**
@@ -135,70 +135,70 @@
  * reevaluate / raise events as a result).
  */
 - (BOOL)removeWriteId:(NSInteger)writeId {
-    NSUInteger index = [self.allWrites
-                        indexOfObjectPassingTest:^BOOL(FWriteRecord *record, NSUInteger idx,
-    BOOL *stop) {
+  NSUInteger index = [self.allWrites
+      indexOfObjectPassingTest:^BOOL(FWriteRecord *record, NSUInteger idx,
+                                     BOOL *stop) {
         if (record.writeId == writeId) {
-            return YES;
+          return YES;
         } else {
-            return NO;
+          return NO;
         }
-    }];
-    NSAssert(index != NSNotFound,
-             @"[FWriteTree removeWriteId:] called with nonexistent writeId.");
-    FWriteRecord *writeToRemove = self.allWrites[index];
-    [self.allWrites removeObjectAtIndex:index];
+      }];
+  NSAssert(index != NSNotFound,
+           @"[FWriteTree removeWriteId:] called with nonexistent writeId.");
+  FWriteRecord *writeToRemove = self.allWrites[index];
+  [self.allWrites removeObjectAtIndex:index];
 
-    BOOL removedWriteWasVisible = writeToRemove.visible;
-    BOOL removedWriteOverlapsWithOtherWrites = NO;
-    NSInteger i = [self.allWrites count] - 1;
+  BOOL removedWriteWasVisible = writeToRemove.visible;
+  BOOL removedWriteOverlapsWithOtherWrites = NO;
+  NSInteger i = [self.allWrites count] - 1;
 
-    while (removedWriteWasVisible && i >= 0) {
-        FWriteRecord *currentWrite = [self.allWrites objectAtIndex:i];
-        if (currentWrite.visible) {
-            if (i >= index && [self record:currentWrite
-                                    containsPath:writeToRemove.path]) {
-                // The removed write was completely shadowed by a subsequent
-                // write.
-                removedWriteWasVisible = NO;
-            } else if ([writeToRemove.path contains:currentWrite.path]) {
-                // Either we're covering some writes or they're covering part of
-                // us (depending on which came first).
-                removedWriteOverlapsWithOtherWrites = YES;
-            }
-        }
-        i--;
+  while (removedWriteWasVisible && i >= 0) {
+    FWriteRecord *currentWrite = [self.allWrites objectAtIndex:i];
+    if (currentWrite.visible) {
+      if (i >= index && [self record:currentWrite
+                            containsPath:writeToRemove.path]) {
+        // The removed write was completely shadowed by a subsequent
+        // write.
+        removedWriteWasVisible = NO;
+      } else if ([writeToRemove.path contains:currentWrite.path]) {
+        // Either we're covering some writes or they're covering part of
+        // us (depending on which came first).
+        removedWriteOverlapsWithOtherWrites = YES;
+      }
     }
+    i--;
+  }
 
-    if (!removedWriteWasVisible) {
-        return NO;
-    } else if (removedWriteOverlapsWithOtherWrites) {
-        // There's some shadowing going on. Just rebuild the visible writes from
-        // scratch.
-        [self resetTree];
-        return YES;
+  if (!removedWriteWasVisible) {
+    return NO;
+  } else if (removedWriteOverlapsWithOtherWrites) {
+    // There's some shadowing going on. Just rebuild the visible writes from
+    // scratch.
+    [self resetTree];
+    return YES;
+  } else {
+    // There's no shadowing.  We can safely just remove the write(s) from
+    // visibleWrites.
+    if ([writeToRemove isOverwrite]) {
+      self.visibleWrites =
+          [self.visibleWrites removeWriteAtPath:writeToRemove.path];
     } else {
-        // There's no shadowing.  We can safely just remove the write(s) from
-        // visibleWrites.
-        if ([writeToRemove isOverwrite]) {
-            self.visibleWrites =
-                [self.visibleWrites removeWriteAtPath:writeToRemove.path];
-        } else {
-            FCompoundWrite *merge = writeToRemove.merge;
-            [merge enumerateWrites:^(FPath *path, id<FNode> node, BOOL *stop) {
-                      self.visibleWrites = [self.visibleWrites
-                                      removeWriteAtPath:[writeToRemove.path child:path]];
-                  }];
-        }
-        return YES;
+      FCompoundWrite *merge = writeToRemove.merge;
+      [merge enumerateWrites:^(FPath *path, id<FNode> node, BOOL *stop) {
+        self.visibleWrites = [self.visibleWrites
+            removeWriteAtPath:[writeToRemove.path child:path]];
+      }];
     }
+    return YES;
+  }
 }
 
 - (NSArray *)removeAllWrites {
-    NSArray *writes = self.allWrites;
-    self.visibleWrites = [FCompoundWrite emptyWrite];
-    self.allWrites = [NSMutableArray array];
-    return writes;
+  NSArray *writes = self.allWrites;
+  self.visibleWrites = [FCompoundWrite emptyWrite];
+  self.allWrites = [NSMutableArray array];
+  return writes;
 }
 
 /**
@@ -206,7 +206,7 @@
  * at that path, else nil. No server data is considered.
  */
 - (id<FNode>)completeWriteDataAtPath:(FPath *)path {
-    return [self.visibleWrites completeNodeAtPath:path];
+  return [self.visibleWrites completeNodeAtPath:path];
 }
 
 /**
@@ -217,63 +217,63 @@
  * writes with visible set to false
  */
 - (id<FNode>)calculateCompleteEventCacheAtPath:(FPath *)treePath
-    completeServerCache:(id<FNode>)completeServerCache
-    excludeWriteIds:(NSArray *)writeIdsToExclude
-    includeHiddenWrites:(BOOL)includeHiddenWrites {
-    if (writeIdsToExclude == nil && !includeHiddenWrites) {
-        id<FNode> shadowingNode = [self.visibleWrites completeNodeAtPath:treePath];
-        if (shadowingNode != nil) {
-            return shadowingNode;
-        } else {
-            // No cache here. Can't claim complete knowledge.
-            FCompoundWrite *subMerge =
-                [self.visibleWrites childCompoundWriteAtPath:treePath];
-            if (subMerge.isEmpty) {
-                return completeServerCache;
-            } else if (completeServerCache == nil &&
-                       ![subMerge hasCompleteWriteAtPath:[FPath empty]]) {
-                // We wouldn't have a complete snapshot since there's no
-                // underlying data and no complete shadow
-                return nil;
-            } else {
-                id<FNode> layeredCache = completeServerCache != nil
-                                         ? completeServerCache
-                                         : [FEmptyNode emptyNode];
-                return [subMerge applyToNode:layeredCache];
-            }
-        }
+                           completeServerCache:(id<FNode>)completeServerCache
+                               excludeWriteIds:(NSArray *)writeIdsToExclude
+                           includeHiddenWrites:(BOOL)includeHiddenWrites {
+  if (writeIdsToExclude == nil && !includeHiddenWrites) {
+    id<FNode> shadowingNode = [self.visibleWrites completeNodeAtPath:treePath];
+    if (shadowingNode != nil) {
+      return shadowingNode;
     } else {
-        FCompoundWrite *merge =
-            [self.visibleWrites childCompoundWriteAtPath:treePath];
-        if (!includeHiddenWrites && merge.isEmpty) {
-            return completeServerCache;
-        } else {
-            // If the server cache is null and we don't have a complete cache,
-            // we need to return nil
-            if (!includeHiddenWrites && completeServerCache == nil &&
-                    ![merge hasCompleteWriteAtPath:[FPath empty]]) {
-                return nil;
-            } else {
-                BOOL (^filter)(FWriteRecord *) = ^(FWriteRecord *record) {
-                    return (BOOL)(
-                               (record.visible || includeHiddenWrites) &&
-                               (writeIdsToExclude == nil ||
-                                ![writeIdsToExclude
-                                  containsObject:[NSNumber
-                                                  numberWithInteger:record.writeId]]) &&
-                               ([record.path contains:treePath] ||
-                                [treePath contains:record.path]));
-                };
-                FCompoundWrite *mergeAtPath =
-                    [FWriteTree layerTreeFromWrites:self.allWrites
-                                filter:filter
-                                treeRoot:treePath];
-                id<FNode> layeredCache =
-                    completeServerCache ? completeServerCache : [FEmptyNode emptyNode];
-                return [mergeAtPath applyToNode:layeredCache];
-            }
-        }
+      // No cache here. Can't claim complete knowledge.
+      FCompoundWrite *subMerge =
+          [self.visibleWrites childCompoundWriteAtPath:treePath];
+      if (subMerge.isEmpty) {
+        return completeServerCache;
+      } else if (completeServerCache == nil &&
+                 ![subMerge hasCompleteWriteAtPath:[FPath empty]]) {
+        // We wouldn't have a complete snapshot since there's no
+        // underlying data and no complete shadow
+        return nil;
+      } else {
+        id<FNode> layeredCache = completeServerCache != nil
+                                     ? completeServerCache
+                                     : [FEmptyNode emptyNode];
+        return [subMerge applyToNode:layeredCache];
+      }
     }
+  } else {
+    FCompoundWrite *merge =
+        [self.visibleWrites childCompoundWriteAtPath:treePath];
+    if (!includeHiddenWrites && merge.isEmpty) {
+      return completeServerCache;
+    } else {
+      // If the server cache is null and we don't have a complete cache,
+      // we need to return nil
+      if (!includeHiddenWrites && completeServerCache == nil &&
+          ![merge hasCompleteWriteAtPath:[FPath empty]]) {
+        return nil;
+      } else {
+        BOOL (^filter)(FWriteRecord *) = ^(FWriteRecord *record) {
+          return (BOOL)(
+              (record.visible || includeHiddenWrites) &&
+              (writeIdsToExclude == nil ||
+               ![writeIdsToExclude
+                   containsObject:[NSNumber
+                                      numberWithInteger:record.writeId]]) &&
+              ([record.path contains:treePath] ||
+               [treePath contains:record.path]));
+        };
+        FCompoundWrite *mergeAtPath =
+            [FWriteTree layerTreeFromWrites:self.allWrites
+                                     filter:filter
+                                   treeRoot:treePath];
+        id<FNode> layeredCache =
+            completeServerCache ? completeServerCache : [FEmptyNode emptyNode];
+        return [mergeAtPath applyToNode:layeredCache];
+      }
+    }
+  }
 }
 
 /**
@@ -282,42 +282,42 @@
  * pre-fill their complete event children snapshot.
  */
 - (FChildrenNode *)calculateCompleteEventChildrenAtPath:(FPath *)treePath
-    completeServerChildren:
-    (id<FNode>)completeServerChildren {
-    __block id<FNode> completeChildren = [FEmptyNode emptyNode];
-    id<FNode> topLevelSet = [self.visibleWrites completeNodeAtPath:treePath];
-    if (topLevelSet != nil) {
-        if (![topLevelSet isLeafNode]) {
-            // We're shadowing everything. Return the children.
-            FChildrenNode *topChildrenNode = topLevelSet;
-            [topChildrenNode enumerateChildrenUsingBlock:^(
-                            NSString *key, id<FNode> node, BOOL *stop) {
-                                completeChildren = [completeChildren updateImmediateChild:key
-                                    withNewChild:node];
-                            }];
-        }
-        return completeChildren;
-    } else {
-        // Layer any children we have on top of this
-        // We know we don't have a top-level set, so just enumerate existing
-        // children, and apply any updates
-        FCompoundWrite *merge =
-            [self.visibleWrites childCompoundWriteAtPath:treePath];
-        [completeServerChildren enumerateChildrenUsingBlock:^(
-                               NSString *key, id<FNode> node, BOOL *stop) {
-                                   FCompoundWrite *childMerge =
-                                       [merge childCompoundWriteAtPath:[[FPath alloc] initWith:key]];
-            id<FNode> newChildNode = [childMerge applyToNode:node];
-            completeChildren = [completeChildren updateImmediateChild:key
-                                                 withNewChild:newChildNode];
-        }];
-        // Add any complete children we have from the set.
-        for (FNamedNode *node in merge.completeChildren) {
-            completeChildren = [completeChildren updateImmediateChild:node.name
-                                                 withNewChild:node.node];
-        }
-        return completeChildren;
+                                 completeServerChildren:
+                                     (id<FNode>)completeServerChildren {
+  __block id<FNode> completeChildren = [FEmptyNode emptyNode];
+  id<FNode> topLevelSet = [self.visibleWrites completeNodeAtPath:treePath];
+  if (topLevelSet != nil) {
+    if (![topLevelSet isLeafNode]) {
+      // We're shadowing everything. Return the children.
+      FChildrenNode *topChildrenNode = topLevelSet;
+      [topChildrenNode enumerateChildrenUsingBlock:^(
+                           NSString *key, id<FNode> node, BOOL *stop) {
+        completeChildren = [completeChildren updateImmediateChild:key
+                                                     withNewChild:node];
+      }];
     }
+    return completeChildren;
+  } else {
+    // Layer any children we have on top of this
+    // We know we don't have a top-level set, so just enumerate existing
+    // children, and apply any updates
+    FCompoundWrite *merge =
+        [self.visibleWrites childCompoundWriteAtPath:treePath];
+    [completeServerChildren enumerateChildrenUsingBlock:^(
+                                NSString *key, id<FNode> node, BOOL *stop) {
+      FCompoundWrite *childMerge =
+          [merge childCompoundWriteAtPath:[[FPath alloc] initWith:key]];
+      id<FNode> newChildNode = [childMerge applyToNode:node];
+      completeChildren = [completeChildren updateImmediateChild:key
+                                                   withNewChild:newChildNode];
+    }];
+    // Add any complete children we have from the set.
+    for (FNamedNode *node in merge.completeChildren) {
+      completeChildren = [completeChildren updateImmediateChild:node.name
+                                                   withNewChild:node.node];
+    }
+    return completeChildren;
+  }
 }
 
 /**
@@ -336,38 +336,38 @@
  * Either existingEventSnap or existingServerSnap must exist.
  */
 - (id<FNode>)calculateEventCacheAfterServerOverwriteAtPath:(FPath *)treePath
-    childPath:(FPath *)childPath
-    existingEventSnap:
-    (id<FNode>)existingEventSnap
-    existingServerSnap:
-    (id<FNode>)existingServerSnap {
-    NSAssert(existingEventSnap != nil || existingServerSnap != nil,
-             @"Either existingEventSnap or existingServerSanp must exist.");
+                                                 childPath:(FPath *)childPath
+                                         existingEventSnap:
+                                             (id<FNode>)existingEventSnap
+                                        existingServerSnap:
+                                            (id<FNode>)existingServerSnap {
+  NSAssert(existingEventSnap != nil || existingServerSnap != nil,
+           @"Either existingEventSnap or existingServerSanp must exist.");
 
-    FPath *path = [treePath child:childPath];
-    if ([self.visibleWrites hasCompleteWriteAtPath:path]) {
-        // At this point we can probably guarantee that we're in case 2, meaning
-        // no events May need to check visibility while doing the
-        // findRootMostValueAndPath call
-        return nil;
+  FPath *path = [treePath child:childPath];
+  if ([self.visibleWrites hasCompleteWriteAtPath:path]) {
+    // At this point we can probably guarantee that we're in case 2, meaning
+    // no events May need to check visibility while doing the
+    // findRootMostValueAndPath call
+    return nil;
+  } else {
+    // This could be more efficient if the serverNode + updates doesn't
+    // change the eventSnap However this is tricky to find out, since user
+    // updates don't necessary change the server snap, e.g. priority updates
+    // on empty nodes, or deep deletes. Another special case is if the
+    // server adds nodes, but doesn't change any existing writes. It is
+    // therefore not enough to only check if the updates change the
+    // serverNode. Maybe check if the merge tree contains these special
+    // cases and only do a full overwrite in that case?
+    FCompoundWrite *childMerge =
+        [self.visibleWrites childCompoundWriteAtPath:path];
+    if (childMerge.isEmpty) {
+      // We're not shadowing at all. Case 1
+      return [existingServerSnap getChild:childPath];
     } else {
-        // This could be more efficient if the serverNode + updates doesn't
-        // change the eventSnap However this is tricky to find out, since user
-        // updates don't necessary change the server snap, e.g. priority updates
-        // on empty nodes, or deep deletes. Another special case is if the
-        // server adds nodes, but doesn't change any existing writes. It is
-        // therefore not enough to only check if the updates change the
-        // serverNode. Maybe check if the merge tree contains these special
-        // cases and only do a full overwrite in that case?
-        FCompoundWrite *childMerge =
-            [self.visibleWrites childCompoundWriteAtPath:path];
-        if (childMerge.isEmpty) {
-            // We're not shadowing at all. Case 1
-            return [existingServerSnap getChild:childPath];
-        } else {
-            return [childMerge applyToNode:[existingServerSnap getChild:childPath]];
-        }
+      return [childMerge applyToNode:[existingServerSnap getChild:childPath]];
     }
+  }
 }
 
 /**
@@ -375,22 +375,22 @@
  * writes or nil if there is no complete child for this child key.
  */
 - (id<FNode>)calculateCompleteChildAtPath:(FPath *)treePath
-    childKey:(NSString *)childKey
-    cache:(FCacheNode *)existingServerCache {
-    FPath *path = [treePath childFromString:childKey];
-    id<FNode> shadowingNode = [self.visibleWrites completeNodeAtPath:path];
-    if (shadowingNode != nil) {
-        return shadowingNode;
+                                 childKey:(NSString *)childKey
+                                    cache:(FCacheNode *)existingServerCache {
+  FPath *path = [treePath childFromString:childKey];
+  id<FNode> shadowingNode = [self.visibleWrites completeNodeAtPath:path];
+  if (shadowingNode != nil) {
+    return shadowingNode;
+  } else {
+    if ([existingServerCache isCompleteForChild:childKey]) {
+      FCompoundWrite *childMerge =
+          [self.visibleWrites childCompoundWriteAtPath:path];
+      return [childMerge
+          applyToNode:[existingServerCache.node getImmediateChild:childKey]];
     } else {
-        if ([existingServerCache isCompleteForChild:childKey]) {
-            FCompoundWrite *childMerge =
-                [self.visibleWrites childCompoundWriteAtPath:path];
-            return [childMerge
-                    applyToNode:[existingServerCache.node getImmediateChild:childKey]];
-        } else {
-            return nil;
-        }
+      return nil;
     }
+  }
 }
 
 /**
@@ -400,7 +400,7 @@
  * there is no write at this path.
  */
 - (id<FNode>)shadowingWriteAtPath:(FPath *)path {
-    return [self.visibleWrites completeNodeAtPath:path];
+  return [self.visibleWrites completeNodeAtPath:path];
 }
 
 /**
@@ -409,63 +409,63 @@
  * window.
  */
 - (FNamedNode *)calculateNextNodeAfterPost:(FNamedNode *)post
-    atPath:(FPath *)treePath
-    completeServerData:(id<FNode>)completeServerData
-    reverse:(BOOL)reverse
-    index:(id<FIndex>)index {
-    __block id<FNode> toIterate;
-    FCompoundWrite *merge =
-        [self.visibleWrites childCompoundWriteAtPath:treePath];
-    id<FNode> shadowingNode = [merge completeNodeAtPath:[FPath empty]];
-    if (shadowingNode != nil) {
-        toIterate = shadowingNode;
-    } else if (completeServerData != nil) {
-        toIterate = [merge applyToNode:completeServerData];
-    } else {
-        return nil;
-    }
+                                    atPath:(FPath *)treePath
+                        completeServerData:(id<FNode>)completeServerData
+                                   reverse:(BOOL)reverse
+                                     index:(id<FIndex>)index {
+  __block id<FNode> toIterate;
+  FCompoundWrite *merge =
+      [self.visibleWrites childCompoundWriteAtPath:treePath];
+  id<FNode> shadowingNode = [merge completeNodeAtPath:[FPath empty]];
+  if (shadowingNode != nil) {
+    toIterate = shadowingNode;
+  } else if (completeServerData != nil) {
+    toIterate = [merge applyToNode:completeServerData];
+  } else {
+    return nil;
+  }
 
-    __block NSString *currentNextKey = nil;
-    __block id<FNode> currentNextNode = nil;
-    [toIterate
-    enumerateChildrenUsingBlock:^(NSString *key, id<FNode> node, BOOL *stop) {
+  __block NSString *currentNextKey = nil;
+  __block id<FNode> currentNextNode = nil;
+  [toIterate
+      enumerateChildrenUsingBlock:^(NSString *key, id<FNode> node, BOOL *stop) {
         if ([index compareKey:key
-             andNode:node
-             toOtherKey:post.name
-             andNode:post.node
-             reverse:reverse] > NSOrderedSame &&
+                      andNode:node
+                   toOtherKey:post.name
+                      andNode:post.node
+                      reverse:reverse] > NSOrderedSame &&
             (!currentNextKey || [index compareKey:key
-                                 andNode:node
-                                 toOtherKey:currentNextKey
-                                 andNode:currentNextNode
-                                 reverse:reverse] < NSOrderedSame)) {
-            currentNextKey = key;
-            currentNextNode = node;
+                                          andNode:node
+                                       toOtherKey:currentNextKey
+                                          andNode:currentNextNode
+                                          reverse:reverse] < NSOrderedSame)) {
+          currentNextKey = key;
+          currentNextNode = node;
         }
-    }];
+      }];
 
-    if (currentNextKey != nil) {
-        return [FNamedNode nodeWithName:currentNextKey node:currentNextNode];
-    } else {
-        return nil;
-    }
+  if (currentNextKey != nil) {
+    return [FNamedNode nodeWithName:currentNextKey node:currentNextNode];
+  } else {
+    return nil;
+  }
 }
 
 #pragma mark -
 #pragma mark Private Methods
 
 - (BOOL)record:(FWriteRecord *)record containsPath:(FPath *)path {
-    if ([record isOverwrite]) {
-        return [record.path contains:path];
-    } else {
-        __block BOOL contains = NO;
-        [record.merge
+  if ([record isOverwrite]) {
+    return [record.path contains:path];
+  } else {
+    __block BOOL contains = NO;
+    [record.merge
         enumerateWrites:^(FPath *childPath, id<FNode> node, BOOL *stop) {
-            contains = [[record.path child:childPath] contains:path];
-            *stop = contains;
+          contains = [[record.path child:childPath] contains:path];
+          *stop = contains;
         }];
-        return contains;
-    }
+    return contains;
+  }
 }
 
 /**
@@ -473,16 +473,16 @@
  * event snapshots
  */
 - (void)resetTree {
-    self.visibleWrites =
-        [FWriteTree layerTreeFromWrites:self.allWrites
-                    filter:[FWriteTree defaultFilter]
-                    treeRoot:[FPath empty]];
-    if ([self.allWrites count] > 0) {
-        FWriteRecord *lastRecord = self.allWrites[[self.allWrites count] - 1];
-        self.lastWriteId = lastRecord.writeId;
-    } else {
-        self.lastWriteId = -1;
-    }
+  self.visibleWrites =
+      [FWriteTree layerTreeFromWrites:self.allWrites
+                               filter:[FWriteTree defaultFilter]
+                             treeRoot:[FPath empty]];
+  if ([self.allWrites count] > 0) {
+    FWriteRecord *lastRecord = self.allWrites[[self.allWrites count] - 1];
+    self.lastWriteId = lastRecord.writeId;
+  } else {
+    self.lastWriteId = -1;
+  }
 }
 
 /**
@@ -490,14 +490,14 @@
  * visible.
  */
 + (BOOL (^)(FWriteRecord *record))defaultFilter {
-    static BOOL (^filter)(FWriteRecord *);
-    static dispatch_once_t filterToken;
-    dispatch_once(&filterToken, ^ {
-        filter = ^(FWriteRecord *record) {
-            return YES;
-        };
-    });
-    return filter;
+  static BOOL (^filter)(FWriteRecord *);
+  static dispatch_once_t filterToken;
+  dispatch_once(&filterToken, ^{
+    filter = ^(FWriteRecord *record) {
+      return YES;
+    };
+  });
+  return filter;
 }
 
 /**
@@ -506,59 +506,59 @@
  * @return An FImmutableTree of id<FNode>s.
  */
 + (FCompoundWrite *)layerTreeFromWrites:(NSArray *)writes
-    filter:(BOOL (^)(FWriteRecord *record))filter
-    treeRoot:(FPath *)treeRoot {
-    __block FCompoundWrite *compoundWrite = [FCompoundWrite emptyWrite];
-    [writes enumerateObjectsUsingBlock:^(FWriteRecord *record, NSUInteger idx,
-           BOOL *stop) {
-               // Theory, a later set will either:
-               // a) abort a relevant transaction, so no need to worry about excluding it
-               // from calculating that transaction b) not be relevant to a transaction
-               // (separate branch), so again will not affect the data for that
-               // transaction
-               if (filter(record)) {
-                   FPath *writePath = record.path;
-            if ([record isOverwrite]) {
-                if ([treeRoot contains:writePath]) {
-                    FPath *relativePath = [FPath relativePathFrom:treeRoot to:writePath];
-                    compoundWrite = [compoundWrite addWrite:record.overwrite
-                                                   atPath:relativePath];
-                } else if ([writePath contains:treeRoot]) {
-                    id<FNode> child = [record.overwrite
-                                       getChild:[FPath relativePathFrom:writePath to:treeRoot]];
-                    compoundWrite = [compoundWrite addWrite:child atPath:[FPath empty]];
-                } else {
-                    // There is no overlap between root path and write path,
-                    // ignore write
-                }
-            } else {
-                if ([treeRoot contains:writePath]) {
-                    FPath *relativePath = [FPath relativePathFrom:treeRoot to:writePath];
-                    compoundWrite = [compoundWrite addCompoundWrite:record.merge
-                                                   atPath:relativePath];
-                } else if ([writePath contains:treeRoot]) {
-                    FPath *relativePath = [FPath relativePathFrom:writePath to:treeRoot];
-                    if (relativePath.isEmpty) {
-                        compoundWrite = [compoundWrite addCompoundWrite:record.merge
-                                                       atPath:[FPath empty]];
-                    } else {
-                        id<FNode> child = [record.merge completeNodeAtPath:relativePath];
-                        if (child != nil) {
-                            // There exists a child in this node that matches the
-                            // root path
-                            id<FNode> deepNode = [child getChild:[relativePath popFront]];
-                            compoundWrite = [compoundWrite addWrite:deepNode
-                                                           atPath:[FPath empty]];
-                        }
-                    }
-                } else {
-                    // There is no overlap between root path and write path,
-                    // ignore write
-                }
-            }
+                                 filter:(BOOL (^)(FWriteRecord *record))filter
+                               treeRoot:(FPath *)treeRoot {
+  __block FCompoundWrite *compoundWrite = [FCompoundWrite emptyWrite];
+  [writes enumerateObjectsUsingBlock:^(FWriteRecord *record, NSUInteger idx,
+                                       BOOL *stop) {
+    // Theory, a later set will either:
+    // a) abort a relevant transaction, so no need to worry about excluding it
+    // from calculating that transaction b) not be relevant to a transaction
+    // (separate branch), so again will not affect the data for that
+    // transaction
+    if (filter(record)) {
+      FPath *writePath = record.path;
+      if ([record isOverwrite]) {
+        if ([treeRoot contains:writePath]) {
+          FPath *relativePath = [FPath relativePathFrom:treeRoot to:writePath];
+          compoundWrite = [compoundWrite addWrite:record.overwrite
+                                           atPath:relativePath];
+        } else if ([writePath contains:treeRoot]) {
+          id<FNode> child = [record.overwrite
+              getChild:[FPath relativePathFrom:writePath to:treeRoot]];
+          compoundWrite = [compoundWrite addWrite:child atPath:[FPath empty]];
+        } else {
+          // There is no overlap between root path and write path,
+          // ignore write
         }
-    }];
-    return compoundWrite;
+      } else {
+        if ([treeRoot contains:writePath]) {
+          FPath *relativePath = [FPath relativePathFrom:treeRoot to:writePath];
+          compoundWrite = [compoundWrite addCompoundWrite:record.merge
+                                                   atPath:relativePath];
+        } else if ([writePath contains:treeRoot]) {
+          FPath *relativePath = [FPath relativePathFrom:writePath to:treeRoot];
+          if (relativePath.isEmpty) {
+            compoundWrite = [compoundWrite addCompoundWrite:record.merge
+                                                     atPath:[FPath empty]];
+          } else {
+            id<FNode> child = [record.merge completeNodeAtPath:relativePath];
+            if (child != nil) {
+              // There exists a child in this node that matches the
+              // root path
+              id<FNode> deepNode = [child getChild:[relativePath popFront]];
+              compoundWrite = [compoundWrite addWrite:deepNode
+                                               atPath:[FPath empty]];
+            }
+          }
+        } else {
+          // There is no overlap between root path and write path,
+          // ignore write
+        }
+      }
+    }
+  }];
+  return compoundWrite;
 }
 
 @end

@@ -25,11 +25,11 @@
 #endif
 
 const gdt_cct_NetworkConnectionInfo_NetworkType
-gdt_cct_NetworkConnectionInfo_network_type_default =
-    gdt_cct_NetworkConnectionInfo_NetworkType_NONE;
+    gdt_cct_NetworkConnectionInfo_network_type_default =
+        gdt_cct_NetworkConnectionInfo_NetworkType_NONE;
 const gdt_cct_NetworkConnectionInfo_MobileSubtype
-gdt_cct_NetworkConnectionInfo_mobile_subtype_default =
-    gdt_cct_NetworkConnectionInfo_MobileSubtype_UNKNOWN_MOBILE_SUBTYPE;
+    gdt_cct_NetworkConnectionInfo_mobile_subtype_default =
+        gdt_cct_NetworkConnectionInfo_MobileSubtype_UNKNOWN_MOBILE_SUBTYPE;
 const gdt_cct_QosTierConfiguration_QosTier gdt_cct_LogRequest_qos_tier_default =
     gdt_cct_QosTierConfiguration_QosTier_DEFAULT;
 const int32_t gdt_cct_QosTierConfiguration_log_source_default = 0;
@@ -48,8 +48,7 @@ const pb_field_t gdt_cct_LogEvent_fields[7] = {
     PB_FIELD(23, MESSAGE, OPTIONAL, STATIC, OTHER, gdt_cct_LogEvent,
              network_connection_info, event_uptime_ms,
              &gdt_cct_NetworkConnectionInfo_fields),
-    PB_LAST_FIELD
-};
+    PB_LAST_FIELD};
 
 const pb_field_t gdt_cct_NetworkConnectionInfo_fields[3] = {
     PB_FIELD(1, ENUM, OPTIONAL, STATIC, FIRST, gdt_cct_NetworkConnectionInfo,
@@ -58,8 +57,7 @@ const pb_field_t gdt_cct_NetworkConnectionInfo_fields[3] = {
     PB_FIELD(2, UENUM, OPTIONAL, STATIC, OTHER, gdt_cct_NetworkConnectionInfo,
              mobile_subtype, network_type,
              &gdt_cct_NetworkConnectionInfo_mobile_subtype_default),
-    PB_LAST_FIELD
-};
+    PB_LAST_FIELD};
 
 const pb_field_t gdt_cct_IosClientInfo_fields[8] = {
     PB_FIELD(3, BYTES, OPTIONAL, POINTER, FIRST, gdt_cct_IosClientInfo,
@@ -76,22 +74,19 @@ const pb_field_t gdt_cct_IosClientInfo_fields[8] = {
              language_code, model, 0),
     PB_FIELD(11, BYTES, OPTIONAL, POINTER, OTHER, gdt_cct_IosClientInfo,
              application_bundle_id, language_code, 0),
-    PB_LAST_FIELD
-};
+    PB_LAST_FIELD};
 
 const pb_field_t gdt_cct_ClientInfo_fields[3] = {
     PB_FIELD(1, UENUM, OPTIONAL, STATIC, FIRST, gdt_cct_ClientInfo, client_type,
              client_type, 0),
     PB_FIELD(4, MESSAGE, OPTIONAL, STATIC, OTHER, gdt_cct_ClientInfo,
              ios_client_info, client_type, &gdt_cct_IosClientInfo_fields),
-    PB_LAST_FIELD
-};
+    PB_LAST_FIELD};
 
 const pb_field_t gdt_cct_BatchedLogRequest_fields[2] = {
     PB_FIELD(1, MESSAGE, REPEATED, POINTER, FIRST, gdt_cct_BatchedLogRequest,
              log_request, log_request, &gdt_cct_LogRequest_fields),
-    PB_LAST_FIELD
-};
+    PB_LAST_FIELD};
 
 const pb_field_t gdt_cct_LogRequest_fields[7] = {
     PB_FIELD(1, MESSAGE, OPTIONAL, STATIC, FIRST, gdt_cct_LogRequest,
@@ -106,8 +101,7 @@ const pb_field_t gdt_cct_LogRequest_fields[7] = {
              request_uptime_ms, request_time_ms, 0),
     PB_FIELD(9, UENUM, OPTIONAL, STATIC, OTHER, gdt_cct_LogRequest, qos_tier,
              request_uptime_ms, &gdt_cct_LogRequest_qos_tier_default),
-    PB_LAST_FIELD
-};
+    PB_LAST_FIELD};
 
 const pb_field_t gdt_cct_QosTierConfiguration_fields[3] = {
     PB_FIELD(2, UENUM, OPTIONAL, STATIC, FIRST, gdt_cct_QosTierConfiguration,
@@ -115,8 +109,7 @@ const pb_field_t gdt_cct_QosTierConfiguration_fields[3] = {
     PB_FIELD(3, INT32, OPTIONAL, STATIC, OTHER, gdt_cct_QosTierConfiguration,
              log_source, qos_tier,
              &gdt_cct_QosTierConfiguration_log_source_default),
-    PB_LAST_FIELD
-};
+    PB_LAST_FIELD};
 
 const pb_field_t gdt_cct_QosTiersOverride_fields[3] = {
     PB_FIELD(1, MESSAGE, REPEATED, POINTER, FIRST, gdt_cct_QosTiersOverride,
@@ -124,16 +117,14 @@ const pb_field_t gdt_cct_QosTiersOverride_fields[3] = {
              &gdt_cct_QosTierConfiguration_fields),
     PB_FIELD(2, INT64, OPTIONAL, STATIC, OTHER, gdt_cct_QosTiersOverride,
              qos_tier_fingerprint, qos_tier_configuration, 0),
-    PB_LAST_FIELD
-};
+    PB_LAST_FIELD};
 
 const pb_field_t gdt_cct_LogResponse_fields[3] = {
     PB_FIELD(1, INT64, OPTIONAL, STATIC, FIRST, gdt_cct_LogResponse,
              next_request_wait_millis, next_request_wait_millis, 0),
     PB_FIELD(3, MESSAGE, OPTIONAL, STATIC, OTHER, gdt_cct_LogResponse, qos_tier,
              next_request_wait_millis, &gdt_cct_QosTiersOverride_fields),
-    PB_LAST_FIELD
-};
+    PB_LAST_FIELD};
 
 /* Check that field information fits in pb_field_t */
 #if !defined(PB_FIELD_32BIT)

@@ -26,30 +26,30 @@ NS_ASSUME_NONNULL_BEGIN
 /** The different possible quality of service specifiers. High values indicate
  * high priority. */
 typedef NS_ENUM(NSInteger, GDTCOREventQoS) {
-    /** The QoS tier wasn't set, and won't ever be sent. */
-    GDTCOREventQoSUnknown = 0,
+  /** The QoS tier wasn't set, and won't ever be sent. */
+  GDTCOREventQoSUnknown = 0,
 
-    /** This event is internal telemetry data that should not be sent on its own
-       if possible. */
-    GDTCOREventQoSTelemetry = 1,
+  /** This event is internal telemetry data that should not be sent on its own
+     if possible. */
+  GDTCOREventQoSTelemetry = 1,
 
-    /** This event should be sent, but in a batch only roughly once per day. */
-    GDTCOREventQoSDaily = 2,
+  /** This event should be sent, but in a batch only roughly once per day. */
+  GDTCOREventQoSDaily = 2,
 
-    /** This event should be sent when requested by the uploader. */
-    GDTCOREventQosDefault = 3,
+  /** This event should be sent when requested by the uploader. */
+  GDTCOREventQosDefault = 3,
 
-    /** This event should be sent immediately along with any other data that can
-       be batched. */
-    GDTCOREventQoSFast = 4,
+  /** This event should be sent immediately along with any other data that can
+     be batched. */
+  GDTCOREventQoSFast = 4,
 
-    /** This event should only be uploaded on wifi. */
-    GDTCOREventQoSWifiOnly = 5,
+  /** This event should only be uploaded on wifi. */
+  GDTCOREventQoSWifiOnly = 5,
 };
 
 @interface GDTCOREvent : NSObject <NSSecureCoding>
 
-    /** The unique ID of the event. */
+/** The unique ID of the event. */
 @property(readonly, nonatomic) NSString *eventID;
 
 /** The mapping identifier, to allow backends to map the transport bytes to a
@@ -86,7 +86,7 @@ typedef NS_ENUM(NSInteger, GDTCOREventQoS) {
  * @return An instance of this class.
  */
 - (nullable instancetype)initWithMappingID:(NSString *)mappingID
-    target:(GDTCORTarget)target;
+                                    target:(GDTCORTarget)target;
 
 @end
 

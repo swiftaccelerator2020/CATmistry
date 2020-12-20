@@ -26,12 +26,12 @@
 
 - (id)initWithChildren:(FImmutableSortedDictionary *)someChildren;
 - (id)initWithPriority:(id<FNode>)aPriority
-    children:(FImmutableSortedDictionary *)someChildren;
+              children:(FImmutableSortedDictionary *)someChildren;
 
 // FChildrenNode specific methods
 
 - (void)enumerateChildrenAndPriorityUsingBlock:(void (^)(NSString *, id<FNode>,
-    BOOL *))block;
+                                                         BOOL *))block;
 
 - (FNamedNode *)firstChild;
 - (FNamedNode *)lastChild;

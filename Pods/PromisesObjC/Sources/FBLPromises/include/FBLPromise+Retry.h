@@ -20,18 +20,18 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** The default number of retry attempts is 1. */
 FOUNDATION_EXTERN NSInteger const FBLPromiseRetryDefaultAttemptsCount
-NS_REFINED_FOR_SWIFT;
+    NS_REFINED_FOR_SWIFT;
 
 /** The default delay interval before making a retry attempt is 1.0 second. */
 FOUNDATION_EXTERN NSTimeInterval const FBLPromiseRetryDefaultDelayInterval
-NS_REFINED_FOR_SWIFT;
+    NS_REFINED_FOR_SWIFT;
 
 @interface FBLPromise <Value>(RetryAdditions)
 
-    typedef id __nullable (^FBLPromiseRetryWorkBlock)(void)
+typedef id __nullable (^FBLPromiseRetryWorkBlock)(void)
     NS_SWIFT_UNAVAILABLE("");
 typedef BOOL (^FBLPromiseRetryPredicateBlock)(NSInteger, NSError *)
-NS_SWIFT_UNAVAILABLE("");
+    NS_SWIFT_UNAVAILABLE("");
 
 /**
  Creates a pending promise that fulfills with the same value as the promise
@@ -65,7 +65,7 @@ NS_SWIFT_UNAVAILABLE("");
  attempts have been exhausted.
  */
 + (FBLPromise *)onQueue:(dispatch_queue_t)queue
-    retry:(FBLPromiseRetryWorkBlock)work NS_SWIFT_UNAVAILABLE("");
+                  retry:(FBLPromiseRetryWorkBlock)work NS_SWIFT_UNAVAILABLE("");
 
 /**
  Creates a pending promise that fulfills with the same value as the promise
@@ -81,7 +81,7 @@ NS_SWIFT_UNAVAILABLE("");
  attempts have been exhausted.
  */
 + (FBLPromise *)attempts:(NSInteger)count
-    retry:(FBLPromiseRetryWorkBlock)work
+                   retry:(FBLPromiseRetryWorkBlock)work
     NS_SWIFT_UNAVAILABLE("");
 
 /**
@@ -99,8 +99,8 @@ NS_SWIFT_UNAVAILABLE("");
  attempts have been exhausted.
  */
 + (FBLPromise *)onQueue:(dispatch_queue_t)queue
-    attempts:(NSInteger)count
-    retry:(FBLPromiseRetryWorkBlock)work NS_SWIFT_UNAVAILABLE("");
+               attempts:(NSInteger)count
+                  retry:(FBLPromiseRetryWorkBlock)work NS_SWIFT_UNAVAILABLE("");
 
 /**
  Creates a pending promise that fulfills with the same value as the promise
@@ -123,9 +123,9 @@ NS_SWIFT_UNAVAILABLE("");
  attempts have been exhausted or if the given condition is not met.
  */
 + (FBLPromise *)attempts:(NSInteger)count
-    delay:(NSTimeInterval)interval
-    condition:(nullable FBLPromiseRetryPredicateBlock)predicate
-    retry:(FBLPromiseRetryWorkBlock)work
+                   delay:(NSTimeInterval)interval
+               condition:(nullable FBLPromiseRetryPredicateBlock)predicate
+                   retry:(FBLPromiseRetryWorkBlock)work
     NS_SWIFT_UNAVAILABLE("");
 
 /**
@@ -150,10 +150,10 @@ NS_SWIFT_UNAVAILABLE("");
  attempts have been exhausted or if the given condition is not met.
  */
 + (FBLPromise *)onQueue:(dispatch_queue_t)queue
-    attempts:(NSInteger)count
-    delay:(NSTimeInterval)interval
-    condition:(nullable FBLPromiseRetryPredicateBlock)predicate
-    retry:(FBLPromiseRetryWorkBlock)work NS_REFINED_FOR_SWIFT;
+               attempts:(NSInteger)count
+                  delay:(NSTimeInterval)interval
+              condition:(nullable FBLPromiseRetryPredicateBlock)predicate
+                  retry:(FBLPromiseRetryWorkBlock)work NS_REFINED_FOR_SWIFT;
 
 @end
 
@@ -166,15 +166,15 @@ NS_SWIFT_UNAVAILABLE("");
 + (FBLPromise * (^)(FBLPromiseRetryWorkBlock))retry FBL_PROMISES_DOT_SYNTAX
     NS_SWIFT_UNAVAILABLE("");
 + (FBLPromise * (^)(dispatch_queue_t,
-    FBLPromiseRetryWorkBlock))retryOn FBL_PROMISES_DOT_SYNTAX
+                    FBLPromiseRetryWorkBlock))retryOn FBL_PROMISES_DOT_SYNTAX
     NS_SWIFT_UNAVAILABLE("");
 + (FBLPromise * (^)(NSInteger, NSTimeInterval,
-    FBLPromiseRetryPredicateBlock __nullable,
-    FBLPromiseRetryWorkBlock))retryAgain FBL_PROMISES_DOT_SYNTAX
+                    FBLPromiseRetryPredicateBlock __nullable,
+                    FBLPromiseRetryWorkBlock))retryAgain FBL_PROMISES_DOT_SYNTAX
     NS_SWIFT_UNAVAILABLE("");
 + (FBLPromise * (^)(dispatch_queue_t, NSInteger, NSTimeInterval,
-    FBLPromiseRetryPredicateBlock __nullable,
-    FBLPromiseRetryWorkBlock))
+                    FBLPromiseRetryPredicateBlock __nullable,
+                    FBLPromiseRetryWorkBlock))
     retryAgainOn FBL_PROMISES_DOT_SYNTAX NS_SWIFT_UNAVAILABLE("");
 
 @end

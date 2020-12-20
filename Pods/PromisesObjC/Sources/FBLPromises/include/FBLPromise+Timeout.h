@@ -20,14 +20,14 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface FBLPromise <Value>(TimeoutAdditions)
 
-    /**
-     Waits for a promise with the specified `timeout`.
+/**
+ Waits for a promise with the specified `timeout`.
 
-     @param interval Time to wait in seconds.
-     @return A new pending promise that gets either resolved with same resolution as
-     the receiver or rejected with `FBLPromiseErrorCodeTimedOut` error code in
-     `FBLPromiseErrorDomain`.
-     */
+ @param interval Time to wait in seconds.
+ @return A new pending promise that gets either resolved with same resolution as
+ the receiver or rejected with `FBLPromiseErrorCodeTimedOut` error code in
+ `FBLPromiseErrorDomain`.
+ */
 - (FBLPromise *)timeout:(NSTimeInterval)interval NS_SWIFT_UNAVAILABLE("");
 
 /**
@@ -40,7 +40,7 @@ NS_ASSUME_NONNULL_BEGIN
  `FBLPromiseErrorDomain`.
  */
 - (FBLPromise *)onQueue:(dispatch_queue_t)queue
-    timeout:(NSTimeInterval)interval NS_REFINED_FOR_SWIFT;
+                timeout:(NSTimeInterval)interval NS_REFINED_FOR_SWIFT;
 
 @end
 
@@ -53,7 +53,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (FBLPromise * (^)(NSTimeInterval))timeout FBL_PROMISES_DOT_SYNTAX
     NS_SWIFT_UNAVAILABLE("");
 - (FBLPromise * (^)(dispatch_queue_t,
-    NSTimeInterval))timeoutOn FBL_PROMISES_DOT_SYNTAX
+                    NSTimeInterval))timeoutOn FBL_PROMISES_DOT_SYNTAX
     NS_SWIFT_UNAVAILABLE("");
 
 @end

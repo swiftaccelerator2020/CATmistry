@@ -36,49 +36,49 @@ static const NSTimeInterval k30Minutes = 30 * 60;
 @implementation FIRInstallationsBackoffEventData
 
 - (instancetype)initWithEvent:(FIRInstallationsBackoffEvent)eventType
-    lastEventDate:(NSDate *)lastEventDate
-    eventCount:(NSInteger)eventCount {
-    self = [super init];
-    if (self) {
-        _eventType = eventType;
-        _lastEventDate = lastEventDate;
-        _eventCount = eventCount;
+                lastEventDate:(NSDate *)lastEventDate
+                   eventCount:(NSInteger)eventCount {
+  self = [super init];
+  if (self) {
+    _eventType = eventType;
+    _lastEventDate = lastEventDate;
+    _eventCount = eventCount;
 
-        _backoffTimeInterval =
-            [[self class] backoffTimeIntervalWithEvent:eventType
-                          eventCount:eventCount];
-    }
-    return self;
+    _backoffTimeInterval =
+        [[self class] backoffTimeIntervalWithEvent:eventType
+                                        eventCount:eventCount];
+  }
+  return self;
 }
 
 + (NSTimeInterval)backoffTimeIntervalWithEvent:
-    (FIRInstallationsBackoffEvent)eventType
-    eventCount:(NSInteger)eventCount {
-    switch (eventType) {
-    case FIRInstallationsBackoffEventSuccess:
-        return 0;
-        break;
+                      (FIRInstallationsBackoffEvent)eventType
+                                    eventCount:(NSInteger)eventCount {
+  switch (eventType) {
+  case FIRInstallationsBackoffEventSuccess:
+    return 0;
+    break;
 
-    case FIRInstallationsBackoffEventRecoverableFailure:
-        return [self recoverableErrorBackoffTimeForAttemptNumber:eventCount];
-        break;
+  case FIRInstallationsBackoffEventRecoverableFailure:
+    return [self recoverableErrorBackoffTimeForAttemptNumber:eventCount];
+    break;
 
-    case FIRInstallationsBackoffEventUnrecoverableFailure:
-        return k24Hours;
-        break;
-    }
+  case FIRInstallationsBackoffEventUnrecoverableFailure:
+    return k24Hours;
+    break;
+  }
 }
 
 + (NSTimeInterval)recoverableErrorBackoffTimeForAttemptNumber:
     (NSInteger)attemptNumber {
-    NSTimeInterval exponentialInterval =
-        pow(2, attemptNumber) + [self randomMilliseconds];
-    return MIN(exponentialInterval, k30Minutes);
+  NSTimeInterval exponentialInterval =
+      pow(2, attemptNumber) + [self randomMilliseconds];
+  return MIN(exponentialInterval, k30Minutes);
 }
 
 + (NSTimeInterval)randomMilliseconds {
-    int32_t random_millis = ABS(arc4random() % 1000);
-    return (double)random_millis * 0.001;
+  int32_t random_millis = ABS(arc4random() % 1000);
+  return (double)random_millis * 0.001;
 }
 
 @end
@@ -94,45 +94,45 @@ static const NSTimeInterval k30Minutes = 30 * 60;
 @implementation FIRInstallationsBackoffController
 
 - (instancetype)init {
-    return [self initWithCurrentDateProvider:FIRRealCurrentDateProvider()];
+  return [self initWithCurrentDateProvider:FIRRealCurrentDateProvider()];
 }
 
 - (instancetype)initWithCurrentDateProvider:
     (FIRCurrentDateProvider)currentDateProvider {
-    self = [super init];
-    if (self) {
-        _currentDateProvider = [currentDateProvider copy];
-    }
-    return self;
+  self = [super init];
+  if (self) {
+    _currentDateProvider = [currentDateProvider copy];
+  }
+  return self;
 }
 
 - (BOOL)isNextRequestAllowed {
-    @synchronized(self) {
-        if (self.lastEventData == nil) {
-            return YES;
-        }
-
-        NSTimeInterval timeSinceLastEvent = [self.currentDateProvider()
-                                             timeIntervalSinceDate:self.lastEventData.lastEventDate];
-        return timeSinceLastEvent >= self.lastEventData.backoffTimeInterval;
+  @synchronized(self) {
+    if (self.lastEventData == nil) {
+      return YES;
     }
+
+    NSTimeInterval timeSinceLastEvent = [self.currentDateProvider()
+        timeIntervalSinceDate:self.lastEventData.lastEventDate];
+    return timeSinceLastEvent >= self.lastEventData.backoffTimeInterval;
+  }
 }
 
 - (void)registerEvent:(FIRInstallationsBackoffEvent)event {
-    @synchronized(self) {
-        // Event of the same type as was registered before.
-        if (self.lastEventData && self.lastEventData.eventType == event) {
-            self.lastEventData = [[FIRInstallationsBackoffEventData alloc]
-                                  initWithEvent:event
-                                  lastEventDate:self.currentDateProvider()
-                                  eventCount:self.lastEventData.eventCount + 1];
-        } else { // A different event.
-            self.lastEventData = [[FIRInstallationsBackoffEventData alloc]
-                                  initWithEvent:event
-                                  lastEventDate:self.currentDateProvider()
-                                  eventCount:1];
-        }
+  @synchronized(self) {
+    // Event of the same type as was registered before.
+    if (self.lastEventData && self.lastEventData.eventType == event) {
+      self.lastEventData = [[FIRInstallationsBackoffEventData alloc]
+          initWithEvent:event
+          lastEventDate:self.currentDateProvider()
+             eventCount:self.lastEventData.eventCount + 1];
+    } else { // A different event.
+      self.lastEventData = [[FIRInstallationsBackoffEventData alloc]
+          initWithEvent:event
+          lastEventDate:self.currentDateProvider()
+             eventCount:1];
     }
+  }
 }
 
 @end

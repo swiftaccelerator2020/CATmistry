@@ -20,22 +20,22 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface FIRAnalytics (AppDelegate)
 
-    /**
-     * Handles events related to a URL session that are waiting to be processed.
-     *
-     * For optimal use of Firebase Analytics, call this method from the
-     * [UIApplicationDelegate
-     * application:handleEventsForBackgroundURLSession:completionHandler] method of
-     * the app delegate in your app.
-     *
-     * @param identifier The identifier of the URL session requiring attention.
-     * @param completionHandler The completion handler to call when you finish
-     * processing the events. Calling this completion handler lets the system know
-     * that your app's user interface is updated and a new snapshot can be taken.
-     */
+/**
+ * Handles events related to a URL session that are waiting to be processed.
+ *
+ * For optimal use of Firebase Analytics, call this method from the
+ * [UIApplicationDelegate
+ * application:handleEventsForBackgroundURLSession:completionHandler] method of
+ * the app delegate in your app.
+ *
+ * @param identifier The identifier of the URL session requiring attention.
+ * @param completionHandler The completion handler to call when you finish
+ * processing the events. Calling this completion handler lets the system know
+ * that your app's user interface is updated and a new snapshot can be taken.
+ */
 + (void)handleEventsForBackgroundURLSession:(NSString *)identifier
-    completionHandler:
-    (nullable void (^)(void))completionHandler;
+                          completionHandler:
+                              (nullable void (^)(void))completionHandler;
 
 /**
  * Handles the event when the app is launched by a URL.

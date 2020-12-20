@@ -26,16 +26,16 @@ NS_ASSUME_NONNULL_BEGIN
  otherwise.
  */
 FOUNDATION_EXTERN BOOL FBLWaitForPromisesWithTimeout(NSTimeInterval timeout)
-NS_REFINED_FOR_SWIFT;
+    NS_REFINED_FOR_SWIFT;
 
 @interface FBLPromise <Value>(TestingAdditions)
 
-    /**
-     Dispatch group for promises that is typically used to wait for all scheduled
-     blocks.
-     */
+/**
+ Dispatch group for promises that is typically used to wait for all scheduled
+ blocks.
+ */
 @property(class, nonatomic, readonly)
-dispatch_group_t dispatchGroup NS_REFINED_FOR_SWIFT;
+    dispatch_group_t dispatchGroup NS_REFINED_FOR_SWIFT;
 
 /**
  Properties to get the current state of the promise.

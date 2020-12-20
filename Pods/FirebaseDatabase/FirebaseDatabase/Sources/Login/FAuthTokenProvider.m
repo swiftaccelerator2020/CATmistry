@@ -33,33 +33,33 @@
 @implementation FAuthStateListenerWrapper
 
 - (instancetype)initWithListener:(fbt_void_nsstring)listener
-    auth:(id<FIRAuthInterop>)auth {
-    self = [super init];
-    if (self != nil) {
-        self->_listener = listener;
-        self->_auth = auth;
-        [[NSNotificationCenter defaultCenter]
-         addObserver:self
-         selector:@selector(authStateDidChangeNotification:)
-         name:FIRAuthStateDidChangeInternalNotification
-         object:nil];
-    }
-    return self;
+                            auth:(id<FIRAuthInterop>)auth {
+  self = [super init];
+  if (self != nil) {
+    self->_listener = listener;
+    self->_auth = auth;
+    [[NSNotificationCenter defaultCenter]
+        addObserver:self
+           selector:@selector(authStateDidChangeNotification:)
+               name:FIRAuthStateDidChangeInternalNotification
+             object:nil];
+  }
+  return self;
 }
 
 - (void)authStateDidChangeNotification:(NSNotification *)notification {
-    NSDictionary *userInfo = notification.userInfo;
-    if (notification.object == self.auth) {
-        NSString *token =
-            userInfo[FIRAuthStateDidChangeInternalNotificationTokenKey];
-        dispatch_async([FIRDatabaseQuery sharedQueue], ^ {
-            self.listener(token);
-        });
-    }
+  NSDictionary *userInfo = notification.userInfo;
+  if (notification.object == self.auth) {
+    NSString *token =
+        userInfo[FIRAuthStateDidChangeInternalNotificationTokenKey];
+    dispatch_async([FIRDatabaseQuery sharedQueue], ^{
+      self.listener(token);
+    });
+  }
 }
 
 - (void)dealloc {
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
+  [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 @end
@@ -78,35 +78,35 @@
 @implementation FIRFirebaseAuthTokenProvider
 
 - (instancetype)initWithAuth:(id<FIRAuthInterop>)auth {
-    self = [super init];
-    if (self != nil) {
-        self->_auth = auth;
-        self->_authListeners = [NSMutableArray array];
-    }
-    return self;
+  self = [super init];
+  if (self != nil) {
+    self->_auth = auth;
+    self->_authListeners = [NSMutableArray array];
+  }
+  return self;
 }
 
 - (void)fetchTokenForcingRefresh:(BOOL)forceRefresh
-    withCallback:(fbt_void_nsstring_nserror)callback {
-    if (self.auth == nil) {
-        // Signal that Auth is not available by returning nil.
-        callback(nil, nil);
-    } else {
-        [self.auth getTokenForcingRefresh:forceRefresh
-                   withCallback:^(NSString *_Nullable token,
-                  NSError *_Nullable error) {
-                      dispatch_async([FIRDatabaseQuery sharedQueue], ^ {
-                          callback(token, error);
-                      });
-        }];
-    }
+                    withCallback:(fbt_void_nsstring_nserror)callback {
+  if (self.auth == nil) {
+    // Signal that Auth is not available by returning nil.
+    callback(nil, nil);
+  } else {
+    [self.auth getTokenForcingRefresh:forceRefresh
+                         withCallback:^(NSString *_Nullable token,
+                                        NSError *_Nullable error) {
+                           dispatch_async([FIRDatabaseQuery sharedQueue], ^{
+                             callback(token, error);
+                           });
+                         }];
+  }
 }
 
 - (void)listenForTokenChanges:(_Nonnull fbt_void_nsstring)listener {
-    FAuthStateListenerWrapper *wrapper =
-        [[FAuthStateListenerWrapper alloc] initWithListener:listener
-                                           auth:self.auth];
-    [self.authListeners addObject:wrapper];
+  FAuthStateListenerWrapper *wrapper =
+      [[FAuthStateListenerWrapper alloc] initWithListener:listener
+                                                     auth:self.auth];
+  [self.authListeners addObject:wrapper];
 }
 
 @end
@@ -115,7 +115,7 @@
 
 + (id<FAuthTokenProvider>)authTokenProviderWithAuth:
     (id<FIRAuthInterop>)authInterop {
-    return [[FIRFirebaseAuthTokenProvider alloc] initWithAuth:authInterop];
+  return [[FIRFirebaseAuthTokenProvider alloc] initWithAuth:authInterop];
 }
 
 @end

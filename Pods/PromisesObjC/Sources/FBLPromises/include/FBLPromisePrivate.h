@@ -24,15 +24,15 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface FBLPromise <Value>()
 
-    typedef void (^FBLPromiseOnFulfillBlock)(Value __nullable value)
+typedef void (^FBLPromiseOnFulfillBlock)(Value __nullable value)
     NS_SWIFT_UNAVAILABLE("");
 typedef void (^FBLPromiseOnRejectBlock)(NSError *error)
-NS_SWIFT_UNAVAILABLE("");
+    NS_SWIFT_UNAVAILABLE("");
 typedef id
 __nullable (^__nullable FBLPromiseChainedFulfillBlock)(Value __nullable value)
-NS_SWIFT_UNAVAILABLE("");
+    NS_SWIFT_UNAVAILABLE("");
 typedef id __nullable (^__nullable FBLPromiseChainedRejectBlock)(NSError *error)
-NS_SWIFT_UNAVAILABLE("");
+    NS_SWIFT_UNAVAILABLE("");
 
 /**
  Creates a pending promise.
@@ -54,8 +54,8 @@ NS_SWIFT_UNAVAILABLE("");
  fulfilled or rejected respectively.
  */
 - (void)observeOnQueue:(dispatch_queue_t)queue
-    fulfill:(FBLPromiseOnFulfillBlock)onFulfill
-    reject:(FBLPromiseOnRejectBlock)onReject
+               fulfill:(FBLPromiseOnFulfillBlock)onFulfill
+                reject:(FBLPromiseOnRejectBlock)onReject
     NS_SWIFT_UNAVAILABLE("");
 
 /**
@@ -66,8 +66,8 @@ NS_SWIFT_UNAVAILABLE("");
  the receiver.
  */
 - (FBLPromise *)chainOnQueue:(dispatch_queue_t)queue
-    chainedFulfill:(FBLPromiseChainedFulfillBlock)chainedFulfill
-    chainedReject:(FBLPromiseChainedRejectBlock)chainedReject
+              chainedFulfill:(FBLPromiseChainedFulfillBlock)chainedFulfill
+               chainedReject:(FBLPromiseChainedRejectBlock)chainedReject
     NS_SWIFT_UNAVAILABLE("");
 
 @end

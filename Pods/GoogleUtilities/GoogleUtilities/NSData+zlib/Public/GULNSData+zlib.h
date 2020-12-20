@@ -26,7 +26,7 @@
 /// Returns an data as the result of decompressing the payload of |data|.The
 /// data to decompress must be a gzipped payloads.
 + (NSData *)gul_dataByInflatingGzippedData:(NSData *)data
-    error:(NSError **)error;
+                                     error:(NSError **)error;
 
 /// Returns an compressed data with the result of gzipping the payload of
 /// |data|. Uses the default compression level.
@@ -37,15 +37,15 @@ FOUNDATION_EXPORT NSString *const GULNSDataZlibErrorKey;          // NSNumber
 FOUNDATION_EXPORT NSString *const GULNSDataZlibRemainingBytesKey; // NSNumber
 
 typedef NS_ENUM(NSInteger, GULNSDataZlibError) {
-    GULNSDataZlibErrorGreaterThan32BitsToCompress = 1024,
-    // An internal zlib error.
-    // GULNSDataZlibErrorKey will contain the error value.
-    // NSLocalizedDescriptionKey may contain an error string from zlib.
-    // Look in zlib.h for list of errors.
-    GULNSDataZlibErrorInternal,
-    // There was left over data in the buffer that was not used.
-    // GULNSDataZlibRemainingBytesKey will contain number of remaining bytes.
-    GULNSDataZlibErrorDataRemaining
+  GULNSDataZlibErrorGreaterThan32BitsToCompress = 1024,
+  // An internal zlib error.
+  // GULNSDataZlibErrorKey will contain the error value.
+  // NSLocalizedDescriptionKey may contain an error string from zlib.
+  // Look in zlib.h for list of errors.
+  GULNSDataZlibErrorInternal,
+  // There was left over data in the buffer that was not used.
+  // GULNSDataZlibRemainingBytesKey will contain number of remaining bytes.
+  GULNSDataZlibErrorDataRemaining
 };
 
 @end

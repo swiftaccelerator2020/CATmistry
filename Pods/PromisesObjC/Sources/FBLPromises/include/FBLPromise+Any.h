@@ -20,21 +20,21 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface FBLPromise <Value>(AnyAdditions)
 
-    /**
-     Waits until all of the given promises are either fulfilled or rejected.
-     If all promises are rejected, then the returned promise is rejected with same
-     error as the last one rejected. If at least one of the promises is fulfilled,
-     the resulting promise is fulfilled with an array of values or `NSErrors`,
-     matching the original order of fulfilled or rejected promises respectively. If
-     any other arbitrary value or `NSError` appears in the array instead of
-     `FBLPromise`, it's implicitly considered a pre-fulfilled or pre-rejected
-     `FBLPromise` correspondingly. Promises resolved with `nil` become `NSNull`
-     instances in the resulting array.
+/**
+ Waits until all of the given promises are either fulfilled or rejected.
+ If all promises are rejected, then the returned promise is rejected with same
+ error as the last one rejected. If at least one of the promises is fulfilled,
+ the resulting promise is fulfilled with an array of values or `NSErrors`,
+ matching the original order of fulfilled or rejected promises respectively. If
+ any other arbitrary value or `NSError` appears in the array instead of
+ `FBLPromise`, it's implicitly considered a pre-fulfilled or pre-rejected
+ `FBLPromise` correspondingly. Promises resolved with `nil` become `NSNull`
+ instances in the resulting array.
 
-     @param promises Promises to wait for.
-     @return Promise of array containing the values or `NSError`s of input promises
-     in the same order.
-     */
+ @param promises Promises to wait for.
+ @return Promise of array containing the values or `NSError`s of input promises
+ in the same order.
+ */
 + (FBLPromise<NSArray *> *)any:(NSArray *)promises NS_SWIFT_UNAVAILABLE("");
 
 /**
@@ -54,7 +54,7 @@ NS_ASSUME_NONNULL_BEGIN
  in the same order.
  */
 + (FBLPromise<NSArray *> *)onQueue:(dispatch_queue_t)queue
-    any:(NSArray *)promises NS_REFINED_FOR_SWIFT;
+                               any:(NSArray *)promises NS_REFINED_FOR_SWIFT;
 
 @end
 
@@ -67,7 +67,7 @@ NS_ASSUME_NONNULL_BEGIN
 + (FBLPromise<NSArray *> * (^)(NSArray *))any FBL_PROMISES_DOT_SYNTAX
     NS_SWIFT_UNAVAILABLE("");
 + (FBLPromise<NSArray *> * (^)(dispatch_queue_t,
-    NSArray *))anyOn FBL_PROMISES_DOT_SYNTAX
+                               NSArray *))anyOn FBL_PROMISES_DOT_SYNTAX
     NS_SWIFT_UNAVAILABLE("");
 
 @end

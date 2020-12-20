@@ -24,19 +24,19 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GULSwizzler : NSObject
 
-    /** Manipulates the Objective-C runtime to replace the original IMP with the
-     * supplied block.
-     *
-     *  @param aClass The class to swizzle.
-     *  @param selector The selector of the class to swizzle.
-     *  @param isClassSelector A BOOL specifying whether the selector is a class or
-     * instance selector.
-     *  @param block The block that replaces the original IMP.
-     */
+/** Manipulates the Objective-C runtime to replace the original IMP with the
+ * supplied block.
+ *
+ *  @param aClass The class to swizzle.
+ *  @param selector The selector of the class to swizzle.
+ *  @param isClassSelector A BOOL specifying whether the selector is a class or
+ * instance selector.
+ *  @param block The block that replaces the original IMP.
+ */
 + (void)swizzleClass:(Class)aClass
-    selector:(SEL)selector
-    isClassSelector:(BOOL)isClassSelector
-    withBlock:(nullable id)block;
+            selector:(SEL)selector
+     isClassSelector:(BOOL)isClassSelector
+           withBlock:(nullable id)block;
 
 /** Returns the current IMP for the given class and selector.
  *
@@ -47,8 +47,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  @return The implementation of the selector in the runtime.
  */
 + (nullable IMP)currentImplementationForClass:(Class)aClass
-    selector:(SEL)selector
-    isClassSelector:(BOOL)isClassSelector;
+                                     selector:(SEL)selector
+                              isClassSelector:(BOOL)isClassSelector;
 
 /** Checks the runtime to see if a selector exists on a class. If a property is
  * declared as
@@ -65,7 +65,7 @@ NS_ASSUME_NONNULL_BEGIN
  * otherwise.
  */
 + (BOOL)selector:(SEL)selector
-    existsInClass:(Class)aClass
+      existsInClass:(Class)aClass
     isClassSelector:(BOOL)isClassSelector;
 
 /** Returns a list of all Objective-C (and not primitive) ivars contained by the

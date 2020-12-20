@@ -108,7 +108,7 @@ leveldb_release_snapshot(leveldb_t *db, const leveldb_snapshot_t *snapshot);
 /* Returns NULL if property name is unknown.
    Else returns a pointer to a malloc()-ed null-terminated value. */
 LEVELDB_EXPORT char *leveldb_property_value(leveldb_t *db,
-        const char *propname);
+                                            const char *propname);
 
 LEVELDB_EXPORT void leveldb_approximate_sizes(
     leveldb_t *db, int num_ranges, const char *const *range_start_key,
@@ -116,9 +116,9 @@ LEVELDB_EXPORT void leveldb_approximate_sizes(
     const size_t *range_limit_key_len, uint64_t *sizes);
 
 LEVELDB_EXPORT void leveldb_compact_range(leveldb_t *db, const char *start_key,
-        size_t start_key_len,
-        const char *limit_key,
-        size_t limit_key_len);
+                                          size_t start_key_len,
+                                          const char *limit_key,
+                                          size_t limit_key_len);
 
 /* Management operations */
 
@@ -139,11 +139,11 @@ LEVELDB_EXPORT void leveldb_iter_seek(leveldb_iterator_t *, const char *k,
 LEVELDB_EXPORT void leveldb_iter_next(leveldb_iterator_t *);
 LEVELDB_EXPORT void leveldb_iter_prev(leveldb_iterator_t *);
 LEVELDB_EXPORT const char *leveldb_iter_key(const leveldb_iterator_t *,
-        size_t *klen);
+                                            size_t *klen);
 LEVELDB_EXPORT const char *leveldb_iter_value(const leveldb_iterator_t *,
-        size_t *vlen);
+                                              size_t *vlen);
 LEVELDB_EXPORT void leveldb_iter_get_error(const leveldb_iterator_t *,
-        char **errptr);
+                                           char **errptr);
 
 /* Write batch */
 
@@ -151,10 +151,10 @@ LEVELDB_EXPORT leveldb_writebatch_t *leveldb_writebatch_create();
 LEVELDB_EXPORT void leveldb_writebatch_destroy(leveldb_writebatch_t *);
 LEVELDB_EXPORT void leveldb_writebatch_clear(leveldb_writebatch_t *);
 LEVELDB_EXPORT void leveldb_writebatch_put(leveldb_writebatch_t *,
-        const char *key, size_t klen,
-        const char *val, size_t vlen);
+                                           const char *key, size_t klen,
+                                           const char *val, size_t vlen);
 LEVELDB_EXPORT void leveldb_writebatch_delete(leveldb_writebatch_t *,
-        const char *key, size_t klen);
+                                              const char *key, size_t klen);
 LEVELDB_EXPORT void leveldb_writebatch_iterate(
     const leveldb_writebatch_t *, void *state,
     void (*put)(void *, const char *k, size_t klen, const char *v, size_t vlen),
@@ -168,30 +168,30 @@ leveldb_writebatch_append(leveldb_writebatch_t *destination,
 LEVELDB_EXPORT leveldb_options_t *leveldb_options_create();
 LEVELDB_EXPORT void leveldb_options_destroy(leveldb_options_t *);
 LEVELDB_EXPORT void leveldb_options_set_comparator(leveldb_options_t *,
-        leveldb_comparator_t *);
+                                                   leveldb_comparator_t *);
 LEVELDB_EXPORT void leveldb_options_set_filter_policy(leveldb_options_t *,
-        leveldb_filterpolicy_t *);
+                                                      leveldb_filterpolicy_t *);
 LEVELDB_EXPORT void leveldb_options_set_create_if_missing(leveldb_options_t *,
-        unsigned char);
+                                                          unsigned char);
 LEVELDB_EXPORT void leveldb_options_set_error_if_exists(leveldb_options_t *,
-        unsigned char);
+                                                        unsigned char);
 LEVELDB_EXPORT void leveldb_options_set_paranoid_checks(leveldb_options_t *,
-        unsigned char);
+                                                        unsigned char);
 LEVELDB_EXPORT void leveldb_options_set_env(leveldb_options_t *,
-        leveldb_env_t *);
+                                            leveldb_env_t *);
 LEVELDB_EXPORT void leveldb_options_set_info_log(leveldb_options_t *,
-        leveldb_logger_t *);
+                                                 leveldb_logger_t *);
 LEVELDB_EXPORT void leveldb_options_set_write_buffer_size(leveldb_options_t *,
-        size_t);
+                                                          size_t);
 LEVELDB_EXPORT void leveldb_options_set_max_open_files(leveldb_options_t *,
-        int);
+                                                       int);
 LEVELDB_EXPORT void leveldb_options_set_cache(leveldb_options_t *,
-        leveldb_cache_t *);
+                                              leveldb_cache_t *);
 LEVELDB_EXPORT void leveldb_options_set_block_size(leveldb_options_t *, size_t);
 LEVELDB_EXPORT void
 leveldb_options_set_block_restart_interval(leveldb_options_t *, int);
 LEVELDB_EXPORT void leveldb_options_set_max_file_size(leveldb_options_t *,
-        size_t);
+                                                      size_t);
 
 enum { leveldb_no_compression = 0, leveldb_snappy_compression = 1 };
 LEVELDB_EXPORT void leveldb_options_set_compression(leveldb_options_t *, int);
@@ -201,7 +201,7 @@ LEVELDB_EXPORT void leveldb_options_set_compression(leveldb_options_t *, int);
 LEVELDB_EXPORT leveldb_comparator_t *
 leveldb_comparator_create(void *state, void (*destructor)(void *),
                           int (*compare)(void *, const char *a, size_t alen,
-                                  const char *b, size_t blen),
+                                         const char *b, size_t blen),
                           const char *(*name)(void *));
 LEVELDB_EXPORT void leveldb_comparator_destroy(leveldb_comparator_t *);
 
@@ -226,9 +226,9 @@ LEVELDB_EXPORT leveldb_readoptions_t *leveldb_readoptions_create();
 LEVELDB_EXPORT void leveldb_readoptions_destroy(leveldb_readoptions_t *);
 LEVELDB_EXPORT void
 leveldb_readoptions_set_verify_checksums(leveldb_readoptions_t *,
-        unsigned char);
+                                         unsigned char);
 LEVELDB_EXPORT void leveldb_readoptions_set_fill_cache(leveldb_readoptions_t *,
-        unsigned char);
+                                                       unsigned char);
 LEVELDB_EXPORT void
 leveldb_readoptions_set_snapshot(leveldb_readoptions_t *,
                                  const leveldb_snapshot_t *);
@@ -238,7 +238,7 @@ leveldb_readoptions_set_snapshot(leveldb_readoptions_t *,
 LEVELDB_EXPORT leveldb_writeoptions_t *leveldb_writeoptions_create();
 LEVELDB_EXPORT void leveldb_writeoptions_destroy(leveldb_writeoptions_t *);
 LEVELDB_EXPORT void leveldb_writeoptions_set_sync(leveldb_writeoptions_t *,
-        unsigned char);
+                                                  unsigned char);
 
 /* Cache */
 

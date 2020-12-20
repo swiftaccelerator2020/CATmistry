@@ -24,11 +24,11 @@ NS_ASSUME_NONNULL_BEGIN
  * to migrate IID. */
 @interface FIRInstallationsIIDStore : NSObject
 
-    /**
-     * Retrieves existing IID if present.
-     * @return Returns a promise that is resolved with IID string if IID has been
-     * found or rejected with an error otherwise.
-     */
+/**
+ * Retrieves existing IID if present.
+ * @return Returns a promise that is resolved with IID string if IID has been
+ * found or rejected with an error otherwise.
+ */
 - (FBLPromise<NSString *> *)existingIID;
 
 /**

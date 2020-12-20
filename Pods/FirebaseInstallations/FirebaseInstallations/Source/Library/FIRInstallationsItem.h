@@ -50,7 +50,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, nullable) NSString *IIDDefaultToken;
 
 - (instancetype)initWithAppID:(NSString *)appID
-    firebaseAppName:(NSString *)firebaseAppName;
+              firebaseAppName:(NSString *)firebaseAppName;
 
 /**
  * Populates `FIRInstallationsItem` properties with data from

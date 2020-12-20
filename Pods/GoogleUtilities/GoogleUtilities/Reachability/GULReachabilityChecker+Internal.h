@@ -32,11 +32,11 @@ typedef Boolean (*GULReachabilityUnscheduleFromRunLoopFn)(
 typedef void (*GULReachabilityReleaseFn)(CFTypeRef cf);
 
 struct GULReachabilityApi {
-    GULReachabilityCreateWithNameFn createWithNameFn;
-    GULReachabilitySetCallbackFn setCallbackFn;
-    GULReachabilityScheduleWithRunLoopFn scheduleWithRunLoopFn;
-    GULReachabilityUnscheduleFromRunLoopFn unscheduleFromRunLoopFn;
-    GULReachabilityReleaseFn releaseFn;
+  GULReachabilityCreateWithNameFn createWithNameFn;
+  GULReachabilitySetCallbackFn setCallbackFn;
+  GULReachabilityScheduleWithRunLoopFn scheduleWithRunLoopFn;
+  GULReachabilityUnscheduleFromRunLoopFn unscheduleFromRunLoopFn;
+  GULReachabilityReleaseFn releaseFn;
 };
 #endif
 @interface GULReachabilityChecker (Internal)

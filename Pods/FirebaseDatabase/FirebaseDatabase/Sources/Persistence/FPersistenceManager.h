@@ -27,15 +27,15 @@
 @interface FPersistenceManager : NSObject
 
 - (id)initWithStorageEngine:(id<FStorageEngine>)storageEngine
-    cachePolicy:(id<FCachePolicy>)cachePolicy;
+                cachePolicy:(id<FCachePolicy>)cachePolicy;
 - (void)close;
 
 - (void)saveUserOverwrite:(id<FNode>)node
-    atPath:(FPath *)path
-    writeId:(NSUInteger)writeId;
+                   atPath:(FPath *)path
+                  writeId:(NSUInteger)writeId;
 - (void)saveUserMerge:(FCompoundWrite *)merge
-    atPath:(FPath *)path
-    writeId:(NSUInteger)writeId;
+               atPath:(FPath *)path
+              writeId:(NSUInteger)writeId;
 - (void)removeUserWrite:(NSUInteger)writeId;
 - (void)removeAllUserWrites;
 - (NSArray *)userWrites;
@@ -54,7 +54,7 @@
 
 - (void)setTrackedQueryKeys:(NSSet *)keys forQuery:(FQuerySpec *)query;
 - (void)updateTrackedQueryKeysWithAddedKeys:(NSSet *)added
-    removedKeys:(NSSet *)removed
-    forQuery:(FQuerySpec *)query;
+                                removedKeys:(NSSet *)removed
+                                   forQuery:(FQuerySpec *)query;
 
 @end

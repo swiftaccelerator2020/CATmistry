@@ -35,15 +35,15 @@ NS_SWIFT_NAME(DataSnapshot)
 
 #pragma mark - Navigating and inspecting a snapshot
 
-    /**
-     * Gets a FIRDataSnapshot for the location at the specified relative path.
-     * The relative path can either be a simple child key (e.g. 'fred')
-     * or a deeper slash-separated path (e.g. 'fred/name/first'). If the child
-     * location has no data, an empty FIRDataSnapshot is returned.
-     *
-     * @param childPathString A relative path to the location of child data.
-     * @return The FIRDataSnapshot for the child location.
-     */
+/**
+ * Gets a FIRDataSnapshot for the location at the specified relative path.
+ * The relative path can either be a simple child key (e.g. 'fred')
+ * or a deeper slash-separated path (e.g. 'fred/name/first'). If the child
+ * location has no data, an empty FIRDataSnapshot is returned.
+ *
+ * @param childPathString A relative path to the location of child data.
+ * @return The FIRDataSnapshot for the child location.
+ */
 - (FIRDataSnapshot *)childSnapshotForPath:(NSString *)childPathString;
 
 /**
@@ -128,7 +128,7 @@ NS_SWIFT_NAME(DataSnapshot)
  * @return An NSEnumerator of the children.
  */
 @property(strong, readonly, nonatomic)
-NSEnumerator<FIRDataSnapshot *> *children;
+    NSEnumerator<FIRDataSnapshot *> *children;
 
 /**
  * The priority of the data in this FIRDataSnapshot.

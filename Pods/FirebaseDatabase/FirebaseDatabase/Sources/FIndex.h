@@ -22,18 +22,18 @@
 
 @protocol FIndex <NSObject, NSCopying>
 - (NSComparisonResult)compareKey:(NSString *)key1
-    andNode:(id<FNode>)node1
-    toOtherKey:(NSString *)key2
-    andNode:(id<FNode>)node2;
+                         andNode:(id<FNode>)node1
+                      toOtherKey:(NSString *)key2
+                         andNode:(id<FNode>)node2;
 
 - (NSComparisonResult)compareKey:(NSString *)key1
-    andNode:(id<FNode>)node1
-    toOtherKey:(NSString *)key2
-    andNode:(id<FNode>)node2
-    reverse:(BOOL)reverse;
+                         andNode:(id<FNode>)node1
+                      toOtherKey:(NSString *)key2
+                         andNode:(id<FNode>)node2
+                         reverse:(BOOL)reverse;
 
 - (NSComparisonResult)compareNamedNode:(FNamedNode *)namedNode1
-    toNamedNode:(FNamedNode *)namedNode2;
+                           toNamedNode:(FNamedNode *)namedNode2;
 
 - (BOOL)isDefinedOn:(id<FNode>)node;
 - (BOOL)indexedValueChangedBetween:(id<FNode>)oldNode and:(id<FNode>)newNode;

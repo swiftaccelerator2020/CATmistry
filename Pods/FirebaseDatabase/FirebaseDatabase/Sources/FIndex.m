@@ -24,15 +24,15 @@
 @implementation FIndex
 
 + (id<FIndex>)indexFromQueryDefinition:(NSString *)string {
-    if ([string isEqualToString:@".key"]) {
-        return [FKeyIndex keyIndex];
-    } else if ([string isEqualToString:@".value"]) {
-        return [FValueIndex valueIndex];
-    } else if ([string isEqualToString:@".priority"]) {
-        return [FPriorityIndex priorityIndex];
-    } else {
-        return [[FPathIndex alloc] initWithPath:[[FPath alloc] initWith:string]];
-    }
+  if ([string isEqualToString:@".key"]) {
+    return [FKeyIndex keyIndex];
+  } else if ([string isEqualToString:@".value"]) {
+    return [FValueIndex valueIndex];
+  } else if ([string isEqualToString:@".priority"]) {
+    return [FPriorityIndex priorityIndex];
+  } else {
+    return [[FPathIndex alloc] initWithPath:[[FPath alloc] initWith:string]];
+  }
 }
 
 @end

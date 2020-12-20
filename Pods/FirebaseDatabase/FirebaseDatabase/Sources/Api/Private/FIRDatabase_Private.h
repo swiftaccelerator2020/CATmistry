@@ -27,11 +27,11 @@
 @property(nonatomic, strong) FRepo *repo;
 
 - (id)initWithApp:(FIRApp *)app
-    repoInfo:(FRepoInfo *)info
-    config:(FIRDatabaseConfig *)config;
+         repoInfo:(FRepoInfo *)info
+           config:(FIRDatabaseConfig *)config;
 
 + (NSString *)buildVersion;
 + (FIRDatabase *)createDatabaseForTests:(FRepoInfo *)repoInfo
-    config:(FIRDatabaseConfig *)config;
+                                 config:(FIRDatabaseConfig *)config;
 
 @end

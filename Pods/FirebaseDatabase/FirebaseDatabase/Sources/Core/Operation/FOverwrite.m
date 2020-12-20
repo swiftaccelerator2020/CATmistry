@@ -33,35 +33,35 @@
 @synthesize snap;
 
 - (id)initWithSource:(FOperationSource *)aSource
-    path:(FPath *)aPath
-    snap:(id<FNode>)aSnap {
-    self = [super init];
-    if (self) {
-        self.source = aSource;
-        self.type = FOperationTypeOverwrite;
-        self.path = aPath;
-        self.snap = aSnap;
-    }
-    return self;
+                path:(FPath *)aPath
+                snap:(id<FNode>)aSnap {
+  self = [super init];
+  if (self) {
+    self.source = aSource;
+    self.type = FOperationTypeOverwrite;
+    self.path = aPath;
+    self.snap = aSnap;
+  }
+  return self;
 }
 
 - (FOverwrite *)operationForChild:(NSString *)childKey {
-    if ([self.path isEmpty]) {
-        return [[FOverwrite alloc]
-                initWithSource:self.source
-                path:[FPath empty]
-                snap:[self.snap getImmediateChild:childKey]];
-    } else {
-        return [[FOverwrite alloc] initWithSource:self.source
-                                   path:[self.path popFront]
-                                   snap:self.snap];
-    }
+  if ([self.path isEmpty]) {
+    return [[FOverwrite alloc]
+        initWithSource:self.source
+                  path:[FPath empty]
+                  snap:[self.snap getImmediateChild:childKey]];
+  } else {
+    return [[FOverwrite alloc] initWithSource:self.source
+                                         path:[self.path popFront]
+                                         snap:self.snap];
+  }
 }
 
 - (NSString *)description {
-    return [NSString
-            stringWithFormat:@"FOverwrite { path=%@, source=%@, snapshot=%@ }",
-            self.path, self.source, self.snap];
+  return [NSString
+      stringWithFormat:@"FOverwrite { path=%@, source=%@, snapshot=%@ }",
+                       self.path, self.source, self.snap];
 }
 
 @end

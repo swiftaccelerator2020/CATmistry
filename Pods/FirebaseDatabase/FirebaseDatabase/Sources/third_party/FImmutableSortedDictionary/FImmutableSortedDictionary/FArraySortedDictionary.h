@@ -12,7 +12,7 @@
 @interface FArraySortedDictionary : FImmutableSortedDictionary
 
 + (FArraySortedDictionary *)fromDictionary:(NSDictionary *)dictionary
-    withComparator:(NSComparator)comparator;
+                            withComparator:(NSComparator)comparator;
 
 - (id)initWithComparator:(NSComparator)comparator;
 

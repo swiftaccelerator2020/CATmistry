@@ -17,23 +17,23 @@
 #import "FBLPromise+Testing.h"
 
 BOOL FBLWaitForPromisesWithTimeout(NSTimeInterval timeout) {
-    BOOL isTimedOut = NO;
-    NSDate *timeoutDate = [NSDate dateWithTimeIntervalSinceNow:timeout];
-    static NSTimeInterval const minimalTimeout = 0.01;
-    static int64_t const minimalTimeToWait =
-        (int64_t)(minimalTimeout * NSEC_PER_SEC);
-    dispatch_time_t waitTime =
-        dispatch_time(DISPATCH_TIME_NOW, minimalTimeToWait);
-    dispatch_group_t dispatchGroup = FBLPromise.dispatchGroup;
-    NSRunLoop *runLoop = NSRunLoop.currentRunLoop;
-    while (dispatch_group_wait(dispatchGroup, waitTime)) {
-        isTimedOut = timeoutDate.timeIntervalSinceNow < 0.0;
-        if (isTimedOut) {
-            break;
-        }
-        [runLoop runUntilDate:[NSDate dateWithTimeIntervalSinceNow:minimalTimeout]];
+  BOOL isTimedOut = NO;
+  NSDate *timeoutDate = [NSDate dateWithTimeIntervalSinceNow:timeout];
+  static NSTimeInterval const minimalTimeout = 0.01;
+  static int64_t const minimalTimeToWait =
+      (int64_t)(minimalTimeout * NSEC_PER_SEC);
+  dispatch_time_t waitTime =
+      dispatch_time(DISPATCH_TIME_NOW, minimalTimeToWait);
+  dispatch_group_t dispatchGroup = FBLPromise.dispatchGroup;
+  NSRunLoop *runLoop = NSRunLoop.currentRunLoop;
+  while (dispatch_group_wait(dispatchGroup, waitTime)) {
+    isTimedOut = timeoutDate.timeIntervalSinceNow < 0.0;
+    if (isTimedOut) {
+      break;
     }
-    return !isTimedOut;
+    [runLoop runUntilDate:[NSDate dateWithTimeIntervalSinceNow:minimalTimeout]];
+  }
+  return !isTimedOut;
 }
 
 @implementation FBLPromise (TestingAdditions)
@@ -46,12 +46,12 @@ BOOL FBLWaitForPromisesWithTimeout(NSTimeInterval timeout) {
 @dynamic error;
 
 + (dispatch_group_t)dispatchGroup {
-    static dispatch_group_t gDispatchGroup;
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^ {
-        gDispatchGroup = dispatch_group_create();
-    });
-    return gDispatchGroup;
+  static dispatch_group_t gDispatchGroup;
+  static dispatch_once_t onceToken;
+  dispatch_once(&onceToken, ^{
+    gDispatchGroup = dispatch_group_create();
+  });
+  return gDispatchGroup;
 }
 
 @end

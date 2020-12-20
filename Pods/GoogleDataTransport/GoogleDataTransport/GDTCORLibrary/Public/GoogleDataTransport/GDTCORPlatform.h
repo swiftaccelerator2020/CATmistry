@@ -39,36 +39,36 @@ FOUNDATION_EXPORT NSString *const kGDTCORVersion;
 
 /** A notification sent out if the app is backgrounding. */
 FOUNDATION_EXPORT NSString
-*const kGDTCORApplicationDidEnterBackgroundNotification;
+    *const kGDTCORApplicationDidEnterBackgroundNotification;
 
 /** A notification sent out if the app is foregrounding. */
 FOUNDATION_EXPORT NSString
-*const kGDTCORApplicationWillEnterForegroundNotification;
+    *const kGDTCORApplicationWillEnterForegroundNotification;
 
 /** A notification sent out if the app is terminating. */
 FOUNDATION_EXPORT NSString *const kGDTCORApplicationWillTerminateNotification;
 
 /** The different possible network connection type. */
 typedef NS_ENUM(NSInteger, GDTCORNetworkType) {
-    GDTCORNetworkTypeUNKNOWN = 0,
-    GDTCORNetworkTypeWIFI = 1,
-    GDTCORNetworkTypeMobile = 2,
+  GDTCORNetworkTypeUNKNOWN = 0,
+  GDTCORNetworkTypeWIFI = 1,
+  GDTCORNetworkTypeMobile = 2,
 };
 
 /** The different possible network connection mobile subtype. */
 typedef NS_ENUM(NSInteger, GDTCORNetworkMobileSubtype) {
-    GDTCORNetworkMobileSubtypeUNKNOWN = 0,
-    GDTCORNetworkMobileSubtypeGPRS = 1,
-    GDTCORNetworkMobileSubtypeEdge = 2,
-    GDTCORNetworkMobileSubtypeWCDMA = 3,
-    GDTCORNetworkMobileSubtypeHSDPA = 4,
-    GDTCORNetworkMobileSubtypeHSUPA = 5,
-    GDTCORNetworkMobileSubtypeCDMA1x = 6,
-    GDTCORNetworkMobileSubtypeCDMAEVDORev0 = 7,
-    GDTCORNetworkMobileSubtypeCDMAEVDORevA = 8,
-    GDTCORNetworkMobileSubtypeCDMAEVDORevB = 9,
-    GDTCORNetworkMobileSubtypeHRPD = 10,
-    GDTCORNetworkMobileSubtypeLTE = 11,
+  GDTCORNetworkMobileSubtypeUNKNOWN = 0,
+  GDTCORNetworkMobileSubtypeGPRS = 1,
+  GDTCORNetworkMobileSubtypeEdge = 2,
+  GDTCORNetworkMobileSubtypeWCDMA = 3,
+  GDTCORNetworkMobileSubtypeHSDPA = 4,
+  GDTCORNetworkMobileSubtypeHSUPA = 5,
+  GDTCORNetworkMobileSubtypeCDMA1x = 6,
+  GDTCORNetworkMobileSubtypeCDMAEVDORev0 = 7,
+  GDTCORNetworkMobileSubtypeCDMAEVDORevA = 8,
+  GDTCORNetworkMobileSubtypeCDMAEVDORevB = 9,
+  GDTCORNetworkMobileSubtypeHRPD = 10,
+  GDTCORNetworkMobileSubtypeLTE = 11,
 };
 
 #if !TARGET_OS_WATCH
@@ -83,16 +83,16 @@ typedef SCNetworkReachabilityRef GDTCORNetworkReachabilityRef;
 #else
 /** The different possible reachabilityFlags option on watchOS. */
 typedef NS_OPTIONS(uint32_t, GDTCORNetworkReachabilityFlags) {
-    kGDTCORNetworkReachabilityFlagsReachable = 1 << 1,
-    // TODO(doudounan): Add more options on watchOS if watchOS network connection
-    // information relative APIs available in the future.
+  kGDTCORNetworkReachabilityFlagsReachable = 1 << 1,
+  // TODO(doudounan): Add more options on watchOS if watchOS network connection
+  // information relative APIs available in the future.
 };
 
 /** Define a struct as GDTCORNetworkReachabilityRef on watchOS to store network
  * connection information. */
 typedef struct {
-    // TODO(doudounan): Store network connection information on watchOS if watchOS
-    // network connection information relative APIs available in the future.
+  // TODO(doudounan): Store network connection information on watchOS if watchOS
+  // network connection information relative APIs available in the future.
 } GDTCORNetworkReachabilityRef;
 #endif
 
@@ -174,7 +174,7 @@ typedef volatile NSUInteger GDTCORBackgroundIdentifier;
 
 /** A background task's invalid sentinel value. */
 FOUNDATION_EXPORT const GDTCORBackgroundIdentifier
-GDTCORBackgroundIdentifierInvalid;
+    GDTCORBackgroundIdentifierInvalid;
 
 #if TARGET_OS_IOS || TARGET_OS_TV
 /** A protocol that wraps UIApplicationDelegate, WKExtensionDelegate or NSObject
@@ -194,7 +194,7 @@ GDTCORBackgroundIdentifierInvalid;
 /** A cross-platform application class. */
 @interface GDTCORApplication : NSObject <GDTCORApplicationDelegate>
 
-    /** Flag to determine if the application is running in the background. */
+/** Flag to determine if the application is running in the background. */
 @property(atomic, readonly) BOOL isRunningInBackground;
 
 /** Creates and/or returns the shared application instance.
@@ -214,8 +214,8 @@ GDTCORBackgroundIdentifierInvalid;
  * GDTCORBackgroundIdentifierInvalid if one couldn't be created.
  */
 - (GDTCORBackgroundIdentifier)beginBackgroundTaskWithName:(NSString *)name
-    expirationHandler:
-    (void (^__nullable)(void))handler;
+                                        expirationHandler:
+                                            (void (^__nullable)(void))handler;
 
 /** Ends the background task if the identifier is valid.
  *

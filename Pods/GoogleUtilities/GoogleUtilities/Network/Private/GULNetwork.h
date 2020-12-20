@@ -43,12 +43,12 @@
 
 /// Indicates if there are any uploads in progress.
 @property(nonatomic, readonly, getter=hasUploadInProgress)
-BOOL uploadInProgress;
+    BOOL uploadInProgress;
 
 /// An optional delegate that can be used in the event when network reachability
 /// changes.
 @property(nonatomic, weak) id<GULNetworkReachabilityDelegate>
-reachabilityDelegate;
+    reachabilityDelegate;
 
 /// An optional delegate that can be used to log messages, warnings or errors
 /// that occur in the network operations.
@@ -68,27 +68,27 @@ reachabilityDelegate;
 
 /// Handles events when background session with the given ID has finished.
 + (void)handleEventsForBackgroundURLSessionID:(NSString *)sessionID
-    completionHandler:
-    (GULNetworkSystemCompletionHandler)
-    completionHandler;
+                            completionHandler:
+                                (GULNetworkSystemCompletionHandler)
+                                    completionHandler;
 
 /// Compresses and sends a POST request with the provided data to the URL. The
 /// session will be background session if usingBackgroundSession is YES.
 /// Otherwise, the POST session is default session. Returns a session ID or nil
 /// if an error occurs.
 - (NSString *)postURL:(NSURL *)url
-    payload:(NSData *)payload
-    queue:(dispatch_queue_t)queue
+                   payload:(NSData *)payload
+                     queue:(dispatch_queue_t)queue
     usingBackgroundSession:(BOOL)usingBackgroundSession
-    completionHandler:(GULNetworkCompletionHandler)handler;
+         completionHandler:(GULNetworkCompletionHandler)handler;
 
 /// Sends a GET request with the provided data to the URL. The session will be
 /// background session if usingBackgroundSession is YES. Otherwise, the GET
 /// session is default session. Returns a session ID or nil if an error occurs.
 - (NSString *)getURL:(NSURL *)url
-    headers:(NSDictionary *)headers
-    queue:(dispatch_queue_t)queue
+                   headers:(NSDictionary *)headers
+                     queue:(dispatch_queue_t)queue
     usingBackgroundSession:(BOOL)usingBackgroundSession
-    completionHandler:(GULNetworkCompletionHandler)handler;
+         completionHandler:(GULNetworkCompletionHandler)handler;
 
 @end

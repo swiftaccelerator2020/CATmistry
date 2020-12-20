@@ -36,39 +36,39 @@
 @implementation FEventRaiser
 
 - (id)init {
-    [NSException raise:NSInternalInconsistencyException
-                 format:@"Can't use default constructor"];
-    return nil;
+  [NSException raise:NSInternalInconsistencyException
+              format:@"Can't use default constructor"];
+  return nil;
 }
 
 - (id)initWithQueue:(dispatch_queue_t)queue {
-    self = [super init];
-    if (self != nil) {
-        self->_queue = queue;
-    }
-    return self;
+  self = [super init];
+  if (self != nil) {
+    self->_queue = queue;
+  }
+  return self;
 }
 
 - (void)raiseEvents:(NSArray *)eventDataList {
-    for (id<FEvent> event in eventDataList) {
-        [event fireEventOnQueue:self.queue];
-    }
+  for (id<FEvent> event in eventDataList) {
+    [event fireEventOnQueue:self.queue];
+  }
 }
 
 - (void)raiseCallback:(fbt_void_void)callback {
-    dispatch_async(self.queue, callback);
+  dispatch_async(self.queue, callback);
 }
 
 - (void)raiseCallbacks:(NSArray *)callbackList {
-    for (fbt_void_void callback in callbackList) {
-        dispatch_async(self.queue, callback);
-    }
+  for (fbt_void_void callback in callbackList) {
+    dispatch_async(self.queue, callback);
+  }
 }
 
 + (void)raiseCallbacks:(NSArray *)callbackList queue:(dispatch_queue_t)queue {
-    for (fbt_void_void callback in callbackList) {
-        dispatch_async(queue, callback);
-    }
+  for (fbt_void_void callback in callbackList) {
+    dispatch_async(queue, callback);
+  }
 }
 
 @end

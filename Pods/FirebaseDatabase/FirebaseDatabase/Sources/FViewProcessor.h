@@ -30,13 +30,13 @@
 - (id)initWithFilter:(id<FNodeFilter>)nodeFilter;
 
 - (FViewProcessorResult *)applyOperationOn:(FViewCache *)oldViewCache
-    operation:(id<FOperation>)operation
-    writesCache:(FWriteTreeRef *)writesCache
-    completeCache:(id<FNode>)optCompleteCache;
+                                 operation:(id<FOperation>)operation
+                               writesCache:(FWriteTreeRef *)writesCache
+                             completeCache:(id<FNode>)optCompleteCache;
 - (FViewCache *)revertUserWriteOn:(FViewCache *)viewCache
-    path:(FPath *)path
-    writesCache:(FWriteTreeRef *)writesCache
-    completeCache:(id<FNode>)optCompleteCache
-    accumulator:(FChildChangeAccumulator *)accumulator;
+                             path:(FPath *)path
+                      writesCache:(FWriteTreeRef *)writesCache
+                    completeCache:(id<FNode>)optCompleteCache
+                      accumulator:(FChildChangeAccumulator *)accumulator;
 
 @end

@@ -27,9 +27,9 @@
 
 - (id)initWithRepo:(FRepo *)repo path:(FPath *)path;
 - (id)initWithRepo:(FRepo *)repo
-    path:(FPath *)path
-    params:(FQueryParams *)params
-    orderByCalled:(BOOL)orderByCalled
+                    path:(FPath *)path
+                  params:(FQueryParams *)params
+           orderByCalled:(BOOL)orderByCalled
     priorityMethodCalled:(BOOL)priorityMethodCalled;
 
 @property(nonatomic, strong) FRepo *repo;

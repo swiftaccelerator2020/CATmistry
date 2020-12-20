@@ -29,14 +29,14 @@ typedef NSString *const GULAppDelegateInterceptorID;
 /** This class contains methods that isa swizzle the app delegate. */
 @interface GULAppDelegateSwizzler : NSProxy
 
-    /** Registers an app delegate interceptor whose methods will be invoked as
-     * they're invoked on the original app delegate.
-     *
-     *  @param interceptor An instance of a class that conforms to the application
-     * delegate protocol. The interceptor is NOT retained.
-     *  @return A unique GULAppDelegateInterceptorID if interceptor was successfully
-     * registered; nil if it fails.
-     */
+/** Registers an app delegate interceptor whose methods will be invoked as
+ * they're invoked on the original app delegate.
+ *
+ *  @param interceptor An instance of a class that conforms to the application
+ * delegate protocol. The interceptor is NOT retained.
+ *  @return A unique GULAppDelegateInterceptorID if interceptor was successfully
+ * registered; nil if it fails.
+ */
 + (nullable GULAppDelegateInterceptorID)registerAppDelegateInterceptor:
     (id<GULApplicationDelegate>)interceptor;
 

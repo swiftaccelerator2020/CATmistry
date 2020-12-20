@@ -31,8 +31,8 @@
 @interface FRangeMerge : NSObject
 
 - (instancetype)initWithStart:(FPath *)start
-    end:(FPath *)end
-    updates:(id<FNode>)updates;
+                          end:(FPath *)end
+                      updates:(id<FNode>)updates;
 
 - (id<FNode>)applyToNode:(id<FNode>)node;
 

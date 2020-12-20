@@ -94,7 +94,7 @@ extern void FIRLogBasic(FIRLoggerLevel level, FIRLoggerService service,
 #else
                         va_list _Nullable args_ptr
 #endif
-                       );
+);
 
 /**
  * The following functions accept the following parameters in order:
@@ -125,23 +125,23 @@ extern void FIRLogDebug(FIRLoggerService service, NSString *messageCode,
 
 @interface FIRLoggerWrapper : NSObject
 
-    /**
-     * Objective-C wrapper for FIRLogBasic to allow weak linking to FIRLogger
-     * (required) log level (one of the FIRLoggerLevel enum values).
-     * (required) service name of type FIRLoggerService.
-     * (required) message code starting with "I-" which means iOS, followed by a
-     * capitalized three-character service identifier and a six digit integer
-     * message ID that is unique within the service. An example of the message code
-     * is @"I-COR000001". (required) message string which can be a format string.
-     * (optional) variable arguments list obtained from calling va_start, used when
-     * message is a format string.
-     */
+/**
+ * Objective-C wrapper for FIRLogBasic to allow weak linking to FIRLogger
+ * (required) log level (one of the FIRLoggerLevel enum values).
+ * (required) service name of type FIRLoggerService.
+ * (required) message code starting with "I-" which means iOS, followed by a
+ * capitalized three-character service identifier and a six digit integer
+ * message ID that is unique within the service. An example of the message code
+ * is @"I-COR000001". (required) message string which can be a format string.
+ * (optional) variable arguments list obtained from calling va_start, used when
+ * message is a format string.
+ */
 
 + (void)logWithLevel:(FIRLoggerLevel)level
-    withService:(FIRLoggerService)service
-    withCode:(NSString *)messageCode
-    withMessage:(NSString *)message
-    withArgs:(va_list)args;
+         withService:(FIRLoggerService)service
+            withCode:(NSString *)messageCode
+         withMessage:(NSString *)message
+            withArgs:(va_list)args;
 
 @end
 

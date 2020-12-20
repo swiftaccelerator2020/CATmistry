@@ -34,43 +34,43 @@
 @property(nonatomic, strong) FIRDatabaseConfig *config;
 
 - (id)initWithRepoInfo:(FRepoInfo *)info
-    config:(FIRDatabaseConfig *)config
-    database:(FIRDatabase *)database;
+                config:(FIRDatabaseConfig *)config
+              database:(FIRDatabase *)database;
 
 - (void)set:(FPath *)path
-    withNode:(id)node
+        withNode:(id)node
     withCallback:(fbt_void_nserror_ref)onComplete;
 - (void)update:(FPath *)path
-    withNodes:(FCompoundWrite *)compoundWrite
+       withNodes:(FCompoundWrite *)compoundWrite
     withCallback:(fbt_void_nserror_ref)callback;
 - (void)purgeOutstandingWrites;
 
 - (void)addEventRegistration:(id<FEventRegistration>)eventRegistration
-    forQuery:(FQuerySpec *)query;
+                    forQuery:(FQuerySpec *)query;
 - (void)removeEventRegistration:(id<FEventRegistration>)eventRegistration
-    forQuery:(FQuerySpec *)query;
+                       forQuery:(FQuerySpec *)query;
 - (void)keepQuery:(FQuerySpec *)query synced:(BOOL)synced;
 
 - (NSString *)name;
 - (NSTimeInterval)serverTime;
 
 - (void)onDataUpdate:(FPersistentConnection *)fpconnection
-    forPath:(NSString *)pathString
-    message:(id)message
-    isMerge:(BOOL)isMerge
-    tagId:(NSNumber *)tagId;
+             forPath:(NSString *)pathString
+             message:(id)message
+             isMerge:(BOOL)isMerge
+               tagId:(NSNumber *)tagId;
 - (void)onConnect:(FPersistentConnection *)fpconnection;
 - (void)onDisconnect:(FPersistentConnection *)fpconnection;
 
 // Disconnect methods
 - (void)onDisconnectCancel:(FPath *)path
-    withCallback:(fbt_void_nserror_ref)callback;
+              withCallback:(fbt_void_nserror_ref)callback;
 - (void)onDisconnectSet:(FPath *)path
-    withNode:(id<FNode>)node
-    withCallback:(fbt_void_nserror_ref)callback;
+               withNode:(id<FNode>)node
+           withCallback:(fbt_void_nserror_ref)callback;
 - (void)onDisconnectUpdate:(FPath *)path
-    withNodes:(FCompoundWrite *)compoundWrite
-    withCallback:(fbt_void_nserror_ref)callback;
+                 withNodes:(FCompoundWrite *)compoundWrite
+              withCallback:(fbt_void_nserror_ref)callback;
 
 // Connection Management.
 - (void)interrupt;
@@ -78,9 +78,9 @@
 
 // Transactions
 - (void)startTransactionOnPath:(FPath *)path
-    update:(fbt_transactionresult_mutabledata)update
-    onComplete:(fbt_void_nserror_bool_datasnapshot)onComplete
-    withLocalEvents:(BOOL)applyLocally;
+                        update:(fbt_transactionresult_mutabledata)update
+                    onComplete:(fbt_void_nserror_bool_datasnapshot)onComplete
+               withLocalEvents:(BOOL)applyLocally;
 
 // Testing methods
 - (NSDictionary *)dumpListens;

@@ -46,17 +46,17 @@
  * @return The KERN_BOOTTIME property from sysctl, in nanoseconds.
  */
 static int64_t KernelBootTimeInNanoseconds() {
-    // Caching the result is not possible because clock drift would not be
-    // accounted for.
-    struct timeval boottime;
-    int mib[2] = {CTL_KERN, KERN_BOOTTIME};
-    size_t size = sizeof(boottime);
-    int rc = sysctl(mib, 2, &boottime, &size, NULL, 0);
-    if (rc != 0) {
-        return 0;
-    }
-    return (int64_t)boottime.tv_sec * NSEC_PER_SEC +
-           (int64_t)boottime.tv_usec * NSEC_PER_USEC;
+  // Caching the result is not possible because clock drift would not be
+  // accounted for.
+  struct timeval boottime;
+  int mib[2] = {CTL_KERN, KERN_BOOTTIME};
+  size_t size = sizeof(boottime);
+  int rc = sysctl(mib, 2, &boottime, &size, NULL, 0);
+  if (rc != 0) {
+    return 0;
+  }
+  return (int64_t)boottime.tv_sec * NSEC_PER_SEC +
+         (int64_t)boottime.tv_usec * NSEC_PER_USEC;
 }
 
 /** Returns value of gettimeofday, in nanoseconds.
@@ -66,19 +66,19 @@ static int64_t KernelBootTimeInNanoseconds() {
  * @return The value of gettimeofday, in nanoseconds.
  */
 static int64_t UptimeInNanoseconds() {
-    int64_t before_now_nsec;
-    int64_t after_now_nsec;
-    struct timeval now;
+  int64_t before_now_nsec;
+  int64_t after_now_nsec;
+  struct timeval now;
 
-    before_now_nsec = KernelBootTimeInNanoseconds();
-    // Addresses a race condition in which the system time has updated, but the
-    // boottime has not.
-    do {
-        gettimeofday(&now, NULL);
-        after_now_nsec = KernelBootTimeInNanoseconds();
-    } while (after_now_nsec != before_now_nsec);
-    return (int64_t)now.tv_sec * NSEC_PER_SEC +
-           (int64_t)now.tv_usec * NSEC_PER_USEC - before_now_nsec;
+  before_now_nsec = KernelBootTimeInNanoseconds();
+  // Addresses a race condition in which the system time has updated, but the
+  // boottime has not.
+  do {
+    gettimeofday(&now, NULL);
+    after_now_nsec = KernelBootTimeInNanoseconds();
+  } while (after_now_nsec != before_now_nsec);
+  return (int64_t)now.tv_sec * NSEC_PER_SEC +
+         (int64_t)now.tv_usec * NSEC_PER_USEC - before_now_nsec;
 }
 
 // TODO: Consider adding a 'trustedTime' property that can be populated by the
@@ -86,56 +86,56 @@ static int64_t UptimeInNanoseconds() {
 @implementation GDTCORClock
 
 - (instancetype)init {
-    self = [super init];
-    if (self) {
-        _kernelBootTimeNanoseconds = KernelBootTimeInNanoseconds();
-        _uptimeNanoseconds = UptimeInNanoseconds();
-        _timeMillis = (int64_t)(
-                          (CFAbsoluteTimeGetCurrent() + kCFAbsoluteTimeIntervalSince1970) *
-                          NSEC_PER_USEC);
-        _timezoneOffsetSeconds = [[NSTimeZone systemTimeZone] secondsFromGMT];
-    }
-    return self;
+  self = [super init];
+  if (self) {
+    _kernelBootTimeNanoseconds = KernelBootTimeInNanoseconds();
+    _uptimeNanoseconds = UptimeInNanoseconds();
+    _timeMillis = (int64_t)(
+        (CFAbsoluteTimeGetCurrent() + kCFAbsoluteTimeIntervalSince1970) *
+        NSEC_PER_USEC);
+    _timezoneOffsetSeconds = [[NSTimeZone systemTimeZone] secondsFromGMT];
+  }
+  return self;
 }
 
 + (GDTCORClock *)snapshot {
-    return [[GDTCORClock alloc] init];
+  return [[GDTCORClock alloc] init];
 }
 
 + (instancetype)clockSnapshotInTheFuture:(uint64_t)millisInTheFuture {
-    GDTCORClock *snapshot = [self snapshot];
-    snapshot->_timeMillis += millisInTheFuture;
-    return snapshot;
+  GDTCORClock *snapshot = [self snapshot];
+  snapshot->_timeMillis += millisInTheFuture;
+  return snapshot;
 }
 
 - (BOOL)isAfter:(GDTCORClock *)otherClock {
-    // These clocks are trivially comparable when they share a kernel boot time.
-    if (_kernelBootTimeNanoseconds == otherClock->_kernelBootTimeNanoseconds) {
-        int64_t timeDiff =
-            (_timeMillis + _timezoneOffsetSeconds) -
-            (otherClock->_timeMillis + otherClock->_timezoneOffsetSeconds);
-        return timeDiff > 0;
-    } else {
-        int64_t kernelBootTimeDiff =
-            otherClock->_kernelBootTimeNanoseconds - _kernelBootTimeNanoseconds;
-        // This isn't a great solution, but essentially, if the other clock's boot
-        // time is 'later', NO is returned. This can be altered by changing the
-        // system time and rebooting.
-        return kernelBootTimeDiff < 0 ? YES : NO;
-    }
+  // These clocks are trivially comparable when they share a kernel boot time.
+  if (_kernelBootTimeNanoseconds == otherClock->_kernelBootTimeNanoseconds) {
+    int64_t timeDiff =
+        (_timeMillis + _timezoneOffsetSeconds) -
+        (otherClock->_timeMillis + otherClock->_timezoneOffsetSeconds);
+    return timeDiff > 0;
+  } else {
+    int64_t kernelBootTimeDiff =
+        otherClock->_kernelBootTimeNanoseconds - _kernelBootTimeNanoseconds;
+    // This isn't a great solution, but essentially, if the other clock's boot
+    // time is 'later', NO is returned. This can be altered by changing the
+    // system time and rebooting.
+    return kernelBootTimeDiff < 0 ? YES : NO;
+  }
 }
 
 - (int64_t)uptimeMilliseconds {
-    return self.uptimeNanoseconds / NSEC_PER_MSEC;
+  return self.uptimeNanoseconds / NSEC_PER_MSEC;
 }
 
 - (NSUInteger)hash {
-    return [@(_kernelBootTimeNanoseconds) hash] ^ [@(_uptimeNanoseconds) hash] ^
-           [@(_timeMillis) hash] ^ [@(_timezoneOffsetSeconds) hash];
+  return [@(_kernelBootTimeNanoseconds) hash] ^ [@(_uptimeNanoseconds) hash] ^
+         [@(_timeMillis) hash] ^ [@(_timezoneOffsetSeconds) hash];
 }
 
 - (BOOL)isEqual:(id)object {
-    return [self hash] == [object hash];
+  return [self hash] == [object hash];
 }
 
 #pragma mark - NSSecureCoding
@@ -155,41 +155,41 @@ static NSString *const kGDTCORClockKernelBootTime =
 static NSString *const kGDTCORClockUptime = @"GDTCORClockUptime";
 
 + (BOOL)supportsSecureCoding {
-    return YES;
+  return YES;
 }
 
 - (instancetype)initWithCoder:(NSCoder *)aDecoder {
-    self = [super init];
-    if (self) {
-        // TODO: If the kernelBootTimeNanoseconds is more recent, we need to change
-        // the kernel boot time and uptimeMillis ivars
-        _timeMillis = [aDecoder decodeInt64ForKey:kGDTCORClockTimeMillisKey];
-        _timezoneOffsetSeconds =
-            [aDecoder decodeInt64ForKey:kGDTCORClockTimezoneOffsetSeconds];
-        _kernelBootTimeNanoseconds =
-            [aDecoder decodeInt64ForKey:kGDTCORClockKernelBootTime];
-        _uptimeNanoseconds = [aDecoder decodeInt64ForKey:kGDTCORClockUptime];
-    }
-    return self;
+  self = [super init];
+  if (self) {
+    // TODO: If the kernelBootTimeNanoseconds is more recent, we need to change
+    // the kernel boot time and uptimeMillis ivars
+    _timeMillis = [aDecoder decodeInt64ForKey:kGDTCORClockTimeMillisKey];
+    _timezoneOffsetSeconds =
+        [aDecoder decodeInt64ForKey:kGDTCORClockTimezoneOffsetSeconds];
+    _kernelBootTimeNanoseconds =
+        [aDecoder decodeInt64ForKey:kGDTCORClockKernelBootTime];
+    _uptimeNanoseconds = [aDecoder decodeInt64ForKey:kGDTCORClockUptime];
+  }
+  return self;
 }
 
 - (void)encodeWithCoder:(NSCoder *)aCoder {
-    [aCoder encodeInt64:_timeMillis forKey:kGDTCORClockTimeMillisKey];
-    [aCoder encodeInt64:_timezoneOffsetSeconds
-            forKey:kGDTCORClockTimezoneOffsetSeconds];
-    [aCoder encodeInt64:_kernelBootTimeNanoseconds
-            forKey:kGDTCORClockKernelBootTime];
-    [aCoder encodeInt64:_uptimeNanoseconds forKey:kGDTCORClockUptime];
+  [aCoder encodeInt64:_timeMillis forKey:kGDTCORClockTimeMillisKey];
+  [aCoder encodeInt64:_timezoneOffsetSeconds
+               forKey:kGDTCORClockTimezoneOffsetSeconds];
+  [aCoder encodeInt64:_kernelBootTimeNanoseconds
+               forKey:kGDTCORClockKernelBootTime];
+  [aCoder encodeInt64:_uptimeNanoseconds forKey:kGDTCORClockUptime];
 }
 
 #pragma mark - Deprecated properties
 
 - (int64_t)kernelBootTime {
-    return self.kernelBootTimeNanoseconds;
+  return self.kernelBootTimeNanoseconds;
 }
 
 - (int64_t)uptime {
-    return self.uptimeNanoseconds;
+  return self.uptimeNanoseconds;
 }
 
 @end

@@ -30,11 +30,11 @@
 #if TARGET_OS_SIMULATOR && !defined(LC_ENCRYPTION_INFO)
 #define LC_ENCRYPTION_INFO 0x21
 struct encryption_info_command {
-    uint32_t cmd;
-    uint32_t cmdsize;
-    uint32_t cryptoff;
-    uint32_t cryptsize;
-    uint32_t cryptid;
+  uint32_t cmd;
+  uint32_t cmdsize;
+  uint32_t cryptoff;
+  uint32_t cryptsize;
+  uint32_t cryptid;
 };
 #endif
 
@@ -94,177 +94,177 @@ static NSString *const kFIRAIdentitySandboxReceiptFileName = @"sandboxReceipt";
 /// More information at <a href="http://landonf.org/2009/02/index.html">Landon
 /// Fuller's blog</a>
 static BOOL IsAppEncrypted() {
-    const struct mach_header *executableHeader = NULL;
-    for (uint32_t i = 0; i < _dyld_image_count(); i++) {
-        const struct mach_header *header = _dyld_get_image_header(i);
-        if (header && header->filetype == MH_EXECUTE) {
-            executableHeader = header;
-            break;
-        }
+  const struct mach_header *executableHeader = NULL;
+  for (uint32_t i = 0; i < _dyld_image_count(); i++) {
+    const struct mach_header *header = _dyld_get_image_header(i);
+    if (header && header->filetype == MH_EXECUTE) {
+      executableHeader = header;
+      break;
     }
+  }
 
-    if (!executableHeader) {
-        return NO;
-    }
-
-    BOOL is64bit = (executableHeader->magic == MH_MAGIC_64);
-    uintptr_t cursor =
-        (uintptr_t)executableHeader +
-        (is64bit ? sizeof(struct mach_header_64) : sizeof(struct mach_header));
-    const struct segment_command *segmentCommand = NULL;
-    uint32_t i = 0;
-
-    while (i++ < executableHeader->ncmds) {
-        segmentCommand = (struct segment_command *)cursor;
-
-        if (!segmentCommand) {
-            continue;
-        }
-
-        if ((!is64bit && segmentCommand->cmd == LC_ENCRYPTION_INFO) ||
-                (is64bit && segmentCommand->cmd == LC_ENCRYPTION_INFO_64)) {
-            if (is64bit) {
-                struct encryption_info_command_64 *cryptCmd =
-                    (struct encryption_info_command_64 *)segmentCommand;
-                return cryptCmd && cryptCmd->cryptid != 0;
-            } else {
-                struct encryption_info_command *cryptCmd =
-                    (struct encryption_info_command *)segmentCommand;
-                return cryptCmd && cryptCmd->cryptid != 0;
-            }
-        }
-        cursor += segmentCommand->cmdsize;
-    }
-
+  if (!executableHeader) {
     return NO;
+  }
+
+  BOOL is64bit = (executableHeader->magic == MH_MAGIC_64);
+  uintptr_t cursor =
+      (uintptr_t)executableHeader +
+      (is64bit ? sizeof(struct mach_header_64) : sizeof(struct mach_header));
+  const struct segment_command *segmentCommand = NULL;
+  uint32_t i = 0;
+
+  while (i++ < executableHeader->ncmds) {
+    segmentCommand = (struct segment_command *)cursor;
+
+    if (!segmentCommand) {
+      continue;
+    }
+
+    if ((!is64bit && segmentCommand->cmd == LC_ENCRYPTION_INFO) ||
+        (is64bit && segmentCommand->cmd == LC_ENCRYPTION_INFO_64)) {
+      if (is64bit) {
+        struct encryption_info_command_64 *cryptCmd =
+            (struct encryption_info_command_64 *)segmentCommand;
+        return cryptCmd && cryptCmd->cryptid != 0;
+      } else {
+        struct encryption_info_command *cryptCmd =
+            (struct encryption_info_command *)segmentCommand;
+        return cryptCmd && cryptCmd->cryptid != 0;
+      }
+    }
+    cursor += segmentCommand->cmdsize;
+  }
+
+  return NO;
 }
 
 static BOOL HasSCInfoFolder() {
 #if TARGET_OS_IOS || TARGET_OS_TV || TARGET_OS_WATCH
-    NSString *bundlePath = [NSBundle mainBundle].bundlePath;
-    NSString *scInfoPath = [bundlePath stringByAppendingPathComponent:@"SC_Info"];
-    return [[NSFileManager defaultManager] fileExistsAtPath:scInfoPath];
+  NSString *bundlePath = [NSBundle mainBundle].bundlePath;
+  NSString *scInfoPath = [bundlePath stringByAppendingPathComponent:@"SC_Info"];
+  return [[NSFileManager defaultManager] fileExistsAtPath:scInfoPath];
 #elif TARGET_OS_OSX
-    return NO;
+  return NO;
 #endif
 }
 
 static BOOL HasEmbeddedMobileProvision() {
 #if TARGET_OS_IOS || TARGET_OS_TV || TARGET_OS_WATCH
-    return [[NSBundle mainBundle] pathForResource:@"embedded"
-                                  ofType:@"mobileprovision"]
-           .length > 0;
+  return [[NSBundle mainBundle] pathForResource:@"embedded"
+                                         ofType:@"mobileprovision"]
+             .length > 0;
 #elif TARGET_OS_OSX
-    return NO;
+  return NO;
 #endif
 }
 
 + (BOOL)isFromAppStore {
-    static dispatch_once_t isEncryptedOnce;
-    static BOOL isEncrypted = NO;
+  static dispatch_once_t isEncryptedOnce;
+  static BOOL isEncrypted = NO;
 
-    dispatch_once(&isEncryptedOnce, ^ {
-        isEncrypted = IsAppEncrypted();
-    });
+  dispatch_once(&isEncryptedOnce, ^{
+    isEncrypted = IsAppEncrypted();
+  });
 
-    if ([GULAppEnvironmentUtil isSimulator]) {
-        return NO;
-    }
+  if ([GULAppEnvironmentUtil isSimulator]) {
+    return NO;
+  }
 
-    // If an app contain the sandboxReceipt file, it means its coming from
-    // TestFlight This must be checked before the SCInfo Folder check below since
-    // TestFlight apps may also have an SCInfo folder.
-    if ([GULAppEnvironmentUtil isAppStoreReceiptSandbox]) {
-        return NO;
-    }
+  // If an app contain the sandboxReceipt file, it means its coming from
+  // TestFlight This must be checked before the SCInfo Folder check below since
+  // TestFlight apps may also have an SCInfo folder.
+  if ([GULAppEnvironmentUtil isAppStoreReceiptSandbox]) {
+    return NO;
+  }
 
-    if (HasSCInfoFolder()) {
-        // When iTunes downloads a .ipa, it also gets a customized .sinf file which
-        // is added to the main SC_Info directory.
-        return YES;
-    }
+  if (HasSCInfoFolder()) {
+    // When iTunes downloads a .ipa, it also gets a customized .sinf file which
+    // is added to the main SC_Info directory.
+    return YES;
+  }
 
-    // For iOS >= 8.0, iTunesMetadata.plist is moved outside of the sandbox. Any
-    // attempt to read the iTunesMetadata.plist outside of the sandbox will be
-    // rejected by Apple. If the app does not contain the embedded.mobileprovision
-    // which is stripped out by Apple when the app is submitted to store, then it
-    // is highly likely that it is from Apple Store.
-    return isEncrypted && !HasEmbeddedMobileProvision();
+  // For iOS >= 8.0, iTunesMetadata.plist is moved outside of the sandbox. Any
+  // attempt to read the iTunesMetadata.plist outside of the sandbox will be
+  // rejected by Apple. If the app does not contain the embedded.mobileprovision
+  // which is stripped out by Apple when the app is submitted to store, then it
+  // is highly likely that it is from Apple Store.
+  return isEncrypted && !HasEmbeddedMobileProvision();
 }
 
 + (BOOL)isAppStoreReceiptSandbox {
-    // Since checking the App Store's receipt URL can be memory intensive, check
-    // the option in the Info.plist if developers opted out of this check.
-    id enableSandboxCheck = [[NSBundle mainBundle]
-                             objectForInfoDictionaryKey:kFIRAppStoreReceiptURLCheckEnabledKey];
-    if (enableSandboxCheck &&
-            [enableSandboxCheck isKindOfClass:[NSNumber class]] &&
-            ![enableSandboxCheck boolValue]) {
-        return NO;
-    }
+  // Since checking the App Store's receipt URL can be memory intensive, check
+  // the option in the Info.plist if developers opted out of this check.
+  id enableSandboxCheck = [[NSBundle mainBundle]
+      objectForInfoDictionaryKey:kFIRAppStoreReceiptURLCheckEnabledKey];
+  if (enableSandboxCheck &&
+      [enableSandboxCheck isKindOfClass:[NSNumber class]] &&
+      ![enableSandboxCheck boolValue]) {
+    return NO;
+  }
 
-    NSURL *appStoreReceiptURL = [NSBundle mainBundle].appStoreReceiptURL;
-    NSString *appStoreReceiptFileName = appStoreReceiptURL.lastPathComponent;
-    return [appStoreReceiptFileName
-            isEqualToString:kFIRAIdentitySandboxReceiptFileName];
+  NSURL *appStoreReceiptURL = [NSBundle mainBundle].appStoreReceiptURL;
+  NSString *appStoreReceiptFileName = appStoreReceiptURL.lastPathComponent;
+  return [appStoreReceiptFileName
+      isEqualToString:kFIRAIdentitySandboxReceiptFileName];
 }
 
 + (BOOL)isSimulator {
 #if TARGET_OS_SIMULATOR
-    return YES;
+  return YES;
 #elif TARGET_OS_MACCATALYST
-    return NO;
+  return NO;
 #elif TARGET_OS_IOS || TARGET_OS_TV
-    NSString *platform = [GULAppEnvironmentUtil deviceModel];
-    return [platform isEqual:@"x86_64"] || [platform isEqual:@"i386"];
+  NSString *platform = [GULAppEnvironmentUtil deviceModel];
+  return [platform isEqual:@"x86_64"] || [platform isEqual:@"i386"];
 #elif TARGET_OS_OSX
-    return NO;
+  return NO;
 #endif
-    return NO;
+  return NO;
 }
 
 + (NSString *)deviceModel {
-    static dispatch_once_t once;
-    static NSString *deviceModel;
+  static dispatch_once_t once;
+  static NSString *deviceModel;
 
-    dispatch_once(&once, ^ {
-        struct utsname systemInfo;
-        if (uname(&systemInfo) == 0) {
-            deviceModel = [NSString stringWithUTF8String:systemInfo.machine];
-        }
-    });
-    return deviceModel;
+  dispatch_once(&once, ^{
+    struct utsname systemInfo;
+    if (uname(&systemInfo) == 0) {
+      deviceModel = [NSString stringWithUTF8String:systemInfo.machine];
+    }
+  });
+  return deviceModel;
 }
 
 + (NSString *)systemVersion {
 #if TARGET_OS_IOS
-    return [UIDevice currentDevice].systemVersion;
+  return [UIDevice currentDevice].systemVersion;
 #elif TARGET_OS_OSX || TARGET_OS_TV || TARGET_OS_WATCH
-    // Assemble the systemVersion, excluding the patch version if it's 0.
-    NSOperatingSystemVersion osVersion =
-        [NSProcessInfo processInfo].operatingSystemVersion;
-    NSMutableString *versionString = [[NSMutableString alloc]
-                                      initWithFormat:@"%ld.%ld", (long)osVersion.majorVersion,
-                                      (long)osVersion.minorVersion];
-    if (osVersion.patchVersion != 0) {
-        [versionString appendFormat:@".%ld", (long)osVersion.patchVersion];
-    }
-    return versionString;
+  // Assemble the systemVersion, excluding the patch version if it's 0.
+  NSOperatingSystemVersion osVersion =
+      [NSProcessInfo processInfo].operatingSystemVersion;
+  NSMutableString *versionString = [[NSMutableString alloc]
+      initWithFormat:@"%ld.%ld", (long)osVersion.majorVersion,
+                     (long)osVersion.minorVersion];
+  if (osVersion.patchVersion != 0) {
+    [versionString appendFormat:@".%ld", (long)osVersion.patchVersion];
+  }
+  return versionString;
 #endif
 }
 
 + (BOOL)isAppExtension {
 #if TARGET_OS_IOS || TARGET_OS_TV || TARGET_OS_WATCH
-    // Documented by <a href="https://goo.gl/RRB2Up">Apple</a>
-    BOOL appExtension = [[[NSBundle mainBundle] bundlePath] hasSuffix:@".appex"];
-    return appExtension;
+  // Documented by <a href="https://goo.gl/RRB2Up">Apple</a>
+  BOOL appExtension = [[[NSBundle mainBundle] bundlePath] hasSuffix:@".appex"];
+  return appExtension;
 #elif TARGET_OS_OSX
-    return NO;
+  return NO;
 #endif
 }
 
 + (BOOL)isIOS7OrHigher {
-    return YES;
+  return YES;
 }
 
 @end

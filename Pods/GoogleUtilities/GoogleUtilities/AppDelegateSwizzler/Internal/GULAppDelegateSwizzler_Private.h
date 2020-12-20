@@ -24,11 +24,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface GULAppDelegateSwizzler ()
 
-    /** ISA Swizzles the given appDelegate as the original app delegate would be.
-     *
-     *  @param appDelegate The object that needs to be isa swizzled. This should
-     * conform to the application delegate protocol.
-     */
+/** ISA Swizzles the given appDelegate as the original app delegate would be.
+ *
+ *  @param appDelegate The object that needs to be isa swizzled. This should
+ * conform to the application delegate protocol.
+ */
 + (void)proxyAppDelegate:(id<GULApplicationDelegate>)appDelegate;
 
 /** Returns a dictionary containing interceptor IDs mapped to a

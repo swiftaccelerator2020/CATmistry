@@ -28,25 +28,25 @@
 
 /* Enum definitions */
 typedef enum _gdt_cct_NetworkConnectionInfo_NetworkType {
-    gdt_cct_NetworkConnectionInfo_NetworkType_NONE = -1,
-    gdt_cct_NetworkConnectionInfo_NetworkType_MOBILE = 0,
-    gdt_cct_NetworkConnectionInfo_NetworkType_WIFI = 1,
-    gdt_cct_NetworkConnectionInfo_NetworkType_MOBILE_MMS = 2,
-    gdt_cct_NetworkConnectionInfo_NetworkType_MOBILE_SUPL = 3,
-    gdt_cct_NetworkConnectionInfo_NetworkType_MOBILE_DUN = 4,
-    gdt_cct_NetworkConnectionInfo_NetworkType_MOBILE_HIPRI = 5,
-    gdt_cct_NetworkConnectionInfo_NetworkType_WIMAX = 6,
-    gdt_cct_NetworkConnectionInfo_NetworkType_BLUETOOTH = 7,
-    gdt_cct_NetworkConnectionInfo_NetworkType_DUMMY = 8,
-    gdt_cct_NetworkConnectionInfo_NetworkType_ETHERNET = 9,
-    gdt_cct_NetworkConnectionInfo_NetworkType_MOBILE_FOTA = 10,
-    gdt_cct_NetworkConnectionInfo_NetworkType_MOBILE_IMS = 11,
-    gdt_cct_NetworkConnectionInfo_NetworkType_MOBILE_CBS = 12,
-    gdt_cct_NetworkConnectionInfo_NetworkType_WIFI_P2P = 13,
-    gdt_cct_NetworkConnectionInfo_NetworkType_MOBILE_IA = 14,
-    gdt_cct_NetworkConnectionInfo_NetworkType_MOBILE_EMERGENCY = 15,
-    gdt_cct_NetworkConnectionInfo_NetworkType_PROXY = 16,
-    gdt_cct_NetworkConnectionInfo_NetworkType_VPN = 17
+  gdt_cct_NetworkConnectionInfo_NetworkType_NONE = -1,
+  gdt_cct_NetworkConnectionInfo_NetworkType_MOBILE = 0,
+  gdt_cct_NetworkConnectionInfo_NetworkType_WIFI = 1,
+  gdt_cct_NetworkConnectionInfo_NetworkType_MOBILE_MMS = 2,
+  gdt_cct_NetworkConnectionInfo_NetworkType_MOBILE_SUPL = 3,
+  gdt_cct_NetworkConnectionInfo_NetworkType_MOBILE_DUN = 4,
+  gdt_cct_NetworkConnectionInfo_NetworkType_MOBILE_HIPRI = 5,
+  gdt_cct_NetworkConnectionInfo_NetworkType_WIMAX = 6,
+  gdt_cct_NetworkConnectionInfo_NetworkType_BLUETOOTH = 7,
+  gdt_cct_NetworkConnectionInfo_NetworkType_DUMMY = 8,
+  gdt_cct_NetworkConnectionInfo_NetworkType_ETHERNET = 9,
+  gdt_cct_NetworkConnectionInfo_NetworkType_MOBILE_FOTA = 10,
+  gdt_cct_NetworkConnectionInfo_NetworkType_MOBILE_IMS = 11,
+  gdt_cct_NetworkConnectionInfo_NetworkType_MOBILE_CBS = 12,
+  gdt_cct_NetworkConnectionInfo_NetworkType_WIFI_P2P = 13,
+  gdt_cct_NetworkConnectionInfo_NetworkType_MOBILE_IA = 14,
+  gdt_cct_NetworkConnectionInfo_NetworkType_MOBILE_EMERGENCY = 15,
+  gdt_cct_NetworkConnectionInfo_NetworkType_PROXY = 16,
+  gdt_cct_NetworkConnectionInfo_NetworkType_VPN = 17
 } gdt_cct_NetworkConnectionInfo_NetworkType;
 #define _gdt_cct_NetworkConnectionInfo_NetworkType_MIN                         \
   gdt_cct_NetworkConnectionInfo_NetworkType_NONE
@@ -57,27 +57,27 @@ typedef enum _gdt_cct_NetworkConnectionInfo_NetworkType {
       gdt_cct_NetworkConnectionInfo_NetworkType_VPN + 1))
 
 typedef enum _gdt_cct_NetworkConnectionInfo_MobileSubtype {
-    gdt_cct_NetworkConnectionInfo_MobileSubtype_UNKNOWN_MOBILE_SUBTYPE = 0,
-    gdt_cct_NetworkConnectionInfo_MobileSubtype_GPRS = 1,
-    gdt_cct_NetworkConnectionInfo_MobileSubtype_EDGE = 2,
-    gdt_cct_NetworkConnectionInfo_MobileSubtype_UMTS = 3,
-    gdt_cct_NetworkConnectionInfo_MobileSubtype_CDMA = 4,
-    gdt_cct_NetworkConnectionInfo_MobileSubtype_EVDO_0 = 5,
-    gdt_cct_NetworkConnectionInfo_MobileSubtype_EVDO_A = 6,
-    gdt_cct_NetworkConnectionInfo_MobileSubtype_RTT = 7,
-    gdt_cct_NetworkConnectionInfo_MobileSubtype_HSDPA = 8,
-    gdt_cct_NetworkConnectionInfo_MobileSubtype_HSUPA = 9,
-    gdt_cct_NetworkConnectionInfo_MobileSubtype_HSPA = 10,
-    gdt_cct_NetworkConnectionInfo_MobileSubtype_IDEN = 11,
-    gdt_cct_NetworkConnectionInfo_MobileSubtype_EVDO_B = 12,
-    gdt_cct_NetworkConnectionInfo_MobileSubtype_LTE = 13,
-    gdt_cct_NetworkConnectionInfo_MobileSubtype_EHRPD = 14,
-    gdt_cct_NetworkConnectionInfo_MobileSubtype_HSPAP = 15,
-    gdt_cct_NetworkConnectionInfo_MobileSubtype_GSM = 16,
-    gdt_cct_NetworkConnectionInfo_MobileSubtype_TD_SCDMA = 17,
-    gdt_cct_NetworkConnectionInfo_MobileSubtype_IWLAN = 18,
-    gdt_cct_NetworkConnectionInfo_MobileSubtype_LTE_CA = 19,
-    gdt_cct_NetworkConnectionInfo_MobileSubtype_COMBINED = 100
+  gdt_cct_NetworkConnectionInfo_MobileSubtype_UNKNOWN_MOBILE_SUBTYPE = 0,
+  gdt_cct_NetworkConnectionInfo_MobileSubtype_GPRS = 1,
+  gdt_cct_NetworkConnectionInfo_MobileSubtype_EDGE = 2,
+  gdt_cct_NetworkConnectionInfo_MobileSubtype_UMTS = 3,
+  gdt_cct_NetworkConnectionInfo_MobileSubtype_CDMA = 4,
+  gdt_cct_NetworkConnectionInfo_MobileSubtype_EVDO_0 = 5,
+  gdt_cct_NetworkConnectionInfo_MobileSubtype_EVDO_A = 6,
+  gdt_cct_NetworkConnectionInfo_MobileSubtype_RTT = 7,
+  gdt_cct_NetworkConnectionInfo_MobileSubtype_HSDPA = 8,
+  gdt_cct_NetworkConnectionInfo_MobileSubtype_HSUPA = 9,
+  gdt_cct_NetworkConnectionInfo_MobileSubtype_HSPA = 10,
+  gdt_cct_NetworkConnectionInfo_MobileSubtype_IDEN = 11,
+  gdt_cct_NetworkConnectionInfo_MobileSubtype_EVDO_B = 12,
+  gdt_cct_NetworkConnectionInfo_MobileSubtype_LTE = 13,
+  gdt_cct_NetworkConnectionInfo_MobileSubtype_EHRPD = 14,
+  gdt_cct_NetworkConnectionInfo_MobileSubtype_HSPAP = 15,
+  gdt_cct_NetworkConnectionInfo_MobileSubtype_GSM = 16,
+  gdt_cct_NetworkConnectionInfo_MobileSubtype_TD_SCDMA = 17,
+  gdt_cct_NetworkConnectionInfo_MobileSubtype_IWLAN = 18,
+  gdt_cct_NetworkConnectionInfo_MobileSubtype_LTE_CA = 19,
+  gdt_cct_NetworkConnectionInfo_MobileSubtype_COMBINED = 100
 } gdt_cct_NetworkConnectionInfo_MobileSubtype;
 #define _gdt_cct_NetworkConnectionInfo_MobileSubtype_MIN                       \
   gdt_cct_NetworkConnectionInfo_MobileSubtype_UNKNOWN_MOBILE_SUBTYPE
@@ -88,8 +88,8 @@ typedef enum _gdt_cct_NetworkConnectionInfo_MobileSubtype {
       gdt_cct_NetworkConnectionInfo_MobileSubtype_COMBINED + 1))
 
 typedef enum _gdt_cct_ClientInfo_ClientType {
-    gdt_cct_ClientInfo_ClientType_CLIENT_UNKNOWN = 0,
-    gdt_cct_ClientInfo_ClientType_IOS_FIREBASE = 15
+  gdt_cct_ClientInfo_ClientType_CLIENT_UNKNOWN = 0,
+  gdt_cct_ClientInfo_ClientType_IOS_FIREBASE = 15
 } gdt_cct_ClientInfo_ClientType;
 #define _gdt_cct_ClientInfo_ClientType_MIN                                     \
   gdt_cct_ClientInfo_ClientType_CLIENT_UNKNOWN
@@ -100,11 +100,11 @@ typedef enum _gdt_cct_ClientInfo_ClientType {
       gdt_cct_ClientInfo_ClientType_IOS_FIREBASE + 1))
 
 typedef enum _gdt_cct_QosTierConfiguration_QosTier {
-    gdt_cct_QosTierConfiguration_QosTier_DEFAULT = 0,
-    gdt_cct_QosTierConfiguration_QosTier_UNMETERED_ONLY = 1,
-    gdt_cct_QosTierConfiguration_QosTier_UNMETERED_OR_DAILY = 2,
-    gdt_cct_QosTierConfiguration_QosTier_FAST_IF_RADIO_AWAKE = 3,
-    gdt_cct_QosTierConfiguration_QosTier_NEVER = 4
+  gdt_cct_QosTierConfiguration_QosTier_DEFAULT = 0,
+  gdt_cct_QosTierConfiguration_QosTier_UNMETERED_ONLY = 1,
+  gdt_cct_QosTierConfiguration_QosTier_UNMETERED_OR_DAILY = 2,
+  gdt_cct_QosTierConfiguration_QosTier_FAST_IF_RADIO_AWAKE = 3,
+  gdt_cct_QosTierConfiguration_QosTier_NEVER = 4
 } gdt_cct_QosTierConfiguration_QosTier;
 #define _gdt_cct_QosTierConfiguration_QosTier_MIN                              \
   gdt_cct_QosTierConfiguration_QosTier_DEFAULT
@@ -116,100 +116,100 @@ typedef enum _gdt_cct_QosTierConfiguration_QosTier {
 
 /* Struct definitions */
 typedef struct _gdt_cct_BatchedLogRequest {
-    pb_size_t log_request_count;
-    struct _gdt_cct_LogRequest *log_request;
-    /* @@protoc_insertion_point(struct:gdt_cct_BatchedLogRequest) */
+  pb_size_t log_request_count;
+  struct _gdt_cct_LogRequest *log_request;
+  /* @@protoc_insertion_point(struct:gdt_cct_BatchedLogRequest) */
 } gdt_cct_BatchedLogRequest;
 
 typedef struct _gdt_cct_IosClientInfo {
-    pb_bytes_array_t *os_major_version;
-    pb_bytes_array_t *os_full_version;
-    pb_bytes_array_t *application_build;
-    pb_bytes_array_t *country;
-    pb_bytes_array_t *model;
-    pb_bytes_array_t *language_code;
-    pb_bytes_array_t *application_bundle_id;
-    /* @@protoc_insertion_point(struct:gdt_cct_IosClientInfo) */
+  pb_bytes_array_t *os_major_version;
+  pb_bytes_array_t *os_full_version;
+  pb_bytes_array_t *application_build;
+  pb_bytes_array_t *country;
+  pb_bytes_array_t *model;
+  pb_bytes_array_t *language_code;
+  pb_bytes_array_t *application_bundle_id;
+  /* @@protoc_insertion_point(struct:gdt_cct_IosClientInfo) */
 } gdt_cct_IosClientInfo;
 
 typedef struct _gdt_cct_ClientInfo {
-    bool has_client_type;
-    gdt_cct_ClientInfo_ClientType client_type;
-    bool has_ios_client_info;
-    gdt_cct_IosClientInfo ios_client_info;
-    /* @@protoc_insertion_point(struct:gdt_cct_ClientInfo) */
+  bool has_client_type;
+  gdt_cct_ClientInfo_ClientType client_type;
+  bool has_ios_client_info;
+  gdt_cct_IosClientInfo ios_client_info;
+  /* @@protoc_insertion_point(struct:gdt_cct_ClientInfo) */
 } gdt_cct_ClientInfo;
 
 typedef struct _gdt_cct_NetworkConnectionInfo {
-    bool has_network_type;
-    gdt_cct_NetworkConnectionInfo_NetworkType network_type;
-    bool has_mobile_subtype;
-    gdt_cct_NetworkConnectionInfo_MobileSubtype mobile_subtype;
-    /* @@protoc_insertion_point(struct:gdt_cct_NetworkConnectionInfo) */
+  bool has_network_type;
+  gdt_cct_NetworkConnectionInfo_NetworkType network_type;
+  bool has_mobile_subtype;
+  gdt_cct_NetworkConnectionInfo_MobileSubtype mobile_subtype;
+  /* @@protoc_insertion_point(struct:gdt_cct_NetworkConnectionInfo) */
 } gdt_cct_NetworkConnectionInfo;
 
 typedef struct _gdt_cct_QosTierConfiguration {
-    bool has_qos_tier;
-    gdt_cct_QosTierConfiguration_QosTier qos_tier;
-    bool has_log_source;
-    int32_t log_source;
-    /* @@protoc_insertion_point(struct:gdt_cct_QosTierConfiguration) */
+  bool has_qos_tier;
+  gdt_cct_QosTierConfiguration_QosTier qos_tier;
+  bool has_log_source;
+  int32_t log_source;
+  /* @@protoc_insertion_point(struct:gdt_cct_QosTierConfiguration) */
 } gdt_cct_QosTierConfiguration;
 
 typedef struct _gdt_cct_QosTiersOverride {
-    pb_size_t qos_tier_configuration_count;
-    struct _gdt_cct_QosTierConfiguration *qos_tier_configuration;
-    bool has_qos_tier_fingerprint;
-    int64_t qos_tier_fingerprint;
-    /* @@protoc_insertion_point(struct:gdt_cct_QosTiersOverride) */
+  pb_size_t qos_tier_configuration_count;
+  struct _gdt_cct_QosTierConfiguration *qos_tier_configuration;
+  bool has_qos_tier_fingerprint;
+  int64_t qos_tier_fingerprint;
+  /* @@protoc_insertion_point(struct:gdt_cct_QosTiersOverride) */
 } gdt_cct_QosTiersOverride;
 
 typedef struct _gdt_cct_LogEvent {
-    bool has_event_time_ms;
-    int64_t event_time_ms;
-    pb_bytes_array_t *source_extension;
-    bool has_event_code;
-    int32_t event_code;
-    bool has_timezone_offset_seconds;
-    int64_t timezone_offset_seconds;
-    bool has_event_uptime_ms;
-    int64_t event_uptime_ms;
-    bool has_network_connection_info;
-    gdt_cct_NetworkConnectionInfo network_connection_info;
-    /* @@protoc_insertion_point(struct:gdt_cct_LogEvent) */
+  bool has_event_time_ms;
+  int64_t event_time_ms;
+  pb_bytes_array_t *source_extension;
+  bool has_event_code;
+  int32_t event_code;
+  bool has_timezone_offset_seconds;
+  int64_t timezone_offset_seconds;
+  bool has_event_uptime_ms;
+  int64_t event_uptime_ms;
+  bool has_network_connection_info;
+  gdt_cct_NetworkConnectionInfo network_connection_info;
+  /* @@protoc_insertion_point(struct:gdt_cct_LogEvent) */
 } gdt_cct_LogEvent;
 
 typedef struct _gdt_cct_LogRequest {
-    bool has_client_info;
-    gdt_cct_ClientInfo client_info;
-    bool has_log_source;
-    int32_t log_source;
-    pb_size_t log_event_count;
-    struct _gdt_cct_LogEvent *log_event;
-    bool has_request_time_ms;
-    int64_t request_time_ms;
-    bool has_request_uptime_ms;
-    int64_t request_uptime_ms;
-    bool has_qos_tier;
-    gdt_cct_QosTierConfiguration_QosTier qos_tier;
-    /* @@protoc_insertion_point(struct:gdt_cct_LogRequest) */
+  bool has_client_info;
+  gdt_cct_ClientInfo client_info;
+  bool has_log_source;
+  int32_t log_source;
+  pb_size_t log_event_count;
+  struct _gdt_cct_LogEvent *log_event;
+  bool has_request_time_ms;
+  int64_t request_time_ms;
+  bool has_request_uptime_ms;
+  int64_t request_uptime_ms;
+  bool has_qos_tier;
+  gdt_cct_QosTierConfiguration_QosTier qos_tier;
+  /* @@protoc_insertion_point(struct:gdt_cct_LogRequest) */
 } gdt_cct_LogRequest;
 
 typedef struct _gdt_cct_LogResponse {
-    bool has_next_request_wait_millis;
-    int64_t next_request_wait_millis;
-    bool has_qos_tier;
-    gdt_cct_QosTiersOverride qos_tier;
-    /* @@protoc_insertion_point(struct:gdt_cct_LogResponse) */
+  bool has_next_request_wait_millis;
+  int64_t next_request_wait_millis;
+  bool has_qos_tier;
+  gdt_cct_QosTiersOverride qos_tier;
+  /* @@protoc_insertion_point(struct:gdt_cct_LogResponse) */
 } gdt_cct_LogResponse;
 
 /* Default values for struct fields */
 extern const gdt_cct_NetworkConnectionInfo_NetworkType
-gdt_cct_NetworkConnectionInfo_network_type_default;
+    gdt_cct_NetworkConnectionInfo_network_type_default;
 extern const gdt_cct_NetworkConnectionInfo_MobileSubtype
-gdt_cct_NetworkConnectionInfo_mobile_subtype_default;
+    gdt_cct_NetworkConnectionInfo_mobile_subtype_default;
 extern const gdt_cct_QosTierConfiguration_QosTier
-gdt_cct_LogRequest_qos_tier_default;
+    gdt_cct_LogRequest_qos_tier_default;
 extern const int32_t gdt_cct_QosTierConfiguration_log_source_default;
 
 /* Initializer values for message structs */

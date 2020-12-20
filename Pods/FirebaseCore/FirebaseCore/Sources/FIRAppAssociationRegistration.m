@@ -19,33 +19,33 @@
 @implementation FIRAppAssociationRegistration
 
 + (nullable id)registeredObjectWithHost:(id)host
-    key:(NSString *)key
-    creationBlock:(id _Nullable (^)(void))creationBlock {
-    @synchronized(self) {
-        SEL dictKey = @selector(registeredObjectWithHost:key:creationBlock:);
-        NSMutableDictionary<NSString *, id> *objectsByKey =
-            objc_getAssociatedObject(host, dictKey);
-        if (!objectsByKey) {
-            objectsByKey = [[NSMutableDictionary alloc] init];
-            objc_setAssociatedObject(host, dictKey, objectsByKey,
-                                     OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-        }
-        id obj = objectsByKey[key];
-        NSValue *creationBlockBeingCalled = [NSValue valueWithPointer:dictKey];
-        if (obj) {
-            if ([creationBlockBeingCalled isEqual:obj]) {
-                [NSException
-                 raise:@"Reentering registeredObjectWithHost:key:creationBlock: "
-                 @"not allowed"
-                 format:@"host: %@ key: %@", host, key];
-            }
-            return obj;
-        }
-        objectsByKey[key] = creationBlockBeingCalled;
-        obj = creationBlock();
-        objectsByKey[key] = obj;
-        return obj;
+                                    key:(NSString *)key
+                          creationBlock:(id _Nullable (^)(void))creationBlock {
+  @synchronized(self) {
+    SEL dictKey = @selector(registeredObjectWithHost:key:creationBlock:);
+    NSMutableDictionary<NSString *, id> *objectsByKey =
+        objc_getAssociatedObject(host, dictKey);
+    if (!objectsByKey) {
+      objectsByKey = [[NSMutableDictionary alloc] init];
+      objc_setAssociatedObject(host, dictKey, objectsByKey,
+                               OBJC_ASSOCIATION_RETAIN_NONATOMIC);
     }
+    id obj = objectsByKey[key];
+    NSValue *creationBlockBeingCalled = [NSValue valueWithPointer:dictKey];
+    if (obj) {
+      if ([creationBlockBeingCalled isEqual:obj]) {
+        [NSException
+             raise:@"Reentering registeredObjectWithHost:key:creationBlock: "
+                   @"not allowed"
+            format:@"host: %@ key: %@", host, key];
+      }
+      return obj;
+    }
+    objectsByKey[key] = creationBlockBeingCalled;
+    obj = creationBlock();
+    objectsByKey[key] = obj;
+    return obj;
+  }
 }
 
 @end

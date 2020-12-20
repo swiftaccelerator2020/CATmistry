@@ -29,7 +29,7 @@ extern NSNotificationName const GDTCCTUploadCompleteNotification;
 /** Class capable of uploading events to the CCT backend. */
 @interface GDTCCTUploader : NSObject <GDTCORUploader>
 
-    /** The queue on which all CCT uploading will occur. */
+/** The queue on which all CCT uploading will occur. */
 @property(nonatomic, readonly) dispatch_queue_t uploaderQueue;
 
 /** The URL session that will attempt upload. */

@@ -26,15 +26,15 @@
 + (NSDictionary *)generateServerValues:(id<FClock>)clock;
 
 + (FCompoundWrite *)resolveDeferredValueCompoundWrite:(FCompoundWrite *)write
-    withSyncTree:(FSyncTree *)tree
-    atPath:(FPath *)path
-    serverValues:
-    (NSDictionary *)serverValues;
+                                         withSyncTree:(FSyncTree *)tree
+                                               atPath:(FPath *)path
+                                         serverValues:
+                                             (NSDictionary *)serverValues;
 + (id<FNode>)resolveDeferredValueSnapshot:(id<FNode>)node
-    withSyncTree:(FSyncTree *)existing
-    atPath:(FPath *)path
-    serverValues:(NSDictionary *)serverValues;
+                             withSyncTree:(FSyncTree *)existing
+                                   atPath:(FPath *)path
+                             serverValues:(NSDictionary *)serverValues;
 + (id<FNode>)resolveDeferredValueSnapshot:(id<FNode>)node
-    withExisting:(id<FNode>)existing
-    serverValues:(NSDictionary *)serverValues;
+                             withExisting:(id<FNode>)existing
+                             serverValues:(NSDictionary *)serverValues;
 @end

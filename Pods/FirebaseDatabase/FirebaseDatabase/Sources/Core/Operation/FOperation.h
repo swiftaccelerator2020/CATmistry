@@ -20,10 +20,10 @@
 @class FPath;
 
 typedef NS_ENUM(NSInteger, FOperationType) {
-    FOperationTypeOverwrite = 0,
-    FOperationTypeMerge = 1,
-    FOperationTypeAckUserWrite = 2,
-    FOperationTypeListenComplete = 3
+  FOperationTypeOverwrite = 0,
+  FOperationTypeMerge = 1,
+  FOperationTypeAckUserWrite = 2,
+  FOperationTypeListenComplete = 3
 };
 
 @protocol FOperation <NSObject>

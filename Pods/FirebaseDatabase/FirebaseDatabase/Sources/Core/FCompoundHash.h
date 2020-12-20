@@ -33,6 +33,6 @@ typedef BOOL (^FCompoundHashSplitStrategy)(FCompoundHashBuilder *builder);
 
 + (FCompoundHash *)fromNode:(id<FNode>)node;
 + (FCompoundHash *)fromNode:(id<FNode>)node
-    splitStrategy:(FCompoundHashSplitStrategy)strategy;
+              splitStrategy:(FCompoundHashSplitStrategy)strategy;
 
 @end

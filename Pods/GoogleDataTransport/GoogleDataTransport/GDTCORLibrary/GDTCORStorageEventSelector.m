@@ -19,24 +19,24 @@
 @implementation GDTCORStorageEventSelector
 
 + (instancetype)eventSelectorForTarget:(GDTCORTarget)target {
-    return [[self alloc] initWithTarget:target
-                         eventIDs:nil
-                         mappingIDs:nil
-                         qosTiers:nil];
+  return [[self alloc] initWithTarget:target
+                             eventIDs:nil
+                           mappingIDs:nil
+                             qosTiers:nil];
 }
 
 - (instancetype)initWithTarget:(GDTCORTarget)target
-    eventIDs:(nullable NSSet<NSString *> *)eventIDs
-    mappingIDs:(nullable NSSet<NSString *> *)mappingIDs
-    qosTiers:(nullable NSSet<NSNumber *> *)qosTiers {
-    self = [super init];
-    if (self) {
-        _selectedTarget = target;
-        _selectedEventIDs = eventIDs;
-        _selectedMappingIDs = mappingIDs;
-        _selectedQosTiers = qosTiers;
-    }
-    return self;
+                      eventIDs:(nullable NSSet<NSString *> *)eventIDs
+                    mappingIDs:(nullable NSSet<NSString *> *)mappingIDs
+                      qosTiers:(nullable NSSet<NSNumber *> *)qosTiers {
+  self = [super init];
+  if (self) {
+    _selectedTarget = target;
+    _selectedEventIDs = eventIDs;
+    _selectedMappingIDs = mappingIDs;
+    _selectedQosTiers = qosTiers;
+  }
+  return self;
 }
 
 @end

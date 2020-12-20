@@ -27,75 +27,75 @@
 @implementation GDTCOREvent
 
 + (NSString *)nextEventID {
-    // TODO: Consider a way to make the eventIDs incremental without introducing a
-    // storage dependency to the object.
-    //
-    // Replace special non-alphanumeric characters to avoid potential conflicts
-    // with storage logic.
-    return [[NSUUID UUID].UUIDString stringByReplacingOccurrencesOfString:@"-"
-                         withString:@""];
+  // TODO: Consider a way to make the eventIDs incremental without introducing a
+  // storage dependency to the object.
+  //
+  // Replace special non-alphanumeric characters to avoid potential conflicts
+  // with storage logic.
+  return [[NSUUID UUID].UUIDString stringByReplacingOccurrencesOfString:@"-"
+                                                             withString:@""];
 }
 
 - (nullable instancetype)initWithMappingID:(NSString *)mappingID
-    target:(GDTCORTarget)target {
-    GDTCORAssert(mappingID.length > 0, @"Please give a valid mapping ID");
-    GDTCORAssert(target > 0, @"A target cannot be negative or 0");
-    if (mappingID.length == 0 || target <= 0) {
-        return nil;
-    }
-    self = [super init];
-    if (self) {
-        _eventID = [GDTCOREvent nextEventID];
-        _mappingID = mappingID;
-        _target = target;
-        _qosTier = GDTCOREventQosDefault;
-        _expirationDate = [NSDate dateWithTimeIntervalSinceNow:604800]; // 7 days.
+                                    target:(GDTCORTarget)target {
+  GDTCORAssert(mappingID.length > 0, @"Please give a valid mapping ID");
+  GDTCORAssert(target > 0, @"A target cannot be negative or 0");
+  if (mappingID.length == 0 || target <= 0) {
+    return nil;
+  }
+  self = [super init];
+  if (self) {
+    _eventID = [GDTCOREvent nextEventID];
+    _mappingID = mappingID;
+    _target = target;
+    _qosTier = GDTCOREventQosDefault;
+    _expirationDate = [NSDate dateWithTimeIntervalSinceNow:604800]; // 7 days.
 
-        GDTCORLogDebug(@"Event %@ created. ID:%@ mappingID: %@ target:%ld", self,
-                       _eventID, mappingID, (long)target);
-    }
+    GDTCORLogDebug(@"Event %@ created. ID:%@ mappingID: %@ target:%ld", self,
+                   _eventID, mappingID, (long)target);
+  }
 
-    return self;
+  return self;
 }
 
 - (instancetype)copy {
-    GDTCOREvent *copy = [[GDTCOREvent alloc] initWithMappingID:_mappingID
-                                             target:_target];
-    copy->_eventID = _eventID;
-    copy.dataObject = _dataObject;
-    copy.qosTier = _qosTier;
-    copy.clockSnapshot = _clockSnapshot;
-    copy.customBytes = _customBytes;
-    GDTCORLogDebug(@"Copying event %@ to event %@", self, copy);
-    return copy;
+  GDTCOREvent *copy = [[GDTCOREvent alloc] initWithMappingID:_mappingID
+                                                      target:_target];
+  copy->_eventID = _eventID;
+  copy.dataObject = _dataObject;
+  copy.qosTier = _qosTier;
+  copy.clockSnapshot = _clockSnapshot;
+  copy.customBytes = _customBytes;
+  GDTCORLogDebug(@"Copying event %@ to event %@", self, copy);
+  return copy;
 }
 
 - (NSUInteger)hash {
-    // This loses some precision, but it's probably fine.
-    NSUInteger eventIDHash = [_eventID hash];
-    NSUInteger mappingIDHash = [_mappingID hash];
-    NSUInteger timeHash = [_clockSnapshot hash];
-    NSInteger serializedBytesHash = [_serializedDataObjectBytes hash];
+  // This loses some precision, but it's probably fine.
+  NSUInteger eventIDHash = [_eventID hash];
+  NSUInteger mappingIDHash = [_mappingID hash];
+  NSUInteger timeHash = [_clockSnapshot hash];
+  NSInteger serializedBytesHash = [_serializedDataObjectBytes hash];
 
-    return eventIDHash ^ mappingIDHash ^ _target ^ _qosTier ^ timeHash ^
-           serializedBytesHash;
+  return eventIDHash ^ mappingIDHash ^ _target ^ _qosTier ^ timeHash ^
+         serializedBytesHash;
 }
 
 - (BOOL)isEqual:(id)object {
-    return [self hash] == [object hash];
+  return [self hash] == [object hash];
 }
 
 #pragma mark - Property overrides
 
 - (void)setDataObject:(id<GDTCOREventDataObject>)dataObject {
-    // If you're looking here because of a performance issue in -transportBytes
-    // slowing the assignment of -dataObject, one way to address this is to add a
-    // queue to this class, dispatch_(barrier_ if concurrent)async here, and
-    // implement the getter with a dispatch_sync.
-    if (dataObject != _dataObject) {
-        _dataObject = dataObject;
-    }
-    self->_serializedDataObjectBytes = [dataObject transportBytes];
+  // If you're looking here because of a performance issue in -transportBytes
+  // slowing the assignment of -dataObject, one way to address this is to add a
+  // queue to this class, dispatch_(barrier_ if concurrent)async here, and
+  // implement the getter with a dispatch_sync.
+  if (dataObject != _dataObject) {
+    _dataObject = dataObject;
+  }
+  self->_serializedDataObjectBytes = [dataObject transportBytes];
 }
 
 #pragma mark - NSSecureCoding and NSCoding Protocols
@@ -126,45 +126,45 @@ static NSString *kSerializedDataObjectBytes =
 static NSString *kCustomDataKey = @"GDTCOREventCustomDataKey";
 
 + (BOOL)supportsSecureCoding {
-    return YES;
+  return YES;
 }
 
 - (id)initWithCoder:(NSCoder *)aDecoder {
-    self = [self init];
-    if (self) {
-        _mappingID = [aDecoder decodeObjectOfClass:[NSString class]
-                               forKey:kMappingIDKey];
-        _target = [aDecoder decodeIntegerForKey:kTargetKey];
-        _eventID = [aDecoder decodeObjectOfClass:[NSString class]
-                             forKey:kEventIDKey]
+  self = [self init];
+  if (self) {
+    _mappingID = [aDecoder decodeObjectOfClass:[NSString class]
+                                        forKey:kMappingIDKey];
+    _target = [aDecoder decodeIntegerForKey:kTargetKey];
+    _eventID = [aDecoder decodeObjectOfClass:[NSString class]
+                                      forKey:kEventIDKey]
                    ?: [GDTCOREvent nextEventID];
-        _qosTier = [aDecoder decodeIntegerForKey:kQoSTierKey];
-        _clockSnapshot = [aDecoder decodeObjectOfClass:[GDTCORClock class]
-                                   forKey:kClockSnapshotKey];
-        _customBytes = [aDecoder decodeObjectOfClass:[NSData class]
-                                 forKey:kCustomDataKey];
-        _expirationDate = [aDecoder decodeObjectOfClass:[NSDate class]
-                                    forKey:kExpirationDateKey];
-        _serializedDataObjectBytes =
-            [aDecoder decodeObjectOfClass:[NSData class]
-                      forKey:kSerializedDataObjectBytes];
-        if (!_serializedDataObjectBytes) {
-            return nil;
-        }
+    _qosTier = [aDecoder decodeIntegerForKey:kQoSTierKey];
+    _clockSnapshot = [aDecoder decodeObjectOfClass:[GDTCORClock class]
+                                            forKey:kClockSnapshotKey];
+    _customBytes = [aDecoder decodeObjectOfClass:[NSData class]
+                                          forKey:kCustomDataKey];
+    _expirationDate = [aDecoder decodeObjectOfClass:[NSDate class]
+                                             forKey:kExpirationDateKey];
+    _serializedDataObjectBytes =
+        [aDecoder decodeObjectOfClass:[NSData class]
+                               forKey:kSerializedDataObjectBytes];
+    if (!_serializedDataObjectBytes) {
+      return nil;
     }
-    return self;
+  }
+  return self;
 }
 
 - (void)encodeWithCoder:(NSCoder *)aCoder {
-    [aCoder encodeObject:_eventID forKey:kEventIDKey];
-    [aCoder encodeObject:_mappingID forKey:kMappingIDKey];
-    [aCoder encodeInteger:_target forKey:kTargetKey];
-    [aCoder encodeInteger:_qosTier forKey:kQoSTierKey];
-    [aCoder encodeObject:_clockSnapshot forKey:kClockSnapshotKey];
-    [aCoder encodeObject:_customBytes forKey:kCustomDataKey];
-    [aCoder encodeObject:_expirationDate forKey:kExpirationDateKey];
-    [aCoder encodeObject:self.serializedDataObjectBytes
-            forKey:kSerializedDataObjectBytes];
+  [aCoder encodeObject:_eventID forKey:kEventIDKey];
+  [aCoder encodeObject:_mappingID forKey:kMappingIDKey];
+  [aCoder encodeInteger:_target forKey:kTargetKey];
+  [aCoder encodeInteger:_qosTier forKey:kQoSTierKey];
+  [aCoder encodeObject:_clockSnapshot forKey:kClockSnapshotKey];
+  [aCoder encodeObject:_customBytes forKey:kCustomDataKey];
+  [aCoder encodeObject:_expirationDate forKey:kExpirationDateKey];
+  [aCoder encodeObject:self.serializedDataObjectBytes
+                forKey:kSerializedDataObjectBytes];
 }
 
 @end

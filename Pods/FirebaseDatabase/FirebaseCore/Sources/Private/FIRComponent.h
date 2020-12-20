@@ -32,18 +32,17 @@ NS_SWIFT_NAME(ComponentLifecycleMaintainer)
 
 typedef _Nullable id (^FIRComponentCreationBlock)(
     FIRComponentContainer *container, BOOL *isCacheable)
-NS_SWIFT_NAME(ComponentCreationBlock);
+    NS_SWIFT_NAME(ComponentCreationBlock);
 
 @class FIRDependency;
 
 /// Describes the timing of instantiation. Note: new components should default
 /// to lazy unless there is a strong reason to be eager.
 typedef NS_ENUM(NSInteger, FIRInstantiationTiming) {
-    FIRInstantiationTimingLazy,
-    FIRInstantiationTimingAlwaysEager,
-    FIRInstantiationTimingEagerInDefaultApp
-}
-NS_SWIFT_NAME(InstantiationTiming);
+  FIRInstantiationTimingLazy,
+  FIRInstantiationTimingAlwaysEager,
+  FIRInstantiationTimingEagerInDefaultApp
+} NS_SWIFT_NAME(InstantiationTiming);
 
 /// A component that can be used from other Firebase SDKs.
 NS_SWIFT_NAME(Component)

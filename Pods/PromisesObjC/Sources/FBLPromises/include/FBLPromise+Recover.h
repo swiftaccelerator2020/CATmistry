@@ -20,7 +20,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface FBLPromise <Value>(RecoverAdditions)
 
-    typedef id __nullable (^FBLPromiseRecoverWorkBlock)(NSError *error)
+typedef id __nullable (^FBLPromiseRecoverWorkBlock)(NSError *error)
     NS_SWIFT_UNAVAILABLE("");
 
 /**
@@ -44,7 +44,7 @@ NS_ASSUME_NONNULL_BEGIN
  resolved with resolution returned from `recovery` block.
  */
 - (FBLPromise *)onQueue:(dispatch_queue_t)queue
-    recover:(FBLPromiseRecoverWorkBlock)recovery
+                recover:(FBLPromiseRecoverWorkBlock)recovery
     NS_REFINED_FOR_SWIFT;
 
 @end

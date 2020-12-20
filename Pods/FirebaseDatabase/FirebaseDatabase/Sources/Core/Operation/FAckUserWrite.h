@@ -24,7 +24,7 @@
 
 - initWithPath:(FPath *)operationPath
     affectedTree:(FImmutableTree *)affectedTree
-    revert:(BOOL)shouldRevert;
+          revert:(BOOL)shouldRevert;
 
 @property(nonatomic, strong, readonly) FOperationSource *source;
 @property(nonatomic, readonly) FOperationType type;

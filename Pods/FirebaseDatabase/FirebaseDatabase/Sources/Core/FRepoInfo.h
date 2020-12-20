@@ -24,8 +24,8 @@
 @property(nonatomic, readonly) bool secure;
 
 - (id)initWithHost:(NSString *)host
-    isSecure:(bool)secure
-    withNamespace:(NSString *)namespace;
+          isSecure:(bool)secure
+     withNamespace:(NSString *)namespace;
 
 - (NSString *)connectionURLWithLastSessionID:(NSString *)lastSessionID;
 - (NSString *)connectionURL;

@@ -22,44 +22,44 @@
 #import "FirebaseCore/Sources/Private/FIROptionsInternal.h"
 
 @implementation FIRDiagnosticsData {
-    /** Backing ivar for the diagnosticObjects property. */
-    NSMutableDictionary<NSString *, id> *_diagnosticObjects;
+  /** Backing ivar for the diagnosticObjects property. */
+  NSMutableDictionary<NSString *, id> *_diagnosticObjects;
 }
 
 - (instancetype)init {
-    self = [super init];
-    if (self) {
-        _diagnosticObjects = [[NSMutableDictionary alloc] init];
-    }
-    return self;
+  self = [super init];
+  if (self) {
+    _diagnosticObjects = [[NSMutableDictionary alloc] init];
+  }
+  return self;
 }
 
 - (void)insertValue:(nullable id)value forKey:(NSString *)key {
-    if (key) {
-        _diagnosticObjects[key] = value;
-    }
+  if (key) {
+    _diagnosticObjects[key] = value;
+  }
 }
 
 #pragma mark - FIRCoreDiagnosticsData
 
 - (NSDictionary<NSString *, id> *)diagnosticObjects {
-    if (!_diagnosticObjects[kFIRCDllAppsCountKey]) {
-        _diagnosticObjects[kFIRCDllAppsCountKey] = @([FIRApp allApps].count);
-    }
-    if (!_diagnosticObjects[kFIRCDIsDataCollectionDefaultEnabledKey]) {
-        _diagnosticObjects[kFIRCDIsDataCollectionDefaultEnabledKey] =
-            @([[FIRApp defaultApp] isDataCollectionDefaultEnabled]);
-    }
-    if (!_diagnosticObjects[kFIRCDFirebaseUserAgentKey]) {
-        _diagnosticObjects[kFIRCDFirebaseUserAgentKey] = [FIRApp firebaseUserAgent];
-    }
-    return _diagnosticObjects;
+  if (!_diagnosticObjects[kFIRCDllAppsCountKey]) {
+    _diagnosticObjects[kFIRCDllAppsCountKey] = @([FIRApp allApps].count);
+  }
+  if (!_diagnosticObjects[kFIRCDIsDataCollectionDefaultEnabledKey]) {
+    _diagnosticObjects[kFIRCDIsDataCollectionDefaultEnabledKey] =
+        @([[FIRApp defaultApp] isDataCollectionDefaultEnabled]);
+  }
+  if (!_diagnosticObjects[kFIRCDFirebaseUserAgentKey]) {
+    _diagnosticObjects[kFIRCDFirebaseUserAgentKey] = [FIRApp firebaseUserAgent];
+  }
+  return _diagnosticObjects;
 }
 
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wunused-parameter"
 - (void)setDiagnosticObjects:(NSDictionary<NSString *, id> *)diagnosticObjects {
-    NSAssert(NO, @"Please use -insertValue:forKey:");
+  NSAssert(NO, @"Please use -insertValue:forKey:");
 }
 #pragma clang diagnostic pop
 

@@ -19,65 +19,65 @@
 @implementation FIRBundleUtil
 
 + (NSArray *)relevantBundles {
-    return @[ [NSBundle mainBundle], [NSBundle bundleForClass:[self class]] ];
+  return @[ [NSBundle mainBundle], [NSBundle bundleForClass:[self class]] ];
 }
 
 + (NSString *)optionsDictionaryPathWithResourceName:(NSString *)resourceName
-    andFileType:(NSString *)fileType
-    inBundles:(NSArray *)bundles {
-    // Loop through all bundles to find the config dict.
-    for (NSBundle *bundle in bundles) {
-        NSString *path = [bundle pathForResource:resourceName ofType:fileType];
-        // Use the first one we find.
-        if (path) {
-            return path;
-        }
+                                        andFileType:(NSString *)fileType
+                                          inBundles:(NSArray *)bundles {
+  // Loop through all bundles to find the config dict.
+  for (NSBundle *bundle in bundles) {
+    NSString *path = [bundle pathForResource:resourceName ofType:fileType];
+    // Use the first one we find.
+    if (path) {
+      return path;
     }
-    return nil;
+  }
+  return nil;
 }
 
 + (NSArray *)relevantURLSchemes {
-    NSMutableArray *result = [[NSMutableArray alloc] init];
-    for (NSBundle *bundle in [[self class] relevantBundles]) {
-        NSArray *urlTypes = [bundle objectForInfoDictionaryKey:@"CFBundleURLTypes"];
-        for (NSDictionary *urlType in urlTypes) {
-            [result addObjectsFromArray:urlType[@"CFBundleURLSchemes"]];
-        }
+  NSMutableArray *result = [[NSMutableArray alloc] init];
+  for (NSBundle *bundle in [[self class] relevantBundles]) {
+    NSArray *urlTypes = [bundle objectForInfoDictionaryKey:@"CFBundleURLTypes"];
+    for (NSDictionary *urlType in urlTypes) {
+      [result addObjectsFromArray:urlType[@"CFBundleURLSchemes"]];
     }
-    return result;
+  }
+  return result;
 }
 
 + (BOOL)hasBundleIdentifierPrefix:(NSString *)bundleIdentifier
-    inBundles:(NSArray *)bundles {
-    for (NSBundle *bundle in bundles) {
-        if ([bundle.bundleIdentifier isEqualToString:bundleIdentifier]) {
-            return YES;
-        }
-
-        if ([GULAppEnvironmentUtil isAppExtension]) {
-            // A developer could be using the same `FIROptions` for both their app and
-            // extension. Since extensions have a suffix added to the bundleID, we
-            // consider a matching prefix as valid.
-            NSString *appBundleIDFromExtension =
-                [self bundleIdentifierByRemovingLastPartFrom:bundle.bundleIdentifier];
-            if ([appBundleIDFromExtension isEqualToString:bundleIdentifier]) {
-                return YES;
-            }
-        }
+                        inBundles:(NSArray *)bundles {
+  for (NSBundle *bundle in bundles) {
+    if ([bundle.bundleIdentifier isEqualToString:bundleIdentifier]) {
+      return YES;
     }
-    return NO;
+
+    if ([GULAppEnvironmentUtil isAppExtension]) {
+      // A developer could be using the same `FIROptions` for both their app and
+      // extension. Since extensions have a suffix added to the bundleID, we
+      // consider a matching prefix as valid.
+      NSString *appBundleIDFromExtension =
+          [self bundleIdentifierByRemovingLastPartFrom:bundle.bundleIdentifier];
+      if ([appBundleIDFromExtension isEqualToString:bundleIdentifier]) {
+        return YES;
+      }
+    }
+  }
+  return NO;
 }
 
 + (NSString *)bundleIdentifierByRemovingLastPartFrom:
     (NSString *)bundleIdentifier {
-    NSString *bundleIDComponentsSeparator = @".";
+  NSString *bundleIDComponentsSeparator = @".";
 
-    NSMutableArray<NSString *> *bundleIDComponents = [[bundleIdentifier
-            componentsSeparatedByString:bundleIDComponentsSeparator] mutableCopy];
-    [bundleIDComponents removeLastObject];
+  NSMutableArray<NSString *> *bundleIDComponents = [[bundleIdentifier
+      componentsSeparatedByString:bundleIDComponentsSeparator] mutableCopy];
+  [bundleIDComponents removeLastObject];
 
-    return
-        [bundleIDComponents componentsJoinedByString:bundleIDComponentsSeparator];
+  return
+      [bundleIDComponents componentsJoinedByString:bundleIDComponentsSeparator];
 }
 
 @end

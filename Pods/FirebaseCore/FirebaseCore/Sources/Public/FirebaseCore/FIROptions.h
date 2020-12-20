@@ -24,10 +24,10 @@ NS_ASSUME_NONNULL_BEGIN
 NS_SWIFT_NAME(FirebaseOptions)
 @interface FIROptions : NSObject <NSCopying>
 
-    /**
-     * Returns the default options. The first time this is called it synchronously
-     * reads GoogleService-Info.plist from disk.
-     */
+/**
+ * Returns the default options. The first time this is called it synchronously
+ * reads GoogleService-Info.plist from disk.
+ */
 + (nullable FIROptions *)defaultOptions NS_SWIFT_NAME(defaultOptions());
 
 /**

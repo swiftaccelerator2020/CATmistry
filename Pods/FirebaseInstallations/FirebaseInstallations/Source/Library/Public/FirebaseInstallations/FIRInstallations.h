@@ -24,11 +24,11 @@ NS_ASSUME_NONNULL_BEGIN
 /** A notification with this name is sent each time an installation is created
  * or deleted. */
 FOUNDATION_EXPORT const NSNotificationName
-FIRInstallationIDDidChangeNotification;
+    FIRInstallationIDDidChangeNotification;
 /** `userInfo` key for the `FirebaseApp.name` in
  * `FIRInstallationIDDidChangeNotification`. */
 FOUNDATION_EXPORT NSString
-*const kFIRInstallationIDDidChangeNotificationAppNameKey;
+    *const kFIRInstallationIDDidChangeNotificationAppNameKey;
 
 /**
  * An installation ID handler block.
@@ -36,8 +36,8 @@ FOUNDATION_EXPORT NSString
  * @param error The error when `identifier == nil` or `nil` otherwise.
  */
 typedef void (^FIRInstallationsIDHandler)(NSString *__nullable identifier,
-        NSError *__nullable error)
-NS_SWIFT_NAME(InstallationsIDHandler);
+                                          NSError *__nullable error)
+    NS_SWIFT_NAME(InstallationsIDHandler);
 
 /**
  * An authorization token handler block.
@@ -114,7 +114,7 @@ NS_SWIFT_NAME(Installations)
  * completes. See `InstallationsTokenHandler` for additional details.
  */
 - (void)authTokenForcingRefresh:(BOOL)forceRefresh
-    completion:(FIRInstallationsTokenHandler)completion;
+                     completion:(FIRInstallationsTokenHandler)completion;
 
 /**
  * Deletes all the installation data including the unique identifier, auth
