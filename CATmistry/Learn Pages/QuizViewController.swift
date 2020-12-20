@@ -21,7 +21,7 @@ class QuizViewController: UIViewController {
     var question: [QuizQuestion]!
     var correctAnswers = 0
     var wrongAnswers = 0
-    var subTopic: String!
+    var currentTopicId: Int!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -128,13 +128,13 @@ class QuizViewController: UIViewController {
             destVC.currentQuestion = index
             destVC.correctAnswers = correctAnswers
             destVC.wrongAnswers = wrongAnswers
-            destVC.subTopic = subTopic
+            destVC.currentTopicId = currentTopicId
         } else if segue.identifier == "wrongAns" {
             let destVC = segue.destination as! QuizWrongAnswerViewController
             destVC.currentQuestion = index
             destVC.correctAnswers = correctAnswers
             destVC.wrongAnswers = wrongAnswers
-            destVC.subTopic = subTopic
+            destVC.currentTopicId = currentTopicId
         }
      }
 

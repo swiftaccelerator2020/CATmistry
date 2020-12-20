@@ -13,7 +13,31 @@ class QuizCorrectAnswerViewController: UIViewController {
     var currentQuestion: Int!
     var correctAnswers: Int!
     var wrongAnswers: Int!
-    var subTopic: String!
+    var currentTopicId: Int!
+    var chapterCompletedUserDefaultsArray = [
+        chOneDone,
+        chTwoDone,
+        chThreeDone,
+        chFourDone
+    ]
+    var chapterCompletedStringsUserDefaultsArray = [
+        "chOneDone",
+        "chTwoDone",
+        "chThreeDone",
+        "chFourDone"
+    ]
+    var quizAttemptsUserDefaultArray = [
+        quizOneAttempts,
+        quizTwoAttempts,
+        quizThreeAttempts,
+        quizFourAttempts
+    ]
+    var quizAttemptsStringsUserDefaultArray = [
+        "quizOneAttempts",
+        "quizTwoAttempts",
+        "quizThreeAttempts",
+        "quizFourAttempts"
+    ]
 
     @IBOutlet var nextQuestionButton: UIButton!
     @IBOutlet var congratsLabel: UILabel!
@@ -28,26 +52,10 @@ class QuizCorrectAnswerViewController: UIViewController {
         if 9 - currentQuestion == 0 {
             if correctAnswers >= 0 {
                 congratsLabel.text = "Well done! You got the answer right. \n\nThe quiz has to an end, and you got \(String(correctAnswers)) of 10 questions right. Excellent!"
-                if subTopic == "Gas Tests" {
-                    ud.set(true, forKey: "chOneDone")
-                    chOneDone = true
-                    UserDefaults.incrementIntegerForKey(key: "quizOneAttempts")
-                    quizOneAttempts += 1
-                } else if subTopic == "Separation Methods" {
-                    ud.set(true, forKey: "chTwoDone")
-                    chTwoDone = true
-                    UserDefaults.incrementIntegerForKey(key: "quizTwoAttempts")
-                    quizTwoAttempts += 1
-                } else if subTopic == "pH and Indicators" {
-                    ud.set(true, forKey: "chThreeDone")
-                    chThreeDone = true
-                    UserDefaults.incrementIntegerForKey(key: "quizThreeAttempts")
-                    quizThreeAttempts += 1
-                } else if subTopic == "Periodic Table" {
-                    ud.set(true, forKey: "chFourDone")
-                    chFourDone = true
-                    UserDefaults.incrementIntegerForKey(key: "quizFourAttempts")
-                    quizFourAttempts += 1
+                ud.set(true, forKey: chapterCompletedStringsUserDefaultsArray[currentTopicId])
+                chapterCompletedUserDefaultsArray[currentTopicId] = true
+                UserDefaults.incrementIntegerForKey(key: quizAttemptsStringsUserDefaultArray[currentTopicId])
+                quizAttemptsUserDefaultArray[currentTopicId] += 1
                 }
             } else {
                 congratsLabel.text = "Well done! You got the answer right. \n\nHowever, you only scored \(String(correctAnswers)) out of 10 in this quiz. You need at least 7 out of 10 to pass. Try harder next time!"
