@@ -1026,7 +1026,7 @@ var periodicTable = [
 ]
 */
 
-var periodicTable: [PeriodicTableGame] = []
+var periodicTable: [[PeriodicTableGame]] = []
 
 /*
 var retrieveSolidsArray = [
