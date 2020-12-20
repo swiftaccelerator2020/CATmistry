@@ -25,9 +25,10 @@
 NS_ASSUME_NONNULL_BEGIN
 
 /**
- * The class represents the required installation ID and auth token data including possible states.
- * The data is stored to Keychain via `FIRInstallationsStoredItem` which has only the storage
- * relevant data and does not contain any logic. `FIRInstallationsItem` must be used on the logic
+ * The class represents the required installation ID and auth token data
+ * including possible states. The data is stored to Keychain via
+ * `FIRInstallationsStoredItem` which has only the storage relevant data and
+ * does not contain any logic. `FIRInstallationsItem` must be used on the logic
  * level (not `FIRInstallationsStoredItem`).
  */
 @interface FIRInstallationsItem : NSObject <NSCopying>
@@ -44,20 +45,24 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, nullable) FIRInstallationsStoredAuthToken *authToken;
 @property(nonatomic, assign) FIRInstallationsStatus registrationStatus;
 
-/// Instance ID default token imported from IID store as a part of IID migration.
+/// Instance ID default token imported from IID store as a part of IID
+/// migration.
 @property(nonatomic, nullable) NSString *IIDDefaultToken;
 
-- (instancetype)initWithAppID:(NSString *)appID firebaseAppName:(NSString *)firebaseAppName;
+- (instancetype)initWithAppID:(NSString *)appID
+              firebaseAppName:(NSString *)firebaseAppName;
 
 /**
- * Populates `FIRInstallationsItem` properties with data from `FIRInstallationsStoredItem`.
+ * Populates `FIRInstallationsItem` properties with data from
+ * `FIRInstallationsStoredItem`.
  * @param item An instance of `FIRInstallationsStoredItem` to get data from.
  */
 - (void)updateWithStoredItem:(FIRInstallationsStoredItem *)item;
 
 /**
  * Creates a stored item with data from the object.
- * @return Returns a `FIRInstallationsStoredItem` instance with the data from the object.
+ * @return Returns a `FIRInstallationsStoredItem` instance with the data from
+ * the object.
  */
 - (FIRInstallationsStoredItem *)storedItem;
 
@@ -77,7 +82,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  * Generate a new Firebase Installation Identifier.
- * @return Returns a 22 characters long globally unique string created based on UUID.
+ * @return Returns a 22 characters long globally unique string created based on
+ * UUID.
  */
 + (NSString *)generateFID;
 

@@ -18,8 +18,9 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-/** This protocol defines the common interface that event protos should implement regardless of the
- * underlying transport technology (protobuf, nanopb, etc).
+/** This protocol defines the common interface that event protos should
+ * implement regardless of the underlying transport technology (protobuf,
+ * nanopb, etc).
  */
 @protocol GDTCOREventDataObject <NSObject>
 

@@ -22,25 +22,25 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-/** Options that define a set of upload conditions. This is used to help minimize end user data
- * consumption impact.
+/** Options that define a set of upload conditions. This is used to help
+ * minimize end user data consumption impact.
  */
 typedef NS_OPTIONS(NSInteger, GDTCORUploadConditions) {
 
-    /** An upload shouldn't be attempted, because there's no network. */
-    GDTCORUploadConditionNoNetwork = 1 << 0,
+  /** An upload shouldn't be attempted, because there's no network. */
+  GDTCORUploadConditionNoNetwork = 1 << 0,
 
-    /** An upload would likely use mobile data. */
-    GDTCORUploadConditionMobileData = 1 << 1,
+  /** An upload would likely use mobile data. */
+  GDTCORUploadConditionMobileData = 1 << 1,
 
-    /** An upload would likely use wifi data. */
-    GDTCORUploadConditionWifiData = 1 << 2,
+  /** An upload would likely use wifi data. */
+  GDTCORUploadConditionWifiData = 1 << 2,
 
-    /** An upload uses some sort of network connection, but it's unclear which. */
-    GDTCORUploadConditionUnclearConnection = 1 << 3,
+  /** An upload uses some sort of network connection, but it's unclear which. */
+  GDTCORUploadConditionUnclearConnection = 1 << 3,
 
-    /** A high priority event has occurred. */
-    GDTCORUploadConditionHighPriority = 1 << 4,
+  /** A high priority event has occurred. */
+  GDTCORUploadConditionHighPriority = 1 << 4,
 };
 
 /** This protocol defines the common interface for uploader implementations. */
@@ -50,9 +50,11 @@ typedef NS_OPTIONS(NSInteger, GDTCORUploadConditions) {
 
 /** Uploads events to the backend using this specific backend's chosen format.
  *
- * @param conditions The conditions that the upload attempt is likely to occur under.
+ * @param conditions The conditions that the upload attempt is likely to occur
+ * under.
  */
-- (void)uploadTarget:(GDTCORTarget)target withConditions:(GDTCORUploadConditions)conditions;
+- (void)uploadTarget:(GDTCORTarget)target
+      withConditions:(GDTCORUploadConditions)conditions;
 
 @end
 

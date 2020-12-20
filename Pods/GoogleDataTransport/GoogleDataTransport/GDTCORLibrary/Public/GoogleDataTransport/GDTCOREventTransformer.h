@@ -25,8 +25,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @required
 
-/** Transforms an event by applying some logic to it. Events returned can be nil, for example, in
- *  instances where the event should be sampled.
+/** Transforms an event by applying some logic to it. Events returned can be
+ * nil, for example, in instances where the event should be sampled.
  *
  * @param event The event to transform.
  * @return A transformed event, or nil if the transformation dropped the event.

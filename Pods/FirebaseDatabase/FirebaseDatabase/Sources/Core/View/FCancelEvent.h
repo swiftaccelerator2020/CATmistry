@@ -22,8 +22,8 @@
 @interface FCancelEvent : NSObject <FEvent>
 
 - initWithEventRegistration:(id<FEventRegistration>)eventRegistration
-    error:(NSError *)error
-    path:(FPath *)path;
+                      error:(NSError *)error
+                       path:(FPath *)path;
 
 @property(nonatomic, strong, readonly) NSError *error;
 @property(nonatomic, strong, readonly) FPath *path;

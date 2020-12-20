@@ -24,10 +24,10 @@ NS_ASSUME_NONNULL_BEGIN
 /** Connects FIRCore with the CoreDiagnostics library. */
 @interface FIRCoreDiagnosticsConnector : NSObject
 
-    /** Logs FirebaseCore  related data.
-     *
-     * @param options The options object containing data to log.
-     */
+/** Logs FirebaseCore  related data.
+ *
+ * @param options The options object containing data to log.
+ */
 + (void)logCoreTelemetryWithOptions:(FIROptions *)options;
 
 @end

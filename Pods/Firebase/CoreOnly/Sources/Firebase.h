@@ -16,7 +16,8 @@
 // for Swift Package Manager.
 
 #if !defined(__has_include)
-#error "Firebase.h won't import anything if your compiler doesn't support __has_include. Please \
+#error                                                                         \
+    "Firebase.h won't import anything if your compiler doesn't support __has_include. Please \
 import the headers individually."
 #else
 #if __has_include(<FirebaseCore/FirebaseCore.h>)
@@ -37,13 +38,13 @@ import the headers individually."
 
 #if __has_include(<FirebaseAppDistribution/FirebaseAppDistribution.h>)
 #import <FirebaseAppDistribution/FirebaseAppDistribution.h>
-#elif  __has_include("FirebaseAppDistribution.h")
+#elif __has_include("FirebaseAppDistribution.h")
 #import "FirebaseAppDistribution.h"
 #endif
 
 #if __has_include(<FirebaseCrashlytics/FirebaseCrashlytics.h>)
 #import <FirebaseCrashlytics/FirebaseCrashlytics.h>
-#elif  __has_include("FirebaseCrashlytics.h")
+#elif __has_include("FirebaseCrashlytics.h")
 #import "FirebaseCrashlytics.h"
 #endif
 
@@ -57,7 +58,8 @@ import the headers individually."
 #import <FirebaseDynamicLinks/FirebaseDynamicLinks.h>
 #if !__has_include(<FirebaseAnalytics/FirebaseAnalytics.h>)
 #ifndef FIREBASE_ANALYTICS_SUPPRESS_WARNING
-#warning "FirebaseAnalytics.framework is not included in your target. Please add \
+#warning                                                                       \
+    "FirebaseAnalytics.framework is not included in your target. Please add \
 `Firebase/Analytics` to your Podfile or add FirebaseAnalytics.framework to your project to ensure \
 Firebase Dynamic Links works as intended."
 #endif // #ifndef FIREBASE_ANALYTICS_SUPPRESS_WARNING
@@ -82,7 +84,8 @@ Firebase Dynamic Links works as intended."
 #import <FirebaseInAppMessaging/FirebaseInAppMessaging.h>
 #if !__has_include(<FirebaseAnalytics/FirebaseAnalytics.h>)
 #ifndef FIREBASE_ANALYTICS_SUPPRESS_WARNING
-#warning "FirebaseAnalytics.framework is not included in your target. Please add \
+#warning                                                                       \
+    "FirebaseAnalytics.framework is not included in your target. Please add \
 `Firebase/Analytics` to your Podfile or add FirebaseAnalytics.framework to your project to ensure \
 Firebase In App Messaging works as intended."
 #endif // #ifndef FIREBASE_ANALYTICS_SUPPRESS_WARNING
@@ -99,7 +102,8 @@ Firebase In App Messaging works as intended."
 #import <FirebaseMessaging/FirebaseMessaging.h>
 #if !__has_include(<FirebaseAnalytics/FirebaseAnalytics.h>)
 #ifndef FIREBASE_ANALYTICS_SUPPRESS_WARNING
-#warning "FirebaseAnalytics.framework is not included in your target. Please add \
+#warning                                                                       \
+    "FirebaseAnalytics.framework is not included in your target. Please add \
 `Firebase/Analytics` to your Podfile or add FirebaseAnalytics.framework to your project to ensure \
 Firebase Messaging works as intended."
 #endif // #ifndef FIREBASE_ANALYTICS_SUPPRESS_WARNING
@@ -152,7 +156,8 @@ Firebase Messaging works as intended."
 #import <FirebaseMLVisionLabelModel/FirebaseMLVisionLabelModel.h>
 #endif
 
-#if __has_include(<FirebaseMLVisionObjectDetection/FirebaseMLVisionObjectDetection.h>)
+#if __has_include(                                                             \
+    <FirebaseMLVisionObjectDetection/FirebaseMLVisionObjectDetection.h>)
 #import <FirebaseMLVisionObjectDetection/FirebaseMLVisionObjectDetection.h>
 #endif
 
@@ -164,7 +169,8 @@ Firebase Messaging works as intended."
 #import <FirebasePerformance/FirebasePerformance.h>
 #if !__has_include(<FirebaseAnalytics/FirebaseAnalytics.h>)
 #ifndef FIREBASE_ANALYTICS_SUPPRESS_WARNING
-#warning "FirebaseAnalytics.framework is not included in your target. Please add \
+#warning                                                                       \
+    "FirebaseAnalytics.framework is not included in your target. Please add \
 `Firebase/Analytics` to your Podfile or add FirebaseAnalytics.framework to your project to ensure \
 Firebase Performance works as intended."
 #endif // #ifndef FIREBASE_ANALYTICS_SUPPRESS_WARNING
@@ -175,7 +181,8 @@ Firebase Performance works as intended."
 #import <FirebaseRemoteConfig/FirebaseRemoteConfig.h>
 #if !__has_include(<FirebaseAnalytics/FirebaseAnalytics.h>)
 #ifndef FIREBASE_ANALYTICS_SUPPRESS_WARNING
-#warning "FirebaseAnalytics.framework is not included in your target. Please add \
+#warning                                                                       \
+    "FirebaseAnalytics.framework is not included in your target. Please add \
 `Firebase/Analytics` to your Podfile or add FirebaseAnalytics.framework to your project to ensure \
 Firebase Remote Config works as intended."
 #endif // #ifndef FIREBASE_ANALYTICS_SUPPRESS_WARNING
@@ -202,4 +209,4 @@ Firebase Remote Config works as intended."
 #import <Crashlytics/Crashlytics.h>
 #endif
 
-#endif  // defined(__has_include)
+#endif // defined(__has_include)

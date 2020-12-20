@@ -28,78 +28,77 @@
 @implementation FIRDataSnapshot
 
 - (id)initWithRef:(FIRDatabaseReference *)ref indexedNode:(FIndexedNode *)node {
-    self = [super init];
-    if (self != nil) {
-        self->_ref = ref;
-        self->_node = node;
-    }
-    return self;
+  self = [super init];
+  if (self != nil) {
+    self->_ref = ref;
+    self->_node = node;
+  }
+  return self;
 }
 
 - (id)value {
-    return [self.node.node val];
+  return [self.node.node val];
 }
 
 - (id)valueInExportFormat {
-    return [self.node.node valForExport:YES];
+  return [self.node.node valForExport:YES];
 }
 
 - (FIRDataSnapshot *)childSnapshotForPath:(NSString *)childPathString {
-    [FValidation validateFrom:@"child:" validPathString:childPathString];
-    FPath *childPath = [[FPath alloc] initWith:childPathString];
-    FIRDatabaseReference *childRef = [self.ref child:childPathString];
+  [FValidation validateFrom:@"child:" validPathString:childPathString];
+  FPath *childPath = [[FPath alloc] initWith:childPathString];
+  FIRDatabaseReference *childRef = [self.ref child:childPathString];
 
-    id<FNode> childNode = [self.node.node getChild:childPath];
-    return [[FIRDataSnapshot alloc]
-            initWithRef:childRef
-            indexedNode:[FIndexedNode indexedNodeWithNode:childNode]];
+  id<FNode> childNode = [self.node.node getChild:childPath];
+  return [[FIRDataSnapshot alloc]
+      initWithRef:childRef
+      indexedNode:[FIndexedNode indexedNodeWithNode:childNode]];
 }
 
 - (BOOL)hasChild:(NSString *)childPathString {
-    [FValidation validateFrom:@"hasChild:" validPathString:childPathString];
-    FPath *childPath = [[FPath alloc] initWith:childPathString];
-    return ![[self.node.node getChild:childPath] isEmpty];
+  [FValidation validateFrom:@"hasChild:" validPathString:childPathString];
+  FPath *childPath = [[FPath alloc] initWith:childPathString];
+  return ![[self.node.node getChild:childPath] isEmpty];
 }
 
 - (id)priority {
-    id<FNode> priority = [self.node.node getPriority];
-    return priority.val;
+  id<FNode> priority = [self.node.node getPriority];
+  return priority.val;
 }
 
 - (BOOL)hasChildren {
-    if ([self.node.node isLeafNode]) {
-        return false;
-    } else {
-        return ![self.node.node isEmpty];
-    }
+  if ([self.node.node isLeafNode]) {
+    return false;
+  } else {
+    return ![self.node.node isEmpty];
+  }
 }
 
 - (BOOL)exists {
-    return ![self.node.node isEmpty];
+  return ![self.node.node isEmpty];
 }
 
 - (NSString *)key {
-    return [self.ref key];
+  return [self.ref key];
 }
 
 - (NSUInteger)childrenCount {
-    return [self.node.node numChildren];
+  return [self.node.node numChildren];
 }
 
 - (NSEnumerator<FIRDataSnapshot *> *)children {
-    return [[FTransformedEnumerator alloc]
-            initWithEnumerator:self.node.childEnumerator
-    andTransform:^id(FNamedNode *node) {
-        FIRDatabaseReference *childRef = [self.ref child:node.name];
-        return [[FIRDataSnapshot alloc]
-                initWithRef:childRef
-                indexedNode:[FIndexedNode indexedNodeWithNode:node.node]];
-    }];
+  return [[FTransformedEnumerator alloc]
+      initWithEnumerator:self.node.childEnumerator
+            andTransform:^id(FNamedNode *node) {
+              FIRDatabaseReference *childRef = [self.ref child:node.name];
+              return [[FIRDataSnapshot alloc]
+                  initWithRef:childRef
+                  indexedNode:[FIndexedNode indexedNodeWithNode:node.node]];
+            }];
 }
 
 - (NSString *)description {
-    return
-        [NSString stringWithFormat:@"Snap (%@) %@", self.key, self.node.node];
+  return [NSString stringWithFormat:@"Snap (%@) %@", self.key, self.node.node];
 }
 
 @end

@@ -28,13 +28,13 @@
 @property(nonatomic, strong, readonly) FIndexedNode *oldIndexedNode;
 
 - (id)initWithType:(FIRDataEventType)type
-    indexedNode:(FIndexedNode *)indexedNode;
+       indexedNode:(FIndexedNode *)indexedNode;
 - (id)initWithType:(FIRDataEventType)type
-    indexedNode:(FIndexedNode *)indexedNode
-    childKey:(NSString *)childKey;
+       indexedNode:(FIndexedNode *)indexedNode
+          childKey:(NSString *)childKey;
 - (id)initWithType:(FIRDataEventType)type
-    indexedNode:(FIndexedNode *)indexedNode
-    childKey:(NSString *)childKey
+       indexedNode:(FIndexedNode *)indexedNode
+          childKey:(NSString *)childKey
     oldIndexedNode:(FIndexedNode *)oldIndexedNode;
 
 - (FChange *)changeWithPrevKey:(NSString *)prevKey;

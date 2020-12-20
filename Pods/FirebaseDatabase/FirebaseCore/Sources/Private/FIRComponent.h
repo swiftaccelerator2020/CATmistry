@@ -21,27 +21,28 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-/// Provides a system to clean up cached instances returned from the component system.
+/// Provides a system to clean up cached instances returned from the component
+/// system.
 NS_SWIFT_NAME(ComponentLifecycleMaintainer)
 @protocol FIRComponentLifecycleMaintainer
-/// The associated app will be deleted, clean up any resources as they are about to be deallocated.
+/// The associated app will be deleted, clean up any resources as they are about
+/// to be deallocated.
 - (void)appWillBeDeleted:(FIRApp *)app;
 @end
 
-typedef _Nullable id (^FIRComponentCreationBlock)(FIRComponentContainer *container,
-        BOOL *isCacheable)
-NS_SWIFT_NAME(ComponentCreationBlock);
+typedef _Nullable id (^FIRComponentCreationBlock)(
+    FIRComponentContainer *container, BOOL *isCacheable)
+    NS_SWIFT_NAME(ComponentCreationBlock);
 
 @class FIRDependency;
 
-/// Describes the timing of instantiation. Note: new components should default to lazy unless there
-/// is a strong reason to be eager.
+/// Describes the timing of instantiation. Note: new components should default
+/// to lazy unless there is a strong reason to be eager.
 typedef NS_ENUM(NSInteger, FIRInstantiationTiming) {
-    FIRInstantiationTimingLazy,
-    FIRInstantiationTimingAlwaysEager,
-    FIRInstantiationTimingEagerInDefaultApp
-}
-NS_SWIFT_NAME(InstantiationTiming);
+  FIRInstantiationTimingLazy,
+  FIRInstantiationTimingAlwaysEager,
+  FIRInstantiationTimingEagerInDefaultApp
+} NS_SWIFT_NAME(InstantiationTiming);
 
 /// A component that can be used from other Firebase SDKs.
 NS_SWIFT_NAME(Component)
@@ -56,11 +57,12 @@ NS_SWIFT_NAME(Component)
 /// An array of dependencies for the component.
 @property(nonatomic, copy, readonly) NSArray<FIRDependency *> *dependencies;
 
-/// A block to instantiate an instance of the component with the appropriate dependencies.
+/// A block to instantiate an instance of the component with the appropriate
+/// dependencies.
 @property(nonatomic, copy, readonly) FIRComponentCreationBlock creationBlock;
 
-// There's an issue with long NS_SWIFT_NAMES that causes compilation to fail, disable clang-format
-// for the next two methods.
+// There's an issue with long NS_SWIFT_NAMES that causes compilation to fail,
+// disable clang-format for the next two methods.
 // clang-format off
 
 /// Creates a component with no dependencies that will be lazily initialized.

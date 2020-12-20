@@ -23,16 +23,18 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-/** This class connects storage and uploader implementations, providing events to an uploader
- * and informing the storage what events were successfully uploaded or not.
+/** This class connects storage and uploader implementations, providing events
+ * to an uploader and informing the storage what events were successfully
+ * uploaded or not.
  */
 @interface GDTCORUploadCoordinator : NSObject <GDTCORLifecycleProtocol>
 
-    /** The queue on which all upload coordination will occur. Also used by a dispatch timer. */
-    /** Creates and/or returrns the singleton.
-     *
-     * @return The singleton instance of this class.
-     */
+/** The queue on which all upload coordination will occur. Also used by a
+ * dispatch timer. */
+/** Creates and/or returrns the singleton.
+ *
+ * @return The singleton instance of this class.
+ */
 + (instancetype)sharedInstance;
 
 /** The queue on which all upload coordination will occur. */
@@ -47,11 +49,13 @@ NS_ASSUME_NONNULL_BEGIN
 /** Some leeway given to libdispatch for the timer interval event. */
 @property(nonatomic, readonly) uint64_t timerLeeway;
 
-/** The registrar object the coordinator will use. Generally used for testing. */
+/** The registrar object the coordinator will use. Generally used for testing.
+ */
 @property(nonatomic) GDTCORRegistrar *registrar;
 
-/** Forces the backend specified by the target to upload the provided set of events. This should
- * only ever happen when the QoS tier of an event requires it.
+/** Forces the backend specified by the target to upload the provided set of
+ * events. This should only ever happen when the QoS tier of an event requires
+ * it.
  *
  * @param target The target that should force an upload.
  */

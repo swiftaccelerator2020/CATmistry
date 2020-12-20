@@ -26,61 +26,61 @@
 @implementation FQuerySpec
 
 - (id)initWithPath:(FPath *)path params:(FQueryParams *)params {
-    self = [super init];
-    if (self != nil) {
-        self->_path = path;
-        self->_params = params;
-    }
-    return self;
+  self = [super init];
+  if (self != nil) {
+    self->_path = path;
+    self->_params = params;
+  }
+  return self;
 }
 
 + (FQuerySpec *)defaultQueryAtPath:(FPath *)path {
-    return [[FQuerySpec alloc] initWithPath:path
-                               params:[FQueryParams defaultInstance]];
+  return [[FQuerySpec alloc] initWithPath:path
+                                   params:[FQueryParams defaultInstance]];
 }
 
 - (id)copyWithZone:(NSZone *)zone {
-    // Immutable
-    return self;
+  // Immutable
+  return self;
 }
 
 - (id<FIndex>)index {
-    return self.params.index;
+  return self.params.index;
 }
 
 - (BOOL)isDefault {
-    return self.params.isDefault;
+  return self.params.isDefault;
 }
 
 - (BOOL)loadsAllData {
-    return self.params.loadsAllData;
+  return self.params.loadsAllData;
 }
 
 - (BOOL)isEqual:(id)object {
-    if (self == object) {
-        return YES;
-    }
+  if (self == object) {
+    return YES;
+  }
 
-    if (![object isKindOfClass:[FQuerySpec class]]) {
-        return NO;
-    }
+  if (![object isKindOfClass:[FQuerySpec class]]) {
+    return NO;
+  }
 
-    FQuerySpec *other = (FQuerySpec *)object;
+  FQuerySpec *other = (FQuerySpec *)object;
 
-    if (![self.path isEqual:other.path]) {
-        return NO;
-    }
+  if (![self.path isEqual:other.path]) {
+    return NO;
+  }
 
-    return [self.params isEqual:other.params];
+  return [self.params isEqual:other.params];
 }
 
 - (NSUInteger)hash {
-    return self.path.hash * 31 + self.params.hash;
+  return self.path.hash * 31 + self.params.hash;
 }
 
 - (NSString *)description {
-    return [NSString stringWithFormat:@"FQuerySpec (path: %@, params: %@)",
-                     self.path, self.params];
+  return [NSString stringWithFormat:@"FQuerySpec (path: %@, params: %@)",
+                                    self.path, self.params];
 }
 
 @end

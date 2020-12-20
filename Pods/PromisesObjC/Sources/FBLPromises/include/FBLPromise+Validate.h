@@ -18,29 +18,34 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface FBLPromise<Value>(ValidateAdditions)
+@interface FBLPromise <Value>(ValidateAdditions)
 
-    typedef BOOL (^FBLPromiseValidateWorkBlock)(Value __nullable value) NS_SWIFT_UNAVAILABLE("");
+typedef BOOL (^FBLPromiseValidateWorkBlock)(Value __nullable value)
+    NS_SWIFT_UNAVAILABLE("");
 
 /**
  Validates a fulfilled value or rejects the value if it can not be validated.
 
  @param predicate An expression to validate.
- @return A new pending promise that gets either resolved with same resolution as the receiver or
-         rejected with `FBLPromiseErrorCodeValidationFailure` error code in `FBLPromiseErrorDomain`.
+ @return A new pending promise that gets either resolved with same resolution as
+ the receiver or rejected with `FBLPromiseErrorCodeValidationFailure` error code
+ in `FBLPromiseErrorDomain`.
  */
-- (FBLPromise *)validate:(FBLPromiseValidateWorkBlock)predicate NS_SWIFT_UNAVAILABLE("");
+- (FBLPromise *)validate:(FBLPromiseValidateWorkBlock)predicate
+    NS_SWIFT_UNAVAILABLE("");
 
 /**
  Validates a fulfilled value or rejects the value if it can not be validated.
 
  @param queue A queue to dispatch on.
  @param predicate An expression to validate.
- @return A new pending promise that gets either resolved with same resolution as the receiver or
-         rejected with `FBLPromiseErrorCodeValidationFailure` error code in `FBLPromiseErrorDomain`.
+ @return A new pending promise that gets either resolved with same resolution as
+ the receiver or rejected with `FBLPromiseErrorCodeValidationFailure` error code
+ in `FBLPromiseErrorDomain`.
  */
 - (FBLPromise *)onQueue:(dispatch_queue_t)queue
-    validate:(FBLPromiseValidateWorkBlock)predicate NS_REFINED_FOR_SWIFT;
+               validate:(FBLPromiseValidateWorkBlock)predicate
+    NS_REFINED_FOR_SWIFT;
 
 @end
 
@@ -48,12 +53,12 @@ NS_ASSUME_NONNULL_BEGIN
  Convenience dot-syntax wrappers for `FBLPromise` `validate` operators.
  Usage: promise.validate(^BOOL(id value) { ... })
  */
-@interface FBLPromise<Value>(DotSyntax_ValidateAdditions)
+@interface FBLPromise <Value>(DotSyntax_ValidateAdditions)
 
-- (FBLPromise * (^)(FBLPromiseValidateWorkBlock))validate FBL_PROMISES_DOT_SYNTAX
-    NS_SWIFT_UNAVAILABLE("");
-- (FBLPromise * (^)(dispatch_queue_t, FBLPromiseValidateWorkBlock))validateOn
-    FBL_PROMISES_DOT_SYNTAX NS_SWIFT_UNAVAILABLE("");
+- (FBLPromise * (^)(FBLPromiseValidateWorkBlock))
+    validate FBL_PROMISES_DOT_SYNTAX NS_SWIFT_UNAVAILABLE("");
+- (FBLPromise * (^)(dispatch_queue_t, FBLPromiseValidateWorkBlock))
+    validateOn FBL_PROMISES_DOT_SYNTAX NS_SWIFT_UNAVAILABLE("");
 
 @end
 

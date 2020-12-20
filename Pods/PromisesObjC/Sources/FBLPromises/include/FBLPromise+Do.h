@@ -18,26 +18,30 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface FBLPromise<Value>(DoAdditions)
+@interface FBLPromise <Value>(DoAdditions)
 
-    typedef id __nullable (^FBLPromiseDoWorkBlock)(void) NS_SWIFT_UNAVAILABLE("");
+typedef id __nullable (^FBLPromiseDoWorkBlock)(void) NS_SWIFT_UNAVAILABLE("");
 
 /**
  Creates a pending promise and executes `work` block asynchronously.
 
- @param work A block that returns a value or an error used to resolve the promise.
+ @param work A block that returns a value or an error used to resolve the
+ promise.
  @return A new pending promise.
  */
 + (instancetype)do:(FBLPromiseDoWorkBlock)work NS_SWIFT_UNAVAILABLE("");
 
 /**
- Creates a pending promise and executes `work` block asynchronously on the given queue.
+ Creates a pending promise and executes `work` block asynchronously on the given
+ queue.
 
  @param queue A queue to invoke the `work` block on.
- @param work A block that returns a value or an error used to resolve the promise.
+ @param work A block that returns a value or an error used to resolve the
+ promise.
  @return A new pending promise.
  */
-+ (instancetype)onQueue:(dispatch_queue_t)queue do:(FBLPromiseDoWorkBlock)work NS_REFINED_FOR_SWIFT;
++ (instancetype)onQueue:(dispatch_queue_t)queue
+                     do:(FBLPromiseDoWorkBlock)work NS_REFINED_FOR_SWIFT;
 
 @end
 
@@ -45,9 +49,10 @@ NS_ASSUME_NONNULL_BEGIN
  Convenience dot-syntax wrappers for `FBLPromise` `do` operators.
  Usage: FBLPromise.doOn(queue, ^(NSError *error) { ... })
  */
-@interface FBLPromise<Value>(DotSyntax_DoAdditions)
+@interface FBLPromise <Value>(DotSyntax_DoAdditions)
 
-+ (FBLPromise * (^)(dispatch_queue_t, FBLPromiseDoWorkBlock))doOn FBL_PROMISES_DOT_SYNTAX
++ (FBLPromise * (^)(dispatch_queue_t,
+                    FBLPromiseDoWorkBlock))doOn FBL_PROMISES_DOT_SYNTAX
     NS_SWIFT_UNAVAILABLE("");
 
 @end

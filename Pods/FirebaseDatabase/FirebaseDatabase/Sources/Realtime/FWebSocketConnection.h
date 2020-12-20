@@ -25,8 +25,8 @@
 @property(nonatomic, weak) id<FWebSocketDelegate> delegate;
 
 - (id)initWith:(FRepoInfo *)repoInfo
-    andQueue:(dispatch_queue_t)queue
-    googleAppID:(NSString *)googleAppID
+         andQueue:(dispatch_queue_t)queue
+      googleAppID:(NSString *)googleAppID
     lastSessionID:(NSString *)lastSessionID;
 
 - (void)open;
@@ -39,15 +39,15 @@
 - (void)webSocket:(FSRWebSocket *)webSocket didFailWithError:(NSError *)error;
 - (void)webSocket:(FSRWebSocket *)webSocket
     didCloseWithCode:(NSInteger)code
-    reason:(NSString *)reason
-    wasClean:(BOOL)wasClean;
+              reason:(NSString *)reason
+            wasClean:(BOOL)wasClean;
 
 @end
 
 @protocol FWebSocketDelegate <NSObject>
 
 - (void)onMessage:(FWebSocketConnection *)fwebSocket
-    withMessage:(NSDictionary *)message;
+      withMessage:(NSDictionary *)message;
 - (void)onDisconnect:(FWebSocketConnection *)fwebSocket
     wasEverConnected:(BOOL)everConnected;
 

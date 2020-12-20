@@ -22,7 +22,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface GDTCORTransport ()
 
-    /** The mapping identifier that the target backend will use to map the transport bytes to proto. */
+/** The mapping identifier that the target backend will use to map the transport
+ * bytes to proto. */
 @property(nonatomic) NSString *mappingID;
 
 /** The transformers that will operate on events sent by this transport. */
@@ -31,7 +32,8 @@ NS_ASSUME_NONNULL_BEGIN
 /** The target backend of this transport. */
 @property(nonatomic) NSInteger target;
 
-/** The transformer instance to used to transform events. Allows injecting a fake during testing. */
+/** The transformer instance to used to transform events. Allows injecting a
+ * fake during testing. */
 @property(nonatomic) GDTCORTransformer *transformerInstance;
 
 @end

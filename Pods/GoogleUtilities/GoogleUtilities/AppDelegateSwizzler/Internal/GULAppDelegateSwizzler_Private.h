@@ -14,9 +14,9 @@
  * limitations under the License.
  */
 
-#import <Foundation/Foundation.h>
 #import "GoogleUtilities/AppDelegateSwizzler/Private/GULAppDelegateSwizzler.h"
 #import "GoogleUtilities/Network/Private/GULMutableDictionary.h"
+#import <Foundation/Foundation.h>
 
 @class GULApplication;
 
@@ -24,24 +24,26 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface GULAppDelegateSwizzler ()
 
-    /** ISA Swizzles the given appDelegate as the original app delegate would be.
-     *
-     *  @param appDelegate The object that needs to be isa swizzled. This should conform to the
-     *      application delegate protocol.
-     */
+/** ISA Swizzles the given appDelegate as the original app delegate would be.
+ *
+ *  @param appDelegate The object that needs to be isa swizzled. This should
+ * conform to the application delegate protocol.
+ */
 + (void)proxyAppDelegate:(id<GULApplicationDelegate>)appDelegate;
 
-/** Returns a dictionary containing interceptor IDs mapped to a GULZeroingWeakContainer.
+/** Returns a dictionary containing interceptor IDs mapped to a
+ * GULZeroingWeakContainer.
  *
- *  @return A dictionary of the form {NSString : GULZeroingWeakContainer}, where the NSString is
- *      the interceptorID.
+ *  @return A dictionary of the form {NSString : GULZeroingWeakContainer}, where
+ * the NSString is the interceptorID.
  */
 + (GULMutableDictionary *)interceptors;
 
 /** Deletes all the registered interceptors. */
 + (void)clearInterceptors;
 
-/** Resets the token that prevents the app delegate proxy from being isa swizzled multiple times. */
+/** Resets the token that prevents the app delegate proxy from being isa
+ * swizzled multiple times. */
 + (void)resetProxyOriginalDelegateOnceToken;
 
 /** Returns the original app delegate that was proxied.

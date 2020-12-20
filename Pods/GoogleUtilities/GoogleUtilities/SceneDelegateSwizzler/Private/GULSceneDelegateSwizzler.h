@@ -16,9 +16,10 @@
 
 #if !TARGET_OS_OSX
 #import <UIKit/UIKit.h>
-#endif  // !TARGET_OS_OSX
+#endif // !TARGET_OS_OSX
 
-#if ((TARGET_OS_IOS || TARGET_OS_TV) && (__IPHONE_OS_VERSION_MAX_ALLOWED >= 130000))
+#if ((TARGET_OS_IOS || TARGET_OS_TV) &&                                        \
+     (__IPHONE_OS_VERSION_MAX_ALLOWED >= 130000))
 #define UISCENE_SUPPORTED 1
 #endif
 
@@ -31,38 +32,41 @@ typedef NSString *const GULSceneDelegateInterceptorID;
 
 #if UISCENE_SUPPORTED
 
-    /** Registers a scene delegate interceptor whose methods will be invoked as they're invoked on the
-     *  original scene delegate.
-     *
-     *  @param interceptor An instance of a class that conforms to the application delegate protocol.
-     *      The interceptor is NOT retained.
-     *  @return A unique GULSceneDelegateInterceptorID if interceptor was successfully registered; nil
-     *      if it fails.
-     */
+/** Registers a scene delegate interceptor whose methods will be invoked as
+ * they're invoked on the original scene delegate.
+ *
+ *  @param interceptor An instance of a class that conforms to the application
+ * delegate protocol. The interceptor is NOT retained.
+ *  @return A unique GULSceneDelegateInterceptorID if interceptor was
+ * successfully registered; nil if it fails.
+ */
 + (nullable GULSceneDelegateInterceptorID)registerSceneDelegateInterceptor:
     (id<UISceneDelegate>)interceptor API_AVAILABLE(ios(13.0), tvos(13.0));
 
 /** Unregisters an interceptor with the given ID if it exists.
  *
- *  @param interceptorID The object that was generated when the interceptor was registered.
+ *  @param interceptorID The object that was generated when the interceptor was
+ * registered.
  */
-+ (void)unregisterSceneDelegateInterceptorWithID:(GULSceneDelegateInterceptorID)interceptorID
++ (void)unregisterSceneDelegateInterceptorWithID:
+    (GULSceneDelegateInterceptorID)interceptorID
     API_AVAILABLE(ios(13.0), tvos(13.0));
 
 /** Do not initialize this class. */
 - (instancetype)init NS_UNAVAILABLE;
 
-#endif  // UISCENE_SUPPORTED
+#endif // UISCENE_SUPPORTED
 
-/** This method ensures that the original scene delegate has been proxied. Call this before
- *  registering your interceptor. This method is safe to call multiple times (but it only proxies
- *  the scene delegate once).
+/** This method ensures that the original scene delegate has been proxied. Call
+ * this before registering your interceptor. This method is safe to call
+ * multiple times (but it only proxies the scene delegate once).
  *
  *  The method has no effect for extensions.
  */
 + (void)proxyOriginalSceneDelegate;
 
-/** Indicates whether scene delegate proxy is explicitly disabled or enabled. Enabled by default.
+/** Indicates whether scene delegate proxy is explicitly disabled or enabled.
+ * Enabled by default.
  *
  *  @return YES if SceneDelegateProxy is Enabled, NO otherwise.
  */

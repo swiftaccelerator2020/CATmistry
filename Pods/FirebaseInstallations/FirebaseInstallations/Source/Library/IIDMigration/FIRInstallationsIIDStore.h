@@ -20,28 +20,31 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-/** The class encapsulates a port of a piece FirebaseInstanceID logic required to migrate IID. */
+/** The class encapsulates a port of a piece FirebaseInstanceID logic required
+ * to migrate IID. */
 @interface FIRInstallationsIIDStore : NSObject
 
-    /**
-     * Retrieves existing IID if present.
-     * @return Returns a promise that is resolved with IID string if IID has been found or rejected with
-     * an error otherwise.
-     */
+/**
+ * Retrieves existing IID if present.
+ * @return Returns a promise that is resolved with IID string if IID has been
+ * found or rejected with an error otherwise.
+ */
 - (FBLPromise<NSString *> *)existingIID;
 
 /**
  * Deletes existing IID if present.
- * @return Returns a promise that is resolved with `[NSNull null]` if the IID was successfully.
- * deleted or was not found. The promise is rejected otherwise.
+ * @return Returns a promise that is resolved with `[NSNull null]` if the IID
+ * was successfully. deleted or was not found. The promise is rejected
+ * otherwise.
  */
 - (FBLPromise<NSNull *> *)deleteExistingIID;
 
 #if TARGET_OS_OSX
-/// If not `nil`, then only this keychain will be used to save and read data (see
-/// `kSecMatchSearchList` and `kSecUseKeychain`. It is mostly intended to be used by unit tests.
+/// If not `nil`, then only this keychain will be used to save and read data
+/// (see `kSecMatchSearchList` and `kSecUseKeychain`. It is mostly intended to
+/// be used by unit tests.
 @property(nonatomic, nullable) SecKeychainRef keychainRef;
-#endif  // TARGET_OSX
+#endif // TARGET_OSX
 
 @end
 

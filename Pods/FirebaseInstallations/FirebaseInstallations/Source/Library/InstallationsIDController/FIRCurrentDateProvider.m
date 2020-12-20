@@ -17,7 +17,5 @@
 #import "FirebaseInstallations/Source/Library/InstallationsIDController/FIRCurrentDateProvider.h"
 
 FIRCurrentDateProvider FIRRealCurrentDateProvider(void) {
-    return ^NSDate *(void) {
-        return [NSDate date];
-    };
+  return ^NSDate *(void) { return [NSDate date]; };
 }

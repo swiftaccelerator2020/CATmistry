@@ -18,23 +18,24 @@
 
 @interface GULAppEnvironmentUtil : NSObject
 
-/// Indicates whether the app is from Apple Store or not. Returns NO if the app is on simulator,
-/// development environment or sideloaded.
+/// Indicates whether the app is from Apple Store or not. Returns NO if the app
+/// is on simulator, development environment or sideloaded.
 + (BOOL)isFromAppStore;
 
-/// Indicates whether the app is a Testflight app. Returns YES if the app has sandbox receipt.
-/// Returns NO otherwise.
+/// Indicates whether the app is a Testflight app. Returns YES if the app has
+/// sandbox receipt. Returns NO otherwise.
 + (BOOL)isAppStoreReceiptSandbox;
 
-/// Indicates whether the app is on simulator or not at runtime depending on the device
-/// architecture.
+/// Indicates whether the app is on simulator or not at runtime depending on the
+/// device architecture.
 + (BOOL)isSimulator;
 
-/// The current device model. Returns an empty string if device model cannot be retrieved.
+/// The current device model. Returns an empty string if device model cannot be
+/// retrieved.
 + (NSString *)deviceModel;
 
-/// The current operating system version. Returns an empty string if the system version cannot be
-/// retrieved.
+/// The current operating system version. Returns an empty string if the system
+/// version cannot be retrieved.
 + (NSString *)systemVersion;
 
 /// Indicates whether it is running inside an extension or an app.
@@ -42,6 +43,7 @@
 
 /// @return Returns @YES when is run on iOS version greater or equal to 7.0
 + (BOOL)isIOS7OrHigher DEPRECATED_MSG_ATTRIBUTE(
-    "Always `YES` because only iOS 8 and higher supported. The method will be removed.");
+    "Always `YES` because only iOS 8 and higher supported. The method will be "
+    "removed.");
 
 @end

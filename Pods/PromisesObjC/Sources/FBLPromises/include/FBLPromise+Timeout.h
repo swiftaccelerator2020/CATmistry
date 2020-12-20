@@ -18,15 +18,16 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface FBLPromise<Value>(TimeoutAdditions)
+@interface FBLPromise <Value>(TimeoutAdditions)
 
-    /**
-     Waits for a promise with the specified `timeout`.
+/**
+ Waits for a promise with the specified `timeout`.
 
-     @param interval Time to wait in seconds.
-     @return A new pending promise that gets either resolved with same resolution as the receiver or
-             rejected with `FBLPromiseErrorCodeTimedOut` error code in `FBLPromiseErrorDomain`.
-     */
+ @param interval Time to wait in seconds.
+ @return A new pending promise that gets either resolved with same resolution as
+ the receiver or rejected with `FBLPromiseErrorCodeTimedOut` error code in
+ `FBLPromiseErrorDomain`.
+ */
 - (FBLPromise *)timeout:(NSTimeInterval)interval NS_SWIFT_UNAVAILABLE("");
 
 /**
@@ -34,11 +35,12 @@ NS_ASSUME_NONNULL_BEGIN
 
  @param queue A queue to dispatch on.
  @param interval Time to wait in seconds.
- @return A new pending promise that gets either resolved with same resolution as the receiver or
-         rejected with `FBLPromiseErrorCodeTimedOut` error code in `FBLPromiseErrorDomain`.
+ @return A new pending promise that gets either resolved with same resolution as
+ the receiver or rejected with `FBLPromiseErrorCodeTimedOut` error code in
+ `FBLPromiseErrorDomain`.
  */
 - (FBLPromise *)onQueue:(dispatch_queue_t)queue
-    timeout:(NSTimeInterval)interval NS_REFINED_FOR_SWIFT;
+                timeout:(NSTimeInterval)interval NS_REFINED_FOR_SWIFT;
 
 @end
 
@@ -46,10 +48,12 @@ NS_ASSUME_NONNULL_BEGIN
  Convenience dot-syntax wrappers for `FBLPromise` `timeout` operators.
  Usage: promise.timeout(...)
  */
-@interface FBLPromise<Value>(DotSyntax_TimeoutAdditions)
+@interface FBLPromise <Value>(DotSyntax_TimeoutAdditions)
 
-- (FBLPromise* (^)(NSTimeInterval))timeout FBL_PROMISES_DOT_SYNTAX NS_SWIFT_UNAVAILABLE("");
-- (FBLPromise* (^)(dispatch_queue_t, NSTimeInterval))timeoutOn FBL_PROMISES_DOT_SYNTAX
+- (FBLPromise * (^)(NSTimeInterval))timeout FBL_PROMISES_DOT_SYNTAX
+    NS_SWIFT_UNAVAILABLE("");
+- (FBLPromise * (^)(dispatch_queue_t,
+                    NSTimeInterval))timeoutOn FBL_PROMISES_DOT_SYNTAX
     NS_SWIFT_UNAVAILABLE("");
 
 @end

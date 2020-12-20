@@ -27,14 +27,14 @@
 @property(nonatomic, readonly) BOOL isActive;
 
 - (id)initWithId:(NSUInteger)queryId
-    query:(FQuerySpec *)query
-    lastUse:(NSTimeInterval)lastUse
-    isActive:(BOOL)isActive;
+           query:(FQuerySpec *)query
+         lastUse:(NSTimeInterval)lastUse
+        isActive:(BOOL)isActive;
 - (id)initWithId:(NSUInteger)queryId
-    query:(FQuerySpec *)query
-    lastUse:(NSTimeInterval)lastUse
-    isActive:(BOOL)isActive
-    isComplete:(BOOL)isComplete;
+           query:(FQuerySpec *)query
+         lastUse:(NSTimeInterval)lastUse
+        isActive:(BOOL)isActive
+      isComplete:(BOOL)isComplete;
 
 - (FTrackedQuery *)updateLastUse:(NSTimeInterval)lastUse;
 - (FTrackedQuery *)setComplete;

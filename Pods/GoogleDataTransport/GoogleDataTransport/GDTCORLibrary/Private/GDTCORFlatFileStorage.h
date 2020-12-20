@@ -49,7 +49,8 @@ FOUNDATION_EXPORT NSString *const kGDTCORBatchComponentsExpirationKey;
 /** Manages the storage of events. This class is thread-safe.
  *
  * Event files will be stored as follows:
- * <app cache>/google-sdk-events/<classname>/gdt_event_data/<target>/<eventID>.<qosTier>.<mappingID>
+ * <app
+ * cache>/google-sdk-events/<classname>/gdt_event_data/<target>/<eventID>.<qosTier>.<mappingID>
  *
  * Library data will be stored as follows:
  * <app cache>/google-sdk-events/<classname>/gdt_library_data/<libraryDataKey>
@@ -58,9 +59,10 @@ FOUNDATION_EXPORT NSString *const kGDTCORBatchComponentsExpirationKey;
  * <app
  * cache>/google-sdk-events/<classname>/gdt_batch_data/<target>.<batchID>/<eventID>.<qosTier>.<mappingID>
  */
-@interface GDTCORFlatFileStorage : NSObject <GDTCORStorageProtocol, GDTCORLifecycleProtocol>
+@interface GDTCORFlatFileStorage
+    : NSObject <GDTCORStorageProtocol, GDTCORLifecycleProtocol>
 
-    /** The queue on which all storage work will occur. */
+/** The queue on which all storage work will occur. */
 @property(nonatomic) dispatch_queue_t storageQueue;
 
 /** The upload coordinator instance used by this storage instance. */
@@ -92,10 +94,11 @@ FOUNDATION_EXPORT NSString *const kGDTCORBatchComponentsExpirationKey;
 
 /** */
 + (NSString *)batchPathForTarget:(GDTCORTarget)target
-    batchID:(NSNumber *)batchID
-    expirationDate:(NSDate *)expirationDate;
+                         batchID:(NSNumber *)batchID
+                  expirationDate:(NSDate *)expirationDate;
 
-/** Returns a constructed storage path based on the given values. This path may not exist.
+/** Returns a constructed storage path based on the given values. This path may
+ * not exist.
  *
  * @param target The target, which is necessary to be given a path.
  * @param eventID The eventID.
@@ -105,10 +108,10 @@ FOUNDATION_EXPORT NSString *const kGDTCORBatchComponentsExpirationKey;
  * @return The path representing the combination of the given parameters.
  */
 + (NSString *)pathForTarget:(GDTCORTarget)target
-    eventID:(NSString *)eventID
-    qosTier:(NSNumber *)qosTier
-    expirationDate:(NSDate *)expirationDate
-    mappingID:(NSString *)mappingID;
+                    eventID:(NSString *)eventID
+                    qosTier:(NSNumber *)qosTier
+             expirationDate:(NSDate *)expirationDate
+                  mappingID:(NSString *)mappingID;
 
 /** Returns extant paths that match all of the given parameters.
  *
@@ -118,15 +121,17 @@ FOUNDATION_EXPORT NSString *const kGDTCORBatchComponentsExpirationKey;
  * @param onComplete The completion to call once the paths have been discovered.
  */
 - (void)pathsForTarget:(GDTCORTarget)target
-    eventIDs:(nullable NSSet<NSString *> *)eventIDs
-    qosTiers:(nullable NSSet<NSNumber *> *)qosTiers
-    mappingIDs:(nullable NSSet<NSString *> *)mappingIDs
-    onComplete:(void (^)(NSSet<NSString *> *paths))onComplete;
+              eventIDs:(nullable NSSet<NSString *> *)eventIDs
+              qosTiers:(nullable NSSet<NSNumber *> *)qosTiers
+            mappingIDs:(nullable NSSet<NSString *> *)mappingIDs
+            onComplete:(void (^)(NSSet<NSString *> *paths))onComplete;
 
-/** Fetches the current batchID counter value from library storage, increments it, and sets the new
- * value. Returns nil if a batchID was not able to be created for some reason.
+/** Fetches the current batchID counter value from library storage, increments
+ * it, and sets the new value. Returns nil if a batchID was not able to be
+ * created for some reason.
  *
- * @param onComplete A block to execute when creating the next batchID is complete.
+ * @param onComplete A block to execute when creating the next batchID is
+ * complete.
  */
 - (void)nextBatchID:(void (^)(NSNumber *_Nullable batchID))onComplete;
 
@@ -135,14 +140,16 @@ FOUNDATION_EXPORT NSString *const kGDTCORBatchComponentsExpirationKey;
  * @param fileName The event filename to split.
  * @return The dictionary of event component keys to their values.
  */
-- (nullable NSDictionary<NSString *, id> *)eventComponentsFromFilename:(NSString *)fileName;
+- (nullable NSDictionary<NSString *, id> *)eventComponentsFromFilename:
+    (NSString *)fileName;
 
 /** Constructs a dictionary of batch filename components.
  *
  * @param fileName The batch folder name to split.
  * @return The dictionary of batch component keys to their values.
  */
-- (nullable NSDictionary<NSString *, id> *)batchComponentsFromFilename:(NSString *)fileName;
+- (nullable NSDictionary<NSString *, id> *)batchComponentsFromFilename:
+    (NSString *)fileName;
 
 @end
 

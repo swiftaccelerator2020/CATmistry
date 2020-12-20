@@ -30,7 +30,8 @@
 #import "FirebaseInstallations/Source/Library/FIRInstallationsItem.h"
 #import "FirebaseInstallations/Source/Library/InstallationsStore/FIRInstallationsStoredItem.h"
 
-NSString *const kFIRInstallationsStoreUserDefaultsID = @"com.firebase.FIRInstallations";
+NSString *const kFIRInstallationsStoreUserDefaultsID =
+    @"com.firebase.FIRInstallations";
 
 @interface FIRInstallationsStore ()
 @property(nonatomic, readonly) GULKeychainStorage *secureStorage;
@@ -42,85 +43,104 @@ NSString *const kFIRInstallationsStoreUserDefaultsID = @"com.firebase.FIRInstall
 @implementation FIRInstallationsStore
 
 - (instancetype)initWithSecureStorage:(GULKeychainStorage *)storage
-    accessGroup:(NSString *)accessGroup {
-    self = [super init];
-    if (self) {
-        _secureStorage = storage;
-        _accessGroup = [accessGroup copy];
-        _queue = dispatch_queue_create("com.firebase.FIRInstallationsStore", DISPATCH_QUEUE_SERIAL);
+                          accessGroup:(NSString *)accessGroup {
+  self = [super init];
+  if (self) {
+    _secureStorage = storage;
+    _accessGroup = [accessGroup copy];
+    _queue = dispatch_queue_create("com.firebase.FIRInstallationsStore",
+                                   DISPATCH_QUEUE_SERIAL);
 
-        NSString *userDefaultsSuiteName = _accessGroup ?: kFIRInstallationsStoreUserDefaultsID;
-        _userDefaults = [[GULUserDefaults alloc] initWithSuiteName:userDefaultsSuiteName];
-    }
-    return self;
+    NSString *userDefaultsSuiteName =
+        _accessGroup ?: kFIRInstallationsStoreUserDefaultsID;
+    _userDefaults =
+        [[GULUserDefaults alloc] initWithSuiteName:userDefaultsSuiteName];
+  }
+  return self;
 }
 
 - (FBLPromise<FIRInstallationsItem *> *)installationForAppID:(NSString *)appID
-    appName:(NSString *)appName {
-    NSString *itemID = [FIRInstallationsItem identifierWithAppID:appID appName:appName];
-    return [self installationExistsForAppID:appID appName:appName]
-    .then(^id(id result) {
-        return [self.secureStorage getObjectForKey:itemID
-                                   objectClass:[FIRInstallationsStoredItem class]
-                                   accessGroup:self.accessGroup];
-    })
-    .then(^id(FIRInstallationsStoredItem *_Nullable storedItem) {
+                                                     appName:
+                                                         (NSString *)appName {
+  NSString *itemID = [FIRInstallationsItem identifierWithAppID:appID
+                                                       appName:appName];
+  return [self installationExistsForAppID:appID appName:appName]
+      .then(^id(id result) {
+        return [self.secureStorage
+            getObjectForKey:itemID
+                objectClass:[FIRInstallationsStoredItem class]
+                accessGroup:self.accessGroup];
+      })
+      .then(^id(FIRInstallationsStoredItem *_Nullable storedItem) {
         if (storedItem == nil) {
-            return [FIRInstallationsErrorUtil installationItemNotFoundForAppID:appID appName:appName];
+          return [FIRInstallationsErrorUtil
+              installationItemNotFoundForAppID:appID
+                                       appName:appName];
         }
 
-        FIRInstallationsItem *item = [[FIRInstallationsItem alloc] initWithAppID:appID
-                                                                   firebaseAppName:appName];
+        FIRInstallationsItem *item =
+            [[FIRInstallationsItem alloc] initWithAppID:appID
+                                        firebaseAppName:appName];
         [item updateWithStoredItem:storedItem];
         return item;
-    });
+      });
 }
 
-- (FBLPromise<NSNull *> *)saveInstallation:(FIRInstallationsItem *)installationItem {
-    FIRInstallationsStoredItem *storedItem = [installationItem storedItem];
-    NSString *identifier = [installationItem identifier];
+- (FBLPromise<NSNull *> *)saveInstallation:
+    (FIRInstallationsItem *)installationItem {
+  FIRInstallationsStoredItem *storedItem = [installationItem storedItem];
+  NSString *identifier = [installationItem identifier];
 
-    return
-        [self.secureStorage setObject:storedItem forKey:identifier accessGroup:self.accessGroup].then(
-    ^id(id result) {
-        return [self setInstallationExists:YES forItemWithIdentifier:identifier];
-    });
+  return [self.secureStorage setObject:storedItem
+                                forKey:identifier
+                           accessGroup:self.accessGroup]
+      .then(^id(id result) {
+        return [self setInstallationExists:YES
+                     forItemWithIdentifier:identifier];
+      });
 }
 
-- (FBLPromise<NSNull *> *)removeInstallationForAppID:(NSString *)appID appName:(NSString *)appName {
-    NSString *identifier = [FIRInstallationsItem identifierWithAppID:appID appName:appName];
-    return [self.secureStorage removeObjectForKey:identifier accessGroup:self.accessGroup].then(
-    ^id(id result) {
+- (FBLPromise<NSNull *> *)removeInstallationForAppID:(NSString *)appID
+                                             appName:(NSString *)appName {
+  NSString *identifier = [FIRInstallationsItem identifierWithAppID:appID
+                                                           appName:appName];
+  return [self.secureStorage removeObjectForKey:identifier
+                                    accessGroup:self.accessGroup]
+      .then(^id(id result) {
         return [self setInstallationExists:NO forItemWithIdentifier:identifier];
-    });
+      });
 }
 
 #pragma mark - User defaults
 
-- (FBLPromise<NSNull *> *)installationExistsForAppID:(NSString *)appID appName:(NSString *)appName {
-    NSString *identifier = [FIRInstallationsItem identifierWithAppID:appID appName:appName];
-    return [FBLPromise onQueue:self.queue
-               do:^id _Nullable {
-                   return [[self userDefaults] objectForKey:identifier] != nil
-                   ? [NSNull null]
-                   : [FIRInstallationsErrorUtil
-                      installationItemNotFoundForAppID:appID
-                      appName:appName];
-               }];
+- (FBLPromise<NSNull *> *)installationExistsForAppID:(NSString *)appID
+                                             appName:(NSString *)appName {
+  NSString *identifier = [FIRInstallationsItem identifierWithAppID:appID
+                                                           appName:appName];
+  return [FBLPromise
+      onQueue:self.queue
+           do:^id _Nullable {
+             return [[self userDefaults] objectForKey:identifier] != nil
+                        ? [NSNull null]
+                        : [FIRInstallationsErrorUtil
+                              installationItemNotFoundForAppID:appID
+                                                       appName:appName];
+           }];
 }
 
 - (FBLPromise<NSNull *> *)setInstallationExists:(BOOL)exists
-    forItemWithIdentifier:(NSString *)identifier {
-    return [FBLPromise onQueue:self.queue
-               do:^id _Nullable {
-                   if (exists) {
-                       [[self userDefaults] setBool:YES forKey:identifier];
-                   } else {
-            [[self userDefaults] removeObjectForKey:identifier];
-        }
+                          forItemWithIdentifier:(NSString *)identifier {
+  return
+      [FBLPromise onQueue:self.queue
+                       do:^id _Nullable {
+                         if (exists) {
+                           [[self userDefaults] setBool:YES forKey:identifier];
+                         } else {
+                           [[self userDefaults] removeObjectForKey:identifier];
+                         }
 
-        return [NSNull null];
-    }];
+                         return [NSNull null];
+                       }];
 }
 
 @end

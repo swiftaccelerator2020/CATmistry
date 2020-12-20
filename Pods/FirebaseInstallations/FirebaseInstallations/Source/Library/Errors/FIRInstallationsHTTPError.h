@@ -26,28 +26,29 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (instancetype)init NS_UNAVAILABLE;
 
-- (instancetype)initWithHTTPResponse:(NSHTTPURLResponse *)HTTPResponse data:(nullable NSData *)data;
+- (instancetype)initWithHTTPResponse:(NSHTTPURLResponse *)HTTPResponse
+                                data:(nullable NSData *)data;
 
 @end
 
 NS_ASSUME_NONNULL_END
 
 typedef NS_ENUM(NSInteger, FIRInstallationsHTTPCodes) {
-    FIRInstallationsHTTPCodesTooManyRequests = 429,
-    FIRInstallationsHTTPCodesServerInternalError = 500,
+  FIRInstallationsHTTPCodesTooManyRequests = 429,
+  FIRInstallationsHTTPCodesServerInternalError = 500,
 };
 
 /** Possible response HTTP codes for `CreateInstallation` API request. */
 typedef NS_ENUM(NSInteger, FIRInstallationsRegistrationHTTPCode) {
-    FIRInstallationsRegistrationHTTPCodeSuccess = 201,
-    FIRInstallationsRegistrationHTTPCodeInvalidArgument = 400,
-    FIRInstallationsRegistrationHTTPCodeAPIKeyToProjectIDMismatch = 403,
-    FIRInstallationsRegistrationHTTPCodeProjectNotFound = 404,
-    FIRInstallationsRegistrationHTTPCodeTooManyRequests = 429,
-    FIRInstallationsRegistrationHTTPCodeServerInternalError = 500
+  FIRInstallationsRegistrationHTTPCodeSuccess = 201,
+  FIRInstallationsRegistrationHTTPCodeInvalidArgument = 400,
+  FIRInstallationsRegistrationHTTPCodeAPIKeyToProjectIDMismatch = 403,
+  FIRInstallationsRegistrationHTTPCodeProjectNotFound = 404,
+  FIRInstallationsRegistrationHTTPCodeTooManyRequests = 429,
+  FIRInstallationsRegistrationHTTPCodeServerInternalError = 500
 };
 
 typedef NS_ENUM(NSInteger, FIRInstallationsAuthTokenHTTPCode) {
-    FIRInstallationsAuthTokenHTTPCodeInvalidAuthentication = 401,
-    FIRInstallationsAuthTokenHTTPCodeFIDNotFound = 404,
+  FIRInstallationsAuthTokenHTTPCodeInvalidAuthentication = 401,
+  FIRInstallationsAuthTokenHTTPCodeFIDNotFound = 404,
 };

@@ -39,44 +39,44 @@
 
 - (id)initWithListenProvider:(FListenProvider *)provider;
 - (id)initWithPersistenceManager:(FPersistenceManager *)persistenceManager
-    listenProvider:(FListenProvider *)provider;
+                  listenProvider:(FListenProvider *)provider;
 
 // These methods all return NSArray of FEvent
 - (NSArray *)applyUserOverwriteAtPath:(FPath *)path
-    newData:(id<FNode>)newData
-    writeId:(NSInteger)writeId
-    isVisible:(BOOL)visible;
+                              newData:(id<FNode>)newData
+                              writeId:(NSInteger)writeId
+                            isVisible:(BOOL)visible;
 - (NSArray *)applyUserMergeAtPath:(FPath *)path
-    changedChildren:(FCompoundWrite *)changedChildren
-    writeId:(NSInteger)writeId;
+                  changedChildren:(FCompoundWrite *)changedChildren
+                          writeId:(NSInteger)writeId;
 - (NSArray *)ackUserWriteWithWriteId:(NSInteger)writeId
-    revert:(BOOL)revert
-    persist:(BOOL)persist
-    clock:(id<FClock>)clock;
+                              revert:(BOOL)revert
+                             persist:(BOOL)persist
+                               clock:(id<FClock>)clock;
 - (NSArray *)applyServerOverwriteAtPath:(FPath *)path
-    newData:(id<FNode>)newData;
+                                newData:(id<FNode>)newData;
 - (NSArray *)applyServerMergeAtPath:(FPath *)path
-    changedChildren:(FCompoundWrite *)changedChildren;
+                    changedChildren:(FCompoundWrite *)changedChildren;
 - (NSArray *)applyServerRangeMergeAtPath:(FPath *)path
-    updates:(NSArray *)ranges;
+                                 updates:(NSArray *)ranges;
 - (NSArray *)applyTaggedQueryOverwriteAtPath:(FPath *)path
-    newData:(id<FNode>)newData
-    tagId:(NSNumber *)tagId;
+                                     newData:(id<FNode>)newData
+                                       tagId:(NSNumber *)tagId;
 - (NSArray *)applyTaggedQueryMergeAtPath:(FPath *)path
-    changedChildren:(FCompoundWrite *)changedChildren
-    tagId:(NSNumber *)tagId;
+                         changedChildren:(FCompoundWrite *)changedChildren
+                                   tagId:(NSNumber *)tagId;
 - (NSArray *)applyTaggedServerRangeMergeAtPath:(FPath *)path
-    updates:(NSArray *)ranges
-    tagId:(NSNumber *)tagId;
+                                       updates:(NSArray *)ranges
+                                         tagId:(NSNumber *)tagId;
 - (NSArray *)addEventRegistration:(id<FEventRegistration>)eventRegistration
-    forQuery:(FQuerySpec *)query;
+                         forQuery:(FQuerySpec *)query;
 - (NSArray *)removeEventRegistration:(id<FEventRegistration>)eventRegistration
-    forQuery:(FQuerySpec *)query
-    cancelError:(NSError *)cancelError;
+                            forQuery:(FQuerySpec *)query
+                         cancelError:(NSError *)cancelError;
 - (void)keepQuery:(FQuerySpec *)query synced:(BOOL)keepSynced;
 - (NSArray *)removeAllWrites;
 
 - (id<FNode>)calcCompleteEventCacheAtPath:(FPath *)path
-    excludeWriteIds:(NSArray *)writeIdsToExclude;
+                          excludeWriteIds:(NSArray *)writeIdsToExclude;
 
 @end

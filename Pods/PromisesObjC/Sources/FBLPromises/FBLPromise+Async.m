@@ -21,50 +21,51 @@
 @implementation FBLPromise (AsyncAdditions)
 
 + (instancetype)async:(FBLPromiseAsyncWorkBlock)work {
-    return [self onQueue:self.defaultDispatchQueue async:work];
+  return [self onQueue:self.defaultDispatchQueue async:work];
 }
 
-+ (instancetype)onQueue:(dispatch_queue_t)queue async:(FBLPromiseAsyncWorkBlock)work {
-    NSParameterAssert(queue);
-    NSParameterAssert(work);
++ (instancetype)onQueue:(dispatch_queue_t)queue
+                  async:(FBLPromiseAsyncWorkBlock)work {
+  NSParameterAssert(queue);
+  NSParameterAssert(work);
 
-    FBLPromise *promise = [[FBLPromise alloc] initPending];
-    dispatch_group_async(FBLPromise.dispatchGroup, queue, ^ {
-        work(
+  FBLPromise *promise = [[FBLPromise alloc] initPending];
+  dispatch_group_async(FBLPromise.dispatchGroup, queue, ^{
+    work(
         ^(id __nullable value) {
-            if ([value isKindOfClass:[FBLPromise class]]) {
-                [(FBLPromise *)value observeOnQueue:queue
-                                    fulfill:^(id __nullable value) {
-                                        [promise fulfill:value];
-                                    }
-                                    reject:^(NSError *error) {
-                    [promise reject:error];
+          if ([value isKindOfClass:[FBLPromise class]]) {
+            [(FBLPromise *)value observeOnQueue:queue
+                fulfill:^(id __nullable value) {
+                  [promise fulfill:value];
+                }
+                reject:^(NSError *error) {
+                  [promise reject:error];
                 }];
-            } else {
-                [promise fulfill:value];
-            }
+          } else {
+            [promise fulfill:value];
+          }
         },
         ^(NSError *error) {
-            [promise reject:error];
+          [promise reject:error];
         });
-    });
-    return promise;
+  });
+  return promise;
 }
 
 @end
 
 @implementation FBLPromise (DotSyntax_AsyncAdditions)
 
-+ (FBLPromise* (^)(FBLPromiseAsyncWorkBlock))async {
-    return ^(FBLPromiseAsyncWorkBlock work) {
-        return [self async:work];
-    };
++ (FBLPromise * (^)(FBLPromiseAsyncWorkBlock))async {
+  return ^(FBLPromiseAsyncWorkBlock work) {
+    return [self async:work];
+  };
 }
 
-+ (FBLPromise* (^)(dispatch_queue_t, FBLPromiseAsyncWorkBlock))asyncOn {
-    return ^(dispatch_queue_t queue, FBLPromiseAsyncWorkBlock work) {
-        return [self onQueue:queue async:work];
-    };
++ (FBLPromise * (^)(dispatch_queue_t, FBLPromiseAsyncWorkBlock))asyncOn {
+  return ^(dispatch_queue_t queue, FBLPromiseAsyncWorkBlock work) {
+    return [self onQueue:queue async:work];
+  };
 }
 
 @end
