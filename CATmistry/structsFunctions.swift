@@ -9,7 +9,7 @@ import Foundation
 
 // MARK: - Structs
 
-struct Topic {
+struct Topic: Codable {
     var title: String
     var pic: String
     var pointsNeeded: Int
@@ -18,7 +18,7 @@ struct Topic {
     var questions: [QuizQuestion]
 }
 
-struct PlayTopic {
+struct PlayTopic: Codable {
     var title: String
     var pic: String
     var pointsNeeded: Int
@@ -26,7 +26,7 @@ struct PlayTopic {
     var errorLabel: String
 }
 
-struct SubTopic {
+struct SubTopic: Codable {
     var title: String
     var pic: String
     var needSlider: Bool
@@ -36,7 +36,7 @@ struct SubTopic {
     var contentHeightDifference: Int? = nil
 }
 
-struct SubSubTopic {
+struct SubSubTopic: Codable {
     var topic: String
     var picture: String
     var id: Int
@@ -44,11 +44,11 @@ struct SubSubTopic {
     var contentHeightDifference: Int
 }
 
-struct SubContent {
+struct SubContent: Codable {
     var definition: String
 }
 
-struct SubSubContent {
+struct SubSubContent: Codable {
     var image: String
     var firstAttributionText: String
     var secondAttributionText: String
@@ -64,19 +64,19 @@ struct SubSubContent {
     var warningText: String? = nil
 }
 
-struct GameTopic {
+struct GameTopic: Codable {
     var title: String
     var pic: String
     var pointsNeeded: Int
 }
 
-struct QuizQuestion {
+struct QuizQuestion: Codable {
     var question: String
     var options: [String]
     var correctAnswer: Int
 }
 
-struct GasTestGame {
+struct GasTestGame: Codable {
     var firstGasTank: String
     var secondGasTank: String
     var thirdGasTank: String
@@ -88,7 +88,7 @@ struct GasTestGame {
     var correctGasTank: String
 }
 
-struct specificSeperationMethod: Hashable{
+struct specificSeperationMethod: Hashable, Codable {
     var name: String
     var properties: String
     var givenMethods: GivenSeperationMethods
@@ -100,7 +100,7 @@ struct specificSeperationMethod: Hashable{
     }
 }
 
-struct GivenSeperationMethods: Hashable{
+struct GivenSeperationMethods: Hashable, Codable {
     
     var methods: [SeperationMethods]
     
@@ -109,7 +109,7 @@ struct GivenSeperationMethods: Hashable{
     }
 }
 
-struct SeperationMethods: Hashable{
+struct SeperationMethods: Hashable, Codable {
     var methodName: String
     var isCorrect: Bool
     
@@ -119,12 +119,12 @@ struct SeperationMethods: Hashable{
     }
 }
 
-struct PhGame {
+struct PhGame: Codable {
     var startIsAcidic: Bool
     var indicatorButtonText: String? = nil
 }
 
-struct PhOption: Hashable {
+struct PhOption: Hashable, Codable {
     var name: String
     var image: String
     var turnUniversalTankColour: String
@@ -138,14 +138,14 @@ struct PhOption: Hashable {
     }
 }
 
-struct PeriodicTableGame {
+struct PeriodicTableGame: Codable {
     var properties: String
     var correctAns1: Int
     var correctAns2: Int
     var timeGiven: Int
 }
 
-struct SettingsContent {
+struct SettingsContent: Codable {
     var labelText: String
     var type: String
     var emojiImage: String

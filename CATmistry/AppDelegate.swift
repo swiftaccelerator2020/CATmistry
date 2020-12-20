@@ -13,6 +13,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     override init() {
         super.init()
+        
+        var ref: DatabaseReference!
+
+        ref = Database.database().reference()
+        
+        
         let ud = UserDefaults.standard
         let isDyslexic = ud.bool(forKey: "dyslexic")
         
