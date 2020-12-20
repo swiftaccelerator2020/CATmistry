@@ -26,7 +26,6 @@ class LearnHomePageTableViewController: UITableViewController {
         super.viewDidLoad()
         
         loadData()
-        tableView.reloadData()
         
         tableView.tableFooterView = UIView()
 
@@ -34,6 +33,9 @@ class LearnHomePageTableViewController: UITableViewController {
         let navbar = UINavigationBarAppearance()
         navbar.backgroundColor = UIColor(red: 242/255, green: 214/255, blue: 112/255, alpha: 1)
         self.navigationController?.navigationBar.scrollEdgeAppearance = navbar
+        
+        tableView.reloadData()
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -171,6 +173,5 @@ class LearnHomePageTableViewController: UITableViewController {
             chTwoDone,
             chThreeDone,
         ]
-        tableView.reloadData()
     }
 }

@@ -29,7 +29,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                         [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
         FirebaseApp.configure()
-        
+        Database.database().isPersistenceEnabled = true
+
         return true
     }
     
