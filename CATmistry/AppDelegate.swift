@@ -6,23 +6,31 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseDatabase
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-        override init() {
-            super.init()
-            let ud = UserDefaults.standard
-            let isDyslexic = ud.bool(forKey: "dyslexic")
+    override init() {
+        super.init()
 
-            if isDyslexic == true {
-                UIFont.overrideInitialize()
-            }
+        let ud = UserDefaults.standard
+        let isDyslexic = ud.bool(forKey: "dyslexic")
+
+        if isDyslexic == true {
+            UIFont.overrideInitialize()
         }
+    }
 
 
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+    func application(_ application: UIApplication,
+                     didFinishLaunchingWithOptions launchOptions:
+                        [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+
+        FirebaseApp.configure()
+        Database.database().isPersistenceEnabled = true
+
         return true
     }
 

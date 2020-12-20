@@ -35,6 +35,7 @@
 		5415C4182588E0610072B3E2 /* OpenDyslexic-BoldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 5415C4142588E0610072B3E2 /* OpenDyslexic-BoldItalic.otf */; };
 		5415C4192588E0610072B3E2 /* OpenDyslexic-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 5415C4152588E0610072B3E2 /* OpenDyslexic-Bold.otf */; };
 		5415C41A2588E0610072B3E2 /* OpenDyslexic-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 5415C4162588E0610072B3E2 /* OpenDyslexic-Regular.otf */; };
+		5432EDAE258ED2E800832D12 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5432EDAD258ED2E800832D12 /* GoogleService-Info.plist */; };
 		54788FCD25863A2F00A16CD2 /* QuizEndedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54788FCC25863A2F00A16CD2 /* QuizEndedViewController.swift */; };
 		547F0AD92570F5F900A224D9 /* LearnHomePageTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 547F0AD82570F5F900A224D9 /* LearnHomePageTableViewController.swift */; };
 		547F0ADE2570F66E00A224D9 /* LearnHomePageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 547F0ADD2570F66E00A224D9 /* LearnHomePageTableViewCell.swift */; };
@@ -106,6 +107,7 @@
 		5415C4152588E0610072B3E2 /* OpenDyslexic-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenDyslexic-Bold.otf"; sourceTree = "<group>"; };
 		5415C4162588E0610072B3E2 /* OpenDyslexic-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenDyslexic-Regular.otf"; sourceTree = "<group>"; };
 		5432ED79258E399400832D12 /* CATmistry.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CATmistry.entitlements; sourceTree = "<group>"; };
+		5432EDAD258ED2E800832D12 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		54788FCC25863A2F00A16CD2 /* QuizEndedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizEndedViewController.swift; sourceTree = "<group>"; };
 		547F0AD82570F5F900A224D9 /* LearnHomePageTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearnHomePageTableViewController.swift; sourceTree = "<group>"; };
 		547F0ADD2570F66E00A224D9 /* LearnHomePageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearnHomePageTableViewCell.swift; sourceTree = "<group>"; };
@@ -193,11 +195,12 @@
 				54FEFB172578609C0054CFF9 /* Learn Pages */,
 				54FEFB122578603A0054CFF9 /* Play Pages */,
 				2644004B258641F800ACFFEC /* Settings Pages */,
-				2613B0342570DB8C00EECB4C /* AppDelegate.swift */,
 				2613B03D2570DB9000EECB4C /* Assets.xcassets */,
 				2613B0422570DB9000EECB4C /* Info.plist */,
+				5432EDAD258ED2E800832D12 /* GoogleService-Info.plist */,
 				2613B03F2570DB9000EECB4C /* LaunchScreen.storyboard */,
 				2613B03A2570DB8C00EECB4C /* Main.storyboard */,
+				2613B0342570DB8C00EECB4C /* AppDelegate.swift */,
 				2613B0362570DB8C00EECB4C /* SceneDelegate.swift */,
 				547F0AEA2570F85000A224D9 /* structsFunctions.swift */,
 			);
@@ -454,6 +457,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5415C4172588E0610072B3E2 /* OpenDyslexic-Italic.otf in Resources */,
+				5432EDAE258ED2E800832D12 /* GoogleService-Info.plist in Resources */,
 				2613B0412570DB9000EECB4C /* LaunchScreen.storyboard in Resources */,
 				5415C4182588E0610072B3E2 /* OpenDyslexic-BoldItalic.otf in Resources */,
 				2613B03E2570DB9000EECB4C /* Assets.xcassets in Resources */,
@@ -795,7 +799,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = CATmistry/CATmistry.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = XL5JK4F896;
 				INFOPLIST_FILE = CATmistry/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -805,7 +809,7 @@
 				MARKETING_VERSION = 1.1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = sg.tk.2020.CATmistry;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SUPPORTS_MACCATALYST = YES;
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -819,7 +823,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = CATmistry/CATmistry.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = XL5JK4F896;
 				INFOPLIST_FILE = CATmistry/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -830,7 +834,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = sg.tk.2020.CATmistry;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SUPPORTS_MACCATALYST = YES;
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

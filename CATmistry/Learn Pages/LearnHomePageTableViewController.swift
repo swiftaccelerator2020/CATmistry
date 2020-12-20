@@ -21,14 +21,70 @@ class LearnHomePageTableViewController: UITableViewController {
         chTwoDone,
         chThreeDone,
     ]
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        let defaults = UserDefaults.standard
+        if let savedPerson = defaults.object(forKey: "learnTopics") as? Data {
+            let decoder = JSONDecoder()
+            if let loadedPerson = try? decoder.decode(Topic.self, from: savedPerson) {
+                learnTopics = [loadedPerson]
+            }
+        }
+
+        if let savedPerson = defaults.object(forKey: "gameTopics") as? Data {
+            let decoder = JSONDecoder()
+            if let loadedPerson = try? decoder.decode(PlayTopic.self, from: savedPerson) {
+                gameTopics = [loadedPerson]
+            }
+        }
+
+        if let savedPerson = defaults.object(forKey: "gameTopics") as? Data {
+            let decoder = JSONDecoder()
+            if let loadedPerson = try? decoder.decode(GasTestGame.self, from: savedPerson) {
+                gasesArray = [loadedPerson]
+            }
+        }
+
+        if let savedPerson = defaults.object(forKey: "phGameArray") as? Data {
+            let decoder = JSONDecoder()
+            if let loadedPerson = try? decoder.decode(PhGame.self, from: savedPerson) {
+                phGameArray = [[loadedPerson]]
+            }
+        }
+
+        if let savedPerson = defaults.object(forKey: "phGameOptionsArray") as? Data {
+            let decoder = JSONDecoder()
+            if let loadedPerson = try? decoder.decode(PhOption.self, from: savedPerson) {
+                phGameOptionsArray = [loadedPerson]
+            }
+        }
+
+        if let savedPerson = defaults.object(forKey: "periodicTable") as? Data {
+            let decoder = JSONDecoder()
+            if let loadedPerson = try? decoder.decode(PeriodicTableGame.self, from: savedPerson) {
+                periodicTable = [[loadedPerson]]
+            }
+        }
+
+        if let savedPerson = defaults.object(forKey: "retrieveSolidsArray") as? Data {
+            let decoder = JSONDecoder()
+            if let loadedPerson = try? decoder.decode(specificSeperationMethod.self, from: savedPerson) {
+                retrieveSolidsArray = [loadedPerson]
+            }
+        }
+
+        loadData()
+
         tableView.tableFooterView = UIView()
 
         NotificationCenter.default.addObserver(self, selector: #selector(didUpdateUserDefaults), name: UserDefaults.didChangeNotification, object: nil)
         let navbar = UINavigationBarAppearance()
         navbar.backgroundColor = UIColor(red: 242/255, green: 214/255, blue: 112/255, alpha: 1)
         self.navigationController?.navigationBar.scrollEdgeAppearance = navbar
+
+        tableView.reloadData()
+
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -140,6 +196,7 @@ class LearnHomePageTableViewController: UITableViewController {
             dest.flexibleTitle = learnTopics[indexPath.row].title
             dest.specificChapter = learnTopics[indexPath.row].subTopics
             dest.quizTopic = learnTopics[indexPath.row].questions.shuffled()
+            dest.currentTopicId = indexPath.row
         }
     }
 
@@ -154,6 +211,7 @@ class LearnHomePageTableViewController: UITableViewController {
         }
         return true
     }
+
     @objc func didUpdateUserDefaults() {
         chTwoDone = ud.bool(forKey: "chTwoDone")
         chThreeDone = ud.bool(forKey: "chThreeDone")
@@ -164,6 +222,5 @@ class LearnHomePageTableViewController: UITableViewController {
             chTwoDone,
             chThreeDone,
         ]
-        tableView.reloadData()
     }
 }
