@@ -153,6 +153,8 @@ struct SettingsContent: Codable {
 
 // MARK: - Arrays
 
+let decoder = JSONDecoder()
+
 /*
 var learnTopics = [
 // MARK: - GAS TESTS
@@ -1209,4 +1211,9 @@ func loadData() {
         retrieveSolidsArray = try! JSONDecoder().decode([specificSeperationMethod].self, from: jsonData)
 
     })
+}
+
+func getData(keyName name: String) -> Data? {
+    let defaults = UserDefaults.standard
+    return (defaults.object(forKey: name) as? Data)
 }

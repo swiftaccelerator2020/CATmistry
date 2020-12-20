@@ -24,6 +24,55 @@ class LearnHomePageTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let defaults = UserDefaults.standard
+        if let savedPerson = defaults.object(forKey: "learnTopics") as? Data {
+            let decoder = JSONDecoder()
+            if let loadedPerson = try? decoder.decode(Topic.self, from: savedPerson) {
+                learnTopics = [loadedPerson]
+            }
+        }
+        
+        if let savedPerson = defaults.object(forKey: "gameTopics") as? Data {
+            let decoder = JSONDecoder()
+            if let loadedPerson = try? decoder.decode(PlayTopic.self, from: savedPerson) {
+                gameTopics = [loadedPerson]
+            }
+        }
+        
+        if let savedPerson = defaults.object(forKey: "gameTopics") as? Data {
+            let decoder = JSONDecoder()
+            if let loadedPerson = try? decoder.decode(GasTestGame.self, from: savedPerson) {
+                gasesArray = [loadedPerson]
+            }
+        }
+        
+        if let savedPerson = defaults.object(forKey: "phGameArray") as? Data {
+            let decoder = JSONDecoder()
+            if let loadedPerson = try? decoder.decode(PhGame.self, from: savedPerson) {
+                phGameArray = [[loadedPerson]]
+            }
+        }
+        
+        if let savedPerson = defaults.object(forKey: "phGameOptionsArray") as? Data {
+            let decoder = JSONDecoder()
+            if let loadedPerson = try? decoder.decode(PhOption.self, from: savedPerson) {
+                phGameOptionsArray = [loadedPerson]
+            }
+        }
+        
+        if let savedPerson = defaults.object(forKey: "periodicTable") as? Data {
+            let decoder = JSONDecoder()
+            if let loadedPerson = try? decoder.decode(PeriodicTableGame.self, from: savedPerson) {
+                periodicTable = [loadedPerson]
+            }
+        }
+        
+        if let savedPerson = defaults.object(forKey: "retrieveSolidsArray") as? Data {
+            let decoder = JSONDecoder()
+            if let loadedPerson = try? decoder.decode(PeriodicTableGame.self, from: savedPerson) {
+                retrieveSolidsArray = [specificSeperationMethod]
+            }
+        }
         
         loadData()
         
