@@ -32,7 +32,7 @@ CATmistry is available for iOS and iPadOS 14 on the
 ## Support
 1. For Bug Reports and Feature Requests, feel free to open an [issue](https://github.com/swiftaccelerator2020/CATmistry/issues) using the appropriate tmeplate.
 2. For general Q&A, start a [discussion](https://github.com/swiftaccelerator2020/CATmistry/issues). Feel free to request feature enhancements in [Discussions](https://github.com/swiftaccelerator2020/CATmistry/issues) as well.
-3. To contact us directly, email us at [catmistryapp@gmail.com](mailto: catmistryapp@gmail.com)
+3. To contact us directly, email us at [catmistryapp@gmail.com](catmistryapp@gmail.com)
 
 ## Contributing
 
