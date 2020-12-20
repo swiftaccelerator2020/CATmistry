@@ -10,6 +10,7 @@ import UIKit
 class LearnChapterSubTopicsTableViewController: UITableViewController {
 
     var flexibleTitle: String!
+    var currentTopicId: Int!
     var specificChapter: [SubTopic]!
     var quizTopic: [QuizQuestion]!
 
@@ -113,7 +114,7 @@ class LearnChapterSubTopicsTableViewController: UITableViewController {
         if segue.identifier == "goToQuiz" {
             let destVC = segue.destination as! QuizStartViewController
             destVC.question = quizTopic
-            destVC.subTopic = self.title
+            destVC.currentTopicId = currentTopicId
         }
     }
 

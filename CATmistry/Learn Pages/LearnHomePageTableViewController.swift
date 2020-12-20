@@ -196,6 +196,7 @@ class LearnHomePageTableViewController: UITableViewController {
             dest.flexibleTitle = learnTopics[indexPath.row].title
             dest.specificChapter = learnTopics[indexPath.row].subTopics
             dest.quizTopic = learnTopics[indexPath.row].questions.shuffled()
+            dest.currentTopicId = indexPath.row
         }
     }
 
@@ -210,6 +211,7 @@ class LearnHomePageTableViewController: UITableViewController {
         }
         return true
     }
+    
     @objc func didUpdateUserDefaults() {
         chTwoDone = ud.bool(forKey: "chTwoDone")
         chThreeDone = ud.bool(forKey: "chThreeDone")
