@@ -2,6 +2,8 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>DATABASE_URL</key>
+	<string>https://catmistry-swift-default-rtdb.firebaseio.com/</string>
 	<key>CLIENT_ID</key>
 	<string>301092190216-tm2uk746unk4lld20atu45odij977tp2.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
@@ -19,15 +21,15 @@
 	<key>STORAGE_BUCKET</key>
 	<string>catmistry-swift.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
-	<false></false>
+	<false/>
 	<key>IS_ANALYTICS_ENABLED</key>
-	<false></false>
+	<false/>
 	<key>IS_APPINVITE_ENABLED</key>
-	<true></true>
+	<true/>
 	<key>IS_GCM_ENABLED</key>
-	<true></true>
+	<true/>
 	<key>IS_SIGNIN_ENABLED</key>
-	<true></true>
+	<true/>
 	<key>GOOGLE_APP_ID</key>
 	<string>1:301092190216:ios:4346879a218b93cc6079bd</string>
 </dict>
