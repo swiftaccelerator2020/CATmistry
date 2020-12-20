@@ -3,7 +3,7 @@ set -e
 set -u
 set -o pipefail
 
-function on_error {
+function on_error() {
   echo "$(realpath -mq "${0}"):$1: error: Unexpected failure"
 }
 trap 'on_error $LINENO' ERR
@@ -28,8 +28,7 @@ STRIP_BINARY_RETVAL=0
 RSYNC_PROTECT_TMP_FILES=(--filter "P .*.??????")
 
 # Copies and strips a vendored framework
-install_framework()
-{
+install_framework() {
   if [ -r "$BUILT_PRODUCTS_DIR/$1" ]; then
     local source="$BUILT_PRODUCTS_DIR/$1"
   elif [ -r "$BUILT_PRODUCTS_DIR/$(basename "$1")" ]; then
@@ -113,10 +112,10 @@ install_dsym() {
 
 # Copies the bcsymbolmap files of a vendored framework
 install_bcsymbolmap() {
-    local bcsymbolmap_path="$1"
-    local destination="$BUILT_PRODUCTS_DIR"
-    echo "rsync --delete -av ""${RSYNC_PROTECT_TMP_FILES[@]} --filter "- CVS/" --filter "- .svn/" --filter "- .git/" --filter "- .hg/" --filter "- Headers" --filter "- PrivateHeaders" --filter "- Modules" ""$bcsymbolmap_path ""$destination"
-    rsync --delete -av "${RSYNC_PROTECT_TMP_FILES[@]}" --filter "- CVS/" --filter "- .svn/" --filter "- .git/" --filter "- .hg/" --filter "- Headers" --filter "- PrivateHeaders" --filter "- Modules" "$bcsymbolmap_path" "$destination"
+  local bcsymbolmap_path="$1"
+  local destination="$BUILT_PRODUCTS_DIR"
+  echo "rsync --delete -av ""${RSYNC_PROTECT_TMP_FILES[@]} --filter "- CVS/" --filter "- .svn/" --filter "- .git/" --filter "- .hg/" --filter "- Headers" --filter "- PrivateHeaders" --filter "- Modules" ""$bcsymbolmap_path ""$destination"
+  rsync --delete -av "${RSYNC_PROTECT_TMP_FILES[@]}" --filter "- CVS/" --filter "- .svn/" --filter "- .git/" --filter "- .hg/" --filter "- Headers" --filter "- PrivateHeaders" --filter "- Modules" "$bcsymbolmap_path" "$destination"
 }
 
 # Signs a framework with the provided identity
@@ -168,19 +167,19 @@ install_artifact() {
   artifact="$1"
   base="$(basename "$artifact")"
   case $base in
-  *.framework)
-    install_framework "$artifact"
-    ;;
-  *.dSYM)
-    # Suppress arch warnings since XCFrameworks will include many dSYM files
-    install_dsym "$artifact" "false"
-    ;;
-  *.bcsymbolmap)
-    install_bcsymbolmap "$artifact"
-    ;;
-  *)
-    echo "error: Unrecognized artifact ""$artifact"
-    ;;
+    *.framework)
+      install_framework "$artifact"
+      ;;
+    *.dSYM)
+      # Suppress arch warnings since XCFrameworks will include many dSYM files
+      install_dsym "$artifact" "false"
+      ;;
+    *.bcsymbolmap)
+      install_bcsymbolmap "$artifact"
+      ;;
+    *)
+      echo "error: Unrecognized artifact ""$artifact"
+      ;;
   esac
 }
 
