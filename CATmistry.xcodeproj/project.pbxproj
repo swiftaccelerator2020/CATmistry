@@ -197,8 +197,8 @@
 				2644004B258641F800ACFFEC /* Settings Pages */,
 				2613B03D2570DB9000EECB4C /* Assets.xcassets */,
 				2613B0422570DB9000EECB4C /* Info.plist */,
-				2613B03F2570DB9000EECB4C /* LaunchScreen.storyboard */,
 				5432EDAD258ED2E800832D12 /* GoogleService-Info.plist */,
+				2613B03F2570DB9000EECB4C /* LaunchScreen.storyboard */,
 				2613B03A2570DB8C00EECB4C /* Main.storyboard */,
 				2613B0342570DB8C00EECB4C /* AppDelegate.swift */,
 				2613B0362570DB8C00EECB4C /* SceneDelegate.swift */,
@@ -806,7 +806,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1.1;
+				MARKETING_VERSION = 1.1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = sg.tk.2020.CATmistry;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTS_MACCATALYST = NO;
@@ -830,7 +830,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1.1;
+				MARKETING_VERSION = 1.1.0;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = sg.tk.2020.CATmistry;
 				PRODUCT_NAME = "$(TARGET_NAME)";

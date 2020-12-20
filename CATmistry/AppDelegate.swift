@@ -15,22 +15,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     override init() {
         super.init()
         
-        FirebaseApp.configure()
-
-        var ref: DatabaseReference!
-
-        ref = Database.database().reference(withPath: "learnTopics")
-        
-        ref!.observe(.value, with: { (snapshot) in
-            
-            let jsonData = try! JSONSerialization.data(withJSONObject: snapshot.value!, options: .prettyPrinted)
-            
-            learnTopics = try! JSONDecoder().decode([Topic].self, from: jsonData)
-
-        })
-        
-
-            
         let ud = UserDefaults.standard
         let isDyslexic = ud.bool(forKey: "dyslexic")
         
@@ -43,6 +27,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication,
                      didFinishLaunchingWithOptions launchOptions:
                         [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        
+        FirebaseApp.configure()
+        
         return true
     }
     

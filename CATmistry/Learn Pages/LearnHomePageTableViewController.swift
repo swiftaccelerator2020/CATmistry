@@ -21,8 +21,13 @@ class LearnHomePageTableViewController: UITableViewController {
         chTwoDone,
         chThreeDone,
     ]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        loadData()
+        tableView.reloadData()
+        
         tableView.tableFooterView = UIView()
 
         NotificationCenter.default.addObserver(self, selector: #selector(didUpdateUserDefaults), name: UserDefaults.didChangeNotification, object: nil)
