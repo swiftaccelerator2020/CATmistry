@@ -29,8 +29,8 @@
 @implementation FRangeMerge
 
 - (instancetype)initWithStart:(FPath *)start
-                          end:(FPath *)end
-                      updates:(id<FNode>)updates {
+    end:(FPath *)end
+    updates:(id<FNode>)updates {
     self = [super init];
     if (self != nil) {
         self->_optExclusiveStart = start;
@@ -42,27 +42,27 @@
 
 - (id<FNode>)applyToNode:(id<FNode>)node {
     return [self updateRangeInNode:[FPath empty]
-                              node:node
-                           updates:self.updates];
+                 node:node
+                 updates:self.updates];
 }
 
 - (id<FNode>)updateRangeInNode:(FPath *)currentPath
-                          node:(id<FNode>)node
-                       updates:(id<FNode>)updates {
+    node:(id<FNode>)node
+    updates:(id<FNode>)updates {
     NSComparisonResult startComparison =
         (self.optExclusiveStart == nil)
-            ? NSOrderedDescending
-            : [currentPath compare:self.optExclusiveStart];
+        ? NSOrderedDescending
+        : [currentPath compare:self.optExclusiveStart];
     NSComparisonResult endComparison =
         (self.optInclusiveEnd == nil)
-            ? NSOrderedAscending
-            : [currentPath compare:self.optInclusiveEnd];
+        ? NSOrderedAscending
+        : [currentPath compare:self.optInclusiveEnd];
     BOOL startInNode = self.optExclusiveStart != nil &&
                        [currentPath contains:self.optExclusiveStart];
     BOOL endInNode = self.optInclusiveEnd != nil &&
                      [currentPath contains:self.optInclusiveEnd];
     if (startComparison == NSOrderedDescending &&
-        endComparison == NSOrderedAscending && !endInNode) {
+            endComparison == NSOrderedAscending && !endInNode) {
         // child is completly contained
         return updates;
     } else if (startComparison == NSOrderedDescending && endInNode &&
@@ -72,7 +72,7 @@
                endComparison == NSOrderedSame) {
         NSAssert(endInNode, @"End not in node");
         NSAssert(![updates isLeafNode], @"Found leaf node update, this case "
-                                        @"should have been handled above.");
+                 @"should have been handled above.");
         if ([node isLeafNode]) {
             // Update node was not a leaf node, so we can delete it
             return [FEmptyNode emptyNode];
@@ -85,26 +85,26 @@
         // children
         NSMutableSet *allChildren = [NSMutableSet set];
         [node enumerateChildrenUsingBlock:^(NSString *key, id<FNode> node,
-                                            BOOL *stop) {
-          [allChildren addObject:key];
-        }];
+             BOOL *stop) {
+                 [allChildren addObject:key];
+             }];
         [updates enumerateChildrenUsingBlock:^(NSString *key, id<FNode> node,
-                                               BOOL *stop) {
-          [allChildren addObject:key];
-        }];
+                BOOL *stop) {
+                    [allChildren addObject:key];
+                }];
 
         __block id<FNode> newNode = node;
         void (^action)(id, BOOL *) = ^void(NSString *key, BOOL *stop) {
-          id<FNode> currentChild = [node getImmediateChild:key];
-          id<FNode> updatedChild =
-              [self updateRangeInNode:[currentPath childFromString:key]
-                                 node:currentChild
-                              updates:[updates getImmediateChild:key]];
-          // Only need to update if the node changed
-          if (updatedChild != currentChild) {
-              newNode = [newNode updateImmediateChild:key
-                                         withNewChild:updatedChild];
-          }
+            id<FNode> currentChild = [node getImmediateChild:key];
+            id<FNode> updatedChild =
+                [self updateRangeInNode:[currentPath childFromString:key]
+                      node:currentChild
+                      updates:[updates getImmediateChild:key]];
+            // Only need to update if the node changed
+            if (updatedChild != currentChild) {
+                newNode = [newNode updateImmediateChild:key
+                                   withNewChild:updatedChild];
+            }
         };
 
         [allChildren enumerateObjectsUsingBlock:action];
@@ -118,7 +118,7 @@
     } else {
         // Unaffected by this range
         NSAssert(endComparison == NSOrderedDescending ||
-                     startComparison <= NSOrderedSame,
+                 startComparison <= NSOrderedSame,
                  @"Invalid range for update");
         return node;
     }
@@ -126,9 +126,9 @@
 
 - (NSString *)description {
     return [NSString stringWithFormat:@"RangeMerge (optExclusiveStart = %@, "
-                                      @"optExclusiveEng = %@, updates = %@)",
-                                      self.optExclusiveStart,
-                                      self.optInclusiveEnd, self.updates];
+                     @"optExclusiveEng = %@, updates = %@)",
+                     self.optExclusiveStart,
+                     self.optInclusiveEnd, self.updates];
 }
 
 @end

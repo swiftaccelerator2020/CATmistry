@@ -22,7 +22,7 @@ NS_ASSUME_NONNULL_BEGIN
 NS_SWIFT_NAME(InstallationsAuthTokenResult)
 @interface FIRInstallationsAuthTokenResult : NSObject
 
-/** The authorization token string. */
+    /** The authorization token string. */
 @property(nonatomic, readonly) NSString *authToken;
 
 /** The auth token expiration date. */

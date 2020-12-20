@@ -41,15 +41,15 @@ static FImmutableSortedSet *FALLBACK_INDEX;
 + (FImmutableSortedSet *)fallbackIndex {
     static FImmutableSortedSet *fallbackIndex;
     static dispatch_once_t once;
-    dispatch_once(&once, ^{
-      fallbackIndex = [[FImmutableSortedSet alloc] init];
+    dispatch_once(&once, ^ {
+        fallbackIndex = [[FImmutableSortedSet alloc] init];
     });
     return fallbackIndex;
 }
 
 + (FIndexedNode *)indexedNodeWithNode:(id<FNode>)node {
     return [[FIndexedNode alloc] initWithNode:node
-                                        index:[FPriorityIndex priorityIndex]];
+                                 index:[FPriorityIndex priorityIndex]];
 }
 
 + (FIndexedNode *)indexedNodeWithNode:(id<FNode>)node index:(id<FIndex>)index {
@@ -62,8 +62,8 @@ static FImmutableSortedSet *FALLBACK_INDEX;
 }
 
 - (id)initWithNode:(id<FNode>)node
-             index:(id<FIndex>)index
-           indexed:(FImmutableSortedSet *)indexed {
+    index:(id<FIndex>)index
+    indexed:(FImmutableSortedSet *)indexed {
     self = [super init];
     if (self != nil) {
         self->_node = node;
@@ -80,29 +80,29 @@ static FImmutableSortedSet *FALLBACK_INDEX;
         } else {
             __block BOOL sawChild = NO;
             [self.node enumerateChildrenUsingBlock:^(
-                           NSString *key, id<FNode> node, BOOL *stop) {
-              sawChild = sawChild || [self.index isDefinedOn:node];
-              *stop = sawChild;
-            }];
+                      NSString *key, id<FNode> node, BOOL *stop) {
+                          sawChild = sawChild || [self.index isDefinedOn:node];
+                          *stop = sawChild;
+                      }];
             if (sawChild) {
                 NSMutableDictionary *dict = [NSMutableDictionary dictionary];
                 [self.node enumerateChildrenUsingBlock:^(
-                               NSString *key, id<FNode> node, BOOL *stop) {
-                  FNamedNode *namedNode =
-                      [[FNamedNode alloc] initWithName:key andNode:node];
-                  dict[namedNode] = [NSNull null];
+                          NSString *key, id<FNode> node, BOOL *stop) {
+                              FNamedNode *namedNode =
+                                  [[FNamedNode alloc] initWithName:key andNode:node];
+                    dict[namedNode] = [NSNull null];
                 }];
                 // Make sure to assign index here, because the comparator will
                 // be retained and using self will cause a cycle
                 id<FIndex> index = self.index;
                 self.indexed = [FImmutableSortedSet
-                    setWithKeysFromDictionary:dict
-                                   comparator:^NSComparisonResult(
-                                       FNamedNode *namedNode1,
-                                       FNamedNode *namedNode2) {
-                                     return [index compareNamedNode:namedNode1
-                                                        toNamedNode:namedNode2];
-                                   }];
+                                setWithKeysFromDictionary:dict
+                                comparator:^NSComparisonResult(
+                                    FNamedNode *namedNode1,
+                FNamedNode *namedNode2) {
+                    return [index compareNamedNode:namedNode1
+                            toNamedNode:namedNode2];
+                }];
             } else {
                 self.indexed = [FIndexedNode fallbackIndex];
             }
@@ -115,37 +115,37 @@ static FImmutableSortedSet *FALLBACK_INDEX;
 }
 
 - (FIndexedNode *)updateChild:(NSString *)key
-                 withNewChild:(id<FNode>)newChildNode {
+    withNewChild:(id<FNode>)newChildNode {
     id<FNode> newNode = [self.node updateImmediateChild:key
-                                           withNewChild:newChildNode];
+                                   withNewChild:newChildNode];
     if (self.indexed == [FIndexedNode fallbackIndex] &&
-        ![self.index isDefinedOn:newChildNode]) {
+            ![self.index isDefinedOn:newChildNode]) {
         // doesn't affect the index, no need to create an index
         return [[FIndexedNode alloc] initWithNode:newNode
-                                            index:self.index
-                                          indexed:[FIndexedNode fallbackIndex]];
+                                     index:self.index
+                                     indexed:[FIndexedNode fallbackIndex]];
     } else if (!self.indexed || self.indexed == [FIndexedNode fallbackIndex]) {
         // No need to index yet, index lazily
         return [[FIndexedNode alloc] initWithNode:newNode index:self.index];
     } else {
         id<FNode> oldChild = [self.node getImmediateChild:key];
         FImmutableSortedSet *newIndexed = [self.indexed
-            removeObject:[FNamedNode nodeWithName:key node:oldChild]];
+                                           removeObject:[FNamedNode nodeWithName:key node:oldChild]];
         if (![newChildNode isEmpty]) {
             newIndexed = [newIndexed
-                addObject:[FNamedNode nodeWithName:key node:newChildNode]];
+                          addObject:[FNamedNode nodeWithName:key node:newChildNode]];
         }
         return [[FIndexedNode alloc] initWithNode:newNode
-                                            index:self.index
-                                          indexed:newIndexed];
+                                     index:self.index
+                                     indexed:newIndexed];
     }
 }
 
 - (FIndexedNode *)updatePriority:(id<FNode>)priority {
     return
         [[FIndexedNode alloc] initWithNode:[self.node updatePriority:priority]
-                                     index:self.index
-                                   indexed:self.indexed];
+                              index:self.index
+                              indexed:self.indexed];
 }
 
 - (FNamedNode *)firstChild {
@@ -175,34 +175,34 @@ static FImmutableSortedSet *FALLBACK_INDEX;
 }
 
 - (NSString *)predecessorForChildKey:(NSString *)childKey
-                           childNode:(id<FNode>)childNode
-                               index:(id<FIndex>)index {
+    childNode:(id<FNode>)childNode
+    index:(id<FIndex>)index {
     if (![self.index isEqual:index]) {
         [NSException raise:NSInvalidArgumentException
-                    format:@"Index not available in IndexedNode!"];
+                     format:@"Index not available in IndexedNode!"];
     }
     [self ensureIndexed];
     if (self.indexed == [FIndexedNode fallbackIndex]) {
         return [self.node predecessorChildKey:childKey];
     } else {
         FNamedNode *node = [self.indexed
-            predecessorEntry:[FNamedNode nodeWithName:childKey node:childNode]];
+                            predecessorEntry:[FNamedNode nodeWithName:childKey node:childNode]];
         return node.name;
     }
 }
 
 - (void)enumerateChildrenReverse:(BOOL)reverse
-                      usingBlock:
-                          (void (^)(NSString *, id<FNode>, BOOL *))block {
+    usingBlock:
+    (void (^)(NSString *, id<FNode>, BOOL *))block {
     [self ensureIndexed];
     if (self.indexed == [FIndexedNode fallbackIndex]) {
         [self.node enumerateChildrenReverse:reverse usingBlock:block];
     } else {
         [self.indexed
-            enumerateObjectsReverse:reverse
-                         usingBlock:^(FNamedNode *namedNode, BOOL *stop) {
-                           block(namedNode.name, namedNode.node, stop);
-                         }];
+         enumerateObjectsReverse:reverse
+        usingBlock:^(FNamedNode *namedNode, BOOL *stop) {
+            block(namedNode.name, namedNode.node, stop);
+        }];
     }
 }
 

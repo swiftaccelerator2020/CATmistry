@@ -24,7 +24,7 @@
 
 - (id<FNode>)completeChild:(NSString *)childKey;
 - (FNamedNode *)childByIndex:(id<FIndex>)index
-                  afterChild:(FNamedNode *)child
-                   isReverse:(BOOL)reverse;
+    afterChild:(FNamedNode *)child
+    isReverse:(BOOL)reverse;
 
 @end

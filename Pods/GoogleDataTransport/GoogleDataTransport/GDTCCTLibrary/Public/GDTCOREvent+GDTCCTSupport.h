@@ -32,9 +32,9 @@ FOUNDATION_EXPORT NSString *const GDTCCTNetworkConnectionInfo;
  */
 @interface GDTCOREvent (GDTCCTSupport)
 
-/** If YES, needs the network connection info field set during prioritization.
- * @note Uses the GDTCOREvent customBytes property.
- */
+    /** If YES, needs the network connection info field set during prioritization.
+     * @note Uses the GDTCOREvent customBytes property.
+     */
 @property(nonatomic) BOOL needsNetworkConnectionInfoPopulated;
 
 /** The network connection info as collected at the time of the event.

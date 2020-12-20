@@ -32,10 +32,10 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GDTCORTransformer : NSObject <GDTCORLifecycleProtocol>
 
-/** Instantiates or returns the event transformer singleton.
- *
- * @return The singleton instance of the event transformer.
- */
+    /** Instantiates or returns the event transformer singleton.
+     *
+     * @return The singleton instance of the event transformer.
+     */
 + (instancetype)sharedInstance;
 
 /** Writes the result of applying the given transformers' -transform method on the given event.
@@ -48,8 +48,8 @@ NS_ASSUME_NONNULL_BEGIN
  * @param completion A block to run when an event was written to disk or dropped.
  */
 - (void)transformEvent:(GDTCOREvent *)event
-      withTransformers:(nullable NSArray<id<GDTCOREventTransformer>> *)transformers
-            onComplete:(void (^_Nullable)(BOOL wasWritten, NSError *_Nullable error))completion;
+    withTransformers:(nullable NSArray<id<GDTCOREventTransformer>> *)transformers
+    onComplete:(void (^_Nullable)(BOOL wasWritten, NSError *_Nullable error))completion;
 
 @end
 

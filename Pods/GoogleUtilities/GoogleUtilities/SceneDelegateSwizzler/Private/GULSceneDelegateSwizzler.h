@@ -31,14 +31,14 @@ typedef NSString *const GULSceneDelegateInterceptorID;
 
 #if UISCENE_SUPPORTED
 
-/** Registers a scene delegate interceptor whose methods will be invoked as they're invoked on the
- *  original scene delegate.
- *
- *  @param interceptor An instance of a class that conforms to the application delegate protocol.
- *      The interceptor is NOT retained.
- *  @return A unique GULSceneDelegateInterceptorID if interceptor was successfully registered; nil
- *      if it fails.
- */
+    /** Registers a scene delegate interceptor whose methods will be invoked as they're invoked on the
+     *  original scene delegate.
+     *
+     *  @param interceptor An instance of a class that conforms to the application delegate protocol.
+     *      The interceptor is NOT retained.
+     *  @return A unique GULSceneDelegateInterceptorID if interceptor was successfully registered; nil
+     *      if it fails.
+     */
 + (nullable GULSceneDelegateInterceptorID)registerSceneDelegateInterceptor:
     (id<UISceneDelegate>)interceptor API_AVAILABLE(ios(13.0), tvos(13.0));
 

@@ -37,10 +37,10 @@
 
 - (id)init {
     return [self
-        initWithPriority:nil
-                children:[FImmutableSortedDictionary
-                             dictionaryWithComparator:[FUtilities
-                                                          keyComparator]]];
+            initWithPriority:nil
+            children:[FImmutableSortedDictionary
+                      dictionaryWithComparator:[FUtilities
+                              keyComparator]]];
 }
 
 - (id)initWithChildren:(FImmutableSortedDictionary *)someChildren {
@@ -48,10 +48,10 @@
 }
 
 - (id)initWithPriority:(id<FNode>)aPriority
-              children:(FImmutableSortedDictionary *)someChildren {
+    children:(FImmutableSortedDictionary *)someChildren {
     if (someChildren.isEmpty && aPriority != nil && ![aPriority isEmpty]) {
         [NSException raise:NSInvalidArgumentException
-                    format:@"Can't create empty node with priority!"];
+                     format:@"Can't create empty node with priority!"];
     }
     self = [super init];
     if (self) {
@@ -85,7 +85,7 @@
         return [FEmptyNode emptyNode];
     } else {
         return [[FChildrenNode alloc] initWithPriority:aPriority
-                                              children:self.children];
+                                      children:self.children];
     }
 }
 
@@ -112,7 +112,7 @@
 }
 
 - (id<FNode>)updateImmediateChild:(NSString *)childName
-                     withNewChild:(id<FNode>)newChildNode {
+    withNewChild:(id<FNode>)newChildNode {
     NSAssert(newChildNode != nil, @"Should always be passing nodes.");
 
     if ([childName isEqualToString:@".priority"]) {
@@ -123,13 +123,13 @@
             newChildren = [self.children removeObjectForKey:childName];
         } else {
             newChildren = [self.children setObject:newChildNode
-                                            forKey:childName];
+                                         forKey:childName];
         }
         if (newChildren.isEmpty) {
             return [FEmptyNode emptyNode];
         } else {
             return [[FChildrenNode alloc] initWithPriority:self.getPriority
-                                                  children:newChildren];
+                                          children:newChildren];
         }
     }
 }
@@ -143,7 +143,7 @@
                  @".priority must be the last token in a path.");
         id<FNode> newImmediateChild =
             [[self getImmediateChild:front] updateChild:[path popFront]
-                                           withNewChild:newChildNode];
+                                            withNewChild:newChildNode];
         return [self updateImmediateChild:front withNewChild:newImmediateChild];
     }
 }
@@ -172,31 +172,31 @@
     NSMutableDictionary *obj =
         [[NSMutableDictionary alloc] initWithCapacity:[self.children count]];
     [self enumerateChildrenUsingBlock:^(NSString *key, id<FNode> childNode,
-                                        BOOL *stop) {
-      [obj setObject:[childNode valForExport:exp] forKey:key];
+         BOOL *stop) {
+             [obj setObject:[childNode valForExport:exp] forKey:key];
 
-      numKeys++;
+             numKeys++;
 
-      // If we already found a string key, don't bother with any of this
-      if (!allIntegerKeys) {
-          return;
-      }
+             // If we already found a string key, don't bother with any of this
+             if (!allIntegerKeys) {
+            return;
+        }
 
-      // Treat leading zeroes that are not exactly "0" as strings
-      NSString *firstChar = [key substringWithRange:NSMakeRange(0, 1)];
-      if ([firstChar isEqualToString:@"0"] && [key length] > 1) {
-          allIntegerKeys = NO;
-      } else {
-          NSNumber *keyAsNum = [FUtilities intForString:key];
-          if (keyAsNum != nil) {
-              NSInteger keyAsInt = [keyAsNum integerValue];
-              if (keyAsInt > maxKey) {
-                  maxKey = keyAsInt;
-              }
-          } else {
-              allIntegerKeys = NO;
-          }
-      }
+        // Treat leading zeroes that are not exactly "0" as strings
+        NSString *firstChar = [key substringWithRange:NSMakeRange(0, 1)];
+        if ([firstChar isEqualToString:@"0"] && [key length] > 1) {
+            allIntegerKeys = NO;
+        } else {
+            NSNumber *keyAsNum = [FUtilities intForString:key];
+            if (keyAsNum != nil) {
+                NSInteger keyAsInt = [keyAsNum integerValue];
+                if (keyAsInt > maxKey) {
+                    maxKey = keyAsInt;
+                }
+            } else {
+                allIntegerKeys = NO;
+            }
+        }
     }];
 
     if (!exp && allIntegerKeys && maxKey < 2 * numKeys) {
@@ -230,52 +230,52 @@
         if (!self.getPriority.isEmpty) {
             [toHash appendString:@"priority:"];
             [FSnapshotUtilities
-                appendHashRepresentationForLeafNode:(FLeafNode *)
-                                                        self.getPriority
-                                           toString:toHash
-                                        hashVersion:FDataHashVersionV1];
+             appendHashRepresentationForLeafNode:(FLeafNode *)
+             self.getPriority
+             toString:toHash
+             hashVersion:FDataHashVersionV1];
             [toHash appendString:@":"];
         }
 
         __block BOOL sawPriority = NO;
         [self enumerateChildrenUsingBlock:^(NSString *key, id<FNode> node,
-                                            BOOL *stop) {
-          sawPriority = sawPriority || [[node getPriority] isEmpty];
-          *stop = sawPriority;
-        }];
+             BOOL *stop) {
+                 sawPriority = sawPriority || [[node getPriority] isEmpty];
+                 *stop = sawPriority;
+             }];
         if (sawPriority) {
             NSMutableArray *array = [NSMutableArray array];
             [self enumerateChildrenUsingBlock:^(NSString *key, id<FNode> node,
-                                                BOOL *stop) {
-              FNamedNode *namedNode = [[FNamedNode alloc] initWithName:key
-                                                               andNode:node];
-              [array addObject:namedNode];
+                 BOOL *stop) {
+                     FNamedNode *namedNode = [[FNamedNode alloc] initWithName:key
+                                         andNode:node];
+                [array addObject:namedNode];
             }];
             [array sortUsingComparator:^NSComparisonResult(
-                       FNamedNode *namedNode1, FNamedNode *namedNode2) {
-              return
-                  [[FPriorityIndex priorityIndex] compareNamedNode:namedNode1
-                                                       toNamedNode:namedNode2];
-            }];
+                  FNamedNode *namedNode1, FNamedNode *namedNode2) {
+                      return
+                          [[FPriorityIndex priorityIndex] compareNamedNode:namedNode1
+                           toNamedNode:namedNode2];
+                  }];
             [array enumerateObjectsUsingBlock:^(FNamedNode *namedNode,
-                                                NSUInteger idx, BOOL *stop) {
-              NSString *childHash = [namedNode.node dataHash];
-              if (![childHash isEqualToString:@""]) {
-                  [toHash appendFormat:@":%@:%@", namedNode.name, childHash];
-              }
+                  NSUInteger idx, BOOL *stop) {
+                      NSString *childHash = [namedNode.node dataHash];
+                if (![childHash isEqualToString:@""]) {
+                    [toHash appendFormat:@":%@:%@", namedNode.name, childHash];
+                }
             }];
         } else {
             [self enumerateChildrenUsingBlock:^(NSString *key, id<FNode> node,
-                                                BOOL *stop) {
-              NSString *childHash = [node dataHash];
-              if (![childHash isEqualToString:@""]) {
-                  [toHash appendFormat:@":%@:%@", key, childHash];
-              }
+                 BOOL *stop) {
+                     NSString *childHash = [node dataHash];
+                if (![childHash isEqualToString:@""]) {
+                    [toHash appendFormat:@":%@:%@", key, childHash];
+                }
             }];
         }
         self.lazyHash = [toHash isEqualToString:@""]
-                            ? @""
-                            : [FStringUtilities base64EncodedSha1:toHash];
+                        ? @""
+                        : [FStringUtilities base64EncodedSha1:toHash];
     }
     return self.lazyHash;
 }
@@ -316,12 +316,12 @@
         } else if (self.children.count == otherChildrenNode.children.count) {
             __block BOOL equal = YES;
             [self enumerateChildrenUsingBlock:^(NSString *key, id<FNode> node,
-                                                BOOL *stop) {
-              id<FNode> child = [otherChildrenNode getImmediateChild:key];
-              if (![child isEqual:node]) {
-                  equal = NO;
-                  *stop = YES;
-              }
+                 BOOL *stop) {
+                     id<FNode> child = [otherChildrenNode getImmediateChild:key];
+                if (![child isEqual:node]) {
+                    equal = NO;
+                    *stop = YES;
+                }
             }];
             return equal;
         } else {
@@ -333,53 +333,53 @@
 - (NSUInteger)hash {
     __block NSUInteger hashCode = 0;
     [self enumerateChildrenUsingBlock:^(NSString *key, id<FNode> node,
-                                        BOOL *stop) {
-      hashCode = 31 * hashCode + key.hash;
-      hashCode = 17 * hashCode + node.hash;
-    }];
+         BOOL *stop) {
+             hashCode = 31 * hashCode + key.hash;
+             hashCode = 17 * hashCode + node.hash;
+         }];
     return 17 * hashCode + self.priorityNode.hash;
 }
 
 - (void)enumerateChildrenAndPriorityUsingBlock:(void (^)(NSString *, id<FNode>,
-                                                         BOOL *))block {
+    BOOL *))block {
     if ([self.getPriority isEmpty]) {
         [self enumerateChildrenUsingBlock:block];
     } else {
         __block BOOL passedPriorityKey = NO;
         [self enumerateChildrenUsingBlock:^(NSString *key, id<FNode> node,
-                                            BOOL *stop) {
-          if (!passedPriorityKey &&
-              [FUtilities compareKey:key
-                               toKey:@".priority"] == NSOrderedDescending) {
-              passedPriorityKey = YES;
-              BOOL stopAfterPriority = NO;
-              block(@".priority", [self getPriority], &stopAfterPriority);
-              if (stopAfterPriority)
-                  return;
-          }
-          block(key, node, stop);
+             BOOL *stop) {
+                 if (!passedPriorityKey &&
+                     [FUtilities compareKey:key
+                 toKey:@".priority"] == NSOrderedDescending) {
+                     passedPriorityKey = YES;
+                     BOOL stopAfterPriority = NO;
+                block(@".priority", [self getPriority], &stopAfterPriority);
+                if (stopAfterPriority)
+                    return;
+            }
+            block(key, node, stop);
         }];
     }
 }
 
 - (void)enumerateChildrenUsingBlock:(void (^)(NSString *, id<FNode>,
-                                              BOOL *))block {
+    BOOL *))block {
     [self.children enumerateKeysAndObjectsUsingBlock:block];
 }
 
 - (void)enumerateChildrenReverse:(BOOL)reverse
-                      usingBlock:
-                          (void (^)(NSString *, id<FNode>, BOOL *))block {
+    usingBlock:
+    (void (^)(NSString *, id<FNode>, BOOL *))block {
     [self.children enumerateKeysAndObjectsReverse:reverse usingBlock:block];
 }
 
 - (NSEnumerator *)childEnumerator {
     return [[FTransformedEnumerator alloc]
-        initWithEnumerator:self.children.keyEnumerator
-              andTransform:^id(NSString *key) {
-                return [FNamedNode nodeWithName:key
-                                           node:[self getImmediateChild:key]];
-              }];
+            initWithEnumerator:self.children.keyEnumerator
+    andTransform:^id(NSString *key) {
+        return [FNamedNode nodeWithName:key
+                node:[self getImmediateChild:key]];
+    }];
 }
 
 - (NSString *)predecessorChildKey:(NSString *)childKey {
@@ -398,7 +398,7 @@
     if (childKey) {
         return
             [[FNamedNode alloc] initWithName:childKey
-                                     andNode:[self getImmediateChild:childKey]];
+                                andNode:[self getImmediateChild:childKey]];
     } else {
         return nil;
     }
@@ -409,7 +409,7 @@
     if (childKey) {
         return
             [[FNamedNode alloc] initWithName:childKey
-                                     andNode:[self getImmediateChild:childKey]];
+                                andNode:[self getImmediateChild:childKey]];
     } else {
         return nil;
     }

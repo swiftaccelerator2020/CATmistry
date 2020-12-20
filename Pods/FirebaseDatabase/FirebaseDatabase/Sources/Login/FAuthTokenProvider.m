@@ -33,16 +33,16 @@
 @implementation FAuthStateListenerWrapper
 
 - (instancetype)initWithListener:(fbt_void_nsstring)listener
-                            auth:(id<FIRAuthInterop>)auth {
+    auth:(id<FIRAuthInterop>)auth {
     self = [super init];
     if (self != nil) {
         self->_listener = listener;
         self->_auth = auth;
         [[NSNotificationCenter defaultCenter]
-            addObserver:self
-               selector:@selector(authStateDidChangeNotification:)
-                   name:FIRAuthStateDidChangeInternalNotification
-                 object:nil];
+         addObserver:self
+         selector:@selector(authStateDidChangeNotification:)
+         name:FIRAuthStateDidChangeInternalNotification
+         object:nil];
     }
     return self;
 }
@@ -52,8 +52,8 @@
     if (notification.object == self.auth) {
         NSString *token =
             userInfo[FIRAuthStateDidChangeInternalNotificationTokenKey];
-        dispatch_async([FIRDatabaseQuery sharedQueue], ^{
-          self.listener(token);
+        dispatch_async([FIRDatabaseQuery sharedQueue], ^ {
+            self.listener(token);
         });
     }
 }
@@ -87,25 +87,25 @@
 }
 
 - (void)fetchTokenForcingRefresh:(BOOL)forceRefresh
-                    withCallback:(fbt_void_nsstring_nserror)callback {
+    withCallback:(fbt_void_nsstring_nserror)callback {
     if (self.auth == nil) {
         // Signal that Auth is not available by returning nil.
         callback(nil, nil);
     } else {
         [self.auth getTokenForcingRefresh:forceRefresh
-                             withCallback:^(NSString *_Nullable token,
-                                            NSError *_Nullable error) {
-                               dispatch_async([FIRDatabaseQuery sharedQueue], ^{
-                                 callback(token, error);
-                               });
-                             }];
+                   withCallback:^(NSString *_Nullable token,
+                  NSError *_Nullable error) {
+                      dispatch_async([FIRDatabaseQuery sharedQueue], ^ {
+                          callback(token, error);
+                      });
+        }];
     }
 }
 
 - (void)listenForTokenChanges:(_Nonnull fbt_void_nsstring)listener {
     FAuthStateListenerWrapper *wrapper =
         [[FAuthStateListenerWrapper alloc] initWithListener:listener
-                                                       auth:self.auth];
+                                           auth:self.auth];
     [self.authListeners addObject:wrapper];
 }
 

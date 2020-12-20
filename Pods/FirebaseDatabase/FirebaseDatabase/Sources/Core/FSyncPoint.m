@@ -46,15 +46,15 @@
  * applyServerOverwrite, applyUserOverwrite, etc.)
  */
 @interface FSyncPoint ()
-/**
- * The Views being tracked at this location in the tree, stored as a map where
- * the key is a queryParams and the value is the View for that query.
- *
- * NOTE: This list will be quite small (usually 1, but perhaps 2 or 3; any more
- * is an odd use case).
- *
- * Maps NSString -> FView
- */
+    /**
+     * The Views being tracked at this location in the tree, stored as a map where
+     * the key is a queryParams and the value is the View for that query.
+     *
+     * NOTE: This list will be quite small (usually 1, but perhaps 2 or 3; any more
+     * is an odd use case).
+     *
+     * Maps NSString -> FView
+     */
 @property(nonatomic, strong) NSMutableDictionary *views;
 
 @property(nonatomic, strong) FPersistenceManager *persistenceManager;
@@ -76,53 +76,53 @@
 }
 
 - (NSArray *)applyOperation:(id<FOperation>)operation
-                     toView:(FView *)view
-                writesCache:(FWriteTreeRef *)writesCache
-                serverCache:(id<FNode>)optCompleteServerCache {
+    toView:(FView *)view
+    writesCache:(FWriteTreeRef *)writesCache
+    serverCache:(id<FNode>)optCompleteServerCache {
     FViewOperationResult *result = [view applyOperation:operation
-                                            writesCache:writesCache
-                                            serverCache:optCompleteServerCache];
+                                         writesCache:writesCache
+                                         serverCache:optCompleteServerCache];
     if (!view.query.loadsAllData) {
         NSMutableSet *removed = [NSMutableSet set];
         NSMutableSet *added = [NSMutableSet set];
         [result.changes enumerateObjectsUsingBlock:^(
-                            FChange *change, NSUInteger idx, BOOL *stop) {
-          if (change.type == FIRDataEventTypeChildAdded) {
-              [added addObject:change.childKey];
-          } else if (change.type == FIRDataEventTypeChildRemoved) {
-              [removed addObject:change.childKey];
-          }
+                       FChange *change, NSUInteger idx, BOOL *stop) {
+                           if (change.type == FIRDataEventTypeChildAdded) {
+                               [added addObject:change.childKey];
+                           } else if (change.type == FIRDataEventTypeChildRemoved) {
+                [removed addObject:change.childKey];
+            }
         }];
         if ([removed count] > 0 || [added count] > 0) {
             [self.persistenceManager
-                updateTrackedQueryKeysWithAddedKeys:added
-                                        removedKeys:removed
-                                           forQuery:view.query];
+             updateTrackedQueryKeysWithAddedKeys:added
+             removedKeys:removed
+             forQuery:view.query];
         }
     }
     return result.events;
 }
 
 - (NSArray *)applyOperation:(id<FOperation>)operation
-                writesCache:(FWriteTreeRef *)writesCache
-                serverCache:(id<FNode>)optCompleteServerCache {
+    writesCache:(FWriteTreeRef *)writesCache
+    serverCache:(id<FNode>)optCompleteServerCache {
     FQueryParams *queryParams = operation.source.queryParams;
     if (queryParams != nil) {
         FView *view = [self.views objectForKey:queryParams];
         NSAssert(view != nil, @"SyncTree gave us an op for an invalid query.");
         return [self applyOperation:operation
-                             toView:view
-                        writesCache:writesCache
-                        serverCache:optCompleteServerCache];
+                     toView:view
+                     writesCache:writesCache
+                     serverCache:optCompleteServerCache];
     } else {
         NSMutableArray *events = [[NSMutableArray alloc] init];
         [self.views enumerateKeysAndObjectsUsingBlock:^(
-                        FQueryParams *key, FView *view, BOOL *stop) {
-          NSArray *eventsForView = [self applyOperation:operation
-                                                 toView:view
-                                            writesCache:writesCache
-                                            serverCache:optCompleteServerCache];
-          [events addObjectsFromArray:eventsForView];
+                   FQueryParams *key, FView *view, BOOL *stop) {
+                       NSArray *eventsForView = [self applyOperation:operation
+                                      toView:view
+                                      writesCache:writesCache
+                                      serverCache:optCompleteServerCache];
+            [events addObjectsFromArray:eventsForView];
         }];
         return events;
     }
@@ -133,53 +133,53 @@
  * Returns Array of FEvent events to raise.
  */
 - (NSArray *)addEventRegistration:(id<FEventRegistration>)eventRegistration
-       forNonExistingViewForQuery:(FQuerySpec *)query
-                      writesCache:(FWriteTreeRef *)writesCache
-                      serverCache:(FCacheNode *)serverCache {
+    forNonExistingViewForQuery:(FQuerySpec *)query
+    writesCache:(FWriteTreeRef *)writesCache
+    serverCache:(FCacheNode *)serverCache {
     NSAssert(self.views[query.params] == nil, @"Found view for query: %@",
              query.params);
     // TODO: make writesCache take flag for complete server node
     id<FNode> eventCache = [writesCache
-        calculateCompleteEventCacheWithCompleteServerCache:
-            serverCache.isFullyInitialized ? serverCache.node : nil];
+                            calculateCompleteEventCacheWithCompleteServerCache:
+                            serverCache.isFullyInitialized ? serverCache.node : nil];
     BOOL eventCacheComplete;
     if (eventCache != nil) {
         eventCacheComplete = YES;
     } else {
         eventCache = [writesCache
-            calculateCompleteEventChildrenWithCompleteServerChildren:serverCache
-                                                                         .node];
+                      calculateCompleteEventChildrenWithCompleteServerChildren:serverCache
+                      .node];
         eventCacheComplete = NO;
     }
 
     FIndexedNode *indexed = [FIndexedNode indexedNodeWithNode:eventCache
-                                                        index:query.index];
+                                          index:query.index];
     FCacheNode *eventCacheNode =
         [[FCacheNode alloc] initWithIndexedNode:indexed
-                             isFullyInitialized:eventCacheComplete
-                                     isFiltered:NO];
+                            isFullyInitialized:eventCacheComplete
+                            isFiltered:NO];
     FViewCache *viewCache =
         [[FViewCache alloc] initWithEventCache:eventCacheNode
-                                   serverCache:serverCache];
+                            serverCache:serverCache];
     FView *view = [[FView alloc] initWithQuery:query
-                              initialViewCache:viewCache];
+                                 initialViewCache:viewCache];
     // If this is a non-default query we need to tell persistence our current
     // view of the data
     if (!query.loadsAllData) {
         NSMutableSet *allKeys = [NSMutableSet set];
         [view.eventCache enumerateChildrenUsingBlock:^(
-                             NSString *key, id<FNode> node, BOOL *stop) {
-          [allKeys addObject:key];
-        }];
+                        NSString *key, id<FNode> node, BOOL *stop) {
+                            [allKeys addObject:key];
+                        }];
         [self.persistenceManager setTrackedQueryKeys:allKeys forQuery:query];
     }
     self.views[query.params] = view;
     return [self addEventRegistration:eventRegistration
-              forExistingViewForQuery:query];
+                 forExistingViewForQuery:query];
 }
 
 - (NSArray *)addEventRegistration:(id<FEventRegistration>)eventRegistration
-          forExistingViewForQuery:(FQuerySpec *)query {
+    forExistingViewForQuery:(FQuerySpec *)query {
     FView *view = self.views[query.params];
     NSAssert(view != nil, @"No view for query: %@", query);
     [view addEventRegistration:eventRegistration];
@@ -196,9 +196,9 @@
  * @return FTupleRemovedQueriesEvents removed queries and any cancel events
  */
 - (FTupleRemovedQueriesEvents *)removeEventRegistration:
-                                    (id<FEventRegistration>)eventRegistration
-                                               forQuery:(FQuerySpec *)query
-                                            cancelError:(NSError *)cancelError {
+    (id<FEventRegistration>)eventRegistration
+    forQuery:(FQuerySpec *)query
+    cancelError:(NSError *)cancelError {
     NSMutableArray *removedQueries = [[NSMutableArray alloc] init];
     __block NSMutableArray *cancelEvents = [[NSMutableArray alloc] init];
     BOOL hadCompleteView = [self hasCompleteView];
@@ -207,27 +207,27 @@
         // the registration to remove.
         [self.views enumerateKeysAndObjectsUsingBlock:^(
                         FQueryParams *viewQueryParams, FView *view,
-                        BOOL *stop) {
-          [cancelEvents
-              addObjectsFromArray:[view
-                                      removeEventRegistration:eventRegistration
-                                                  cancelError:cancelError]];
-          if ([view isEmpty]) {
-              [self.views removeObjectForKey:viewQueryParams];
+                   BOOL *stop) {
+                       [cancelEvents
+                        addObjectsFromArray:[view
+                                  removeEventRegistration:eventRegistration
+                                  cancelError:cancelError]];
+            if ([view isEmpty]) {
+                [self.views removeObjectForKey:viewQueryParams];
 
-              // We'll deal with complete views later
-              if (![view.query loadsAllData]) {
-                  [removedQueries addObject:view.query];
-              }
-          }
+                // We'll deal with complete views later
+                if (![view.query loadsAllData]) {
+                    [removedQueries addObject:view.query];
+                }
+            }
         }];
     } else {
         // remove the callback from the specific view
         FView *view = [self.views objectForKey:query.params];
         if (view != nil) {
             [cancelEvents addObjectsFromArray:
-                              [view removeEventRegistration:eventRegistration
-                                                cancelError:cancelError]];
+                          [view removeEventRegistration:eventRegistration
+                           cancelError:cancelError]];
 
             if ([view isEmpty]) {
                 [self.views removeObjectForKey:query.params];
@@ -246,19 +246,19 @@
     }
 
     return [[FTupleRemovedQueriesEvents alloc]
-        initWithRemovedQueries:removedQueries
-                  cancelEvents:cancelEvents];
+            initWithRemovedQueries:removedQueries
+            cancelEvents:cancelEvents];
 }
 
 - (NSArray *)queryViews {
     __block NSMutableArray *filteredViews = [[NSMutableArray alloc] init];
 
     [self.views enumerateKeysAndObjectsUsingBlock:^(FQueryParams *key,
-                                                    FView *view, BOOL *stop) {
-      if (![view.query loadsAllData]) {
-          [filteredViews addObject:view];
-      }
-    }];
+               FView *view, BOOL *stop) {
+                   if (![view.query loadsAllData]) {
+                       [filteredViews addObject:view];
+                   }
+               }];
 
     return filteredViews;
 }
@@ -266,9 +266,9 @@
 - (id<FNode>)completeServerCacheAtPath:(FPath *)path {
     __block id<FNode> serverCache = nil;
     [self.views enumerateKeysAndObjectsUsingBlock:^(FQueryParams *key,
-                                                    FView *view, BOOL *stop) {
-      serverCache = [view completeServerCacheFor:path];
-      *stop = (serverCache != nil);
+               FView *view, BOOL *stop) {
+                   serverCache = [view completeServerCacheFor:path];
+                   *stop = (serverCache != nil);
     }];
     return serverCache;
 }
@@ -289,12 +289,12 @@
     __block FView *completeView = nil;
 
     [self.views enumerateKeysAndObjectsUsingBlock:^(FQueryParams *key,
-                                                    FView *view, BOOL *stop) {
-      if ([view.query loadsAllData]) {
-          completeView = view;
-          *stop = YES;
-      }
-    }];
+               FView *view, BOOL *stop) {
+                   if ([view.query loadsAllData]) {
+                       completeView = view;
+                       *stop = YES;
+                   }
+               }];
 
     return completeView;
 }

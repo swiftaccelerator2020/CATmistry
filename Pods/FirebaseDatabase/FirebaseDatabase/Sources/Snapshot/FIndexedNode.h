@@ -36,19 +36,19 @@
 
 - (BOOL)hasIndex:(id<FIndex>)index;
 - (FIndexedNode *)updateChild:(NSString *)key
-                 withNewChild:(id<FNode>)newChildNode;
+    withNewChild:(id<FNode>)newChildNode;
 - (FIndexedNode *)updatePriority:(id<FNode>)priority;
 
 - (FNamedNode *)firstChild;
 - (FNamedNode *)lastChild;
 
 - (NSString *)predecessorForChildKey:(NSString *)childKey
-                           childNode:(id<FNode>)childNode
-                               index:(id<FIndex>)index;
+    childNode:(id<FNode>)childNode
+    index:(id<FIndex>)index;
 
 - (void)enumerateChildrenReverse:(BOOL)reverse
-                      usingBlock:(void (^)(NSString *key, id<FNode> node,
-                                           BOOL *stop))block;
+    usingBlock:(void (^)(NSString *key, id<FNode> node,
+    BOOL *stop))block;
 
 - (NSEnumerator *)childEnumerator;
 

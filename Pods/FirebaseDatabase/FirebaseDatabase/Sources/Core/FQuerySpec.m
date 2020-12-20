@@ -36,7 +36,7 @@
 
 + (FQuerySpec *)defaultQueryAtPath:(FPath *)path {
     return [[FQuerySpec alloc] initWithPath:path
-                                     params:[FQueryParams defaultInstance]];
+                               params:[FQueryParams defaultInstance]];
 }
 
 - (id)copyWithZone:(NSZone *)zone {
@@ -80,7 +80,7 @@
 
 - (NSString *)description {
     return [NSString stringWithFormat:@"FQuerySpec (path: %@, params: %@)",
-                                      self.path, self.params];
+                     self.path, self.params];
 }
 
 @end

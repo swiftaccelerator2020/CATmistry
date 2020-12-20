@@ -27,11 +27,11 @@
 
 - initWithEventType:(FIRDataEventType)type
     eventRegistration:(id<FEventRegistration>)eventRegistration
-         dataSnapshot:(FIRDataSnapshot *)dataSnapshot;
+    dataSnapshot:(FIRDataSnapshot *)dataSnapshot;
 - initWithEventType:(FIRDataEventType)type
     eventRegistration:(id<FEventRegistration>)eventRegistration
-         dataSnapshot:(FIRDataSnapshot *)snapshot
-             prevName:(NSString *)prevName;
+    dataSnapshot:(FIRDataSnapshot *)snapshot
+    prevName:(NSString *)prevName;
 
 @property(nonatomic, strong, readonly) id<FEventRegistration> eventRegistration;
 @property(nonatomic, strong, readonly) FIRDataSnapshot *snapshot;

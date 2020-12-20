@@ -20,7 +20,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface FBLPromise<Value>(AlwaysAdditions)
 
-typedef void (^FBLPromiseAlwaysWorkBlock)(void) NS_SWIFT_UNAVAILABLE("");
+    typedef void (^FBLPromiseAlwaysWorkBlock)(void) NS_SWIFT_UNAVAILABLE("");
 
 /**
  @param work A block that always executes, no matter if the receiver is rejected or fulfilled.
@@ -34,7 +34,7 @@ typedef void (^FBLPromiseAlwaysWorkBlock)(void) NS_SWIFT_UNAVAILABLE("");
  @return A new pending promise to be resolved with same resolution as the receiver.
  */
 - (FBLPromise *)onQueue:(dispatch_queue_t)queue
-                 always:(FBLPromiseAlwaysWorkBlock)work NS_REFINED_FOR_SWIFT;
+    always:(FBLPromiseAlwaysWorkBlock)work NS_REFINED_FOR_SWIFT;
 
 @end
 

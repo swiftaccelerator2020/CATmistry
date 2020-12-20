@@ -32,8 +32,8 @@ FOUNDATION_EXPORT NSString *const kFIRInstallationIDDidChangeNotificationAppName
  * @param error The error when `identifier == nil` or `nil` otherwise.
  */
 typedef void (^FIRInstallationsIDHandler)(NSString *__nullable identifier,
-                                          NSError *__nullable error)
-    NS_SWIFT_NAME(InstallationsIDHandler);
+        NSError *__nullable error)
+NS_SWIFT_NAME(InstallationsIDHandler);
 
 /**
  * An authorization token handler block.
@@ -43,7 +43,7 @@ typedef void (^FIRInstallationsIDHandler)(NSString *__nullable identifier,
  */
 typedef void (^FIRInstallationsTokenHandler)(
     FIRInstallationsAuthTokenResult *__nullable tokenResult, NSError *__nullable error)
-    NS_SWIFT_NAME(InstallationsTokenHandler);
+NS_SWIFT_NAME(InstallationsTokenHandler);
 
 /**
  * The class provides API for Firebase Installations.
@@ -104,7 +104,7 @@ NS_SWIFT_NAME(Installations)
  * `InstallationsTokenHandler` for additional details.
  */
 - (void)authTokenForcingRefresh:(BOOL)forceRefresh
-                     completion:(FIRInstallationsTokenHandler)completion;
+    completion:(FIRInstallationsTokenHandler)completion;
 
 /**
  * Deletes all the installation data including the unique identifier, auth tokens and

@@ -42,9 +42,9 @@ extern NSString *const kServiceInfoFileType;
  */
 @interface FIROptions ()
 
-/**
- * resetDefaultOptions and initInternalWithOptionsDictionary: are exposed only for unit tests.
- */
+    /**
+     * resetDefaultOptions and initInternalWithOptionsDictionary: are exposed only for unit tests.
+     */
 + (void)resetDefaultOptions;
 
 /**

@@ -27,6 +27,6 @@ NS_ASSUME_NONNULL_BEGIN
          is always `nil`, but the error out arg is not.
  */
 FOUNDATION_EXTERN id __nullable FBLPromiseAwait(FBLPromise *promise,
-                                                NSError **error) NS_REFINED_FOR_SWIFT;
+        NSError **error) NS_REFINED_FOR_SWIFT;
 
 NS_ASSUME_NONNULL_END

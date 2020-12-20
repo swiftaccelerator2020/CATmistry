@@ -32,16 +32,16 @@
 @synthesize domain;
 
 - (id)initWithHost:(NSString *)aHost
-          isSecure:(bool)isSecure
-     withNamespace:(NSString *)aNamespace {
+    isSecure:(bool)isSecure
+    withNamespace:(NSString *)aNamespace {
     self = [super init];
     if (self) {
         host = aHost;
         domain =
             [host containsString:@"."]
-                ? [host
-                      substringFromIndex:[host rangeOfString:@"."].location + 1]
-                : host;
+            ? [host
+               substringFromIndex:[host rangeOfString:@"."].location + 1]
+            : host;
         secure = isSecure;
         namespace = aNamespace;
 
@@ -49,7 +49,7 @@
         NSString *internalHostKey =
             [NSString stringWithFormat:@"firebase:host:%@", self.host];
         NSString *cachedInternalHost = [[NSUserDefaults standardUserDefaults]
-            stringForKey:internalHostKey];
+                                        stringForKey:internalHostKey];
         if (cachedInternalHost != nil) {
             internalHost = cachedInternalHost;
         } else {
@@ -62,7 +62,7 @@
 - (NSString *)description {
     // The namespace is encoded in the hostname, so we can just return this.
     return [NSString
-        stringWithFormat:@"http%@://%@", (self.secure ? @"s" : @""), self.host];
+            stringWithFormat:@"http%@://%@", (self.secure ? @"s" : @""), self.host];
 }
 
 - (void)setInternalHost:(NSString *)newHost {
@@ -111,8 +111,8 @@
     }
     NSString *url =
         [NSString stringWithFormat:@"%@://%@/.ws?%@=%@&ns=%@", scheme,
-                                   self.internalHost, kWireProtocolVersionParam,
-                                   kWebsocketProtocolVersion, self.namespace];
+                  self.internalHost, kWireProtocolVersionParam,
+                  kWebsocketProtocolVersion, self.namespace];
 
     if (lastSessionID != nil) {
         url = [NSString stringWithFormat:@"%@&ls=%@", url, lastSessionID];

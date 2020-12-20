@@ -35,7 +35,7 @@
 + (id<FNode>)nodeFrom:(id)val priority:(id)priority {
     return [FSnapshotUtilities nodeFrom:val
                                priority:priority
-                     withValidationFrom:@"nodeFrom:priority:"];
+                               withValidationFrom:@"nodeFrom:priority:"];
 }
 
 + (id<FNode>)nodeFrom:(id)val withValidationFrom:(NSString *)fn {
@@ -43,34 +43,34 @@
 }
 
 + (id<FNode>)nodeFrom:(id)val
-              priority:(id)priority
+    priority:(id)priority
     withValidationFrom:(NSString *)fn {
     return [FSnapshotUtilities nodeFrom:val
                                priority:priority
-                     withValidationFrom:fn
-                                atDepth:0
-                                   path:[[NSMutableArray alloc] init]];
+                               withValidationFrom:fn
+                               atDepth:0
+                               path:[[NSMutableArray alloc] init]];
 }
 
 + (id<FNode>)nodeFrom:(id)val
-              priority:(id)aPriority
+    priority:(id)aPriority
     withValidationFrom:(NSString *)fn
-               atDepth:(int)depth
-                  path:(NSMutableArray *)path {
+    atDepth:(int)depth
+    path:(NSMutableArray *)path {
     @autoreleasepool {
         return [FSnapshotUtilities internalNodeFrom:val
-                                           priority:aPriority
-                                 withValidationFrom:fn
-                                            atDepth:depth
-                                               path:path];
+                                   priority:aPriority
+                                   withValidationFrom:fn
+                                   atDepth:depth
+                                   path:path];
     }
 }
 
 + (id<FNode>)internalNodeFrom:(id)val
-                     priority:(id)aPriority
-           withValidationFrom:(NSString *)fn
-                      atDepth:(int)depth
-                         path:(NSMutableArray *)path {
+    priority:(id)aPriority
+    withValidationFrom:(NSString *)fn
+    atDepth:(int)depth
+    path:(NSMutableArray *)path {
 
     if (depth > kFirebaseMaxObjectDepth) {
         NSRange range;
@@ -79,10 +79,10 @@
         NSString *pathString =
             [[path subarrayWithRange:range] componentsJoinedByString:@"."];
         @throw [[NSException alloc]
-            initWithName:@"InvalidFirebaseData"
-                  reason:[NSString stringWithFormat:
-                                       @"(%@) Max object depth exceeded: %@...",
-                                       fn, pathString]
+                initWithName:@"InvalidFirebaseData"
+                reason:[NSString stringWithFormat:
+                        @"(%@) Max object depth exceeded: %@...",
+                        fn, pathString]
                 userInfo:nil];
     }
 
@@ -102,26 +102,26 @@
         if (dict[kPayloadPriority] != nil) {
             id rawPriority = [dict objectForKey:kPayloadPriority];
             [FValidation validateFrom:fn
-                 isValidPriorityValue:rawPriority
-                             withPath:path];
+                         isValidPriorityValue:rawPriority
+                         withPath:path];
             priority = [FSnapshotUtilities nodeFrom:rawPriority];
         }
 
         if (dict[kPayloadValue] != nil) {
             value = [dict objectForKey:kPayloadValue];
             if ([FValidation validateFrom:fn
-                         isValidLeafValue:value
-                                 withPath:path]) {
+                                isValidLeafValue:value
+                                withPath:path]) {
                 isLeafNode = YES;
             } else {
                 @throw [[NSException alloc]
-                    initWithName:@"InvalidLeafValueType"
-                          reason:[NSString stringWithFormat:
-                                               @"(%@) Invalid data type used "
-                                               @"with .value. Can only use "
-                                                "NSString and NSNumber or be "
-                                                "null. Found %@ instead.",
-                                               fn, [[value class] description]]
+                        initWithName:@"InvalidLeafValueType"
+                        reason:[NSString stringWithFormat:
+                                @"(%@) Invalid data type used "
+                                @"with .value. Can only use "
+                                "NSString and NSNumber or be "
+                                "null. Found %@ instead.",
+                                fn, [[value class] description]]
                         userInfo:nil];
             }
         }
@@ -145,17 +145,17 @@
         // Avoid creating a million newPaths by appending to old one
         for (id keyId in dval) {
             [FValidation validateFrom:fn
-                   validDictionaryKey:keyId
-                             withPath:path];
+                         validDictionaryKey:keyId
+                         withPath:path];
             NSString *key = (NSString *)keyId;
 
             if (![key hasPrefix:kPayloadMetadataPrefix]) {
                 [path addObject:key];
                 id<FNode> childNode = [FSnapshotUtilities nodeFrom:dval[key]
                                                           priority:nil
-                                                withValidationFrom:fn
-                                                           atDepth:depth + 1
-                                                              path:path];
+                                                          withValidationFrom:fn
+                                                          atDepth:depth + 1
+                                                          path:path];
                 [path removeLastObject];
 
                 if (![childNode isEmpty]) {
@@ -169,10 +169,10 @@
         } else {
             FImmutableSortedDictionary *childrenDict =
                 [FImmutableSortedDictionary
-                    fromDictionary:children
-                    withComparator:[FUtilities keyComparator]];
+                 fromDictionary:children
+                 withComparator:[FUtilities keyComparator]];
             return [[FChildrenNode alloc] initWithPriority:priority
-                                                  children:childrenDict];
+                                          children:childrenDict];
         }
     } else if ([value isKindOfClass:[NSArray class]]) {
         NSArray *aval = (NSArray *)value;
@@ -185,9 +185,9 @@
             id<FNode> childNode =
                 [FSnapshotUtilities nodeFrom:[aval objectAtIndex:i]
                                     priority:nil
-                          withValidationFrom:fn
-                                     atDepth:depth + 1
-                                        path:path];
+                                    withValidationFrom:fn
+                                    atDepth:depth + 1
+                                    path:path];
             [path removeLastObject];
 
             if (![childNode isEmpty]) {
@@ -200,10 +200,10 @@
         } else {
             FImmutableSortedDictionary *childrenDict =
                 [FImmutableSortedDictionary
-                    fromDictionary:children
-                    withComparator:[FUtilities keyComparator]];
+                 fromDictionary:children
+                 withComparator:[FUtilities keyComparator]];
             return [[FChildrenNode alloc] initWithPriority:priority
-                                                  children:childrenDict];
+                                          children:childrenDict];
         }
     } else {
         NSRange range;
@@ -213,19 +213,19 @@
             [[path subarrayWithRange:range] componentsJoinedByString:@"."];
 
         @throw [[NSException alloc]
-            initWithName:@"InvalidFirebaseData"
-                  reason:[NSString
-                             stringWithFormat:
-                                 @"(%@) Cannot store object of type %@ at %@. "
-                                  "Can only store objects of type NSNumber, "
-                                  "NSString, NSDictionary, and NSArray.",
-                                 fn, [[value class] description], pathString]
+                initWithName:@"InvalidFirebaseData"
+                reason:[NSString
+                        stringWithFormat:
+                        @"(%@) Cannot store object of type %@ at %@. "
+                        "Can only store objects of type NSNumber, "
+                        "NSString, NSDictionary, and NSArray.",
+                        fn, [[value class] description], pathString]
                 userInfo:nil];
     }
 }
 
 + (FCompoundWrite *)compoundWriteFromDictionary:(NSDictionary *)values
-                             withValidationFrom:(NSString *)fn {
+    withValidationFrom:(NSString *)fn {
     FCompoundWrite *compoundWrite = [FCompoundWrite emptyWrite];
 
     NSMutableArray *updatePaths =
@@ -233,12 +233,12 @@
     for (NSString *keyId in values) {
         id value = values[keyId];
         [FValidation validateFrom:fn
-            validUpdateDictionaryKey:keyId
-                           withValue:value];
+                     validUpdateDictionaryKey:keyId
+                     withValue:value];
 
         FPath *path = [FPath pathWithString:keyId];
         id<FNode> node = [FSnapshotUtilities nodeFrom:value
-                                   withValidationFrom:fn];
+                                             withValidationFrom:fn];
 
         [updatePaths addObject:path];
         compoundWrite = [compoundWrite addWrite:node atPath:path];
@@ -246,18 +246,18 @@
 
     // Check that the update paths are not descendants of each other.
     [updatePaths
-        sortUsingComparator:^NSComparisonResult(FPath *left, FPath *right) {
-          return [left compare:right];
-        }];
+    sortUsingComparator:^NSComparisonResult(FPath *left, FPath *right) {
+        return [left compare:right];
+    }];
     FPath *prevPath = nil;
     for (FPath *path in updatePaths) {
         if (prevPath != nil && [prevPath contains:path]) {
             @throw [[NSException alloc]
-                initWithName:@"InvalidFirebaseData"
-                      reason:[NSString stringWithFormat:
-                                           @"(%@) Invalid path in object. Path "
-                                           @"(%@) is an ancestor of (%@).",
-                                           fn, prevPath, path]
+                    initWithName:@"InvalidFirebaseData"
+                    reason:[NSString stringWithFormat:
+                            @"(%@) Invalid path in object. Path "
+                            @"(%@) is an ancestor of (%@).",
+                            fn, prevPath, path]
                     userInfo:nil];
         }
         prevPath = path;
@@ -285,22 +285,22 @@
     }
     // Don't call getPriority() on MAX_NODE to avoid hitting assertion.
     NSAssert(priorityNode == [FMaxNode maxNode] ||
-                 priorityNode.getPriority.isEmpty,
+             priorityNode.getPriority.isEmpty,
              @"Priority nodes can't have a priority of their own.");
 }
 
 + (void)appendHashRepresentationForLeafNode:(FLeafNode *)leafNode
-                                   toString:(NSMutableString *)string
-                                hashVersion:(FDataHashVersion)hashVersion {
+    toString:(NSMutableString *)string
+    hashVersion:(FDataHashVersion)hashVersion {
     NSAssert(hashVersion == FDataHashVersionV1 ||
-                 hashVersion == FDataHashVersionV2,
+             hashVersion == FDataHashVersionV2,
              @"Unknown hash version: %lu", (unsigned long)hashVersion);
     if (!leafNode.getPriority.isEmpty) {
         [string appendString:@"priority:"];
         [FSnapshotUtilities
-            appendHashRepresentationForLeafNode:leafNode.getPriority
-                                       toString:string
-                                    hashVersion:hashVersion];
+         appendHashRepresentationForLeafNode:leafNode.getPriority
+         toString:string
+         hashVersion:hashVersion];
         [string appendString:@":"];
     }
 
@@ -323,20 +323,20 @@
             NSAssert(hashVersion == FDataHashVersionV2,
                      @"Invalid hash version found");
             [FSnapshotUtilities appendHashV2RepresentationForString:leafNode.val
-                                                           toString:string];
+                                toString:string];
         }
     } else {
         [NSException raise:NSInvalidArgumentException
-                    format:@"Unknown value for hashing: %@", leafNode];
+                     format:@"Unknown value for hashing: %@", leafNode];
     }
 }
 
 + (void)appendHashV2RepresentationForString:(NSString *)string
-                                   toString:(NSMutableString *)mutableString {
+    toString:(NSMutableString *)mutableString {
     string = [string stringByReplacingOccurrencesOfString:@"\\"
-                                               withString:@"\\\\"];
+                     withString:@"\\\\"];
     string = [string stringByReplacingOccurrencesOfString:@"\""
-                                               withString:@"\\\""];
+                     withString:@"\\\""];
     [mutableString appendString:@"\""];
     [mutableString appendString:string];
     [mutableString appendString:@"\""];
@@ -355,7 +355,7 @@
         valueSize = 2 + [leafNode.val length]; // add 2 for quotes
     } else {
         [NSException raise:NSInvalidArgumentException
-                    format:@"Unknown leaf type: %@", leafNode];
+                     format:@"Unknown leaf type: %@", leafNode];
         return 0;
     }
 
@@ -381,11 +381,11 @@
         __block NSUInteger sum = 1; // opening brackets
         [((FChildrenNode *)node) enumerateChildrenAndPriorityUsingBlock:^(
                                      NSString *key, id<FNode> child,
-                                     BOOL *stop) {
-          sum += key.length;
-          sum +=
-              4; // quotes around key and colon and (comma or closing bracket)
-          sum += [FSnapshotUtilities estimateSerializedNodeSize:child];
+                                BOOL *stop) {
+                                    sum += key.length;
+                                    sum +=
+                                        4; // quotes around key and colon and (comma or closing bracket)
+            sum += [FSnapshotUtilities estimateSerializedNodeSize:child];
         }];
         return sum;
     }

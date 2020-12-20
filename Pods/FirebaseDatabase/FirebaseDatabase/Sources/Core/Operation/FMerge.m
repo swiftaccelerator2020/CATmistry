@@ -36,8 +36,8 @@
 @synthesize children;
 
 - (id)initWithSource:(FOperationSource *)aSource
-                path:(FPath *)aPath
-            children:(FCompoundWrite *)someChildren {
+    path:(FPath *)aPath
+    children:(FCompoundWrite *)someChildren {
     self = [super init];
     if (self) {
         self.source = aSource;
@@ -51,35 +51,35 @@
 - (id<FOperation>)operationForChild:(NSString *)childKey {
     if ([self.path isEmpty]) {
         FCompoundWrite *childTree = [self.children
-            childCompoundWriteAtPath:[[FPath alloc] initWith:childKey]];
+                                     childCompoundWriteAtPath:[[FPath alloc] initWith:childKey]];
         if (childTree.isEmpty) {
             return nil;
         } else if (childTree.rootWrite != nil) {
             // We have a snapshot for the child in question. This becomes an
             // overwrite of the child.
             return [[FOverwrite alloc] initWithSource:self.source
-                                                 path:[FPath empty]
-                                                 snap:childTree.rootWrite];
+                                       path:[FPath empty]
+                                       snap:childTree.rootWrite];
         } else {
             // This is a merge at a deeper level
             return [[FMerge alloc] initWithSource:self.source
-                                             path:[FPath empty]
-                                         children:childTree];
+                                   path:[FPath empty]
+                                   children:childTree];
         }
     } else {
         NSAssert(
             [self.path.getFront isEqualToString:childKey],
             @"Can't get a merge for a child not on the path of the operation");
         return [[FMerge alloc] initWithSource:self.source
-                                         path:[self.path popFront]
-                                     children:self.children];
+                               path:[self.path popFront]
+                               children:self.children];
     }
 }
 
 - (NSString *)description {
     return
         [NSString stringWithFormat:@"FMerge { path=%@, soruce=%@ children=%@}",
-                                   self.path, self.source, self.children];
+                  self.path, self.source, self.children];
 }
 
 @end

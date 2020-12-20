@@ -26,7 +26,7 @@ FOUNDATION_EXTERN NSTimeInterval const FBLPromiseRetryDefaultDelayInterval NS_RE
 
 @interface FBLPromise<Value>(RetryAdditions)
 
-typedef id __nullable (^FBLPromiseRetryWorkBlock)(void) NS_SWIFT_UNAVAILABLE("");
+    typedef id __nullable (^FBLPromiseRetryWorkBlock)(void) NS_SWIFT_UNAVAILABLE("");
 typedef BOOL (^FBLPromiseRetryPredicateBlock)(NSInteger, NSError *) NS_SWIFT_UNAVAILABLE("");
 
 /**
@@ -56,7 +56,7 @@ typedef BOOL (^FBLPromiseRetryPredicateBlock)(NSInteger, NSError *) NS_SWIFT_UNA
          block, or rejects with the same error after all retry attempts have been exhausted.
  */
 + (FBLPromise *)onQueue:(dispatch_queue_t)queue
-                  retry:(FBLPromiseRetryWorkBlock)work NS_SWIFT_UNAVAILABLE("");
+    retry:(FBLPromiseRetryWorkBlock)work NS_SWIFT_UNAVAILABLE("");
 
 /**
  Creates a pending promise that fulfills with the same value as the promise returned from `work`
@@ -71,7 +71,7 @@ typedef BOOL (^FBLPromiseRetryPredicateBlock)(NSInteger, NSError *) NS_SWIFT_UNA
          block, or rejects with the same error after all retry attempts have been exhausted.
  */
 + (FBLPromise *)attempts:(NSInteger)count
-                   retry:(FBLPromiseRetryWorkBlock)work NS_SWIFT_UNAVAILABLE("");
+    retry:(FBLPromiseRetryWorkBlock)work NS_SWIFT_UNAVAILABLE("");
 
 /**
  Creates a pending promise that fulfills with the same value as the promise returned from `work`
@@ -87,8 +87,8 @@ typedef BOOL (^FBLPromiseRetryPredicateBlock)(NSInteger, NSError *) NS_SWIFT_UNA
          block, or rejects with the same error after all retry attempts have been exhausted.
  */
 + (FBLPromise *)onQueue:(dispatch_queue_t)queue
-               attempts:(NSInteger)count
-                  retry:(FBLPromiseRetryWorkBlock)work NS_SWIFT_UNAVAILABLE("");
+    attempts:(NSInteger)count
+    retry:(FBLPromiseRetryWorkBlock)work NS_SWIFT_UNAVAILABLE("");
 
 /**
  Creates a pending promise that fulfills with the same value as the promise returned from `work`
@@ -110,9 +110,9 @@ typedef BOOL (^FBLPromiseRetryPredicateBlock)(NSInteger, NSError *) NS_SWIFT_UNA
          the given condition is not met.
  */
 + (FBLPromise *)attempts:(NSInteger)count
-                   delay:(NSTimeInterval)interval
-               condition:(nullable FBLPromiseRetryPredicateBlock)predicate
-                   retry:(FBLPromiseRetryWorkBlock)work NS_SWIFT_UNAVAILABLE("");
+    delay:(NSTimeInterval)interval
+    condition:(nullable FBLPromiseRetryPredicateBlock)predicate
+    retry:(FBLPromiseRetryWorkBlock)work NS_SWIFT_UNAVAILABLE("");
 
 /**
  Creates a pending promise that fulfills with the same value as the promise returned from `work`
@@ -135,10 +135,10 @@ typedef BOOL (^FBLPromiseRetryPredicateBlock)(NSInteger, NSError *) NS_SWIFT_UNA
          the given condition is not met.
  */
 + (FBLPromise *)onQueue:(dispatch_queue_t)queue
-               attempts:(NSInteger)count
-                  delay:(NSTimeInterval)interval
-              condition:(nullable FBLPromiseRetryPredicateBlock)predicate
-                  retry:(FBLPromiseRetryWorkBlock)work NS_REFINED_FOR_SWIFT;
+    attempts:(NSInteger)count
+    delay:(NSTimeInterval)interval
+    condition:(nullable FBLPromiseRetryPredicateBlock)predicate
+    retry:(FBLPromiseRetryWorkBlock)work NS_REFINED_FOR_SWIFT;
 
 @end
 
@@ -153,11 +153,11 @@ typedef BOOL (^FBLPromiseRetryPredicateBlock)(NSInteger, NSError *) NS_SWIFT_UNA
 + (FBLPromise * (^)(dispatch_queue_t, FBLPromiseRetryWorkBlock))retryOn FBL_PROMISES_DOT_SYNTAX
     NS_SWIFT_UNAVAILABLE("");
 + (FBLPromise * (^)(NSInteger, NSTimeInterval, FBLPromiseRetryPredicateBlock __nullable,
-                    FBLPromiseRetryWorkBlock))retryAgain FBL_PROMISES_DOT_SYNTAX
+    FBLPromiseRetryWorkBlock))retryAgain FBL_PROMISES_DOT_SYNTAX
     NS_SWIFT_UNAVAILABLE("");
 + (FBLPromise * (^)(dispatch_queue_t, NSInteger, NSTimeInterval,
-                    FBLPromiseRetryPredicateBlock __nullable,
-                    FBLPromiseRetryWorkBlock))retryAgainOn FBL_PROMISES_DOT_SYNTAX
+    FBLPromiseRetryPredicateBlock __nullable,
+    FBLPromiseRetryWorkBlock))retryAgainOn FBL_PROMISES_DOT_SYNTAX
     NS_SWIFT_UNAVAILABLE("");
 
 @end

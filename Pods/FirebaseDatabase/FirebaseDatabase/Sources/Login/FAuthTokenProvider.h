@@ -24,7 +24,7 @@
 @protocol FAuthTokenProvider <NSObject>
 
 - (void)fetchTokenForcingRefresh:(BOOL)forceRefresh
-                    withCallback:(fbt_void_nsstring_nserror)callback;
+    withCallback:(fbt_void_nsstring_nserror)callback;
 
 - (void)listenForTokenChanges:(fbt_void_nsstring)listener;
 

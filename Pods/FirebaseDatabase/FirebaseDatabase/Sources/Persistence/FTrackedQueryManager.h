@@ -27,7 +27,7 @@
 @interface FTrackedQueryManager : NSObject
 
 - (id)initWithStorageEngine:(id<FStorageEngine>)storageEngine
-                      clock:(id<FClock>)clock;
+    clock:(id<FClock>)clock;
 
 - (FTrackedQuery *)findTrackedQuery:(FQuerySpec *)query;
 

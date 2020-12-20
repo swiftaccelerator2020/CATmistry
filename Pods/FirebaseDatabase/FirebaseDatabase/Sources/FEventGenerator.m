@@ -59,8 +59,8 @@
  * @return NSArray of FEvent.
  */
 - (NSArray *)generateEventsForChanges:(NSArray *)changes
-                           eventCache:(FIndexedNode *)eventCache
-                   eventRegistrations:(NSArray *)registrations {
+    eventCache:(FIndexedNode *)eventCache
+    eventRegistrations:(NSArray *)registrations {
     NSMutableArray *events = [[NSMutableArray alloc] init];
 
     // child_moved is index-specific, so check all our child_changed events to
@@ -68,51 +68,51 @@
     NSMutableArray *moves = [[NSMutableArray alloc] init];
     for (FChange *change in changes) {
         if (change.type == FIRDataEventTypeChildChanged &&
-            [self.query.index
-                indexedValueChangedBetween:change.oldIndexedNode.node
-                                       and:change.indexedNode.node]) {
+                [self.query.index
+                 indexedValueChangedBetween:change.oldIndexedNode.node
+                 and:change.indexedNode.node]) {
             FChange *moveChange =
                 [[FChange alloc] initWithType:FIRDataEventTypeChildMoved
-                                  indexedNode:change.indexedNode
-                                     childKey:change.childKey
-                               oldIndexedNode:nil];
+                                 indexedNode:change.indexedNode
+                                 childKey:change.childKey
+                                 oldIndexedNode:nil];
             [moves addObject:moveChange];
         }
     }
 
     [self generateEvents:events
-                   forType:FIRDataEventTypeChildRemoved
-                   changes:changes
-                eventCache:eventCache
-        eventRegistrations:registrations];
+          forType:FIRDataEventTypeChildRemoved
+          changes:changes
+          eventCache:eventCache
+          eventRegistrations:registrations];
     [self generateEvents:events
-                   forType:FIRDataEventTypeChildAdded
-                   changes:changes
-                eventCache:eventCache
-        eventRegistrations:registrations];
+          forType:FIRDataEventTypeChildAdded
+          changes:changes
+          eventCache:eventCache
+          eventRegistrations:registrations];
     [self generateEvents:events
-                   forType:FIRDataEventTypeChildMoved
-                   changes:moves
-                eventCache:eventCache
-        eventRegistrations:registrations];
+          forType:FIRDataEventTypeChildMoved
+          changes:moves
+          eventCache:eventCache
+          eventRegistrations:registrations];
     [self generateEvents:events
-                   forType:FIRDataEventTypeChildChanged
-                   changes:changes
-                eventCache:eventCache
-        eventRegistrations:registrations];
+          forType:FIRDataEventTypeChildChanged
+          changes:changes
+          eventCache:eventCache
+          eventRegistrations:registrations];
     [self generateEvents:events
-                   forType:FIRDataEventTypeValue
-                   changes:changes
-                eventCache:eventCache
-        eventRegistrations:registrations];
+          forType:FIRDataEventTypeValue
+          changes:changes
+          eventCache:eventCache
+          eventRegistrations:registrations];
 
     return events;
 }
 
 - (void)generateEvents:(NSMutableArray *)events
-               forType:(FIRDataEventType)eventType
-               changes:(NSArray *)changes
-            eventCache:(FIndexedNode *)eventCache
+    forType:(FIRDataEventType)eventType
+    changes:(NSArray *)changes
+    eventCache:(FIndexedNode *)eventCache
     eventRegistrations:(NSArray *)registrations {
     NSMutableArray *filteredChanges = [[NSMutableArray alloc] init];
     for (FChange *change in changes) {
@@ -124,25 +124,25 @@
     id<FIndex> index = self.query.index;
 
     [filteredChanges
-        sortUsingComparator:^NSComparisonResult(FChange *one, FChange *two) {
-          if (one.childKey == nil || two.childKey == nil) {
-              @throw [[NSException alloc]
-                  initWithName:@"InternalInconsistencyError"
-                        reason:@"Should only compare child_ events"
-                      userInfo:nil];
-          }
-          return [index compareKey:one.childKey
-                           andNode:one.indexedNode.node
-                        toOtherKey:two.childKey
-                           andNode:two.indexedNode.node];
-        }];
+    sortUsingComparator:^NSComparisonResult(FChange *one, FChange *two) {
+        if (one.childKey == nil || two.childKey == nil) {
+            @throw [[NSException alloc]
+                    initWithName:@"InternalInconsistencyError"
+                    reason:@"Should only compare child_ events"
+                    userInfo:nil];
+        }
+        return [index compareKey:one.childKey
+                      andNode:one.indexedNode.node
+                      toOtherKey:two.childKey
+                      andNode:two.indexedNode.node];
+    }];
 
     for (FChange *change in filteredChanges) {
         for (id<FEventRegistration> registration in registrations) {
             if ([registration responseTo:eventType]) {
                 id<FEvent> event = [self generateEventForChange:change
-                                                   registration:registration
-                                                     eventCache:eventCache];
+                                         registration:registration
+                                         eventCache:eventCache];
                 [events addObject:event];
             }
         }
@@ -150,17 +150,17 @@
 }
 
 - (id<FEvent>)generateEventForChange:(FChange *)change
-                        registration:(id<FEventRegistration>)registration
-                          eventCache:(FIndexedNode *)eventCache {
+    registration:(id<FEventRegistration>)registration
+    eventCache:(FIndexedNode *)eventCache {
     FChange *materializedChange;
     if (change.type == FIRDataEventTypeValue ||
-        change.type == FIRDataEventTypeChildRemoved) {
+            change.type == FIRDataEventTypeChildRemoved) {
         materializedChange = change;
     } else {
         NSString *prevChildKey =
             [eventCache predecessorForChildKey:change.childKey
-                                     childNode:change.indexedNode.node
-                                         index:self.query.index];
+                        childNode:change.indexedNode.node
+                        index:self.query.index];
         materializedChange = [change changeWithPrevKey:prevChildKey];
     }
     return [registration createEventFrom:materializedChange query:self.query];

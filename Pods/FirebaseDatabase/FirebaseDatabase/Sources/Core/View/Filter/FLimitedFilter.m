@@ -47,12 +47,12 @@
 }
 
 - (FIndexedNode *)updateChildIn:(FIndexedNode *)oldSnap
-                    forChildKey:(NSString *)childKey
-                       newChild:(id<FNode>)newChildSnap
-                   affectedPath:(FPath *)affectedPath
-                     fromSource:(id<FCompleteChildSource>)source
-                    accumulator:
-                        (FChildChangeAccumulator *)optChangeAccumulator {
+    forChildKey:(NSString *)childKey
+    newChild:(id<FNode>)newChildSnap
+    affectedPath:(FPath *)affectedPath
+    fromSource:(id<FCompleteChildSource>)source
+    accumulator:
+    (FChildChangeAccumulator *)optChangeAccumulator {
     if (![self.rangedFilter matchesKey:childKey andNode:newChildSnap]) {
         newChildSnap = [FEmptyNode emptyNode];
     }
@@ -61,27 +61,27 @@
         return oldSnap;
     } else if (oldSnap.node.numChildren < self.limit) {
         return [[self.rangedFilter indexedFilter]
-            updateChildIn:oldSnap
-              forChildKey:childKey
-                 newChild:newChildSnap
-             affectedPath:affectedPath
-               fromSource:source
-              accumulator:optChangeAccumulator];
+                updateChildIn:oldSnap
+                forChildKey:childKey
+                newChild:newChildSnap
+                affectedPath:affectedPath
+                fromSource:source
+                accumulator:optChangeAccumulator];
     } else {
         return [self fullLimitUpdateNode:oldSnap
-                             forChildKey:childKey
-                                newChild:newChildSnap
-                              fromSource:source
-                             accumulator:optChangeAccumulator];
+                     forChildKey:childKey
+                     newChild:newChildSnap
+                     fromSource:source
+                     accumulator:optChangeAccumulator];
     }
 }
 
 - (FIndexedNode *)fullLimitUpdateNode:(FIndexedNode *)oldIndexed
-                          forChildKey:(NSString *)childKey
-                             newChild:(id<FNode>)newChildSnap
-                           fromSource:(id<FCompleteChildSource>)source
-                          accumulator:
-                              (FChildChangeAccumulator *)optChangeAccumulator {
+    forChildKey:(NSString *)childKey
+    newChild:(id<FNode>)newChildSnap
+    fromSource:(id<FCompleteChildSource>)source
+    accumulator:
+    (FChildChangeAccumulator *)optChangeAccumulator {
     NSAssert(oldIndexed.node.numChildren == self.limit,
              @"Should have number of children equal to limit.");
 
@@ -97,8 +97,8 @@
         // In case the `newChildSnap` falls outside the window, get the
         // `nextChild` that might replace it.
         FNamedNode *nextChild = [source childByIndex:self.index
-                                          afterChild:windowBoundary
-                                           isReverse:(BOOL)self.reverse];
+                                        afterChild:windowBoundary
+                                        isReverse:(BOOL)self.reverse];
         if (nextChild != nil && ([nextChild.name isEqualToString:childKey] ||
                                  [oldIndexed.node hasChild:nextChild.name])) {
             // There is a weird edge case where a node is updated as part of a
@@ -106,8 +106,8 @@
             // filter yet. Ignore this next child which will be updated later in
             // the limited filter...
             nextChild = [source childByIndex:self.index
-                                  afterChild:nextChild
-                                   isReverse:self.reverse];
+                                afterChild:nextChild
+                                isReverse:self.reverse];
         }
 
         // Figure out if `newChildSnap` is in range and ordered before
@@ -115,22 +115,22 @@
         BOOL remainsInWindow = inRange && !newChildSnap.isEmpty;
         remainsInWindow = remainsInWindow &&
                           (!nextChild || [self.index compareKey:nextChild.name
-                                                        andNode:nextChild.node
+                                                     andNode:nextChild.node
                                                      toOtherKey:childKey
-                                                        andNode:newChildSnap
-                                                        reverse:self.reverse] >=
-                                             NSOrderedSame);
+                                                     andNode:newChildSnap
+                                                     reverse:self.reverse] >=
+                           NSOrderedSame);
         if (remainsInWindow) {
             // `newChildSnap` is ordered before `nextChild`, so it's a child
             // changed event
             if (optChangeAccumulator != nil) {
                 FChange *change = [[FChange alloc]
-                      initWithType:FIRDataEventTypeChildChanged
-                       indexedNode:[FIndexedNode
-                                       indexedNodeWithNode:newChildSnap]
-                          childKey:childKey
-                    oldIndexedNode:[FIndexedNode
-                                       indexedNodeWithNode:oldChildSnap]];
+                                   initWithType:FIRDataEventTypeChildChanged
+                                   indexedNode:[FIndexedNode
+                                                indexedNodeWithNode:newChildSnap]
+                                   childKey:childKey
+                                   oldIndexedNode:[FIndexedNode
+                                                   indexedNodeWithNode:oldChildSnap]];
                 [optChangeAccumulator trackChildChange:change];
             }
             return [oldIndexed updateChild:childKey withNewChild:newChildSnap];
@@ -139,32 +139,32 @@
             // removed event
             if (optChangeAccumulator != nil) {
                 FChange *change = [[FChange alloc]
-                    initWithType:FIRDataEventTypeChildRemoved
-                     indexedNode:[FIndexedNode indexedNodeWithNode:oldChildSnap]
-                        childKey:childKey];
+                                   initWithType:FIRDataEventTypeChildRemoved
+                                   indexedNode:[FIndexedNode indexedNodeWithNode:oldChildSnap]
+                                   childKey:childKey];
                 [optChangeAccumulator trackChildChange:change];
             }
             FIndexedNode *newIndexed =
                 [oldIndexed updateChild:childKey
-                           withNewChild:[FEmptyNode emptyNode]];
+                            withNewChild:[FEmptyNode emptyNode]];
 
             // We need to check if the `nextChild` is actually in range before
             // adding it
             BOOL nextChildInRange =
                 (nextChild != nil) &&
                 [self.rangedFilter matchesKey:nextChild.name
-                                      andNode:nextChild.node];
+                                   andNode:nextChild.node];
             if (nextChildInRange) {
                 if (optChangeAccumulator != nil) {
                     FChange *change = [[FChange alloc]
-                        initWithType:FIRDataEventTypeChildAdded
-                         indexedNode:[FIndexedNode
-                                         indexedNodeWithNode:nextChild.node]
-                            childKey:nextChild.name];
+                                       initWithType:FIRDataEventTypeChildAdded
+                                       indexedNode:[FIndexedNode
+                                                    indexedNodeWithNode:nextChild.node]
+                                       childKey:nextChild.name];
                     [optChangeAccumulator trackChildChange:change];
                 }
                 return [newIndexed updateChild:nextChild.name
-                                  withNewChild:nextChild.node];
+                                   withNewChild:nextChild.node];
             } else {
                 return newIndexed;
             }
@@ -178,25 +178,25 @@
         // `newChildSnap`
         if ([self.index compareKey:windowBoundary.name
                            andNode:windowBoundary.node
-                        toOtherKey:childKey
+                           toOtherKey:childKey
                            andNode:newChildSnap
                            reverse:self.reverse] >= NSOrderedSame) {
             if (optChangeAccumulator != nil) {
                 FChange *removedChange = [[FChange alloc]
-                    initWithType:FIRDataEventTypeChildRemoved
-                     indexedNode:[FIndexedNode
-                                     indexedNodeWithNode:windowBoundary.node]
-                        childKey:windowBoundary.name];
+                                          initWithType:FIRDataEventTypeChildRemoved
+                                          indexedNode:[FIndexedNode
+                                                       indexedNodeWithNode:windowBoundary.node]
+                                          childKey:windowBoundary.name];
                 FChange *addedChange = [[FChange alloc]
-                    initWithType:FIRDataEventTypeChildAdded
-                     indexedNode:[FIndexedNode indexedNodeWithNode:newChildSnap]
-                        childKey:childKey];
+                                        initWithType:FIRDataEventTypeChildAdded
+                                        indexedNode:[FIndexedNode indexedNodeWithNode:newChildSnap]
+                                        childKey:childKey];
                 [optChangeAccumulator trackChildChange:removedChange];
                 [optChangeAccumulator trackChildChange:addedChange];
             }
             return [[oldIndexed updateChild:childKey withNewChild:newChildSnap]
-                 updateChild:windowBoundary.name
-                withNewChild:[FEmptyNode emptyNode]];
+                    updateChild:windowBoundary.name
+                    withNewChild:[FEmptyNode emptyNode]];
         } else {
             return oldIndexed;
         }
@@ -208,15 +208,15 @@
 }
 
 - (FIndexedNode *)updateFullNode:(FIndexedNode *)oldSnap
-                     withNewNode:(FIndexedNode *)newSnap
-                     accumulator:
-                         (FChildChangeAccumulator *)optChangeAccumulator {
+    withNewNode:(FIndexedNode *)newSnap
+    accumulator:
+    (FChildChangeAccumulator *)optChangeAccumulator {
     __block FIndexedNode *filtered;
     if (newSnap.node.isLeafNode || newSnap.node.isEmpty) {
         // Make sure we have a children node with the correct index, not a leaf
         // node
         filtered = [FIndexedNode indexedNodeWithNode:[FEmptyNode emptyNode]
-                                               index:self.index];
+                                 index:self.index];
     } else {
         filtered = newSnap;
         // Don't support priorities on queries.
@@ -233,43 +233,43 @@
         __block BOOL foundStartPost = NO;
         __block NSUInteger count = 0;
         [newSnap
-            enumerateChildrenReverse:self.reverse
-                          usingBlock:^(NSString *childKey, id<FNode> childNode,
-                                       BOOL *stop) {
-                            if (!foundStartPost &&
-                                [self.index
-                                    compareKey:startPost.name
-                                       andNode:startPost.node
-                                    toOtherKey:childKey
-                                       andNode:childNode
-                                       reverse:self.reverse] <= NSOrderedSame) {
-                                // Start adding
-                                foundStartPost = YES;
-                            }
-                            BOOL inRange = foundStartPost && count < self.limit;
-                            inRange = inRange &&
-                                      [self.index compareKey:childKey
-                                                     andNode:childNode
-                                                  toOtherKey:endPost.name
-                                                     andNode:endPost.node
-                                                     reverse:self.reverse] <=
-                                          NSOrderedSame;
-                            if (inRange) {
-                                count++;
-                            } else {
-                                filtered = [filtered
-                                     updateChild:childKey
-                                    withNewChild:[FEmptyNode emptyNode]];
-                            }
-                          }];
+         enumerateChildrenReverse:self.reverse
+         usingBlock:^(NSString *childKey, id<FNode> childNode,
+        BOOL *stop) {
+            if (!foundStartPost &&
+                [self.index
+                 compareKey:startPost.name
+                 andNode:startPost.node
+                 toOtherKey:childKey
+                 andNode:childNode
+                 reverse:self.reverse] <= NSOrderedSame) {
+                // Start adding
+                foundStartPost = YES;
+            }
+            BOOL inRange = foundStartPost && count < self.limit;
+            inRange = inRange &&
+                      [self.index compareKey:childKey
+                                  andNode:childNode
+                                  toOtherKey:endPost.name
+                                  andNode:endPost.node
+                                  reverse:self.reverse] <=
+                      NSOrderedSame;
+            if (inRange) {
+                count++;
+            } else {
+                filtered = [filtered
+                            updateChild:childKey
+                            withNewChild:[FEmptyNode emptyNode]];
+            }
+        }];
     }
     return [self.indexedFilter updateFullNode:oldSnap
-                                  withNewNode:filtered
-                                  accumulator:optChangeAccumulator];
+                               withNewNode:filtered
+                               accumulator:optChangeAccumulator];
 }
 
 - (FIndexedNode *)updatePriority:(id<FNode>)priority
-                         forNode:(FIndexedNode *)oldSnap {
+    forNode:(FIndexedNode *)oldSnap {
     // Don't support priorities on queries.
     return oldSnap;
 }

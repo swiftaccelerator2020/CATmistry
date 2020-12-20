@@ -26,40 +26,40 @@ static const bool kLittleEndian = true /* or some other expression */;
 
 // A Mutex represents an exclusive lock.
 class LOCKABLE Mutex {
- public:
-  Mutex();
-  ~Mutex();
+public:
+    Mutex();
+    ~Mutex();
 
-  // Lock the mutex.  Waits until other lockers have exited.
-  // Will deadlock if the mutex is already locked by this thread.
-  void Lock() EXCLUSIVE_LOCK_FUNCTION();
+    // Lock the mutex.  Waits until other lockers have exited.
+    // Will deadlock if the mutex is already locked by this thread.
+    void Lock() EXCLUSIVE_LOCK_FUNCTION();
 
-  // Unlock the mutex.
-  // REQUIRES: This mutex was locked by this thread.
-  void Unlock() UNLOCK_FUNCTION();
+    // Unlock the mutex.
+    // REQUIRES: This mutex was locked by this thread.
+    void Unlock() UNLOCK_FUNCTION();
 
-  // Optionally crash if this thread does not hold this mutex.
-  // The implementation must be fast, especially if NDEBUG is
-  // defined.  The implementation is allowed to skip all checks.
-  void AssertHeld() ASSERT_EXCLUSIVE_LOCK();
+    // Optionally crash if this thread does not hold this mutex.
+    // The implementation must be fast, especially if NDEBUG is
+    // defined.  The implementation is allowed to skip all checks.
+    void AssertHeld() ASSERT_EXCLUSIVE_LOCK();
 };
 
 class CondVar {
- public:
-  explicit CondVar(Mutex* mu);
-  ~CondVar();
+public:
+    explicit CondVar(Mutex* mu);
+    ~CondVar();
 
-  // Atomically release *mu and block on this condition variable until
-  // either a call to SignalAll(), or a call to Signal() that picks
-  // this thread to wakeup.
-  // REQUIRES: this thread holds *mu
-  void Wait();
+    // Atomically release *mu and block on this condition variable until
+    // either a call to SignalAll(), or a call to Signal() that picks
+    // this thread to wakeup.
+    // REQUIRES: this thread holds *mu
+    void Wait();
 
-  // If there are some threads waiting, wake up at least one of them.
-  void Signal();
+    // If there are some threads waiting, wake up at least one of them.
+    void Signal();
 
-  // Wake up all waiting threads.
-  void SignallAll();
+    // Wake up all waiting threads.
+    void SignallAll();
 };
 
 // ------------------ Compression -------------------

@@ -38,12 +38,12 @@
 }
 
 - (FIndexedNode *)updateChildIn:(FIndexedNode *)indexedNode
-                    forChildKey:(NSString *)childKey
-                       newChild:(id<FNode>)newChildSnap
-                   affectedPath:(FPath *)affectedPath
-                     fromSource:(id<FCompleteChildSource>)source
-                    accumulator:
-                        (FChildChangeAccumulator *)optChangeAccumulator {
+    forChildKey:(NSString *)childKey
+    newChild:(id<FNode>)newChildSnap
+    affectedPath:(FPath *)affectedPath
+    fromSource:(id<FCompleteChildSource>)source
+    accumulator:
+    (FChildChangeAccumulator *)optChangeAccumulator {
     NSAssert([indexedNode hasIndex:self.index],
              @"The index in FIndexedNode must match the index of the filter");
     id<FNode> node = indexedNode.node;
@@ -70,9 +70,9 @@
         if (newChildSnap.isEmpty) {
             if ([node hasChild:childKey]) {
                 FChange *change = [[FChange alloc]
-                    initWithType:FIRDataEventTypeChildRemoved
-                     indexedNode:[FIndexedNode indexedNodeWithNode:oldChildSnap]
-                        childKey:childKey];
+                                   initWithType:FIRDataEventTypeChildRemoved
+                                   indexedNode:[FIndexedNode indexedNodeWithNode:oldChildSnap]
+                                   childKey:childKey];
                 [optChangeAccumulator trackChildChange:change];
             } else {
                 NSAssert(node.isLeafNode,
@@ -81,16 +81,16 @@
             }
         } else if (oldChildSnap.isEmpty) {
             FChange *change = [[FChange alloc]
-                initWithType:FIRDataEventTypeChildAdded
-                 indexedNode:[FIndexedNode indexedNodeWithNode:newChildSnap]
-                    childKey:childKey];
+                               initWithType:FIRDataEventTypeChildAdded
+                               indexedNode:[FIndexedNode indexedNodeWithNode:newChildSnap]
+                               childKey:childKey];
             [optChangeAccumulator trackChildChange:change];
         } else {
             FChange *change = [[FChange alloc]
-                  initWithType:FIRDataEventTypeChildChanged
-                   indexedNode:[FIndexedNode indexedNodeWithNode:newChildSnap]
-                      childKey:childKey
-                oldIndexedNode:[FIndexedNode indexedNodeWithNode:oldChildSnap]];
+                               initWithType:FIRDataEventTypeChildChanged
+                               indexedNode:[FIndexedNode indexedNodeWithNode:newChildSnap]
+                               childKey:childKey
+                               oldIndexedNode:[FIndexedNode indexedNodeWithNode:oldChildSnap]];
             [optChangeAccumulator trackChildChange:change];
         }
     }
@@ -102,50 +102,50 @@
 }
 
 - (FIndexedNode *)updateFullNode:(FIndexedNode *)oldSnap
-                     withNewNode:(FIndexedNode *)newSnap
-                     accumulator:
-                         (FChildChangeAccumulator *)optChangeAccumulator {
+    withNewNode:(FIndexedNode *)newSnap
+    accumulator:
+    (FChildChangeAccumulator *)optChangeAccumulator {
     if (optChangeAccumulator) {
         [oldSnap.node enumerateChildrenUsingBlock:^(
-                          NSString *childKey, id<FNode> childNode, BOOL *stop) {
-          if (![newSnap.node hasChild:childKey]) {
-              FChange *change = [[FChange alloc]
-                  initWithType:FIRDataEventTypeChildRemoved
-                   indexedNode:[FIndexedNode indexedNodeWithNode:childNode]
-                      childKey:childKey];
-              [optChangeAccumulator trackChildChange:change];
-          }
+                     NSString *childKey, id<FNode> childNode, BOOL *stop) {
+                         if (![newSnap.node hasChild:childKey]) {
+                             FChange *change = [[FChange alloc]
+                                   initWithType:FIRDataEventTypeChildRemoved
+                                   indexedNode:[FIndexedNode indexedNodeWithNode:childNode]
+                                   childKey:childKey];
+                [optChangeAccumulator trackChildChange:change];
+            }
         }];
 
         [newSnap.node enumerateChildrenUsingBlock:^(
-                          NSString *childKey, id<FNode> childNode, BOOL *stop) {
-          if ([oldSnap.node hasChild:childKey]) {
-              id<FNode> oldChildSnap =
-                  [oldSnap.node getImmediateChild:childKey];
-              if (![oldChildSnap isEqual:childNode]) {
-                  FChange *change = [[FChange alloc]
-                        initWithType:FIRDataEventTypeChildChanged
-                         indexedNode:[FIndexedNode
-                                         indexedNodeWithNode:childNode]
-                            childKey:childKey
-                      oldIndexedNode:[FIndexedNode
-                                         indexedNodeWithNode:oldChildSnap]];
-                  [optChangeAccumulator trackChildChange:change];
-              }
-          } else {
-              FChange *change = [[FChange alloc]
-                  initWithType:FIRDataEventTypeChildAdded
-                   indexedNode:[FIndexedNode indexedNodeWithNode:childNode]
-                      childKey:childKey];
-              [optChangeAccumulator trackChildChange:change];
-          }
+                     NSString *childKey, id<FNode> childNode, BOOL *stop) {
+                         if ([oldSnap.node hasChild:childKey]) {
+                             id<FNode> oldChildSnap =
+                                 [oldSnap.node getImmediateChild:childKey];
+                if (![oldChildSnap isEqual:childNode]) {
+                    FChange *change = [[FChange alloc]
+                                       initWithType:FIRDataEventTypeChildChanged
+                                       indexedNode:[FIndexedNode
+                                                    indexedNodeWithNode:childNode]
+                                       childKey:childKey
+                                       oldIndexedNode:[FIndexedNode
+                                                       indexedNodeWithNode:oldChildSnap]];
+                    [optChangeAccumulator trackChildChange:change];
+                }
+            } else {
+                FChange *change = [[FChange alloc]
+                                   initWithType:FIRDataEventTypeChildAdded
+                                   indexedNode:[FIndexedNode indexedNodeWithNode:childNode]
+                                   childKey:childKey];
+                [optChangeAccumulator trackChildChange:change];
+            }
         }];
     }
     return newSnap;
 }
 
 - (FIndexedNode *)updatePriority:(id<FNode>)priority
-                         forNode:(FIndexedNode *)oldSnap {
+    forNode:(FIndexedNode *)oldSnap {
     if ([oldSnap.node isEmpty]) {
         return oldSnap;
     } else {

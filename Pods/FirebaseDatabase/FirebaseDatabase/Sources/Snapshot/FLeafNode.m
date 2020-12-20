@@ -96,7 +96,7 @@
 }
 
 - (id<FNode>)updateImmediateChild:(NSString *)childName
-                     withNewChild:(id<FNode>)newChildNode {
+    withNewChild:(id<FNode>)newChildNode {
     if ([childName isEqualToString:@".priority"]) {
         return [self updatePriority:newChildNode];
     } else if (newChildNode.isEmpty) {
@@ -104,7 +104,7 @@
     } else {
         FChildrenNode *childrenNode = [[FChildrenNode alloc] init];
         childrenNode = [childrenNode updateImmediateChild:childName
-                                             withNewChild:newChildNode];
+                                     withNewChild:newChildNode];
         childrenNode = [childrenNode updatePriority:self.priorityNode];
         return childrenNode;
     }
@@ -120,9 +120,9 @@
         NSAssert(![front isEqualToString:@".priority"] || path.length == 1,
                  @".priority must be the last token in a path.");
         return [self updateImmediateChild:front
-                             withNewChild:[[FEmptyNode emptyNode]
-                                               updateChild:[path popFront]
-                                              withNewChild:newChildNode]];
+                     withNewChild:[[FEmptyNode emptyNode]
+                              updateChild:[path popFront]
+                              withNewChild:newChildNode]];
     }
 }
 
@@ -132,9 +132,11 @@
 
 - (id)valForExport:(BOOL)exp {
     if (exp && !self.getPriority.isEmpty) {
-        return @{
-            kPayloadValue : self.value,
-            kPayloadPriority : [[self getPriority] val]
+        return @ {
+kPayloadValue :
+            self.value,
+kPayloadPriority :
+            [[self getPriority] val]
         };
     } else {
         return self.value;
@@ -147,7 +149,7 @@
     } else if (other.isLeafNode) {
         FLeafNode *otherLeaf = other;
         if ([FUtilities getJavascriptType:self.value] !=
-            [FUtilities getJavascriptType:otherLeaf.value]) {
+                [FUtilities getJavascriptType:otherLeaf.value]) {
             return NO;
         }
         return [otherLeaf.value isEqual:self.value] &&
@@ -178,13 +180,13 @@
 }
 
 - (void)enumerateChildrenUsingBlock:(void (^)(NSString *, id<FNode>,
-                                              BOOL *))block {
+    BOOL *))block {
     // Nothing to iterate over
 }
 
 - (void)enumerateChildrenReverse:(BOOL)reverse
-                      usingBlock:
-                          (void (^)(NSString *, id<FNode>, BOOL *))block {
+    usingBlock:
+    (void (^)(NSString *, id<FNode>, BOOL *))block {
     // Nothing to iterate over
 }
 
@@ -197,9 +199,9 @@
     if (self.lazyHash == nil) {
         NSMutableString *toHash = [[NSMutableString alloc] init];
         [FSnapshotUtilities
-            appendHashRepresentationForLeafNode:self
-                                       toString:toHash
-                                    hashVersion:FDataHashVersionV1];
+         appendHashRepresentationForLeafNode:self
+         toString:toHash
+         hashVersion:FDataHashVersionV1];
 
         self.lazyHash = [FStringUtilities base64EncodedSha1:toHash];
     }
@@ -220,11 +222,11 @@
 + (NSArray *)valueTypeOrder {
     static NSArray *valueOrder = nil;
     static dispatch_once_t once;
-    dispatch_once(&once, ^{
-      valueOrder = @[
-          kJavaScriptObject, kJavaScriptBoolean, kJavaScriptNumber,
-          kJavaScriptString
-      ];
+    dispatch_once(&once, ^ {
+        valueOrder = @[
+        kJavaScriptObject, kJavaScriptBoolean, kJavaScriptNumber,
+        kJavaScriptString
+        ];
     });
     return valueOrder;
 }
@@ -250,7 +252,7 @@
         }
     } else {
         return thisIndex > otherIndex ? NSOrderedDescending
-                                      : NSOrderedAscending;
+               : NSOrderedAscending;
     }
 }
 

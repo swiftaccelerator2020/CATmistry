@@ -26,8 +26,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface FIRDatabaseConfig : NSObject
 
 - (id)initWithSessionIdentifier:(NSString *)identifier
-                    googleAppID:(NSString *)googleAppID
-              authTokenProvider:(id<FAuthTokenProvider>)authTokenProvider;
+    googleAppID:(NSString *)googleAppID
+    authTokenProvider:(id<FAuthTokenProvider>)authTokenProvider;
 
 /**
  * By default the Firebase Database client will keep data in memory while your

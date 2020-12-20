@@ -7,14 +7,14 @@
 
 - (NSString *) description {
     return [NSString stringWithFormat:@"[key=%@ val=%@ color=%@]", key, value,
-            (color != nil ? @"true" : @"false")];
+                     (color != nil ? @"true" : @"false")];
 }
 
 + (id)emptyNode
 {
     static dispatch_once_t pred = 0;
     __strong static id _sharedObject = nil;
-    dispatch_once(&pred, ^{
+    dispatch_once(&pred, ^ {
         _sharedObject = [[self alloc] init]; // or some other init method
     });
     return _sharedObject;

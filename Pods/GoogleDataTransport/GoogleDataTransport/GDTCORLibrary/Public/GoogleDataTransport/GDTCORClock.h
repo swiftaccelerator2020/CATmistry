@@ -21,7 +21,7 @@ NS_ASSUME_NONNULL_BEGIN
 /** This class manages the device clock and produces snapshots of the current time. */
 @interface GDTCORClock : NSObject <NSSecureCoding>
 
-/** The wallclock time, UTC, in milliseconds. */
+    /** The wallclock time, UTC, in milliseconds. */
 @property(nonatomic, readonly) int64_t timeMillis;
 
 /** The offset from UTC in seconds. */
@@ -37,7 +37,7 @@ NS_ASSUME_NONNULL_BEGIN
     "Please use `kernelBootTimeNanoseconds` instead");
 
 @property(nonatomic, readonly)
-    int64_t uptime DEPRECATED_MSG_ATTRIBUTE("Please use `uptimeNanoseconds` instead");
+int64_t uptime DEPRECATED_MSG_ATTRIBUTE("Please use `uptimeNanoseconds` instead");
 
 /** Creates a GDTCORClock object using the current time and offsets.
  *

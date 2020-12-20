@@ -47,16 +47,16 @@ typedef enum {
 
 - (id)initWith:(FRepoInfo *)aRepoInfo
     andDispatchQueue:(dispatch_queue_t)queue
-         googleAppID:googleAppID
-       lastSessionID:(NSString *)lastSessionID {
+    googleAppID:googleAppID
+    lastSessionID:(NSString *)lastSessionID {
     self = [super init];
     if (self) {
         state = REALTIME_STATE_CONNECTING;
         self.repoInfo = aRepoInfo;
         self.conn = [[FWebSocketConnection alloc] initWith:self.repoInfo
                                                   andQueue:queue
-                                               googleAppID:googleAppID
-                                             lastSessionID:lastSessionID];
+                                                  googleAppID:googleAppID
+                                                  lastSessionID:lastSessionID];
         self.conn.delegate = self;
     }
     return self;
@@ -92,9 +92,11 @@ typedef enum {
 - (void)sendRequest:(NSDictionary *)dataMsg sensitive:(BOOL)sensitive {
     // since this came from the persistent connection, wrap it in a data message
     // envelope
-    NSDictionary *msg = @{
-        kFWPRequestType : kFWPRequestTypeData,
-        kFWPRequestDataPayload : dataMsg
+    NSDictionary *msg = @ {
+kFWPRequestType :
+        kFWPRequestTypeData,
+kFWPRequestDataPayload :
+        dataMsg
     };
     [self sendData:msg sensitive:sensitive];
 }
@@ -105,8 +107,8 @@ typedef enum {
 - (void)sendData:(NSDictionary *)data sensitive:(BOOL)sensitive {
     if (state != REALTIME_STATE_CONNECTED) {
         @throw [[NSException alloc]
-            initWithName:@"InvalidConnectionState"
-                  reason:@"Tried to send data on an unconnected FConnection"
+                initWithName:@"InvalidConnectionState"
+                reason:@"Tried to send data on an unconnected FConnection"
                 userInfo:nil];
     } else {
         if (sensitive) {
@@ -141,15 +143,15 @@ typedef enum {
 
 // Corresponds to onMessageReceived in JS
 - (void)onMessage:(FWebSocketConnection *)fwebSocket
-      withMessage:(NSDictionary *)message {
+    withMessage:(NSDictionary *)message {
     NSString *rawMessageType =
         [message objectForKey:kFWPAsyncServerEnvelopeType];
     if (rawMessageType != nil) {
         if ([rawMessageType isEqualToString:kFWPAsyncServerDataMessage]) {
             [self onDataMessage:[message
-                                    objectForKey:kFWPAsyncServerEnvelopeData]];
+                                 objectForKey:kFWPAsyncServerEnvelopeData]];
         } else if ([rawMessageType
-                       isEqualToString:kFWPAsyncServerControlMessage]) {
+                    isEqualToString:kFWPAsyncServerControlMessage]) {
             [self onControl:[message objectForKey:kFWPAsyncServerEnvelopeData]];
         } else {
             FFLog(@"I-RDB082008", @"Unrecognized server packet type: %@",
@@ -213,8 +215,8 @@ typedef enum {
 }
 
 - (void)onConnection:(FWebSocketConnection *)conn
-         readyAtTime:(NSNumber *)timestamp
-           sessionID:(NSString *)sessionID {
+    readyAtTime:(NSNumber *)timestamp
+    sessionID:(NSString *)sessionID {
     FFLog(@"I-RDB082014", @"Realtime connection established");
     state = REALTIME_STATE_CONNECTED;
 

@@ -51,8 +51,8 @@
 
     id<FNode> childNode = [self.node.node getChild:childPath];
     return [[FIRDataSnapshot alloc]
-        initWithRef:childRef
-        indexedNode:[FIndexedNode indexedNodeWithNode:childNode]];
+            initWithRef:childRef
+            indexedNode:[FIndexedNode indexedNodeWithNode:childNode]];
 }
 
 - (BOOL)hasChild:(NSString *)childPathString {
@@ -88,13 +88,13 @@
 
 - (NSEnumerator<FIRDataSnapshot *> *)children {
     return [[FTransformedEnumerator alloc]
-        initWithEnumerator:self.node.childEnumerator
-              andTransform:^id(FNamedNode *node) {
-                FIRDatabaseReference *childRef = [self.ref child:node.name];
-                return [[FIRDataSnapshot alloc]
-                    initWithRef:childRef
-                    indexedNode:[FIndexedNode indexedNodeWithNode:node.node]];
-              }];
+            initWithEnumerator:self.node.childEnumerator
+    andTransform:^id(FNamedNode *node) {
+        FIRDatabaseReference *childRef = [self.ref child:node.name];
+        return [[FIRDataSnapshot alloc]
+                initWithRef:childRef
+                indexedNode:[FIndexedNode indexedNodeWithNode:node.node]];
+    }];
 }
 
 - (NSString *)description {

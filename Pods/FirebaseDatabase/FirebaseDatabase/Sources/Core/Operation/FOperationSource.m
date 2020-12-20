@@ -32,9 +32,9 @@
 @synthesize queryParams;
 
 - (id)initWithFromUser:(BOOL)isFromUser
-            fromServer:(BOOL)isFromServer
-           queryParams:(FQueryParams *)params
-                tagged:(BOOL)tagged {
+    fromServer:(BOOL)isFromServer
+    queryParams:(FQueryParams *)params
+    tagged:(BOOL)tagged {
     self = [super init];
     if (self) {
         self.fromUser = isFromUser;
@@ -48,11 +48,11 @@
 + (FOperationSource *)userInstance {
     static FOperationSource *user = nil;
     static dispatch_once_t userToken;
-    dispatch_once(&userToken, ^{
-      user = [[FOperationSource alloc] initWithFromUser:YES
-                                             fromServer:NO
-                                            queryParams:nil
-                                                 tagged:NO];
+    dispatch_once(&userToken, ^ {
+        user = [[FOperationSource alloc] initWithFromUser:YES
+                                         fromServer:NO
+                                         queryParams:nil
+                                         tagged:NO];
     });
     return user;
 }
@@ -60,27 +60,27 @@
 + (FOperationSource *)serverInstance {
     static FOperationSource *server = nil;
     static dispatch_once_t serverToken;
-    dispatch_once(&serverToken, ^{
-      server = [[FOperationSource alloc] initWithFromUser:NO
-                                               fromServer:YES
-                                              queryParams:nil
-                                                   tagged:NO];
+    dispatch_once(&serverToken, ^ {
+        server = [[FOperationSource alloc] initWithFromUser:NO
+                                           fromServer:YES
+                                           queryParams:nil
+                                           tagged:NO];
     });
     return server;
 }
 
 + (FOperationSource *)forServerTaggedQuery:(FQueryParams *)params {
     return [[FOperationSource alloc] initWithFromUser:NO
-                                           fromServer:YES
-                                          queryParams:params
-                                               tagged:YES];
+                                     fromServer:YES
+                                     queryParams:params
+                                     tagged:YES];
 }
 
 - (NSString *)description {
     return [NSString stringWithFormat:@"FOperationSource { fromUser=%d, "
-                                      @"fromServer=%d, queryId=%@, tagged=%d }",
-                                      self.fromUser, self.fromServer,
-                                      self.queryParams, self.isTagged];
+                     @"fromServer=%d, queryId=%@, tagged=%d }",
+                     self.fromUser, self.fromServer,
+                     self.queryParams, self.isTagged];
 }
 
 @end

@@ -103,7 +103,7 @@ typedef enum _gdt_cct_QosTierConfiguration_QosTier {
 typedef struct _gdt_cct_BatchedLogRequest {
     pb_size_t log_request_count;
     struct _gdt_cct_LogRequest *log_request;
-/* @@protoc_insertion_point(struct:gdt_cct_BatchedLogRequest) */
+    /* @@protoc_insertion_point(struct:gdt_cct_BatchedLogRequest) */
 } gdt_cct_BatchedLogRequest;
 
 typedef struct _gdt_cct_IosClientInfo {
@@ -114,7 +114,7 @@ typedef struct _gdt_cct_IosClientInfo {
     pb_bytes_array_t *model;
     pb_bytes_array_t *language_code;
     pb_bytes_array_t *application_bundle_id;
-/* @@protoc_insertion_point(struct:gdt_cct_IosClientInfo) */
+    /* @@protoc_insertion_point(struct:gdt_cct_IosClientInfo) */
 } gdt_cct_IosClientInfo;
 
 typedef struct _gdt_cct_ClientInfo {
@@ -122,7 +122,7 @@ typedef struct _gdt_cct_ClientInfo {
     gdt_cct_ClientInfo_ClientType client_type;
     bool has_ios_client_info;
     gdt_cct_IosClientInfo ios_client_info;
-/* @@protoc_insertion_point(struct:gdt_cct_ClientInfo) */
+    /* @@protoc_insertion_point(struct:gdt_cct_ClientInfo) */
 } gdt_cct_ClientInfo;
 
 typedef struct _gdt_cct_NetworkConnectionInfo {
@@ -130,7 +130,7 @@ typedef struct _gdt_cct_NetworkConnectionInfo {
     gdt_cct_NetworkConnectionInfo_NetworkType network_type;
     bool has_mobile_subtype;
     gdt_cct_NetworkConnectionInfo_MobileSubtype mobile_subtype;
-/* @@protoc_insertion_point(struct:gdt_cct_NetworkConnectionInfo) */
+    /* @@protoc_insertion_point(struct:gdt_cct_NetworkConnectionInfo) */
 } gdt_cct_NetworkConnectionInfo;
 
 typedef struct _gdt_cct_QosTierConfiguration {
@@ -138,7 +138,7 @@ typedef struct _gdt_cct_QosTierConfiguration {
     gdt_cct_QosTierConfiguration_QosTier qos_tier;
     bool has_log_source;
     int32_t log_source;
-/* @@protoc_insertion_point(struct:gdt_cct_QosTierConfiguration) */
+    /* @@protoc_insertion_point(struct:gdt_cct_QosTierConfiguration) */
 } gdt_cct_QosTierConfiguration;
 
 typedef struct _gdt_cct_QosTiersOverride {
@@ -146,7 +146,7 @@ typedef struct _gdt_cct_QosTiersOverride {
     struct _gdt_cct_QosTierConfiguration *qos_tier_configuration;
     bool has_qos_tier_fingerprint;
     int64_t qos_tier_fingerprint;
-/* @@protoc_insertion_point(struct:gdt_cct_QosTiersOverride) */
+    /* @@protoc_insertion_point(struct:gdt_cct_QosTiersOverride) */
 } gdt_cct_QosTiersOverride;
 
 typedef struct _gdt_cct_LogEvent {
@@ -161,7 +161,7 @@ typedef struct _gdt_cct_LogEvent {
     int64_t event_uptime_ms;
     bool has_network_connection_info;
     gdt_cct_NetworkConnectionInfo network_connection_info;
-/* @@protoc_insertion_point(struct:gdt_cct_LogEvent) */
+    /* @@protoc_insertion_point(struct:gdt_cct_LogEvent) */
 } gdt_cct_LogEvent;
 
 typedef struct _gdt_cct_LogRequest {
@@ -177,7 +177,7 @@ typedef struct _gdt_cct_LogRequest {
     int64_t request_uptime_ms;
     bool has_qos_tier;
     gdt_cct_QosTierConfiguration_QosTier qos_tier;
-/* @@protoc_insertion_point(struct:gdt_cct_LogRequest) */
+    /* @@protoc_insertion_point(struct:gdt_cct_LogRequest) */
 } gdt_cct_LogRequest;
 
 typedef struct _gdt_cct_LogResponse {
@@ -185,7 +185,7 @@ typedef struct _gdt_cct_LogResponse {
     int64_t next_request_wait_millis;
     bool has_qos_tier;
     gdt_cct_QosTiersOverride qos_tier;
-/* @@protoc_insertion_point(struct:gdt_cct_LogResponse) */
+    /* @@protoc_insertion_point(struct:gdt_cct_LogResponse) */
 } gdt_cct_LogResponse;
 
 /* Default values for struct fields */

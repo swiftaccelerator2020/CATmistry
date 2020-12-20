@@ -68,10 +68,10 @@
 @implementation FIRRetryHelper
 
 - (instancetype)initWithDispatchQueue:(dispatch_queue_t)dispatchQueue
-            minRetryDelayAfterFailure:(NSTimeInterval)minRetryDelayAfterFailure
-                        maxRetryDelay:(NSTimeInterval)maxRetryDelay
-                        retryExponent:(double)retryExponent
-                         jitterFactor:(double)jitterFactor {
+    minRetryDelayAfterFailure:(NSTimeInterval)minRetryDelayAfterFailure
+    maxRetryDelay:(NSTimeInterval)maxRetryDelay
+    retryExponent:(double)retryExponent
+    jitterFactor:(double)jitterFactor {
     self = [super init];
     if (self != nil) {
         self->_dispatchQueue = dispatchQueue;
@@ -113,11 +113,11 @@
     self.scheduledRetry = task;
     dispatch_time_t popTime =
         dispatch_time(DISPATCH_TIME_NOW, (long long)(delay * NSEC_PER_SEC));
-    dispatch_after(popTime, self.dispatchQueue, ^{
-      if (![task isCanceled]) {
-          self.scheduledRetry = nil;
-          [task execute];
-      }
+    dispatch_after(popTime, self.dispatchQueue, ^ {
+        if (![task isCanceled]) {
+            self.scheduledRetry = nil;
+            [task execute];
+        }
     });
 }
 

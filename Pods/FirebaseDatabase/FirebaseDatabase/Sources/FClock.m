@@ -25,8 +25,8 @@
 + (FSystemClock *)clock {
     static dispatch_once_t onceToken;
     static FSystemClock *clock;
-    dispatch_once(&onceToken, ^{
-      clock = [[FSystemClock alloc] init];
+    dispatch_once(&onceToken, ^ {
+        clock = [[FSystemClock alloc] init];
     });
     return clock;
 }

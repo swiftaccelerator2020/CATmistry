@@ -31,7 +31,9 @@ FIRLoggerService kFIRLoggerDatabase = @"[Firebase/Database]";
 static FLogLevel logLevel = FLogLevelInfo; // Default log level is info
 static NSMutableDictionary *options = nil;
 
-BOOL FFIsLoggingEnabled(FLogLevel level) { return level >= logLevel; }
+BOOL FFIsLoggingEnabled(FLogLevel level) {
+    return level >= logLevel;
+}
 
 void firebaseJobsTroll(void) {
     FFLog(@"I-RDB095001",
@@ -75,8 +77,8 @@ void firebaseJobsTroll(void) {
 + (FUtilities *)singleton {
     static dispatch_once_t pred = 0;
     __strong static id _sharedObject = nil;
-    dispatch_once(&pred, ^{
-      _sharedObject = [[self alloc] init]; // or some other init method
+    dispatch_once(&pred, ^ {
+        _sharedObject = [[self alloc] init]; // or some other init method
     });
     return _sharedObject;
 }
@@ -93,14 +95,14 @@ void firebaseJobsTroll(void) {
             int rangeStart = c;
             unsigned long rangeLength = size - ((c + size) - str.length);
             [dataSegs
-                addObject:[str substringWithRange:NSMakeRange(rangeStart,
-                                                              rangeLength)]];
+             addObject:[str substringWithRange:NSMakeRange(rangeStart,
+                        rangeLength)]];
         } else {
             int rangeStart = c;
             int rangeLength = size;
             [dataSegs
-                addObject:[str substringWithRange:NSMakeRange(rangeStart,
-                                                              rangeLength)]];
+             addObject:[str substringWithRange:NSMakeRange(rangeStart,
+                        rangeLength)]];
         }
     }
     return dataSegs;
@@ -120,7 +122,7 @@ void firebaseJobsTroll(void) {
         }
     }
     return [NSString
-        stringWithFormat:@"/%@", [decodedPieces componentsJoinedByString:@"/"]];
+            stringWithFormat:@"/%@", [decodedPieces componentsJoinedByString:@"/"]];
 }
 
 + (NSString *)extractPathFromUrlString:(NSString *)url {
@@ -158,12 +160,12 @@ void firebaseJobsTroll(void) {
     // contain invalid URL characters.
     NSString *sanitizedUrlWithoutPath =
         [url stringByReplacingOccurrencesOfString:originalPathString
-                                       withString:@""];
+             withString:@""];
     NSURLComponents *urlComponents =
         [NSURLComponents componentsWithString:sanitizedUrlWithoutPath];
     if (!urlComponents) {
         [NSException raise:@"Failed to parse database URL"
-                    format:@"Failed to parse database URL: %@", url];
+                     format:@"Failed to parse database URL: %@", url];
     }
 
     NSString *host = [urlComponents.host lowercaseString];
@@ -197,11 +199,11 @@ void firebaseJobsTroll(void) {
     }
 
     NSString *pathString = [self
-        decodePath:[NSString stringWithFormat:@"/%@", originalPathString]];
+                            decodePath:[NSString stringWithFormat:@"/%@", originalPathString]];
     FPath *path = [[FPath alloc] initWith:pathString];
     FRepoInfo *repoInfo = [[FRepoInfo alloc] initWithHost:host
-                                                 isSecure:secure
-                                            withNamespace:namespace];
+                                             isSecure:secure
+                                             withNamespace:namespace];
 
     FFLog(@"I-RDB095002", @"---> Parsed (%@) to: (%@,%@); ns=(%@); path=(%@)",
           url, [repoInfo description], [repoInfo connectionURL],
@@ -237,7 +239,7 @@ void firebaseJobsTroll(void) {
         // on arm64, @encode(BOOL) returns "B" instead of "c" even though
         // objCType still returns 'c' (signed char).  So check both.
         if (strcmp([obj objCType], @encode(BOOL)) == 0 ||
-            strcmp([obj objCType], @encode(signed char)) == 0) {
+                strcmp([obj objCType], @encode(signed char)) == 0) {
             return kJavaScriptBoolean;
         } else {
             return kJavaScriptNumber;
@@ -251,17 +253,17 @@ void firebaseJobsTroll(void) {
     static dispatch_once_t pred = 0;
     __strong static NSDictionary *errorMap = nil;
     __strong static NSDictionary *errorCodes = nil;
-    dispatch_once(&pred, ^{
-      errorMap = @{
-          @"permission_denied" : @"Permission Denied",
-          @"unavailable" : @"Service is unavailable",
-          kFErrorWriteCanceled : @"Write cancelled by user"
-      };
-      errorCodes = @{
-          @"permission_denied" : @1,
-          @"unavailable" : @2,
-          kFErrorWriteCanceled : @3
-      };
+    dispatch_once(&pred, ^ {
+        errorMap = @{
+@"permission_denied" : @"Permission Denied",
+@"unavailable" : @"Service is unavailable",
+kFErrorWriteCanceled : @"Write cancelled by user"
+        };
+        errorCodes = @{
+@"permission_denied" : @1,
+@"unavailable" : @2,
+kFErrorWriteCanceled : @3
+        };
     });
 
     if ([status isEqualToString:kFWPResponseForActionStatusOk]) {
@@ -286,9 +288,9 @@ void firebaseJobsTroll(void) {
         }
 
         return [[NSError alloc]
-            initWithDomain:kFErrorDomain
-                      code:code
-                  userInfo:@{NSLocalizedDescriptionKey : desc}];
+                initWithDomain:kFErrorDomain
+                code:code
+                userInfo:@ {NSLocalizedDescriptionKey : desc}];
     }
 }
 
@@ -361,8 +363,8 @@ static inline BOOL tryParseStringToInt(__unsafe_unretained NSString *str,
 + (NSString *)maxName {
     static dispatch_once_t once;
     static NSString *maxName;
-    dispatch_once(&once, ^{
-      maxName = [[NSString alloc] initWithFormat:@"[MAX_NAME]"];
+    dispatch_once(&once, ^ {
+        maxName = [[NSString alloc] initWithFormat:@"[MAX_NAME]"];
     });
     return maxName;
 }
@@ -370,8 +372,8 @@ static inline BOOL tryParseStringToInt(__unsafe_unretained NSString *str,
 + (NSString *)minName {
     static dispatch_once_t once;
     static NSString *minName;
-    dispatch_once(&once, ^{
-      minName = [[NSString alloc] initWithFormat:@"[MIN_NAME]"];
+    dispatch_once(&once, ^ {
+        minName = [[NSString alloc] initWithFormat:@"[MIN_NAME]"];
     });
     return minName;
 }
@@ -414,15 +416,15 @@ static inline BOOL tryParseStringToInt(__unsafe_unretained NSString *str,
 
 + (NSComparator)keyComparator {
     return ^NSComparisonResult(__unsafe_unretained NSString *a,
-                               __unsafe_unretained NSString *b) {
-      return [FUtilities compareKey:a toKey:b];
+    __unsafe_unretained NSString *b) {
+        return [FUtilities compareKey:a toKey:b];
     };
 }
 
 + (NSComparator)stringComparator {
     return ^NSComparisonResult(__unsafe_unretained NSString *a,
-                               __unsafe_unretained NSString *b) {
-      return [a compare:b];
+    __unsafe_unretained NSString *b) {
+        return [a compare:b];
     };
 }
 

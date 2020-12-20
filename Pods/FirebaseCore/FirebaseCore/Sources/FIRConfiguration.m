@@ -21,26 +21,26 @@ extern void FIRSetLoggerLevel(FIRLoggerLevel loggerLevel);
 @implementation FIRConfiguration
 
 + (instancetype)sharedInstance {
-  static FIRConfiguration *sharedInstance = nil;
-  static dispatch_once_t onceToken;
-  dispatch_once(&onceToken, ^{
-    sharedInstance = [[FIRConfiguration alloc] init];
-  });
-  return sharedInstance;
+    static FIRConfiguration *sharedInstance = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^ {
+        sharedInstance = [[FIRConfiguration alloc] init];
+    });
+    return sharedInstance;
 }
 
 - (instancetype)init {
-  self = [super init];
-  if (self) {
-    _analyticsConfiguration = [FIRAnalyticsConfiguration sharedInstance];
-  }
-  return self;
+    self = [super init];
+    if (self) {
+        _analyticsConfiguration = [FIRAnalyticsConfiguration sharedInstance];
+    }
+    return self;
 }
 
 - (void)setLoggerLevel:(FIRLoggerLevel)loggerLevel {
-  NSAssert(loggerLevel <= FIRLoggerLevelMax && loggerLevel >= FIRLoggerLevelMin,
-           @"Invalid logger level, %ld", (long)loggerLevel);
-  FIRSetLoggerLevel(loggerLevel);
+    NSAssert(loggerLevel <= FIRLoggerLevelMax && loggerLevel >= FIRLoggerLevelMin,
+             @"Invalid logger level, %ld", (long)loggerLevel);
+    FIRSetLoggerLevel(loggerLevel);
 }
 
 @end

@@ -39,11 +39,11 @@
         return [self relativePathFrom:[outer popFront] to:[inner popFront]];
     } else {
         @throw [[NSException alloc]
-            initWithName:@"FirebaseDatabaseInternalError"
-                  reason:[NSString
-                             stringWithFormat:
-                                 @"innerPath (%@) is not within outerPath (%@)",
-                                 inner, outer]
+                initWithName:@"FirebaseDatabaseInternalError"
+                reason:[NSString
+                        stringWithFormat:
+                        @"innerPath (%@) is not within outerPath (%@)",
+                        inner, outer]
                 userInfo:nil];
     }
 }
@@ -179,7 +179,7 @@
     }
 
     for (NSInteger i = childPathObj.pieceNum; i < childPathObj.pieces.count;
-         i++) {
+            i++) {
         [newPieces addObject:[childPathObj.pieces objectAtIndex:i]];
     }
 
@@ -216,8 +216,8 @@
 + (FPath *)empty {
     static dispatch_once_t oneEmptyPath;
     static FPath *emptyPath;
-    dispatch_once(&oneEmptyPath, ^{
-      emptyPath = [[FPath alloc] initWith:@""];
+    dispatch_once(&oneEmptyPath, ^ {
+        emptyPath = [[FPath alloc] initWith:@""];
     });
     return emptyPath;
 }
@@ -252,9 +252,9 @@
     NSInteger myCount = self.pieces.count;
     NSInteger otherCount = other.pieces.count;
     for (NSInteger i = self.pieceNum, j = other.pieceNum;
-         i < myCount && j < otherCount; i++, j++) {
+            i < myCount && j < otherCount; i++, j++) {
         NSComparisonResult comparison = [FUtilities compareKey:self.pieces[i]
-                                                         toKey:other.pieces[j]];
+                                                    toKey:other.pieces[j]];
         if (comparison != NSOrderedSame) {
             return comparison;
         }
@@ -285,7 +285,7 @@
         return NO;
     }
     for (NSUInteger i = self.pieceNum, j = otherPath.pieceNum;
-         i < self.pieces.count; i++, j++) {
+            i < self.pieces.count; i++, j++) {
         if (![self.pieces[i] isEqualToString:otherPath.pieces[j]]) {
             return NO;
         }

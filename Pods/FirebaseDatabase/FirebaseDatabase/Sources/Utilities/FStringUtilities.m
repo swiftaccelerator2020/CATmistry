@@ -31,13 +31,13 @@
     uint8_t digest[CC_SHA1_DIGEST_LENGTH];
     CC_SHA1(data.bytes, (unsigned int)data.length, digest);
     NSData *output = [[NSData alloc] initWithBytes:digest
-                                            length:CC_SHA1_DIGEST_LENGTH];
+                                     length:CC_SHA1_DIGEST_LENGTH];
     return [FSRUtilities base64EncodedStringFromData:output];
 }
 
 + (NSString *)urlDecoded:(NSString *)url {
     NSString *replaced = [url stringByReplacingOccurrencesOfString:@"+"
-                                                        withString:@" "];
+                              withString:@" "];
     NSString *decoded = [replaced stringByRemovingPercentEncoding];
     // This is kind of a hack, but is generally how the js client works. We
     // could run into trouble if some piece is a correctly escaped %-sequence,
@@ -55,18 +55,18 @@
     // https://www.ietf.org/rfc/rfc2396.txt allowedCharacters = alphanum | "-" |
     // "_" | "~"
     NSCharacterSet *allowedCharacters = [NSCharacterSet
-        characterSetWithCharactersInString:@"abcdefghijklmnopqrstuvwxyzABCDEFGH"
-                                           @"IJKLMNOPQRSTUVWXYZ0123456789-_~"];
+                                         characterSetWithCharactersInString:@"abcdefghijklmnopqrstuvwxyzABCDEFGH"
+                                         @"IJKLMNOPQRSTUVWXYZ0123456789-_~"];
     return [url
-        stringByAddingPercentEncodingWithAllowedCharacters:allowedCharacters];
+            stringByAddingPercentEncodingWithAllowedCharacters:allowedCharacters];
 }
 
 + (NSString *)sanitizedForUserAgent:(NSString *)str {
     return
         [str stringByReplacingOccurrencesOfString:@"/|_"
-                                       withString:@"|"
-                                          options:NSRegularExpressionSearch
-                                            range:NSMakeRange(0, [str length])];
+             withString:@"|"
+             options:NSRegularExpressionSearch
+             range:NSMakeRange(0, [str length])];
 }
 
 @end

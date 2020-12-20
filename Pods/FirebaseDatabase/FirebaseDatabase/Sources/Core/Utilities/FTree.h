@@ -22,8 +22,8 @@
 
 - (id)init;
 - (id)initWithName:(NSString *)aName
-        withParent:(FTree *)aParent
-          withNode:(FTreeNode *)aNode;
+    withParent:(FTree *)aParent
+    withNode:(FTreeNode *)aNode;
 
 - (FTree *)subTree:(FPath *)path;
 - (id)getValue;
@@ -35,8 +35,8 @@
 - (void)forEachChild:(void (^)(FTree *))action;
 - (void)forEachDescendant:(void (^)(FTree *))action;
 - (void)forEachDescendant:(void (^)(FTree *))action
-              includeSelf:(BOOL)incSelf
-            childrenFirst:(BOOL)childFirst;
+    includeSelf:(BOOL)incSelf
+    childrenFirst:(BOOL)childFirst;
 - (BOOL)forEachAncestor:(BOOL (^)(FTree *))action;
 - (BOOL)forEachAncestor:(BOOL (^)(FTree *))action includeSelf:(BOOL)incSelf;
 - (void)forEachImmediateDescendantWithValue:(void (^)(FTree *))action;

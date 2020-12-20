@@ -23,8 +23,8 @@
 
 + (FRepo *)getRepo:(FRepoInfo *)repoInfo config:(FIRDatabaseConfig *)config;
 + (FRepo *)createRepo:(FRepoInfo *)repoInfo
-               config:(FIRDatabaseConfig *)config
-             database:(FIRDatabase *)database;
+    config:(FIRDatabaseConfig *)config
+    database:(FIRDatabase *)database;
 + (void)interruptAll;
 + (void)interrupt:(FIRDatabaseConfig *)config;
 + (void)resumeAll;

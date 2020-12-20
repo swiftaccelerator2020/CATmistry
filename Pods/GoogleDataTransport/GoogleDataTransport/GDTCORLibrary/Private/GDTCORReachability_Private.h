@@ -18,7 +18,7 @@
 
 @interface GDTCORReachability ()
 
-/** Allows manually setting the flags for testing purposes. */
+    /** Allows manually setting the flags for testing purposes. */
 @property(nonatomic, readwrite) GDTCORNetworkReachabilityFlags flags;
 
 /** Creates/returns the singleton instance of this class.

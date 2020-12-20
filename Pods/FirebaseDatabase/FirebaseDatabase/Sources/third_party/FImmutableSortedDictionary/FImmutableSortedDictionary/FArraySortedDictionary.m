@@ -58,17 +58,17 @@
 {
     NSMutableArray *keys = [NSMutableArray arrayWithCapacity:dictionary.count];
     [dictionary enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
-        [keys addObject:key];
-    }];
+                   [keys addObject:key];
+               }];
     [keys sortUsingComparator:comparator];
 
     [keys enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-        if (idx > 0) {
-            if (comparator(keys[idx - 1], obj) != NSOrderedAscending) {
-                [NSException raise:NSInvalidArgumentException format:@"Can't create FImmutableSortedDictionary with keys with same ordering!"];
-            }
-        }
-    }];
+             if (idx > 0) {
+                 if (comparator(keys[idx - 1], obj) != NSOrderedAscending) {
+                     [NSException raise:NSInvalidArgumentException format:@"Can't create FImmutableSortedDictionary with keys with same ordering!"];
+                 }
+             }
+         }];
 
     NSMutableArray *values = [NSMutableArray arrayWithCapacity:keys.count];
     NSInteger pos = 0;

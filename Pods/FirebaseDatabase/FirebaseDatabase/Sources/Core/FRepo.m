@@ -72,14 +72,14 @@
  * Test only. For load testing the server.
  */
 @property(nonatomic, strong) id (^interceptServerDataCallback)
-    (NSString *pathString, id data);
+(NSString *pathString, id data);
 @end
 
 @implementation FRepo
 
 - (id)initWithRepoInfo:(FRepoInfo *)info
-                config:(FIRDatabaseConfig *)config
-              database:(FIRDatabase *)database {
+    config:(FIRDatabaseConfig *)config
+    database:(FIRDatabase *)database {
     self = [super init];
     if (self) {
         self.repoInfo = info;
@@ -92,16 +92,16 @@
             [[FOffsetClock alloc] initWithClock:[FSystemClock clock] offset:0];
 
         self.connection = [[FPersistentConnection alloc]
-            initWithRepoInfo:self.repoInfo
-               dispatchQueue:[FIRDatabaseQuery sharedQueue]
-                      config:self.config];
+                           initWithRepoInfo:self.repoInfo
+                           dispatchQueue:[FIRDatabaseQuery sharedQueue]
+                           config:self.config];
 
         // Needs to be called before authentication manager is instantiated
         self.eventRaiser =
             [[FEventRaiser alloc] initWithQueue:self.config.callbackQueue];
 
-        dispatch_async([FIRDatabaseQuery sharedQueue], ^{
-          [self deferredInit];
+        dispatch_async([FIRDatabaseQuery sharedQueue], ^ {
+            [self deferredInit];
         });
     }
     return self;
@@ -111,8 +111,8 @@
     // TODO: cleanup on dealloc
     __weak FRepo *weakSelf = self;
     [self.config.authTokenProvider listenForTokenChanges:^(NSString *token) {
-      [weakSelf.connection refreshAuthToken:token];
-    }];
+                                      [weakSelf.connection refreshAuthToken:token];
+                                  }];
 
     // Open connection now so that by the time we are connected the deferred
     // init has run This relies on the fact that all callbacks run on repos
@@ -127,13 +127,13 @@
     if (self.config.persistenceEnabled) {
         NSString *repoHashString =
             [NSString stringWithFormat:@"%@_%@", self.repoInfo.host,
-                                       self.repoInfo.namespace];
+                      self.repoInfo.namespace];
         NSString *persistencePrefix =
             [NSString stringWithFormat:@"%@/%@", self.config.sessionIdentifier,
-                                       repoHashString];
+                      repoHashString];
 
         id<FCachePolicy> cachePolicy = [[FLRUCachePolicy alloc]
-            initWithMaxSize:self.config.persistenceCacheSizeBytes];
+                                        initWithMaxSize:self.config.persistenceCacheSizeBytes];
 
         id<FStorageEngine> engine;
         if (self.config.forceStorageEngine != nil) {
@@ -151,7 +151,7 @@
 
         self.persistenceManager =
             [[FPersistenceManager alloc] initWithStorageEngine:engine
-                                                   cachePolicy:cachePolicy];
+                                         cachePolicy:cachePolicy];
     } else {
         self.persistenceManager = nil;
     }
@@ -165,22 +165,22 @@
     FListenProvider *infoListenProvider = [[FListenProvider alloc] init];
     infoListenProvider.startListening =
         ^(FQuerySpec *query, NSNumber *tagId, id<FSyncTreeHash> hash,
-          fbt_nsarray_nsstring onComplete) {
-          NSArray *infoEvents = @[];
-          FRepo *strongSelf = weakSelf;
-          id<FNode> node = [strongSelf.infoData getNode:query.path];
-          // This is possibly a hack, but we have different semantics for .info
-          // endpoints. We don't raise null events on initial data...
-          if (![node isEmpty]) {
-              infoEvents =
-                  [strongSelf.infoSyncTree applyServerOverwriteAtPath:query.path
-                                                              newData:node];
-              [strongSelf.eventRaiser raiseCallback:^{
-                onComplete(kFWPResponseForActionStatusOk);
-              }];
-          }
-          return infoEvents;
-        };
+    fbt_nsarray_nsstring onComplete) {
+        NSArray *infoEvents = @[];
+        FRepo *strongSelf = weakSelf;
+        id<FNode> node = [strongSelf.infoData getNode:query.path];
+        // This is possibly a hack, but we have different semantics for .info
+        // endpoints. We don't raise null events on initial data...
+        if (![node isEmpty]) {
+            infoEvents =
+                [strongSelf.infoSyncTree applyServerOverwriteAtPath:query.path
+                                         newData:node];
+            [strongSelf.eventRaiser raiseCallback:^ {
+                                       onComplete(kFWPResponseForActionStatusOk);
+                                   }];
+        }
+        return infoEvents;
+    };
     infoListenProvider.stopListening = ^(FQuerySpec *query, NSNumber *tagId) {
     };
     self.infoSyncTree =
@@ -189,23 +189,23 @@
     FListenProvider *serverListenProvider = [[FListenProvider alloc] init];
     serverListenProvider.startListening =
         ^(FQuerySpec *query, NSNumber *tagId, id<FSyncTreeHash> hash,
-          fbt_nsarray_nsstring onComplete) {
-          [weakSelf.connection listen:query
-                                tagId:tagId
-                                 hash:hash
-                           onComplete:^(NSString *status) {
-                             NSArray *events = onComplete(status);
-                             [weakSelf.eventRaiser raiseEvents:events];
-                           }];
-          // No synchronous events for network-backed sync trees
-          return @[];
-        };
+    fbt_nsarray_nsstring onComplete) {
+        [weakSelf.connection listen:query
+                             tagId:tagId
+                             hash:hash
+                            onComplete:^(NSString *status) {
+                                NSArray *events = onComplete(status);
+            [weakSelf.eventRaiser raiseEvents:events];
+        }];
+        // No synchronous events for network-backed sync trees
+        return @[];
+    };
     serverListenProvider.stopListening = ^(FQuerySpec *query, NSNumber *tag) {
-      [weakSelf.connection unlisten:query tagId:tag];
+        [weakSelf.connection unlisten:query tagId:tag];
     };
     self.serverSyncTree =
         [[FSyncTree alloc] initWithPersistenceManager:self.persistenceManager
-                                       listenProvider:serverListenProvider];
+                           listenProvider:serverListenProvider];
 
     [self restoreWrites];
 
@@ -221,55 +221,55 @@
         [FServerValues generateServerValues:self.serverClock];
     __block NSInteger lastWriteId = NSIntegerMin;
     [writes enumerateObjectsUsingBlock:^(FWriteRecord *write, NSUInteger idx,
-                                         BOOL *stop) {
-      NSInteger writeId = write.writeId;
-      fbt_void_nsstring_nsstring callback =
-          ^(NSString *status, NSString *errorReason) {
+           BOOL *stop) {
+               NSInteger writeId = write.writeId;
+               fbt_void_nsstring_nsstring callback =
+               ^(NSString *status, NSString *errorReason) {
             [self warnIfWriteFailedAtPath:write.path
-                                   status:status
-                                  message:@"Persisted write"];
+                  status:status
+                  message:@"Persisted write"];
             [self ackWrite:writeId
-                rerunTransactionsAtPath:write.path
-                                 status:status];
-          };
-      if (lastWriteId >= writeId) {
-          [NSException raise:NSInternalInconsistencyException
-                      format:@"Restored writes were not in order!"];
-      }
-      lastWriteId = writeId;
-      self.writeIdCounter = writeId + 1;
+                  rerunTransactionsAtPath:write.path
+                  status:status];
+        };
+        if (lastWriteId >= writeId) {
+            [NSException raise:NSInternalInconsistencyException
+                         format:@"Restored writes were not in order!"];
+        }
+        lastWriteId = writeId;
+        self.writeIdCounter = writeId + 1;
 
-      if ([write isOverwrite]) {
-          FFLog(@"I-RDB038001", @"Restoring overwrite with id %ld",
-                (long)write.writeId);
-          [self.connection putData:[write.overwrite valForExport:YES]
-                           forPath:[write.path toString]
-                          withHash:nil
-                      withCallback:callback];
-          id<FNode> resolved =
-              [FServerValues resolveDeferredValueSnapshot:write.overwrite
-                                             withSyncTree:self.serverSyncTree
-                                                   atPath:write.path
-                                             serverValues:serverValues];
-          [self.serverSyncTree applyUserOverwriteAtPath:write.path
-                                                newData:resolved
-                                                writeId:writeId
-                                              isVisible:YES];
-      } else {
-          FFLog(@"I-RDB038002", @"Restoring merge with id %ld",
-                (long)write.writeId);
-          [self.connection mergeData:[write.merge valForExport:YES]
+        if ([write isOverwrite]) {
+            FFLog(@"I-RDB038001", @"Restoring overwrite with id %ld",
+                  (long)write.writeId);
+            [self.connection putData:[write.overwrite valForExport:YES]
                              forPath:[write.path toString]
-                        withCallback:callback];
-          FCompoundWrite *resolved = [FServerValues
-              resolveDeferredValueCompoundWrite:write.merge
-                                   withSyncTree:self.serverSyncTree
-                                         atPath:write.path
-                                   serverValues:serverValues];
-          [self.serverSyncTree applyUserMergeAtPath:write.path
-                                    changedChildren:resolved
-                                            writeId:writeId];
-      }
+                             withHash:nil
+                             withCallback:callback];
+            id<FNode> resolved =
+                [FServerValues resolveDeferredValueSnapshot:write.overwrite
+                               withSyncTree:self.serverSyncTree
+                               atPath:write.path
+                               serverValues:serverValues];
+            [self.serverSyncTree applyUserOverwriteAtPath:write.path
+                                 newData:resolved
+                                 writeId:writeId
+                                 isVisible:YES];
+        } else {
+            FFLog(@"I-RDB038002", @"Restoring merge with id %ld",
+                  (long)write.writeId);
+            [self.connection mergeData:[write.merge valForExport:YES]
+                             forPath:[write.path toString]
+                             withCallback:callback];
+            FCompoundWrite *resolved = [FServerValues
+                                        resolveDeferredValueCompoundWrite:write.merge
+                                        withSyncTree:self.serverSyncTree
+                                        atPath:write.path
+                                        serverValues:serverValues];
+            [self.serverSyncTree applyUserMergeAtPath:write.path
+                                 changedChildren:resolved
+                                 writeId:writeId];
+        }
     }];
 }
 
@@ -309,7 +309,7 @@
 }
 
 - (void)set:(FPath *)path
-        withNode:(id<FNode>)node
+    withNode:(id<FNode>)node
     withCallback:(fbt_void_nserror_ref)onComplete {
     id value = [node valForExport:YES];
     FFLog(@"I-RDB038003", @"Setting: %@ with %@ pri: %@", [path toString],
@@ -320,45 +320,45 @@
     NSDictionary *serverValues =
         [FServerValues generateServerValues:self.serverClock];
     id<FNode> existing = [self.serverSyncTree calcCompleteEventCacheAtPath:path
-                                                           excludeWriteIds:@[]];
+                                              excludeWriteIds:@[]];
     id<FNode> newNode =
         [FServerValues resolveDeferredValueSnapshot:node
-                                       withExisting:existing
-                                       serverValues:serverValues];
+                       withExisting:existing
+                       serverValues:serverValues];
 
     NSInteger writeId = [self nextWriteId];
     [self.persistenceManager saveUserOverwrite:node
-                                        atPath:path
-                                       writeId:writeId];
+                             atPath:path
+                             writeId:writeId];
     NSArray *events = [self.serverSyncTree applyUserOverwriteAtPath:path
-                                                            newData:newNode
-                                                            writeId:writeId
-                                                          isVisible:YES];
+                                           newData:newNode
+                                           writeId:writeId
+                                           isVisible:YES];
     [self.eventRaiser raiseEvents:events];
 
     [self.connection putData:value
                      forPath:[path toString]
-                    withHash:nil
-                withCallback:^(NSString *status, NSString *errorReason) {
-                  [self warnIfWriteFailedAtPath:path
-                                         status:status
-                                        message:@"setValue: or removeValue:"];
-                  [self ackWrite:writeId
-                      rerunTransactionsAtPath:path
-                                       status:status];
-                  [self callOnComplete:onComplete
-                            withStatus:status
-                           errorReason:errorReason
-                               andPath:path];
-                }];
+                     withHash:nil
+                    withCallback:^(NSString *status, NSString *errorReason) {
+                        [self warnIfWriteFailedAtPath:path
+                         status:status
+                         message:@"setValue: or removeValue:"];
+        [self ackWrite:writeId
+              rerunTransactionsAtPath:path
+              status:status];
+        [self callOnComplete:onComplete
+              withStatus:status
+              errorReason:errorReason
+              andPath:path];
+    }];
 
     FPath *affectedPath = [self abortTransactionsAtPath:path
-                                                  error:kFTransactionSet];
+                                error:kFTransactionSet];
     [self rerunTransactionsForPath:affectedPath];
 }
 
 - (void)update:(FPath *)path
-       withNodes:(FCompoundWrite *)nodes
+    withNodes:(FCompoundWrite *)nodes
     withCallback:(fbt_void_nserror_ref)callback {
     NSDictionary *values = [nodes valForExport:YES];
 
@@ -368,138 +368,138 @@
         [FServerValues generateServerValues:self.serverClock];
     FCompoundWrite *resolved =
         [FServerValues resolveDeferredValueCompoundWrite:nodes
-                                            withSyncTree:self.serverSyncTree
-                                                  atPath:path
-                                            serverValues:serverValues];
+                       withSyncTree:self.serverSyncTree
+                       atPath:path
+                       serverValues:serverValues];
 
     if (!resolved.isEmpty) {
         NSInteger writeId = [self nextWriteId];
         [self.persistenceManager saveUserMerge:nodes
-                                        atPath:path
-                                       writeId:writeId];
+                                 atPath:path
+                                 writeId:writeId];
         NSArray *events = [self.serverSyncTree applyUserMergeAtPath:path
-                                                    changedChildren:resolved
-                                                            writeId:writeId];
+                                               changedChildren:resolved
+                                               writeId:writeId];
         [self.eventRaiser raiseEvents:events];
 
         [self.connection mergeData:values
-                           forPath:[path description]
-                      withCallback:^(NSString *status, NSString *errorReason) {
-                        [self warnIfWriteFailedAtPath:path
-                                               status:status
-                                              message:@"updateChildValues:"];
-                        [self ackWrite:writeId
-                            rerunTransactionsAtPath:path
-                                             status:status];
-                        [self callOnComplete:callback
-                                  withStatus:status
-                                 errorReason:errorReason
-                                     andPath:path];
-                      }];
+                         forPath:[path description]
+                        withCallback:^(NSString *status, NSString *errorReason) {
+                            [self warnIfWriteFailedAtPath:path
+                             status:status
+                             message:@"updateChildValues:"];
+            [self ackWrite:writeId
+                  rerunTransactionsAtPath:path
+                  status:status];
+            [self callOnComplete:callback
+                  withStatus:status
+                  errorReason:errorReason
+                  andPath:path];
+        }];
 
         [nodes enumerateWrites:^(FPath *childPath, id<FNode> node, BOOL *stop) {
-          FPath *pathFromRoot = [path child:childPath];
-          FFLog(@"I-RDB038005", @"Cancelling transactions at path: %@",
-                pathFromRoot);
-          FPath *affectedPath = [self abortTransactionsAtPath:pathFromRoot
-                                                        error:kFTransactionSet];
-          [self rerunTransactionsForPath:affectedPath];
+                  FPath *pathFromRoot = [path child:childPath];
+                  FFLog(@"I-RDB038005", @"Cancelling transactions at path: %@",
+                  pathFromRoot);
+            FPath *affectedPath = [self abortTransactionsAtPath:pathFromRoot
+                                        error:kFTransactionSet];
+            [self rerunTransactionsForPath:affectedPath];
         }];
     } else {
         FFLog(@"I-RDB038006", @"update called with empty data. Doing nothing");
         // Do nothing, just call the callback
         [self callOnComplete:callback
-                  withStatus:@"ok"
-                 errorReason:nil
-                     andPath:path];
+              withStatus:@"ok"
+              errorReason:nil
+              andPath:path];
     }
 }
 
 - (void)onDisconnectCancel:(FPath *)path
-              withCallback:(fbt_void_nserror_ref)callback {
+    withCallback:(fbt_void_nserror_ref)callback {
     [self.connection
-        onDisconnectCancelPath:path
-                  withCallback:^(NSString *status, NSString *errorReason) {
-                    BOOL success =
-                        [status isEqualToString:kFWPResponseForActionStatusOk];
-                    if (success) {
-                        [self.onDisconnect forgetPath:path];
-                    } else {
-                        FFLog(@"I-RDB038007",
-                              @"cancelDisconnectOperations: at %@ failed: %@",
-                              path, status);
-                    }
+     onDisconnectCancelPath:path
+    withCallback:^(NSString *status, NSString *errorReason) {
+        BOOL success =
+            [status isEqualToString:kFWPResponseForActionStatusOk];
+        if (success) {
+            [self.onDisconnect forgetPath:path];
+        } else {
+            FFLog(@"I-RDB038007",
+                  @"cancelDisconnectOperations: at %@ failed: %@",
+                  path, status);
+        }
 
-                    [self callOnComplete:callback
-                              withStatus:status
-                             errorReason:errorReason
-                                 andPath:path];
-                  }];
+        [self callOnComplete:callback
+              withStatus:status
+              errorReason:errorReason
+              andPath:path];
+    }];
 }
 
 - (void)onDisconnectSet:(FPath *)path
-               withNode:(id<FNode>)node
-           withCallback:(fbt_void_nserror_ref)callback {
+    withNode:(id<FNode>)node
+    withCallback:(fbt_void_nserror_ref)callback {
     [self.connection
-        onDisconnectPutData:[node valForExport:YES]
-                    forPath:path
-               withCallback:^(NSString *status, NSString *errorReason) {
-                 BOOL success =
-                     [status isEqualToString:kFWPResponseForActionStatusOk];
-                 if (success) {
-                     [self.onDisconnect rememberData:node onPath:path];
-                 } else {
-                     FFWarn(@"I-RDB038008",
-                            @"onDisconnectSetValue: or "
-                            @"onDisconnectRemoveValue: at %@ failed: %@",
-                            path, status);
-                 }
+     onDisconnectPutData:[node valForExport:YES]
+     forPath:path
+    withCallback:^(NSString *status, NSString *errorReason) {
+        BOOL success =
+            [status isEqualToString:kFWPResponseForActionStatusOk];
+        if (success) {
+            [self.onDisconnect rememberData:node onPath:path];
+        } else {
+            FFWarn(@"I-RDB038008",
+                   @"onDisconnectSetValue: or "
+                   @"onDisconnectRemoveValue: at %@ failed: %@",
+                   path, status);
+        }
 
-                 [self callOnComplete:callback
-                           withStatus:status
-                          errorReason:errorReason
-                              andPath:path];
-               }];
+        [self callOnComplete:callback
+              withStatus:status
+              errorReason:errorReason
+              andPath:path];
+    }];
 }
 
 - (void)onDisconnectUpdate:(FPath *)path
-                 withNodes:(FCompoundWrite *)nodes
-              withCallback:(fbt_void_nserror_ref)callback {
+    withNodes:(FCompoundWrite *)nodes
+    withCallback:(fbt_void_nserror_ref)callback {
     if (!nodes.isEmpty) {
         NSDictionary *values = [nodes valForExport:YES];
 
         [self.connection
-            onDisconnectMergeData:values
-                          forPath:path
-                     withCallback:^(NSString *status, NSString *errorReason) {
-                       BOOL success = [status
-                           isEqualToString:kFWPResponseForActionStatusOk];
-                       if (success) {
-                           [nodes enumerateWrites:^(FPath *relativePath,
-                                                    id<FNode> nodeUnresolved,
-                                                    BOOL *stop) {
-                             FPath *childPath = [path child:relativePath];
-                             [self.onDisconnect rememberData:nodeUnresolved
-                                                      onPath:childPath];
-                           }];
-                       } else {
-                           FFWarn(@"I-RDB038009",
-                                  @"onDisconnectUpdateChildValues: at %@ "
-                                  @"failed %@",
-                                  path, status);
-                       }
+         onDisconnectMergeData:values
+         forPath:path
+        withCallback:^(NSString *status, NSString *errorReason) {
+            BOOL success = [status
+                            isEqualToString:kFWPResponseForActionStatusOk];
+            if (success) {
+                [nodes enumerateWrites:^(FPath *relativePath,
+                                         id<FNode> nodeUnresolved,
+                      BOOL *stop) {
+                          FPath *childPath = [path child:relativePath];
+                    [self.onDisconnect rememberData:nodeUnresolved
+                                       onPath:childPath];
+                }];
+            } else {
+                FFWarn(@"I-RDB038009",
+                       @"onDisconnectUpdateChildValues: at %@ "
+                       @"failed %@",
+                       path, status);
+            }
 
-                       [self callOnComplete:callback
-                                 withStatus:status
-                                errorReason:errorReason
-                                    andPath:path];
-                     }];
+            [self callOnComplete:callback
+                  withStatus:status
+                  errorReason:errorReason
+                  andPath:path];
+        }];
     } else {
         // Do nothing, just call the callback
         [self callOnComplete:callback
-                  withStatus:@"ok"
-                 errorReason:nil
-                     andPath:path];
+              withStatus:@"ok"
+              errorReason:nil
+              andPath:path];
     }
 }
 
@@ -514,20 +514,20 @@
 }
 
 - (void)addEventRegistration:(id<FEventRegistration>)eventRegistration
-                    forQuery:(FQuerySpec *)query {
+    forQuery:(FQuerySpec *)query {
     NSArray *events = nil;
     if ([[query.path getFront] isEqualToString:kDotInfoPrefix]) {
         events = [self.infoSyncTree addEventRegistration:eventRegistration
-                                                forQuery:query];
+                                    forQuery:query];
     } else {
         events = [self.serverSyncTree addEventRegistration:eventRegistration
-                                                  forQuery:query];
+                                      forQuery:query];
     }
     [self.eventRaiser raiseEvents:events];
 }
 
 - (void)removeEventRegistration:(id<FEventRegistration>)eventRegistration
-                       forQuery:(FQuerySpec *)query {
+    forQuery:(FQuerySpec *)query {
     // These are guaranteed not to raise events, since we're not passing in a
     // cancelError. However we can future-proof a little bit by handling the
     // return values anyways.
@@ -536,12 +536,12 @@
     NSArray *events = nil;
     if ([[query.path getFront] isEqualToString:kDotInfoPrefix]) {
         events = [self.infoSyncTree removeEventRegistration:eventRegistration
-                                                   forQuery:query
-                                                cancelError:nil];
+                                    forQuery:query
+                                    cancelError:nil];
     } else {
         events = [self.serverSyncTree removeEventRegistration:eventRegistration
-                                                     forQuery:query
-                                                  cancelError:nil];
+                                      forQuery:query
+                                      cancelError:nil];
     }
     [self.eventRaiser raiseEvents:events];
 }
@@ -559,23 +559,23 @@
         NSTimeInterval offset = [(NSNumber *)value doubleValue] / 1000.0;
         self.serverClock =
             [[FOffsetClock alloc] initWithClock:[FSystemClock clock]
-                                         offset:offset];
+                                  offset:offset];
     }
 
     FPath *path = [[FPath alloc]
-        initWith:[NSString
-                     stringWithFormat:@"%@/%@", kDotInfoPrefix, pathString]];
+                   initWith:[NSString
+                             stringWithFormat:@"%@/%@", kDotInfoPrefix, pathString]];
     id<FNode> newNode = [FSnapshotUtilities nodeFrom:value];
     [self.infoData updateSnapshot:path withNewSnapshot:newNode];
     NSArray *events = [self.infoSyncTree applyServerOverwriteAtPath:path
-                                                            newData:newNode];
+                                         newData:newNode];
     [self.eventRaiser raiseEvents:events];
 }
 
 - (void)callOnComplete:(fbt_void_nserror_ref)onComplete
-            withStatus:(NSString *)status
-           errorReason:(NSString *)errorReason
-               andPath:(FPath *)path {
+    withStatus:(NSString *)status
+    errorReason:(NSString *)errorReason
+    andPath:(FPath *)path {
     if (onComplete) {
         FIRDatabaseReference *ref =
             [[FIRDatabaseReference alloc] initWithRepo:self path:path];
@@ -584,24 +584,24 @@
         if (!statusOk) {
             err = [FUtilities errorForStatus:status andReason:errorReason];
         }
-        [self.eventRaiser raiseCallback:^{
-          onComplete(err, ref);
-        }];
+        [self.eventRaiser raiseCallback:^ {
+                             onComplete(err, ref);
+                         }];
     }
 }
 
 - (void)ackWrite:(NSInteger)writeId
     rerunTransactionsAtPath:(FPath *)path
-                     status:(NSString *)status {
+    status:(NSString *)status {
     if ([status isEqualToString:kFErrorWriteCanceled]) {
         // This write was already removed, we just need to ignore it...
     } else {
         BOOL success = [status isEqualToString:kFWPResponseForActionStatusOk];
         NSArray *clearEvents =
             [self.serverSyncTree ackUserWriteWithWriteId:writeId
-                                                  revert:!success
-                                                 persist:YES
-                                                   clock:self.serverClock];
+                                 revert:!success
+                                 persist:YES
+                                 clock:self.serverClock];
         if ([clearEvents count] > 0) {
             [self rerunTransactionsForPath:path];
         }
@@ -610,10 +610,10 @@
 }
 
 - (void)warnIfWriteFailedAtPath:(FPath *)path
-                         status:(NSString *)status
-                        message:(NSString *)message {
+    status:(NSString *)status
+    message:(NSString *)message {
     if (!([status isEqualToString:kFWPResponseForActionStatusOk] ||
-          [status isEqualToString:kFErrorWriteCanceled])) {
+            [status isEqualToString:kFErrorWriteCanceled])) {
         FFWarn(@"I-RDB038012", @"%@ at %@ failed: %@", message, path, status);
     }
 }
@@ -622,10 +622,10 @@
 #pragma mark FPersistentConnectionDelegate methods
 
 - (void)onDataUpdate:(FPersistentConnection *)fpconnection
-             forPath:(NSString *)pathString
-             message:(id)data
-             isMerge:(BOOL)isMerge
-               tagId:(NSNumber *)tagId {
+    forPath:(NSString *)pathString
+    message:(id)data
+    isMerge:(BOOL)isMerge
+    tagId:(NSNumber *)tagId {
     FFLog(@"I-RDB038013", @"onDataUpdateForPath: %@ withMessage: %@",
           pathString, data);
 
@@ -634,8 +634,8 @@
 
     FPath *path = [[FPath alloc] initWith:pathString];
     data = self.interceptServerDataCallback
-               ? self.interceptServerDataCallback(pathString, data)
-               : data;
+           ? self.interceptServerDataCallback(pathString, data)
+           : data;
     NSArray *events = nil;
 
     if (tagId != nil) {
@@ -645,25 +645,25 @@
                 [FCompoundWrite compoundWriteWithValueDictionary:message];
             events =
                 [self.serverSyncTree applyTaggedQueryMergeAtPath:path
-                                                 changedChildren:taggedChildren
-                                                           tagId:tagId];
+                                     changedChildren:taggedChildren
+                                     tagId:tagId];
         } else {
             id<FNode> taggedSnap = [FSnapshotUtilities nodeFrom:data];
             events =
                 [self.serverSyncTree applyTaggedQueryOverwriteAtPath:path
-                                                             newData:taggedSnap
-                                                               tagId:tagId];
+                                     newData:taggedSnap
+                                     tagId:tagId];
         }
     } else if (isMerge) {
         NSDictionary *message = data;
         FCompoundWrite *changedChildren =
             [FCompoundWrite compoundWriteWithValueDictionary:message];
         events = [self.serverSyncTree applyServerMergeAtPath:path
-                                             changedChildren:changedChildren];
+                                      changedChildren:changedChildren];
     } else {
         id<FNode> snap = [FSnapshotUtilities nodeFrom:data];
         events = [self.serverSyncTree applyServerOverwriteAtPath:path
-                                                         newData:snap];
+                                      newData:snap];
     }
 
     if ([events count] > 0) {
@@ -676,8 +676,8 @@
 }
 
 - (void)onRangeMerge:(NSArray *)ranges
-             forPath:(NSString *)pathString
-               tagId:(NSNumber *)tag {
+    forPath:(NSString *)pathString
+    tagId:(NSNumber *)tag {
     FFLog(@"I-RDB038014", @"onRangeMerge: %@ => %@", pathString, ranges);
 
     // For testing
@@ -687,11 +687,11 @@
     NSArray *events;
     if (tag != nil) {
         events = [self.serverSyncTree applyTaggedServerRangeMergeAtPath:path
-                                                                updates:ranges
-                                                                  tagId:tag];
+                                      updates:ranges
+                                      tagId:tag];
     } else {
         events = [self.serverSyncTree applyServerRangeMergeAtPath:path
-                                                          updates:ranges];
+                                      updates:ranges];
     }
     if (events.count > 0) {
         // Since we have a listener outstanding for each transaction, receiving
@@ -712,7 +712,7 @@
 }
 
 - (void)onServerInfoUpdate:(FPersistentConnection *)fpconnection
-                   updates:(NSDictionary *)updates {
+    updates:(NSDictionary *)updates {
     for (NSString *key in updates) {
         id val = [updates objectForKey:key];
         [self updateInfo:key withValue:val];
@@ -721,14 +721,14 @@
 
 - (void)setupNotifications {
     NSString *const *backgroundConstant = (NSString *const *)dlsym(
-        RTLD_DEFAULT, "UIApplicationDidEnterBackgroundNotification");
+            RTLD_DEFAULT, "UIApplicationDidEnterBackgroundNotification");
     if (backgroundConstant) {
         FFLog(@"I-RDB038015", @"Registering for background notification.");
         [[NSNotificationCenter defaultCenter]
-            addObserver:self
-               selector:@selector(didEnterBackground)
-                   name:*backgroundConstant
-                 object:nil];
+         addObserver:self
+         selector:@selector(didEnterBackground)
+         name:*backgroundConstant
+         object:nil];
     } else {
         FFLog(@"I-RDB038016",
               @"Skipped registering for background notification.");
@@ -752,20 +752,20 @@
           @"Entering background.  Starting background task to finish work.");
     Class uiApplicationClass = NSClassFromString(@"UIApplication");
     assert(uiApplicationClass); // If we are here, we should be on iOS and
-                                // UIApplication should be available.
+    // UIApplication should be available.
 
     UIApplication *application = [uiApplicationClass sharedApplication];
     __block UIBackgroundTaskIdentifier bgTask =
-        [application beginBackgroundTaskWithExpirationHandler:^{
-          [application endBackgroundTask:bgTask];
-        }];
+    [application beginBackgroundTaskWithExpirationHandler:^ {
+                    [application endBackgroundTask:bgTask];
+                }];
 
     NSDate *start = [NSDate date];
-    dispatch_async([FIRDatabaseQuery sharedQueue], ^{
-      NSTimeInterval finishTime = [start timeIntervalSinceNow] * -1;
-      FFLog(@"I-RDB038018", @"Background task completed.  Queue time: %f",
-            finishTime);
-      [application endBackgroundTask:bgTask];
+    dispatch_async([FIRDatabaseQuery sharedQueue], ^ {
+        NSTimeInterval finishTime = [start timeIntervalSinceNow] * -1;
+        FFLog(@"I-RDB038018", @"Background task completed.  Queue time: %f",
+              finishTime);
+        [application endBackgroundTask:bgTask];
     });
 #endif
 }
@@ -783,24 +783,24 @@
     NSMutableArray *events = [[NSMutableArray alloc] init];
 
     [self.onDisconnect
-        forEachTreeAtPath:[FPath empty]
-                       do:^(FPath *path, id<FNode> node) {
-                         id<FNode> existing = [self.serverSyncTree
-                             calcCompleteEventCacheAtPath:path
-                                          excludeWriteIds:@[]];
-                         id<FNode> resolved = [FServerValues
-                             resolveDeferredValueSnapshot:node
-                                             withExisting:existing
-                                             serverValues:serverValues];
-                         [events addObjectsFromArray:
-                                     [self.serverSyncTree
-                                         applyServerOverwriteAtPath:path
-                                                            newData:resolved]];
-                         FPath *affectedPath =
-                             [self abortTransactionsAtPath:path
-                                                     error:kFTransactionSet];
-                         [self rerunTransactionsForPath:affectedPath];
-                       }];
+     forEachTreeAtPath:[FPath empty]
+    do:^(FPath *path, id<FNode> node) {
+        id<FNode> existing = [self.serverSyncTree
+                              calcCompleteEventCacheAtPath:path
+                              excludeWriteIds:@[]];
+        id<FNode> resolved = [FServerValues
+                              resolveDeferredValueSnapshot:node
+                              withExisting:existing
+                              serverValues:serverValues];
+        [events addObjectsFromArray:
+                [self.serverSyncTree
+                 applyServerOverwriteAtPath:path
+                 newData:resolved]];
+        FPath *affectedPath =
+            [self abortTransactionsAtPath:path
+                  error:kFTransactionSet];
+        [self rerunTransactionsForPath:affectedPath];
+    }];
 
     self.onDisconnect = [[FSparseSnapshotTree alloc] init];
     [self.eventRaiser raiseEvents:events];
@@ -827,11 +827,11 @@
  * sends it to the server if possible
  */
 - (void)startTransactionOnPath:(FPath *)path
-                        update:(fbt_transactionresult_mutabledata)update
-                    onComplete:(fbt_void_nserror_bool_datasnapshot)onComplete
-               withLocalEvents:(BOOL)applyLocally {
+    update:(fbt_transactionresult_mutabledata)update
+    onComplete:(fbt_void_nserror_bool_datasnapshot)onComplete
+    withLocalEvents:(BOOL)applyLocally {
     if (self.config.persistenceEnabled &&
-        !self.loggedTransactionPersistenceWarning) {
+            !self.loggedTransactionPersistenceWarning) {
         self.loggedTransactionPersistenceWarning = YES;
         FFInfo(@"I-RDB038020",
                @"runTransactionBlock: usage detected while persistence is "
@@ -854,13 +854,13 @@
     };
     FValueEventRegistration *registration =
         [[FValueEventRegistration alloc] initWithRepo:self
-                                               handle:handle
-                                             callback:cb
-                                       cancelCallback:nil];
+                                         handle:handle
+                                         callback:cb
+                                         cancelCallback:nil];
     [watchRef.repo addEventRegistration:registration
-                               forQuery:watchRef.querySpec];
-    fbt_void_void unwatcher = ^{
-      [watchRef removeObserverWithHandle:handle];
+                   forQuery:watchRef.querySpec];
+    fbt_void_void unwatcher = ^ {
+        [watchRef removeObserverWithHandle:handle];
     };
 
     // Save all the data that represents this transaction
@@ -893,15 +893,15 @@
         if (transaction.onComplete) {
             FIRDatabaseReference *ref =
                 [[FIRDatabaseReference alloc] initWithRepo:self
-                                                      path:transaction.path];
+                                              path:transaction.path];
             FIndexedNode *indexedNode = [FIndexedNode
-                indexedNodeWithNode:transaction.currentInputSnapshot];
+                                         indexedNodeWithNode:transaction.currentInputSnapshot];
             FIRDataSnapshot *snap =
                 [[FIRDataSnapshot alloc] initWithRef:ref
                                          indexedNode:indexedNode];
-            [self.eventRaiser raiseCallback:^{
-              transaction.onComplete(nil, NO, snap);
-            }];
+            [self.eventRaiser raiseCallback:^ {
+                                 transaction.onComplete(nil, NO, snap);
+                             }];
         }
     } else {
         // Note: different from js. We don't need to validate, FIRMutableData
@@ -925,17 +925,17 @@
         id<FNode> newValUnresolved = [result.update nodeValue];
         id<FNode> newVal =
             [FServerValues resolveDeferredValueSnapshot:newValUnresolved
-                                           withExisting:currentState
-                                           serverValues:serverValues];
+                           withExisting:currentState
+                           serverValues:serverValues];
         transaction.currentOutputSnapshotRaw = newValUnresolved;
         transaction.currentOutputSnapshotResolved = newVal;
         transaction.currentWriteId =
             [NSNumber numberWithInteger:[self nextWriteId]];
 
         NSArray *events = [self.serverSyncTree
-            applyUserOverwriteAtPath:path
-                             newData:newVal
-                             writeId:[transaction.currentWriteId integerValue]
+                           applyUserOverwriteAtPath:path
+                           newData:newVal
+                           writeId:[transaction.currentWriteId integerValue]
                            isVisible:transaction.applyLocally];
         [self.eventRaiser raiseEvents:events];
 
@@ -947,10 +947,10 @@
  * @param writeIdsToExclude A specific set to exclude
  */
 - (id<FNode>)latestStateAtPath:(FPath *)path
-               excludeWriteIds:(NSArray *)writeIdsToExclude {
+    excludeWriteIds:(NSArray *)writeIdsToExclude {
     id<FNode> latestState =
         [self.serverSyncTree calcCompleteEventCacheAtPath:path
-                                          excludeWriteIds:writeIdsToExclude];
+                             excludeWriteIds:writeIdsToExclude];
     return latestState ? latestState : [FEmptyNode emptyNode];
 }
 
@@ -976,9 +976,9 @@
         NSAssert([queue count] > 0, @"Sending zero length transaction queue");
 
         NSUInteger notRunIndex = [queue
-            indexOfObjectPassingTest:^BOOL(id obj, NSUInteger idx, BOOL *stop) {
-              return ((FTupleTransaction *)obj).status != FTransactionRun;
-            }];
+        indexOfObjectPassingTest:^BOOL(id obj, NSUInteger idx, BOOL *stop) {
+            return ((FTupleTransaction *)obj).status != FTransactionRun;
+        }];
 
         // If they're all run (and not sent), we can send them.  Else, we must
         // wait.
@@ -987,8 +987,8 @@
         }
     } else if ([node hasChildren]) {
         [node forEachChild:^(FTree *child) {
-          [self sendReadyTransactionsForTree:child];
-        }];
+                 [self sendReadyTransactionsForTree:child];
+             }];
     }
 }
 
@@ -1003,7 +1003,7 @@
         [writeIdsToExclude addObject:transaction.currentWriteId];
     }
     id<FNode> latestState = [self latestStateAtPath:path
-                                    excludeWriteIds:writeIdsToExclude];
+                                  excludeWriteIds:writeIdsToExclude];
     id<FNode> snapToSend = latestState;
     NSString *latestHash = [latestState dataHash];
     for (FTupleTransaction *transaction in queue) {
@@ -1018,7 +1018,7 @@
         // If we've gotten to this point, the output snapshot must be defined.
         snapToSend =
             [snapToSend updateChild:relativePath
-                       withNewChild:transaction.currentOutputSnapshotRaw];
+                        withNewChild:transaction.currentOutputSnapshotRaw];
     }
 
     id dataToSend = [snapToSend valForExport:YES];
@@ -1027,84 +1027,84 @@
 
     // Send the put
     [self.connection
-             putData:dataToSend
-             forPath:pathToSend
-            withHash:latestHash
-        withCallback:^(NSString *status, NSString *errorReason) {
-          FFLog(@"I-RDB038022", @"Transaction put response: %@ : %@",
-                pathToSend, status);
+     putData:dataToSend
+     forPath:pathToSend
+     withHash:latestHash
+    withCallback:^(NSString *status, NSString *errorReason) {
+        FFLog(@"I-RDB038022", @"Transaction put response: %@ : %@",
+              pathToSend, status);
 
-          NSMutableArray *events = [[NSMutableArray alloc] init];
-          if ([status isEqualToString:kFWPResponseForActionStatusOk]) {
-              // Queue up the callbacks and fire them after cleaning up all of
-              // our transaction state, since the callback could trigger more
-              // transactions or sets.
-              NSMutableArray *callbacks = [[NSMutableArray alloc] init];
-              for (FTupleTransaction *transaction in queue) {
-                  transaction.status = FTransactionCompleted;
-                  [events addObjectsFromArray:
-                              [self.serverSyncTree
-                                  ackUserWriteWithWriteId:
-                                      [transaction.currentWriteId integerValue]
-                                                   revert:NO
-                                                  persist:NO
-                                                    clock:self.serverClock]];
-                  if (transaction.onComplete) {
-                      // We never unset the output snapshot, and given that this
-                      // transaction is complete, it should be set
-                      id<FNode> node =
-                          transaction.currentOutputSnapshotResolved;
-                      FIndexedNode *indexedNode =
-                          [FIndexedNode indexedNodeWithNode:node];
-                      FIRDatabaseReference *ref = [[FIRDatabaseReference alloc]
-                          initWithRepo:self
-                                  path:transaction.path];
-                      FIRDataSnapshot *snapshot =
-                          [[FIRDataSnapshot alloc] initWithRef:ref
-                                                   indexedNode:indexedNode];
-                      fbt_void_void cb = ^{
+        NSMutableArray *events = [[NSMutableArray alloc] init];
+        if ([status isEqualToString:kFWPResponseForActionStatusOk]) {
+            // Queue up the callbacks and fire them after cleaning up all of
+            // our transaction state, since the callback could trigger more
+            // transactions or sets.
+            NSMutableArray *callbacks = [[NSMutableArray alloc] init];
+            for (FTupleTransaction *transaction in queue) {
+                transaction.status = FTransactionCompleted;
+                [events addObjectsFromArray:
+                        [self.serverSyncTree
+                         ackUserWriteWithWriteId:
+                         [transaction.currentWriteId integerValue]
+                         revert:NO
+                         persist:NO
+                         clock:self.serverClock]];
+                if (transaction.onComplete) {
+                    // We never unset the output snapshot, and given that this
+                    // transaction is complete, it should be set
+                    id<FNode> node =
+                        transaction.currentOutputSnapshotResolved;
+                    FIndexedNode *indexedNode =
+                        [FIndexedNode indexedNodeWithNode:node];
+                    FIRDatabaseReference *ref = [[FIRDatabaseReference alloc]
+                                                 initWithRepo:self
+                                                 path:transaction.path];
+                    FIRDataSnapshot *snapshot =
+                        [[FIRDataSnapshot alloc] initWithRef:ref
+                                                 indexedNode:indexedNode];
+                    fbt_void_void cb = ^ {
                         transaction.onComplete(nil, YES, snapshot);
-                      };
-                      [callbacks addObject:[cb copy]];
-                  }
-                  transaction.unwatcher();
-              }
+                    };
+                    [callbacks addObject:[cb copy]];
+                }
+                transaction.unwatcher();
+            }
 
-              // Now remove the completed transactions.
-              [self
-                  pruneCompletedTransactionsBelowNode:[self.transactionQueueTree
-                                                          subTree:path]];
-              // There may be pending transactions that we can now send.
-              [self sendAllReadyTransactions];
+            // Now remove the completed transactions.
+            [self
+             pruneCompletedTransactionsBelowNode:[self.transactionQueueTree
+                                                  subTree:path]];
+            // There may be pending transactions that we can now send.
+            [self sendAllReadyTransactions];
 
-              // Finally, trigger onComplete callbacks
-              [self.eventRaiser raiseCallbacks:callbacks];
-          } else {
-              // transactions are no longer sent. Update their status
-              // appropriately.
-              if ([status
-                      isEqualToString:kFWPResponseForActionStatusDataStale]) {
-                  for (FTupleTransaction *transaction in queue) {
-                      if (transaction.status == FTransactionSentNeedsAbort) {
-                          transaction.status = FTransactionNeedsAbort;
-                      } else {
-                          transaction.status = FTransactionRun;
-                      }
-                  }
-              } else {
-                  FFWarn(@"I-RDB038023",
-                         @"runTransactionBlock: at %@ failed: %@", path,
-                         status);
-                  for (FTupleTransaction *transaction in queue) {
-                      transaction.status = FTransactionNeedsAbort;
-                      [transaction setAbortStatus:status reason:errorReason];
-                  }
-              }
-          }
+            // Finally, trigger onComplete callbacks
+            [self.eventRaiser raiseCallbacks:callbacks];
+        } else {
+            // transactions are no longer sent. Update their status
+            // appropriately.
+            if ([status
+                    isEqualToString:kFWPResponseForActionStatusDataStale]) {
+                for (FTupleTransaction *transaction in queue) {
+                    if (transaction.status == FTransactionSentNeedsAbort) {
+                        transaction.status = FTransactionNeedsAbort;
+                    } else {
+                        transaction.status = FTransactionRun;
+                    }
+                }
+            } else {
+                FFWarn(@"I-RDB038023",
+                       @"runTransactionBlock: at %@ failed: %@", path,
+                       status);
+                for (FTupleTransaction *transaction in queue) {
+                    transaction.status = FTransactionNeedsAbort;
+                    [transaction setAbortStatus:status reason:errorReason];
+                }
+            }
+        }
 
-          [self rerunTransactionsForPath:path];
-          [self.eventRaiser raiseEvents:events];
-        }];
+        [self rerunTransactionsForPath:path];
+        [self.eventRaiser raiseEvents:events];
+    }];
 }
 
 /**
@@ -1162,17 +1162,17 @@
             [FPath relativePathFrom:path to:transaction.path];
         BOOL abortTransaction = NO;
         NSAssert(relativePath != nil, @"[FRepo rerunTransactionsQueue:] "
-                                      @"relativePath should not be null.");
+                 @"relativePath should not be null.");
 
         if (transaction.status == FTransactionNeedsAbort) {
             abortTransaction = YES;
             if (![transaction.abortStatus
                     isEqualToString:kFErrorWriteCanceled]) {
                 NSArray *ackEvents = [self.serverSyncTree
-                    ackUserWriteWithWriteId:[transaction.currentWriteId
-                                                    integerValue]
-                                     revert:YES
-                                    persist:NO
+                                      ackUserWriteWithWriteId:[transaction.currentWriteId
+                                              integerValue]
+                                      revert:YES
+                                      persist:NO
                                       clock:self.serverClock];
                 [events addObjectsFromArray:ackEvents];
             }
@@ -1180,20 +1180,20 @@
             if (transaction.retryCount >= kFTransactionMaxRetries) {
                 abortTransaction = YES;
                 [transaction setAbortStatus:kFTransactionTooManyRetries
-                                     reason:nil];
+                             reason:nil];
                 [events
-                    addObjectsFromArray:
-                        [self.serverSyncTree
-                            ackUserWriteWithWriteId:[transaction.currentWriteId
-                                                            integerValue]
-                                             revert:YES
-                                            persist:NO
-                                              clock:self.serverClock]];
+                 addObjectsFromArray:
+                 [self.serverSyncTree
+                  ackUserWriteWithWriteId:[transaction.currentWriteId
+                                           integerValue]
+                  revert:YES
+                  persist:NO
+                  clock:self.serverClock]];
             } else {
                 // This code reruns a transaction
                 id<FNode> currentNode =
                     [self latestStateAtPath:transaction.path
-                            excludeWriteIds:writeIdsToExclude];
+                          excludeWriteIds:writeIdsToExclude];
                 transaction.currentInputSnapshot = currentNode;
                 FIRMutableData *mutableCurrent =
                     [[FIRMutableData alloc] initWithNode:currentNode];
@@ -1206,10 +1206,10 @@
 
                     id<FNode> newVal = [result.update nodeValue];
                     id<FNode> newValResolved = [FServerValues
-                        resolveDeferredValueSnapshot:newVal
-                                        withExisting:transaction
-                                                         .currentInputSnapshot
-                                        serverValues:serverValues];
+                                                resolveDeferredValueSnapshot:newVal
+                                                withExisting:transaction
+                                                .currentInputSnapshot
+                                                serverValues:serverValues];
 
                     transaction.currentOutputSnapshotRaw = newVal;
                     transaction.currentOutputSnapshotResolved = newValResolved;
@@ -1219,24 +1219,24 @@
                     // Mutates writeIdsToExclude in place
                     [writeIdsToExclude removeObject:oldWriteId];
                     [events
-                        addObjectsFromArray:
-                            [self.serverSyncTree
-                                applyUserOverwriteAtPath:transaction.path
-                                                 newData:
-                                                     transaction
-                                                         .currentOutputSnapshotResolved
-                                                 writeId:
-                                                     [transaction.currentWriteId
-                                                             integerValue]
-                                               isVisible:transaction
-                                                             .applyLocally]];
+                     addObjectsFromArray:
+                     [self.serverSyncTree
+                      applyUserOverwriteAtPath:transaction.path
+                      newData:
+                      transaction
+                      .currentOutputSnapshotResolved
+                      writeId:
+                      [transaction.currentWriteId
+                       integerValue]
+                      isVisible:transaction
+                      .applyLocally]];
                     [events addObjectsFromArray:
-                                [self.serverSyncTree
-                                    ackUserWriteWithWriteId:[oldWriteId
-                                                                integerValue]
-                                                     revert:YES
-                                                    persist:NO
-                                                      clock:self.serverClock]];
+                            [self.serverSyncTree
+                             ackUserWriteWithWriteId:[oldWriteId
+                                               integerValue]
+                             revert:YES
+                             persist:NO
+                             clock:self.serverClock]];
                 } else {
                     abortTransaction = YES;
                     // The user aborted the transaction. JS treats ths as a
@@ -1244,13 +1244,13 @@
                     // them an error.
                     [transaction setAbortStatus:nil reason:nil];
                     [events
-                        addObjectsFromArray:
-                            [self.serverSyncTree
-                                ackUserWriteWithWriteId:
-                                    [transaction.currentWriteId integerValue]
-                                                 revert:YES
-                                                persist:NO
-                                                  clock:self.serverClock]];
+                     addObjectsFromArray:
+                     [self.serverSyncTree
+                      ackUserWriteWithWriteId:
+                      [transaction.currentWriteId integerValue]
+                      revert:YES
+                      persist:NO
+                      clock:self.serverClock]];
                 }
             }
         }
@@ -1264,17 +1264,17 @@
             transaction.unwatcher();
             if (transaction.onComplete) {
                 FIRDatabaseReference *ref = [[FIRDatabaseReference alloc]
-                    initWithRepo:self
-                            path:transaction.path];
+                                             initWithRepo:self
+                                             path:transaction.path];
                 FIndexedNode *lastInput = [FIndexedNode
-                    indexedNodeWithNode:transaction.currentInputSnapshot];
+                                           indexedNodeWithNode:transaction.currentInputSnapshot];
                 FIRDataSnapshot *snap =
                     [[FIRDataSnapshot alloc] initWithRef:ref
                                              indexedNode:lastInput];
-                fbt_void_void cb = ^{
-                  // Unlike JS, no need to check for "nodata" because ObjC has
-                  // abortError = nil
-                  transaction.onComplete(transaction.abortError, NO, snap);
+                fbt_void_void cb = ^ {
+                    // Unlike JS, no need to check for "nodata" because ObjC has
+                    // abortError = nil
+                    transaction.onComplete(transaction.abortError, NO, snap);
                 };
                 [callbacks addObject:[cb copy]];
             }
@@ -1312,21 +1312,21 @@
     [self aggregateTransactionQueuesForNode:node andQueue:queue];
 
     [queue sortUsingComparator:^NSComparisonResult(FTupleTransaction *obj1,
-                                                   FTupleTransaction *obj2) {
-      return [obj1.order compare:obj2.order];
-    }];
+          FTupleTransaction *obj2) {
+              return [obj1.order compare:obj2.order];
+          }];
 
     return queue;
 }
 
 - (void)aggregateTransactionQueuesForNode:(FTree *)node
-                                 andQueue:(NSMutableArray *)queue {
+    andQueue:(NSMutableArray *)queue {
     NSArray *nodeQueue = [node getValue];
     [queue addObjectsFromArray:nodeQueue];
 
     [node forEachChild:^(FTree *child) {
-      [self aggregateTransactionQueuesForNode:child andQueue:queue];
-    }];
+             [self aggregateTransactionQueuesForNode:child andQueue:queue];
+         }];
 }
 
 /**
@@ -1354,8 +1354,8 @@
     }
 
     [node forEachChildMutationSafe:^(FTree *child) {
-      [self pruneCompletedTransactionsBelowNode:child];
-    }];
+             [self pruneCompletedTransactionsBelowNode:child];
+         }];
 }
 
 /**
@@ -1376,15 +1376,15 @@
 
         FTree *transactionNode = [self.transactionQueueTree subTree:path];
         [transactionNode forEachAncestor:^BOOL(FTree *ancestor) {
-          [self abortTransactionsAtNode:ancestor error:error];
-          return NO;
-        }];
+                            [self abortTransactionsAtNode:ancestor error:error];
+                            return NO;
+                        }];
 
         [self abortTransactionsAtNode:transactionNode error:error];
 
         [transactionNode forEachDescendant:^(FTree *child) {
-          [self abortTransactionsAtNode:child error:error];
-        }];
+                            [self abortTransactionsAtNode:child error:error];
+                        }];
 
         return affectedPath;
     }
@@ -1422,13 +1422,13 @@
                 transaction.unwatcher();
                 if ([error isEqualToString:kFTransactionSet]) {
                     [events
-                        addObjectsFromArray:
-                            [self.serverSyncTree
-                                ackUserWriteWithWriteId:
-                                    [transaction.currentWriteId integerValue]
-                                                 revert:YES
-                                                persist:NO
-                                                  clock:self.serverClock]];
+                     addObjectsFromArray:
+                     [self.serverSyncTree
+                      ackUserWriteWithWriteId:
+                      [transaction.currentWriteId integerValue]
+                      revert:YES
+                      persist:NO
+                      clock:self.serverClock]];
                 } else {
                     // If it was cancelled it was already removed from the sync
                     // tree, no need to ack
@@ -1437,10 +1437,10 @@
 
                 if (transaction.onComplete) {
                     NSError *abortReason = [FUtilities errorForStatus:error
-                                                            andReason:nil];
+                                                       andReason:nil];
                     FIRDataSnapshot *snapshot = nil;
-                    fbt_void_void cb = ^{
-                      transaction.onComplete(abortReason, NO, snapshot);
+                    fbt_void_void cb = ^ {
+                        transaction.onComplete(abortReason, NO, snapshot);
                     };
                     [callbacks addObject:[cb copy]];
                 }

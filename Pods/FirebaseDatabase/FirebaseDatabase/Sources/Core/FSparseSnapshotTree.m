@@ -89,9 +89,9 @@
                 value = nil;
 
                 [tmp enumerateChildrenUsingBlock:^(NSString *key,
-                                                   id<FNode> node, BOOL *stop) {
-                  [self rememberData:node onPath:[[FPath alloc] initWith:key]];
-                }];
+                    id<FNode> node, BOOL *stop) {
+                        [self rememberData:node onPath:[[FPath alloc] initWith:key]];
+                    }];
 
                 // we've cleared out the value and set children. Call ourself
                 // again to hit the next case
@@ -126,8 +126,8 @@
         func(prefixPath, value);
     } else {
         [self forEachChild:^(NSString *key, FSparseSnapshotTree *tree) {
-          FPath *path = [prefixPath childFromString:key];
-          [tree forEachTreeAtPath:path do:func];
+                 FPath *path = [prefixPath childFromString:key];
+            [tree forEachTreeAtPath:path do:func];
         }];
     }
 }

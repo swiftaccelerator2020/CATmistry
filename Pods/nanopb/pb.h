@@ -81,27 +81,27 @@
  * This just reduces memory requirements, but is not required.
  */
 #if defined(PB_NO_PACKED_STRUCTS)
-    /* Disable struct packing */
+/* Disable struct packing */
 #   define PB_PACKED_STRUCT_START
 #   define PB_PACKED_STRUCT_END
 #   define pb_packed
 #elif defined(__GNUC__) || defined(__clang__)
-    /* For GCC and clang */
+/* For GCC and clang */
 #   define PB_PACKED_STRUCT_START
 #   define PB_PACKED_STRUCT_END
 #   define pb_packed __attribute__((packed))
 #elif defined(__ICCARM__) || defined(__CC_ARM)
-    /* For IAR ARM and Keil MDK-ARM compilers */
+/* For IAR ARM and Keil MDK-ARM compilers */
 #   define PB_PACKED_STRUCT_START _Pragma("pack(push, 1)")
 #   define PB_PACKED_STRUCT_END _Pragma("pack(pop)")
 #   define pb_packed
 #elif defined(_MSC_VER) && (_MSC_VER >= 1500)
-    /* For Microsoft Visual C++ */
+/* For Microsoft Visual C++ */
 #   define PB_PACKED_STRUCT_START __pragma(pack(push, 1))
 #   define PB_PACKED_STRUCT_END __pragma(pack(pop))
 #   define pb_packed
 #else
-    /* Unknown compiler */
+/* Unknown compiler */
 #   define PB_PACKED_STRUCT_START
 #   define PB_PACKED_STRUCT_END
 #   define pb_packed
@@ -195,7 +195,7 @@ typedef uint_least8_t pb_type_t;
 #define PB_HTYPE_MASK     0x30
 
 /**** Field allocation types ****/
- 
+
 #define PB_ATYPE_STATIC   0x00
 #define PB_ATYPE_POINTER  0x80
 #define PB_ATYPE_CALLBACK 0x40
@@ -209,14 +209,14 @@ typedef uint_least8_t pb_type_t;
  * and array counts.
  */
 #if defined(PB_FIELD_32BIT)
-    typedef uint32_t pb_size_t;
-    typedef int32_t pb_ssize_t;
+typedef uint32_t pb_size_t;
+typedef int32_t pb_ssize_t;
 #elif defined(PB_FIELD_16BIT)
-    typedef uint_least16_t pb_size_t;
-    typedef int_least16_t pb_ssize_t;
+typedef uint_least16_t pb_size_t;
+typedef int_least16_t pb_ssize_t;
 #else
-    typedef uint_least8_t pb_size_t;
-    typedef int_least8_t pb_ssize_t;
+typedef uint_least8_t pb_size_t;
+typedef int_least8_t pb_ssize_t;
 #endif
 #define PB_SIZE_MAX ((pb_size_t)-1)
 
@@ -243,7 +243,7 @@ struct pb_field_s {
     pb_ssize_t size_offset; /* Offset of array size or has-boolean, relative to data */
     pb_size_t data_size; /* Data size in bytes for a single item */
     pb_size_t array_size; /* Maximum number of entries in array */
-    
+
     /* Field definitions for submessage
      * OR default value for all other non-array, non-callback types
      * If null, then field will zeroed. */
@@ -309,8 +309,8 @@ struct pb_callback_s {
         bool (*decode)(pb_istream_t *stream, const pb_field_t *field, void **arg);
         bool (*encode)(pb_ostream_t *stream, const pb_field_t *field, void * const *arg);
     } funcs;
-#endif    
-    
+#endif
+
     /* Free arg for use by callback */
     void *arg;
 };
@@ -340,7 +340,7 @@ struct pb_extension_type_s {
      */
     bool (*decode)(pb_istream_t *stream, pb_extension_t *extension,
                    uint32_t tag, pb_wire_type_t wire_type);
-    
+
     /* Called once after all regular fields have been encoded.
      * If you have something to write, do so and return true.
      * If you do not have anything to write, just return true.
@@ -348,7 +348,7 @@ struct pb_extension_type_s {
      * Set to NULL for default handler.
      */
     bool (*encode)(pb_ostream_t *stream, const pb_extension_t *extension);
-    
+
     /* Free field for use by the callback. */
     const void *arg;
 };
@@ -357,11 +357,11 @@ struct pb_extension_s {
     /* Type describing the extension field. Usually you'll initialize
      * this to a pointer to the automatically generated structure. */
     const pb_extension_type_t *type;
-    
+
     /* Destination for the decoded data. This must match the datatype
      * of the extension field. */
     void *dest;
-    
+
     /* Pointer to the next extension handler, or NULL.
      * If this extension does not match a field, the next handler is
      * automatically called. */
@@ -468,7 +468,7 @@ struct pb_extension_s {
 #define PB_SINGULAR_CALLBACK(tag, st, m, fd, ltype, ptr) \
     {tag, PB_ATYPE_CALLBACK | PB_HTYPE_OPTIONAL | ltype, \
     fd, 0, pb_membersize(st, m), 0, ptr}
-    
+
 #define PB_REPEATED_CALLBACK(tag, st, m, fd, ltype, ptr) \
     {tag, PB_ATYPE_CALLBACK | PB_HTYPE_REPEATED | ltype, \
     fd, 0, pb_membersize(st, m), 0, ptr}

@@ -20,14 +20,14 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface FBLPromise<Value>(DelayAdditions)
 
-/**
- Creates a new pending promise that fulfills with the same value as `self` after the `delay`, or
- rejects with the same error immediately.
+    /**
+     Creates a new pending promise that fulfills with the same value as `self` after the `delay`, or
+     rejects with the same error immediately.
 
- @param interval Time to wait in seconds.
- @return A new pending promise that fulfills at least `delay` seconds later than `self`, or rejects
-         with the same error immediately.
- */
+     @param interval Time to wait in seconds.
+     @return A new pending promise that fulfills at least `delay` seconds later than `self`, or rejects
+             with the same error immediately.
+     */
 - (FBLPromise *)delay:(NSTimeInterval)interval NS_SWIFT_UNAVAILABLE("");
 
 /**
@@ -40,7 +40,7 @@ NS_ASSUME_NONNULL_BEGIN
          with the same error immediately.
  */
 - (FBLPromise *)onQueue:(dispatch_queue_t)queue
-                  delay:(NSTimeInterval)interval NS_REFINED_FOR_SWIFT;
+    delay:(NSTimeInterval)interval NS_REFINED_FOR_SWIFT;
 
 @end
 

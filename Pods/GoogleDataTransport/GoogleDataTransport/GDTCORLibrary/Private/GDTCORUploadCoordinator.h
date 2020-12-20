@@ -28,11 +28,11 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GDTCORUploadCoordinator : NSObject <GDTCORLifecycleProtocol>
 
-/** The queue on which all upload coordination will occur. Also used by a dispatch timer. */
-/** Creates and/or returrns the singleton.
- *
- * @return The singleton instance of this class.
- */
+    /** The queue on which all upload coordination will occur. Also used by a dispatch timer. */
+    /** Creates and/or returrns the singleton.
+     *
+     * @return The singleton instance of this class.
+     */
 + (instancetype)sharedInstance;
 
 /** The queue on which all upload coordination will occur. */

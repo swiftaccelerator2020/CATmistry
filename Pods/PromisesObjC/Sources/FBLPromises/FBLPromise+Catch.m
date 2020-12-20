@@ -21,19 +21,19 @@
 @implementation FBLPromise (CatchAdditions)
 
 - (FBLPromise *)catch:(FBLPromiseCatchWorkBlock)reject {
-  return [self onQueue:FBLPromise.defaultDispatchQueue catch:reject];
+    return [self onQueue:FBLPromise.defaultDispatchQueue catch:reject];
 }
 
 - (FBLPromise *)onQueue:(dispatch_queue_t)queue catch:(FBLPromiseCatchWorkBlock)reject {
-  NSParameterAssert(queue);
-  NSParameterAssert(reject);
+    NSParameterAssert(queue);
+    NSParameterAssert(reject);
 
-  return [self chainOnQueue:queue
-             chainedFulfill:nil
-              chainedReject:^id(NSError *error) {
-                reject(error);
-                return error;
-              }];
+    return [self chainOnQueue:queue
+                 chainedFulfill:nil
+         chainedReject:^id(NSError *error) {
+             reject(error);
+             return error;
+         }];
 }
 
 @end
@@ -41,15 +41,15 @@
 @implementation FBLPromise (DotSyntax_CatchAdditions)
 
 - (FBLPromise* (^)(FBLPromiseCatchWorkBlock))catch {
-  return ^(FBLPromiseCatchWorkBlock catch) {
-    return [self catch:catch];
-  };
+    return ^(FBLPromiseCatchWorkBlock catch) {
+        return [self catch:catch];
+    };
 }
 
 - (FBLPromise* (^)(dispatch_queue_t, FBLPromiseCatchWorkBlock))catchOn {
-  return ^(dispatch_queue_t queue, FBLPromiseCatchWorkBlock catch) {
-    return [self onQueue:queue catch:catch];
-  };
+    return ^(dispatch_queue_t queue, FBLPromiseCatchWorkBlock catch) {
+        return [self onQueue:queue catch:catch];
+    };
 }
 
 @end

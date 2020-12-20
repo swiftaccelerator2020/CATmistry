@@ -25,8 +25,8 @@
 + (FKeepSyncedEventRegistration *)instance {
     static dispatch_once_t onceToken;
     static FKeepSyncedEventRegistration *keepSynced;
-    dispatch_once(&onceToken, ^{
-      keepSynced = [[FKeepSyncedEventRegistration alloc] init];
+    dispatch_once(&onceToken, ^ {
+        keepSynced = [[FKeepSyncedEventRegistration alloc] init];
     });
     return keepSynced;
 }
@@ -37,19 +37,19 @@
 
 - (FDataEvent *)createEventFrom:(FChange *)change query:(FQuerySpec *)query {
     [NSException
-         raise:NSInternalInconsistencyException
-        format:@"Should never create event for FKeepSyncedEventRegistration"];
+     raise:NSInternalInconsistencyException
+     format:@"Should never create event for FKeepSyncedEventRegistration"];
     return nil;
 }
 
 - (void)fireEvent:(id<FEvent>)event queue:(dispatch_queue_t)queue {
     [NSException
-         raise:NSInternalInconsistencyException
-        format:@"Should never raise event for FKeepSyncedEventRegistration"];
+     raise:NSInternalInconsistencyException
+     format:@"Should never raise event for FKeepSyncedEventRegistration"];
 }
 
 - (FCancelEvent *)createCancelEventFromError:(NSError *)error
-                                        path:(FPath *)path {
+    path:(FPath *)path {
     // Don't create cancel events....
     return nil;
 }

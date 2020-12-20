@@ -87,8 +87,8 @@
 - (void)enumerateObjectsReverse:(BOOL)reverse usingBlock:(void (^)(id, BOOL *))block
 {
     [self.dictionary enumerateKeysAndObjectsReverse:reverse usingBlock:^(id key, id value, BOOL *stop) {
-        block(key, stop);
-    }];
+                        block(key, stop);
+                    }];
 }
 
 - (NSEnumerator *)objectEnumerator
@@ -102,10 +102,10 @@
     __block BOOL first = YES;
     [str appendString:@"FImmutableSortedSet ( "];
     [self enumerateObjectsUsingBlock:^(id obj, BOOL *stop) {
-        if (!first) {
-            [str appendString:@", "];
-        }
-        first = NO;
+             if (!first) {
+                 [str appendString:@", "];
+             }
+             first = NO;
         [str appendString:[NSString stringWithFormat:@"%@", obj]];
     }];
     [str appendString:@" )"];

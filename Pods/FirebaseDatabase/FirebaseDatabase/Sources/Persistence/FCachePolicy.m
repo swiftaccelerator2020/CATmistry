@@ -37,7 +37,7 @@ static const float kFPercentOfQueriesToPruneAtOnce = 0.2f;
 }
 
 - (BOOL)shouldPruneCacheWithSize:(NSUInteger)cacheSize
-          numberOfTrackedQueries:(NSUInteger)numTrackedQueries {
+    numberOfTrackedQueries:(NSUInteger)numTrackedQueries {
     return cacheSize > self.maxSize ||
            numTrackedQueries > kFMaxNumberOfPrunableQueriesToKeep;
 }
@@ -63,7 +63,7 @@ static const float kFPercentOfQueriesToPruneAtOnce = 0.2f;
 }
 
 - (BOOL)shouldPruneCacheWithSize:(NSUInteger)cacheSize
-          numberOfTrackedQueries:(NSUInteger)numTrackedQueries {
+    numberOfTrackedQueries:(NSUInteger)numTrackedQueries {
     return NO;
 }
 

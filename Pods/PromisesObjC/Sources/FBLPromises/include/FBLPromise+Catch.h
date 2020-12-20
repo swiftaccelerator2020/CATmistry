@@ -20,7 +20,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface FBLPromise<Value>(CatchAdditions)
 
-typedef void (^FBLPromiseCatchWorkBlock)(NSError *error) NS_SWIFT_UNAVAILABLE("");
+    typedef void (^FBLPromiseCatchWorkBlock)(NSError *error) NS_SWIFT_UNAVAILABLE("");
 
 /**
  Creates a pending promise which eventually gets resolved with same resolution as the receiver.
@@ -40,7 +40,7 @@ typedef void (^FBLPromiseCatchWorkBlock)(NSError *error) NS_SWIFT_UNAVAILABLE(""
  @return A new pending promise.
  */
 - (FBLPromise *)onQueue:(dispatch_queue_t)queue
-                  catch:(FBLPromiseCatchWorkBlock)reject NS_REFINED_FOR_SWIFT;
+    catch:(FBLPromiseCatchWorkBlock)reject NS_REFINED_FOR_SWIFT;
 
 @end
 

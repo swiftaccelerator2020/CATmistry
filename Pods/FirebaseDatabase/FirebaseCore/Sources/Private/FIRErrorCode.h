@@ -16,24 +16,24 @@
 
 /** Error codes in Firebase error domain. */
 typedef NS_ENUM(NSInteger, FIRErrorCode) {
-  /**
-   * Unknown error.
-   */
-  FIRErrorCodeUnknown = 0,
-  /**
-   * Loading data from the GoogleService-Info.plist file failed. This is a fatal error and should
-   * not be ignored. Further calls to the API will fail and/or possibly cause crashes.
-   */
-  FIRErrorCodeInvalidPlistFile = -100,
+    /**
+     * Unknown error.
+     */
+    FIRErrorCodeUnknown = 0,
+    /**
+     * Loading data from the GoogleService-Info.plist file failed. This is a fatal error and should
+     * not be ignored. Further calls to the API will fail and/or possibly cause crashes.
+     */
+    FIRErrorCodeInvalidPlistFile = -100,
 
-  /**
-   * Validating the Google App ID format failed.
-   */
-  FIRErrorCodeInvalidAppID = -101,
+    /**
+     * Validating the Google App ID format failed.
+     */
+    FIRErrorCodeInvalidAppID = -101,
 
-  /**
-   * Error code for failing to configure a specific service. It's deprecated, but
-   * still used after copybara.
-   */
-  FIRErrorCodeConfigFailed = -114,
+    /**
+     * Error code for failing to configure a specific service. It's deprecated, but
+     * still used after copybara.
+     */
+    FIRErrorCodeConfigFailed = -114,
 };

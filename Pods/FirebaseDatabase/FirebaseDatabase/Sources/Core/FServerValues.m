@@ -74,12 +74,12 @@ BOOL canBeRepresentedAsLong(NSNumber *num) {
 - (id<ValueProvider>)getChild:(NSString *)pathSegment {
     FPath *child = [self.path childFromString:pathSegment];
     return [[DeferredValueProvider alloc] initWithSyncTree:self.tree
-                                                    atPath:child];
+                                          atPath:child];
 }
 
 - (id<FNode>)value {
     return [self.tree calcCompleteEventCacheAtPath:self.path
-                                   excludeWriteIds:@[]];
+                      excludeWriteIds:@[]];
 }
 @end
 
@@ -91,7 +91,7 @@ BOOL canBeRepresentedAsLong(NSNumber *num) {
 
 - (id<ValueProvider>)getChild:(NSString *)pathSegment {
     return [[ExistingValueProvider alloc]
-        initWithSnapshot:[self.snapshot getImmediateChild:pathSegment]];
+            initWithSnapshot:[self.snapshot getImmediateChild:pathSegment]];
 }
 
 - (id<FNode>)value {
@@ -101,13 +101,13 @@ BOOL canBeRepresentedAsLong(NSNumber *num) {
 
 @interface FServerValues ()
 + (id)resolveScalarServerOp:(NSString *)op
-           withServerValues:(NSDictionary *)serverValues;
+    withServerValues:(NSDictionary *)serverValues;
 + (id)resolveComplexServerOp:(NSDictionary *)op
-           withValueProvider:(id<ValueProvider>)existing
-                serverValues:(NSDictionary *)serverValues;
+    withValueProvider:(id<ValueProvider>)existing
+    serverValues:(NSDictionary *)serverValues;
 + (id<FNode>)resolveDeferredValueSnapshot:(id<FNode>)node
-                        withValueProvider:(id<ValueProvider>)existing
-                             serverValues:(NSDictionary *)serverValues;
+    withValueProvider:(id<ValueProvider>)existing
+    serverValues:(NSDictionary *)serverValues;
 
 @end
 
@@ -115,12 +115,12 @@ BOOL canBeRepresentedAsLong(NSNumber *num) {
 
 + (NSDictionary *)generateServerValues:(id<FClock>)clock {
     long long millis = (long long)([clock currentTime] * 1000);
-    return @{kTimestamp : [NSNumber numberWithLongLong:millis]};
+    return @ {kTimestamp : [NSNumber numberWithLongLong:millis]};
 }
 
 + (id)resolveDeferredValue:(id)val
-              withExisting:(id<ValueProvider>)existing
-              serverValues:(NSDictionary *)serverValues {
+    withExisting:(id<ValueProvider>)existing
+    serverValues:(NSDictionary *)serverValues {
     if (![val isKindOfClass:[NSDictionary class]]) {
         return val;
     }
@@ -131,23 +131,23 @@ BOOL canBeRepresentedAsLong(NSNumber *num) {
         return val;
     } else if ([op isKindOfClass:NSString.class]) {
         return [FServerValues resolveScalarServerOp:op
-                                   withServerValues:serverValues];
+                              withServerValues:serverValues];
     } else if ([op isKindOfClass:NSDictionary.class]) {
         return [FServerValues resolveComplexServerOp:op
-                                   withValueProvider:existing
-                                        serverValues:serverValues];
+                              withValueProvider:existing
+                              serverValues:serverValues];
     }
     return val;
 }
 
 + (id)resolveScalarServerOp:(NSString *)op
-           withServerValues:(NSDictionary *)serverValues {
+    withServerValues:(NSDictionary *)serverValues {
     return serverValues[op];
 }
 
 + (id)resolveComplexServerOp:(NSDictionary *)op
-           withValueProvider:(id<ValueProvider>)jitExisting
-                serverValues:(NSDictionary *)serverValues {
+    withValueProvider:(id<ValueProvider>)jitExisting
+    serverValues:(NSDictionary *)serverValues {
     // Only increment is supported as of now
     if (op[kIncrement] == nil) {
         return nil;
@@ -183,65 +183,65 @@ BOOL canBeRepresentedAsLong(NSNumber *num) {
 }
 
 + (FCompoundWrite *)resolveDeferredValueCompoundWrite:(FCompoundWrite *)write
-                                         withSyncTree:(FSyncTree *)tree
-                                               atPath:(FPath *)path
-                                         serverValues:
-                                             (NSDictionary *)serverValues {
+    withSyncTree:(FSyncTree *)tree
+    atPath:(FPath *)path
+    serverValues:
+    (NSDictionary *)serverValues {
     __block FCompoundWrite *resolved = write;
     [write enumerateWrites:^(FPath *subPath, id<FNode> node, BOOL *stop) {
-      id<ValueProvider> existing =
-          [[DeferredValueProvider alloc] initWithSyncTree:tree
-                                                   atPath:[path child:subPath]];
-      id<FNode> resolvedNode =
-          [FServerValues resolveDeferredValueSnapshot:node
-                                    withValueProvider:existing
-                                         serverValues:serverValues];
-      // Node actually changed, use pointer inequality here
-      if (resolvedNode != node) {
-          resolved = [resolved addWrite:resolvedNode atPath:subPath];
-      }
+              id<ValueProvider> existing =
+                  [[DeferredValueProvider alloc] initWithSyncTree:tree
+                   atPath:[path child:subPath]];
+              id<FNode> resolvedNode =
+            [FServerValues resolveDeferredValueSnapshot:node
+                           withValueProvider:existing
+                           serverValues:serverValues];
+        // Node actually changed, use pointer inequality here
+        if (resolvedNode != node) {
+            resolved = [resolved addWrite:resolvedNode atPath:subPath];
+        }
     }];
     return resolved;
 }
 
 + (id<FNode>)resolveDeferredValueSnapshot:(id<FNode>)node
-                             withSyncTree:(FSyncTree *)tree
-                                   atPath:(FPath *)path
-                             serverValues:(NSDictionary *)serverValues {
+    withSyncTree:(FSyncTree *)tree
+    atPath:(FPath *)path
+    serverValues:(NSDictionary *)serverValues {
     id<ValueProvider> jitExisting =
         [[DeferredValueProvider alloc] initWithSyncTree:tree atPath:path];
     return [FServerValues resolveDeferredValueSnapshot:node
-                                     withValueProvider:jitExisting
-                                          serverValues:serverValues];
+                          withValueProvider:jitExisting
+                          serverValues:serverValues];
 }
 
 + (id<FNode>)resolveDeferredValueSnapshot:(id<FNode>)node
-                             withExisting:(id<FNode>)existing
-                             serverValues:(NSDictionary *)serverValues {
+    withExisting:(id<FNode>)existing
+    serverValues:(NSDictionary *)serverValues {
     id<ValueProvider> jitExisting =
         [[ExistingValueProvider alloc] initWithSnapshot:existing];
     return [FServerValues resolveDeferredValueSnapshot:node
-                                     withValueProvider:jitExisting
-                                          serverValues:serverValues];
+                          withValueProvider:jitExisting
+                          serverValues:serverValues];
 }
 
 + (id<FNode>)resolveDeferredValueSnapshot:(id<FNode>)node
-                        withValueProvider:(id<ValueProvider>)existing
-                             serverValues:(NSDictionary *)serverValues {
+    withValueProvider:(id<ValueProvider>)existing
+    serverValues:(NSDictionary *)serverValues {
     id priorityVal =
         [FServerValues resolveDeferredValue:[[node getPriority] val]
-                               withExisting:[existing getChild:@".priority"]
-                               serverValues:serverValues];
+                       withExisting:[existing getChild:@".priority"]
+                       serverValues:serverValues];
     id<FNode> priority = [FSnapshotUtilities nodeFrom:priorityVal];
 
     if ([node isLeafNode]) {
         id value = [self resolveDeferredValue:[node val]
-                                 withExisting:existing
-                                 serverValues:serverValues];
+                         withExisting:existing
+                         serverValues:serverValues];
         if (![value isEqual:[node val]] ||
-            ![priority isEqual:[node getPriority]]) {
+                ![priority isEqual:[node getPriority]]) {
             return [[FLeafNode alloc] initWithValue:value
-                                       withPriority:priority];
+                                      withPriority:priority];
         } else {
             return node;
         }
@@ -252,15 +252,15 @@ BOOL canBeRepresentedAsLong(NSNumber *num) {
         }
 
         [node enumerateChildrenUsingBlock:^(NSString *childKey,
-                                            id<FNode> childNode, BOOL *stop) {
-          id newChildNode = [FServerValues
-              resolveDeferredValueSnapshot:childNode
-                         withValueProvider:[existing getChild:childKey]
-                              serverValues:serverValues];
-          if (![newChildNode isEqual:childNode]) {
-              newNode = [newNode updateImmediateChild:childKey
-                                         withNewChild:newChildNode];
-          }
+             id<FNode> childNode, BOOL *stop) {
+                 id newChildNode = [FServerValues
+                               resolveDeferredValueSnapshot:childNode
+                               withValueProvider:[existing getChild:childKey]
+                               serverValues:serverValues];
+            if (![newChildNode isEqual:childNode]) {
+                newNode = [newNode updateImmediateChild:childKey
+                                   withNewChild:newChildNode];
+            }
         }];
         return newNode;
     }

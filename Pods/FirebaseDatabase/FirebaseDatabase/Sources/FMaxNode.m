@@ -30,8 +30,8 @@
 + (id<FNode>)maxNode {
     static FMaxNode *maxNode = nil;
     static dispatch_once_t once;
-    dispatch_once(&once, ^{
-      maxNode = [[FMaxNode alloc] init];
+    dispatch_once(&once, ^ {
+        maxNode = [[FMaxNode alloc] init];
     });
     return maxNode;
 }

@@ -37,7 +37,7 @@
 
 - (id)init {
     [NSException raise:NSInternalInconsistencyException
-                format:@"Can't use default constructor"];
+                 format:@"Can't use default constructor"];
     return nil;
 }
 

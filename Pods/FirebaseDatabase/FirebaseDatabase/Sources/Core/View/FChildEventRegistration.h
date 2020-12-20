@@ -23,8 +23,8 @@
 @interface FChildEventRegistration : NSObject <FEventRegistration>
 
 - (id)initWithRepo:(FRepo *)repo
-            handle:(FIRDatabaseHandle)fHandle
-         callbacks:(NSDictionary *)callbackBlocks
+    handle:(FIRDatabaseHandle)fHandle
+    callbacks:(NSDictionary *)callbackBlocks
     cancelCallback:(fbt_void_nserror)cancelCallbackBlock;
 
 /**

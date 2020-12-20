@@ -26,34 +26,34 @@
 @implementation GDTCORUploadCoordinator
 
 + (instancetype)sharedInstance {
-  static GDTCORUploadCoordinator *sharedUploader;
-  static dispatch_once_t onceToken;
-  dispatch_once(&onceToken, ^{
-    sharedUploader = [[GDTCORUploadCoordinator alloc] init];
-    [sharedUploader startTimer];
-  });
-  return sharedUploader;
+    static GDTCORUploadCoordinator *sharedUploader;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^ {
+        sharedUploader = [[GDTCORUploadCoordinator alloc] init];
+        [sharedUploader startTimer];
+    });
+    return sharedUploader;
 }
 
 - (instancetype)init {
-  self = [super init];
-  if (self) {
-    _coordinationQueue =
-        dispatch_queue_create("com.google.GDTCORUploadCoordinator", DISPATCH_QUEUE_SERIAL);
-    _registrar = [GDTCORRegistrar sharedInstance];
-    _timerInterval = 30 * NSEC_PER_SEC;
-    _timerLeeway = 5 * NSEC_PER_SEC;
-  }
-  return self;
+    self = [super init];
+    if (self) {
+        _coordinationQueue =
+            dispatch_queue_create("com.google.GDTCORUploadCoordinator", DISPATCH_QUEUE_SERIAL);
+        _registrar = [GDTCORRegistrar sharedInstance];
+        _timerInterval = 30 * NSEC_PER_SEC;
+        _timerLeeway = 5 * NSEC_PER_SEC;
+    }
+    return self;
 }
 
 - (void)forceUploadForTarget:(GDTCORTarget)target {
-  dispatch_async(_coordinationQueue, ^{
-    GDTCORLogDebug(@"Forcing an upload of target %ld", (long)target);
-    GDTCORUploadConditions conditions = [self uploadConditions];
-    conditions |= GDTCORUploadConditionHighPriority;
-    [self uploadTargets:@[ @(target) ] conditions:conditions];
-  });
+    dispatch_async(_coordinationQueue, ^ {
+        GDTCORLogDebug(@"Forcing an upload of target %ld", (long)target);
+        GDTCORUploadConditions conditions = [self uploadConditions];
+        conditions |= GDTCORUploadConditionHighPriority;
+        [self uploadTargets:@[ @(target) ] conditions:conditions];
+    });
 }
 
 #pragma mark - Private helper methods
@@ -62,35 +62,35 @@
  * check the next-upload clocks of all targets to determine if an upload attempt can be made.
  */
 - (void)startTimer {
-  dispatch_async(_coordinationQueue, ^{
-    if (self->_timer) {
-      // The timer has been already started.
-      return;
-    }
+    dispatch_async(_coordinationQueue, ^ {
+        if (self->_timer) {
+            // The timer has been already started.
+            return;
+        }
 
-    self->_timer =
+        self->_timer =
         dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, self->_coordinationQueue);
-    dispatch_source_set_timer(self->_timer, DISPATCH_TIME_NOW, self->_timerInterval,
-                              self->_timerLeeway);
+        dispatch_source_set_timer(self->_timer, DISPATCH_TIME_NOW, self->_timerInterval,
+                                  self->_timerLeeway);
 
-    dispatch_source_set_event_handler(self->_timer, ^{
-      if (![[GDTCORApplication sharedApplication] isRunningInBackground]) {
-        GDTCORUploadConditions conditions = [self uploadConditions];
-        GDTCORLogDebug(@"%@", @"Upload timer fired");
-        [self uploadTargets:[self.registrar.targetToUploader allKeys] conditions:conditions];
-      }
+        dispatch_source_set_event_handler(self->_timer, ^{
+            if (![[GDTCORApplication sharedApplication] isRunningInBackground]) {
+                GDTCORUploadConditions conditions = [self uploadConditions];
+                GDTCORLogDebug(@"%@", @"Upload timer fired");
+                [self uploadTargets:[self.registrar.targetToUploader allKeys] conditions:conditions];
+            }
+        });
+        GDTCORLogDebug(@"%@", @"Upload timer started");
+        dispatch_resume(self->_timer);
     });
-    GDTCORLogDebug(@"%@", @"Upload timer started");
-    dispatch_resume(self->_timer);
-  });
 }
 
 /** Stops the currently running timer. */
 - (void)stopTimer {
-  if (_timer) {
-    dispatch_source_cancel(_timer);
-    _timer = nil;
-  }
+    if (_timer) {
+        dispatch_source_cancel(_timer);
+        _timer = nil;
+    }
 }
 
 /** Triggers the uploader implementations for the given targets to upload.
@@ -99,23 +99,23 @@
  * @param conditions The set of upload conditions.
  */
 - (void)uploadTargets:(NSArray<NSNumber *> *)targets conditions:(GDTCORUploadConditions)conditions {
-  dispatch_async(_coordinationQueue, ^{
-    // TODO: The reachability signal may be not reliable enough to prevent an upload attempt.
-    // See https://developer.apple.com/videos/play/wwdc2019/712/ (49:40) for more details.
-    if ((conditions & GDTCORUploadConditionNoNetwork) == GDTCORUploadConditionNoNetwork) {
-      return;
-    }
-    for (NSNumber *target in targets) {
-      id<GDTCORUploader> uploader = self->_registrar.targetToUploader[target];
-      [uploader uploadTarget:target.intValue withConditions:conditions];
-    }
-  });
+    dispatch_async(_coordinationQueue, ^ {
+        // TODO: The reachability signal may be not reliable enough to prevent an upload attempt.
+        // See https://developer.apple.com/videos/play/wwdc2019/712/ (49:40) for more details.
+        if ((conditions & GDTCORUploadConditionNoNetwork) == GDTCORUploadConditionNoNetwork) {
+            return;
+        }
+        for (NSNumber *target in targets) {
+            id<GDTCORUploader> uploader = self->_registrar.targetToUploader[target];
+            [uploader uploadTarget:target.intValue withConditions:conditions];
+        }
+    });
 }
 
 - (void)signalToStoragesToCheckExpirations {
-  for (id<GDTCORStorageProtocol> storage in [_registrar.targetToStorage allValues]) {
-    [storage checkForExpirations];
-  }
+    for (id<GDTCORStorageProtocol> storage in [_registrar.targetToStorage allValues]) {
+        [storage checkForExpirations];
+    }
 }
 
 /** Returns the registered storage for the given NSNumber wrapped GDTCORTarget.
@@ -124,9 +124,9 @@
  * @return The storage instance for the given target.
  */
 - (nullable id<GDTCORStorageProtocol>)storageForTarget:(NSNumber *)target {
-  id<GDTCORStorageProtocol> storage = [GDTCORRegistrar sharedInstance].targetToStorage[target];
-  GDTCORAssert(storage, @"A storage must be registered for target %@", target);
-  return storage;
+    id<GDTCORStorageProtocol> storage = [GDTCORRegistrar sharedInstance].targetToStorage[target];
+    GDTCORAssert(storage, @"A storage must be registered for target %@", target);
+    return storage;
 }
 
 /** Returns the current upload conditions after making determinations about the network connection.
@@ -134,37 +134,37 @@
  * @return The current upload conditions.
  */
 - (GDTCORUploadConditions)uploadConditions {
-  GDTCORNetworkReachabilityFlags currentFlags = [GDTCORReachability currentFlags];
-  BOOL networkConnected = GDTCORReachabilityFlagsReachable(currentFlags);
-  if (!networkConnected) {
-    return GDTCORUploadConditionNoNetwork;
-  }
-  BOOL isWWAN = GDTCORReachabilityFlagsContainWWAN(currentFlags);
-  if (isWWAN) {
-    return GDTCORUploadConditionMobileData;
-  } else {
-    return GDTCORUploadConditionWifiData;
-  }
+    GDTCORNetworkReachabilityFlags currentFlags = [GDTCORReachability currentFlags];
+    BOOL networkConnected = GDTCORReachabilityFlagsReachable(currentFlags);
+    if (!networkConnected) {
+        return GDTCORUploadConditionNoNetwork;
+    }
+    BOOL isWWAN = GDTCORReachabilityFlagsContainWWAN(currentFlags);
+    if (isWWAN) {
+        return GDTCORUploadConditionMobileData;
+    } else {
+        return GDTCORUploadConditionWifiData;
+    }
 }
 
 #pragma mark - GDTCORLifecycleProtocol
 
 - (void)appWillForeground:(GDTCORApplication *)app {
-  // -startTimer is thread-safe.
-  [self startTimer];
-  [self signalToStoragesToCheckExpirations];
+    // -startTimer is thread-safe.
+    [self startTimer];
+    [self signalToStoragesToCheckExpirations];
 }
 
 - (void)appWillBackground:(GDTCORApplication *)app {
-  dispatch_async(_coordinationQueue, ^{
-    [self stopTimer];
-  });
+    dispatch_async(_coordinationQueue, ^ {
+        [self stopTimer];
+    });
 }
 
 - (void)appWillTerminate:(GDTCORApplication *)application {
-  dispatch_sync(_coordinationQueue, ^{
-    [self stopTimer];
-  });
+    dispatch_sync(_coordinationQueue, ^ {
+        [self stopTimer];
+    });
 }
 
 @end

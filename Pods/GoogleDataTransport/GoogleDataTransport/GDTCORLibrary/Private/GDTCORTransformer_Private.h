@@ -20,7 +20,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface GDTCORTransformer ()
 
-/** The queue on which all work will occur. */
+    /** The queue on which all work will occur. */
 @property(nonatomic) dispatch_queue_t eventWritingQueue;
 
 @end

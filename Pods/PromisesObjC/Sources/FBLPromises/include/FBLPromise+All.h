@@ -20,16 +20,16 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface FBLPromise<Value>(AllAdditions)
 
-/**
- Wait until all of the given promises are fulfilled.
- If one of the given promises is rejected, then the returned promise is rejected with same error.
- If any other arbitrary value or `NSError` appears in the array instead of `FBLPromise`,
- it's implicitly considered a pre-fulfilled or pre-rejected `FBLPromise` correspondingly.
- Promises resolved with `nil` become `NSNull` instances in the resulting array.
+    /**
+     Wait until all of the given promises are fulfilled.
+     If one of the given promises is rejected, then the returned promise is rejected with same error.
+     If any other arbitrary value or `NSError` appears in the array instead of `FBLPromise`,
+     it's implicitly considered a pre-fulfilled or pre-rejected `FBLPromise` correspondingly.
+     Promises resolved with `nil` become `NSNull` instances in the resulting array.
 
- @param promises Promises to wait for.
- @return Promise of an array containing the values of input promises in the same order.
- */
+     @param promises Promises to wait for.
+     @return Promise of an array containing the values of input promises in the same order.
+     */
 + (FBLPromise<NSArray *> *)all:(NSArray *)promises NS_SWIFT_UNAVAILABLE("");
 
 /**
@@ -44,7 +44,7 @@ NS_ASSUME_NONNULL_BEGIN
  @return Promise of an array containing the values of input promises in the same order.
  */
 + (FBLPromise<NSArray *> *)onQueue:(dispatch_queue_t)queue
-                               all:(NSArray *)promises NS_REFINED_FOR_SWIFT;
+    all:(NSArray *)promises NS_REFINED_FOR_SWIFT;
 
 @end
 

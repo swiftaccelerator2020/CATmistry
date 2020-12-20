@@ -19,11 +19,11 @@
 /// Values stored in analyticsEnabledState. Never alter these constants since they must match with
 /// values persisted to disk.
 typedef NS_ENUM(int64_t, FIRAnalyticsEnabledState) {
-  // 0 is the default value for keys not found stored in persisted config, so it cannot represent
-  // kFIRAnalyticsEnabledStateSetNo. It must represent kFIRAnalyticsEnabledStateNotSet.
-  kFIRAnalyticsEnabledStateNotSet = 0,
-  kFIRAnalyticsEnabledStateSetYes = 1,
-  kFIRAnalyticsEnabledStateSetNo = 2,
+    // 0 is the default value for keys not found stored in persisted config, so it cannot represent
+    // kFIRAnalyticsEnabledStateSetNo. It must represent kFIRAnalyticsEnabledStateNotSet.
+    kFIRAnalyticsEnabledStateNotSet = 0,
+    kFIRAnalyticsEnabledStateSetYes = 1,
+    kFIRAnalyticsEnabledStateSetNo = 2,
 };
 
 /// The user defaults key for the persisted measurementEnabledState value. FIRAPersistedConfig reads
@@ -51,6 +51,6 @@ static NSString *const kFIRAnalyticsConfigurationSetSessionTimeoutIntervalNotifi
 /// the value or not. The setting should not be persisted if being set by the global data collection
 /// flag.
 - (void)setAnalyticsCollectionEnabled:(BOOL)analyticsCollectionEnabled
-                       persistSetting:(BOOL)shouldPersist;
+    persistSetting:(BOOL)shouldPersist;
 
 @end

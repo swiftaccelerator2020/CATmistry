@@ -44,8 +44,8 @@
     static dispatch_once_t pred;
     static dispatch_queue_t sharedDispatchQueue;
 
-    dispatch_once(&pred, ^{
-      sharedDispatchQueue = dispatch_queue_create("FirebaseWorker", NULL);
+    dispatch_once(&pred, ^ {
+        sharedDispatchQueue = dispatch_queue_create("FirebaseWorker", NULL);
     });
 
     return sharedDispatchQueue;
@@ -53,16 +53,16 @@
 
 - (id)initWithRepo:(FRepo *)theRepo path:(FPath *)thePath {
     return [self initWithRepo:theRepo
-                         path:thePath
-                       params:nil
-                orderByCalled:NO
-         priorityMethodCalled:NO];
+                 path:thePath
+                 params:nil
+                 orderByCalled:NO
+                 priorityMethodCalled:NO];
 }
 
 - (id)initWithRepo:(FRepo *)theRepo
-                    path:(FPath *)thePath
-                  params:(FQueryParams *)theParams
-           orderByCalled:(BOOL)orderByCalled
+    path:(FPath *)thePath
+    params:(FQueryParams *)theParams
+    orderByCalled:(BOOL)orderByCalled
     priorityMethodCalled:(BOOL)priorityMethodCalled {
     self = [super init];
     if (self) {
@@ -73,8 +73,8 @@
         }
         if (![theParams isValid]) {
             @throw [[NSException alloc]
-                initWithName:@"InvalidArgumentError"
-                      reason:@"Queries are limited to two constraints"
+                    initWithName:@"InvalidArgumentError"
+                    reason:@"Queries are limited to two constraints"
                     userInfo:nil];
         }
         self.queryParams = theParams;
@@ -93,43 +93,43 @@
         if ([params hasStart]) {
             if (params.indexStartKey != [FUtilities minName]) {
                 [NSException raise:INVALID_QUERY_PARAM_ERROR
-                            format:@"Can't use queryStartingAtValue:childKey: "
-                                   @"or queryEqualTo:andChildKey: in "
-                                   @"combination with queryOrderedByKey"];
+                             format:@"Can't use queryStartingAtValue:childKey: "
+                             @"or queryEqualTo:andChildKey: in "
+                             @"combination with queryOrderedByKey"];
             }
             if (![params.indexStartValue.val isKindOfClass:[NSString class]]) {
                 [NSException
-                     raise:INVALID_QUERY_PARAM_ERROR
-                    format:
-                        @"Can't use queryStartingAtValue: with other types "
-                        @"than string in combination with queryOrderedByKey"];
+                 raise:INVALID_QUERY_PARAM_ERROR
+                 format:
+                 @"Can't use queryStartingAtValue: with other types "
+                 @"than string in combination with queryOrderedByKey"];
             }
         }
         if ([params hasEnd]) {
             if (params.indexEndKey != [FUtilities maxName]) {
                 [NSException raise:INVALID_QUERY_PARAM_ERROR
-                            format:@"Can't use queryEndingAtValue:childKey: or "
-                                   @"queryEqualToValue:childKey: in "
-                                   @"combination with queryOrderedByKey"];
+                             format:@"Can't use queryEndingAtValue:childKey: or "
+                             @"queryEqualToValue:childKey: in "
+                             @"combination with queryOrderedByKey"];
             }
             if (![params.indexEndValue.val isKindOfClass:[NSString class]]) {
                 [NSException
-                     raise:INVALID_QUERY_PARAM_ERROR
-                    format:
-                        @"Can't use queryEndingAtValue: with other types than "
-                        @"string in combination with queryOrderedByKey"];
+                 raise:INVALID_QUERY_PARAM_ERROR
+                 format:
+                 @"Can't use queryEndingAtValue: with other types than "
+                 @"string in combination with queryOrderedByKey"];
             }
         }
     } else if ([params.index isEqual:[FPriorityIndex priorityIndex]]) {
         if (([params hasStart] &&
-             ![FValidation validatePriorityValue:params.indexStartValue.val]) ||
-            ([params hasEnd] &&
-             ![FValidation validatePriorityValue:params.indexEndValue.val])) {
+                ![FValidation validatePriorityValue:params.indexStartValue.val]) ||
+                ([params hasEnd] &&
+                 ![FValidation validatePriorityValue:params.indexEndValue.val])) {
             [NSException
-                 raise:INVALID_QUERY_PARAM_ERROR
-                format:@"When using queryOrderedByPriority, values provided to "
-                       @"queryStartingAtValue:, queryEndingAtValue:, or "
-                       @"queryEqualToValue: must be valid priorities."];
+             raise:INVALID_QUERY_PARAM_ERROR
+             format:@"When using queryOrderedByPriority, values provided to "
+             @"queryStartingAtValue:, queryEndingAtValue:, or "
+             @"queryEqualToValue: must be valid priorities."];
         }
     }
 }
@@ -137,267 +137,267 @@
 - (void)validateEqualToCall {
     if ([self.queryParams hasStart]) {
         [NSException
-             raise:INVALID_QUERY_PARAM_ERROR
-            format:
-                @"Cannot combine queryEqualToValue: and queryStartingAtValue:"];
+         raise:INVALID_QUERY_PARAM_ERROR
+         format:
+         @"Cannot combine queryEqualToValue: and queryStartingAtValue:"];
     }
     if ([self.queryParams hasEnd]) {
         [NSException
-             raise:INVALID_QUERY_PARAM_ERROR
-            format:
-                @"Cannot combine queryEqualToValue: and queryEndingAtValue:"];
+         raise:INVALID_QUERY_PARAM_ERROR
+         format:
+         @"Cannot combine queryEqualToValue: and queryEndingAtValue:"];
     }
 }
 
 - (void)validateNoPreviousOrderByCalled {
     if (self.orderByCalled) {
         [NSException raise:INVALID_QUERY_PARAM_ERROR
-                    format:@"Cannot use multiple queryOrderedBy calls!"];
+                     format:@"Cannot use multiple queryOrderedBy calls!"];
     }
 }
 
 - (void)validateIndexValueType:(id)type fromMethod:(NSString *)method {
     if (type != nil && ![type isKindOfClass:[NSNumber class]] &&
-        ![type isKindOfClass:[NSString class]] &&
-        ![type isKindOfClass:[NSNull class]]) {
+            ![type isKindOfClass:[NSString class]] &&
+            ![type isKindOfClass:[NSNull class]]) {
         [NSException raise:INVALID_QUERY_PARAM_ERROR
-                    format:@"You can only pass nil, NSString or NSNumber to %@",
-                           method];
+                     format:@"You can only pass nil, NSString or NSNumber to %@",
+                     method];
     }
 }
 
 - (FIRDatabaseQuery *)queryStartingAtValue:(id)startValue {
     return [self queryStartingAtInternal:startValue
-                                childKey:nil
-                                    from:@"queryStartingAtValue:"
-                          priorityMethod:NO];
+                 childKey:nil
+                 from:@"queryStartingAtValue:"
+                 priorityMethod:NO];
 }
 
 - (FIRDatabaseQuery *)queryStartingAtValue:(id)startValue
-                                  childKey:(NSString *)childKey {
+    childKey:(NSString *)childKey {
     if ([self.queryParams.index isEqual:[FKeyIndex keyIndex]]) {
         @throw [[NSException alloc]
-            initWithName:INVALID_QUERY_PARAM_ERROR
-                  reason:@"You must use queryStartingAtValue: instead of "
-                         @"queryStartingAtValue:childKey: when using "
-                         @"queryOrderedByKey:"
+                initWithName:INVALID_QUERY_PARAM_ERROR
+                reason:@"You must use queryStartingAtValue: instead of "
+                @"queryStartingAtValue:childKey: when using "
+                @"queryOrderedByKey:"
                 userInfo:nil];
     }
     return [self queryStartingAtInternal:startValue
-                                childKey:childKey
-                                    from:@"queryStartingAtValue:childKey:"
-                          priorityMethod:NO];
+                 childKey:childKey
+                 from:@"queryStartingAtValue:childKey:"
+                 priorityMethod:NO];
 }
 
 - (FIRDatabaseQuery *)queryStartingAtInternal:(id<FNode>)startValue
-                                     childKey:(NSString *)childKey
-                                         from:(NSString *)methodName
-                               priorityMethod:(BOOL)priorityMethod {
+    childKey:(NSString *)childKey
+    from:(NSString *)methodName
+    priorityMethod:(BOOL)priorityMethod {
     [self validateIndexValueType:startValue fromMethod:methodName];
     if (childKey != nil) {
         [FValidation validateFrom:methodName validKey:childKey];
     }
     if ([self.queryParams hasStart]) {
         [NSException raise:INVALID_QUERY_PARAM_ERROR
-                    format:@"Can't call %@ after queryStartingAtValue or "
-                           @"queryEqualToValue was previously called",
-                           methodName];
+                     format:@"Can't call %@ after queryStartingAtValue or "
+                     @"queryEqualToValue was previously called",
+                     methodName];
     }
     id<FNode> startNode = [FSnapshotUtilities nodeFrom:startValue];
     FQueryParams *params = [self.queryParams startAt:startNode
-                                            childKey:childKey];
+                                             childKey:childKey];
     [self validateQueryEndpointsForParams:params];
     return [[FIRDatabaseQuery alloc]
-                initWithRepo:self.repo
-                        path:self.path
-                      params:params
-               orderByCalled:self.orderByCalled
-        priorityMethodCalled:priorityMethod || self.priorityMethodCalled];
+            initWithRepo:self.repo
+            path:self.path
+            params:params
+            orderByCalled:self.orderByCalled
+            priorityMethodCalled:priorityMethod || self.priorityMethodCalled];
 }
 
 - (FIRDatabaseQuery *)queryEndingAtValue:(id)endValue {
     return [self queryEndingAtInternal:endValue
-                              childKey:nil
-                                  from:@"queryEndingAtValue:"
-                        priorityMethod:NO];
+                 childKey:nil
+                 from:@"queryEndingAtValue:"
+                 priorityMethod:NO];
 }
 
 - (FIRDatabaseQuery *)queryEndingAtValue:(id)endValue
-                                childKey:(NSString *)childKey {
+    childKey:(NSString *)childKey {
     if ([self.queryParams.index isEqual:[FKeyIndex keyIndex]]) {
         @throw [[NSException alloc]
-            initWithName:INVALID_QUERY_PARAM_ERROR
-                  reason:@"You must use queryEndingAtValue: instead of "
-                         @"queryEndingAtValue:childKey: when using "
-                         @"queryOrderedByKey:"
+                initWithName:INVALID_QUERY_PARAM_ERROR
+                reason:@"You must use queryEndingAtValue: instead of "
+                @"queryEndingAtValue:childKey: when using "
+                @"queryOrderedByKey:"
                 userInfo:nil];
     }
 
     return [self queryEndingAtInternal:endValue
-                              childKey:childKey
-                                  from:@"queryEndingAtValue:childKey:"
-                        priorityMethod:NO];
+                 childKey:childKey
+                 from:@"queryEndingAtValue:childKey:"
+                 priorityMethod:NO];
 }
 
 - (FIRDatabaseQuery *)queryEndingAtInternal:(id)endValue
-                                   childKey:(NSString *)childKey
-                                       from:(NSString *)methodName
-                             priorityMethod:(BOOL)priorityMethod {
+    childKey:(NSString *)childKey
+    from:(NSString *)methodName
+    priorityMethod:(BOOL)priorityMethod {
     [self validateIndexValueType:endValue fromMethod:methodName];
     if (childKey != nil) {
         [FValidation validateFrom:methodName validKey:childKey];
     }
     if ([self.queryParams hasEnd]) {
         [NSException raise:INVALID_QUERY_PARAM_ERROR
-                    format:@"Can't call %@ after queryEndingAtValue or "
-                           @"queryEqualToValue was previously called",
-                           methodName];
+                     format:@"Can't call %@ after queryEndingAtValue or "
+                     @"queryEqualToValue was previously called",
+                     methodName];
     }
     id<FNode> endNode = [FSnapshotUtilities nodeFrom:endValue];
     FQueryParams *params = [self.queryParams endAt:endNode childKey:childKey];
     [self validateQueryEndpointsForParams:params];
     return [[FIRDatabaseQuery alloc]
-                initWithRepo:self.repo
-                        path:self.path
-                      params:params
-               orderByCalled:self.orderByCalled
-        priorityMethodCalled:priorityMethod || self.priorityMethodCalled];
+            initWithRepo:self.repo
+            path:self.path
+            params:params
+            orderByCalled:self.orderByCalled
+            priorityMethodCalled:priorityMethod || self.priorityMethodCalled];
 }
 
 - (FIRDatabaseQuery *)queryEqualToValue:(id)value {
     return [self queryEqualToInternal:value
-                             childKey:nil
-                                 from:@"queryEqualToValue:"
-                       priorityMethod:NO];
+                 childKey:nil
+                 from:@"queryEqualToValue:"
+                 priorityMethod:NO];
 }
 
 - (FIRDatabaseQuery *)queryEqualToValue:(id)value
-                               childKey:(NSString *)childKey {
+    childKey:(NSString *)childKey {
     if ([self.queryParams.index isEqual:[FKeyIndex keyIndex]]) {
         @throw [[NSException alloc]
-            initWithName:INVALID_QUERY_PARAM_ERROR
-                  reason:@"You must use queryEqualToValue: instead of "
-                         @"queryEqualTo:childKey: when using queryOrderedByKey:"
+                initWithName:INVALID_QUERY_PARAM_ERROR
+                reason:@"You must use queryEqualToValue: instead of "
+                @"queryEqualTo:childKey: when using queryOrderedByKey:"
                 userInfo:nil];
     }
     return [self queryEqualToInternal:value
-                             childKey:childKey
-                                 from:@"queryEqualToValue:childKey:"
-                       priorityMethod:NO];
+                 childKey:childKey
+                 from:@"queryEqualToValue:childKey:"
+                 priorityMethod:NO];
 }
 
 - (FIRDatabaseQuery *)queryEqualToInternal:(id)value
-                                  childKey:(NSString *)childKey
-                                      from:(NSString *)methodName
-                            priorityMethod:(BOOL)priorityMethod {
+    childKey:(NSString *)childKey
+    from:(NSString *)methodName
+    priorityMethod:(BOOL)priorityMethod {
     [self validateIndexValueType:value fromMethod:methodName];
     if (childKey != nil) {
         [FValidation validateFrom:methodName validKey:childKey];
     }
     if ([self.queryParams hasEnd] || [self.queryParams hasStart]) {
         [NSException
-             raise:INVALID_QUERY_PARAM_ERROR
-            format:
-                @"Can't call %@ after queryStartingAtValue, queryEndingAtValue "
-                @"or queryEqualToValue was previously called",
-                methodName];
+         raise:INVALID_QUERY_PARAM_ERROR
+         format:
+         @"Can't call %@ after queryStartingAtValue, queryEndingAtValue "
+         @"or queryEqualToValue was previously called",
+         methodName];
     }
     id<FNode> node = [FSnapshotUtilities nodeFrom:value];
     FQueryParams *params = [[self.queryParams startAt:node
-                                             childKey:childKey] endAt:node
-                                                             childKey:childKey];
+                             childKey:childKey] endAt:node
+                            childKey:childKey];
     [self validateQueryEndpointsForParams:params];
     return [[FIRDatabaseQuery alloc]
-                initWithRepo:self.repo
-                        path:self.path
-                      params:params
-               orderByCalled:self.orderByCalled
-        priorityMethodCalled:priorityMethod || self.priorityMethodCalled];
+            initWithRepo:self.repo
+            path:self.path
+            params:params
+            orderByCalled:self.orderByCalled
+            priorityMethodCalled:priorityMethod || self.priorityMethodCalled];
 }
 
 - (void)validateLimitRange:(NSUInteger)limit {
     // No need to check for negative ranges, since limit is unsigned
     if (limit == 0) {
         [NSException raise:INVALID_QUERY_PARAM_ERROR
-                    format:@"Limit can't be zero"];
+                     format:@"Limit can't be zero"];
     }
     if (limit >= 1ul << 31) {
         [NSException raise:INVALID_QUERY_PARAM_ERROR
-                    format:@"Limit must be less than 2,147,483,648"];
+                     format:@"Limit must be less than 2,147,483,648"];
     }
 }
 
 - (FIRDatabaseQuery *)queryLimitedToFirst:(NSUInteger)limit {
     if (self.queryParams.limitSet) {
         [NSException raise:INVALID_QUERY_PARAM_ERROR
-                    format:@"Can't call queryLimitedToFirst: if a limit was "
-                           @"previously set"];
+                     format:@"Can't call queryLimitedToFirst: if a limit was "
+                     @"previously set"];
     }
     [self validateLimitRange:limit];
     FQueryParams *params = [self.queryParams limitToFirst:limit];
     return [[FIRDatabaseQuery alloc] initWithRepo:self.repo
-                                             path:self.path
-                                           params:params
-                                    orderByCalled:self.orderByCalled
-                             priorityMethodCalled:self.priorityMethodCalled];
+                                     path:self.path
+                                     params:params
+                                     orderByCalled:self.orderByCalled
+                                     priorityMethodCalled:self.priorityMethodCalled];
 }
 
 - (FIRDatabaseQuery *)queryLimitedToLast:(NSUInteger)limit {
     if (self.queryParams.limitSet) {
         [NSException raise:INVALID_QUERY_PARAM_ERROR
-                    format:@"Can't call queryLimitedToLast: if a limit was "
-                           @"previously set"];
+                     format:@"Can't call queryLimitedToLast: if a limit was "
+                     @"previously set"];
     }
     [self validateLimitRange:limit];
     FQueryParams *params = [self.queryParams limitToLast:limit];
     return [[FIRDatabaseQuery alloc] initWithRepo:self.repo
-                                             path:self.path
-                                           params:params
-                                    orderByCalled:self.orderByCalled
-                             priorityMethodCalled:self.priorityMethodCalled];
+                                     path:self.path
+                                     params:params
+                                     orderByCalled:self.orderByCalled
+                                     priorityMethodCalled:self.priorityMethodCalled];
 }
 
 - (FIRDatabaseQuery *)queryOrderedByChild:(NSString *)indexPathString {
     if ([indexPathString isEqualToString:@"$key"] ||
-        [indexPathString isEqualToString:@".key"]) {
+            [indexPathString isEqualToString:@".key"]) {
         @throw [[NSException alloc]
-            initWithName:INVALID_QUERY_PARAM_ERROR
-                  reason:[NSString stringWithFormat:
-                                       @"(queryOrderedByChild:) %@ is invalid. "
-                                       @" Use queryOrderedByKey: instead.",
-                                       indexPathString]
+                initWithName:INVALID_QUERY_PARAM_ERROR
+                reason:[NSString stringWithFormat:
+                        @"(queryOrderedByChild:) %@ is invalid. "
+                        @" Use queryOrderedByKey: instead.",
+                        indexPathString]
                 userInfo:nil];
     } else if ([indexPathString isEqualToString:@"$priority"] ||
                [indexPathString isEqualToString:@".priority"]) {
         @throw [[NSException alloc]
-            initWithName:INVALID_QUERY_PARAM_ERROR
-                  reason:[NSString stringWithFormat:
-                                       @"(queryOrderedByChild:) %@ is invalid. "
-                                       @" Use queryOrderedByPriority: instead.",
-                                       indexPathString]
+                initWithName:INVALID_QUERY_PARAM_ERROR
+                reason:[NSString stringWithFormat:
+                        @"(queryOrderedByChild:) %@ is invalid. "
+                        @" Use queryOrderedByPriority: instead.",
+                        indexPathString]
                 userInfo:nil];
     } else if ([indexPathString isEqualToString:@"$value"] ||
                [indexPathString isEqualToString:@".value"]) {
         @throw [[NSException alloc]
-            initWithName:INVALID_QUERY_PARAM_ERROR
-                  reason:[NSString stringWithFormat:
-                                       @"(queryOrderedByChild:) %@ is invalid. "
-                                       @" Use queryOrderedByValue: instead.",
-                                       indexPathString]
+                initWithName:INVALID_QUERY_PARAM_ERROR
+                reason:[NSString stringWithFormat:
+                        @"(queryOrderedByChild:) %@ is invalid. "
+                        @" Use queryOrderedByValue: instead.",
+                        indexPathString]
                 userInfo:nil];
     }
     [self validateNoPreviousOrderByCalled];
 
     [FValidation validateFrom:@"queryOrderedByChild:"
-              validPathString:indexPathString];
+                 validPathString:indexPathString];
     FPath *indexPath = [FPath pathWithString:indexPathString];
     if (indexPath.isEmpty) {
         @throw [[NSException alloc]
-            initWithName:INVALID_QUERY_PARAM_ERROR
-                  reason:[NSString
-                             stringWithFormat:@"(queryOrderedByChild:) with an "
-                                              @"empty path is invalid.  Use "
-                                              @"queryOrderedByValue: instead."]
+                initWithName:INVALID_QUERY_PARAM_ERROR
+                reason:[NSString
+                        stringWithFormat:@"(queryOrderedByChild:) with an "
+                        @"empty path is invalid.  Use "
+                        @"queryOrderedByValue: instead."]
                 userInfo:nil];
     }
     id<FIndex> index = [[FPathIndex alloc] initWithPath:indexPath];
@@ -405,10 +405,10 @@
     FQueryParams *params = [self.queryParams orderBy:index];
     [self validateQueryEndpointsForParams:params];
     return [[FIRDatabaseQuery alloc] initWithRepo:self.repo
-                                             path:self.path
-                                           params:params
-                                    orderByCalled:YES
-                             priorityMethodCalled:self.priorityMethodCalled];
+                                     path:self.path
+                                     params:params
+                                     orderByCalled:YES
+                                     priorityMethodCalled:self.priorityMethodCalled];
 }
 
 - (FIRDatabaseQuery *)queryOrderedByKey {
@@ -416,20 +416,20 @@
     FQueryParams *params = [self.queryParams orderBy:[FKeyIndex keyIndex]];
     [self validateQueryEndpointsForParams:params];
     return [[FIRDatabaseQuery alloc] initWithRepo:self.repo
-                                             path:self.path
-                                           params:params
-                                    orderByCalled:YES
-                             priorityMethodCalled:self.priorityMethodCalled];
+                                     path:self.path
+                                     params:params
+                                     orderByCalled:YES
+                                     priorityMethodCalled:self.priorityMethodCalled];
 }
 
 - (FIRDatabaseQuery *)queryOrderedByValue {
     [self validateNoPreviousOrderByCalled];
     FQueryParams *params = [self.queryParams orderBy:[FValueIndex valueIndex]];
     return [[FIRDatabaseQuery alloc] initWithRepo:self.repo
-                                             path:self.path
-                                           params:params
-                                    orderByCalled:YES
-                             priorityMethodCalled:self.priorityMethodCalled];
+                                     path:self.path
+                                     params:params
+                                     orderByCalled:YES
+                                     priorityMethodCalled:self.priorityMethodCalled];
 }
 
 - (FIRDatabaseQuery *)queryOrderedByPriority {
@@ -437,66 +437,66 @@
     FQueryParams *params =
         [self.queryParams orderBy:[FPriorityIndex priorityIndex]];
     return [[FIRDatabaseQuery alloc] initWithRepo:self.repo
-                                             path:self.path
-                                           params:params
-                                    orderByCalled:YES
-                             priorityMethodCalled:self.priorityMethodCalled];
+                                     path:self.path
+                                     params:params
+                                     orderByCalled:YES
+                                     priorityMethodCalled:self.priorityMethodCalled];
 }
 
 - (FIRDatabaseHandle)observeEventType:(FIRDataEventType)eventType
-                            withBlock:(void (^)(FIRDataSnapshot *))block {
+    withBlock:(void (^)(FIRDataSnapshot *))block {
     [FValidation validateFrom:@"observeEventType:withBlock:"
-               knownEventType:eventType];
+                 knownEventType:eventType];
     return [self observeEventType:eventType
-                        withBlock:block
-                  withCancelBlock:nil];
+                 withBlock:block
+                 withCancelBlock:nil];
 }
 
 - (FIRDatabaseHandle)observeEventType:(FIRDataEventType)eventType
-       andPreviousSiblingKeyWithBlock:(fbt_void_datasnapshot_nsstring)block {
+    andPreviousSiblingKeyWithBlock:(fbt_void_datasnapshot_nsstring)block {
     [FValidation
-          validateFrom:@"observeEventType:andPreviousSiblingKeyWithBlock:"
-        knownEventType:eventType];
+     validateFrom:@"observeEventType:andPreviousSiblingKeyWithBlock:"
+     knownEventType:eventType];
     return [self observeEventType:eventType
-        andPreviousSiblingKeyWithBlock:block
-                       withCancelBlock:nil];
+                 andPreviousSiblingKeyWithBlock:block
+                 withCancelBlock:nil];
 }
 
 - (FIRDatabaseHandle)observeEventType:(FIRDataEventType)eventType
-                            withBlock:(fbt_void_datasnapshot)block
-                      withCancelBlock:(fbt_void_nserror)cancelBlock {
+    withBlock:(fbt_void_datasnapshot)block
+    withCancelBlock:(fbt_void_nserror)cancelBlock {
     [FValidation validateFrom:@"observeEventType:withBlock:withCancelBlock:"
-               knownEventType:eventType];
+                 knownEventType:eventType];
 
     if (eventType == FIRDataEventTypeValue) {
         // Handle FIRDataEventTypeValue specially because they shouldn't have
         // prevName callbacks
         NSUInteger handle = [[FUtilities LUIDGenerator] integerValue];
         [self observeValueEventWithHandle:handle
-                                withBlock:block
-                           cancelCallback:cancelBlock];
+              withBlock:block
+              cancelCallback:cancelBlock];
         return handle;
     } else {
         // Wrap up the userCallback so we can treat everything as a callback
         // that has a prevName
         fbt_void_datasnapshot userCallback = [block copy];
         return [self observeEventType:eventType
-            andPreviousSiblingKeyWithBlock:^(FIRDataSnapshot *snapshot,
-                                             NSString *prevName) {
-              if (userCallback != nil) {
-                  userCallback(snapshot);
-              }
-            }
-                           withCancelBlock:cancelBlock];
+                     andPreviousSiblingKeyWithBlock:^(FIRDataSnapshot *snapshot,
+             NSString *prevName) {
+                 if (userCallback != nil) {
+                     userCallback(snapshot);
+                 }
+             }
+             withCancelBlock:cancelBlock];
     }
 }
 
 - (FIRDatabaseHandle)observeEventType:(FIRDataEventType)eventType
-       andPreviousSiblingKeyWithBlock:(fbt_void_datasnapshot_nsstring)block
-                      withCancelBlock:(fbt_void_nserror)cancelBlock {
+    andPreviousSiblingKeyWithBlock:(fbt_void_datasnapshot_nsstring)block
+    withCancelBlock:(fbt_void_nserror)cancelBlock {
     [FValidation validateFrom:@"observeEventType:"
-                              @"andPreviousSiblingKeyWithBlock:withCancelBlock:"
-               knownEventType:eventType];
+                 @"andPreviousSiblingKeyWithBlock:withCancelBlock:"
+                 knownEventType:eventType];
 
     if (eventType == FIRDataEventTypeValue) {
         // TODO: This gets hit by observeSingleEventOfType.  Need to fix.
@@ -512,10 +512,10 @@
 
     NSUInteger handle = [[FUtilities LUIDGenerator] integerValue];
     NSDictionary *callbacks =
-        @{[NSNumber numberWithInteger:eventType] : [block copy]};
+        @ {[NSNumber numberWithInteger:eventType] : [block copy]};
     [self observeChildEventWithHandle:handle
-                        withCallbacks:callbacks
-                       cancelCallback:cancelBlock];
+          withCallbacks:callbacks
+          cancelCallback:cancelBlock];
 
     return handle;
 }
@@ -525,44 +525,44 @@
 // add argument validation. Otherwise, arguments are validated in the
 // public-facing portions of the API. Also, move the FIRDatabaseHandle logic.
 - (void)observeValueEventWithHandle:(FIRDatabaseHandle)handle
-                          withBlock:(fbt_void_datasnapshot)block
-                     cancelCallback:(fbt_void_nserror)cancelBlock {
+    withBlock:(fbt_void_datasnapshot)block
+    cancelCallback:(fbt_void_nserror)cancelBlock {
     // Note that we don't need to copy the callbacks here, FEventRegistration
     // callback properties set to copy
     FValueEventRegistration *registration =
         [[FValueEventRegistration alloc] initWithRepo:self.repo
-                                               handle:handle
-                                             callback:block
-                                       cancelCallback:cancelBlock];
-    dispatch_async([FIRDatabaseQuery sharedQueue], ^{
-      [self.repo addEventRegistration:registration forQuery:self.querySpec];
+                                         handle:handle
+                                         callback:block
+                                         cancelCallback:cancelBlock];
+    dispatch_async([FIRDatabaseQuery sharedQueue], ^ {
+        [self.repo addEventRegistration:registration forQuery:self.querySpec];
     });
 }
 
 // Note: as with the above method, we may wish to expose this at some point.
 - (void)observeChildEventWithHandle:(FIRDatabaseHandle)handle
-                      withCallbacks:(NSDictionary *)callbacks
-                     cancelCallback:(fbt_void_nserror)cancelBlock {
+    withCallbacks:(NSDictionary *)callbacks
+    cancelCallback:(fbt_void_nserror)cancelBlock {
     // Note that we don't need to copy the callbacks here, FEventRegistration
     // callback properties set to copy
     FChildEventRegistration *registration =
         [[FChildEventRegistration alloc] initWithRepo:self.repo
-                                               handle:handle
-                                            callbacks:callbacks
-                                       cancelCallback:cancelBlock];
-    dispatch_async([FIRDatabaseQuery sharedQueue], ^{
-      [self.repo addEventRegistration:registration forQuery:self.querySpec];
+                                         handle:handle
+                                         callbacks:callbacks
+                                         cancelCallback:cancelBlock];
+    dispatch_async([FIRDatabaseQuery sharedQueue], ^ {
+        [self.repo addEventRegistration:registration forQuery:self.querySpec];
     });
 }
 
 - (void)removeObserverWithHandle:(FIRDatabaseHandle)handle {
     FValueEventRegistration *event =
         [[FValueEventRegistration alloc] initWithRepo:self.repo
-                                               handle:handle
-                                             callback:nil
-                                       cancelCallback:nil];
-    dispatch_async([FIRDatabaseQuery sharedQueue], ^{
-      [self.repo removeEventRegistration:event forQuery:self.querySpec];
+                                         handle:handle
+                                         callback:nil
+                                         cancelCallback:nil];
+    dispatch_async([FIRDatabaseQuery sharedQueue], ^ {
+        [self.repo removeEventRegistration:event forQuery:self.querySpec];
     });
 }
 
@@ -573,33 +573,33 @@
 - (void)keepSynced:(BOOL)keepSynced {
     if ([self.path.getFront isEqualToString:kDotInfoPrefix]) {
         [NSException raise:NSInvalidArgumentException
-                    format:@"Can't keep query on .info tree synced (this "
-                           @"already is the case)."];
+                     format:@"Can't keep query on .info tree synced (this "
+                     @"already is the case)."];
     }
-    dispatch_async([FIRDatabaseQuery sharedQueue], ^{
-      [self.repo keepQuery:self.querySpec synced:keepSynced];
+    dispatch_async([FIRDatabaseQuery sharedQueue], ^ {
+        [self.repo keepQuery:self.querySpec synced:keepSynced];
     });
 }
 
 - (void)observeSingleEventOfType:(FIRDataEventType)eventType
-                       withBlock:(fbt_void_datasnapshot)block {
+    withBlock:(fbt_void_datasnapshot)block {
 
     [self observeSingleEventOfType:eventType
-                         withBlock:block
-                   withCancelBlock:nil];
+          withBlock:block
+          withCancelBlock:nil];
 }
 
 - (void)observeSingleEventOfType:(FIRDataEventType)eventType
     andPreviousSiblingKeyWithBlock:(fbt_void_datasnapshot_nsstring)block {
 
     [self observeSingleEventOfType:eventType
-        andPreviousSiblingKeyWithBlock:block
-                       withCancelBlock:nil];
+          andPreviousSiblingKeyWithBlock:block
+          withCancelBlock:nil];
 }
 
 - (void)observeSingleEventOfType:(FIRDataEventType)eventType
-                       withBlock:(fbt_void_datasnapshot)block
-                 withCancelBlock:(fbt_void_nserror)cancelBlock {
+    withBlock:(fbt_void_datasnapshot)block
+    withCancelBlock:(fbt_void_nserror)cancelBlock {
 
     // XXX: user reported memory leak in method
 
@@ -613,13 +613,13 @@
     // __block fbt_void_datasnapshot userCallback = [callback copy];
 
     [self observeSingleEventOfType:eventType
-        andPreviousSiblingKeyWithBlock:^(FIRDataSnapshot *snapshot,
-                                         NSString *prevName) {
-          if (block != nil) {
-              block(snapshot);
-          }
-        }
-                       withCancelBlock:cancelBlock];
+          andPreviousSiblingKeyWithBlock:^(FIRDataSnapshot *snapshot,
+         NSString *prevName) {
+             if (block != nil) {
+                 block(snapshot);
+             }
+         }
+         withCancelBlock:cancelBlock];
 }
 
 /**
@@ -627,7 +627,7 @@
  */
 - (void)observeSingleEventOfType:(FIRDataEventType)eventType
     andPreviousSiblingKeyWithBlock:(fbt_void_datasnapshot_nsstring)block
-                   withCancelBlock:(fbt_void_nserror)cancelBlock {
+    withCancelBlock:(fbt_void_nserror)cancelBlock {
 
     // XXX: user reported memory leak in method
 
@@ -645,29 +645,29 @@
 
     fbt_void_datasnapshot_nsstring callback = [block copy];
     fbt_void_datasnapshot_nsstring wrappedCallback =
-        ^(FIRDataSnapshot *snap, NSString *prevName) {
-          if (firstCall) {
-              firstCall = NO;
-              [self removeObserverWithHandle:handle];
-              callback(snap, prevName);
-          }
-        };
+    ^(FIRDataSnapshot *snap, NSString *prevName) {
+        if (firstCall) {
+            firstCall = NO;
+            [self removeObserverWithHandle:handle];
+            callback(snap, prevName);
+        }
+    };
 
     fbt_void_nserror cancelCallback = [cancelBlock copy];
     handle = [self observeEventType:eventType
-        andPreviousSiblingKeyWithBlock:wrappedCallback
-                       withCancelBlock:^(NSError *error) {
-                         [self removeObserverWithHandle:handle];
+                   andPreviousSiblingKeyWithBlock:wrappedCallback
+         withCancelBlock:^(NSError *error) {
+             [self removeObserverWithHandle:handle];
 
-                         if (cancelCallback) {
-                             cancelCallback(error);
-                         }
-                       }];
+             if (cancelCallback) {
+            cancelCallback(error);
+        }
+    }];
 }
 
 - (NSString *)description {
     return [NSString
-        stringWithFormat:@"(%@ %@)", self.path, self.queryParams.description];
+            stringWithFormat:@"(%@ %@)", self.path, self.queryParams.description];
 }
 
 - (FIRDatabaseReference *)ref {

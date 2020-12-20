@@ -50,103 +50,103 @@ static NSRegularExpression *sMessageCodeRegex;
 #endif
 
 void GULLoggerInitializeASL(void) {
-  dispatch_once(&sGULLoggerOnceToken, ^{
-    NSInteger majorOSVersion = [[GULAppEnvironmentUtil systemVersion] integerValue];
-    uint32_t aslOptions = ASL_OPT_STDERR;
+    dispatch_once(&sGULLoggerOnceToken, ^ {
+        NSInteger majorOSVersion = [[GULAppEnvironmentUtil systemVersion] integerValue];
+        uint32_t aslOptions = ASL_OPT_STDERR;
 #if TARGET_OS_SIMULATOR
-    // The iOS 11 simulator doesn't need the ASL_OPT_STDERR flag.
-    if (majorOSVersion >= 11) {
-      aslOptions = 0;
-    }
+        // The iOS 11 simulator doesn't need the ASL_OPT_STDERR flag.
+        if (majorOSVersion >= 11) {
+            aslOptions = 0;
+        }
 #else
-    // Devices running iOS 10 or higher don't need the ASL_OPT_STDERR flag.
-    if (majorOSVersion >= 10) {
-      aslOptions = 0;
-    }
+        // Devices running iOS 10 or higher don't need the ASL_OPT_STDERR flag.
+        if (majorOSVersion >= 10) {
+            aslOptions = 0;
+        }
 #endif  // TARGET_OS_SIMULATOR
 
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wdeprecated-declarations"  // asl is deprecated
-    // Initialize the ASL client handle.
-    sGULLoggerClient = asl_open(NULL, kGULLoggerASLClientFacilityName, aslOptions);
-    sGULLoggerMaximumLevel = GULLoggerLevelNotice;
+        // Initialize the ASL client handle.
+        sGULLoggerClient = asl_open(NULL, kGULLoggerASLClientFacilityName, aslOptions);
+        sGULLoggerMaximumLevel = GULLoggerLevelNotice;
 
-    // Set the filter used by system/device log. Initialize in default mode.
-    asl_set_filter(sGULLoggerClient, ASL_FILTER_MASK_UPTO(ASL_LEVEL_NOTICE));
+        // Set the filter used by system/device log. Initialize in default mode.
+        asl_set_filter(sGULLoggerClient, ASL_FILTER_MASK_UPTO(ASL_LEVEL_NOTICE));
 
-    sGULClientQueue = dispatch_queue_create("GULLoggingClientQueue", DISPATCH_QUEUE_SERIAL);
-    dispatch_set_target_queue(sGULClientQueue,
-                              dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0));
+        sGULClientQueue = dispatch_queue_create("GULLoggingClientQueue", DISPATCH_QUEUE_SERIAL);
+        dispatch_set_target_queue(sGULClientQueue,
+                                  dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0));
 #ifdef DEBUG
-    sMessageCodeRegex = [NSRegularExpression regularExpressionWithPattern:kMessageCodePattern
-                                                                  options:0
-                                                                    error:NULL];
+        sMessageCodeRegex = [NSRegularExpression regularExpressionWithPattern:kMessageCodePattern
+                                                 options:0
+                                                 error:NULL];
 #endif
-  });
+    });
 }
 
 void GULLoggerEnableSTDERR(void) {
-  asl_add_log_file(sGULLoggerClient, STDERR_FILENO);
+    asl_add_log_file(sGULLoggerClient, STDERR_FILENO);
 }
 
 void GULLoggerForceDebug(void) {
-  // We should enable debug mode if we're not running from App Store.
-  if (![GULAppEnvironmentUtil isFromAppStore]) {
-    sGULLoggerDebugMode = YES;
-    GULSetLoggerLevel(GULLoggerLevelDebug);
-  }
+    // We should enable debug mode if we're not running from App Store.
+    if (![GULAppEnvironmentUtil isFromAppStore]) {
+        sGULLoggerDebugMode = YES;
+        GULSetLoggerLevel(GULLoggerLevelDebug);
+    }
 }
 
 __attribute__((no_sanitize("thread"))) void GULSetLoggerLevel(GULLoggerLevel loggerLevel) {
-  if (loggerLevel < GULLoggerLevelMin || loggerLevel > GULLoggerLevelMax) {
-    GULLogError(kGULLoggerLogger, NO, @"I-COR000023", @"Invalid logger level, %ld",
-                (long)loggerLevel);
-    return;
-  }
-  GULLoggerInitializeASL();
-  // We should not raise the logger level if we are running from App Store.
-  if (loggerLevel >= GULLoggerLevelNotice && [GULAppEnvironmentUtil isFromAppStore]) {
-    return;
-  }
+    if (loggerLevel < GULLoggerLevelMin || loggerLevel > GULLoggerLevelMax) {
+        GULLogError(kGULLoggerLogger, NO, @"I-COR000023", @"Invalid logger level, %ld",
+                    (long)loggerLevel);
+        return;
+    }
+    GULLoggerInitializeASL();
+    // We should not raise the logger level if we are running from App Store.
+    if (loggerLevel >= GULLoggerLevelNotice && [GULAppEnvironmentUtil isFromAppStore]) {
+        return;
+    }
 
-  sGULLoggerMaximumLevel = loggerLevel;
-  dispatch_async(sGULClientQueue, ^{
-    asl_set_filter(sGULLoggerClient, ASL_FILTER_MASK_UPTO(loggerLevel));
-  });
+    sGULLoggerMaximumLevel = loggerLevel;
+    dispatch_async(sGULClientQueue, ^ {
+        asl_set_filter(sGULLoggerClient, ASL_FILTER_MASK_UPTO(loggerLevel));
+    });
 }
 
 /**
  * Check if the level is high enough to be loggable.
  */
 __attribute__((no_sanitize("thread"))) BOOL GULIsLoggableLevel(GULLoggerLevel loggerLevel) {
-  GULLoggerInitializeASL();
-  if (sGULLoggerDebugMode) {
-    return YES;
-  }
-  return (BOOL)(loggerLevel <= sGULLoggerMaximumLevel);
+    GULLoggerInitializeASL();
+    if (sGULLoggerDebugMode) {
+        return YES;
+    }
+    return (BOOL)(loggerLevel <= sGULLoggerMaximumLevel);
 }
 
 #ifdef DEBUG
 void GULResetLogger() {
-  sGULLoggerOnceToken = 0;
-  sGULLoggerDebugMode = NO;
+    sGULLoggerOnceToken = 0;
+    sGULLoggerDebugMode = NO;
 }
 
 aslclient getGULLoggerClient() {
-  return sGULLoggerClient;
+    return sGULLoggerClient;
 }
 
 dispatch_queue_t getGULClientQueue() {
-  return sGULClientQueue;
+    return sGULClientQueue;
 }
 
 BOOL getGULLoggerDebugMode() {
-  return sGULLoggerDebugMode;
+    return sGULLoggerDebugMode;
 }
 #endif
 
 void GULLoggerRegisterVersion(const char *version) {
-  sVersion = version;
+    sVersion = version;
 }
 
 void GULLogBasic(GULLoggerLevel level,
@@ -155,29 +155,29 @@ void GULLogBasic(GULLoggerLevel level,
                  NSString *messageCode,
                  NSString *message,
                  va_list args_ptr) {
-  GULLoggerInitializeASL();
-  if (!(level <= sGULLoggerMaximumLevel || sGULLoggerDebugMode || forceLog)) {
-    return;
-  }
+    GULLoggerInitializeASL();
+    if (!(level <= sGULLoggerMaximumLevel || sGULLoggerDebugMode || forceLog)) {
+        return;
+    }
 
 #ifdef DEBUG
-  NSCAssert(messageCode.length == 11, @"Incorrect message code length.");
-  NSRange messageCodeRange = NSMakeRange(0, messageCode.length);
-  NSUInteger numberOfMatches = [sMessageCodeRegex numberOfMatchesInString:messageCode
-                                                                  options:0
-                                                                    range:messageCodeRange];
-  NSCAssert(numberOfMatches == 1, @"Incorrect message code format.");
+    NSCAssert(messageCode.length == 11, @"Incorrect message code length.");
+    NSRange messageCodeRange = NSMakeRange(0, messageCode.length);
+    NSUInteger numberOfMatches = [sMessageCodeRegex numberOfMatchesInString:messageCode
+                                                    options:0
+                                                    range:messageCodeRange];
+    NSCAssert(numberOfMatches == 1, @"Incorrect message code format.");
 #endif
-  NSString *logMsg;
-  if (args_ptr == NULL) {
-    logMsg = message;
-  } else {
-    logMsg = [[NSString alloc] initWithFormat:message arguments:args_ptr];
-  }
-  logMsg = [NSString stringWithFormat:@"%s - %@[%@] %@", sVersion, service, messageCode, logMsg];
-  dispatch_async(sGULClientQueue, ^{
-    asl_log(sGULLoggerClient, NULL, (int)level, "%s", logMsg.UTF8String);
-  });
+    NSString *logMsg;
+    if (args_ptr == NULL) {
+        logMsg = message;
+    } else {
+        logMsg = [[NSString alloc] initWithFormat:message arguments:args_ptr];
+    }
+    logMsg = [NSString stringWithFormat:@"%s - %@[%@] %@", sVersion, service, messageCode, logMsg];
+    dispatch_async(sGULClientQueue, ^ {
+        asl_log(sGULLoggerClient, NULL, (int)level, "%s", logMsg.UTF8String);
+    });
 }
 #pragma clang diagnostic pop
 
@@ -211,11 +211,11 @@ GUL_LOGGING_FUNCTION(Debug)
 @implementation GULLoggerWrapper
 
 + (void)logWithLevel:(GULLoggerLevel)level
-         withService:(GULLoggerService)service
-            withCode:(NSString *)messageCode
-         withMessage:(NSString *)message
-            withArgs:(va_list)args {
-  GULLogBasic(level, service, NO, messageCode, message, args);
+    withService:(GULLoggerService)service
+    withCode:(NSString *)messageCode
+    withMessage:(NSString *)message
+    withArgs:(va_list)args {
+    GULLogBasic(level, service, NO, messageCode, message, args);
 }
 
 @end

@@ -33,8 +33,8 @@
 @implementation FValueEventRegistration
 
 - (id)initWithRepo:(FRepo *)repo
-            handle:(FIRDatabaseHandle)fHandle
-          callback:(fbt_void_datasnapshot)callbackBlock
+    handle:(FIRDatabaseHandle)fHandle
+    callback:(fbt_void_datasnapshot)callbackBlock
     cancelCallback:(fbt_void_nserror)cancelCallbackBlock {
     self = [super init];
     if (self) {
@@ -59,7 +59,7 @@
     FDataEvent *eventData =
         [[FDataEvent alloc] initWithEventType:FIRDataEventTypeValue
                             eventRegistration:self
-                                 dataSnapshot:snapshot];
+                            dataSnapshot:snapshot];
     return eventData;
 }
 
@@ -70,25 +70,25 @@
         NSAssert(
             self.cancelCallback != nil,
             @"Raising a cancel event on a listener with no cancel callback");
-        dispatch_async(queue, ^{
-          self.cancelCallback(cancelEvent.error);
+        dispatch_async(queue, ^ {
+            self.cancelCallback(cancelEvent.error);
         });
     } else if (self.callback != nil) {
         FDataEvent *dataEvent = event;
         FFLog(@"I-RDB065002", @"Raising value event on %@",
               dataEvent.snapshot.key);
-        dispatch_async(queue, ^{
-          self.callback(dataEvent.snapshot);
+        dispatch_async(queue, ^ {
+            self.callback(dataEvent.snapshot);
         });
     }
 }
 
 - (FCancelEvent *)createCancelEventFromError:(NSError *)error
-                                        path:(FPath *)path {
+    path:(FPath *)path {
     if (self.cancelCallback != nil) {
         return [[FCancelEvent alloc] initWithEventRegistration:self
-                                                         error:error
-                                                          path:path];
+                                     error:error
+                                     path:path];
     } else {
         return nil;
     }

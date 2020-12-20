@@ -36,7 +36,7 @@
 @implementation FTrackedQueryManager
 
 - (id)initWithStorageEngine:(id<FStorageEngine>)storageEngine
-                      clock:(id<FClock>)clock {
+    clock:(id<FClock>)clock {
     self = [super init];
     if (self != nil) {
         self->_storageEngine = storageEngine;
@@ -48,19 +48,19 @@
         NSArray *trackedQueries = [self.storageEngine loadTrackedQueries];
         [trackedQueries enumerateObjectsUsingBlock:^(
                             FTrackedQuery *trackedQuery, NSUInteger idx,
-                            BOOL *stop) {
-          self.currentQueryId =
-              MAX(trackedQuery.queryId + 1, self.currentQueryId);
-          if (trackedQuery.isActive) {
-              trackedQuery =
-                  [[trackedQuery setActiveState:NO] updateLastUse:lastUse];
-              FFDebug(
-                  @"I-RDB081001",
-                  @"Setting active query %lu from previous app start inactive",
-                  (unsigned long)trackedQuery.queryId);
-              [self.storageEngine saveTrackedQuery:trackedQuery];
-          }
-          [self cacheTrackedQuery:trackedQuery];
+                       BOOL *stop) {
+                           self.currentQueryId =
+                               MAX(trackedQuery.queryId + 1, self.currentQueryId);
+                           if (trackedQuery.isActive) {
+                trackedQuery =
+                    [[trackedQuery setActiveState:NO] updateLastUse:lastUse];
+                FFDebug(
+                    @"I-RDB081001",
+                    @"Setting active query %lu from previous app start inactive",
+                    (unsigned long)trackedQuery.queryId);
+                [self.storageEngine saveTrackedQuery:trackedQuery];
+            }
+            [self cacheTrackedQuery:trackedQuery];
         }];
     }
     return self;
@@ -73,7 +73,7 @@
 
 + (FQuerySpec *)normalizeQuery:(FQuerySpec *)query {
     return query.loadsAllData ? [FQuerySpec defaultQueryAtPath:query.path]
-                              : query;
+           : query;
 }
 
 - (FTrackedQuery *)findTrackedQuery:(FQuerySpec *)query {
@@ -114,11 +114,11 @@
         [self.storageEngine saveTrackedQuery:trackedQuery];
     } else {
         NSAssert(isActive, @"If we're setting the query to inactive, we should "
-                           @"already be tracking it!");
+                 @"already be tracking it!");
         trackedQuery = [[FTrackedQuery alloc] initWithId:self.currentQueryId++
-                                                   query:query
-                                                 lastUse:lastUse
-                                                isActive:isActive];
+                                              query:query
+                                              lastUse:lastUse
+                                              isActive:isActive];
         [self.storageEngine saveTrackedQuery:trackedQuery];
     }
 
@@ -144,17 +144,17 @@
 
 - (void)setQueriesCompleteAtPath:(FPath *)path {
     [[self.trackedQueryTree subtreeAtPath:path]
-        forEach:^(FPath *childPath, NSDictionary *trackedQueries) {
-          [trackedQueries enumerateKeysAndObjectsUsingBlock:^(
-                              FQueryParams *parms, FTrackedQuery *trackedQuery,
-                              BOOL *stop) {
+    forEach:^(FPath *childPath, NSDictionary *trackedQueries) {
+        [trackedQueries enumerateKeysAndObjectsUsingBlock:^(
+             FQueryParams *parms, FTrackedQuery *trackedQuery,
+        BOOL *stop) {
             if (!trackedQuery.isComplete) {
                 FTrackedQuery *newTrackedQuery = [trackedQuery setComplete];
                 [self.storageEngine saveTrackedQuery:newTrackedQuery];
                 [self cacheTrackedQuery:newTrackedQuery];
             }
-          }];
         }];
+    }];
 }
 
 - (BOOL)isQueryComplete:(FQuerySpec *)query {
@@ -172,12 +172,12 @@
 
 - (BOOL)hasActiveDefaultQueryAtPath:(FPath *)path {
     return [self.trackedQueryTree
-               rootMostValueOnPath:path
-                          matching:^BOOL(NSDictionary *trackedQueries) {
-                            return
-                                [trackedQueries[[FQueryParams defaultInstance]]
-                                    isActive];
-                          }] != nil;
+            rootMostValueOnPath:path
+    matching:^BOOL(NSDictionary *trackedQueries) {
+        return
+            [trackedQueries[[FQueryParams defaultInstance]]
+             isActive];
+    }] != nil;
 }
 
 - (void)ensureCompleteTrackedQueryAtPath:(FPath *)path {
@@ -187,9 +187,9 @@
         if (trackedQuery == nil) {
             trackedQuery =
                 [[FTrackedQuery alloc] initWithId:self.currentQueryId++
-                                            query:query
-                                          lastUse:[self.clock currentTime]
-                                         isActive:NO
+                                       query:query
+                                       lastUse:[self.clock currentTime]
+                                       isActive:NO
                                        isComplete:YES];
         } else {
             NSAssert(!trackedQuery.isComplete,
@@ -204,12 +204,12 @@
 - (BOOL)isIncludedInDefaultCompleteQuery:(FQuerySpec *)query {
     return
         [self.trackedQueryTree
-            findRootMostMatchingPath:query.path
-                           predicate:^BOOL(NSDictionary *trackedQueries) {
-                             return
-                                 [trackedQueries[[FQueryParams defaultInstance]]
-                                     isComplete];
-                           }] != nil;
+         findRootMostMatchingPath:query.path
+    predicate:^BOOL(NSDictionary *trackedQueries) {
+        return
+            [trackedQueries[[FQueryParams defaultInstance]]
+             isComplete];
+    }] != nil;
 }
 
 - (void)cacheTrackedQuery:(FTrackedQuery *)query {
@@ -220,15 +220,15 @@
         trackedDict = [NSMutableDictionary dictionary];
         self.trackedQueryTree =
             [self.trackedQueryTree setValue:trackedDict
-                                     atPath:query.query.path];
+                                   atPath:query.query.path];
     }
     trackedDict[query.query.params] = query;
 }
 
 - (NSUInteger)numberOfQueriesToPrune:(id<FCachePolicy>)cachePolicy
-                       prunableCount:(NSUInteger)numPrunable {
+    prunableCount:(NSUInteger)numPrunable {
     NSUInteger numPercent = (NSUInteger)ceilf(
-        numPrunable * [cachePolicy percentOfQueriesToPruneAtOnce]);
+                                numPrunable * [cachePolicy percentOfQueriesToPruneAtOnce]);
     NSUInteger maxToKeep = [cachePolicy maxNumberOfQueriesToKeep];
     NSUInteger numMax = (numPrunable > maxToKeep) ? numPrunable - maxToKeep : 0;
     // Make sure we get below number of max queries to prune
@@ -239,32 +239,32 @@
     NSMutableArray *pruneableQueries = [NSMutableArray array];
     NSMutableArray *unpruneableQueries = [NSMutableArray array];
     [self.trackedQueryTree
-        forEach:^(FPath *path, NSDictionary *trackedQueries) {
-          [trackedQueries enumerateKeysAndObjectsUsingBlock:^(
-                              FQueryParams *params, FTrackedQuery *trackedQuery,
-                              BOOL *stop) {
+    forEach:^(FPath *path, NSDictionary *trackedQueries) {
+        [trackedQueries enumerateKeysAndObjectsUsingBlock:^(
+             FQueryParams *params, FTrackedQuery *trackedQuery,
+        BOOL *stop) {
             if (!trackedQuery.isActive) {
                 [pruneableQueries addObject:trackedQuery];
             } else {
                 [unpruneableQueries addObject:trackedQuery];
             }
-          }];
         }];
+    }];
     [pruneableQueries sortUsingComparator:^NSComparisonResult(
-                          FTrackedQuery *q1, FTrackedQuery *q2) {
-      if (q1.lastUse < q2.lastUse) {
-          return NSOrderedAscending;
-      } else if (q1.lastUse > q2.lastUse) {
-          return NSOrderedDescending;
-      } else {
-          return NSOrderedSame;
-      }
+                     FTrackedQuery *q1, FTrackedQuery *q2) {
+                         if (q1.lastUse < q2.lastUse) {
+                             return NSOrderedAscending;
+                         } else if (q1.lastUse > q2.lastUse) {
+            return NSOrderedDescending;
+        } else {
+            return NSOrderedSame;
+        }
     }];
 
     __block FPruneForest *pruneForest = [FPruneForest empty];
     NSUInteger numToPrune =
         [self numberOfQueriesToPrune:cachePolicy
-                       prunableCount:pruneableQueries.count];
+              prunableCount:pruneableQueries.count];
 
     // TODO: do in transaction
     for (NSUInteger i = 0; i < numToPrune; i++) {
@@ -281,9 +281,9 @@
 
     // Also keep unprunable queries
     [unpruneableQueries enumerateObjectsUsingBlock:^(
-                            FTrackedQuery *toKeep, NSUInteger idx, BOOL *stop) {
-      pruneForest = [pruneForest keepPath:toKeep.query.path];
-    }];
+                       FTrackedQuery *toKeep, NSUInteger idx, BOOL *stop) {
+                           pruneForest = [pruneForest keepPath:toKeep.query.path];
+                       }];
 
     return pruneForest;
 }
@@ -291,15 +291,15 @@
 - (NSUInteger)numberOfPrunableQueries {
     __block NSUInteger count = 0;
     [self.trackedQueryTree
-        forEach:^(FPath *path, NSDictionary *trackedQueries) {
-          [trackedQueries enumerateKeysAndObjectsUsingBlock:^(
-                              FQueryParams *params, FTrackedQuery *trackedQuery,
-                              BOOL *stop) {
+    forEach:^(FPath *path, NSDictionary *trackedQueries) {
+        [trackedQueries enumerateKeysAndObjectsUsingBlock:^(
+             FQueryParams *params, FTrackedQuery *trackedQuery,
+        BOOL *stop) {
             if (!trackedQuery.isActive) {
                 count++;
             }
-          }];
         }];
+    }];
     return count;
 }
 
@@ -308,11 +308,11 @@
     if (queries) {
         NSMutableSet *ids = [NSMutableSet set];
         [queries enumerateKeysAndObjectsUsingBlock:^(
-                     FQueryParams *params, FTrackedQuery *query, BOOL *stop) {
-          if (!query.query.loadsAllData) {
-              [ids addObject:@(query.queryId)];
-          }
-        }];
+                FQueryParams *params, FTrackedQuery *query, BOOL *stop) {
+                    if (!query.query.loadsAllData) {
+                        [ids addObject:@(query.queryId)];
+                    }
+                }];
         return ids;
     } else {
         return [NSSet set];
@@ -327,19 +327,19 @@
     // First, get complete children from any queries at this location.
     NSSet *queryIds = [self filteredQueryIdsAtPath:path];
     [queryIds enumerateObjectsUsingBlock:^(NSNumber *queryId, BOOL *stop) {
-      NSSet *keys = [self.storageEngine
-          trackedQueryKeysForQuery:[queryId unsignedIntegerValue]];
-      [completeChildren unionSet:keys];
+                 NSSet *keys = [self.storageEngine
+                       trackedQueryKeysForQuery:[queryId unsignedIntegerValue]];
+        [completeChildren unionSet:keys];
     }];
 
     // Second, get any complete default queries immediately below us.
     [[[self.trackedQueryTree subtreeAtPath:path] children]
-        enumerateKeysAndObjectsUsingBlock:^(
-            NSString *childKey, FImmutableTree *childTree, BOOL *stop) {
-          if ([childTree.value[[FQueryParams defaultInstance]] isComplete]) {
-              [completeChildren addObject:childKey];
-          }
-        }];
+                                                 enumerateKeysAndObjectsUsingBlock:^(
+                                                NSString *childKey, FImmutableTree *childTree, BOOL *stop) {
+                                                    if ([childTree.value[[FQueryParams defaultInstance]] isComplete]) {
+                                                        [completeChildren addObject:childKey];
+                                                    }
+                                                }];
 
     return completeChildren;
 }
@@ -349,26 +349,26 @@
     NSMutableArray *trackedQueries = [NSMutableArray array];
 
     [self.trackedQueryTree forEach:^(FPath *path, NSDictionary *queryDict) {
-      [trackedQueries addObjectsFromArray:queryDict.allValues];
-    }];
+                              [trackedQueries addObjectsFromArray:queryDict.allValues];
+                          }];
     NSComparator comparator =
-        ^NSComparisonResult(FTrackedQuery *q1, FTrackedQuery *q2) {
-          if (q1.queryId < q2.queryId) {
-              return NSOrderedAscending;
-          } else if (q1.queryId > q2.queryId) {
-              return NSOrderedDescending;
-          } else {
-              return NSOrderedSame;
-          }
-        };
+    ^NSComparisonResult(FTrackedQuery *q1, FTrackedQuery *q2) {
+        if (q1.queryId < q2.queryId) {
+            return NSOrderedAscending;
+        } else if (q1.queryId > q2.queryId) {
+            return NSOrderedDescending;
+        } else {
+            return NSOrderedSame;
+        }
+    };
     [trackedQueries sortUsingComparator:comparator];
     storedTrackedQueries =
         [storedTrackedQueries sortedArrayUsingComparator:comparator];
 
     if (![trackedQueries isEqualToArray:storedTrackedQueries]) {
         [NSException
-             raise:NSInternalInconsistencyException
-            format:@"Tracked queries and queries stored on disk don't match"];
+         raise:NSInternalInconsistencyException
+         format:@"Tracked queries and queries stored on disk don't match"];
     }
 }
 

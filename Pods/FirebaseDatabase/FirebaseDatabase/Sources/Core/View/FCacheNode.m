@@ -28,8 +28,8 @@
 
 @implementation FCacheNode
 - (id)initWithIndexedNode:(FIndexedNode *)indexedNode
-       isFullyInitialized:(BOOL)fullyInitialized
-               isFiltered:(BOOL)filtered {
+    isFullyInitialized:(BOOL)fullyInitialized
+    isFiltered:(BOOL)filtered {
     self = [super init];
     if (self) {
         self.indexedNode = indexedNode;

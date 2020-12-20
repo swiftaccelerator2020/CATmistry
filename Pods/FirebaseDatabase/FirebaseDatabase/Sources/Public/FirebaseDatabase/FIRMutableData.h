@@ -42,11 +42,11 @@ NS_SWIFT_NAME(MutableData)
 
 #pragma mark - Inspecting and navigating the data
 
-/**
- * Returns boolean indicating whether this mutable data has children.
- *
- * @return YES if this data contains child nodes.
- */
+    /**
+     * Returns boolean indicating whether this mutable data has children.
+     *
+     * @return YES if this data contains child nodes.
+     */
 - (BOOL)hasChildren;
 
 /**

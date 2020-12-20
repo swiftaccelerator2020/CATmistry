@@ -26,7 +26,7 @@ NS_ASSUME_NONNULL_BEGIN
 NS_SWIFT_NAME(FirebaseConfiguration)
 @interface FIRConfiguration : NSObject
 
-/** Returns the shared configuration object. */
+    /** Returns the shared configuration object. */
 @property(class, nonatomic, readonly) FIRConfiguration *sharedInstance NS_SWIFT_NAME(shared);
 
 /**

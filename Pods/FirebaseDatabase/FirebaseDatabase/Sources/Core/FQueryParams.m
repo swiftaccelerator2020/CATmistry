@@ -53,8 +53,8 @@
 + (FQueryParams *)defaultInstance {
     static FQueryParams *defaultParams = nil;
     static dispatch_once_t defaultParamsToken;
-    dispatch_once(&defaultParamsToken, ^{
-      defaultParams = [[FQueryParams alloc] init];
+    dispatch_once(&defaultParamsToken, ^ {
+        defaultParams = [[FQueryParams alloc] init];
     });
     return defaultParams;
 }
@@ -218,7 +218,7 @@
     NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
     if ([self hasStart]) {
         [dict setObject:[self.indexStartValue valForExport:YES]
-                 forKey:kFQPIndexStartValue];
+              forKey:kFQPIndexStartValue];
 
         // Don't use property as it will be [MIN-NAME]
         if (self->_indexStartKey != nil) {
@@ -228,7 +228,7 @@
 
     if ([self hasEnd]) {
         [dict setObject:[self.indexEndValue valForExport:YES]
-                 forKey:kFQPIndexEndValue];
+              forKey:kFQPIndexEndValue];
 
         // Don't use property as it will be [MAX-NAME]
         if (self->_indexEndKey != nil) {
@@ -238,7 +238,7 @@
 
     if (self.limitSet) {
         [dict setObject:[NSNumber numberWithInteger:self.limit]
-                 forKey:kFQPLimit];
+              forKey:kFQPLimit];
         NSString *vf = self.viewFrom;
         if (vf == nil) {
             // limit() rather than limitToFirst or limitToLast was called.
@@ -293,9 +293,9 @@
     if (dict[kFQPViewFrom] != nil) {
         NSString *viewFrom = dict[kFQPViewFrom];
         if (![viewFrom isEqualToString:kFQPViewFromLeft] &&
-            ![viewFrom isEqualToString:kFQPViewFromRight]) {
+                ![viewFrom isEqualToString:kFQPViewFromRight]) {
             [NSException raise:NSInvalidArgumentException
-                        format:@"Unknown view from paramter: %@", viewFrom];
+                         format:@"Unknown view from paramter: %@", viewFrom];
         }
         params->_viewFrom = viewFrom;
     }
@@ -359,19 +359,19 @@
     if (self->_limit != other->_limit)
         return NO;
     if ((self->_index != other->_index) &&
-        ![self->_index isEqual:other->_index])
+            ![self->_index isEqual:other->_index])
         return NO;
     if ((self->_indexStartKey != other->_indexStartKey) &&
-        ![self->_indexStartKey isEqualToString:other->_indexStartKey])
+            ![self->_indexStartKey isEqualToString:other->_indexStartKey])
         return NO;
     if ((self->_indexStartValue != other->_indexStartValue) &&
-        ![self->_indexStartValue isEqual:other->_indexStartValue])
+            ![self->_indexStartValue isEqual:other->_indexStartValue])
         return NO;
     if ((self->_indexEndKey != other->_indexEndKey) &&
-        ![self->_indexEndKey isEqualToString:other->_indexEndKey])
+            ![self->_indexEndKey isEqualToString:other->_indexEndKey])
         return NO;
     if ((self->_indexEndValue != other->_indexEndValue) &&
-        ![self->_indexEndValue isEqual:other->_indexEndValue])
+            ![self->_indexEndValue isEqual:other->_indexEndValue])
         return NO;
     if ([self isViewFromLeft] != [other isViewFromLeft])
         return NO;

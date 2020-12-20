@@ -63,7 +63,7 @@ static const NSUInteger kFSizeThresholdForCompoundHash = 1024;
 @implementation FListenContainer
 
 - (instancetype)initWithView:(FView *)view
-                  onComplete:(fbt_nsarray_nsstring)onComplete {
+    onComplete:(fbt_nsarray_nsstring)onComplete {
     self = [super init];
     if (self != nil) {
         self->_view = view;
@@ -93,10 +93,10 @@ static const NSUInteger kFSizeThresholdForCompoundHash = 1024;
 
 @interface FSyncTree ()
 
-/**
- * Tree of SyncPoints. There's a SyncPoint at any location that has 1 or more
- * views.
- */
+    /**
+     * Tree of SyncPoints. There's a SyncPoint at any location that has 1 or more
+     * views.
+     */
 @property(nonatomic, strong) FImmutableTree *syncPointTree;
 
 /**
@@ -149,7 +149,7 @@ static const NSUInteger kFSizeThresholdForCompoundHash = 1024;
 }
 
 - (id)initWithPersistenceManager:(FPersistenceManager *)persistenceManager
-                  listenProvider:(FListenProvider *)provider {
+    listenProvider:(FListenProvider *)provider {
     self = [super init];
     if (self) {
         self.syncPointTree = [FImmutableTree empty];
@@ -173,21 +173,21 @@ static const NSUInteger kFSizeThresholdForCompoundHash = 1024;
  * @return NSArray of FEvent to raise.
  */
 - (NSArray *)applyUserOverwriteAtPath:(FPath *)path
-                              newData:(id<FNode>)newData
-                              writeId:(NSInteger)writeId
-                            isVisible:(BOOL)visible {
+    newData:(id<FNode>)newData
+    writeId:(NSInteger)writeId
+    isVisible:(BOOL)visible {
     // Record pending write
     [self.pendingWriteTree addOverwriteAtPath:path
-                                      newData:newData
-                                      writeId:writeId
-                                    isVisible:visible];
+                           newData:newData
+                           writeId:writeId
+                           isVisible:visible];
     if (!visible) {
         return @[];
     } else {
         FOverwrite *operation =
             [[FOverwrite alloc] initWithSource:[FOperationSource userInstance]
-                                          path:path
-                                          snap:newData];
+                                path:path
+                                snap:newData];
         return [self applyOperationToSyncPoints:operation];
     }
 }
@@ -197,17 +197,17 @@ static const NSUInteger kFSizeThresholdForCompoundHash = 1024;
  * @return NSArray of FEvent to raise.
  */
 - (NSArray *)applyUserMergeAtPath:(FPath *)path
-                  changedChildren:(FCompoundWrite *)changedChildren
-                          writeId:(NSInteger)writeId {
+    changedChildren:(FCompoundWrite *)changedChildren
+    writeId:(NSInteger)writeId {
     // Record pending merge
     [self.pendingWriteTree addMergeAtPath:path
-                          changedChildren:changedChildren
-                                  writeId:writeId];
+                           changedChildren:changedChildren
+                           writeId:writeId];
 
     FMerge *operation =
         [[FMerge alloc] initWithSource:[FOperationSource userInstance]
-                                  path:path
-                              children:changedChildren];
+                        path:path
+                        children:changedChildren];
     return [self applyOperationToSyncPoints:operation];
 }
 
@@ -219,9 +219,9 @@ static const NSUInteger kFSizeThresholdForCompoundHash = 1024;
  * @return NSArray of FEvent to raise.
  */
 - (NSArray *)ackUserWriteWithWriteId:(NSInteger)writeId
-                              revert:(BOOL)revert
-                             persist:(BOOL)persist
-                               clock:(id<FClock>)clock {
+    revert:(BOOL)revert
+    persist:(BOOL)persist
+    clock:(id<FClock>)clock {
     FWriteRecord *write = [self.pendingWriteTree writeForId:writeId];
     BOOL needToReevaluate = [self.pendingWriteTree removeWriteId:writeId];
     if (write.visible) {
@@ -234,19 +234,19 @@ static const NSUInteger kFSizeThresholdForCompoundHash = 1024;
             if ([write isOverwrite]) {
                 id<FNode> resolvedNode =
                     [FServerValues resolveDeferredValueSnapshot:write.overwrite
-                                                   withSyncTree:self
-                                                         atPath:write.path
-                                                   serverValues:serverValues];
+                                   withSyncTree:self
+                                   atPath:write.path
+                                   serverValues:serverValues];
                 [self.persistenceManager applyUserWrite:resolvedNode
-                                    toServerCacheAtPath:write.path];
+                                         toServerCacheAtPath:write.path];
             } else {
                 FCompoundWrite *resolvedMerge = [FServerValues
-                    resolveDeferredValueCompoundWrite:write.merge
-                                         withSyncTree:self
-                                               atPath:write.path
-                                         serverValues:serverValues];
+                                                 resolveDeferredValueCompoundWrite:write.merge
+                                                 withSyncTree:self
+                                                 atPath:write.path
+                                                 serverValues:serverValues];
                 [self.persistenceManager applyUserMerge:resolvedMerge
-                                    toServerCacheAtPath:write.path];
+                                         toServerCacheAtPath:write.path];
             }
         }
     }
@@ -258,14 +258,14 @@ static const NSUInteger kFSizeThresholdForCompoundHash = 1024;
             affectedTree = [affectedTree setValue:@YES atPath:[FPath empty]];
         } else {
             [write.merge
-                enumerateWrites:^(FPath *path, id<FNode> node, BOOL *stop) {
-                  affectedTree = [affectedTree setValue:@YES atPath:path];
-                }];
+            enumerateWrites:^(FPath *path, id<FNode> node, BOOL *stop) {
+                affectedTree = [affectedTree setValue:@YES atPath:path];
+            }];
         }
         FAckUserWrite *operation =
             [[FAckUserWrite alloc] initWithPath:write.path
                                    affectedTree:affectedTree
-                                         revert:revert];
+                                   revert:revert];
         return [self applyOperationToSyncPoints:operation];
     }
 }
@@ -275,14 +275,14 @@ static const NSUInteger kFSizeThresholdForCompoundHash = 1024;
  * @return NSArray of FEvent to raise.
  */
 - (NSArray *)applyServerOverwriteAtPath:(FPath *)path
-                                newData:(id<FNode>)newData {
+    newData:(id<FNode>)newData {
     [self.persistenceManager
-        updateServerCacheWithNode:newData
-                         forQuery:[FQuerySpec defaultQueryAtPath:path]];
+     updateServerCacheWithNode:newData
+     forQuery:[FQuerySpec defaultQueryAtPath:path]];
     FOverwrite *operation =
         [[FOverwrite alloc] initWithSource:[FOperationSource serverInstance]
-                                      path:path
-                                      snap:newData];
+                            path:path
+                            snap:newData];
     return [self applyOperationToSyncPoints:operation];
 }
 
@@ -291,18 +291,18 @@ static const NSUInteger kFSizeThresholdForCompoundHash = 1024;
  * @return NSArray of FEvent to raise.
  */
 - (NSArray *)applyServerMergeAtPath:(FPath *)path
-                    changedChildren:(FCompoundWrite *)changedChildren {
+    changedChildren:(FCompoundWrite *)changedChildren {
     [self.persistenceManager updateServerCacheWithMerge:changedChildren
-                                                 atPath:path];
+                             atPath:path];
     FMerge *operation =
         [[FMerge alloc] initWithSource:[FOperationSource serverInstance]
-                                  path:path
-                              children:changedChildren];
+                        path:path
+                        children:changedChildren];
     return [self applyOperationToSyncPoints:operation];
 }
 
 - (NSArray *)applyServerRangeMergeAtPath:(FPath *)path
-                                 updates:(NSArray *)ranges {
+    updates:(NSArray *)ranges {
     FSyncPoint *syncPoint = [self.syncPointTree valueAtPath:path];
     if (syncPoint == nil) {
         // Removed view, so it's safe to just ignore this update
@@ -332,10 +332,10 @@ static const NSUInteger kFSizeThresholdForCompoundHash = 1024;
  */
 - (NSArray *)applyListenCompleteAtPath:(FPath *)path {
     [self.persistenceManager
-        setQueryComplete:[FQuerySpec defaultQueryAtPath:path]];
+     setQueryComplete:[FQuerySpec defaultQueryAtPath:path]];
     id<FOperation> operation = [[FListenComplete alloc]
-        initWithSource:[FOperationSource serverInstance]
-                  path:path];
+                                initWithSource:[FOperationSource serverInstance]
+                                path:path];
     return [self applyOperationToSyncPoints:operation];
 }
 
@@ -344,14 +344,14 @@ static const NSUInteger kFSizeThresholdForCompoundHash = 1024;
  * @return NSArray of FEvent to raise.
  */
 - (NSArray *)applyTaggedListenCompleteAtPath:(FPath *)path
-                                       tagId:(NSNumber *)tagId {
+    tagId:(NSNumber *)tagId {
     FQuerySpec *query = [self queryForTag:tagId];
     if (query != nil) {
         [self.persistenceManager setQueryComplete:query];
         FPath *relativePath = [FPath relativePathFrom:query.path to:path];
         id<FOperation> op = [[FListenComplete alloc]
-            initWithSource:[FOperationSource forServerTaggedQuery:query.params]
-                      path:relativePath];
+                             initWithSource:[FOperationSource forServerTaggedQuery:query.params]
+                             path:relativePath];
         return [self applyTaggedOperation:op atPath:query.path];
     } else {
         // We've already removed the query. No big deal, ignore the update.
@@ -363,15 +363,15 @@ static const NSUInteger kFSizeThresholdForCompoundHash = 1024;
  * Internal helper method to apply tagged operation
  */
 - (NSArray *)applyTaggedOperation:(id<FOperation>)operation
-                           atPath:(FPath *)path {
+    atPath:(FPath *)path {
     FSyncPoint *syncPoint = [self.syncPointTree valueAtPath:path];
     NSAssert(syncPoint != nil,
              @"Missing sync point for query tag that we're tracking.");
     FWriteTreeRef *writesCache =
         [self.pendingWriteTree childWritesForPath:path];
     return [syncPoint applyOperation:operation
-                         writesCache:writesCache
-                         serverCache:nil];
+                      writesCache:writesCache
+                      serverCache:nil];
 }
 
 /**
@@ -379,19 +379,19 @@ static const NSUInteger kFSizeThresholdForCompoundHash = 1024;
  * @return NSArray of FEvent to raise.
  */
 - (NSArray *)applyTaggedQueryOverwriteAtPath:(FPath *)path
-                                     newData:(id<FNode>)newData
-                                       tagId:(NSNumber *)tagId {
+    newData:(id<FNode>)newData
+    tagId:(NSNumber *)tagId {
     FQuerySpec *query = [self queryForTag:tagId];
     if (query != nil) {
         FPath *relativePath = [FPath relativePathFrom:query.path to:path];
         FQuerySpec *queryToOverwrite =
             relativePath.isEmpty ? query : [FQuerySpec defaultQueryAtPath:path];
         [self.persistenceManager updateServerCacheWithNode:newData
-                                                  forQuery:queryToOverwrite];
+                                 forQuery:queryToOverwrite];
         FOverwrite *operation = [[FOverwrite alloc]
-            initWithSource:[FOperationSource forServerTaggedQuery:query.params]
-                      path:relativePath
-                      snap:newData];
+                                 initWithSource:[FOperationSource forServerTaggedQuery:query.params]
+                                 path:relativePath
+                                 snap:newData];
         return [self applyTaggedOperation:operation atPath:query.path];
     } else {
         // Query must have been removed already
@@ -404,17 +404,17 @@ static const NSUInteger kFSizeThresholdForCompoundHash = 1024;
  * @return NSArray of FEvent to raise.
  */
 - (NSArray *)applyTaggedQueryMergeAtPath:(FPath *)path
-                         changedChildren:(FCompoundWrite *)changedChildren
-                                   tagId:(NSNumber *)tagId {
+    changedChildren:(FCompoundWrite *)changedChildren
+    tagId:(NSNumber *)tagId {
     FQuerySpec *query = [self queryForTag:tagId];
     if (query != nil) {
         FPath *relativePath = [FPath relativePathFrom:query.path to:path];
         [self.persistenceManager updateServerCacheWithMerge:changedChildren
-                                                     atPath:path];
+                                 atPath:path];
         FMerge *operation = [[FMerge alloc]
-            initWithSource:[FOperationSource forServerTaggedQuery:query.params]
-                      path:relativePath
-                  children:changedChildren];
+                             initWithSource:[FOperationSource forServerTaggedQuery:query.params]
+                             path:relativePath
+                             children:changedChildren];
         return [self applyTaggedOperation:operation atPath:query.path];
     } else {
         // We've already removed the query. No big deal, ignore the update.
@@ -423,8 +423,8 @@ static const NSUInteger kFSizeThresholdForCompoundHash = 1024;
 }
 
 - (NSArray *)applyTaggedServerRangeMergeAtPath:(FPath *)path
-                                       updates:(NSArray *)ranges
-                                         tagId:(NSNumber *)tagId {
+    updates:(NSArray *)ranges
+    tagId:(NSNumber *)tagId {
     FQuerySpec *query = [self queryForTag:tagId];
     if (query != nil) {
         NSAssert([path isEqual:query.path],
@@ -440,8 +440,8 @@ static const NSUInteger kFSizeThresholdForCompoundHash = 1024;
             serverNode = [merge applyToNode:serverNode];
         }
         return [self applyTaggedQueryOverwriteAtPath:path
-                                             newData:serverNode
-                                               tagId:tagId];
+                     newData:serverNode
+                     tagId:tagId];
     } else {
         // We've already removed the query. No big deal, ignore the update.
         return @[];
@@ -453,33 +453,33 @@ static const NSUInteger kFSizeThresholdForCompoundHash = 1024;
  * @return NSArray of FEvent to raise.
  */
 - (NSArray *)addEventRegistration:(id<FEventRegistration>)eventRegistration
-                         forQuery:(FQuerySpec *)query {
+    forQuery:(FQuerySpec *)query {
     FPath *path = query.path;
 
     __block BOOL foundAncestorDefaultView = NO;
     [self.syncPointTree
-        forEachOnPath:query.path
-           whileBlock:^BOOL(FPath *pathToSyncPoint, FSyncPoint *syncPoint) {
-             foundAncestorDefaultView =
-                 foundAncestorDefaultView || [syncPoint hasCompleteView];
-             return !foundAncestorDefaultView;
-           }];
+     forEachOnPath:query.path
+    whileBlock:^BOOL(FPath *pathToSyncPoint, FSyncPoint *syncPoint) {
+        foundAncestorDefaultView =
+            foundAncestorDefaultView || [syncPoint hasCompleteView];
+        return !foundAncestorDefaultView;
+    }];
 
     [self.persistenceManager setQueryActive:query];
 
     FSyncPoint *syncPoint = [self.syncPointTree valueAtPath:path];
     if (syncPoint == nil) {
         syncPoint = [[FSyncPoint alloc]
-            initWithPersistenceManager:self.persistenceManager];
+                     initWithPersistenceManager:self.persistenceManager];
         self.syncPointTree = [self.syncPointTree setValue:syncPoint
-                                                   atPath:path];
+                                                 atPath:path];
     }
 
     BOOL viewAlreadyExists = [syncPoint viewExistsForQuery:query];
     NSArray *events;
     if (viewAlreadyExists) {
         events = [syncPoint addEventRegistration:eventRegistration
-                         forExistingViewForQuery:query];
+                            forExistingViewForQuery:query];
     } else {
         if (![query loadsAllData]) {
             // We need to track a tag for this query
@@ -494,17 +494,17 @@ static const NSUInteger kFSizeThresholdForCompoundHash = 1024;
             [self.pendingWriteTree childWritesForPath:path];
         FCacheNode *serverCache = [self serverCacheForQuery:query];
         events = [syncPoint addEventRegistration:eventRegistration
-                      forNonExistingViewForQuery:query
-                                     writesCache:writesCache
-                                     serverCache:serverCache];
+                            forNonExistingViewForQuery:query
+                            writesCache:writesCache
+                            serverCache:serverCache];
 
         // There was no view and no default listen
         if (!foundAncestorDefaultView) {
             FView *view = [syncPoint viewForQuery:query];
             NSMutableArray *mutableEvents = [events mutableCopy];
             [mutableEvents
-                addObjectsFromArray:[self setupListenerOnQuery:query
-                                                          view:view]];
+             addObjectsFromArray:[self setupListenerOnQuery:query
+                                  view:view]];
             events = mutableEvents;
         }
     }
@@ -516,23 +516,23 @@ static const NSUInteger kFSizeThresholdForCompoundHash = 1024;
     __block id<FNode> serverCacheNode = nil;
 
     [self.syncPointTree
-        forEachOnPath:query.path
-           whileBlock:^BOOL(FPath *pathToSyncPoint, FSyncPoint *syncPoint) {
-             FPath *relativePath = [FPath relativePathFrom:pathToSyncPoint
-                                                        to:query.path];
-             serverCacheNode =
-                 [syncPoint completeServerCacheAtPath:relativePath];
-             return serverCacheNode == nil;
-           }];
+     forEachOnPath:query.path
+    whileBlock:^BOOL(FPath *pathToSyncPoint, FSyncPoint *syncPoint) {
+        FPath *relativePath = [FPath relativePathFrom:pathToSyncPoint
+                               to:query.path];
+        serverCacheNode =
+            [syncPoint completeServerCacheAtPath:relativePath];
+        return serverCacheNode == nil;
+    }];
 
     FCacheNode *serverCache;
     if (serverCacheNode != nil) {
         FIndexedNode *indexed =
             [FIndexedNode indexedNodeWithNode:serverCacheNode
-                                        index:query.index];
+                          index:query.index];
         serverCache = [[FCacheNode alloc] initWithIndexedNode:indexed
-                                           isFullyInitialized:YES
-                                                   isFiltered:NO];
+                                          isFullyInitialized:YES
+                                          isFiltered:NO];
     } else {
         FCacheNode *persistenceServerCache =
             [self.persistenceManager serverCacheForQuery:query];
@@ -544,31 +544,31 @@ static const NSUInteger kFSizeThresholdForCompoundHash = 1024;
             FImmutableTree *subtree =
                 [self.syncPointTree subtreeAtPath:query.path];
             [subtree
-                forEachChild:^(NSString *childKey, FSyncPoint *childSyncPoint) {
-                  id<FNode> completeCache =
-                      [childSyncPoint completeServerCacheAtPath:[FPath empty]];
-                  if (completeCache) {
-                      serverCacheNode =
-                          [serverCacheNode updateImmediateChild:childKey
-                                                   withNewChild:completeCache];
-                  }
-                }];
+            forEachChild:^(NSString *childKey, FSyncPoint *childSyncPoint) {
+                id<FNode> completeCache =
+                    [childSyncPoint completeServerCacheAtPath:[FPath empty]];
+                if (completeCache) {
+                    serverCacheNode =
+                        [serverCacheNode updateImmediateChild:childKey
+                                         withNewChild:completeCache];
+                }
+            }];
             // Fill the node with any available children we have
             [persistenceServerCache.node
-                enumerateChildrenUsingBlock:^(NSString *key, id<FNode> node,
-                                              BOOL *stop) {
-                  if (![serverCacheNode hasChild:key]) {
-                      serverCacheNode =
-                          [serverCacheNode updateImmediateChild:key
-                                                   withNewChild:node];
-                  }
-                }];
+             enumerateChildrenUsingBlock:^(NSString *key, id<FNode> node,
+            BOOL *stop) {
+                if (![serverCacheNode hasChild:key]) {
+                    serverCacheNode =
+                        [serverCacheNode updateImmediateChild:key
+                         withNewChild:node];
+                }
+            }];
             FIndexedNode *indexed =
                 [FIndexedNode indexedNodeWithNode:serverCacheNode
-                                            index:query.index];
+                              index:query.index];
             serverCache = [[FCacheNode alloc] initWithIndexedNode:indexed
-                                               isFullyInitialized:NO
-                                                       isFiltered:NO];
+                                              isFullyInitialized:NO
+                                              isFiltered:NO];
         }
     }
 
@@ -587,8 +587,8 @@ static const NSUInteger kFSizeThresholdForCompoundHash = 1024;
  * @return NSArray of FEvent to raise.
  */
 - (NSArray *)removeEventRegistration:(id<FEventRegistration>)eventRegistration
-                            forQuery:(FQuerySpec *)query
-                         cancelError:(NSError *)cancelError {
+    forQuery:(FQuerySpec *)query
+    cancelError:(NSError *)cancelError {
     // Find the syncPoint first. Then deal with whether or not it has matching
     // listeners
     FPath *path = query.path;
@@ -600,11 +600,11 @@ static const NSUInteger kFSizeThresholdForCompoundHash = 1024;
     // does *not* affect all queries at that location. So this check must be for
     // 'default', and not loadsAllData:
     if (maybeSyncPoint &&
-        ([query isDefault] || [maybeSyncPoint viewExistsForQuery:query])) {
+            ([query isDefault] || [maybeSyncPoint viewExistsForQuery:query])) {
         FTupleRemovedQueriesEvents *removedAndEvents =
             [maybeSyncPoint removeEventRegistration:eventRegistration
-                                           forQuery:query
-                                        cancelError:cancelError];
+                            forQuery:query
+                            cancelError:cancelError];
         if ([maybeSyncPoint isEmpty]) {
             self.syncPointTree = [self.syncPointTree removeValueAtPath:path];
         }
@@ -619,22 +619,22 @@ static const NSUInteger kFSizeThresholdForCompoundHash = 1024;
         // Since indexed queries can shadow if they don't have other query
         // constraints, check for loadsAllData: instead of isDefault:
         NSUInteger defaultQueryIndex = [removed
-            indexOfObjectPassingTest:^BOOL(FQuerySpec *q, NSUInteger idx,
-                                           BOOL *stop) {
-              return [q loadsAllData];
-            }];
+                                        indexOfObjectPassingTest:^BOOL(FQuerySpec *q, NSUInteger idx,
+        BOOL *stop) {
+            return [q loadsAllData];
+        }];
         BOOL removingDefault = defaultQueryIndex != NSNotFound;
         [removed enumerateObjectsUsingBlock:^(FQuerySpec *query, NSUInteger idx,
-                                              BOOL *stop) {
-          [self.persistenceManager setQueryInactive:query];
-        }];
+                BOOL *stop) {
+                    [self.persistenceManager setQueryInactive:query];
+                }];
         NSNumber *covered = [self.syncPointTree
-               findOnPath:path
-            andApplyBlock:^id(FPath *relativePath,
-                              FSyncPoint *parentSyncPoint) {
-              return
-                  [NSNumber numberWithBool:[parentSyncPoint hasCompleteView]];
-            }];
+                             findOnPath:path
+                             andApplyBlock:^id(FPath *relativePath,
+        FSyncPoint *parentSyncPoint) {
+            return
+                [NSNumber numberWithBool:[parentSyncPoint hasCompleteView]];
+        }];
 
         if (removingDefault && ![covered boolValue]) {
             FImmutableTree *subtree = [self.syncPointTree subtreeAtPath:path];
@@ -648,14 +648,14 @@ static const NSUInteger kFSizeThresholdForCompoundHash = 1024;
 
                 // Ok, we've collected all the listens we need. Set them up.
                 [newViews enumerateObjectsUsingBlock:^(
-                              FView *view, NSUInteger idx, BOOL *stop) {
-                  FQuerySpec *newQuery = view.query;
-                  FListenContainer *listenContainer =
-                      [self createListenerForView:view];
-                  self.listenProvider.startListening(
-                      [self queryForListening:newQuery],
-                      [self tagForQuery:newQuery], listenContainer,
-                      listenContainer.onComplete);
+                         FView *view, NSUInteger idx, BOOL *stop) {
+                             FQuerySpec *newQuery = view.query;
+                             FListenContainer *listenContainer =
+                        [self createListenerForView:view];
+                    self.listenProvider.startListening(
+                        [self queryForListening:newQuery],
+                        [self tagForQuery:newQuery], listenContainer,
+                        listenContainer.onComplete);
                 }];
             } else {
                 // There's nothing below us, so nothing we need to start
@@ -678,13 +678,13 @@ static const NSUInteger kFSizeThresholdForCompoundHash = 1024;
                     [self queryForListening:query], nil);
             } else {
                 [removed
-                    enumerateObjectsUsingBlock:^(FQuerySpec *queryToRemove,
-                                                 NSUInteger idx, BOOL *stop) {
-                      NSNumber *tagToRemove =
-                          [self.queryToTagMap objectForKey:queryToRemove];
-                      self.listenProvider.stopListening(
-                          [self queryForListening:queryToRemove], tagToRemove);
-                    }];
+                 enumerateObjectsUsingBlock:^(FQuerySpec *queryToRemove,
+                NSUInteger idx, BOOL *stop) {
+                    NSNumber *tagToRemove =
+                        [self.queryToTagMap objectForKey:queryToRemove];
+                    self.listenProvider.stopListening(
+                        [self queryForListening:queryToRemove], tagToRemove);
+                }];
             }
         }
         // Now, clear all the tags we're tracking for the removed listens.
@@ -699,12 +699,12 @@ static const NSUInteger kFSizeThresholdForCompoundHash = 1024;
     // Only do something if we actually need to add/remove an event registration
     if (keepSynced && ![self.keepSyncedQueries containsObject:query]) {
         [self addEventRegistration:[FKeepSyncedEventRegistration instance]
-                          forQuery:query];
+              forQuery:query];
         [self.keepSyncedQueries addObject:query];
     } else if (!keepSynced && [self.keepSyncedQueries containsObject:query]) {
         [self removeEventRegistration:[FKeepSyncedEventRegistration instance]
-                             forQuery:query
-                          cancelError:nil];
+              forQuery:query
+              cancelError:nil];
         [self.keepSyncedQueries removeObject:query];
     }
 }
@@ -716,9 +716,9 @@ static const NSUInteger kFSizeThresholdForCompoundHash = 1024;
         FImmutableTree *affectedTree =
             [[FImmutableTree empty] setValue:@YES atPath:[FPath empty]];
         return [self applyOperationToSyncPoints:[[FAckUserWrite alloc]
-                                                    initWithPath:[FPath empty]
-                                                    affectedTree:affectedTree
-                                                          revert:YES]];
+                     initWithPath:[FPath empty]
+                     affectedTree:affectedTree
+                     revert:YES]];
     } else {
         return @[];
     }
@@ -735,25 +735,25 @@ static const NSUInteger kFSizeThresholdForCompoundHash = 1024;
  * @param writeIdsToExclude A specific set to be excluded
  */
 - (id<FNode>)calcCompleteEventCacheAtPath:(FPath *)path
-                          excludeWriteIds:(NSArray *)writeIdsToExclude {
+    excludeWriteIds:(NSArray *)writeIdsToExclude {
     BOOL includeHiddenSets = YES;
     FWriteTree *writeTree = self.pendingWriteTree;
     id<FNode> serverCache = [self.syncPointTree
-           findOnPath:path
-        andApplyBlock:^id<FNode>(FPath *pathSoFar, FSyncPoint *syncPoint) {
-          FPath *relativePath = [FPath relativePathFrom:pathSoFar to:path];
-          id<FNode> serverCache =
-              [syncPoint completeServerCacheAtPath:relativePath];
-          if (serverCache) {
-              return serverCache;
-          } else {
-              return nil;
-          }
-        }];
+                             findOnPath:path
+    andApplyBlock:^id<FNode>(FPath *pathSoFar, FSyncPoint *syncPoint) {
+        FPath *relativePath = [FPath relativePathFrom:pathSoFar to:path];
+        id<FNode> serverCache =
+            [syncPoint completeServerCacheAtPath:relativePath];
+        if (serverCache) {
+            return serverCache;
+        } else {
+            return nil;
+        }
+    }];
     return [writeTree calculateCompleteEventCacheAtPath:path
-                                    completeServerCache:serverCache
-                                        excludeWriteIds:writeIdsToExclude
-                                    includeHiddenWrites:includeHiddenSets];
+                      completeServerCache:serverCache
+                      excludeWriteIds:writeIdsToExclude
+                      includeHiddenWrites:includeHiddenSets];
 }
 
 #pragma mark -
@@ -765,23 +765,23 @@ static const NSUInteger kFSizeThresholdForCompoundHash = 1024;
  */
 - (NSArray *)collectDistinctViewsForSubTree:(FImmutableTree *)subtree {
     return [subtree foldWithBlock:^NSArray *(FPath *relativePath,
-                                             FSyncPoint *maybeChildSyncPoint,
-                                             NSDictionary *childMap) {
-      if (maybeChildSyncPoint && [maybeChildSyncPoint hasCompleteView]) {
-          FView *completeView = [maybeChildSyncPoint completeView];
-          return @[ completeView ];
-      } else {
-          // No complete view here, flatten any deeper listens into an array
-          NSMutableArray *views = [[NSMutableArray alloc] init];
-          if (maybeChildSyncPoint) {
-              views = [[maybeChildSyncPoint queryViews] mutableCopy];
-          }
-          [childMap enumerateKeysAndObjectsUsingBlock:^(
-                        NSString *childKey, NSArray *childViews, BOOL *stop) {
-            [views addObjectsFromArray:childViews];
-          }];
-          return views;
-      }
+                    FSyncPoint *maybeChildSyncPoint,
+            NSDictionary *childMap) {
+                if (maybeChildSyncPoint && [maybeChildSyncPoint hasCompleteView]) {
+                    FView *completeView = [maybeChildSyncPoint completeView];
+            return @[ completeView ];
+        } else {
+            // No complete view here, flatten any deeper listens into an array
+            NSMutableArray *views = [[NSMutableArray alloc] init];
+            if (maybeChildSyncPoint) {
+                views = [[maybeChildSyncPoint queryViews] mutableCopy];
+            }
+            [childMap enumerateKeysAndObjectsUsingBlock:^(
+                     NSString *childKey, NSArray *childViews, BOOL *stop) {
+                         [views addObjectsFromArray:childViews];
+                     }];
+            return views;
+        }
     }];
 }
 
@@ -790,13 +790,13 @@ static const NSUInteger kFSizeThresholdForCompoundHash = 1024;
  */
 - (void)removeTags:(NSArray *)queries {
     [queries enumerateObjectsUsingBlock:^(FQuerySpec *removedQuery,
-                                          NSUInteger idx, BOOL *stop) {
-      if (![removedQuery loadsAllData]) {
-          // We should have a tag for this
-          NSNumber *removedQueryTag = self.queryToTagMap[removedQuery];
-          [self.queryToTagMap removeObjectForKey:removedQuery];
-          [self.tagToQueryMap removeObjectForKey:removedQueryTag];
-      }
+            NSUInteger idx, BOOL *stop) {
+                if (![removedQuery loadsAllData]) {
+                    // We should have a tag for this
+                    NSNumber *removedQueryTag = self.queryToTagMap[removedQuery];
+            [self.queryToTagMap removeObjectForKey:removedQuery];
+            [self.tagToQueryMap removeObjectForKey:removedQueryTag];
+        }
     }];
 }
 
@@ -820,8 +820,8 @@ static const NSUInteger kFSizeThresholdForCompoundHash = 1024;
     FListenContainer *listenContainer = [self createListenerForView:view];
 
     NSArray *events = self.listenProvider.startListening(
-        [self queryForListening:query], tagId, listenContainer,
-        listenContainer.onComplete);
+                          [self queryForListening:query], tagId, listenContainer,
+                          listenContainer.onComplete);
 
     FImmutableTree *subtree = [self.syncPointTree subtreeAtPath:path];
     // The root of this subtree has our query. We're here because we definitely
@@ -836,27 +836,27 @@ static const NSUInteger kFSizeThresholdForCompoundHash = 1024;
         NSArray *queriesToStop =
             [subtree foldWithBlock:^id(FPath *relativePath,
                                        FSyncPoint *maybeChildSyncPoint,
-                                       NSDictionary *childMap) {
-              if (![relativePath isEmpty] && maybeChildSyncPoint != nil &&
-                  [maybeChildSyncPoint hasCompleteView]) {
-                  return @[ [maybeChildSyncPoint completeView].query ];
-              } else {
-                  // No default listener here, flatten any deeper queries into
-                  // an array
-                  NSMutableArray *queries = [[NSMutableArray alloc] init];
-                  if (maybeChildSyncPoint != nil) {
-                      for (FView *view in [maybeChildSyncPoint queryViews]) {
-                          [queries addObject:view.query];
-                      }
-                  }
-                  [childMap
-                      enumerateKeysAndObjectsUsingBlock:^(
-                          NSString *key, NSArray *childQueries, BOOL *stop) {
-                        [queries addObjectsFromArray:childQueries];
-                      }];
-                  return queries;
-              }
-            }];
+                NSDictionary *childMap) {
+                    if (![relativePath isEmpty] && maybeChildSyncPoint != nil &&
+                        [maybeChildSyncPoint hasCompleteView]) {
+                        return @[ [maybeChildSyncPoint completeView].query ];
+                    } else {
+                        // No default listener here, flatten any deeper queries into
+                        // an array
+                NSMutableArray *queries = [[NSMutableArray alloc] init];
+                if (maybeChildSyncPoint != nil) {
+                    for (FView *view in [maybeChildSyncPoint queryViews]) {
+                        [queries addObject:view.query];
+                    }
+                }
+                [childMap
+                 enumerateKeysAndObjectsUsingBlock:^(
+                NSString *key, NSArray *childQueries, BOOL *stop) {
+                    [queries addObjectsFromArray:childQueries];
+                }];
+                return queries;
+            }
+        }];
         for (FQuerySpec *queryToStop in queriesToStop) {
             self.listenProvider.stopListening(
                 [self queryForListening:queryToStop],
@@ -871,29 +871,29 @@ static const NSUInteger kFSizeThresholdForCompoundHash = 1024;
     NSNumber *tagId = [self tagForQuery:query];
 
     FListenContainer *listenContainer = [[FListenContainer alloc]
-        initWithView:view
-          onComplete:^(NSString *status) {
-            if ([status isEqualToString:@"ok"]) {
-                if (tagId != nil) {
-                    return [self applyTaggedListenCompleteAtPath:query.path
-                                                           tagId:tagId];
-                } else {
-                    return [self applyListenCompleteAtPath:query.path];
-                }
+                                         initWithView:view
+    onComplete:^(NSString *status) {
+        if ([status isEqualToString:@"ok"]) {
+            if (tagId != nil) {
+                return [self applyTaggedListenCompleteAtPath:query.path
+                        tagId:tagId];
             } else {
-                // If a listen failed, kill all of the listeners here, not just
-                // the one that triggered the error. Note that this may need to
-                // be scoped to just this listener if we change permissions on
-                // filtered children
-                NSError *error = [FUtilities errorForStatus:status
-                                                  andReason:nil];
-                FFWarn(@"I-RDB038012", @"Listener at %@ failed: %@", query.path,
-                       status);
-                return [self removeEventRegistration:nil
-                                            forQuery:query
-                                         cancelError:error];
+                return [self applyListenCompleteAtPath:query.path];
             }
-          }];
+        } else {
+            // If a listen failed, kill all of the listeners here, not just
+            // the one that triggered the error. Note that this may need to
+            // be scoped to just this listener if we change permissions on
+            // filtered children
+            NSError *error = [FUtilities errorForStatus:status
+                                         andReason:nil];
+            FFWarn(@"I-RDB038012", @"Listener at %@ failed: %@", query.path,
+                   status);
+            return [self removeEventRegistration:nil
+                         forQuery:query
+                         cancelError:error];
+        }
+    }];
 
     return listenContainer;
 }
@@ -936,24 +936,24 @@ result.
 */
 - (NSArray *)applyOperationToSyncPoints:(id<FOperation>)operation {
     return [self applyOperationHelper:operation
-                        syncPointTree:self.syncPointTree
-                          serverCache:nil
-                          writesCache:[self.pendingWriteTree
-                                          childWritesForPath:[FPath empty]]];
+                 syncPointTree:self.syncPointTree
+                 serverCache:nil
+                 writesCache:[self.pendingWriteTree
+                         childWritesForPath:[FPath empty]]];
 }
 
 /**
  * Recursive helper for applyOperationToSyncPoints_
  */
 - (NSArray *)applyOperationHelper:(id<FOperation>)operation
-                    syncPointTree:(FImmutableTree *)syncPointTree
-                      serverCache:(id<FNode>)serverCache
-                      writesCache:(FWriteTreeRef *)writesCache {
+    syncPointTree:(FImmutableTree *)syncPointTree
+    serverCache:(id<FNode>)serverCache
+    writesCache:(FWriteTreeRef *)writesCache {
     if ([operation.path isEmpty]) {
         return [self applyOperationDescendantsHelper:operation
-                                       syncPointTree:syncPointTree
-                                         serverCache:serverCache
-                                         writesCache:writesCache];
+                     syncPointTree:syncPointTree
+                     serverCache:serverCache
+                     writesCache:writesCache];
     } else {
         FSyncPoint *syncPoint = syncPointTree.value;
 
@@ -973,17 +973,17 @@ result.
             FWriteTreeRef *childWritesCache =
                 [writesCache childWriteTreeRef:childKey];
             [events
-                addObjectsFromArray:[self
-                                        applyOperationHelper:childOperation
-                                               syncPointTree:childTree
-                                                 serverCache:childServerCache
-                                                 writesCache:childWritesCache]];
+             addObjectsFromArray:[self
+                                  applyOperationHelper:childOperation
+                                  syncPointTree:childTree
+                                  serverCache:childServerCache
+                                  writesCache:childWritesCache]];
         }
 
         if (syncPoint) {
             [events addObjectsFromArray:[syncPoint applyOperation:operation
-                                                      writesCache:writesCache
-                                                      serverCache:serverCache]];
+                                         writesCache:writesCache
+                                         serverCache:serverCache]];
         }
 
         return events;
@@ -994,9 +994,9 @@ result.
  *  Recursive helper for applyOperationToSyncPoints:
  */
 - (NSArray *)applyOperationDescendantsHelper:(id<FOperation>)operation
-                               syncPointTree:(FImmutableTree *)syncPointTree
-                                 serverCache:(id<FNode>)serverCache
-                                 writesCache:(FWriteTreeRef *)writesCache {
+    syncPointTree:(FImmutableTree *)syncPointTree
+    serverCache:(id<FNode>)serverCache
+    writesCache:(FWriteTreeRef *)writesCache {
     FSyncPoint *syncPoint = syncPointTree.value;
 
     // If we don't have cached server data, see if we can get it from this
@@ -1012,28 +1012,28 @@ result.
     NSMutableArray *events = [[NSMutableArray alloc] init];
     [syncPointTree.children enumerateKeysAndObjectsUsingBlock:^(
                                 NSString *childKey, FImmutableTree *childTree,
-                                BOOL *stop) {
-      id<FNode> childServerCache = nil;
-      if (resolvedServerCache != nil) {
-          childServerCache = [resolvedServerCache getImmediateChild:childKey];
-      }
-      FWriteTreeRef *childWritesCache =
-          [writesCache childWriteTreeRef:childKey];
-      id<FOperation> childOperation = [operation operationForChild:childKey];
-      if (childOperation != nil) {
-          [events addObjectsFromArray:
-                      [self applyOperationDescendantsHelper:childOperation
-                                              syncPointTree:childTree
-                                                serverCache:childServerCache
-                                                writesCache:childWritesCache]];
-      }
+                           BOOL *stop) {
+                               id<FNode> childServerCache = nil;
+                               if (resolvedServerCache != nil) {
+            childServerCache = [resolvedServerCache getImmediateChild:childKey];
+        }
+        FWriteTreeRef *childWritesCache =
+            [writesCache childWriteTreeRef:childKey];
+        id<FOperation> childOperation = [operation operationForChild:childKey];
+        if (childOperation != nil) {
+            [events addObjectsFromArray:
+                    [self applyOperationDescendantsHelper:childOperation
+                     syncPointTree:childTree
+                     serverCache:childServerCache
+                     writesCache:childWritesCache]];
+        }
     }];
 
     if (syncPoint) {
         [events
-            addObjectsFromArray:[syncPoint applyOperation:operation
-                                              writesCache:writesCache
-                                              serverCache:resolvedServerCache]];
+         addObjectsFromArray:[syncPoint applyOperation:operation
+                              writesCache:writesCache
+                              serverCache:resolvedServerCache]];
     }
 
     return events;

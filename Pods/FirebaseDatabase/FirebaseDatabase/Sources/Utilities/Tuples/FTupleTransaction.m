@@ -33,9 +33,9 @@
 
 - (NSError *)abortError {
     return (self.abortStatus != nil)
-               ? [FUtilities errorForStatus:self.abortStatus
-                                  andReason:self.abortReason]
-               : nil;
+           ? [FUtilities errorForStatus:self.abortStatus
+                         andReason:self.abortReason]
+           : nil;
 }
 
 @end

@@ -30,11 +30,11 @@ FOUNDATION_EXPORT NSString *const kFIRInstallationsHeartbeatKey;
  */
 @interface FIRInstallationsAPIService : NSObject
 
-/**
- * The default initializer.
- * @param APIKey The Firebase project API key (see `FIROptions.APIKey`).
- * @param projectID The Firebase project ID (see `FIROptions.projectID`).
- */
+    /**
+     * The default initializer.
+     * @param APIKey The Firebase project API key (see `FIROptions.APIKey`).
+     * @param projectID The Firebase project ID (see `FIROptions.projectID`).
+     */
 - (instancetype)initWithAPIKey:(NSString *)APIKey projectID:(NSString *)projectID;
 
 /**

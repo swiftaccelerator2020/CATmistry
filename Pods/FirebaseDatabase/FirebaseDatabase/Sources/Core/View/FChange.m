@@ -25,25 +25,25 @@
 @implementation FChange
 
 - (id)initWithType:(FIRDataEventType)type
-       indexedNode:(FIndexedNode *)indexedNode {
+    indexedNode:(FIndexedNode *)indexedNode {
     return [self initWithType:type
-                  indexedNode:indexedNode
-                     childKey:nil
-               oldIndexedNode:nil];
+                 indexedNode:indexedNode
+                 childKey:nil
+                 oldIndexedNode:nil];
 }
 
 - (id)initWithType:(FIRDataEventType)type
-       indexedNode:(FIndexedNode *)indexedNode
-          childKey:(NSString *)childKey {
+    indexedNode:(FIndexedNode *)indexedNode
+    childKey:(NSString *)childKey {
     return [self initWithType:type
-                  indexedNode:indexedNode
-                     childKey:childKey
-               oldIndexedNode:nil];
+                 indexedNode:indexedNode
+                 childKey:childKey
+                 oldIndexedNode:nil];
 }
 
 - (id)initWithType:(FIRDataEventType)type
-       indexedNode:(FIndexedNode *)indexedNode
-          childKey:(NSString *)childKey
+    indexedNode:(FIndexedNode *)indexedNode
+    childKey:(NSString *)childKey
     oldIndexedNode:(FIndexedNode *)oldIndexedNode {
     self = [super init];
     if (self != nil) {
@@ -57,16 +57,16 @@
 
 - (FChange *)changeWithPrevKey:(NSString *)prevKey {
     FChange *newChange = [[FChange alloc] initWithType:self.type
-                                           indexedNode:self.indexedNode
-                                              childKey:self.childKey
-                                        oldIndexedNode:self.oldIndexedNode];
+                                          indexedNode:self.indexedNode
+                                          childKey:self.childKey
+                                          oldIndexedNode:self.oldIndexedNode];
     newChange.prevKey = prevKey;
     return newChange;
 }
 
 - (NSString *)description {
     return [NSString stringWithFormat:@"event: %d, data: %@", (int)self.type,
-                                      [self.indexedNode.node val]];
+                     [self.indexedNode.node val]];
 }
 
 @end

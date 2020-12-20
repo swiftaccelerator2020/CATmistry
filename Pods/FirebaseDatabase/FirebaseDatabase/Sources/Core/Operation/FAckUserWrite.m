@@ -22,8 +22,8 @@
 @implementation FAckUserWrite
 
 - (id)initWithPath:(FPath *)operationPath
-      affectedTree:(FImmutableTree *)tree
-            revert:(BOOL)shouldRevert {
+    affectedTree:(FImmutableTree *)tree
+    revert:(BOOL)shouldRevert {
     self = [super init];
     if (self) {
         self->_source = [FOperationSource userInstance];
@@ -41,7 +41,7 @@
                  @"operationForChild called for unrelated child.");
         return [[FAckUserWrite alloc] initWithPath:[self.path popFront]
                                       affectedTree:self.affectedTree
-                                            revert:self.revert];
+                                      revert:self.revert];
     } else if (self.affectedTree.value != nil) {
         NSAssert(self.affectedTree.children.isEmpty,
                  @"affectedTree should not have overlapping affected paths.");
@@ -52,15 +52,15 @@
             [self.affectedTree subtreeAtPath:[[FPath alloc] initWith:childKey]];
         return [[FAckUserWrite alloc] initWithPath:[FPath empty]
                                       affectedTree:childTree
-                                            revert:self.revert];
+                                      revert:self.revert];
     }
 }
 
 - (NSString *)description {
     return
         [NSString stringWithFormat:
-                      @"FAckUserWrite { path=%@, revert=%d, affectedTree=%@ }",
-                      self.path, self.revert, self.affectedTree];
+                  @"FAckUserWrite { path=%@, revert=%d, affectedTree=%@ }",
+                  self.path, self.revert, self.affectedTree];
 }
 
 @end

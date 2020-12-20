@@ -37,12 +37,12 @@ typedef void (^fbt_void_nsnumber_int)(NSNumber* color, NSUInteger chunkSize);
  */
 - (FTreeSortedDictionary *) insertKey:(__unsafe_unretained id)aKey withValue:(__unsafe_unretained id)aValue {
     return [[FTreeSortedDictionary alloc] initWithComparator:self.comparator
-                                                    withRoot:[[self.root insertKey:aKey forValue:aValue withComparator:self.comparator]
-                                                              copyWith:nil
-                                                              withValue:nil
-                                                              withColor:BLACK
-                                                              withLeft:nil
-                                                              withRight:nil]];
+                                          withRoot:[[self.root insertKey:aKey forValue:aValue withComparator:self.comparator]
+                                                    copyWith:nil
+                                                    withValue:nil
+                                                    withColor:BLACK
+                                                    withLeft:nil
+                                                    withRight:nil]];
 }
 
 
@@ -112,7 +112,7 @@ typedef void (^fbt_void_nsnumber_int)(NSNumber* color, NSUInteger chunkSize);
             node = node.right;
         }
     }
-    @throw [NSException exceptionWithName:@"NonexistentKey" reason:@"getPredecessorKey called with nonexistent key." userInfo:@{@"key": [key description] }];
+    @throw [NSException exceptionWithName:@"NonexistentKey" reason:@"getPredecessorKey called with nonexistent key." userInfo:@ {@"key": [key description] }];
 }
 
 - (BOOL) isEmpty {
@@ -141,15 +141,15 @@ typedef void (^fbt_void_nsnumber_int)(NSNumber* color, NSUInteger chunkSize);
     if (reverse) {
         __block BOOL stop = NO;
         [self.root reverseTraversal:^BOOL(id key, id value) {
-            block(key, value, &stop);
-            return stop;
-        }];
+                      block(key, value, &stop);
+                      return stop;
+                  }];
     } else {
         __block BOOL stop = NO;
         [self.root inorderTraversal:^BOOL(id key, id value) {
-            block(key, value, &stop);
-            return stop;
-        }];
+                      block(key, value, &stop);
+                      return stop;
+                  }];
     }
 }
 
@@ -299,17 +299,17 @@ void base1_2List_free(Base1_2List* list) {
     //   1. return root
     NSMutableArray *sortedKeyList = [NSMutableArray arrayWithCapacity:dictionary.count];
     [dictionary enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
-        [sortedKeyList addObject:key];
-    }];
+                   [sortedKeyList addObject:key];
+               }];
     [sortedKeyList sortUsingComparator:comparator];
 
     [sortedKeyList enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-        if (idx > 0) {
-            if (comparator(sortedKeyList[idx - 1], obj) != NSOrderedAscending) {
-                [NSException raise:NSInvalidArgumentException format:@"Can't create FImmutableSortedDictionary with keys with same ordering!"];
-            }
-        }
-    }];
+                      if (idx > 0) {
+                          if (comparator(sortedKeyList[idx - 1], obj) != NSOrderedAscending) {
+                              [NSException raise:NSInvalidArgumentException format:@"Can't create FImmutableSortedDictionary with keys with same ordering!"];
+                          }
+                      }
+                  }];
 
     Base1_2List* list = base1_2List_new((unsigned int)sortedKeyList.count);
     id<FLLRBNode> root = [self rootFrom12List:list keyList:sortedKeyList dictionary:dictionary];

@@ -28,7 +28,7 @@
 - (FDataEvent *)createEventFrom:(FChange *)change query:(FQuerySpec *)query;
 - (void)fireEvent:(id<FEvent>)event queue:(dispatch_queue_t)queue;
 - (FCancelEvent *)createCancelEventFromError:(NSError *)error
-                                        path:(FPath *)path;
+    path:(FPath *)path;
 /**
  * Used to figure out what event registration match the event registration that
  * needs to be removed.
