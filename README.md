@@ -17,7 +17,7 @@ concise manner that would be the most suitable for our target age group.
 Alongside the learn and information sections are mini-games and interactive
 elements to provide for a fun and engaging learning experience.
 
-CATmistry was built as part of our project for the Swift Accelerators'
+CATmistry was built by Neo Hao Jun, Wang Zerui, Chanel Tan Qian Ai, and Ryu Hwina under the 2020 Swift Accelerators'
 Programme.
 
 ## Installation
@@ -30,11 +30,16 @@ CATmistry is available for iOS and iPadOS 14 on the
 ## Usage
 
 ## Support
+1. For Bug Reports and Feature Requests, feel free to open an [issue](https://github.com/swiftaccelerator2020/CATmistry/issues) using the appropriate tmeplate.
+2. For general Q&A, start a [discussion](https://github.com/swiftaccelerator2020/CATmistry/issues). Feel free to request feature enhancements in [Discussions](https://github.com/swiftaccelerator2020/CATmistry/issues) as well.
+3. To contact us directly, email us at [catmistryapp@gmail.com](mailto: catmistryapp@gmail.com)
 
 ## Contributing
 
-Contribution is welcome! Feel free to fork our repo and create a pull request
+Contribution is welcome! Feel free to fork our repo and create a [pull request](https://github.com/swiftaccelerator2020/CATmistry/pulls)
 into development!
+
+Please do remember to read this repository's [code of conduct](CODE_OF_CONDUCT) and [contributing guidelines](CONTRIBUTING).
 
 ## Authors and Acknowledgements
 
@@ -52,10 +57,8 @@ into development!
 ### Special Thanks To:
 
 1. YJ Soon, for leading the Swift Accelerator Programme amid COVID-19
-2. Stephanie Ann Koh, our consultatnt, who advised us on the design element of
-   CATmistry and provided us with unconditional support
-3. The Swift Accelerator Programme Alumni, who provided us with emotional,
-   design, and code support
+2. Stephanie Ann Koh, our consultatnt, who was an integral part of our app's design and readily extended her help during CATmistry's development
+3. The Swift Accelerator Programme Alumni, who provided us with code support
 
 ### Others:
 
@@ -67,7 +70,7 @@ A big thank you to:
 4. Vincent
 5. Chenghao
 
-who readily extended a helping hand and aided us greatly in the content.
+who aided us greatly in the content.
 
 ## About the Swift Accelerator Programme
 
