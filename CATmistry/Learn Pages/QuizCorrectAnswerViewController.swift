@@ -56,7 +56,6 @@ class QuizCorrectAnswerViewController: UIViewController {
                 chapterCompletedUserDefaultsArray[currentTopicId] = true
                 UserDefaults.incrementIntegerForKey(key: quizAttemptsStringsUserDefaultArray[currentTopicId])
                 quizAttemptsUserDefaultArray[currentTopicId] += 1
-                }
             } else {
                 congratsLabel.text = "Well done! You got the answer right. \n\nHowever, you only scored \(String(correctAnswers)) out of 10 in this quiz. You need at least 7 out of 10 to pass. Try harder next time!"
             }
