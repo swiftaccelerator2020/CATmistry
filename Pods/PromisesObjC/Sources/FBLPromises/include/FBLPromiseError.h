@@ -18,7 +18,8 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-FOUNDATION_EXTERN NSErrorDomain const FBLPromiseErrorDomain NS_REFINED_FOR_SWIFT;
+FOUNDATION_EXTERN NSErrorDomain const FBLPromiseErrorDomain
+    NS_REFINED_FOR_SWIFT;
 
 /**
  Possible error codes in `FBLPromiseErrorDomain`.
@@ -30,12 +31,14 @@ typedef NS_ENUM(NSInteger, FBLPromiseErrorCode) {
   FBLPromiseErrorCodeValidationFailure = 2,
 } NS_REFINED_FOR_SWIFT;
 
-NS_INLINE BOOL FBLPromiseErrorIsTimedOut(NSError *error) NS_SWIFT_UNAVAILABLE("") {
+NS_INLINE BOOL FBLPromiseErrorIsTimedOut(NSError *error)
+    NS_SWIFT_UNAVAILABLE("") {
   return error.domain == FBLPromiseErrorDomain &&
          error.code == FBLPromiseErrorCodeTimedOut;
 }
 
-NS_INLINE BOOL FBLPromiseErrorIsValidationFailure(NSError *error) NS_SWIFT_UNAVAILABLE("") {
+NS_INLINE BOOL FBLPromiseErrorIsValidationFailure(NSError *error)
+    NS_SWIFT_UNAVAILABLE("") {
   return error.domain == FBLPromiseErrorDomain &&
          error.code == FBLPromiseErrorCodeValidationFailure;
 }

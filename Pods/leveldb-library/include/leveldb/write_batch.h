@@ -31,27 +31,27 @@ namespace leveldb {
 class Slice;
 
 class LEVELDB_EXPORT WriteBatch {
- public:
+public:
   class LEVELDB_EXPORT Handler {
-   public:
+  public:
     virtual ~Handler();
-    virtual void Put(const Slice& key, const Slice& value) = 0;
-    virtual void Delete(const Slice& key) = 0;
+    virtual void Put(const Slice &key, const Slice &value) = 0;
+    virtual void Delete(const Slice &key) = 0;
   };
 
   WriteBatch();
 
   // Intentionally copyable.
-  WriteBatch(const WriteBatch&) = default;
-  WriteBatch& operator=(const WriteBatch&) = default;
+  WriteBatch(const WriteBatch &) = default;
+  WriteBatch &operator=(const WriteBatch &) = default;
 
   ~WriteBatch();
 
   // Store the mapping "key->value" in the database.
-  void Put(const Slice& key, const Slice& value);
+  void Put(const Slice &key, const Slice &value);
 
   // If the database contains a mapping for "key", erase it.  Else do nothing.
-  void Delete(const Slice& key);
+  void Delete(const Slice &key);
 
   // Clear all updates buffered in this batch.
   void Clear();
@@ -67,17 +67,17 @@ class LEVELDB_EXPORT WriteBatch {
   // This runs in O(source size) time. However, the constant factor is better
   // than calling Iterate() over the source batch with a Handler that replicates
   // the operations into this batch.
-  void Append(const WriteBatch& source);
+  void Append(const WriteBatch &source);
 
   // Support for iterating over the contents of a batch.
-  Status Iterate(Handler* handler) const;
+  Status Iterate(Handler *handler) const;
 
- private:
+private:
   friend class WriteBatchInternal;
 
-  std::string rep_;  // See comment in write_batch.cc for the format of rep_
+  std::string rep_; // See comment in write_batch.cc for the format of rep_
 };
 
-}  // namespace leveldb
+} // namespace leveldb
 
-#endif  // STORAGE_LEVELDB_INCLUDE_WRITE_BATCH_H_
+#endif // STORAGE_LEVELDB_INCLUDE_WRITE_BATCH_H_

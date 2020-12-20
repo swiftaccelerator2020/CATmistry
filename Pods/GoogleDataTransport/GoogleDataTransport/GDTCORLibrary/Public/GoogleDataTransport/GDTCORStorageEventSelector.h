@@ -20,7 +20,8 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-/** This class enables the finding of events by matching events with the properties of this class.
+/** This class enables the finding of events by matching events with the
+ * properties of this class.
  */
 @interface GDTCORStorageEventSelector : NSObject
 
@@ -36,7 +37,8 @@ NS_ASSUME_NONNULL_BEGIN
 /** Finds all events matching the qosTiers in this list. */
 @property(nullable, readonly, nonatomic) NSSet<NSNumber *> *selectedQosTiers;
 
-/** Initializes an event selector that will find all events for the given target.
+/** Initializes an event selector that will find all events for the given
+ * target.
  *
  * @param target The selected target.
  * @return An immutable event selector instance.

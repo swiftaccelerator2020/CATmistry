@@ -28,4 +28,3 @@
 
 FOUNDATION_EXPORT double leveldbVersionNumber;
 FOUNDATION_EXPORT const unsigned char leveldbVersionString[];
-

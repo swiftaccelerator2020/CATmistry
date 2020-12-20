@@ -22,12 +22,12 @@
 @synthesize setId;
 
 - (id)initWithSetId:(NSNumber *)aSetId andPath:(FPath *)aPath {
-    self = [super init];
-    if (self) {
-        self.setId = aSetId;
-        self.path = aPath;
-    }
-    return self;
+  self = [super init];
+  if (self) {
+    self.setId = aSetId;
+    self.path = aPath;
+  }
+  return self;
 }
 
 @end

@@ -41,11 +41,12 @@
   z_stream strm;
   bzero(&strm, sizeof(z_stream));
 
-  int memLevel = 8;          // Default.
-  int windowBits = 15 + 16;  // Enable gzip header instead of zlib header.
+  int memLevel = 8;         // Default.
+  int windowBits = 15 + 16; // Enable gzip header instead of zlib header.
 
   int retCode;
-  if (deflateInit2(&strm, level, Z_DEFLATED, windowBits, memLevel, Z_DEFAULT_STRATEGY) != Z_OK) {
+  if (deflateInit2(&strm, level, Z_DEFLATED, windowBits, memLevel,
+                   Z_DEFAULT_STRATEGY) != Z_OK) {
     return nil;
   }
 
@@ -76,10 +77,14 @@
   } while (retCode == Z_OK);
 
   // If the loop exits, it used all input and the stream ended.
-  NSAssert(strm.avail_in == 0,
-           @"Should have finished deflating without using all input, %u bytes left", strm.avail_in);
+  NSAssert(
+      strm.avail_in == 0,
+      @"Should have finished deflating without using all input, %u bytes left",
+      strm.avail_in);
   NSAssert(retCode == Z_STREAM_END,
-           @"thought we finished deflate w/o getting a result of stream end, code %d", retCode);
+           @"thought we finished deflate w/o getting a result of stream end, "
+           @"code %d",
+           retCode);
 
   // Clean up.
   deflateEnd(&strm);

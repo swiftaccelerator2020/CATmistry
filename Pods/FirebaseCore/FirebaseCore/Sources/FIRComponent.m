@@ -39,7 +39,8 @@
 }
 
 + (instancetype)componentWithProtocol:(Protocol *)protocol
-                  instantiationTiming:(FIRInstantiationTiming)instantiationTiming
+                  instantiationTiming:
+                      (FIRInstantiationTiming)instantiationTiming
                          dependencies:(NSArray<FIRDependency *> *)dependencies
                         creationBlock:(FIRComponentCreationBlock)creationBlock {
   return [[FIRComponent alloc] initWithProtocol:protocol

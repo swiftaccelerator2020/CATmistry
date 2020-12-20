@@ -48,114 +48,112 @@
 
 - (id)initWithAllowedEvents:(NSArray *)theAllowedEvents
                       queue:(dispatch_queue_t)queue {
-    if (theAllowedEvents == nil || [theAllowedEvents count] == 0) {
-        @throw [NSException
-            exceptionWithName:@"AllowedEventsValidation"
-                       reason:@"FEventEmitters must be initialized with at "
-                              @"least one valid event."
-                     userInfo:nil];
-    }
+  if (theAllowedEvents == nil || [theAllowedEvents count] == 0) {
+    @throw [NSException
+        exceptionWithName:@"AllowedEventsValidation"
+                   reason:@"FEventEmitters must be initialized with at "
+                          @"least one valid event."
+                 userInfo:nil];
+  }
 
-    self = [super init];
+  self = [super init];
 
-    if (self) {
-        self.allowedEvents = [theAllowedEvents copy];
-        self.listeners = [[NSMutableDictionary alloc] init];
-        self.queue = queue;
-    }
+  if (self) {
+    self.allowedEvents = [theAllowedEvents copy];
+    self.listeners = [[NSMutableDictionary alloc] init];
+    self.queue = queue;
+  }
 
-    return self;
+  return self;
 }
 
 - (id)getInitialEventForType:(NSString *)eventType {
-    @throw [NSException exceptionWithName:NSInternalInconsistencyException
-                                   reason:@"You must override getInitialEvent: "
-                                          @"when subclassing FEventEmitter"
-                                 userInfo:nil];
+  @throw [NSException exceptionWithName:NSInternalInconsistencyException
+                                 reason:@"You must override getInitialEvent: "
+                                        @"when subclassing FEventEmitter"
+                               userInfo:nil];
 }
 
 - (void)triggerEventType:(NSString *)eventType data:(id)data {
-    [self validateEventType:eventType];
-    NSMutableDictionary *eventTypeListeners =
-        [self.listeners objectForKey:eventType];
-    for (FEventListener *listener in eventTypeListeners) {
-        [self triggerListener:listener withData:data];
-    }
+  [self validateEventType:eventType];
+  NSMutableDictionary *eventTypeListeners =
+      [self.listeners objectForKey:eventType];
+  for (FEventListener *listener in eventTypeListeners) {
+    [self triggerListener:listener withData:data];
+  }
 }
 
 - (void)triggerListener:(FEventListener *)listener withData:(id)data {
-    // TODO, should probably get this from FRepo or something although it ends
-    // up being the same. (Except maybe for testing)
-    if (listener.userCallback) {
-        dispatch_async(self.queue, ^{
-          listener.userCallback(data);
-        });
-    }
+  // TODO, should probably get this from FRepo or something although it ends
+  // up being the same. (Except maybe for testing)
+  if (listener.userCallback) {
+    dispatch_async(self.queue, ^{
+      listener.userCallback(data);
+    });
+  }
 }
 
 - (FIRDatabaseHandle)observeEventType:(NSString *)eventType
                             withBlock:(fbt_void_id)block {
-    [self validateEventType:eventType];
+  [self validateEventType:eventType];
 
-    // Create listener
-    FEventListener *listener = [[FEventListener alloc] init];
-    listener.handle = [[FUtilities LUIDGenerator] integerValue];
-    listener.userCallback = block; // copies block automatically
+  // Create listener
+  FEventListener *listener = [[FEventListener alloc] init];
+  listener.handle = [[FUtilities LUIDGenerator] integerValue];
+  listener.userCallback = block; // copies block automatically
 
-    dispatch_async([FIRDatabaseQuery sharedQueue], ^{
-      [self addEventListener:listener forEventType:eventType];
-    });
+  dispatch_async([FIRDatabaseQuery sharedQueue], ^{
+    [self addEventListener:listener forEventType:eventType];
+  });
 
-    return listener.handle;
+  return listener.handle;
 }
 
 - (void)addEventListener:(FEventListener *)listener
             forEventType:(NSString *)eventType {
-    // Get or initializer listeners map [FIRDatabaseHandle -> callback block]
-    // for eventType
-    NSMutableArray *eventTypeListeners =
-        [self.listeners objectForKey:eventType];
-    if (eventTypeListeners == nil) {
-        eventTypeListeners = [[NSMutableArray alloc] init];
-        [self.listeners setObject:eventTypeListeners forKey:eventType];
-    }
+  // Get or initializer listeners map [FIRDatabaseHandle -> callback block]
+  // for eventType
+  NSMutableArray *eventTypeListeners = [self.listeners objectForKey:eventType];
+  if (eventTypeListeners == nil) {
+    eventTypeListeners = [[NSMutableArray alloc] init];
+    [self.listeners setObject:eventTypeListeners forKey:eventType];
+  }
 
-    // Add listener and fire the current event for this listener
-    [eventTypeListeners addObject:listener];
-    id initialData = [self getInitialEventForType:eventType];
-    [self triggerListener:listener withData:initialData];
+  // Add listener and fire the current event for this listener
+  [eventTypeListeners addObject:listener];
+  id initialData = [self getInitialEventForType:eventType];
+  [self triggerListener:listener withData:initialData];
 }
 
 - (void)removeObserverForEventType:(NSString *)eventType
                         withHandle:(FIRDatabaseHandle)handle {
-    [self validateEventType:eventType];
+  [self validateEventType:eventType];
 
-    dispatch_async([FIRDatabaseQuery sharedQueue], ^{
-      [self removeEventListenerWithHandle:handle forEventType:eventType];
-    });
+  dispatch_async([FIRDatabaseQuery sharedQueue], ^{
+    [self removeEventListenerWithHandle:handle forEventType:eventType];
+  });
 }
 
 - (void)removeEventListenerWithHandle:(FIRDatabaseHandle)handle
                          forEventType:(NSString *)eventType {
-    NSMutableArray *eventTypeListeners =
-        [self.listeners objectForKey:eventType];
-    for (FEventListener *listener in [eventTypeListeners copy]) {
-        if (handle == NSNotFound || handle == listener.handle) {
-            [eventTypeListeners removeObject:listener];
-        }
+  NSMutableArray *eventTypeListeners = [self.listeners objectForKey:eventType];
+  for (FEventListener *listener in [eventTypeListeners copy]) {
+    if (handle == NSNotFound || handle == listener.handle) {
+      [eventTypeListeners removeObject:listener];
     }
+  }
 }
 
 - (void)validateEventType:(NSString *)eventType {
-    if ([self.allowedEvents indexOfObject:eventType] == NSNotFound) {
-        @throw [NSException
-            exceptionWithName:@"InvalidEventType"
-                       reason:[NSString stringWithFormat:
-                                            @"%@ is not a valid event type. %@ "
-                                            @"is the list of valid events.",
-                                            eventType, self.allowedEvents]
-                     userInfo:nil];
-    }
+  if ([self.allowedEvents indexOfObject:eventType] == NSNotFound) {
+    @throw [NSException
+        exceptionWithName:@"InvalidEventType"
+                   reason:[NSString stringWithFormat:
+                                        @"%@ is not a valid event type. %@ "
+                                        @"is the list of valid events.",
+                                        eventType, self.allowedEvents]
+                 userInfo:nil];
+  }
 }
 
 @end

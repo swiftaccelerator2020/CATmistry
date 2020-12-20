@@ -43,11 +43,9 @@ namespace leveldb {
 namespace {
 
 class Repairer {
- public:
-  Repairer(const std::string& dbname, const Options& options)
-      : dbname_(dbname),
-        env_(options.env),
-        icmp_(options.comparator),
+public:
+  Repairer(const std::string &dbname, const Options &options)
+      : dbname_(dbname), env_(options.env), icmp_(options.comparator),
         ipolicy_(options.filter_policy),
         options_(SanitizeOptions(dbname, &icmp_, &ipolicy_, options)),
         owns_info_log_(options_.info_log != options.info_log),
@@ -89,7 +87,7 @@ class Repairer {
     return status;
   }
 
- private:
+private:
   struct TableInfo {
     FileMetaData meta;
     SequenceNumber max_sequence;
@@ -142,10 +140,10 @@ class Repairer {
 
   Status ConvertLogToTable(uint64_t log) {
     struct LogReporter : public log::Reader::Reporter {
-      Env* env;
-      Logger* info_log;
+      Env *env;
+      Logger *info_log;
       uint64_t lognum;
-      virtual void Corruption(size_t bytes, const Status& s) {
+      virtual void Corruption(size_t bytes, const Status &s) {
         // We print error messages for corruption, but continue repairing.
         Log(info_log, "Log #%llu: dropping %d bytes; %s",
             (unsigned long long)lognum, static_cast<int>(bytes),
@@ -155,7 +153,7 @@ class Repairer {
 
     // Open the log file
     std::string logname = LogFileName(dbname_, log);
-    SequentialFile* lfile;
+    SequentialFile *lfile;
     Status status = env_->NewSequentialFile(logname, &lfile);
     if (!status.ok()) {
       return status;
@@ -177,7 +175,7 @@ class Repairer {
     std::string scratch;
     Slice record;
     WriteBatch batch;
-    MemTable* mem = new MemTable(icmp_);
+    MemTable *mem = new MemTable(icmp_);
     mem->Ref();
     int counter = 0;
     while (reader.ReadRecord(&record, &scratch)) {
@@ -193,7 +191,7 @@ class Repairer {
       } else {
         Log(options_.info_log, "Log #%llu: ignoring %s",
             (unsigned long long)log, status.ToString().c_str());
-        status = Status::OK();  // Keep going with rest of file
+        status = Status::OK(); // Keep going with rest of file
       }
     }
     delete lfile;
@@ -202,7 +200,7 @@ class Repairer {
     // since ExtractMetaData() will also generate edits.
     FileMetaData meta;
     meta.number = next_file_number_++;
-    Iterator* iter = mem->NewIterator();
+    Iterator *iter = mem->NewIterator();
     status = BuildTable(dbname_, env_, options_, table_cache_, iter, &meta);
     delete iter;
     mem->Unref();
@@ -224,7 +222,7 @@ class Repairer {
     }
   }
 
-  Iterator* NewTableIterator(const FileMetaData& meta) {
+  Iterator *NewTableIterator(const FileMetaData &meta) {
     // Same as compaction iterators: if paranoid_checks are on, turn
     // on checksum verification.
     ReadOptions r;
@@ -255,7 +253,7 @@ class Repairer {
 
     // Extract metadata by scanning through table.
     int counter = 0;
-    Iterator* iter = NewTableIterator(t.meta);
+    Iterator *iter = NewTableIterator(t.meta);
     bool empty = true;
     ParsedInternalKey parsed;
     t.max_sequence = 0;
@@ -287,25 +285,25 @@ class Repairer {
     if (status.ok()) {
       tables_.push_back(t);
     } else {
-      RepairTable(fname, t);  // RepairTable archives input file.
+      RepairTable(fname, t); // RepairTable archives input file.
     }
   }
 
-  void RepairTable(const std::string& src, TableInfo t) {
+  void RepairTable(const std::string &src, TableInfo t) {
     // We will copy src contents to a new table and then rename the
     // new table over the source.
 
     // Create builder.
     std::string copy = TableFileName(dbname_, next_file_number_++);
-    WritableFile* file;
+    WritableFile *file;
     Status s = env_->NewWritableFile(copy, &file);
     if (!s.ok()) {
       return;
     }
-    TableBuilder* builder = new TableBuilder(options_, file);
+    TableBuilder *builder = new TableBuilder(options_, file);
 
     // Copy data.
-    Iterator* iter = NewTableIterator(t.meta);
+    Iterator *iter = NewTableIterator(t.meta);
     int counter = 0;
     for (iter->SeekToFirst(); iter->Valid(); iter->Next()) {
       builder->Add(iter->key(), iter->value());
@@ -315,7 +313,7 @@ class Repairer {
 
     ArchiveFile(src);
     if (counter == 0) {
-      builder->Abandon();  // Nothing to save
+      builder->Abandon(); // Nothing to save
     } else {
       s = builder->Finish();
       if (s.ok()) {
@@ -347,7 +345,7 @@ class Repairer {
 
   Status WriteDescriptor() {
     std::string tmp = TempFileName(dbname_, 1);
-    WritableFile* file;
+    WritableFile *file;
     Status status = env_->NewWritableFile(tmp, &file);
     if (!status.ok()) {
       return status;
@@ -367,7 +365,7 @@ class Repairer {
 
     for (size_t i = 0; i < tables_.size(); i++) {
       // TODO(opt): separate out into multiple levels
-      const TableInfo& t = tables_[i];
+      const TableInfo &t = tables_[i];
       edit_.AddFile(0, t.meta.number, t.meta.file_size, t.meta.smallest,
                     t.meta.largest);
     }
@@ -404,18 +402,18 @@ class Repairer {
     return status;
   }
 
-  void ArchiveFile(const std::string& fname) {
+  void ArchiveFile(const std::string &fname) {
     // Move into another directory.  E.g., for
     //    dir/foo
     // rename to
     //    dir/lost/foo
-    const char* slash = strrchr(fname.c_str(), '/');
+    const char *slash = strrchr(fname.c_str(), '/');
     std::string new_dir;
     if (slash != nullptr) {
       new_dir.assign(fname.data(), slash - fname.data());
     }
     new_dir.append("/lost");
-    env_->CreateDir(new_dir);  // Ignore error
+    env_->CreateDir(new_dir); // Ignore error
     std::string new_file = new_dir;
     new_file.append("/");
     new_file.append((slash == nullptr) ? fname.c_str() : slash + 1);
@@ -425,13 +423,13 @@ class Repairer {
   }
 
   const std::string dbname_;
-  Env* const env_;
+  Env *const env_;
   InternalKeyComparator const icmp_;
   InternalFilterPolicy const ipolicy_;
   const Options options_;
   bool owns_info_log_;
   bool owns_cache_;
-  TableCache* table_cache_;
+  TableCache *table_cache_;
   VersionEdit edit_;
 
   std::vector<std::string> manifests_;
@@ -440,11 +438,11 @@ class Repairer {
   std::vector<TableInfo> tables_;
   uint64_t next_file_number_;
 };
-}  // namespace
+} // namespace
 
-Status RepairDB(const std::string& dbname, const Options& options) {
+Status RepairDB(const std::string &dbname, const Options &options) {
   Repairer repairer(dbname, options);
   return repairer.Run();
 }
 
-}  // namespace leveldb
+} // namespace leveldb

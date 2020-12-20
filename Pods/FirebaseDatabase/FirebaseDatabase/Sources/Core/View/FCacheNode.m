@@ -30,31 +30,31 @@
 - (id)initWithIndexedNode:(FIndexedNode *)indexedNode
        isFullyInitialized:(BOOL)fullyInitialized
                isFiltered:(BOOL)filtered {
-    self = [super init];
-    if (self) {
-        self.indexedNode = indexedNode;
-        self.isFullyInitialized = fullyInitialized;
-        self.isFiltered = filtered;
-    }
-    return self;
+  self = [super init];
+  if (self) {
+    self.indexedNode = indexedNode;
+    self.isFullyInitialized = fullyInitialized;
+    self.isFiltered = filtered;
+  }
+  return self;
 }
 
 - (BOOL)isCompleteForPath:(FPath *)path {
-    if (path.isEmpty) {
-        return self.isFullyInitialized && !self.isFiltered;
-    } else {
-        NSString *childKey = [path getFront];
-        return [self isCompleteForChild:childKey];
-    }
+  if (path.isEmpty) {
+    return self.isFullyInitialized && !self.isFiltered;
+  } else {
+    NSString *childKey = [path getFront];
+    return [self isCompleteForChild:childKey];
+  }
 }
 
 - (BOOL)isCompleteForChild:(NSString *)childKey {
-    return (self.isFullyInitialized && !self.isFiltered) ||
-           [self.node hasChild:childKey];
+  return (self.isFullyInitialized && !self.isFiltered) ||
+         [self.node hasChild:childKey];
 }
 
 - (id<FNode>)node {
-    return self.indexedNode.node;
+  return self.indexedNode.node;
 }
 
 @end

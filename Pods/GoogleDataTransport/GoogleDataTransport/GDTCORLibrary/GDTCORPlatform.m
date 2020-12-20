@@ -30,7 +30,7 @@
 NSString *const kGDTCORVersion = @STR(GDTCOR_VERSION);
 #else
 NSString *const kGDTCORVersion = @"Unknown";
-#endif  // GDTCOR_VERSION
+#endif // GDTCOR_VERSION
 
 const GDTCORBackgroundIdentifier GDTCORBackgroundIdentifierInvalid = 0;
 
@@ -47,10 +47,11 @@ NSURL *GDTCORRootDirectory(void) {
   static NSURL *GDTPath;
   static dispatch_once_t onceToken;
   dispatch_once(&onceToken, ^{
-    NSString *cachePath =
-        NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES)[0];
-    GDTPath =
-        [NSURL fileURLWithPath:[NSString stringWithFormat:@"%@/google-sdks-events", cachePath]];
+    NSString *cachePath = NSSearchPathForDirectoriesInDomains(
+        NSCachesDirectory, NSUserDomainMask, YES)[0];
+    GDTPath = [NSURL
+        fileURLWithPath:[NSString stringWithFormat:@"%@/google-sdks-events",
+                                                   cachePath]];
     GDTCORLogDebug(@"GDT's state will be saved to: %@", GDTPath);
   });
   NSError *error;
@@ -64,10 +65,11 @@ NSURL *GDTCORRootDirectory(void) {
 
 BOOL GDTCORReachabilityFlagsReachable(GDTCORNetworkReachabilityFlags flags) {
 #if !TARGET_OS_WATCH
-  BOOL reachable =
-      (flags & kSCNetworkReachabilityFlagsReachable) == kSCNetworkReachabilityFlagsReachable;
-  BOOL connectionRequired = (flags & kSCNetworkReachabilityFlagsConnectionRequired) ==
-                            kSCNetworkReachabilityFlagsConnectionRequired;
+  BOOL reachable = (flags & kSCNetworkReachabilityFlagsReachable) ==
+                   kSCNetworkReachabilityFlagsReachable;
+  BOOL connectionRequired =
+      (flags & kSCNetworkReachabilityFlagsConnectionRequired) ==
+      kSCNetworkReachabilityFlagsConnectionRequired;
   return reachable && !connectionRequired;
 #else
   return (flags & kGDTCORNetworkReachabilityFlagsReachable) ==
@@ -77,16 +79,18 @@ BOOL GDTCORReachabilityFlagsReachable(GDTCORNetworkReachabilityFlags flags) {
 
 BOOL GDTCORReachabilityFlagsContainWWAN(GDTCORNetworkReachabilityFlags flags) {
 #if TARGET_OS_IOS
-  return (flags & kSCNetworkReachabilityFlagsIsWWAN) == kSCNetworkReachabilityFlagsIsWWAN;
+  return (flags & kSCNetworkReachabilityFlagsIsWWAN) ==
+         kSCNetworkReachabilityFlagsIsWWAN;
 #else
   // Assume network connection not WWAN on macOS, tvOS, watchOS.
   return NO;
-#endif  // TARGET_OS_IOS
+#endif // TARGET_OS_IOS
 }
 
 GDTCORNetworkType GDTCORNetworkTypeMessage() {
 #if !TARGET_OS_WATCH
-  SCNetworkReachabilityFlags reachabilityFlags = [GDTCORReachability currentFlags];
+  SCNetworkReachabilityFlags reachabilityFlags =
+      [GDTCORReachability currentFlags];
   if ((reachabilityFlags & kSCNetworkReachabilityFlagsReachable) ==
       kSCNetworkReachabilityFlagsReachable) {
     if (GDTCORReachabilityFlagsContainWWAN(reachabilityFlags)) {
@@ -101,7 +105,8 @@ GDTCORNetworkType GDTCORNetworkTypeMessage() {
 
 GDTCORNetworkMobileSubtype GDTCORNetworkMobileSubTypeMessage() {
 #if TARGET_OS_IOS
-  static NSDictionary<NSString *, NSNumber *> *CTRadioAccessTechnologyToNetworkSubTypeMessage;
+  static NSDictionary<NSString *, NSNumber *>
+      *CTRadioAccessTechnologyToNetworkSubTypeMessage;
   static CTTelephonyNetworkInfo *networkInfo;
   static dispatch_once_t onceToken;
   dispatch_once(&onceToken, ^{
@@ -112,9 +117,12 @@ GDTCORNetworkMobileSubtype GDTCORNetworkMobileSubTypeMessage() {
       CTRadioAccessTechnologyHSDPA : @(GDTCORNetworkMobileSubtypeHSDPA),
       CTRadioAccessTechnologyHSUPA : @(GDTCORNetworkMobileSubtypeHSUPA),
       CTRadioAccessTechnologyCDMA1x : @(GDTCORNetworkMobileSubtypeCDMA1x),
-      CTRadioAccessTechnologyCDMAEVDORev0 : @(GDTCORNetworkMobileSubtypeCDMAEVDORev0),
-      CTRadioAccessTechnologyCDMAEVDORevA : @(GDTCORNetworkMobileSubtypeCDMAEVDORevA),
-      CTRadioAccessTechnologyCDMAEVDORevB : @(GDTCORNetworkMobileSubtypeCDMAEVDORevB),
+      CTRadioAccessTechnologyCDMAEVDORev0 :
+          @(GDTCORNetworkMobileSubtypeCDMAEVDORev0),
+      CTRadioAccessTechnologyCDMAEVDORevA :
+          @(GDTCORNetworkMobileSubtypeCDMAEVDORevA),
+      CTRadioAccessTechnologyCDMAEVDORevB :
+          @(GDTCORNetworkMobileSubtypeCDMAEVDORevB),
       CTRadioAccessTechnologyeHRPD : @(GDTCORNetworkMobileSubtypeHRPD),
       CTRadioAccessTechnologyLTE : @(GDTCORNetworkMobileSubtypeLTE),
     };
@@ -122,30 +130,37 @@ GDTCORNetworkMobileSubtype GDTCORNetworkMobileSubTypeMessage() {
   });
   NSString *networkCurrentRadioAccessTechnology;
 #if TARGET_OS_MACCATALYST
-  NSDictionary<NSString *, NSString *> *networkCurrentRadioAccessTechnologyDict =
-      networkInfo.serviceCurrentRadioAccessTechnology;
+  NSDictionary<NSString *, NSString *>
+      *networkCurrentRadioAccessTechnologyDict =
+          networkInfo.serviceCurrentRadioAccessTechnology;
   if (networkCurrentRadioAccessTechnologyDict.count) {
-    networkCurrentRadioAccessTechnology = networkCurrentRadioAccessTechnologyDict.allValues[0];
+    networkCurrentRadioAccessTechnology =
+        networkCurrentRadioAccessTechnologyDict.allValues[0];
   }
-#else  // TARGET_OS_MACCATALYST
+#else // TARGET_OS_MACCATALYST
 #if defined(__IPHONE_12_0) && __IPHONE_OS_VERSION_MAX_ALLOWED >= 120000
   if (@available(iOS 12.0, *)) {
-    NSDictionary<NSString *, NSString *> *networkCurrentRadioAccessTechnologyDict =
-        networkInfo.serviceCurrentRadioAccessTechnology;
+    NSDictionary<NSString *, NSString *>
+        *networkCurrentRadioAccessTechnologyDict =
+            networkInfo.serviceCurrentRadioAccessTechnology;
     if (networkCurrentRadioAccessTechnologyDict.count) {
-      // In iOS 12, multiple radio technologies can be captured. We prefer not particular radio
-      // tech to another, so we'll just return the first value in the dictionary.
-      networkCurrentRadioAccessTechnology = networkCurrentRadioAccessTechnologyDict.allValues[0];
+      // In iOS 12, multiple radio technologies can be captured. We prefer not
+      // particular radio tech to another, so we'll just return the first value
+      // in the dictionary.
+      networkCurrentRadioAccessTechnology =
+          networkCurrentRadioAccessTechnologyDict.allValues[0];
     }
   } else {
-#else   // defined(__IPHONE_12_0) && __IPHONE_OS_VERSION_MAX_ALLOWED >= 120000
-  networkCurrentRadioAccessTechnology = networkInfo.currentRadioAccessTechnology;
-#endif  // // defined(__IPHONE_12_0) && __IPHONE_OS_VERSION_MAX_ALLOWED >= 120000
+#else  // defined(__IPHONE_12_0) && __IPHONE_OS_VERSION_MAX_ALLOWED >= 120000
+  networkCurrentRadioAccessTechnology =
+      networkInfo.currentRadioAccessTechnology;
+#endif // // defined(__IPHONE_12_0) && __IPHONE_OS_VERSION_MAX_ALLOWED >= 120000
   }
-#endif  // TARGET_OS_MACCATALYST
+#endif // TARGET_OS_MACCATALYST
   if (networkCurrentRadioAccessTechnology) {
     NSNumber *networkMobileSubtype =
-        CTRadioAccessTechnologyToNetworkSubTypeMessage[networkCurrentRadioAccessTechnology];
+        CTRadioAccessTechnologyToNetworkSubTypeMessage
+            [networkCurrentRadioAccessTechnology];
     return networkMobileSubtype.intValue;
   } else {
     return GDTCORNetworkMobileSubtypeUNKNOWN;
@@ -167,7 +182,8 @@ NSString *_Nonnull GDTCORDeviceModel() {
     if (size > 0) {
       char *machine = calloc(1, size);
       sysctlbyname(keyToExtract, machine, &size, NULL, 0);
-      deviceModel = [NSString stringWithCString:machine encoding:NSUTF8StringEncoding];
+      deviceModel = [NSString stringWithCString:machine
+                                       encoding:NSUTF8StringEncoding];
       free(machine);
     } else {
       deviceModel = [UIDevice currentDevice].model;
@@ -189,15 +205,16 @@ NSData *_Nullable GDTCOREncodeArchive(id<NSSecureCoding> obj,
                          attributes:nil
                               error:error];
     if (result == NO || *error) {
-      GDTCORLogDebug(@"Attempt to create directory failed: path:%@ error:%@", filePath, *error);
+      GDTCORLogDebug(@"Attempt to create directory failed: path:%@ error:%@",
+                     filePath, *error);
       return nil;
     }
   }
   NSData *resultData;
-#if (defined(__IPHONE_11_0) && __IPHONE_OS_VERSION_MAX_ALLOWED >= 110000) || \
-    (defined(__MAC_10_13) && MAC_OS_X_VERSION_MAX_ALLOWED >= 101300) ||      \
-    (defined(__TVOS_11_0) && __TV_OS_VERSION_MAX_ALLOWED >= 110000) ||       \
-    (defined(__WATCHOS_4_0) && __WATCH_OS_VERSION_MAX_ALLOWED >= 040000) ||  \
+#if (defined(__IPHONE_11_0) && __IPHONE_OS_VERSION_MAX_ALLOWED >= 110000) ||   \
+    (defined(__MAC_10_13) && MAC_OS_X_VERSION_MAX_ALLOWED >= 101300) ||        \
+    (defined(__TVOS_11_0) && __TV_OS_VERSION_MAX_ALLOWED >= 110000) ||         \
+    (defined(__WATCHOS_4_0) && __WATCH_OS_VERSION_MAX_ALLOWED >= 040000) ||    \
     (defined(TARGET_OS_MACCATALYST) && TARGET_OS_MACCATALYST)
   if (@available(macOS 10.13, iOS 11.0, tvOS 11.0, watchOS 4, *)) {
     resultData = [NSKeyedArchiver archivedDataWithRootObject:obj
@@ -208,9 +225,12 @@ NSData *_Nullable GDTCOREncodeArchive(id<NSSecureCoding> obj,
       return nil;
     }
     if (filePath.length > 0) {
-      result = [resultData writeToFile:filePath options:NSDataWritingAtomic error:error];
+      result = [resultData writeToFile:filePath
+                               options:NSDataWritingAtomic
+                                 error:error];
       if (result == NO || *error) {
-        GDTCORLogDebug(@"Attempt to write archive failed: path:%@ error:%@", filePath, *error);
+        GDTCORLogDebug(@"Attempt to write archive failed: path:%@ error:%@",
+                       filePath, *error);
       } else {
         GDTCORLogDebug(@"Writing archive succeeded: %@", filePath);
       }
@@ -223,19 +243,24 @@ NSData *_Nullable GDTCOREncodeArchive(id<NSSecureCoding> obj,
       resultData = [NSKeyedArchiver archivedDataWithRootObject:obj];
 #pragma clang diagnostic pop
       if (filePath.length > 0) {
-        result = [resultData writeToFile:filePath options:NSDataWritingAtomic error:error];
+        result = [resultData writeToFile:filePath
+                                 options:NSDataWritingAtomic
+                                   error:error];
         if (result == NO || *error) {
-          GDTCORLogDebug(@"Attempt to write archive failed: URL:%@ error:%@", filePath, *error);
+          GDTCORLogDebug(@"Attempt to write archive failed: URL:%@ error:%@",
+                         filePath, *error);
         } else {
           GDTCORLogDebug(@"Writing archive succeeded: %@", filePath);
         }
       }
     } @catch (NSException *exception) {
-      NSString *errorString =
-          [NSString stringWithFormat:@"An exception was thrown during encoding: %@", exception];
-      *error = [NSError errorWithDomain:NSCocoaErrorDomain
-                                   code:-1
-                               userInfo:@{NSLocalizedFailureReasonErrorKey : errorString}];
+      NSString *errorString = [NSString
+          stringWithFormat:@"An exception was thrown during encoding: %@",
+                           exception];
+      *error = [NSError
+          errorWithDomain:NSCocoaErrorDomain
+                     code:-1
+                 userInfo:@{NSLocalizedFailureReasonErrorKey : errorString}];
     }
     GDTCORLogDebug(@"Attempt to write archive. successful:%@ URL:%@ error:%@",
                    result ? @"YES" : @"NO", filePath, *error);
@@ -243,18 +268,18 @@ NSData *_Nullable GDTCOREncodeArchive(id<NSSecureCoding> obj,
   return resultData;
 }
 
-id<NSSecureCoding> _Nullable GDTCORDecodeArchive(Class archiveClass,
-                                                 NSString *_Nullable archivePath,
-                                                 NSData *_Nullable archiveData,
-                                                 NSError *_Nullable *error) {
+id<NSSecureCoding> _Nullable GDTCORDecodeArchive(
+    Class archiveClass, NSString *_Nullable archivePath,
+    NSData *_Nullable archiveData, NSError *_Nullable *error) {
   id<NSSecureCoding> unarchivedObject = nil;
-#if (defined(__IPHONE_11_0) && __IPHONE_OS_VERSION_MAX_ALLOWED >= 110000) || \
-    (defined(__MAC_10_13) && MAC_OS_X_VERSION_MAX_ALLOWED >= 101300) ||      \
-    (defined(__TVOS_11_0) && __TV_OS_VERSION_MAX_ALLOWED >= 110000) ||       \
-    (defined(__WATCHOS_4_0) && __WATCH_OS_VERSION_MAX_ALLOWED >= 040000) ||  \
+#if (defined(__IPHONE_11_0) && __IPHONE_OS_VERSION_MAX_ALLOWED >= 110000) ||   \
+    (defined(__MAC_10_13) && MAC_OS_X_VERSION_MAX_ALLOWED >= 101300) ||        \
+    (defined(__TVOS_11_0) && __TV_OS_VERSION_MAX_ALLOWED >= 110000) ||         \
+    (defined(__WATCHOS_4_0) && __WATCH_OS_VERSION_MAX_ALLOWED >= 040000) ||    \
     (defined(TARGET_OS_MACCATALYST) && TARGET_OS_MACCATALYST)
   if (@available(macOS 10.13, iOS 11.0, tvOS 11.0, watchOS 4, *)) {
-    NSData *data = archiveData ? archiveData : [NSData dataWithContentsOfFile:archivePath];
+    NSData *data =
+        archiveData ? archiveData : [NSData dataWithContentsOfFile:archivePath];
     if (data) {
       unarchivedObject = [NSKeyedUnarchiver unarchivedObjectOfClass:archiveClass
                                                            fromData:data
@@ -263,18 +288,22 @@ id<NSSecureCoding> _Nullable GDTCORDecodeArchive(Class archiveClass,
   } else {
 #endif
     @try {
-      NSData *archivedData =
-          archiveData ? archiveData : [NSData dataWithContentsOfFile:archivePath];
+      NSData *archivedData = archiveData
+                                 ? archiveData
+                                 : [NSData dataWithContentsOfFile:archivePath];
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wdeprecated-declarations"
-      unarchivedObject = [NSKeyedUnarchiver unarchiveObjectWithData:archivedData];
+      unarchivedObject =
+          [NSKeyedUnarchiver unarchiveObjectWithData:archivedData];
 #pragma clang diagnostic pop
     } @catch (NSException *exception) {
-      NSString *errorString =
-          [NSString stringWithFormat:@"An exception was thrown during encoding: %@", exception];
-      *error = [NSError errorWithDomain:NSCocoaErrorDomain
-                                   code:-1
-                               userInfo:@{NSLocalizedFailureReasonErrorKey : errorString}];
+      NSString *errorString = [NSString
+          stringWithFormat:@"An exception was thrown during encoding: %@",
+                           exception];
+      *error = [NSError
+          errorWithDomain:NSCocoaErrorDomain
+                     code:-1
+                 userInfo:@{NSLocalizedFailureReasonErrorKey : errorString}];
     }
   }
   return unarchivedObject;
@@ -282,8 +311,9 @@ id<NSSecureCoding> _Nullable GDTCORDecodeArchive(Class archiveClass,
 
 @interface GDTCORApplication ()
 /**
- Private flag to match the existing `readonly` public flag. This will be accurate for all platforms,
- since we handle each platform's lifecycle notifications separately.
+ Private flag to match the existing `readonly` public flag. This will be
+ accurate for all platforms, since we handle each platform's lifecycle
+ notifications separately.
  */
 @property(atomic, readwrite) BOOL isRunningInBackground;
 
@@ -298,19 +328,25 @@ id<NSSecureCoding> _Nullable GDTCORDecodeArchive(Class archiveClass,
 static dispatch_queue_t gSemaphoreQueue;
 
 /** For mapping backgroundIdentifier to task semaphore. */
-static NSMutableDictionary<NSNumber *, dispatch_semaphore_t> *gBackgroundIdentifierToSemaphoreMap;
+static NSMutableDictionary<NSNumber *, dispatch_semaphore_t>
+    *gBackgroundIdentifierToSemaphoreMap;
 #endif
 
 + (void)load {
   GDTCORLogDebug(
-      @"%@", @"GDT is initializing. Please note that if you quit the app via the "
-              "debugger and not through a lifecycle event, event data will remain on disk but "
-              "storage won't have a reference to them since the singleton wasn't saved to disk.");
+      @"%@",
+      @"GDT is initializing. Please note that if you quit the app via the "
+       "debugger and not through a lifecycle event, event data will remain on "
+       "disk but "
+       "storage won't have a reference to them since the singleton wasn't "
+       "saved to disk.");
 #if TARGET_OS_IOS || TARGET_OS_TV
-  // If this asserts, please file a bug at https://github.com/firebase/firebase-ios-sdk/issues.
-  GDTCORFatalAssert(
-      GDTCORBackgroundIdentifierInvalid == UIBackgroundTaskInvalid,
-      @"GDTCORBackgroundIdentifierInvalid and UIBackgroundTaskInvalid should be the same.");
+  // If this asserts, please file a bug at
+  // https://github.com/firebase/firebase-ios-sdk/issues.
+  GDTCORFatalAssert(GDTCORBackgroundIdentifierInvalid ==
+                        UIBackgroundTaskInvalid,
+                    @"GDTCORBackgroundIdentifierInvalid and "
+                    @"UIBackgroundTaskInvalid should be the same.");
 #endif
   [self sharedApplication];
 }
@@ -319,13 +355,14 @@ static NSMutableDictionary<NSNumber *, dispatch_semaphore_t> *gBackgroundIdentif
 #if TARGET_OS_WATCH
   static dispatch_once_t onceToken;
   dispatch_once(&onceToken, ^{
-    gSemaphoreQueue = dispatch_queue_create("com.google.GDTCORApplication", DISPATCH_QUEUE_SERIAL);
-    GDTCORLogDebug(
-        @"%@",
-        @"GDTCORApplication is initializing on watchOS, gSemaphoreQueue has been initialized.");
-    gBackgroundIdentifierToSemaphoreMap = [[NSMutableDictionary alloc] init];
+    gSemaphoreQueue = dispatch_queue_create("com.google.GDTCORApplication",
+                                            DISPATCH_QUEUE_SERIAL);
     GDTCORLogDebug(@"%@", @"GDTCORApplication is initializing on watchOS, "
-                          @"gBackgroundIdentifierToSemaphoreMap has been initialized.");
+                          @"gSemaphoreQueue has been initialized.");
+    gBackgroundIdentifierToSemaphoreMap = [[NSMutableDictionary alloc] init];
+    GDTCORLogDebug(
+        @"%@", @"GDTCORApplication is initializing on watchOS, "
+               @"gBackgroundIdentifierToSemaphoreMap has been initialized.");
   });
 #endif
 }
@@ -346,15 +383,17 @@ static NSMutableDictionary<NSNumber *, dispatch_semaphore_t> *gBackgroundIdentif
     _isRunningInBackground = NO;
 
 #if TARGET_OS_IOS || TARGET_OS_TV
-    NSNotificationCenter *notificationCenter = [NSNotificationCenter defaultCenter];
+    NSNotificationCenter *notificationCenter =
+        [NSNotificationCenter defaultCenter];
     [notificationCenter addObserver:self
                            selector:@selector(iOSApplicationDidEnterBackground:)
                                name:UIApplicationDidEnterBackgroundNotification
                              object:nil];
-    [notificationCenter addObserver:self
-                           selector:@selector(iOSApplicationWillEnterForeground:)
-                               name:UIApplicationWillEnterForegroundNotification
-                             object:nil];
+    [notificationCenter
+        addObserver:self
+           selector:@selector(iOSApplicationWillEnterForeground:)
+               name:UIApplicationWillEnterForegroundNotification
+             object:nil];
 
     NSString *name = UIApplicationWillTerminateNotification;
     [notificationCenter addObserver:self
@@ -364,46 +403,55 @@ static NSMutableDictionary<NSNumber *, dispatch_semaphore_t> *gBackgroundIdentif
 
 #if defined(__IPHONE_13_0) && __IPHONE_OS_VERSION_MAX_ALLOWED >= 130000
     if (@available(iOS 13, tvOS 13.0, *)) {
-      [notificationCenter addObserver:self
-                             selector:@selector(iOSApplicationWillEnterForeground:)
-                                 name:UISceneWillEnterForegroundNotification
-                               object:nil];
-      [notificationCenter addObserver:self
-                             selector:@selector(iOSApplicationDidEnterBackground:)
-                                 name:UISceneWillDeactivateNotification
-                               object:nil];
+      [notificationCenter
+          addObserver:self
+             selector:@selector(iOSApplicationWillEnterForeground:)
+                 name:UISceneWillEnterForegroundNotification
+               object:nil];
+      [notificationCenter
+          addObserver:self
+             selector:@selector(iOSApplicationDidEnterBackground:)
+                 name:UISceneWillDeactivateNotification
+               object:nil];
     }
-#endif  // defined(__IPHONE_13_0) && __IPHONE_OS_VERSION_MAX_ALLOWED >= 130000
+#endif // defined(__IPHONE_13_0) && __IPHONE_OS_VERSION_MAX_ALLOWED >= 130000
 
 #elif TARGET_OS_OSX
-    NSNotificationCenter *notificationCenter = [NSNotificationCenter defaultCenter];
+    NSNotificationCenter *notificationCenter =
+        [NSNotificationCenter defaultCenter];
     [notificationCenter addObserver:self
                            selector:@selector(macOSApplicationWillTerminate:)
                                name:NSApplicationWillTerminateNotification
                              object:nil];
 
 #elif TARGET_OS_WATCH
-    // TODO: Notification on watchOS platform is currently posted by strings which are frangible.
+    // TODO: Notification on watchOS platform is currently posted by strings
+    // which are frangible.
     // TODO: Needs improvements here.
-    NSNotificationCenter *notificationCenter = [NSNotificationCenter defaultCenter];
-    [notificationCenter addObserver:self
-                           selector:@selector(iOSApplicationDidEnterBackground:)
-                               name:@"UIApplicationDidEnterBackgroundNotification"
-                             object:nil];
-    [notificationCenter addObserver:self
-                           selector:@selector(iOSApplicationWillEnterForeground:)
-                               name:@"UIApplicationWillEnterForegroundNotification"
-                             object:nil];
+    NSNotificationCenter *notificationCenter =
+        [NSNotificationCenter defaultCenter];
+    [notificationCenter
+        addObserver:self
+           selector:@selector(iOSApplicationDidEnterBackground:)
+               name:@"UIApplicationDidEnterBackgroundNotification"
+             object:nil];
+    [notificationCenter
+        addObserver:self
+           selector:@selector(iOSApplicationWillEnterForeground:)
+               name:@"UIApplicationWillEnterForegroundNotification"
+             object:nil];
 
     // Adds observers for app extension on watchOS platform
-    [notificationCenter addObserver:self
-                           selector:@selector(iOSApplicationDidEnterBackground:)
-                               name:NSExtensionHostDidEnterBackgroundNotification
-                             object:nil];
-    [notificationCenter addObserver:self
-                           selector:@selector(iOSApplicationWillEnterForeground:)
-                               name:NSExtensionHostWillEnterForegroundNotification
-                             object:nil];
+    [notificationCenter
+        addObserver:self
+           selector:@selector(iOSApplicationDidEnterBackground:)
+               name:NSExtensionHostDidEnterBackgroundNotification
+             object:nil];
+    [notificationCenter
+        addObserver:self
+           selector:@selector(iOSApplicationWillEnterForeground:)
+               name:NSExtensionHostWillEnterForegroundNotification
+             object:nil];
 #endif
   }
   return self;
@@ -419,7 +467,8 @@ static NSMutableDictionary<NSNumber *, dispatch_semaphore_t> *gBackgroundIdentif
     (dispatch_semaphore_t)semaphore {
   __block GDTCORBackgroundIdentifier bgID = GDTCORBackgroundIdentifierInvalid;
   dispatch_queue_t queue = gSemaphoreQueue;
-  NSMutableDictionary<NSNumber *, dispatch_semaphore_t> *map = gBackgroundIdentifierToSemaphoreMap;
+  NSMutableDictionary<NSNumber *, dispatch_semaphore_t> *map =
+      gBackgroundIdentifierToSemaphoreMap;
   if (queue && map) {
     dispatch_sync(queue, ^{
       bgID = arc4random();
@@ -434,15 +483,18 @@ static NSMutableDictionary<NSNumber *, dispatch_semaphore_t> *gBackgroundIdentif
   return bgID;
 }
 
-/** Returns the semaphore mapped to given bgID and removes the value from the map.
+/** Returns the semaphore mapped to given bgID and removes the value from the
+ * map.
  *
  * @param bgID The unique NSUInteger as GDTCORBackgroundIdentifier.
  * @return The semaphore mapped by given bgID.
  */
-+ (dispatch_semaphore_t)semaphoreForBackgroundIdentifier:(GDTCORBackgroundIdentifier)bgID {
++ (dispatch_semaphore_t)semaphoreForBackgroundIdentifier:
+    (GDTCORBackgroundIdentifier)bgID {
   __block dispatch_semaphore_t semaphore;
   dispatch_queue_t queue = gSemaphoreQueue;
-  NSMutableDictionary<NSNumber *, dispatch_semaphore_t> *map = gBackgroundIdentifierToSemaphoreMap;
+  NSMutableDictionary<NSNumber *, dispatch_semaphore_t> *map =
+      gBackgroundIdentifierToSemaphoreMap;
   NSNumber *bgIDNumber = @(bgID);
   if (queue && map) {
     dispatch_sync(queue, ^{
@@ -455,21 +507,26 @@ static NSMutableDictionary<NSNumber *, dispatch_semaphore_t> *gBackgroundIdentif
 #endif
 
 - (GDTCORBackgroundIdentifier)beginBackgroundTaskWithName:(NSString *)name
-                                        expirationHandler:(void (^)(void))handler {
+                                        expirationHandler:
+                                            (void (^)(void))handler {
   __block GDTCORBackgroundIdentifier bgID = GDTCORBackgroundIdentifierInvalid;
 #if !TARGET_OS_WATCH
-  bgID = [[self sharedApplicationForBackgroundTask] beginBackgroundTaskWithName:name
-                                                              expirationHandler:handler];
+  bgID = [[self sharedApplicationForBackgroundTask]
+      beginBackgroundTaskWithName:name
+                expirationHandler:handler];
 #if !NDEBUG
   if (bgID != GDTCORBackgroundIdentifierInvalid) {
-    GDTCORLogDebug(@"Creating background task with name:%@ bgID:%ld", name, (long)bgID);
+    GDTCORLogDebug(@"Creating background task with name:%@ bgID:%ld", name,
+                   (long)bgID);
   }
-#endif  // !NDEBUG
+#endif // !NDEBUG
 #elif TARGET_OS_WATCH
   dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
-  bgID = [GDTCORApplication createAndMapBackgroundIdentifierToSemaphore:semaphore];
+  bgID =
+      [GDTCORApplication createAndMapBackgroundIdentifierToSemaphore:semaphore];
   if (bgID != GDTCORBackgroundIdentifierInvalid) {
-    GDTCORLogDebug(@"Creating activity with name:%@ bgID:%ld on watchOS.", name, (long)bgID);
+    GDTCORLogDebug(@"Creating activity with name:%@ bgID:%ld on watchOS.", name,
+                   (long)bgID);
   }
   [[self sharedNSProcessInfoForBackgroundTask]
       performExpiringActivityWithReason:name
@@ -480,12 +537,14 @@ static NSMutableDictionary<NSNumber *, dispatch_semaphore_t> *gBackgroundIdentif
                                  }
                                  dispatch_semaphore_signal(semaphore);
                                  GDTCORLogDebug(
-                                     @"Activity with name:%@ bgID:%ld on watchOS is expiring.",
+                                     @"Activity with name:%@ bgID:%ld on "
+                                     @"watchOS is expiring.",
                                      name, (long)bgID);
                                } else {
                                  dispatch_semaphore_wait(
                                      semaphore,
-                                     dispatch_time(DISPATCH_TIME_NOW, 30 * NSEC_PER_SEC));
+                                     dispatch_time(DISPATCH_TIME_NOW,
+                                                   30 * NSEC_PER_SEC));
                                }
                              }];
 #endif
@@ -495,22 +554,25 @@ static NSMutableDictionary<NSNumber *, dispatch_semaphore_t> *gBackgroundIdentif
 - (void)endBackgroundTask:(GDTCORBackgroundIdentifier)bgID {
 #if !TARGET_OS_WATCH
   if (bgID != GDTCORBackgroundIdentifierInvalid) {
-    GDTCORLogDebug(@"Ending background task with ID:%ld was successful", (long)bgID);
+    GDTCORLogDebug(@"Ending background task with ID:%ld was successful",
+                   (long)bgID);
     [[self sharedApplicationForBackgroundTask] endBackgroundTask:bgID];
     return;
   }
 #elif TARGET_OS_WATCH
   if (bgID != GDTCORBackgroundIdentifierInvalid) {
-    dispatch_semaphore_t semaphore = [GDTCORApplication semaphoreForBackgroundIdentifier:bgID];
+    dispatch_semaphore_t semaphore =
+        [GDTCORApplication semaphoreForBackgroundIdentifier:bgID];
     GDTCORLogDebug(@"Ending activity with bgID:%ld on watchOS.", (long)bgID);
     if (semaphore) {
       dispatch_semaphore_signal(semaphore);
-      GDTCORLogDebug(@"Signaling semaphore with bgID:%ld on watchOS.", (long)bgID);
+      GDTCORLogDebug(@"Signaling semaphore with bgID:%ld on watchOS.",
+                     (long)bgID);
     } else {
       GDTCORLogDebug(@"Semaphore with bgID:%ld is nil on watchOS.", (long)bgID);
     }
   }
-#endif  // !TARGET_OS_WATCH
+#endif // !TARGET_OS_WATCH
 }
 
 #pragma mark - App environment helpers
@@ -520,9 +582,11 @@ static NSMutableDictionary<NSNumber *, dispatch_semaphore_t> *gBackgroundIdentif
   return appExtension;
 }
 
-/** Returns a UIApplication or NSProcessInfo instance if on the appropriate platform.
+/** Returns a UIApplication or NSProcessInfo instance if on the appropriate
+ * platform.
  *
- * @return The shared UIApplication or NSProcessInfo if on the appropriate platform.
+ * @return The shared UIApplication or NSProcessInfo if on the appropriate
+ * platform.
  */
 #if TARGET_OS_IOS || TARGET_OS_TV
 - (nullable UIApplication *)sharedApplicationForBackgroundTask {
@@ -536,7 +600,8 @@ static NSMutableDictionary<NSNumber *, dispatch_semaphore_t> *gBackgroundIdentif
   if (![self isAppExtension]) {
     Class uiApplicationClass = NSClassFromString(@"UIApplication");
     if (uiApplicationClass &&
-        [uiApplicationClass respondsToSelector:(NSSelectorFromString(@"sharedApplication"))]) {
+        [uiApplicationClass
+            respondsToSelector:(NSSelectorFromString(@"sharedApplication"))]) {
       sharedInstance = [uiApplicationClass sharedApplication];
     }
   }
@@ -553,37 +618,49 @@ static NSMutableDictionary<NSNumber *, dispatch_semaphore_t> *gBackgroundIdentif
   _isRunningInBackground = YES;
 
   NSNotificationCenter *notifCenter = [NSNotificationCenter defaultCenter];
-  GDTCORLogDebug(@"%@", @"GDTCORPlatform is sending a notif that the app is backgrounding.");
-  [notifCenter postNotificationName:kGDTCORApplicationDidEnterBackgroundNotification object:nil];
+  GDTCORLogDebug(
+      @"%@",
+      @"GDTCORPlatform is sending a notif that the app is backgrounding.");
+  [notifCenter
+      postNotificationName:kGDTCORApplicationDidEnterBackgroundNotification
+                    object:nil];
 }
 
 - (void)iOSApplicationWillEnterForeground:(NSNotification *)notif {
   _isRunningInBackground = NO;
 
   NSNotificationCenter *notifCenter = [NSNotificationCenter defaultCenter];
-  GDTCORLogDebug(@"%@", @"GDTCORPlatform is sending a notif that the app is foregrounding.");
-  [notifCenter postNotificationName:kGDTCORApplicationWillEnterForegroundNotification object:nil];
+  GDTCORLogDebug(
+      @"%@",
+      @"GDTCORPlatform is sending a notif that the app is foregrounding.");
+  [notifCenter
+      postNotificationName:kGDTCORApplicationWillEnterForegroundNotification
+                    object:nil];
 }
-#endif  // TARGET_OS_IOS || TARGET_OS_TV || TARGET_OS_WATCH
+#endif // TARGET_OS_IOS || TARGET_OS_TV || TARGET_OS_WATCH
 
 #pragma mark - UIApplicationDelegate
 
 #if TARGET_OS_IOS || TARGET_OS_TV
 - (void)iOSApplicationWillTerminate:(NSNotification *)notif {
   NSNotificationCenter *notifCenter = [NSNotificationCenter defaultCenter];
-  GDTCORLogDebug(@"%@", @"GDTCORPlatform is sending a notif that the app is terminating.");
-  [notifCenter postNotificationName:kGDTCORApplicationWillTerminateNotification object:nil];
+  GDTCORLogDebug(
+      @"%@", @"GDTCORPlatform is sending a notif that the app is terminating.");
+  [notifCenter postNotificationName:kGDTCORApplicationWillTerminateNotification
+                             object:nil];
 }
-#endif  // TARGET_OS_IOS || TARGET_OS_TV
+#endif // TARGET_OS_IOS || TARGET_OS_TV
 
 #pragma mark - NSApplicationDelegate
 
 #if TARGET_OS_OSX
 - (void)macOSApplicationWillTerminate:(NSNotification *)notif {
   NSNotificationCenter *notifCenter = [NSNotificationCenter defaultCenter];
-  GDTCORLogDebug(@"%@", @"GDTCORPlatform is sending a notif that the app is terminating.");
-  [notifCenter postNotificationName:kGDTCORApplicationWillTerminateNotification object:nil];
+  GDTCORLogDebug(
+      @"%@", @"GDTCORPlatform is sending a notif that the app is terminating.");
+  [notifCenter postNotificationName:kGDTCORApplicationWillTerminateNotification
+                             object:nil];
 }
-#endif  // TARGET_OS_OSX
+#endif // TARGET_OS_OSX
 
 @end

@@ -19,7 +19,8 @@
 NS_ASSUME_NONNULL_BEGIN
 
 /** If present, is a BOOL wrapped in an NSNumber. */
-#define kFIRCDIsDataCollectionDefaultEnabledKey @"FIRCDIsDataCollectionDefaultEnabledKey"
+#define kFIRCDIsDataCollectionDefaultEnabledKey                                \
+  @"FIRCDIsDataCollectionDefaultEnabledKey"
 
 /** If present, is an int32_t wrapped in an NSNumber. */
 #define kFIRCDConfigurationTypeKey @"FIRCDConfigurationTypeKey"
@@ -40,7 +41,8 @@ NS_ASSUME_NONNULL_BEGIN
 #define kFIRCDBundleIDKey @"FIRCDBundleID"
 
 /** If present, is a BOOL wrapped in an NSNumber. */
-#define kFIRCDUsingOptionsFromDefaultPlistKey @"FIRCDUsingOptionsFromDefaultPlistKey"
+#define kFIRCDUsingOptionsFromDefaultPlistKey                                  \
+  @"FIRCDUsingOptionsFromDefaultPlistKey"
 
 /** If present, is an NSString. */
 #define kFIRCDLibraryVersionIDKey @"FIRCDLibraryVersionIDKey"
@@ -53,7 +55,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @required
 
-/** A dictionary containing data (non-exhaustive) to be logged in diagnostics. */
+/** A dictionary containing data (non-exhaustive) to be logged in diagnostics.
+ */
 @property(nonatomic) NSDictionary<NSString *, id> *diagnosticObjects;
 
 @end

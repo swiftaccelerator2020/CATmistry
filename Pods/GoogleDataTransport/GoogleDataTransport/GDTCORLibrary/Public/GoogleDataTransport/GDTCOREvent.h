@@ -23,12 +23,14 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-/** The different possible quality of service specifiers. High values indicate high priority. */
+/** The different possible quality of service specifiers. High values indicate
+ * high priority. */
 typedef NS_ENUM(NSInteger, GDTCOREventQoS) {
   /** The QoS tier wasn't set, and won't ever be sent. */
   GDTCOREventQoSUnknown = 0,
 
-  /** This event is internal telemetry data that should not be sent on its own if possible. */
+  /** This event is internal telemetry data that should not be sent on its own
+     if possible. */
   GDTCOREventQoSTelemetry = 1,
 
   /** This event should be sent, but in a batch only roughly once per day. */
@@ -37,7 +39,8 @@ typedef NS_ENUM(NSInteger, GDTCOREventQoS) {
   /** This event should be sent when requested by the uploader. */
   GDTCOREventQosDefault = 3,
 
-  /** This event should be sent immediately along with any other data that can be batched. */
+  /** This event should be sent immediately along with any other data that can
+     be batched. */
   GDTCOREventQoSFast = 4,
 
   /** This event should only be uploaded on wifi. */
@@ -49,14 +52,15 @@ typedef NS_ENUM(NSInteger, GDTCOREventQoS) {
 /** The unique ID of the event. */
 @property(readonly, nonatomic) NSString *eventID;
 
-/** The mapping identifier, to allow backends to map the transport bytes to a proto. */
+/** The mapping identifier, to allow backends to map the transport bytes to a
+ * proto. */
 @property(nullable, readonly, nonatomic) NSString *mappingID;
 
 /** The identifier for the backend this event will eventually be sent to. */
 @property(readonly, nonatomic) GDTCORTarget target;
 
-/** The data object encapsulated in the transport of your choice, as long as it implements
- * the GDTCOREventDataObject protocol. */
+/** The data object encapsulated in the transport of your choice, as long as it
+ * implements the GDTCOREventDataObject protocol. */
 @property(nullable, nonatomic) id<GDTCOREventDataObject> dataObject;
 
 /** The serialized bytes from calling [dataObject transportBytes]. */
@@ -68,7 +72,8 @@ typedef NS_ENUM(NSInteger, GDTCOREventQoS) {
 /** The clock snapshot at the time of the event. */
 @property(nonatomic) GDTCORClock *clockSnapshot;
 
-/** The expiration date of the event. Default is 604800 seconds (7 days) from creation. */
+/** The expiration date of the event. Default is 604800 seconds (7 days) from
+ * creation. */
 @property(nonatomic) NSDate *expirationDate;
 
 /** Bytes that can be used by an uploader later on. */
@@ -80,7 +85,8 @@ typedef NS_ENUM(NSInteger, GDTCOREventQoS) {
  * @param target The event's target identifier.
  * @return An instance of this class.
  */
-- (nullable instancetype)initWithMappingID:(NSString *)mappingID target:(GDTCORTarget)target;
+- (nullable instancetype)initWithMappingID:(NSString *)mappingID
+                                    target:(GDTCORTarget)target;
 
 @end
 

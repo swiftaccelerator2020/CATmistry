@@ -47,15 +47,17 @@
   return result;
 }
 
-+ (BOOL)hasBundleIdentifierPrefix:(NSString *)bundleIdentifier inBundles:(NSArray *)bundles {
++ (BOOL)hasBundleIdentifierPrefix:(NSString *)bundleIdentifier
+                        inBundles:(NSArray *)bundles {
   for (NSBundle *bundle in bundles) {
     if ([bundle.bundleIdentifier isEqualToString:bundleIdentifier]) {
       return YES;
     }
 
     if ([GULAppEnvironmentUtil isAppExtension]) {
-      // A developer could be using the same `FIROptions` for both their app and extension. Since
-      // extensions have a suffix added to the bundleID, we consider a matching prefix as valid.
+      // A developer could be using the same `FIROptions` for both their app and
+      // extension. Since extensions have a suffix added to the bundleID, we
+      // consider a matching prefix as valid.
       NSString *appBundleIDFromExtension =
           [self bundleIdentifierByRemovingLastPartFrom:bundle.bundleIdentifier];
       if ([appBundleIDFromExtension isEqualToString:bundleIdentifier]) {
@@ -66,14 +68,16 @@
   return NO;
 }
 
-+ (NSString *)bundleIdentifierByRemovingLastPartFrom:(NSString *)bundleIdentifier {
++ (NSString *)bundleIdentifierByRemovingLastPartFrom:
+    (NSString *)bundleIdentifier {
   NSString *bundleIDComponentsSeparator = @".";
 
-  NSMutableArray<NSString *> *bundleIDComponents =
-      [[bundleIdentifier componentsSeparatedByString:bundleIDComponentsSeparator] mutableCopy];
+  NSMutableArray<NSString *> *bundleIDComponents = [[bundleIdentifier
+      componentsSeparatedByString:bundleIDComponentsSeparator] mutableCopy];
   [bundleIDComponents removeLastObject];
 
-  return [bundleIDComponents componentsJoinedByString:bundleIDComponentsSeparator];
+  return
+      [bundleIDComponents componentsJoinedByString:bundleIDComponentsSeparator];
 }
 
 @end

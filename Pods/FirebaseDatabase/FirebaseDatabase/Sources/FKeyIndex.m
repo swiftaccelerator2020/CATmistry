@@ -29,19 +29,19 @@
 @implementation FKeyIndex
 
 - (id)init {
-    self = [super init];
-    if (self) {
-        self.maxPost = [[FNamedNode alloc] initWithName:[FUtilities maxName]
-                                                andNode:[FEmptyNode emptyNode]];
-    }
-    return self;
+  self = [super init];
+  if (self) {
+    self.maxPost = [[FNamedNode alloc] initWithName:[FUtilities maxName]
+                                            andNode:[FEmptyNode emptyNode]];
+  }
+  return self;
 }
 
 - (NSComparisonResult)compareKey:(NSString *)key1
                          andNode:(id<FNode>)node1
                       toOtherKey:(NSString *)key2
                          andNode:(id<FNode>)node2 {
-    return [FUtilities compareKey:key1 toKey:key2];
+  return [FUtilities compareKey:key1 toKey:key2];
 }
 
 - (NSComparisonResult)compareKey:(NSString *)key1
@@ -49,75 +49,69 @@
                       toOtherKey:(NSString *)key2
                          andNode:(id<FNode>)node2
                          reverse:(BOOL)reverse {
-    if (reverse) {
-        return [self compareKey:key2
-                        andNode:node2
-                     toOtherKey:key1
-                        andNode:node1];
-    } else {
-        return [self compareKey:key1
-                        andNode:node1
-                     toOtherKey:key2
-                        andNode:node2];
-    }
+  if (reverse) {
+    return [self compareKey:key2 andNode:node2 toOtherKey:key1 andNode:node1];
+  } else {
+    return [self compareKey:key1 andNode:node1 toOtherKey:key2 andNode:node2];
+  }
 }
 
 - (NSComparisonResult)compareNamedNode:(FNamedNode *)namedNode1
                            toNamedNode:(FNamedNode *)namedNode2 {
-    return [self compareKey:namedNode1.name
-                    andNode:namedNode1.node
-                 toOtherKey:namedNode2.name
-                    andNode:namedNode2.node];
+  return [self compareKey:namedNode1.name
+                  andNode:namedNode1.node
+               toOtherKey:namedNode2.name
+                  andNode:namedNode2.node];
 }
 
 - (BOOL)isDefinedOn:(id<FNode>)node {
-    return YES;
+  return YES;
 }
 
 - (BOOL)indexedValueChangedBetween:(id<FNode>)oldNode and:(id<FNode>)newNode {
-    return NO; // The key for a node never changes.
+  return NO; // The key for a node never changes.
 }
 
 - (FNamedNode *)minPost {
-    return [FNamedNode min];
+  return [FNamedNode min];
 }
 
 - (FNamedNode *)makePost:(id<FNode>)indexValue name:(NSString *)name {
-    NSString *key = indexValue.val;
-    NSAssert([key isKindOfClass:[NSString class]],
-             @"KeyIndex indexValue must always be a string.");
-    // We just use empty node, but it'll never be compared, since our comparator
-    // only looks at name.
-    return [[FNamedNode alloc] initWithName:key andNode:[FEmptyNode emptyNode]];
+  NSString *key = indexValue.val;
+  NSAssert([key isKindOfClass:[NSString class]],
+           @"KeyIndex indexValue must always be a string.");
+  // We just use empty node, but it'll never be compared, since our comparator
+  // only looks at name.
+  return [[FNamedNode alloc] initWithName:key andNode:[FEmptyNode emptyNode]];
 }
 
 - (NSString *)queryDefinition {
-    return @".key";
+  return @".key";
 }
 
 - (NSString *)description {
-    return @"FKeyIndex";
+  return @"FKeyIndex";
 }
 
 - (id)copyWithZone:(NSZone *)zone {
-    return self;
+  return self;
 }
 
 - (BOOL)isEqual:(id)other {
-    // since we're a singleton.
-    return (other == self);
+  // since we're a singleton.
+  return (other == self);
 }
 
 - (NSUInteger)hash {
-    return [@".key" hash];
+  return [@".key" hash];
 }
 
 + (id<FIndex>)keyIndex {
-    static id<FIndex> keyIndex;
-    static dispatch_once_t once;
-    dispatch_once(&once, ^{
-      keyIndex = [[FKeyIndex alloc] init];
-    });
-    return keyIndex;
+  static id<FIndex> keyIndex;
+  static dispatch_once_t once;
+  dispatch_once(&once, ^{
+    keyIndex = [[FKeyIndex alloc] init];
+  });
+  return keyIndex;
 }
 @end

@@ -20,14 +20,15 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-/// The class provides a convenient abstraction on top of the iOS Keychain API to save data.
+/// The class provides a convenient abstraction on top of the iOS Keychain API
+/// to save data.
 @interface GULKeychainStorage : NSObject
 
 - (instancetype)init NS_UNAVAILABLE;
 
 /** Initializes the keychain storage with Keychain Service name.
- *  @param service A Keychain Service name that will be used to store and retrieve objects. See also
- * `kSecAttrService`.
+ *  @param service A Keychain Service name that will be used to store and
+ * retrieve objects. See also `kSecAttrService`.
  */
 - (instancetype)initWithService:(NSString *)service;
 
@@ -37,18 +38,20 @@ NS_ASSUME_NONNULL_BEGIN
  * @param objectClass The expected object class required by `NSSecureCoding`.
  * @param accessGroup The Keychain Access Group.
  *
- * @return Returns a promise. It is resolved with an object stored by key if exists. It is resolved
- * with `nil` when the object not found. It fails on a Keychain error.
+ * @return Returns a promise. It is resolved with an object stored by key if
+ * exists. It is resolved with `nil` when the object not found. It fails on a
+ * Keychain error.
  */
 - (FBLPromise<id<NSSecureCoding>> *)getObjectForKey:(NSString *)key
                                         objectClass:(Class)objectClass
-                                        accessGroup:(nullable NSString *)accessGroup;
+                                        accessGroup:
+                                            (nullable NSString *)accessGroup;
 
 /**
  * Saves the given object by the given key.
  * @param object The object to store.
- * @param key The key to store the object. If there is an existing object by the key, it will be
- * overridden.
+ * @param key The key to store the object. If there is an existing object by the
+ * key, it will be overridden.
  * @param accessGroup The Keychain Access Group.
  *
  * @return Returns which is resolved with `[NSNull null]` on success.
@@ -59,8 +62,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  * Removes the object by the given key.
- * @param key The key to store the object. If there is an existing object by the key, it will be
- * overridden.
+ * @param key The key to store the object. If there is an existing object by the
+ * key, it will be overridden.
  * @param accessGroup The Keychain Access Group.
  *
  * @return Returns which is resolved with `[NSNull null]` on success.
@@ -69,10 +72,11 @@ NS_ASSUME_NONNULL_BEGIN
                                  accessGroup:(nullable NSString *)accessGroup;
 
 #if TARGET_OS_OSX
-/// If not `nil`, then only this keychain will be used to save and read data (see
-/// `kSecMatchSearchList` and `kSecUseKeychain`. It is mostly intended to be used by unit tests.
+/// If not `nil`, then only this keychain will be used to save and read data
+/// (see `kSecMatchSearchList` and `kSecUseKeychain`. It is mostly intended to
+/// be used by unit tests.
 @property(nonatomic, nullable) SecKeychainRef keychainRef;
-#endif  // TARGET_OSX
+#endif // TARGET_OSX
 
 @end
 

@@ -24,7 +24,8 @@
   return [self onQueue:FBLPromise.defaultDispatchQueue timeout:interval];
 }
 
-- (FBLPromise *)onQueue:(dispatch_queue_t)queue timeout:(NSTimeInterval)interval {
+- (FBLPromise *)onQueue:(dispatch_queue_t)queue
+                timeout:(NSTimeInterval)interval {
   NSParameterAssert(queue);
 
   FBLPromise *promise = [[FBLPromise alloc] initPending];
@@ -37,9 +38,10 @@
       }];
   typeof(self) __weak weakPromise = promise;
   dispatch_after(dispatch_time(0, (int64_t)(interval * NSEC_PER_SEC)), queue, ^{
-    NSError *timedOutError = [[NSError alloc] initWithDomain:FBLPromiseErrorDomain
-                                                        code:FBLPromiseErrorCodeTimedOut
-                                                    userInfo:nil];
+    NSError *timedOutError =
+        [[NSError alloc] initWithDomain:FBLPromiseErrorDomain
+                                   code:FBLPromiseErrorCodeTimedOut
+                               userInfo:nil];
     [weakPromise reject:timedOutError];
   });
   return promise;
@@ -49,13 +51,13 @@
 
 @implementation FBLPromise (DotSyntax_TimeoutAdditions)
 
-- (FBLPromise* (^)(NSTimeInterval))timeout {
+- (FBLPromise * (^)(NSTimeInterval))timeout {
   return ^(NSTimeInterval interval) {
     return [self timeout:interval];
   };
 }
 
-- (FBLPromise* (^)(dispatch_queue_t, NSTimeInterval))timeoutOn {
+- (FBLPromise * (^)(dispatch_queue_t, NSTimeInterval))timeoutOn {
   return ^(dispatch_queue_t queue, NSTimeInterval interval) {
     return [self onQueue:queue timeout:interval];
   };

@@ -23,7 +23,7 @@ namespace leveldb {
 
 namespace {
 
-bool GuessType(const std::string& fname, FileType* type) {
+bool GuessType(const std::string &fname, FileType *type) {
   size_t pos = fname.rfind('/');
   std::string basename;
   if (pos == std::string::npos) {
@@ -37,8 +37,8 @@ bool GuessType(const std::string& fname, FileType* type) {
 
 // Notified when log reader encounters corruption.
 class CorruptionReporter : public log::Reader::Reporter {
- public:
-  virtual void Corruption(size_t bytes, const Status& status) {
+public:
+  virtual void Corruption(size_t bytes, const Status &status) {
     std::string r = "corruption: ";
     AppendNumberTo(&r, bytes);
     r += " bytes; ";
@@ -47,14 +47,14 @@ class CorruptionReporter : public log::Reader::Reporter {
     dst_->Append(r);
   }
 
-  WritableFile* dst_;
+  WritableFile *dst_;
 };
 
 // Print contents of a log file. (*func)() is called on every record.
-Status PrintLogContents(Env* env, const std::string& fname,
-                        void (*func)(uint64_t, Slice, WritableFile*),
-                        WritableFile* dst) {
-  SequentialFile* file;
+Status PrintLogContents(Env *env, const std::string &fname,
+                        void (*func)(uint64_t, Slice, WritableFile *),
+                        WritableFile *dst) {
+  SequentialFile *file;
   Status s = env->NewSequentialFile(fname, &file);
   if (!s.ok()) {
     return s;
@@ -73,8 +73,8 @@ Status PrintLogContents(Env* env, const std::string& fname,
 
 // Called on every item found in a WriteBatch.
 class WriteBatchItemPrinter : public WriteBatch::Handler {
- public:
-  virtual void Put(const Slice& key, const Slice& value) {
+public:
+  virtual void Put(const Slice &key, const Slice &value) {
     std::string r = "  put '";
     AppendEscapedStringTo(&r, key);
     r += "' '";
@@ -82,19 +82,19 @@ class WriteBatchItemPrinter : public WriteBatch::Handler {
     r += "'\n";
     dst_->Append(r);
   }
-  virtual void Delete(const Slice& key) {
+  virtual void Delete(const Slice &key) {
     std::string r = "  del '";
     AppendEscapedStringTo(&r, key);
     r += "'\n";
     dst_->Append(r);
   }
 
-  WritableFile* dst_;
+  WritableFile *dst_;
 };
 
 // Called on every log record (each one of which is a WriteBatch)
 // found in a kLogFile.
-static void WriteBatchPrinter(uint64_t pos, Slice record, WritableFile* dst) {
+static void WriteBatchPrinter(uint64_t pos, Slice record, WritableFile *dst) {
   std::string r = "--- offset ";
   AppendNumberTo(&r, pos);
   r += "; ";
@@ -119,13 +119,13 @@ static void WriteBatchPrinter(uint64_t pos, Slice record, WritableFile* dst) {
   }
 }
 
-Status DumpLog(Env* env, const std::string& fname, WritableFile* dst) {
+Status DumpLog(Env *env, const std::string &fname, WritableFile *dst) {
   return PrintLogContents(env, fname, WriteBatchPrinter, dst);
 }
 
 // Called on every log record (each one of which is a WriteBatch)
 // found in a kDescriptorFile.
-static void VersionEditPrinter(uint64_t pos, Slice record, WritableFile* dst) {
+static void VersionEditPrinter(uint64_t pos, Slice record, WritableFile *dst) {
   std::string r = "--- offset ";
   AppendNumberTo(&r, pos);
   r += "; ";
@@ -140,14 +140,14 @@ static void VersionEditPrinter(uint64_t pos, Slice record, WritableFile* dst) {
   dst->Append(r);
 }
 
-Status DumpDescriptor(Env* env, const std::string& fname, WritableFile* dst) {
+Status DumpDescriptor(Env *env, const std::string &fname, WritableFile *dst) {
   return PrintLogContents(env, fname, VersionEditPrinter, dst);
 }
 
-Status DumpTable(Env* env, const std::string& fname, WritableFile* dst) {
+Status DumpTable(Env *env, const std::string &fname, WritableFile *dst) {
   uint64_t file_size;
-  RandomAccessFile* file = nullptr;
-  Table* table = nullptr;
+  RandomAccessFile *file = nullptr;
+  Table *table = nullptr;
   Status s = env->GetFileSize(fname, &file_size);
   if (s.ok()) {
     s = env->NewRandomAccessFile(fname, &file);
@@ -167,7 +167,7 @@ Status DumpTable(Env* env, const std::string& fname, WritableFile* dst) {
 
   ReadOptions ro;
   ro.fill_cache = false;
-  Iterator* iter = table->NewIterator(ro);
+  Iterator *iter = table->NewIterator(ro);
   std::string r;
   for (iter->SeekToFirst(); iter->Valid(); iter->Next()) {
     r.clear();
@@ -209,24 +209,24 @@ Status DumpTable(Env* env, const std::string& fname, WritableFile* dst) {
   return Status::OK();
 }
 
-}  // namespace
+} // namespace
 
-Status DumpFile(Env* env, const std::string& fname, WritableFile* dst) {
+Status DumpFile(Env *env, const std::string &fname, WritableFile *dst) {
   FileType ftype;
   if (!GuessType(fname, &ftype)) {
     return Status::InvalidArgument(fname + ": unknown file type");
   }
   switch (ftype) {
-    case kLogFile:
-      return DumpLog(env, fname, dst);
-    case kDescriptorFile:
-      return DumpDescriptor(env, fname, dst);
-    case kTableFile:
-      return DumpTable(env, fname, dst);
-    default:
-      break;
+  case kLogFile:
+    return DumpLog(env, fname, dst);
+  case kDescriptorFile:
+    return DumpDescriptor(env, fname, dst);
+  case kTableFile:
+    return DumpTable(env, fname, dst);
+  default:
+    break;
   }
   return Status::InvalidArgument(fname + ": not a dump-able file type");
 }
 
-}  // namespace leveldb
+} // namespace leveldb

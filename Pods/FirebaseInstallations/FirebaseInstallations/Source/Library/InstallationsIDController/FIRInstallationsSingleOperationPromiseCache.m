@@ -23,7 +23,8 @@
 #endif
 
 @interface FIRInstallationsSingleOperationPromiseCache <ResultType>()
-@property(nonatomic, readonly) FBLPromise *_Nonnull (^newOperationHandler)(void);
+@property(nonatomic, readonly) FBLPromise *_Nonnull (^newOperationHandler)(void)
+    ;
 @property(nonatomic, nullable) FBLPromise *pendingPromise;
 @end
 

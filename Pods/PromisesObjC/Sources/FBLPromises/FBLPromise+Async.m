@@ -24,7 +24,8 @@
   return [self onQueue:self.defaultDispatchQueue async:work];
 }
 
-+ (instancetype)onQueue:(dispatch_queue_t)queue async:(FBLPromiseAsyncWorkBlock)work {
++ (instancetype)onQueue:(dispatch_queue_t)queue
+                  async:(FBLPromiseAsyncWorkBlock)work {
   NSParameterAssert(queue);
   NSParameterAssert(work);
 
@@ -55,13 +56,13 @@
 
 @implementation FBLPromise (DotSyntax_AsyncAdditions)
 
-+ (FBLPromise* (^)(FBLPromiseAsyncWorkBlock))async {
++ (FBLPromise * (^)(FBLPromiseAsyncWorkBlock))async {
   return ^(FBLPromiseAsyncWorkBlock work) {
     return [self async:work];
   };
 }
 
-+ (FBLPromise* (^)(dispatch_queue_t, FBLPromiseAsyncWorkBlock))asyncOn {
++ (FBLPromise * (^)(dispatch_queue_t, FBLPromiseAsyncWorkBlock))asyncOn {
   return ^(dispatch_queue_t queue, FBLPromiseAsyncWorkBlock work) {
     return [self onQueue:queue async:work];
   };

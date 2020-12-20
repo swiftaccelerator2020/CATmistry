@@ -18,7 +18,8 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-/** This class manages the device clock and produces snapshots of the current time. */
+/** This class manages the device clock and produces snapshots of the current
+ * time. */
 @interface GDTCORClock : NSObject <NSSecureCoding>
 
 /** The wallclock time, UTC, in milliseconds. */
@@ -36,8 +37,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, readonly) int64_t kernelBootTime DEPRECATED_MSG_ATTRIBUTE(
     "Please use `kernelBootTimeNanoseconds` instead");
 
-@property(nonatomic, readonly)
-    int64_t uptime DEPRECATED_MSG_ATTRIBUTE("Please use `uptimeNanoseconds` instead");
+@property(nonatomic, readonly) int64_t uptime DEPRECATED_MSG_ATTRIBUTE(
+    "Please use `uptimeNanoseconds` instead");
 
 /** Creates a GDTCORClock object using the current time and offsets.
  *
@@ -45,14 +46,17 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (instancetype)snapshot;
 
-/** Creates a GDTCORClock object representing a time in the future, relative to now.
+/** Creates a GDTCORClock object representing a time in the future, relative to
+ * now.
  *
- * @param millisInTheFuture The millis in the future from now this clock should represent.
+ * @param millisInTheFuture The millis in the future from now this clock should
+ * represent.
  * @return An instance representing a future time.
  */
 + (instancetype)clockSnapshotInTheFuture:(uint64_t)millisInTheFuture;
 
-/** Compares one clock with another, returns YES if the caller is after the parameter.
+/** Compares one clock with another, returns YES if the caller is after the
+ * parameter.
  *
  * @return YES if the calling clock's time is after the given clock's time.
  */

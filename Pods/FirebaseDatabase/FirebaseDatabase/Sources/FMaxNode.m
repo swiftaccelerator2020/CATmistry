@@ -21,38 +21,38 @@
 @implementation FMaxNode {
 }
 - (id)init {
-    self = [super init];
-    if (self) {
-    }
-    return self;
+  self = [super init];
+  if (self) {
+  }
+  return self;
 }
 
 + (id<FNode>)maxNode {
-    static FMaxNode *maxNode = nil;
-    static dispatch_once_t once;
-    dispatch_once(&once, ^{
-      maxNode = [[FMaxNode alloc] init];
-    });
-    return maxNode;
+  static FMaxNode *maxNode = nil;
+  static dispatch_once_t once;
+  dispatch_once(&once, ^{
+    maxNode = [[FMaxNode alloc] init];
+  });
+  return maxNode;
 }
 
 - (NSComparisonResult)compare:(id<FNode>)other {
-    if (other == self) {
-        return NSOrderedSame;
-    } else {
-        return NSOrderedDescending;
-    }
+  if (other == self) {
+    return NSOrderedSame;
+  } else {
+    return NSOrderedDescending;
+  }
 }
 
 - (BOOL)isEqual:(id)other {
-    return other == self;
+  return other == self;
 }
 
 - (id<FNode>)getImmediateChild:(NSString *)childName {
-    return [FEmptyNode emptyNode];
+  return [FEmptyNode emptyNode];
 }
 
 - (BOOL)isEmpty {
-    return NO;
+  return NO;
 }
 @end

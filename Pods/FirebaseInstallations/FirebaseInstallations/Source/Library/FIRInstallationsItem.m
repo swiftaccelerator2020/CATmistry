@@ -21,7 +21,8 @@
 
 @implementation FIRInstallationsItem
 
-- (instancetype)initWithAppID:(NSString *)appID firebaseAppName:(NSString *)firebaseAppName {
+- (instancetype)initWithAppID:(NSString *)appID
+              firebaseAppName:(NSString *)firebaseAppName {
   self = [super init];
   if (self) {
     _appID = [appID copy];
@@ -31,8 +32,9 @@
 }
 
 - (nonnull id)copyWithZone:(nullable NSZone *)zone {
-  FIRInstallationsItem *clone = [[FIRInstallationsItem alloc] initWithAppID:self.appID
-                                                            firebaseAppName:self.firebaseAppName];
+  FIRInstallationsItem *clone =
+      [[FIRInstallationsItem alloc] initWithAppID:self.appID
+                                  firebaseAppName:self.firebaseAppName];
   clone.firebaseInstallationID = [self.firebaseInstallationID copy];
   clone.refreshToken = [self.refreshToken copy];
   clone.authToken = [self.authToken copy];
@@ -50,7 +52,8 @@
 }
 
 - (FIRInstallationsStoredItem *)storedItem {
-  FIRInstallationsStoredItem *storedItem = [[FIRInstallationsStoredItem alloc] init];
+  FIRInstallationsStoredItem *storedItem =
+      [[FIRInstallationsStoredItem alloc] init];
   storedItem.firebaseInstallationID = self.firebaseInstallationID;
   storedItem.refreshToken = self.refreshToken;
   storedItem.authToken = self.authToken;
@@ -60,10 +63,12 @@
 }
 
 - (nonnull NSString *)identifier {
-  return [[self class] identifierWithAppID:self.appID appName:self.firebaseAppName];
+  return [[self class] identifierWithAppID:self.appID
+                                   appName:self.firebaseAppName];
 }
 
-+ (NSString *)identifierWithAppID:(NSString *)appID appName:(NSString *)appName {
++ (NSString *)identifierWithAppID:(NSString *)appID
+                          appName:(NSString *)appName {
   return [appID stringByAppendingString:appName];
 }
 
@@ -77,17 +82,19 @@
 
   uint8_t UUIDLast4Bits = UUIDBytes[UUIDLength - 1] & 0b00001111;
 
-  // FID first 4 bits must be `0111`. The last 4 UUID bits will be cut later to form a proper FID.
-  // To keep 16 random bytes we copy these last 4 UUID to the FID 1st byte after `0111` prefix.
+  // FID first 4 bits must be `0111`. The last 4 UUID bits will be cut later to
+  // form a proper FID. To keep 16 random bytes we copy these last 4 UUID to the
+  // FID 1st byte after `0111` prefix.
   uint8_t FIDPrefix = 0b01110000 | UUIDLast4Bits;
   NSMutableData *FIDData = [NSMutableData dataWithBytes:&FIDPrefix length:1];
 
   [FIDData appendData:UUIDData];
   NSString *FIDString = [self base64URLEncodedStringWithData:FIDData];
 
-  // A valid FID has exactly 22 base64 characters, which is 132 bits, or 16.5 bytes.
-  // Our generated ID has 16 bytes UUID + 1 byte prefix which after encoding with base64 will become
-  // 23 characters plus 1 character for "=" padding.
+  // A valid FID has exactly 22 base64 characters, which is 132 bits, or 16.5
+  // bytes. Our generated ID has 16 bytes UUID + 1 byte prefix which after
+  // encoding with base64 will become 23 characters plus 1 character for "="
+  // padding.
 
   // Remove the 23rd character that was added because of the extra 4 bits at the
   // end of our 17 byte data and the '=' padding.

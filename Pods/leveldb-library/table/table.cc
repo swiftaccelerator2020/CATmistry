@@ -26,17 +26,17 @@ struct Table::Rep {
 
   Options options;
   Status status;
-  RandomAccessFile* file;
+  RandomAccessFile *file;
   uint64_t cache_id;
-  FilterBlockReader* filter;
-  const char* filter_data;
+  FilterBlockReader *filter;
+  const char *filter_data;
 
-  BlockHandle metaindex_handle;  // Handle to metaindex_block: saved from footer
-  Block* index_block;
+  BlockHandle metaindex_handle; // Handle to metaindex_block: saved from footer
+  Block *index_block;
 };
 
-Status Table::Open(const Options& options, RandomAccessFile* file,
-                   uint64_t size, Table** table) {
+Status Table::Open(const Options &options, RandomAccessFile *file,
+                   uint64_t size, Table **table) {
   *table = nullptr;
   if (size < Footer::kEncodedLength) {
     return Status::Corruption("file is too short to be an sstable");
@@ -46,11 +46,13 @@ Status Table::Open(const Options& options, RandomAccessFile* file,
   Slice footer_input;
   Status s = file->Read(size - Footer::kEncodedLength, Footer::kEncodedLength,
                         &footer_input, footer_space);
-  if (!s.ok()) return s;
+  if (!s.ok())
+    return s;
 
   Footer footer;
   s = footer.DecodeFrom(&footer_input);
-  if (!s.ok()) return s;
+  if (!s.ok())
+    return s;
 
   // Read the index block
   BlockContents index_block_contents;
@@ -65,8 +67,8 @@ Status Table::Open(const Options& options, RandomAccessFile* file,
   if (s.ok()) {
     // We've successfully read the footer and the index block: we're
     // ready to serve requests.
-    Block* index_block = new Block(index_block_contents);
-    Rep* rep = new Table::Rep;
+    Block *index_block = new Block(index_block_contents);
+    Rep *rep = new Table::Rep;
     rep->options = options;
     rep->file = file;
     rep->metaindex_handle = footer.metaindex_handle();
@@ -81,9 +83,9 @@ Status Table::Open(const Options& options, RandomAccessFile* file,
   return s;
 }
 
-void Table::ReadMeta(const Footer& footer) {
+void Table::ReadMeta(const Footer &footer) {
   if (rep_->options.filter_policy == nullptr) {
-    return;  // Do not need any metadata
+    return; // Do not need any metadata
   }
 
   // TODO(sanjay): Skip this if footer.metaindex_handle() size indicates
@@ -97,9 +99,9 @@ void Table::ReadMeta(const Footer& footer) {
     // Do not propagate errors since meta info is not needed for operation
     return;
   }
-  Block* meta = new Block(contents);
+  Block *meta = new Block(contents);
 
-  Iterator* iter = meta->NewIterator(BytewiseComparator());
+  Iterator *iter = meta->NewIterator(BytewiseComparator());
   std::string key = "filter.";
   key.append(rep_->options.filter_policy->Name());
   iter->Seek(key);
@@ -110,7 +112,7 @@ void Table::ReadMeta(const Footer& footer) {
   delete meta;
 }
 
-void Table::ReadFilter(const Slice& filter_handle_value) {
+void Table::ReadFilter(const Slice &filter_handle_value) {
   Slice v = filter_handle_value;
   BlockHandle filter_handle;
   if (!filter_handle.DecodeFrom(&v).ok()) {
@@ -128,36 +130,36 @@ void Table::ReadFilter(const Slice& filter_handle_value) {
     return;
   }
   if (block.heap_allocated) {
-    rep_->filter_data = block.data.data();  // Will need to delete later
+    rep_->filter_data = block.data.data(); // Will need to delete later
   }
   rep_->filter = new FilterBlockReader(rep_->options.filter_policy, block.data);
 }
 
 Table::~Table() { delete rep_; }
 
-static void DeleteBlock(void* arg, void* ignored) {
-  delete reinterpret_cast<Block*>(arg);
+static void DeleteBlock(void *arg, void *ignored) {
+  delete reinterpret_cast<Block *>(arg);
 }
 
-static void DeleteCachedBlock(const Slice& key, void* value) {
-  Block* block = reinterpret_cast<Block*>(value);
+static void DeleteCachedBlock(const Slice &key, void *value) {
+  Block *block = reinterpret_cast<Block *>(value);
   delete block;
 }
 
-static void ReleaseBlock(void* arg, void* h) {
-  Cache* cache = reinterpret_cast<Cache*>(arg);
-  Cache::Handle* handle = reinterpret_cast<Cache::Handle*>(h);
+static void ReleaseBlock(void *arg, void *h) {
+  Cache *cache = reinterpret_cast<Cache *>(arg);
+  Cache::Handle *handle = reinterpret_cast<Cache::Handle *>(h);
   cache->Release(handle);
 }
 
 // Convert an index iterator value (i.e., an encoded BlockHandle)
 // into an iterator over the contents of the corresponding block.
-Iterator* Table::BlockReader(void* arg, const ReadOptions& options,
-                             const Slice& index_value) {
-  Table* table = reinterpret_cast<Table*>(arg);
-  Cache* block_cache = table->rep_->options.block_cache;
-  Block* block = nullptr;
-  Cache::Handle* cache_handle = nullptr;
+Iterator *Table::BlockReader(void *arg, const ReadOptions &options,
+                             const Slice &index_value) {
+  Table *table = reinterpret_cast<Table *>(arg);
+  Cache *block_cache = table->rep_->options.block_cache;
+  Block *block = nullptr;
+  Cache::Handle *cache_handle = nullptr;
 
   BlockHandle handle;
   Slice input = index_value;
@@ -174,7 +176,7 @@ Iterator* Table::BlockReader(void* arg, const ReadOptions& options,
       Slice key(cache_key_buffer, sizeof(cache_key_buffer));
       cache_handle = block_cache->Lookup(key);
       if (cache_handle != nullptr) {
-        block = reinterpret_cast<Block*>(block_cache->Value(cache_handle));
+        block = reinterpret_cast<Block *>(block_cache->Value(cache_handle));
       } else {
         s = ReadBlock(table->rep_->file, options, handle, &contents);
         if (s.ok()) {
@@ -193,7 +195,7 @@ Iterator* Table::BlockReader(void* arg, const ReadOptions& options,
     }
   }
 
-  Iterator* iter;
+  Iterator *iter;
   if (block != nullptr) {
     iter = block->NewIterator(table->rep_->options.comparator);
     if (cache_handle == nullptr) {
@@ -207,27 +209,27 @@ Iterator* Table::BlockReader(void* arg, const ReadOptions& options,
   return iter;
 }
 
-Iterator* Table::NewIterator(const ReadOptions& options) const {
+Iterator *Table::NewIterator(const ReadOptions &options) const {
   return NewTwoLevelIterator(
       rep_->index_block->NewIterator(rep_->options.comparator),
-      &Table::BlockReader, const_cast<Table*>(this), options);
+      &Table::BlockReader, const_cast<Table *>(this), options);
 }
 
-Status Table::InternalGet(const ReadOptions& options, const Slice& k, void* arg,
-                          void (*handle_result)(void*, const Slice&,
-                                                const Slice&)) {
+Status Table::InternalGet(const ReadOptions &options, const Slice &k, void *arg,
+                          void (*handle_result)(void *, const Slice &,
+                                                const Slice &)) {
   Status s;
-  Iterator* iiter = rep_->index_block->NewIterator(rep_->options.comparator);
+  Iterator *iiter = rep_->index_block->NewIterator(rep_->options.comparator);
   iiter->Seek(k);
   if (iiter->Valid()) {
     Slice handle_value = iiter->value();
-    FilterBlockReader* filter = rep_->filter;
+    FilterBlockReader *filter = rep_->filter;
     BlockHandle handle;
     if (filter != nullptr && handle.DecodeFrom(&handle_value).ok() &&
         !filter->KeyMayMatch(handle.offset(), k)) {
       // Not found
     } else {
-      Iterator* block_iter = BlockReader(this, options, iiter->value());
+      Iterator *block_iter = BlockReader(this, options, iiter->value());
       block_iter->Seek(k);
       if (block_iter->Valid()) {
         (*handle_result)(arg, block_iter->key(), block_iter->value());
@@ -243,8 +245,8 @@ Status Table::InternalGet(const ReadOptions& options, const Slice& k, void* arg,
   return s;
 }
 
-uint64_t Table::ApproximateOffsetOf(const Slice& key) const {
-  Iterator* index_iter =
+uint64_t Table::ApproximateOffsetOf(const Slice &key) const {
+  Iterator *index_iter =
       rep_->index_block->NewIterator(rep_->options.comparator);
   index_iter->Seek(key);
   uint64_t result;
@@ -270,4 +272,4 @@ uint64_t Table::ApproximateOffsetOf(const Slice& key) const {
   return result;
 }
 
-}  // namespace leveldb
+} // namespace leveldb

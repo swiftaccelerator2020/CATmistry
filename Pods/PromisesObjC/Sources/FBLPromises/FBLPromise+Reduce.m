@@ -20,8 +20,11 @@
 
 @implementation FBLPromise (ReduceAdditions)
 
-- (FBLPromise *)reduce:(NSArray *)items combine:(FBLPromiseReducerBlock)reducer {
-  return [self onQueue:FBLPromise.defaultDispatchQueue reduce:items combine:reducer];
+- (FBLPromise *)reduce:(NSArray *)items
+               combine:(FBLPromiseReducerBlock)reducer {
+  return [self onQueue:FBLPromise.defaultDispatchQueue
+                reduce:items
+               combine:reducer];
 }
 
 - (FBLPromise *)onQueue:(dispatch_queue_t)queue
@@ -52,8 +55,10 @@
   };
 }
 
-- (FBLPromise * (^)(dispatch_queue_t, NSArray *, FBLPromiseReducerBlock))reduceOn {
-  return ^(dispatch_queue_t queue, NSArray *items, FBLPromiseReducerBlock reducer) {
+- (FBLPromise * (^)(dispatch_queue_t, NSArray *,
+                    FBLPromiseReducerBlock))reduceOn {
+  return ^(dispatch_queue_t queue, NSArray *items,
+           FBLPromiseReducerBlock reducer) {
     return [self onQueue:queue reduce:items combine:reducer];
   };
 }

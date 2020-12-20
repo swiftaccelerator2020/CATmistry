@@ -22,7 +22,8 @@
 
 FIRLoggerService kFIRLoggerCore = @"[Firebase/Core]";
 
-// All the FIRLoggerService definitions should be migrated to clients. Do not add new ones!
+// All the FIRLoggerService definitions should be migrated to clients. Do not
+// add new ones!
 FIRLoggerService kFIRLoggerABTesting = @"[Firebase/ABTesting]";
 FIRLoggerService kFIRLoggerAdMob = @"[Firebase/AdMob]";
 FIRLoggerService kFIRLoggerAnalytics = @"[Firebase/Analytics]";
@@ -35,21 +36,22 @@ FIRLoggerService kFIRLoggerRemoteConfig = @"[Firebase/RemoteConfig]";
 /// Arguments passed on launch.
 NSString *const kFIRDisableDebugModeApplicationArgument = @"-FIRDebugDisabled";
 NSString *const kFIREnableDebugModeApplicationArgument = @"-FIRDebugEnabled";
-NSString *const kFIRLoggerForceSDTERRApplicationArgument = @"-FIRLoggerForceSTDERR";
+NSString *const kFIRLoggerForceSDTERRApplicationArgument =
+    @"-FIRLoggerForceSTDERR";
 
 /// Key for the debug mode bit in NSUserDefaults.
 NSString *const kFIRPersistedDebugModeKey = @"/google/firebase/debug_mode";
 
-/// NSUserDefaults that should be used to store and read variables. If nil, `standardUserDefaults`
-/// will be used.
+/// NSUserDefaults that should be used to store and read variables. If nil,
+/// `standardUserDefaults` will be used.
 static NSUserDefaults *sFIRLoggerUserDefaults;
 
 static dispatch_once_t sFIRLoggerOnceToken;
 
-// The sFIRAnalyticsDebugMode flag is here to support the -FIRDebugEnabled/-FIRDebugDisabled
-// flags used by Analytics. Users who use those flags expect Analytics to log verbosely,
-// while the rest of Firebase logs at the default level. This flag is introduced to support
-// that behavior.
+// The sFIRAnalyticsDebugMode flag is here to support the
+// -FIRDebugEnabled/-FIRDebugDisabled flags used by Analytics. Users who use
+// those flags expect Analytics to log verbosely, while the rest of Firebase
+// logs at the default level. This flag is introduced to support that behavior.
 static BOOL sFIRAnalyticsDebugMode;
 
 #ifdef DEBUG
@@ -63,9 +65,11 @@ void FIRLoggerInitializeASL() {
     // Register Firebase Version with GULLogger.
     GULLoggerRegisterVersion(FIRVersionString);
 
-    // Override the aslOptions to ASL_OPT_STDERR if the override argument is passed in.
+    // Override the aslOptions to ASL_OPT_STDERR if the override argument is
+    // passed in.
     NSArray *arguments = [NSProcessInfo processInfo].arguments;
-    BOOL overrideSTDERR = [arguments containsObject:kFIRLoggerForceSDTERRApplicationArgument];
+    BOOL overrideSTDERR =
+        [arguments containsObject:kFIRLoggerForceSDTERRApplicationArgument];
 
     // Use the standard NSUserDefaults if it hasn't been explicitly set.
     if (sFIRLoggerUserDefaults == nil) {
@@ -73,11 +77,15 @@ void FIRLoggerInitializeASL() {
     }
 
     BOOL forceDebugMode = NO;
-    BOOL debugMode = [sFIRLoggerUserDefaults boolForKey:kFIRPersistedDebugModeKey];
-    if ([arguments containsObject:kFIRDisableDebugModeApplicationArgument]) {  // Default mode
+    BOOL debugMode =
+        [sFIRLoggerUserDefaults boolForKey:kFIRPersistedDebugModeKey];
+    if ([arguments
+            containsObject:kFIRDisableDebugModeApplicationArgument]) { // Default
+                                                                       // mode
       [sFIRLoggerUserDefaults removeObjectForKey:kFIRPersistedDebugModeKey];
-    } else if ([arguments containsObject:kFIREnableDebugModeApplicationArgument] ||
-               debugMode) {  // Debug mode
+    } else if ([arguments
+                   containsObject:kFIREnableDebugModeApplicationArgument] ||
+               debugMode) { // Debug mode
       [sFIRLoggerUserDefaults setBool:YES forKey:kFIRPersistedDebugModeKey];
       forceDebugMode = YES;
     }
@@ -91,7 +99,8 @@ void FIRLoggerInitializeASL() {
   });
 }
 
-__attribute__((no_sanitize("thread"))) void FIRSetAnalyticsDebugMode(BOOL analyticsDebugMode) {
+__attribute__((no_sanitize("thread"))) void
+FIRSetAnalyticsDebugMode(BOOL analyticsDebugMode) {
   sFIRAnalyticsDebugMode = analyticsDebugMode;
 }
 
@@ -120,8 +129,8 @@ void FIRSetLoggerUserDefaults(NSUserDefaults *defaults) {
  * Analytics can override the log level with an intentional race condition.
  * Add the attribute to get a clean thread sanitizer run.
  */
-__attribute__((no_sanitize("thread"))) BOOL FIRIsLoggableLevel(FIRLoggerLevel loggerLevel,
-                                                               BOOL analyticsComponent) {
+__attribute__((no_sanitize("thread"))) BOOL
+FIRIsLoggableLevel(FIRLoggerLevel loggerLevel, BOOL analyticsComponent) {
   FIRLoggerInitializeASL();
   if (sFIRAnalyticsDebugMode && analyticsComponent) {
     return YES;
@@ -129,31 +138,33 @@ __attribute__((no_sanitize("thread"))) BOOL FIRIsLoggableLevel(FIRLoggerLevel lo
   return GULIsLoggableLevel((GULLoggerLevel)loggerLevel);
 }
 
-void FIRLogBasic(FIRLoggerLevel level,
-                 FIRLoggerService service,
-                 NSString *messageCode,
-                 NSString *message,
-                 va_list args_ptr) {
+void FIRLogBasic(FIRLoggerLevel level, FIRLoggerService service,
+                 NSString *messageCode, NSString *message, va_list args_ptr) {
   FIRLoggerInitializeASL();
   GULLogBasic((GULLoggerLevel)level, service,
-              sFIRAnalyticsDebugMode && [kFIRLoggerAnalytics isEqualToString:service], messageCode,
-              message, args_ptr);
+              sFIRAnalyticsDebugMode &&
+                  [kFIRLoggerAnalytics isEqualToString:service],
+              messageCode, message, args_ptr);
 }
 
 /**
  * Generates the logging functions using macros.
  *
- * Calling FIRLogError(kFIRLoggerCore, @"I-COR000001", @"Configure %@ failed.", @"blah") shows:
- * yyyy-mm-dd hh:mm:ss.SSS sender[PID] <Error> [Firebase/Core][I-COR000001] Configure blah failed.
- * Calling FIRLogDebug(kFIRLoggerCore, @"I-COR000001", @"Configure succeed.") shows:
- * yyyy-mm-dd hh:mm:ss.SSS sender[PID] <Debug> [Firebase/Core][I-COR000001] Configure succeed.
+ * Calling FIRLogError(kFIRLoggerCore, @"I-COR000001", @"Configure %@ failed.",
+ * @"blah") shows: yyyy-mm-dd hh:mm:ss.SSS sender[PID] <Error>
+ * [Firebase/Core][I-COR000001] Configure blah failed. Calling
+ * FIRLogDebug(kFIRLoggerCore, @"I-COR000001", @"Configure succeed.") shows:
+ * yyyy-mm-dd hh:mm:ss.SSS sender[PID] <Debug> [Firebase/Core][I-COR000001]
+ * Configure succeed.
  */
-#define FIR_LOGGING_FUNCTION(level)                                                             \
-  void FIRLog##level(FIRLoggerService service, NSString *messageCode, NSString *message, ...) { \
-    va_list args_ptr;                                                                           \
-    va_start(args_ptr, message);                                                                \
-    FIRLogBasic(FIRLoggerLevel##level, service, messageCode, message, args_ptr);                \
-    va_end(args_ptr);                                                                           \
+#define FIR_LOGGING_FUNCTION(level)                                            \
+  void FIRLog##level(FIRLoggerService service, NSString *messageCode,          \
+                     NSString *message, ...) {                                 \
+    va_list args_ptr;                                                          \
+    va_start(args_ptr, message);                                               \
+    FIRLogBasic(FIRLoggerLevel##level, service, messageCode, message,          \
+                args_ptr);                                                     \
+    va_end(args_ptr);                                                          \
   }
 
 FIR_LOGGING_FUNCTION(Error)

@@ -18,26 +18,26 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface FBLPromise<Value>(DelayAdditions)
+@interface FBLPromise <Value>(DelayAdditions)
 
 /**
- Creates a new pending promise that fulfills with the same value as `self` after the `delay`, or
- rejects with the same error immediately.
+ Creates a new pending promise that fulfills with the same value as `self` after
+ the `delay`, or rejects with the same error immediately.
 
  @param interval Time to wait in seconds.
- @return A new pending promise that fulfills at least `delay` seconds later than `self`, or rejects
-         with the same error immediately.
+ @return A new pending promise that fulfills at least `delay` seconds later than
+ `self`, or rejects with the same error immediately.
  */
 - (FBLPromise *)delay:(NSTimeInterval)interval NS_SWIFT_UNAVAILABLE("");
 
 /**
- Creates a new pending promise that fulfills with the same value as `self` after the `delay`, or
- rejects with the same error immediately.
+ Creates a new pending promise that fulfills with the same value as `self` after
+ the `delay`, or rejects with the same error immediately.
 
  @param queue A queue to dispatch on.
  @param interval Time to wait in seconds.
- @return A new pending promise that fulfills at least `delay` seconds later than `self`, or rejects
-         with the same error immediately.
+ @return A new pending promise that fulfills at least `delay` seconds later than
+ `self`, or rejects with the same error immediately.
  */
 - (FBLPromise *)onQueue:(dispatch_queue_t)queue
                   delay:(NSTimeInterval)interval NS_REFINED_FOR_SWIFT;
@@ -48,10 +48,12 @@ NS_ASSUME_NONNULL_BEGIN
  Convenience dot-syntax wrappers for `FBLPromise` `delay` operators.
  Usage: promise.delay(...)
  */
-@interface FBLPromise<Value>(DotSyntax_DelayAdditions)
+@interface FBLPromise <Value>(DotSyntax_DelayAdditions)
 
-- (FBLPromise * (^)(NSTimeInterval))delay FBL_PROMISES_DOT_SYNTAX NS_SWIFT_UNAVAILABLE("");
-- (FBLPromise * (^)(dispatch_queue_t, NSTimeInterval))delayOn FBL_PROMISES_DOT_SYNTAX
+- (FBLPromise * (^)(NSTimeInterval))delay FBL_PROMISES_DOT_SYNTAX
+    NS_SWIFT_UNAVAILABLE("");
+- (FBLPromise * (^)(dispatch_queue_t,
+                    NSTimeInterval))delayOn FBL_PROMISES_DOT_SYNTAX
     NS_SWIFT_UNAVAILABLE("");
 
 @end

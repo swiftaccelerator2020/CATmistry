@@ -26,21 +26,20 @@
 @synthesize rootNode;
 
 - (id)init {
-    self = [super init];
-    if (self) {
-        self.rootNode = [FEmptyNode emptyNode];
-    }
-    return self;
+  self = [super init];
+  if (self) {
+    self.rootNode = [FEmptyNode emptyNode];
+  }
+  return self;
 }
 
 - (id<FNode>)getNode:(FPath *)path {
-    return [self.rootNode getChild:path];
+  return [self.rootNode getChild:path];
 }
 
 - (void)updateSnapshot:(FPath *)path
        withNewSnapshot:(id<FNode>)newSnapshotNode {
-    self.rootNode = [self.rootNode updateChild:path
-                                  withNewChild:newSnapshotNode];
+  self.rootNode = [self.rootNode updateChild:path withNewChild:newSnapshotNode];
 }
 
 @end

@@ -10,17 +10,17 @@
 namespace leveldb {
 
 class Histogram {
- public:
+public:
   Histogram() {}
   ~Histogram() {}
 
   void Clear();
   void Add(double value);
-  void Merge(const Histogram& other);
+  void Merge(const Histogram &other);
 
   std::string ToString() const;
 
- private:
+private:
   enum { kNumBuckets = 154 };
 
   double Median() const;
@@ -39,6 +39,6 @@ class Histogram {
   double buckets_[kNumBuckets];
 };
 
-}  // namespace leveldb
+} // namespace leveldb
 
-#endif  // STORAGE_LEVELDB_UTIL_HISTOGRAM_H_
+#endif // STORAGE_LEVELDB_UTIL_HISTOGRAM_H_

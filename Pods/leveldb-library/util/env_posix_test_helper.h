@@ -11,7 +11,7 @@ class EnvPosixTest;
 
 // A helper for the POSIX Env to facilitate testing.
 class EnvPosixTestHelper {
- private:
+private:
   friend class EnvPosixTest;
 
   // Set the maximum number of read-only files that will be opened.
@@ -23,6 +23,6 @@ class EnvPosixTestHelper {
   static void SetReadOnlyMMapLimit(int limit);
 };
 
-}  // namespace leveldb
+} // namespace leveldb
 
-#endif  // STORAGE_LEVELDB_UTIL_ENV_POSIX_TEST_HELPER_H_
+#endif // STORAGE_LEVELDB_UTIL_ENV_POSIX_TEST_HELPER_H_

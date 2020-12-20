@@ -24,12 +24,14 @@
 NS_ASSUME_NONNULL_BEGIN
 
 /**
- * The class is supposed to be used by `FIRInstallationsStore` only. It is required to
- * serialize/deserialize the installation data into/from `NSData` to be stored in Keychain.
+ * The class is supposed to be used by `FIRInstallationsStore` only. It is
+ * required to serialize/deserialize the installation data into/from `NSData` to
+ * be stored in Keychain.
  *
- * WARNING: Modification of the class properties can lead to incompatibility with the stored data
- * encoded by the previous class versions. Any modification must be evaluated and, if it is really
- * needed, the `storageVersion` must be bumped and proper migration code added.
+ * WARNING: Modification of the class properties can lead to incompatibility
+ * with the stored data encoded by the previous class versions. Any modification
+ * must be evaluated and, if it is really needed, the `storageVersion` must be
+ * bumped and proper migration code added.
  */
 @interface FIRInstallationsStoredItem : NSObject <NSSecureCoding>
 
@@ -41,7 +43,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, nullable) FIRInstallationsStoredAuthToken *authToken;
 @property(nonatomic) FIRInstallationsStatus registrationStatus;
 
-/// Instance ID default auth token imported from IID store as a part of IID migration.
+/// Instance ID default auth token imported from IID store as a part of IID
+/// migration.
 @property(nonatomic, nullable) NSString *IIDDefaultToken;
 
 /// The version of local storage.

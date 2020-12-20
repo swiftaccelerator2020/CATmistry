@@ -18,9 +18,9 @@ class Iterator;
 // key is present in K child iterators, it will be yielded K times.
 //
 // REQUIRES: n >= 0
-Iterator* NewMergingIterator(const Comparator* comparator, Iterator** children,
+Iterator *NewMergingIterator(const Comparator *comparator, Iterator **children,
                              int n);
 
-}  // namespace leveldb
+} // namespace leveldb
 
-#endif  // STORAGE_LEVELDB_TABLE_MERGER_H_
+#endif // STORAGE_LEVELDB_TABLE_MERGER_H_

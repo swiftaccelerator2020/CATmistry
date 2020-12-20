@@ -18,29 +18,29 @@ class WritableFile;
 namespace log {
 
 class Writer {
- public:
+public:
   // Create a writer that will append data to "*dest".
   // "*dest" must be initially empty.
   // "*dest" must remain live while this Writer is in use.
-  explicit Writer(WritableFile* dest);
+  explicit Writer(WritableFile *dest);
 
   // Create a writer that will append data to "*dest".
   // "*dest" must have initial length "dest_length".
   // "*dest" must remain live while this Writer is in use.
-  Writer(WritableFile* dest, uint64_t dest_length);
+  Writer(WritableFile *dest, uint64_t dest_length);
 
-  Writer(const Writer&) = delete;
-  Writer& operator=(const Writer&) = delete;
+  Writer(const Writer &) = delete;
+  Writer &operator=(const Writer &) = delete;
 
   ~Writer();
 
-  Status AddRecord(const Slice& slice);
+  Status AddRecord(const Slice &slice);
 
- private:
-  Status EmitPhysicalRecord(RecordType type, const char* ptr, size_t length);
+private:
+  Status EmitPhysicalRecord(RecordType type, const char *ptr, size_t length);
 
-  WritableFile* dest_;
-  int block_offset_;  // Current offset in block
+  WritableFile *dest_;
+  int block_offset_; // Current offset in block
 
   // crc32c values for all supported record types.  These are
   // pre-computed to reduce the overhead of computing the crc of the
@@ -48,7 +48,7 @@ class Writer {
   uint32_t type_crc_[kMaxRecordType + 1];
 };
 
-}  // namespace log
-}  // namespace leveldb
+} // namespace log
+} // namespace leveldb
 
-#endif  // STORAGE_LEVELDB_DB_LOG_WRITER_H_
+#endif // STORAGE_LEVELDB_DB_LOG_WRITER_H_

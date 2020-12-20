@@ -24,7 +24,8 @@ id __nullable FBLPromiseAwait(FBLPromise *promise, NSError **outError) {
   static dispatch_once_t onceToken;
   static dispatch_queue_t queue;
   dispatch_once(&onceToken, ^{
-    queue = dispatch_queue_create("com.google.FBLPromises.Await", DISPATCH_QUEUE_CONCURRENT);
+    queue = dispatch_queue_create("com.google.FBLPromises.Await",
+                                  DISPATCH_QUEUE_CONCURRENT);
   });
   dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
   id __block resolution;

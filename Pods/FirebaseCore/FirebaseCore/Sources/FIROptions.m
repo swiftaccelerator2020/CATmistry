@@ -33,8 +33,10 @@ NSString *const kFIRBundleID = @"BUNDLE_ID";
 NSString *const kFIRProjectID = @"PROJECT_ID";
 
 NSString *const kFIRIsMeasurementEnabled = @"IS_MEASUREMENT_ENABLED";
-NSString *const kFIRIsAnalyticsCollectionEnabled = @"FIREBASE_ANALYTICS_COLLECTION_ENABLED";
-NSString *const kFIRIsAnalyticsCollectionDeactivated = @"FIREBASE_ANALYTICS_COLLECTION_DEACTIVATED";
+NSString *const kFIRIsAnalyticsCollectionEnabled =
+    @"FIREBASE_ANALYTICS_COLLECTION_ENABLED";
+NSString *const kFIRIsAnalyticsCollectionDeactivated =
+    @"FIREBASE_ANALYTICS_COLLECTION_DEACTIVATED";
 
 NSString *const kFIRIsAnalyticsEnabled = @"IS_ANALYTICS_ENABLED";
 NSString *const kFIRIsSignInEnabled = @"IS_SIGNIN_ENABLED";
@@ -51,9 +53,11 @@ NSString *const kServiceInfoFileName = @"GoogleService-Info";
 // Plist file type.
 NSString *const kServiceInfoFileType = @"plist";
 
-// Exception raised from attempting to modify a FIROptions after it's been copied to a FIRApp.
+// Exception raised from attempting to modify a FIROptions after it's been
+// copied to a FIRApp.
 NSString *const kFIRExceptionBadModification =
-    @"Attempted to modify options after it's set on FIRApp. Please modify all properties before "
+    @"Attempted to modify options after it's set on FIRApp. Please modify all "
+    @"properties before "
     @"initializing FIRApp.";
 
 @interface FIROptions ()
@@ -64,17 +68,20 @@ NSString *const kFIRExceptionBadModification =
 @property(nonatomic, readwrite) NSMutableDictionary *optionsDictionary;
 
 /**
- * Calls `analyticsOptionsDictionaryWithInfoDictionary:` using [NSBundle mainBundle].infoDictionary.
- * It combines analytics options from both the infoDictionary and the GoogleService-Info.plist.
- * Values which are present in the main plist override values from the GoogleService-Info.plist.
+ * Calls `analyticsOptionsDictionaryWithInfoDictionary:` using [NSBundle
+ * mainBundle].infoDictionary. It combines analytics options from both the
+ * infoDictionary and the GoogleService-Info.plist. Values which are present in
+ * the main plist override values from the GoogleService-Info.plist.
  */
 @property(nonatomic, readonly) NSDictionary *analyticsOptionsDictionary;
 
 /**
- * Combination of analytics options from both the infoDictionary and the GoogleService-Info.plist.
- * Values which are present in the infoDictionary override values from the GoogleService-Info.plist.
+ * Combination of analytics options from both the infoDictionary and the
+ * GoogleService-Info.plist. Values which are present in the infoDictionary
+ * override values from the GoogleService-Info.plist.
  */
-- (NSDictionary *)analyticsOptionsDictionaryWithInfoDictionary:(NSDictionary *)infoDictionary;
+- (NSDictionary *)analyticsOptionsDictionaryWithInfoDictionary:
+    (NSDictionary *)infoDictionary;
 
 /**
  * Throw exception if editing is locked when attempting to modify an option.
@@ -99,8 +106,8 @@ static dispatch_once_t sDefaultOptionsDictionaryOnceToken;
   dispatch_once(&sDefaultOptionsOnceToken, ^{
     NSDictionary *defaultOptionsDictionary = [self defaultOptionsDictionary];
     if (defaultOptionsDictionary != nil) {
-      sDefaultOptions =
-          [[FIROptions alloc] initInternalWithOptionsDictionary:defaultOptionsDictionary];
+      sDefaultOptions = [[FIROptions alloc]
+          initInternalWithOptionsDictionary:defaultOptionsDictionary];
     }
   });
 
@@ -111,11 +118,13 @@ static dispatch_once_t sDefaultOptionsDictionaryOnceToken;
 
 + (NSDictionary *)defaultOptionsDictionary {
   dispatch_once(&sDefaultOptionsDictionaryOnceToken, ^{
-    NSString *plistFilePath = [FIROptions plistFilePathWithName:kServiceInfoFileName];
+    NSString *plistFilePath =
+        [FIROptions plistFilePathWithName:kServiceInfoFileName];
     if (plistFilePath == nil) {
       return;
     }
-    sDefaultOptionsDictionary = [NSDictionary dictionaryWithContentsOfFile:plistFilePath];
+    sDefaultOptionsDictionary =
+        [NSDictionary dictionaryWithContentsOfFile:plistFilePath];
     if (sDefaultOptionsDictionary == nil) {
       FIRLogError(kFIRLoggerCore, @"I-COR000011",
                   @"The configuration file is not a dictionary: "
@@ -135,8 +144,9 @@ static dispatch_once_t sDefaultOptionsDictionaryOnceToken;
                                                andFileType:kServiceInfoFileType
                                                  inBundles:bundles];
   if (plistFilePath == nil) {
-    FIRLogError(kFIRLoggerCore, @"I-COR000012", @"Could not locate configuration file: '%@.%@'.",
-                fileName, kServiceInfoFileType);
+    FIRLogError(kFIRLoggerCore, @"I-COR000012",
+                @"Could not locate configuration file: '%@.%@'.", fileName,
+                kServiceInfoFileType);
   }
   return plistFilePath;
 }
@@ -150,7 +160,8 @@ static dispatch_once_t sDefaultOptionsDictionaryOnceToken;
 
 #pragma mark - Private instance methods
 
-- (instancetype)initInternalWithOptionsDictionary:(NSDictionary *)optionsDictionary {
+- (instancetype)initInternalWithOptionsDictionary:
+    (NSDictionary *)optionsDictionary {
   self = [super init];
   if (self) {
     _optionsDictionary = [optionsDictionary mutableCopy];
@@ -177,10 +188,12 @@ static dispatch_once_t sDefaultOptionsDictionaryOnceToken;
   self = [super init];
   if (self) {
     if (plistPath == nil) {
-      FIRLogError(kFIRLoggerCore, @"I-COR000013", @"The plist file path is nil.");
+      FIRLogError(kFIRLoggerCore, @"I-COR000013",
+                  @"The plist file path is nil.");
       return nil;
     }
-    _optionsDictionary = [[NSDictionary dictionaryWithContentsOfFile:plistPath] mutableCopy];
+    _optionsDictionary =
+        [[NSDictionary dictionaryWithContentsOfFile:plistPath] mutableCopy];
     if (_optionsDictionary == nil) {
       FIRLogError(kFIRLoggerCore, @"I-COR000014",
                   @"The configuration file at %@ does not exist or "
@@ -188,19 +201,21 @@ static dispatch_once_t sDefaultOptionsDictionaryOnceToken;
                   plistPath);
       return nil;
     }
-    // TODO: Do we want to validate the dictionary here? It says we do that already in
-    // the public header.
+    // TODO: Do we want to validate the dictionary here? It says we do that
+    // already in the public header.
   }
   return self;
 }
 
-- (instancetype)initWithGoogleAppID:(NSString *)googleAppID GCMSenderID:(NSString *)GCMSenderID {
+- (instancetype)initWithGoogleAppID:(NSString *)googleAppID
+                        GCMSenderID:(NSString *)GCMSenderID {
   self = [super init];
   if (self) {
     NSMutableDictionary *mutableOptionsDict = [NSMutableDictionary dictionary];
     [mutableOptionsDict setValue:googleAppID forKey:kFIRGoogleAppID];
     [mutableOptionsDict setValue:GCMSenderID forKey:kFIRGCMSenderID];
-    [mutableOptionsDict setValue:[[NSBundle mainBundle] bundleIdentifier] forKey:kFIRBundleID];
+    [mutableOptionsDict setValue:[[NSBundle mainBundle] bundleIdentifier]
+                          forKey:kFIRBundleID];
     self.optionsDictionary = mutableOptionsDict;
   }
   return self;
@@ -212,7 +227,8 @@ static dispatch_once_t sDefaultOptionsDictionaryOnceToken;
 
 - (void)checkEditingLocked {
   if (self.isEditingLocked) {
-    [NSException raise:kFirebaseCoreErrorDomain format:kFIRExceptionBadModification];
+    [NSException raise:kFirebaseCoreErrorDomain
+                format:kFIRExceptionBadModification];
   }
 }
 
@@ -278,13 +294,17 @@ static dispatch_once_t sDefaultOptionsDictionaryOnceToken;
 - (NSString *)libraryVersionID {
   static dispatch_once_t onceToken;
   dispatch_once(&onceToken, ^{
-    // The unit tests are set up to catch anything that does not properly convert.
+    // The unit tests are set up to catch anything that does not properly
+    // convert.
     NSString *version = [NSString stringWithUTF8String:FIRCoreVersionString];
     NSArray *components = [version componentsSeparatedByString:@"."];
     NSString *major = [components objectAtIndex:0];
-    NSString *minor = [NSString stringWithFormat:@"%02d", [[components objectAtIndex:1] intValue]];
-    NSString *patch = [NSString stringWithFormat:@"%02d", [[components objectAtIndex:2] intValue]];
-    kFIRLibraryVersionID = [NSString stringWithFormat:@"%@%@%@000", major, minor, patch];
+    NSString *minor = [NSString
+        stringWithFormat:@"%02d", [[components objectAtIndex:1] intValue]];
+    NSString *patch = [NSString
+        stringWithFormat:@"%02d", [[components objectAtIndex:2] intValue]];
+    kFIRLibraryVersionID =
+        [NSString stringWithFormat:@"%@%@%@000", major, minor, patch];
   });
   return kFIRLibraryVersionID;
 }
@@ -352,8 +372,8 @@ static dispatch_once_t sDefaultOptionsDictionaryOnceToken;
     return NO;
   }
 
-  // Validate extra properties not contained in the dictionary. Only validate it if one of the
-  // objects has the property set.
+  // Validate extra properties not contained in the dictionary. Only validate it
+  // if one of the objects has the property set.
   if ((options.deepLinkURLScheme != nil || self.deepLinkURLScheme != nil) &&
       ![options.deepLinkURLScheme isEqualToString:self.deepLinkURLScheme]) {
     return NO;
@@ -365,30 +385,35 @@ static dispatch_once_t sDefaultOptionsDictionaryOnceToken;
   }
 
   // Validate the Analytics options haven't changed with the Info.plist.
-  if (![options.analyticsOptionsDictionary isEqualToDictionary:self.analyticsOptionsDictionary]) {
+  if (![options.analyticsOptionsDictionary
+          isEqualToDictionary:self.analyticsOptionsDictionary]) {
     return NO;
   }
 
-  // We don't care about the `editingLocked` or `usingOptionsFromDefaultPlist` properties since
-  // those relate to lifecycle and construction, we only care if the contents of the options
-  // themselves are equal.
+  // We don't care about the `editingLocked` or `usingOptionsFromDefaultPlist`
+  // properties since those relate to lifecycle and construction, we only care
+  // if the contents of the options themselves are equal.
   return YES;
 }
 
 - (NSUInteger)hash {
-  // This is strongly recommended for any object that implements a custom `isEqual:` method to
-  // ensure that dictionary and set behavior matches other `isEqual:` checks.
-  // Note: `self.analyticsOptionsDictionary` was left out here since it solely relies on the
-  // contents of the main bundle's `Info.plist`. We should avoid reading that file and the contents
-  // should be identical.
-  return self.optionsDictionary.hash ^ self.deepLinkURLScheme.hash ^ self.appGroupID.hash;
+  // This is strongly recommended for any object that implements a custom
+  // `isEqual:` method to ensure that dictionary and set behavior matches other
+  // `isEqual:` checks. Note: `self.analyticsOptionsDictionary` was left out
+  // here since it solely relies on the contents of the main bundle's
+  // `Info.plist`. We should avoid reading that file and the contents should be
+  // identical.
+  return self.optionsDictionary.hash ^ self.deepLinkURLScheme.hash ^
+         self.appGroupID.hash;
 }
 
 #pragma mark - Internal instance methods
 
-- (NSDictionary *)analyticsOptionsDictionaryWithInfoDictionary:(NSDictionary *)infoDictionary {
+- (NSDictionary *)analyticsOptionsDictionaryWithInfoDictionary:
+    (NSDictionary *)infoDictionary {
   if (_analyticsOptionsDictionary == nil) {
-    NSMutableDictionary *tempAnalyticsOptions = [[NSMutableDictionary alloc] init];
+    NSMutableDictionary *tempAnalyticsOptions =
+        [[NSMutableDictionary alloc] init];
     NSArray *measurementKeys = @[
       kFIRIsMeasurementEnabled, kFIRIsAnalyticsCollectionEnabled,
       kFIRIsAnalyticsCollectionDeactivated
@@ -406,13 +431,15 @@ static dispatch_once_t sDefaultOptionsDictionaryOnceToken;
 }
 
 - (NSDictionary *)analyticsOptionsDictionary {
-  return [self analyticsOptionsDictionaryWithInfoDictionary:[NSBundle mainBundle].infoDictionary];
+  return
+      [self analyticsOptionsDictionaryWithInfoDictionary:[NSBundle mainBundle]
+                                                             .infoDictionary];
 }
 
 /**
- * Whether or not Measurement was enabled. Measurement is enabled unless explicitly disabled in
- * GoogleService-Info.plist. This uses the old plist flag IS_MEASUREMENT_ENABLED, which should still
- * be supported.
+ * Whether or not Measurement was enabled. Measurement is enabled unless
+ * explicitly disabled in GoogleService-Info.plist. This uses the old plist flag
+ * IS_MEASUREMENT_ENABLED, which should still be supported.
  */
 - (BOOL)isMeasurementEnabled {
   if (self.isAnalyticsCollectionDeactivated) {
@@ -420,40 +447,49 @@ static dispatch_once_t sDefaultOptionsDictionaryOnceToken;
   }
   NSNumber *value = self.analyticsOptionsDictionary[kFIRIsMeasurementEnabled];
   if (value == nil) {
-    // TODO: This could probably be cleaned up since FIROptions shouldn't know about FIRApp or have
-    //       to check if it's the default app. The FIROptions instance can't be modified after
-    //       `+configure` is called, so it's not a good place to copy it either in case the flag is
-    //       changed at runtime.
+    // TODO: This could probably be cleaned up since FIROptions shouldn't know
+    // about FIRApp or have
+    //       to check if it's the default app. The FIROptions instance can't be
+    //       modified after
+    //       `+configure` is called, so it's not a good place to copy it either
+    //       in case the flag is changed at runtime.
 
-    // If no values are set for Analytics, fall back to the global collection switch in FIRApp.
-    // Analytics only supports the default FIRApp, so check that first.
+    // If no values are set for Analytics, fall back to the global collection
+    // switch in FIRApp. Analytics only supports the default FIRApp, so check
+    // that first.
     if (![FIRApp isDefaultAppConfigured]) {
       return NO;
     }
 
-    // Fall back to the default app's collection switch when the key is not in the dictionary.
+    // Fall back to the default app's collection switch when the key is not in
+    // the dictionary.
     return [FIRApp defaultApp].isDataCollectionDefaultEnabled;
   }
   return [value boolValue];
 }
 
 - (BOOL)isAnalyticsCollectionExplicitlySet {
-  // If it's de-activated, it classifies as explicity set. If not, it's not a good enough indication
-  // that the developer wants FirebaseAnalytics enabled so continue checking.
+  // If it's de-activated, it classifies as explicity set. If not, it's not a
+  // good enough indication that the developer wants FirebaseAnalytics enabled
+  // so continue checking.
   if (self.isAnalyticsCollectionDeactivated) {
     return YES;
   }
 
   // Check if the current Analytics flag is set.
-  id collectionEnabledObject = self.analyticsOptionsDictionary[kFIRIsAnalyticsCollectionEnabled];
-  if (collectionEnabledObject && [collectionEnabledObject isKindOfClass:[NSNumber class]]) {
+  id collectionEnabledObject =
+      self.analyticsOptionsDictionary[kFIRIsAnalyticsCollectionEnabled];
+  if (collectionEnabledObject &&
+      [collectionEnabledObject isKindOfClass:[NSNumber class]]) {
     // It doesn't matter what the value is, it's explicitly set.
     return YES;
   }
 
   // Check if the old measurement flag is set.
-  id measurementEnabledObject = self.analyticsOptionsDictionary[kFIRIsMeasurementEnabled];
-  if (measurementEnabledObject && [measurementEnabledObject isKindOfClass:[NSNumber class]]) {
+  id measurementEnabledObject =
+      self.analyticsOptionsDictionary[kFIRIsMeasurementEnabled];
+  if (measurementEnabledObject &&
+      [measurementEnabledObject isKindOfClass:[NSNumber class]]) {
     // It doesn't matter what the value is, it's explicitly set.
     return YES;
   }
@@ -466,17 +502,20 @@ static dispatch_once_t sDefaultOptionsDictionaryOnceToken;
   if (self.isAnalyticsCollectionDeactivated) {
     return NO;
   }
-  NSNumber *value = self.analyticsOptionsDictionary[kFIRIsAnalyticsCollectionEnabled];
+  NSNumber *value =
+      self.analyticsOptionsDictionary[kFIRIsAnalyticsCollectionEnabled];
   if (value == nil) {
-    return self.isMeasurementEnabled;  // Fall back to older plist flag.
+    return self.isMeasurementEnabled; // Fall back to older plist flag.
   }
   return [value boolValue];
 }
 
 - (BOOL)isAnalyticsCollectionDeactivated {
-  NSNumber *value = self.analyticsOptionsDictionary[kFIRIsAnalyticsCollectionDeactivated];
+  NSNumber *value =
+      self.analyticsOptionsDictionary[kFIRIsAnalyticsCollectionDeactivated];
   if (value == nil) {
-    return NO;  // Analytics Collection is not deactivated when the key is not in the dictionary.
+    return NO; // Analytics Collection is not deactivated when the key is not in
+               // the dictionary.
   }
   return [value boolValue];
 }

@@ -19,7 +19,8 @@
 #import "FBLPromise+Async.h"
 #import "FBLPromisePrivate.h"
 
-static NSArray *FBLPromiseCombineValuesAndErrors(NSArray<FBLPromise *> *promises) {
+static NSArray *
+FBLPromiseCombineValuesAndErrors(NSArray<FBLPromise *> *promises) {
   NSMutableArray *combinedValuesAndErrors = [[NSMutableArray alloc] init];
   for (FBLPromise *promise in promises) {
     if (promise.isFulfilled) {
@@ -41,7 +42,8 @@ static NSArray *FBLPromiseCombineValuesAndErrors(NSArray<FBLPromise *> *promises
   return [self onQueue:FBLPromise.defaultDispatchQueue any:promises];
 }
 
-+ (FBLPromise<NSArray *> *)onQueue:(dispatch_queue_t)queue any:(NSArray *)anyPromises {
++ (FBLPromise<NSArray *> *)onQueue:(dispatch_queue_t)queue
+                               any:(NSArray *)anyPromises {
   NSParameterAssert(queue);
   NSParameterAssert(anyPromises);
 
@@ -58,7 +60,8 @@ static NSArray *FBLPromiseCombineValuesAndErrors(NSArray<FBLPromise *> *promises
               continue;
             } else {
               [promises replaceObjectAtIndex:i
-                                  withObject:[[FBLPromise alloc] initWithResolution:promise]];
+                                  withObject:[[FBLPromise alloc]
+                                                 initWithResolution:promise]];
             }
           }
           for (FBLPromise *promise in promises) {
@@ -70,7 +73,8 @@ static NSArray *FBLPromiseCombineValuesAndErrors(NSArray<FBLPromise *> *promises
                       return;
                     }
                   }
-                  // If called multiple times, only the first one affects the result.
+                  // If called multiple times, only the first one affects the
+                  // result.
                   fulfill(FBLPromiseCombineValuesAndErrors(promises));
                 }
                 reject:^(NSError *error) {

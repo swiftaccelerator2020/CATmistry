@@ -15,15 +15,15 @@ namespace leveldb {
 // This can help avoid virtual function calls and also gives better
 // cache locality.
 class IteratorWrapper {
- public:
+public:
   IteratorWrapper() : iter_(nullptr), valid_(false) {}
-  explicit IteratorWrapper(Iterator* iter) : iter_(nullptr) { Set(iter); }
+  explicit IteratorWrapper(Iterator *iter) : iter_(nullptr) { Set(iter); }
   ~IteratorWrapper() { delete iter_; }
-  Iterator* iter() const { return iter_; }
+  Iterator *iter() const { return iter_; }
 
   // Takes ownership of "iter" and will delete it when destroyed, or
   // when Set() is invoked again.
-  void Set(Iterator* iter) {
+  void Set(Iterator *iter) {
     delete iter_;
     iter_ = iter;
     if (iter_ == nullptr) {
@@ -58,7 +58,7 @@ class IteratorWrapper {
     iter_->Prev();
     Update();
   }
-  void Seek(const Slice& k) {
+  void Seek(const Slice &k) {
     assert(iter_);
     iter_->Seek(k);
     Update();
@@ -74,7 +74,7 @@ class IteratorWrapper {
     Update();
   }
 
- private:
+private:
   void Update() {
     valid_ = iter_->Valid();
     if (valid_) {
@@ -82,11 +82,11 @@ class IteratorWrapper {
     }
   }
 
-  Iterator* iter_;
+  Iterator *iter_;
   bool valid_;
   Slice key_;
 };
 
-}  // namespace leveldb
+} // namespace leveldb
 
-#endif  // STORAGE_LEVELDB_TABLE_ITERATOR_WRAPPER_H_
+#endif // STORAGE_LEVELDB_TABLE_ITERATOR_WRAPPER_H_

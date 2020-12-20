@@ -16,40 +16,44 @@
 
 #import <Foundation/Foundation.h>
 
-/// Values stored in analyticsEnabledState. Never alter these constants since they must match with
-/// values persisted to disk.
+/// Values stored in analyticsEnabledState. Never alter these constants since
+/// they must match with values persisted to disk.
 typedef NS_ENUM(int64_t, FIRAnalyticsEnabledState) {
-  // 0 is the default value for keys not found stored in persisted config, so it cannot represent
-  // kFIRAnalyticsEnabledStateSetNo. It must represent kFIRAnalyticsEnabledStateNotSet.
+  // 0 is the default value for keys not found stored in persisted config, so it
+  // cannot represent
+  // kFIRAnalyticsEnabledStateSetNo. It must represent
+  // kFIRAnalyticsEnabledStateNotSet.
   kFIRAnalyticsEnabledStateNotSet = 0,
   kFIRAnalyticsEnabledStateSetYes = 1,
   kFIRAnalyticsEnabledStateSetNo = 2,
 };
 
-/// The user defaults key for the persisted measurementEnabledState value. FIRAPersistedConfig reads
-/// measurementEnabledState using this same key.
+/// The user defaults key for the persisted measurementEnabledState value.
+/// FIRAPersistedConfig reads measurementEnabledState using this same key.
 static NSString *const kFIRAPersistedConfigMeasurementEnabledStateKey =
     @"/google/measurement/measurement_enabled_state";
 
 static NSString *const kFIRAnalyticsConfigurationSetEnabledNotification =
     @"FIRAnalyticsConfigurationSetEnabledNotification";
-static NSString *const kFIRAnalyticsConfigurationSetMinimumSessionIntervalNotification =
-    @"FIRAnalyticsConfigurationSetMinimumSessionIntervalNotification";
-static NSString *const kFIRAnalyticsConfigurationSetSessionTimeoutIntervalNotification =
-    @"FIRAnalyticsConfigurationSetSessionTimeoutIntervalNotification";
+static NSString
+    *const kFIRAnalyticsConfigurationSetMinimumSessionIntervalNotification =
+        @"FIRAnalyticsConfigurationSetMinimumSessionIntervalNotification";
+static NSString
+    *const kFIRAnalyticsConfigurationSetSessionTimeoutIntervalNotification =
+        @"FIRAnalyticsConfigurationSetSessionTimeoutIntervalNotification";
 
 @interface FIRAnalyticsConfiguration : NSObject
 
 /// Returns the shared instance of FIRAnalyticsConfiguration.
 + (FIRAnalyticsConfiguration *)sharedInstance;
 
-// Sets whether analytics collection is enabled for this app on this device. This setting is
-// persisted across app sessions. By default it is enabled.
+// Sets whether analytics collection is enabled for this app on this device.
+// This setting is persisted across app sessions. By default it is enabled.
 - (void)setAnalyticsCollectionEnabled:(BOOL)analyticsCollectionEnabled;
 
-/// Sets whether analytics collection is enabled for this app on this device, and a flag to persist
-/// the value or not. The setting should not be persisted if being set by the global data collection
-/// flag.
+/// Sets whether analytics collection is enabled for this app on this device,
+/// and a flag to persist the value or not. The setting should not be persisted
+/// if being set by the global data collection flag.
 - (void)setAnalyticsCollectionEnabled:(BOOL)analyticsCollectionEnabled
                        persistSetting:(BOOL)shouldPersist;
 

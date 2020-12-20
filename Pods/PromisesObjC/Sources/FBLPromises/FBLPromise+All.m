@@ -25,7 +25,8 @@
   return [self onQueue:self.defaultDispatchQueue all:promises];
 }
 
-+ (FBLPromise<NSArray *> *)onQueue:(dispatch_queue_t)queue all:(NSArray *)allPromises {
++ (FBLPromise<NSArray *> *)onQueue:(dispatch_queue_t)queue
+                               all:(NSArray *)allPromises {
   NSParameterAssert(queue);
   NSParameterAssert(allPromises);
 
@@ -45,7 +46,8 @@
               return;
             } else {
               [promises replaceObjectAtIndex:i
-                                  withObject:[[FBLPromise alloc] initWithResolution:promise]];
+                                  withObject:[[FBLPromise alloc]
+                                                 initWithResolution:promise]];
             }
           }
           for (FBLPromise *promise in promises) {
@@ -57,8 +59,10 @@
                       return;
                     }
                   }
-                  // If called multiple times, only the first one affects the result.
-                  fulfill([promises valueForKey:NSStringFromSelector(@selector(value))]);
+                  // If called multiple times, only the first one affects the
+                  // result.
+                  fulfill([promises
+                      valueForKey:NSStringFromSelector(@selector(value))]);
                 }
                 reject:^(NSError *error) {
                   reject(error);

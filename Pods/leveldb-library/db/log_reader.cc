@@ -15,18 +15,12 @@ namespace log {
 
 Reader::Reporter::~Reporter() {}
 
-Reader::Reader(SequentialFile* file, Reporter* reporter, bool checksum,
+Reader::Reader(SequentialFile *file, Reporter *reporter, bool checksum,
                uint64_t initial_offset)
-    : file_(file),
-      reporter_(reporter),
-      checksum_(checksum),
-      backing_store_(new char[kBlockSize]),
-      buffer_(),
-      eof_(false),
-      last_record_offset_(0),
-      end_of_buffer_offset_(0),
-      initial_offset_(initial_offset),
-      resyncing_(initial_offset > 0) {}
+    : file_(file), reporter_(reporter), checksum_(checksum),
+      backing_store_(new char[kBlockSize]), buffer_(), eof_(false),
+      last_record_offset_(0), end_of_buffer_offset_(0),
+      initial_offset_(initial_offset), resyncing_(initial_offset > 0) {}
 
 Reader::~Reader() { delete[] backing_store_; }
 
@@ -53,7 +47,7 @@ bool Reader::SkipToInitialBlock() {
   return true;
 }
 
-bool Reader::ReadRecord(Slice* record, std::string* scratch) {
+bool Reader::ReadRecord(Slice *record, std::string *scratch) {
   if (last_record_offset_ < initial_offset_) {
     if (!SkipToInitialBlock()) {
       return false;
@@ -89,85 +83,85 @@ bool Reader::ReadRecord(Slice* record, std::string* scratch) {
     }
 
     switch (record_type) {
-      case kFullType:
-        if (in_fragmented_record) {
-          // Handle bug in earlier versions of log::Writer where
-          // it could emit an empty kFirstType record at the tail end
-          // of a block followed by a kFullType or kFirstType record
-          // at the beginning of the next block.
-          if (!scratch->empty()) {
-            ReportCorruption(scratch->size(), "partial record without end(1)");
-          }
+    case kFullType:
+      if (in_fragmented_record) {
+        // Handle bug in earlier versions of log::Writer where
+        // it could emit an empty kFirstType record at the tail end
+        // of a block followed by a kFullType or kFirstType record
+        // at the beginning of the next block.
+        if (!scratch->empty()) {
+          ReportCorruption(scratch->size(), "partial record without end(1)");
         }
-        prospective_record_offset = physical_record_offset;
-        scratch->clear();
-        *record = fragment;
+      }
+      prospective_record_offset = physical_record_offset;
+      scratch->clear();
+      *record = fragment;
+      last_record_offset_ = prospective_record_offset;
+      return true;
+
+    case kFirstType:
+      if (in_fragmented_record) {
+        // Handle bug in earlier versions of log::Writer where
+        // it could emit an empty kFirstType record at the tail end
+        // of a block followed by a kFullType or kFirstType record
+        // at the beginning of the next block.
+        if (!scratch->empty()) {
+          ReportCorruption(scratch->size(), "partial record without end(2)");
+        }
+      }
+      prospective_record_offset = physical_record_offset;
+      scratch->assign(fragment.data(), fragment.size());
+      in_fragmented_record = true;
+      break;
+
+    case kMiddleType:
+      if (!in_fragmented_record) {
+        ReportCorruption(fragment.size(),
+                         "missing start of fragmented record(1)");
+      } else {
+        scratch->append(fragment.data(), fragment.size());
+      }
+      break;
+
+    case kLastType:
+      if (!in_fragmented_record) {
+        ReportCorruption(fragment.size(),
+                         "missing start of fragmented record(2)");
+      } else {
+        scratch->append(fragment.data(), fragment.size());
+        *record = Slice(*scratch);
         last_record_offset_ = prospective_record_offset;
         return true;
+      }
+      break;
 
-      case kFirstType:
-        if (in_fragmented_record) {
-          // Handle bug in earlier versions of log::Writer where
-          // it could emit an empty kFirstType record at the tail end
-          // of a block followed by a kFullType or kFirstType record
-          // at the beginning of the next block.
-          if (!scratch->empty()) {
-            ReportCorruption(scratch->size(), "partial record without end(2)");
-          }
-        }
-        prospective_record_offset = physical_record_offset;
-        scratch->assign(fragment.data(), fragment.size());
-        in_fragmented_record = true;
-        break;
+    case kEof:
+      if (in_fragmented_record) {
+        // This can be caused by the writer dying immediately after
+        // writing a physical record but before completing the next; don't
+        // treat it as a corruption, just ignore the entire logical record.
+        scratch->clear();
+      }
+      return false;
 
-      case kMiddleType:
-        if (!in_fragmented_record) {
-          ReportCorruption(fragment.size(),
-                           "missing start of fragmented record(1)");
-        } else {
-          scratch->append(fragment.data(), fragment.size());
-        }
-        break;
-
-      case kLastType:
-        if (!in_fragmented_record) {
-          ReportCorruption(fragment.size(),
-                           "missing start of fragmented record(2)");
-        } else {
-          scratch->append(fragment.data(), fragment.size());
-          *record = Slice(*scratch);
-          last_record_offset_ = prospective_record_offset;
-          return true;
-        }
-        break;
-
-      case kEof:
-        if (in_fragmented_record) {
-          // This can be caused by the writer dying immediately after
-          // writing a physical record but before completing the next; don't
-          // treat it as a corruption, just ignore the entire logical record.
-          scratch->clear();
-        }
-        return false;
-
-      case kBadRecord:
-        if (in_fragmented_record) {
-          ReportCorruption(scratch->size(), "error in middle of record");
-          in_fragmented_record = false;
-          scratch->clear();
-        }
-        break;
-
-      default: {
-        char buf[40];
-        snprintf(buf, sizeof(buf), "unknown record type %u", record_type);
-        ReportCorruption(
-            (fragment.size() + (in_fragmented_record ? scratch->size() : 0)),
-            buf);
+    case kBadRecord:
+      if (in_fragmented_record) {
+        ReportCorruption(scratch->size(), "error in middle of record");
         in_fragmented_record = false;
         scratch->clear();
-        break;
       }
+      break;
+
+    default: {
+      char buf[40];
+      snprintf(buf, sizeof(buf), "unknown record type %u", record_type);
+      ReportCorruption(
+          (fragment.size() + (in_fragmented_record ? scratch->size() : 0)),
+          buf);
+      in_fragmented_record = false;
+      scratch->clear();
+      break;
+    }
     }
   }
   return false;
@@ -175,18 +169,18 @@ bool Reader::ReadRecord(Slice* record, std::string* scratch) {
 
 uint64_t Reader::LastRecordOffset() { return last_record_offset_; }
 
-void Reader::ReportCorruption(uint64_t bytes, const char* reason) {
+void Reader::ReportCorruption(uint64_t bytes, const char *reason) {
   ReportDrop(bytes, Status::Corruption(reason));
 }
 
-void Reader::ReportDrop(uint64_t bytes, const Status& reason) {
+void Reader::ReportDrop(uint64_t bytes, const Status &reason) {
   if (reporter_ != nullptr &&
       end_of_buffer_offset_ - buffer_.size() - bytes >= initial_offset_) {
     reporter_->Corruption(static_cast<size_t>(bytes), reason);
   }
 }
 
-unsigned int Reader::ReadPhysicalRecord(Slice* result) {
+unsigned int Reader::ReadPhysicalRecord(Slice *result) {
   while (true) {
     if (buffer_.size() < kHeaderSize) {
       if (!eof_) {
@@ -214,7 +208,7 @@ unsigned int Reader::ReadPhysicalRecord(Slice* result) {
     }
 
     // Parse the header
-    const char* header = buffer_.data();
+    const char *header = buffer_.data();
     const uint32_t a = static_cast<uint32_t>(header[4]) & 0xff;
     const uint32_t b = static_cast<uint32_t>(header[5]) & 0xff;
     const unsigned int type = header[6];
@@ -270,5 +264,5 @@ unsigned int Reader::ReadPhysicalRecord(Slice* result) {
   }
 }
 
-}  // namespace log
-}  // namespace leveldb
+} // namespace log
+} // namespace leveldb

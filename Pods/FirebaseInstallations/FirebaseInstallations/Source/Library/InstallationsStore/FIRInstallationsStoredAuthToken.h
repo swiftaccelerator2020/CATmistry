@@ -21,10 +21,11 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  * The enum represent possible states of the installation auth token.
  *
- * WARNING: The enum is stored to Keychain as a part of `FIRInstallationsStoredAuthToken`.
- * Modification of it can lead to incompatibility with previous version. Any modification must be
- * evaluated and, if it is really needed, the `storageVersion` must be bumped and proper migration
- * code added.
+ * WARNING: The enum is stored to Keychain as a part of
+ * `FIRInstallationsStoredAuthToken`. Modification of it can lead to
+ * incompatibility with previous version. Any modification must be evaluated
+ * and, if it is really needed, the `storageVersion` must be bumped and proper
+ * migration code added.
  */
 typedef NS_ENUM(NSInteger, FIRInstallationsAuthTokenStatus) {
   /// An initial status or an undefined value.
@@ -34,15 +35,18 @@ typedef NS_ENUM(NSInteger, FIRInstallationsAuthTokenStatus) {
 };
 
 /**
- * This class serializes and deserializes the installation data into/from `NSData` to be stored in
- * Keychain. This class is primarily used by `FIRInstallationsStore`. It is also used on the logic
- * level as a data object (see `FIRInstallationsItem.authToken`).
+ * This class serializes and deserializes the installation data into/from
+ * `NSData` to be stored in Keychain. This class is primarily used by
+ * `FIRInstallationsStore`. It is also used on the logic level as a data object
+ * (see `FIRInstallationsItem.authToken`).
  *
- * WARNING: Modification of the class properties can lead to incompatibility with the stored data
- * encoded by the previous class versions. Any modification must be evaluated and, if it is really
- * needed, the `storageVersion` must be bumped and proper migration code added.
+ * WARNING: Modification of the class properties can lead to incompatibility
+ * with the stored data encoded by the previous class versions. Any modification
+ * must be evaluated and, if it is really needed, the `storageVersion` must be
+ * bumped and proper migration code added.
  */
-@interface FIRInstallationsStoredAuthToken : NSObject <NSSecureCoding, NSCopying>
+@interface FIRInstallationsStoredAuthToken
+    : NSObject <NSSecureCoding, NSCopying>
 @property FIRInstallationsAuthTokenStatus status;
 
 /// The token that can be used to authorize requests to Firebase backend.

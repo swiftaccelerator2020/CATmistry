@@ -20,18 +20,21 @@
 @implementation FSRUtilities
 
 + (NSString *)base64EncodedStringFromData:(NSData *)data {
-    size_t buffer_size = ((data.length * 3 + 2) / 2);
+  size_t buffer_size = ((data.length * 3 + 2) / 2);
 
-    char *buffer = (char *)malloc(buffer_size);
+  char *buffer = (char *)malloc(buffer_size);
 
-    int len = f_b64_ntop(data.bytes, data.length, buffer, buffer_size);
+  int len = f_b64_ntop(data.bytes, data.length, buffer, buffer_size);
 
-    if (len == -1) {
-        free(buffer);
-        return nil;
-    } else{
-        return [[NSString alloc] initWithBytesNoCopy:buffer length:len encoding:NSUTF8StringEncoding freeWhenDone:YES];
-    }
+  if (len == -1) {
+    free(buffer);
+    return nil;
+  } else {
+    return [[NSString alloc] initWithBytesNoCopy:buffer
+                                          length:len
+                                        encoding:NSUTF8StringEncoding
+                                    freeWhenDone:YES];
+  }
 }
 
 @end

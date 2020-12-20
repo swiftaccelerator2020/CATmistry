@@ -25,10 +25,11 @@
 
 @implementation GDTCORTransport
 
-- (nullable instancetype)initWithMappingID:(NSString *)mappingID
-                              transformers:
-                                  (nullable NSArray<id<GDTCOREventTransformer>> *)transformers
-                                    target:(GDTCORTarget)target {
+- (nullable instancetype)
+    initWithMappingID:(NSString *)mappingID
+         transformers:
+             (nullable NSArray<id<GDTCOREventTransformer>> *)transformers
+               target:(GDTCORTarget)target {
   GDTCORAssert(mappingID.length > 0, @"A mapping ID cannot be nil or empty");
   GDTCORAssert(target > 0, @"A target cannot be negative or 0");
   if (mappingID == nil || mappingID.length == 0 || target <= 0) {
@@ -41,21 +42,25 @@
     _target = target;
     _transformerInstance = [GDTCORTransformer sharedInstance];
   }
-  GDTCORLogDebug(@"Transport object created. mappingID:%@ transformers:%@ target:%ld", mappingID,
-                 transformers, (long)target);
+  GDTCORLogDebug(
+      @"Transport object created. mappingID:%@ transformers:%@ target:%ld",
+      mappingID, transformers, (long)target);
   return self;
 }
 
 - (void)sendTelemetryEvent:(GDTCOREvent *)event
                 onComplete:
-                    (void (^_Nullable)(BOOL wasWritten, NSError *_Nullable error))completion {
+                    (void (^_Nullable)(BOOL wasWritten,
+                                       NSError *_Nullable error))completion {
   event.qosTier = GDTCOREventQoSTelemetry;
   [self sendEvent:event onComplete:completion];
 }
 
 - (void)sendDataEvent:(GDTCOREvent *)event
-           onComplete:(void (^_Nullable)(BOOL wasWritten, NSError *_Nullable error))completion {
-  GDTCORAssert(event.qosTier != GDTCOREventQoSTelemetry, @"Use -sendTelemetryEvent, please.");
+           onComplete:(void (^_Nullable)(BOOL wasWritten,
+                                         NSError *_Nullable error))completion {
+  GDTCORAssert(event.qosTier != GDTCOREventQoSTelemetry,
+               @"Use -sendTelemetryEvent, please.");
   [self sendEvent:event onComplete:completion];
 }
 
@@ -76,10 +81,12 @@
 /** Sends the given event through the transport pipeline.
  *
  * @param event The event to send.
- * @param completion A block that will be called when the event has been written or dropped.
+ * @param completion A block that will be called when the event has been written
+ * or dropped.
  */
 - (void)sendEvent:(GDTCOREvent *)event
-       onComplete:(void (^_Nullable)(BOOL wasWritten, NSError *_Nullable error))completion {
+       onComplete:(void (^_Nullable)(BOOL wasWritten,
+                                     NSError *_Nullable error))completion {
   // TODO: Determine if sending an event before registration is allowed.
   GDTCORAssert(event, @"You can't send a nil event");
   GDTCOREvent *copiedEvent = [event copy];

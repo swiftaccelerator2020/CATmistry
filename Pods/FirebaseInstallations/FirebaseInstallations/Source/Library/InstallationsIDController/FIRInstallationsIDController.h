@@ -35,7 +35,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (FBLPromise<FIRInstallationsItem *> *)getInstallationItem;
 
-- (FBLPromise<FIRInstallationsItem *> *)getAuthTokenForcingRefresh:(BOOL)forceRefresh;
+- (FBLPromise<FIRInstallationsItem *> *)getAuthTokenForcingRefresh:
+    (BOOL)forceRefresh;
 
 - (FBLPromise<NSNull *> *)deleteInstallation;
 

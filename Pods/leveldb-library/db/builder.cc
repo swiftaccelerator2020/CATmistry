@@ -14,21 +14,21 @@
 
 namespace leveldb {
 
-Status BuildTable(const std::string& dbname, Env* env, const Options& options,
-                  TableCache* table_cache, Iterator* iter, FileMetaData* meta) {
+Status BuildTable(const std::string &dbname, Env *env, const Options &options,
+                  TableCache *table_cache, Iterator *iter, FileMetaData *meta) {
   Status s;
   meta->file_size = 0;
   iter->SeekToFirst();
 
   std::string fname = TableFileName(dbname, meta->number);
   if (iter->Valid()) {
-    WritableFile* file;
+    WritableFile *file;
     s = env->NewWritableFile(fname, &file);
     if (!s.ok()) {
       return s;
     }
 
-    TableBuilder* builder = new TableBuilder(options, file);
+    TableBuilder *builder = new TableBuilder(options, file);
     meta->smallest.DecodeFrom(iter->key());
     for (; iter->Valid(); iter->Next()) {
       Slice key = iter->key();
@@ -56,7 +56,7 @@ Status BuildTable(const std::string& dbname, Env* env, const Options& options,
 
     if (s.ok()) {
       // Verify that the table is usable
-      Iterator* it = table_cache->NewIterator(ReadOptions(), meta->number,
+      Iterator *it = table_cache->NewIterator(ReadOptions(), meta->number,
                                               meta->file_size);
       s = it->status();
       delete it;
@@ -76,4 +76,4 @@ Status BuildTable(const std::string& dbname, Env* env, const Options& options,
   return s;
 }
 
-}  // namespace leveldb
+} // namespace leveldb

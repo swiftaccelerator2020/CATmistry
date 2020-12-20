@@ -15,7 +15,7 @@ namespace leveldb {
 static const size_t kFilterBaseLg = 11;
 static const size_t kFilterBase = 1 << kFilterBaseLg;
 
-FilterBlockBuilder::FilterBlockBuilder(const FilterPolicy* policy)
+FilterBlockBuilder::FilterBlockBuilder(const FilterPolicy *policy)
     : policy_(policy) {}
 
 void FilterBlockBuilder::StartBlock(uint64_t block_offset) {
@@ -26,7 +26,7 @@ void FilterBlockBuilder::StartBlock(uint64_t block_offset) {
   }
 }
 
-void FilterBlockBuilder::AddKey(const Slice& key) {
+void FilterBlockBuilder::AddKey(const Slice &key) {
   Slice k = key;
   start_.push_back(keys_.size());
   keys_.append(k.data(), k.size());
@@ -44,7 +44,7 @@ Slice FilterBlockBuilder::Finish() {
   }
 
   PutFixed32(&result_, array_offset);
-  result_.push_back(kFilterBaseLg);  // Save encoding parameter in result
+  result_.push_back(kFilterBaseLg); // Save encoding parameter in result
   return Slice(result_);
 }
 
@@ -57,10 +57,10 @@ void FilterBlockBuilder::GenerateFilter() {
   }
 
   // Make list of keys from flattened key structure
-  start_.push_back(keys_.size());  // Simplify length computation
+  start_.push_back(keys_.size()); // Simplify length computation
   tmp_keys_.resize(num_keys);
   for (size_t i = 0; i < num_keys; i++) {
-    const char* base = keys_.data() + start_[i];
+    const char *base = keys_.data() + start_[i];
     size_t length = start_[i + 1] - start_[i];
     tmp_keys_[i] = Slice(base, length);
   }
@@ -74,20 +74,22 @@ void FilterBlockBuilder::GenerateFilter() {
   start_.clear();
 }
 
-FilterBlockReader::FilterBlockReader(const FilterPolicy* policy,
-                                     const Slice& contents)
+FilterBlockReader::FilterBlockReader(const FilterPolicy *policy,
+                                     const Slice &contents)
     : policy_(policy), data_(nullptr), offset_(nullptr), num_(0), base_lg_(0) {
   size_t n = contents.size();
-  if (n < 5) return;  // 1 byte for base_lg_ and 4 for start of offset array
+  if (n < 5)
+    return; // 1 byte for base_lg_ and 4 for start of offset array
   base_lg_ = contents[n - 1];
   uint32_t last_word = DecodeFixed32(contents.data() + n - 5);
-  if (last_word > n - 5) return;
+  if (last_word > n - 5)
+    return;
   data_ = contents.data();
   offset_ = data_ + last_word;
   num_ = (n - 5 - last_word) / 4;
 }
 
-bool FilterBlockReader::KeyMayMatch(uint64_t block_offset, const Slice& key) {
+bool FilterBlockReader::KeyMayMatch(uint64_t block_offset, const Slice &key) {
   uint64_t index = block_offset >> base_lg_;
   if (index < num_) {
     uint32_t start = DecodeFixed32(offset_ + index * 4);
@@ -100,7 +102,7 @@ bool FilterBlockReader::KeyMayMatch(uint64_t block_offset, const Slice& key) {
       return false;
     }
   }
-  return true;  // Errors are treated as potential matches
+  return true; // Errors are treated as potential matches
 }
 
-}  // namespace leveldb
+} // namespace leveldb

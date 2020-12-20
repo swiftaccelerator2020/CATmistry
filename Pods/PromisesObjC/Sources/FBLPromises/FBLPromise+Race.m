@@ -30,20 +30,21 @@
   NSAssert(racePromises.count > 0, @"No promises to observe");
 
   NSArray *promises = [racePromises copy];
-  return [FBLPromise onQueue:queue
-                       async:^(FBLPromiseFulfillBlock fulfill, FBLPromiseRejectBlock reject) {
-                         for (id promise in promises) {
-                           if (![promise isKindOfClass:self]) {
-                             fulfill(promise);
-                             return;
-                           }
-                         }
-                         // Subscribe all, but only the first one to resolve will change
-                         // the resulting promise's state.
-                         for (FBLPromise *promise in promises) {
-                           [promise observeOnQueue:queue fulfill:fulfill reject:reject];
-                         }
-                       }];
+  return [FBLPromise
+      onQueue:queue
+        async:^(FBLPromiseFulfillBlock fulfill, FBLPromiseRejectBlock reject) {
+          for (id promise in promises) {
+            if (![promise isKindOfClass:self]) {
+              fulfill(promise);
+              return;
+            }
+          }
+          // Subscribe all, but only the first one to resolve will change
+          // the resulting promise's state.
+          for (FBLPromise *promise in promises) {
+            [promise observeOnQueue:queue fulfill:fulfill reject:reject];
+          }
+        }];
 }
 
 @end
