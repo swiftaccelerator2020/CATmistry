@@ -63,14 +63,14 @@ class LearnHomePageTableViewController: UITableViewController {
         if let savedPerson = defaults.object(forKey: "periodicTable") as? Data {
             let decoder = JSONDecoder()
             if let loadedPerson = try? decoder.decode(PeriodicTableGame.self, from: savedPerson) {
-                periodicTable = [loadedPerson]
+                periodicTable = [[loadedPerson]]
             }
         }
         
         if let savedPerson = defaults.object(forKey: "retrieveSolidsArray") as? Data {
             let decoder = JSONDecoder()
-            if let loadedPerson = try? decoder.decode(PeriodicTableGame.self, from: savedPerson) {
-                retrieveSolidsArray = [specificSeperationMethod]
+            if let loadedPerson = try? decoder.decode(specificSeperationMethod.self, from: savedPerson) {
+                retrieveSolidsArray = [loadedPerson]
             }
         }
         
