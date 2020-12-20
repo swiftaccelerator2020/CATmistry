@@ -1148,6 +1148,11 @@ func loadData() {
         
         learnTopics = try! JSONDecoder().decode([Topic].self, from: jsonData)
 
+        let encoder = JSONEncoder()
+        if let encoded = try? encoder.encode(learnTopics) {
+            let defaults = UserDefaults.standard
+            defaults.set(encoded, forKey: "learnTopics")
+        }
     })
     
     let ref2 = Database.database().reference(withPath: "gasesArray")
@@ -1159,6 +1164,12 @@ func loadData() {
         gasesArray = try! JSONDecoder().decode([GasTestGame].self, from: jsonData)
         
         gasesArray.shuffle()
+        
+        let encoder = JSONEncoder()
+        if let encoded = try? encoder.encode(gasesArray) {
+            let defaults = UserDefaults.standard
+            defaults.set(encoded, forKey: "gasesArray")
+        }
 
     })
     
@@ -1170,6 +1181,11 @@ func loadData() {
         
         gameTopics = try! JSONDecoder().decode([PlayTopic].self, from: jsonData)
 
+        let encoder = JSONEncoder()
+        if let encoded = try? encoder.encode(gameTopics) {
+            let defaults = UserDefaults.standard
+            defaults.set(encoded, forKey: "gameTopics")
+        }
     })
     
     let ref4 = Database.database().reference(withPath: "periodicTable")
@@ -1180,6 +1196,11 @@ func loadData() {
         
         periodicTable = try! JSONDecoder().decode([[PeriodicTableGame]].self, from: jsonData)
 
+        let encoder = JSONEncoder()
+        if let encoded = try? encoder.encode(periodicTable) {
+            let defaults = UserDefaults.standard
+            defaults.set(encoded, forKey: "periodicTable")
+        }
     })
     
     let ref5 = Database.database().reference(withPath: "phGameArray")
@@ -1190,6 +1211,11 @@ func loadData() {
         
         phGameArray = try! JSONDecoder().decode([[PhGame]].self, from: jsonData)
 
+        let encoder = JSONEncoder()
+        if let encoded = try? encoder.encode(phGameArray) {
+            let defaults = UserDefaults.standard
+            defaults.set(encoded, forKey: "phGameArray")
+        }
     })
     
     let ref6 = Database.database().reference(withPath: "phGameOptionsArray")
@@ -1200,6 +1226,11 @@ func loadData() {
         
         phGameOptionsArray = try! JSONDecoder().decode([PhOption].self, from: jsonData)
 
+        let encoder = JSONEncoder()
+        if let encoded = try? encoder.encode(phGameOptionsArray) {
+            let defaults = UserDefaults.standard
+            defaults.set(encoded, forKey: "phGameOptionsArray")
+        }
     })
     
     let ref7 = Database.database().reference(withPath: "retrieveSolidsArray")
@@ -1210,6 +1241,11 @@ func loadData() {
         
         retrieveSolidsArray = try! JSONDecoder().decode([specificSeperationMethod].self, from: jsonData)
 
+        let encoder = JSONEncoder()
+        if let encoded = try? encoder.encode(retrieveSolidsArray) {
+            let defaults = UserDefaults.standard
+            defaults.set(encoded, forKey: "retrieveSolidsArray")
+        }
     })
 }
 
