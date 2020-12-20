@@ -6,7 +6,7 @@ target 'CATmistry' do
   use_frameworks!
   pod 'SwiftConfettiView'
   pod 'LayoutHelper'
-
+  pod 'Firebase/Analytics'
   # Pods for CATmistry
   target 'CATmistryTests' do
     inherit! :search_paths

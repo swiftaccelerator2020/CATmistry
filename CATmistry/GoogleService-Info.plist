@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>301092190216-tm2uk746unk4lld20atu45odij977tp2.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.301092190216-tm2uk746unk4lld20atu45odij977tp2</string>
+	<key>API_KEY</key>
+	<string>AIzaSyDRRXJtqgiDpjWmobK8riVyXybjdfgb0Vo</string>
+	<key>GCM_SENDER_ID</key>
+	<string>301092190216</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>sg.tk.2020.CATmistry</string>
+	<key>PROJECT_ID</key>
+	<string>catmistry-swift</string>
+	<key>STORAGE_BUCKET</key>
+	<string>catmistry-swift.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:301092190216:ios:4346879a218b93cc6079bd</string>
+</dict>
+</plist>
