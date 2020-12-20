@@ -8,7 +8,7 @@
 import UIKit
 
 class SettingsTableViewCell: UITableViewCell {
-    
+
     var shareAction: (() -> Void)? = nil
 
     @IBOutlet weak var contentLabel: UILabel!

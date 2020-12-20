@@ -72,7 +72,7 @@ class PlayIdentifyElementsSecondViewController: UIViewController {
         timeLeft.text = "\(timeLeftTrack!) seconds left"
 
         desc.text = gameTopic.properties
-        
+
     }
 
     var selectedButton: UIButton!

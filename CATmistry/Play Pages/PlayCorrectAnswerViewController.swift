@@ -9,19 +9,19 @@ import UIKit
 import SwiftConfettiView
 
 class PlayCorrectAnswerViewController: UIViewController {
-    
+
     var isSeperation: Bool?
     var currentLevel: Int!
     var currentGame: Int!
     var gameType: Int!
-    
+
     @IBOutlet weak var nextGameButton: UIButton!
     @IBOutlet weak var congratsLabel: UILabel!
     @IBOutlet weak var goHomeButton: UIButton!
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         // Do any additional setup after loading the view.
         nextGameButton.layer.cornerRadius = 25
         if isSeperation != nil {
@@ -52,7 +52,7 @@ class PlayCorrectAnswerViewController: UIViewController {
         confettiView.isUserInteractionEnabled = false
         confettiView.startConfetti()
     }
-    
+
     @IBAction func nextGameClicked(_ sender: Any) {
         if (isSeperation != nil){
             self.presentingViewController?.presentingViewController?.dismiss(animated: true, completion: nil)
@@ -62,7 +62,7 @@ class PlayCorrectAnswerViewController: UIViewController {
             dismiss(animated: true, completion: nil)
         }
     }
-    
+
     @IBAction func restartClicked(_ sender: Any) {
         let alert = UIAlertController(title: "Are you sure you would like to restart?", message: "All progress wil be lost, and you will be taken to the start page of this game.", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Continue", style: UIAlertAction.Style.default, handler: { action in
@@ -71,15 +71,15 @@ class PlayCorrectAnswerViewController: UIViewController {
         alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel, handler: nil))
         self.present(alert, animated: true, completion: nil)
     }
-    
+
     /*
      // MARK: - Navigation
-     
+
      // In a storyboard-based application, you will often want to do a little preparation before navigation
      override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
      // Get the new view controller using segue.destination.
      // Pass the selected object to the new view controller.
      }
      */
-    
+
 }

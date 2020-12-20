@@ -24,7 +24,7 @@ let deviceSize : UIDeviceSize = {
     let w: Double = Double(UIScreen.main.bounds.width)
     let h: Double = Double(UIScreen.main.bounds.height)
     let screenHeight: Double = max(w, h)
-    
+
     switch screenHeight {
     case 480:
         return .i3_5Inch
@@ -61,7 +61,7 @@ let deviceSize : UIDeviceSize = {
     default:
         return .unknown
     }
-    
+
 }()
 
 // This Model and Extention has been taken from the Answer by
@@ -133,7 +133,7 @@ public extension UIDevice {
         let modelCode = withUnsafePointer(to: &systemInfo.machine) {
             $0.withMemoryRebound(to: CChar.self, capacity: 1) {
                 ptr in String.init(validatingUTF8: ptr)
-                
+
             }
         }
 
@@ -240,7 +240,7 @@ public extension UIDevice {
             "AppleTV5,3" : .AppleTV,
             "AppleTV6,2" : .AppleTV_4K
         ]
-        
+
         if let model = modelMap[String.init(validatingUTF8: modelCode!)!] {
             if model == .simulator {
                 if let simModelCode = ProcessInfo().environment["SIMULATOR_MODEL_IDENTIFIER"] {
