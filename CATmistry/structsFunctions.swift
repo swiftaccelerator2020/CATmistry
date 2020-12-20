@@ -92,7 +92,7 @@ struct specificSeperationMethod: Hashable, Codable {
     var name: String
     var properties: String
     var givenMethods: GivenSeperationMethods
-    
+
     func hash(into hasher: inout Hasher) {
         hasher.combine(name)
         hasher.combine(properties)
@@ -101,9 +101,9 @@ struct specificSeperationMethod: Hashable, Codable {
 }
 
 struct GivenSeperationMethods: Hashable, Codable {
-    
+
     var methods: [SeperationMethods]
-    
+
     func hash(into hasher: inout Hasher) {
         hasher.combine(methods)
     }
@@ -112,7 +112,7 @@ struct GivenSeperationMethods: Hashable, Codable {
 struct SeperationMethods: Hashable, Codable {
     var methodName: String
     var isCorrect: Bool
-    
+
     func hash(into hasher: inout Hasher) {
         hasher.combine(methodName)
         hasher.combine(isCorrect)
@@ -129,7 +129,7 @@ struct PhOption: Hashable, Codable {
     var image: String
     var turnUniversalTankColour: String
     var isAcidic: Bool? = true
-    
+
     func hash(into hasher: inout Hasher) {
         hasher.combine(name)
         hasher.combine(image)
@@ -241,7 +241,7 @@ Topic(title: "Gas Tests", pic: "gas-tests.png", pointsNeeded: 0, subTopics: [
                             "The splint extinguishes with a 'pop' sound",
                             "The splint breaks"
                         ], correctAnswer: 2),
-        
+
     ]),
 
 // MARK: - SEPARATION METHODS
@@ -269,7 +269,7 @@ Topic(
                         thirdAttributionText: "Principle of Separation: Liquid evaporates away, leaving behind solid"
                         ), contentHeightDifference: 50
                 ),
-                
+
                 SubSubTopic(
                     topic: "Distillation",
                     picture: "distillation.png",
@@ -335,7 +335,7 @@ Topic(
                                 "Sand",
                                 "Milo powder"
                             ], correctAnswer: 3),
-            
+
             QuizQuestion(question: "I want to separate some rocks from liquid. Which separation method do I use?", options:
                             [
                                 "Simple distillation",
@@ -343,7 +343,7 @@ Topic(
                                 "Fractional distillation",
                                 "Separating funnel"
                             ], correctAnswer: 2),
-            
+
             QuizQuestion(question: "What is not needed in the process of filtration?", options:
                             [
                                 "Filter funnel",
@@ -351,7 +351,7 @@ Topic(
                                 "Filter paper",
                                 "Gravity"
                             ], correctAnswer: 2),
-            
+
             QuizQuestion(question: "What is the difference between simple and fractional distillation?", options:
                             [
                                 "Fractional distillation is more complex",
@@ -359,7 +359,7 @@ Topic(
                                 "Simple distillation uses a fractioning columm",
                                 "Fractional distillation is simpler"
                             ], correctAnswer: 1),
-            
+
             QuizQuestion(question: "Which of the following can be seperated by magnetic seperation?", options:
                             [
                                 "Chocolate and ice",
@@ -367,129 +367,129 @@ Topic(
                                 "Gummy bears and gum",
                                 "Sand and iron filings"
                             ], correctAnswer: 4),
-            
+
             QuizQuestion(question: "Which solutions can be separated with crystallisation", options: [
                 "Sugar and salt",
                 "Iron and salt",
                 "Potassium chloride and salt",
                 "Sulfur dioxide and salt"
             ], correctAnswer: 1),
-            
+
             QuizQuestion(question: "Which apparatus is not used for simple distillation", options: [
                 "Boiling Chips",
                 "Fractionating column",
                 "Thermometer",
                 "Condenser"
             ], correctAnswer: 2),
-            
+
             QuizQuestion(question: "Which of the following can be separated using magnetic attraction", options: [
                             "Iron and Plastic",
                             "Zinc and Gold",
                             "Nickel and Cobalt",
                             "Rubber and Plastic"], correctAnswer: 1),
-            
+
             QuizQuestion(question: "Which equipments are NOT usually needed for filtration", options: [
                             "Filter funnel",
                             "Filter paper",
                             "Bunsen burner",
                             "Beaker"], correctAnswer: 3),
-            
+
             QuizQuestion(question: "Which of the following methods is the best to separate iron from sand", options: [
                             "Magnetic Attraction",
                             "Crystallization",
                             "Diffusion",
                             "Filtration"], correctAnswer: 1),
-            
+
             QuizQuestion(question: "How can you obtain salt from a salt solution?", options: [
                             "Crystallization",
                             "Diffusion",
                             "Filtration",
                             "Evaporation"], correctAnswer: 4),
-            
+
             QuizQuestion(question: "What is the best way to obtain sugar from a sugar solution?", options: [
                             "Filtration",
                             "Crystallization",
                             "Diffusion",
                             "Evaporation"], correctAnswer: 2),
-            
+
             QuizQuestion(question: "Which of the following can be used to separate sand and water?", options: [
                             "Filtration",
                             "Diffusion",
                             "Evaporation",
                             "Crystallization"], correctAnswer: 3),
-            
+
             QuizQuestion(question: "Which of the following can be used to separate chalk powder from water?", options: [
                             "Magnetic Attraction",
                             "Sublimation",
                             "Diffusion",
                             "Filtration"], correctAnswer: 4),
-            
+
             QuizQuestion(question: "What information can be obtained from the melting and boiling point of a substance?", options: [
                 "Weight of substance",
                 "Density of substance",
                 "Purity",
                 "Head conductivity"
             ], correctAnswer: 3),
-            
+
             QuizQuestion(question: "What separation method can be used to obtain Ethanol (boils at 78°C) mixed with water (boils at 100°C)", options: [
                 "Simple distillation",
                 "Filtration",
                 "Evaporation to dryness",
                 "Fractional distillation"
             ], correctAnswer: 4),
-            
+
             QuizQuestion(question: "Which of the following can be separated using magnetic attraction", options: [
                 "Iron and Plastic",
                 "Steel and Gold",
                 "Nickel and Cobalt",
                 "Rubber and Plastic"
             ], correctAnswer: 1),
-            
+
             QuizQuestion(question: "Which equipments are NOT needed for filtration", options: [
                 "Filter funnel",
                 "Filter paper",
                 "Bunsen burner",
                 "Beaker"
             ], correctAnswer: 3),
-            
+
             QuizQuestion(question: "Which solutions can be separated with crystallisation", options: [
                             "Sugar and salt",
                             "Iron and salt",
                             "Potassium chloride and salt",
                             "Sulfur dioxide and salt"], correctAnswer: 1),
-            
+
             QuizQuestion(question: "Which apparatus is not used for simple distillation", options: [
                             "Boiling Chips",
                             "Fractionating column",
                             "Thermometer",
                             "Condenser"], correctAnswer: 2),
-            
+
             QuizQuestion(question: "Which substance is best separated with filtration?", options: [
                 "Diesel from crude oil",
                 "Water from a mixture of water and sand",
                 "Orange fibre from orange juice",
                 "Different inks from a mixture of inks"
             ], correctAnswer: 3),
-            
+
             QuizQuestion(question: "When is crystallisation used", options: [
                             "When evaporation to dryness cannot be used",
                             "When the solvent needs to be obtained in a very pure form",
                             "When heat cannot be used",
                             "When substances being separated have a very high boiling point"], correctAnswer: 2),
-            
+
             QuizQuestion(question: "Chromatography works because:", options: [
                             "Substances travel at different rates up the paper",
                             "Not all substances are soluble in the solvent",
                             "The solvent travels up the paper at a different rate",
                             "Substances have a different rate and travel up the paper at different rates"], correctAnswer: 1),
-            
+
             QuizQuestion(question: "What is the use of chromatography", options: [
                             "Getting a large amount of salt from water",
                             "Separating paint into different colors for painting",
                             "Removing water from fruit juice",
                             "Checking if ink is genuine"], correctAnswer: 4),
-            
-            
+
+
             QuizQuestion(question: "What is the difference between simple and fractional distillation?", options:
                             [
                                 "Fractional distillation is more complex",
@@ -497,7 +497,7 @@ Topic(
                                 "Simple distillation uses a fractioning columm",
                                 "Fractional distillation is simpler"
                             ], correctAnswer: 1),
-            
+
             QuizQuestion(question: "Which of the following can be seperated by magnetic seperation?", options:
                             [
                                 "Chocolate and ice",
@@ -505,7 +505,7 @@ Topic(
                                 "Gummy bears and gum",
                                 "Sand and iron filings"
                             ], correctAnswer: 4),
-            
+
             QuizQuestion(question: "Which solutions can be separated with crystallisation", options: [
                 "Sugar and salt",
                 "Iron and salt",
@@ -538,7 +538,7 @@ Topic(title: "pH and Indicators", pic: "pH-and-indicators.png", pointsNeeded: 20
                             "Lime juice",
                             "Caustic soda"
                         ], correctAnswer: 4),
-        
+
         QuizQuestion(question: "What is the pH value of any acidic solution?", options:
                         [
                             "pH 7",
@@ -546,7 +546,7 @@ Topic(title: "pH and Indicators", pic: "pH-and-indicators.png", pointsNeeded: 20
                             "pH 14",
                             "Above pH 14"
                         ], correctAnswer: 2),
-        
+
         QuizQuestion(question: "Which of the following statements about an acid is not true?", options:
                         [
                             "It contains hydrogen ions in solution",
@@ -554,7 +554,7 @@ Topic(title: "pH and Indicators", pic: "pH-and-indicators.png", pointsNeeded: 20
                             "It contains oxygen",
                             "It tastes sour"
                         ], correctAnswer: 3),
-        
+
         QuizQuestion(question: "A sample of pond water has a pH value of 9. This means that the water is", options:
                         [
                             "neutral",
@@ -562,7 +562,7 @@ Topic(title: "pH and Indicators", pic: "pH-and-indicators.png", pointsNeeded: 20
                             "weakly acidic",
                             "weakly alkaline"
                         ], correctAnswer: 4),
-        
+
         QuizQuestion(question: "Universal Indicator turns red in solution Y. What could solution Y be?", options:
                         [
                             "acidic",
@@ -570,7 +570,7 @@ Topic(title: "pH and Indicators", pic: "pH-and-indicators.png", pointsNeeded: 20
                             "neutral",
                             "an indicator"
                         ], correctAnswer: 1),
-        
+
         QuizQuestion(question: "If dry citric acid crystals are placed on dry blue litmus paper, they will", options:
                         [
                             "turn red",
@@ -578,7 +578,7 @@ Topic(title: "pH and Indicators", pic: "pH-and-indicators.png", pointsNeeded: 20
                             "be bleached",
                             "remain unchanged"
                         ], correctAnswer: 4),
-        
+
         QuizQuestion(question: "Citric acid is a white solid. Which statement shows that it must be an acid?", options:
                         [
                             "It is soluble in water",
@@ -586,7 +586,7 @@ Topic(title: "pH and Indicators", pic: "pH-and-indicators.png", pointsNeeded: 20
                             "It changes the colour of indicators",
                             "It gives hydrogen ions in water"
                         ], correctAnswer: 4),
-        
+
         QuizQuestion(question: "A strong acid always", options:
                         [
                             "contains hydroxide ions",
@@ -594,42 +594,42 @@ Topic(title: "pH and Indicators", pic: "pH-and-indicators.png", pointsNeeded: 20
                             "ionises completely when it is dissolved in water",
                             "contains oxygen"
                         ], correctAnswer: 3),
-        
+
         QuizQuestion(question: "What is the pH value of any acidic solution?", options: [
             "pH 7",
             "Below pH 7",
             "pH 14",
             "Above pH 14"
         ], correctAnswer: 2),
-        
+
         QuizQuestion(question: "If air is bubbled through pure water, the pH slowly changes from 7 to 5.7. Which of the following gases in the air could be responsible for this change?", options: [
             "Carbon Monoxide",
             "Carbon Dioxide",
             "Oxygen",
             "Nitrogen"
         ], correctAnswer: 2),
-        
+
         QuizQuestion(question: "predict the colour of the universal indicator in lemon juice", options: [
             "Green",
             "Blue",
             "Orange",
             "Rainbow colour"
         ], correctAnswer: 3),
-        
+
         QuizQuestion(question: "Which  substance  does not produce  copper(II)  sulfate  when  added  to  dilute sulfuric acid?", options: [
             "Copper",
             "Copper(II) hydroxide",
             "Copper(II) oxide",
             "Copper(II) carbonate"
         ], correctAnswer: 1),
-        
+
         QuizQuestion(question: "Which of the following is the correct ionic equation for neutralisation?", options: [
             "H⁺ (g) + OH⁻ (aq) -> H₂O (l)",
             "H⁺ (aq) + OH⁻ (aq) -> H₂O (l)",
             "H⁺ (aq) + OH⁻ (aq) -> H₂O (aq)",
             "H⁺ (g) + OH⁻ (aq) -> H₂O (aq)"
         ], correctAnswer: 2),
-        
+
         QuizQuestion(question: "The pH of an aqueous solution of hydrochloric acid is 2. What is the pH of the solution when  10g of sodium chloride (neutral salt) is added to it?", options: [
             "1",
             "2",
@@ -683,7 +683,7 @@ Topic(title: "Periodic Table", pic: "periodic-table.png", pointsNeeded: 30, subT
                             "Copper",
                             "Platinum"
                         ], correctAnswer: 2),
-        
+
         QuizQuestion(question: "What is the chemical symbol for Helium?", options:
                         [
                             "H",
@@ -691,7 +691,7 @@ Topic(title: "Periodic Table", pic: "periodic-table.png", pointsNeeded: 30, subT
                             "Hhe",
                             "He"
                         ], correctAnswer: 4),
-        
+
         QuizQuestion(question: "What kind of element would you find on the far left-hand side of the periodic table?", options:
                         [
                             "A metal",
@@ -699,7 +699,7 @@ Topic(title: "Periodic Table", pic: "periodic-table.png", pointsNeeded: 30, subT
                             "A negative ion",
                             "A halogen"
                         ], correctAnswer: 1),
-        
+
         QuizQuestion(question: "Which of the following is a noble gas?", options:
                         [
                             "Nitrogen",
@@ -707,7 +707,7 @@ Topic(title: "Periodic Table", pic: "periodic-table.png", pointsNeeded: 30, subT
                             "Argon",
                             "Carbon Dioxide"
                         ], correctAnswer: 3),
-        
+
         QuizQuestion(question: "What is the lightest element in the periodic table?", options:
                         [
                             "Helium",
@@ -715,7 +715,7 @@ Topic(title: "Periodic Table", pic: "periodic-table.png", pointsNeeded: 30, subT
                             "Air",
                             "Neon"
                         ], correctAnswer: 2),
-        
+
         QuizQuestion(question: "What is the atomic number of carbon?", options:
                         [
                             "2",
@@ -723,67 +723,67 @@ Topic(title: "Periodic Table", pic: "periodic-table.png", pointsNeeded: 30, subT
                             "6",
                             "8"
                         ], correctAnswer: 3),
-        
+
         QuizQuestion(question: "Which of the following elements have the greatest number of valence electrons?", options: [
                         "Calcium",
                         "Fluorine",
                         "Neon",
                         "Potassium"], correctAnswer: 3),
-        
+
         QuizQuestion(question: "How are the elements in the Periodic Table arranged?", options: [
                         "Increasing proton number",
                         "Decreasing proton number",
                         "Increasing number of valence electrons",
                         "Decreasing number of valence electrons"], correctAnswer: 1),
-        
+
         QuizQuestion(question: "Which of the following elements are nobles gases?", options: [
                         "Calcium",
                         "Helium",
                         "Sulfur",
                         "Iodine"], correctAnswer: 2),
-        
+
         QuizQuestion(question: "What does the number of valence electrons represent in the Periodic Table?", options: [
                         "Groups",
                         "Columns",
                         "Rows",
                         "Periods"], correctAnswer: 1),
-        
+
         QuizQuestion(question: "Which of the following is a Group I metal?", options: [
                         "Iron",
                         "Magnesium",
                         "Sodium",
                         "Titanium"], correctAnswer: 3),
-        
+
         QuizQuestion(question: "Which of the following elements have their valence shell fully occupied?", options: [
                         "Helium",
                         "Fluorine",
                         "Lithium",
                         "Hydrogen"], correctAnswer: 1),
-        
+
         QuizQuestion(question: "How many electron shells do period 2 elements have?", options: [
                         "1",
                         "2",
                         "3",
                         "4"], correctAnswer: 2),
-        
+
         QuizQuestion(question: "What is the relative mass of an neutron?", options: [
                         "0",
                         "1",
                         "-1",
                         "1/1840"], correctAnswer: 2),
-        
+
         QuizQuestion(question: "What is the relative charge of an electron?", options: [
                         "0",
                         "1",
                         "-1",
                         "1/1840"], correctAnswer: 3),
-        
+
         QuizQuestion(question: "Which of the following is equals to the group number?", options: [
                         "Number of valence electrons",
                         "Number of electron shells",
                         "Number of protons",
                         "Number of electrons"], correctAnswer: 1),
-        
+
         QuizQuestion(question: "What is the atomic symbol of Hydrogen?", options:
                         [
                             "Hy",
@@ -791,7 +791,7 @@ Topic(title: "Periodic Table", pic: "periodic-table.png", pointsNeeded: 30, subT
                             "Hye",
                             "H"
                         ], correctAnswer: 4),
-        
+
         QuizQuestion(question: "What is the atomic symbol of Nitrogen", options:
                         [
                             "N",
@@ -799,7 +799,7 @@ Topic(title: "Periodic Table", pic: "periodic-table.png", pointsNeeded: 30, subT
                             "Nt",
                             "Ny"
                         ], correctAnswer: 1),
-        
+
         QuizQuestion(question: "What is the atomic symbol of Sulfur", options:
                         [
                             "Su",
@@ -807,8 +807,8 @@ Topic(title: "Periodic Table", pic: "periodic-table.png", pointsNeeded: 30, subT
                             "Sul",
                             "Sf"
                         ], correctAnswer: 2),
-        
-        
+
+
         QuizQuestion(question: "What is the atomic symbol of Carbon", options:
                         [
                             "Ca",
@@ -816,7 +816,7 @@ Topic(title: "Periodic Table", pic: "periodic-table.png", pointsNeeded: 30, subT
                             "C",
                             "Car"
                         ], correctAnswer: 3),
-        
+
         QuizQuestion(question: "What is the atomic symbol of Carbon", options:
                         [
                             "Ca",
@@ -824,7 +824,7 @@ Topic(title: "Periodic Table", pic: "periodic-table.png", pointsNeeded: 30, subT
                             "C",
                             "Car"
                         ], correctAnswer: 3),
-        
+
         QuizQuestion(question: "Where are the metal elements found in the periodic table?", options:
                         [
                             "the middle",
@@ -832,7 +832,7 @@ Topic(title: "Periodic Table", pic: "periodic-table.png", pointsNeeded: 30, subT
                             "far left hand side",
                             "nowhere, metals aren't in the periodic table"
                         ], correctAnswer: 3),
-        
+
         QuizQuestion(question: "What is copper's atmoic symbol?", options:
                         [
                             "Cu",
@@ -840,7 +840,7 @@ Topic(title: "Periodic Table", pic: "periodic-table.png", pointsNeeded: 30, subT
                             "C",
                             "Cp"
                         ], correctAnswer: 1),
-        
+
         QuizQuestion(question: "Which of the following isn't a noble gas?", options:
                         [
                             "Fluorine",
@@ -848,7 +848,7 @@ Topic(title: "Periodic Table", pic: "periodic-table.png", pointsNeeded: 30, subT
                             "Sulfur",
                             "Bromine"
                         ], correctAnswer: 3),
-        
+
         QuizQuestion(question: "Which of the following is a noble gas?", options:
                         [
                             "Astatine",
@@ -856,7 +856,7 @@ Topic(title: "Periodic Table", pic: "periodic-table.png", pointsNeeded: 30, subT
                             "Silicon",
                             "Iodine"
                         ], correctAnswer: 4),
-        
+
         QuizQuestion(question: "What is the atomic number of Calcium?", options:
                         [
                             "19",
@@ -864,7 +864,7 @@ Topic(title: "Periodic Table", pic: "periodic-table.png", pointsNeeded: 30, subT
                             "21",
                             "22"
                         ], correctAnswer: 2),
-        
+
         QuizQuestion(question: "What is the atomic number of Potassium", options:
                         [
                             "12",
@@ -898,21 +898,21 @@ var gasesArray = [
     GasTestGame(firstGasTank: "Ammonia", secondGasTank: "Oxygen", thirdGasTank: "Hydrogen", fourthGasTank: "Carbon Dioxide", firstGasIsPositive: [false, false, false, true], secondGasIsPositive: [false, false, true, false], thirdGasIsPositive: [false, true, false, false], forthGasIsPositive: [true, false, false, false], correctGasTank: "Oxygen"),
     GasTestGame(firstGasTank: "Ammonia", secondGasTank: "Hydrogen", thirdGasTank: "Oxygen", fourthGasTank: "Carbon Dioxide", firstGasIsPositive: [false, false, false, true], secondGasIsPositive: [false, true, false, false], thirdGasIsPositive: [false, false, true, false], forthGasIsPositive: [true, false, false, false], correctGasTank: "Ammonia"),
     GasTestGame(firstGasTank: "Ammonia", secondGasTank: "Hydrogen", thirdGasTank: "Carbon Dioxide", fourthGasTank: "Oxygen", firstGasIsPositive: [false, false, false, true], secondGasIsPositive: [false, true, false, false], thirdGasIsPositive: [false, false, false, true], forthGasIsPositive: [true, false, false, false], correctGasTank: "Carbon Dioxide"),
-    
+
     GasTestGame(firstGasTank: "Carbon Dioxide", secondGasTank: "Ammonia", thirdGasTank: "Hydrogen", fourthGasTank: "Oxygen", firstGasIsPositive: [true, false, false, false], secondGasIsPositive: [false, false, false, true], thirdGasIsPositive: [false, false, false, true], forthGasIsPositive: [false, true, false, false], correctGasTank: "Ammonia"),
     GasTestGame(firstGasTank: "Carbon Dioxide", secondGasTank: "Ammonia", thirdGasTank: "Oxygen", fourthGasTank: "Hydrogen", firstGasIsPositive: [true, false, false, false], secondGasIsPositive: [false, false, false, true], thirdGasIsPositive: [false, false, true, false], forthGasIsPositive: [false, true, false, false], correctGasTank: "Oxygen"),
     GasTestGame(firstGasTank: "Carbon Dioxide", secondGasTank: "Hydrogen", thirdGasTank: "Oxygen", fourthGasTank: "Ammonia",  firstGasIsPositive: [true, false, false, false], secondGasIsPositive: [false, true, false, false], thirdGasIsPositive: [false, false, true, false], forthGasIsPositive: [false, false, false, true], correctGasTank: "Hydrogen"),
     GasTestGame(firstGasTank: "Carbon Dioxide", secondGasTank: "Hydrogen", thirdGasTank: "Ammonia", fourthGasTank: "Oxygen", firstGasIsPositive: [true, false, false, false], secondGasIsPositive: [false, true, false, false], thirdGasIsPositive: [false, false, false, true], forthGasIsPositive: [false, false, true, false], correctGasTank: "Carbon Dioxide"),
     GasTestGame(firstGasTank: "Carbon Dioxide", secondGasTank: "Oxygen", thirdGasTank: "Ammonia", fourthGasTank: "Hydrogen", firstGasIsPositive: [true, false, false, false], secondGasIsPositive: [false, false, false, true], thirdGasIsPositive: [false, false, false, true], forthGasIsPositive: [false, false, true, false], correctGasTank: "Ammonia"),
     GasTestGame(firstGasTank: "Carbon Dioxide", secondGasTank: "Oxygen", thirdGasTank: "Hydrogen", fourthGasTank: "Ammonia", firstGasIsPositive: [true, false, false, false], secondGasIsPositive: [false, false, true, false], thirdGasIsPositive: [false, true, false, false], forthGasIsPositive: [false, false, false, true], correctGasTank: "Oxygen"),
-    
+
     GasTestGame(firstGasTank: "Oxygen", secondGasTank: "Hydrogen", thirdGasTank: "Carbon Dioxide", fourthGasTank: "Ammonia", firstGasIsPositive: [false, false, true, false], secondGasIsPositive: [false, true, false, false], thirdGasIsPositive: [true, false, false, false], forthGasIsPositive: [false, false, false, true], correctGasTank: "Carbon Dioxide"),
     GasTestGame(firstGasTank: "Oxygen", secondGasTank: "Hydrogen", thirdGasTank: "Ammonia", fourthGasTank: "Carbon Dioxide", firstGasIsPositive: [false, false, true, false], secondGasIsPositive: [false, true, false, false], thirdGasIsPositive: [false, false, false, true], forthGasIsPositive: [true, false, false, false], correctGasTank: "Ammonia"),
     GasTestGame(firstGasTank: "Oxygen", secondGasTank: "Carbon Dioxide", thirdGasTank: "Hydrogen", fourthGasTank: "Ammonia", firstGasIsPositive: [false, false, true, false], secondGasIsPositive: [true, false, false, false], thirdGasIsPositive: [false, true, false, false], forthGasIsPositive: [false, false, false, true], correctGasTank: "Hydrogen"),
     GasTestGame(firstGasTank: "Oxygen", secondGasTank: "Carbon Dioxide", thirdGasTank: "Ammonia", fourthGasTank: "Hydrogen", firstGasIsPositive: [false, false, true, false], secondGasIsPositive: [true, false, false, false], thirdGasIsPositive: [false, false, false, true], forthGasIsPositive: [false, true, false, false], correctGasTank: "Oxygen"),
     GasTestGame(firstGasTank: "Oxygen", secondGasTank: "Ammonia", thirdGasTank: "Hydrogen", fourthGasTank: "Carbon Dioxide", firstGasIsPositive: [false, false, true, false], secondGasIsPositive: [false, false, false, true], thirdGasIsPositive: [false, true, false, false], forthGasIsPositive: [true, false, false, false], correctGasTank: "Carbon Dioxide"),
     GasTestGame(firstGasTank: "Oxygen", secondGasTank: "Ammonia", thirdGasTank: "Carbon Dioxide", fourthGasTank: "Hydrogen", firstGasIsPositive: [false, false, true, false], secondGasIsPositive: [false, false, false, true], thirdGasIsPositive: [true, false, false, false], forthGasIsPositive: [false, true, false, false], correctGasTank: "Ammonia"),
-    
+
     GasTestGame(firstGasTank: "Hydrogen", secondGasTank: "Oxygen", thirdGasTank: "Carbon Dioxide", fourthGasTank: "Ammonia", firstGasIsPositive: [false, true, false, false], secondGasIsPositive: [false, false, true, false], thirdGasIsPositive: [true, false, false, false], forthGasIsPositive: [false, false, false, true], correctGasTank: "Hydrogen"),
     GasTestGame(firstGasTank: "Hydrogen", secondGasTank: "Oxygen", thirdGasTank: "Ammonia", fourthGasTank: "Carbon Dioxide", firstGasIsPositive: [false, true, false, false], secondGasIsPositive: [false, false, true, false], thirdGasIsPositive: [false, false, false, true], forthGasIsPositive: [true, false, false, false], correctGasTank: "Oxygen"),
     GasTestGame(firstGasTank: "Hydrogen", secondGasTank: "Carbon Dioxide", thirdGasTank: "Ammonia", fourthGasTank: "Oxygen", firstGasIsPositive: [false, true, false, false], secondGasIsPositive: [true, false, false, false], thirdGasIsPositive: [false, false, false, true], forthGasIsPositive: [false, false, true, false], correctGasTank: "Carbon Dioxide"),
@@ -938,7 +938,7 @@ var phGameArray = [
         PhGame(startIsAcidic: false),
         PhGame(startIsAcidic: false)
     ],
-    
+
     //LEVEL 2
     [
         PhGame(startIsAcidic: false),
@@ -952,7 +952,7 @@ var phGameArray = [
         PhGame(startIsAcidic: true),
         PhGame(startIsAcidic: false)
     ],
-    
+
     //LEVEL 3
     [
         PhGame(startIsAcidic: true),
@@ -1042,7 +1042,7 @@ var retrieveSolidsArray = [
     specificSeperationMethod(name: "Alumnium", properties: "Magnetic", givenMethods: GivenSeperationMethods(methods: [SeperationMethods(methodName: "Evaporation", isCorrect: false), SeperationMethods(methodName: "Distillation", isCorrect: false), SeperationMethods(methodName: "Filtration", isCorrect: false), SeperationMethods(methodName: "Magnetism", isCorrect: true), SeperationMethods(methodName: "Crystallisation", isCorrect: false)])),
     specificSeperationMethod(name: "Sugar", properties: "Soluble in water", givenMethods: GivenSeperationMethods(methods: [SeperationMethods(methodName: "Evaporation", isCorrect: false), SeperationMethods(methodName: "Distillation", isCorrect: false), SeperationMethods(methodName: "Filtration", isCorrect: false), SeperationMethods(methodName: "Magnetism", isCorrect: false), SeperationMethods(methodName: "Crystallisation", isCorrect: true)])),
     specificSeperationMethod(name: "oil", properties: "insoluble and floats on water", givenMethods: GivenSeperationMethods(methods: [SeperationMethods(methodName: "Evaporation", isCorrect: false), SeperationMethods(methodName: "Distillation", isCorrect: true), SeperationMethods(methodName: "Filtration", isCorrect: false), SeperationMethods(methodName: "Magnetism", isCorrect: false), SeperationMethods(methodName: "Crystallisation", isCorrect: false)]))
-    
+
 ]
 */
 
@@ -1075,19 +1075,19 @@ extension UIFontDescriptor.AttributeName {
 
 extension UIFont {
     static var isOverrided: Bool = false
-    
+
     @objc class func mySystemFont(ofSize size: CGFloat) -> UIFont {
         return UIFont(name: AppFontName.regular, size: size)!
     }
-    
+
     @objc class func myBoldSystemFont(ofSize size: CGFloat) -> UIFont {
         return UIFont(name: AppFontName.bold, size: size)!
     }
-    
+
     @objc class func myItalicSystemFont(ofSize size: CGFloat) -> UIFont {
         return UIFont(name: AppFontName.italic, size: size)!
     }
-    
+
     @objc convenience init(myCoder aDecoder: NSCoder) {
         guard
             let fontDescriptor = aDecoder.decodeObject(forKey: "UIFontDescriptor") as? UIFontDescriptor,
@@ -1108,28 +1108,28 @@ extension UIFont {
         }
         self.init(name: fontName, size: fontDescriptor.pointSize)!
     }
-    
+
     class func overrideInitialize() {
         guard self == UIFont.self, !isOverrided else { return }
-        
+
         // Avoid method swizzling run twice and revert to original initialize function
         isOverrided = true
-        
+
         if let systemFontMethod = class_getClassMethod(self, #selector(systemFont(ofSize:))),
            let mySystemFontMethod = class_getClassMethod(self, #selector(mySystemFont(ofSize:))) {
             method_exchangeImplementations(systemFontMethod, mySystemFontMethod)
         }
-        
+
         if let boldSystemFontMethod = class_getClassMethod(self, #selector(boldSystemFont(ofSize:))),
            let myBoldSystemFontMethod = class_getClassMethod(self, #selector(myBoldSystemFont(ofSize:))) {
             method_exchangeImplementations(boldSystemFontMethod, myBoldSystemFontMethod)
         }
-        
+
         if let italicSystemFontMethod = class_getClassMethod(self, #selector(italicSystemFont(ofSize:))),
            let myItalicSystemFontMethod = class_getClassMethod(self, #selector(myItalicSystemFont(ofSize:))) {
             method_exchangeImplementations(italicSystemFontMethod, myItalicSystemFontMethod)
         }
-        
+
         if let initCoderMethod = class_getInstanceMethod(self, #selector(UIFontDescriptor.init(coder:))), // Trick to get over the lack of UIFont.init(coder:))
            let myInitCoderMethod = class_getInstanceMethod(self, #selector(UIFont.init(myCoder:))) {
             method_exchangeImplementations(initCoderMethod, myInitCoderMethod)
@@ -1143,9 +1143,9 @@ func loadData() {
     ref = Database.database().reference(withPath: "learnTopics")
     ref.keepSynced(true)
     ref!.observe(.value, with: { (snapshot) in
-        
+
         let jsonData = try! JSONSerialization.data(withJSONObject: snapshot.value!, options: .prettyPrinted)
-        
+
         learnTopics = try! JSONDecoder().decode([Topic].self, from: jsonData)
 
         let encoder = JSONEncoder()
@@ -1154,17 +1154,17 @@ func loadData() {
             defaults.set(encoded, forKey: "learnTopics")
         }
     })
-    
+
     let ref2 = Database.database().reference(withPath: "gasesArray")
     ref2.keepSynced(true)
     ref2.observe(.value, with: { (snapshot) in
-        
+
         let jsonData = try! JSONSerialization.data(withJSONObject: snapshot.value!, options: .prettyPrinted)
-        
+
         gasesArray = try! JSONDecoder().decode([GasTestGame].self, from: jsonData)
-        
+
         gasesArray.shuffle()
-        
+
         let encoder = JSONEncoder()
         if let encoded = try? encoder.encode(gasesArray) {
             let defaults = UserDefaults.standard
@@ -1172,13 +1172,13 @@ func loadData() {
         }
 
     })
-    
+
     let ref3 = Database.database().reference(withPath: "gameTopics")
     ref3.keepSynced(true)
     ref3.observe(.value, with: { (snapshot) in
-        
+
         let jsonData = try! JSONSerialization.data(withJSONObject: snapshot.value!, options: .prettyPrinted)
-        
+
         gameTopics = try! JSONDecoder().decode([PlayTopic].self, from: jsonData)
 
         let encoder = JSONEncoder()
@@ -1187,13 +1187,13 @@ func loadData() {
             defaults.set(encoded, forKey: "gameTopics")
         }
     })
-    
+
     let ref4 = Database.database().reference(withPath: "periodicTable")
     ref4.keepSynced(true)
     ref4.observe(.value, with: { (snapshot) in
-        
+
         let jsonData = try! JSONSerialization.data(withJSONObject: snapshot.value!, options: .prettyPrinted)
-        
+
         periodicTable = try! JSONDecoder().decode([[PeriodicTableGame]].self, from: jsonData)
 
         let encoder = JSONEncoder()
@@ -1202,13 +1202,13 @@ func loadData() {
             defaults.set(encoded, forKey: "periodicTable")
         }
     })
-    
+
     let ref5 = Database.database().reference(withPath: "phGameArray")
     ref5.keepSynced(true)
     ref5.observe(.value, with: { (snapshot) in
-        
+
         let jsonData = try! JSONSerialization.data(withJSONObject: snapshot.value!, options: .prettyPrinted)
-        
+
         phGameArray = try! JSONDecoder().decode([[PhGame]].self, from: jsonData)
 
         let encoder = JSONEncoder()
@@ -1217,13 +1217,13 @@ func loadData() {
             defaults.set(encoded, forKey: "phGameArray")
         }
     })
-    
+
     let ref6 = Database.database().reference(withPath: "phGameOptionsArray")
     ref6.keepSynced(true)
     ref6.observe(.value, with: { (snapshot) in
-        
+
         let jsonData = try! JSONSerialization.data(withJSONObject: snapshot.value!, options: .prettyPrinted)
-        
+
         phGameOptionsArray = try! JSONDecoder().decode([PhOption].self, from: jsonData)
 
         let encoder = JSONEncoder()
@@ -1232,13 +1232,13 @@ func loadData() {
             defaults.set(encoded, forKey: "phGameOptionsArray")
         }
     })
-    
+
     let ref7 = Database.database().reference(withPath: "retrieveSolidsArray")
     ref7.keepSynced(true)
     ref7.observe(.value, with: { (snapshot) in
-        
+
         let jsonData = try! JSONSerialization.data(withJSONObject: snapshot.value!, options: .prettyPrinted)
-        
+
         retrieveSolidsArray = try! JSONDecoder().decode([specificSeperationMethod].self, from: jsonData)
 
         let encoder = JSONEncoder()
