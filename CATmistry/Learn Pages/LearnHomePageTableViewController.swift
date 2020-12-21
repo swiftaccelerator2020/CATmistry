@@ -82,7 +82,7 @@ class LearnHomePageTableViewController: UITableViewController {
         var versionNumber: Int!
         // var currentVersionNumber: Int?
         
-        currentVersionNumber = defaults.integer(forKey: "versionNumber")
+        // currentVersionNumber = defaults.integer(forKey: "versionNumber")
         let ref = Database.database().reference(withPath: "versionNumber")
         ref.keepSynced(true)
         ref.observe(.value, with: { (snapshot) in
