@@ -74,6 +74,8 @@ class LearnHomePageTableViewController: UITableViewController {
             }
         }
         
+        tableView.reloadData()
+        
         loadData()
         
         tableView.tableFooterView = UIView()

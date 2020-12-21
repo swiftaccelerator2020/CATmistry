@@ -6,7 +6,7 @@
 //
 
 import Foundation
-import Firebase
+import FirebaseDatabase
 // MARK: - Structs
 
 struct Topic: Codable {
@@ -1138,115 +1138,138 @@ extension UIFont {
 }
 
 func loadData() {
+    
     var ref: DatabaseReference!
-
-    ref = Database.database().reference(withPath: "learnTopics")
+    
+    var versionNumber: Int!
+    var currentVersionNumber: Int!
+    
+    let defaults = UserDefaults.standard
+    currentVersionNumber = defaults.integer(forKey: "versionNumber")
+    
+    ref = Database.database().reference(withPath: "versionNumber")
     ref.keepSynced(true)
     ref!.observe(.value, with: { (snapshot) in
         
-        let jsonData = try! JSONSerialization.data(withJSONObject: snapshot.value!, options: .prettyPrinted)
+        let data = snapshot.value
+        versionNumber = data as? Int
+        let defaults = UserDefaults.standard
+        defaults.set(data, forKey: "versionNumber")
         
-        learnTopics = try! JSONDecoder().decode([Topic].self, from: jsonData)
-
-        let encoder = JSONEncoder()
-        if let encoded = try? encoder.encode(learnTopics) {
-            let defaults = UserDefaults.standard
-            defaults.set(encoded, forKey: "learnTopics")
-        }
     })
     
-    let ref2 = Database.database().reference(withPath: "gasesArray")
-    ref2.keepSynced(true)
-    ref2.observe(.value, with: { (snapshot) in
+    if currentVersionNumber < versionNumber {
         
-        let jsonData = try! JSONSerialization.data(withJSONObject: snapshot.value!, options: .prettyPrinted)
-        
-        gasesArray = try! JSONDecoder().decode([GasTestGame].self, from: jsonData)
-        
-        gasesArray.shuffle()
-        
-        let encoder = JSONEncoder()
-        if let encoded = try? encoder.encode(gasesArray) {
-            let defaults = UserDefaults.standard
-            defaults.set(encoded, forKey: "gasesArray")
-        }
+        ref = Database.database().reference(withPath: "learnTopics")
+        ref.keepSynced(true)
+        ref!.observe(.value, with: { (snapshot) in
+            
+            let jsonData = try! JSONSerialization.data(withJSONObject: snapshot.value!, options: .prettyPrinted)
+            
+            learnTopics = try! JSONDecoder().decode([Topic].self, from: jsonData)
 
-    })
-    
-    let ref3 = Database.database().reference(withPath: "gameTopics")
-    ref3.keepSynced(true)
-    ref3.observe(.value, with: { (snapshot) in
+            let encoder = JSONEncoder()
+            if let encoded = try? encoder.encode(learnTopics) {
+                let defaults = UserDefaults.standard
+                defaults.set(encoded, forKey: "learnTopics")
+            }
+        })
         
-        let jsonData = try! JSONSerialization.data(withJSONObject: snapshot.value!, options: .prettyPrinted)
-        
-        gameTopics = try! JSONDecoder().decode([PlayTopic].self, from: jsonData)
+        let ref2 = Database.database().reference(withPath: "gasesArray")
+        ref2.keepSynced(true)
+        ref2.observe(.value, with: { (snapshot) in
+            
+            let jsonData = try! JSONSerialization.data(withJSONObject: snapshot.value!, options: .prettyPrinted)
+            
+            gasesArray = try! JSONDecoder().decode([GasTestGame].self, from: jsonData)
+            
+            gasesArray.shuffle()
+            
+            let encoder = JSONEncoder()
+            if let encoded = try? encoder.encode(gasesArray) {
+                let defaults = UserDefaults.standard
+                defaults.set(encoded, forKey: "gasesArray")
+            }
 
-        let encoder = JSONEncoder()
-        if let encoded = try? encoder.encode(gameTopics) {
-            let defaults = UserDefaults.standard
-            defaults.set(encoded, forKey: "gameTopics")
-        }
-    })
-    
-    let ref4 = Database.database().reference(withPath: "periodicTable")
-    ref4.keepSynced(true)
-    ref4.observe(.value, with: { (snapshot) in
+        })
         
-        let jsonData = try! JSONSerialization.data(withJSONObject: snapshot.value!, options: .prettyPrinted)
-        
-        periodicTable = try! JSONDecoder().decode([[PeriodicTableGame]].self, from: jsonData)
+        let ref3 = Database.database().reference(withPath: "gameTopics")
+        ref3.keepSynced(true)
+        ref3.observe(.value, with: { (snapshot) in
+            
+            let jsonData = try! JSONSerialization.data(withJSONObject: snapshot.value!, options: .prettyPrinted)
+            
+            gameTopics = try! JSONDecoder().decode([PlayTopic].self, from: jsonData)
 
-        let encoder = JSONEncoder()
-        if let encoded = try? encoder.encode(periodicTable) {
-            let defaults = UserDefaults.standard
-            defaults.set(encoded, forKey: "periodicTable")
-        }
-    })
-    
-    let ref5 = Database.database().reference(withPath: "phGameArray")
-    ref5.keepSynced(true)
-    ref5.observe(.value, with: { (snapshot) in
+            let encoder = JSONEncoder()
+            if let encoded = try? encoder.encode(gameTopics) {
+                let defaults = UserDefaults.standard
+                defaults.set(encoded, forKey: "gameTopics")
+            }
+        })
         
-        let jsonData = try! JSONSerialization.data(withJSONObject: snapshot.value!, options: .prettyPrinted)
-        
-        phGameArray = try! JSONDecoder().decode([[PhGame]].self, from: jsonData)
+        let ref4 = Database.database().reference(withPath: "periodicTable")
+        ref4.keepSynced(true)
+        ref4.observe(.value, with: { (snapshot) in
+            
+            let jsonData = try! JSONSerialization.data(withJSONObject: snapshot.value!, options: .prettyPrinted)
+            
+            periodicTable = try! JSONDecoder().decode([[PeriodicTableGame]].self, from: jsonData)
 
-        let encoder = JSONEncoder()
-        if let encoded = try? encoder.encode(phGameArray) {
-            let defaults = UserDefaults.standard
-            defaults.set(encoded, forKey: "phGameArray")
-        }
-    })
-    
-    let ref6 = Database.database().reference(withPath: "phGameOptionsArray")
-    ref6.keepSynced(true)
-    ref6.observe(.value, with: { (snapshot) in
+            let encoder = JSONEncoder()
+            if let encoded = try? encoder.encode(periodicTable) {
+                let defaults = UserDefaults.standard
+                defaults.set(encoded, forKey: "periodicTable")
+            }
+        })
         
-        let jsonData = try! JSONSerialization.data(withJSONObject: snapshot.value!, options: .prettyPrinted)
-        
-        phGameOptionsArray = try! JSONDecoder().decode([PhOption].self, from: jsonData)
+        let ref5 = Database.database().reference(withPath: "phGameArray")
+        ref5.keepSynced(true)
+        ref5.observe(.value, with: { (snapshot) in
+            
+            let jsonData = try! JSONSerialization.data(withJSONObject: snapshot.value!, options: .prettyPrinted)
+            
+            phGameArray = try! JSONDecoder().decode([[PhGame]].self, from: jsonData)
 
-        let encoder = JSONEncoder()
-        if let encoded = try? encoder.encode(phGameOptionsArray) {
-            let defaults = UserDefaults.standard
-            defaults.set(encoded, forKey: "phGameOptionsArray")
-        }
-    })
-    
-    let ref7 = Database.database().reference(withPath: "retrieveSolidsArray")
-    ref7.keepSynced(true)
-    ref7.observe(.value, with: { (snapshot) in
+            let encoder = JSONEncoder()
+            if let encoded = try? encoder.encode(phGameArray) {
+                let defaults = UserDefaults.standard
+                defaults.set(encoded, forKey: "phGameArray")
+            }
+        })
         
-        let jsonData = try! JSONSerialization.data(withJSONObject: snapshot.value!, options: .prettyPrinted)
-        
-        retrieveSolidsArray = try! JSONDecoder().decode([specificSeperationMethod].self, from: jsonData)
+        let ref6 = Database.database().reference(withPath: "phGameOptionsArray")
+        ref6.keepSynced(true)
+        ref6.observe(.value, with: { (snapshot) in
+            
+            let jsonData = try! JSONSerialization.data(withJSONObject: snapshot.value!, options: .prettyPrinted)
+            
+            phGameOptionsArray = try! JSONDecoder().decode([PhOption].self, from: jsonData)
 
-        let encoder = JSONEncoder()
-        if let encoded = try? encoder.encode(retrieveSolidsArray) {
-            let defaults = UserDefaults.standard
-            defaults.set(encoded, forKey: "retrieveSolidsArray")
-        }
-    })
+            let encoder = JSONEncoder()
+            if let encoded = try? encoder.encode(phGameOptionsArray) {
+                let defaults = UserDefaults.standard
+                defaults.set(encoded, forKey: "phGameOptionsArray")
+            }
+        })
+        
+        let ref7 = Database.database().reference(withPath: "retrieveSolidsArray")
+        ref7.keepSynced(true)
+        ref7.observe(.value, with: { (snapshot) in
+            
+            let jsonData = try! JSONSerialization.data(withJSONObject: snapshot.value!, options: .prettyPrinted)
+            
+            retrieveSolidsArray = try! JSONDecoder().decode([specificSeperationMethod].self, from: jsonData)
+
+            let encoder = JSONEncoder()
+            if let encoded = try? encoder.encode(retrieveSolidsArray) {
+                let defaults = UserDefaults.standard
+                defaults.set(encoded, forKey: "retrieveSolidsArray")
+            }
+        })
+        
+    }
+
 }
 
 func getData(keyName name: String) -> Data? {
