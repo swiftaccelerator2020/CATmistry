@@ -19,7 +19,10 @@
 @implementation GDTCORStorageEventSelector
 
 + (instancetype)eventSelectorForTarget:(GDTCORTarget)target {
-  return [[self alloc] initWithTarget:target eventIDs:nil mappingIDs:nil qosTiers:nil];
+  return [[self alloc] initWithTarget:target
+                             eventIDs:nil
+                           mappingIDs:nil
+                             qosTiers:nil];
 }
 
 - (instancetype)initWithTarget:(GDTCORTarget)target

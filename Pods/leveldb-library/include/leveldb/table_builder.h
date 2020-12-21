@@ -26,14 +26,14 @@ class BlockHandle;
 class WritableFile;
 
 class LEVELDB_EXPORT TableBuilder {
- public:
+public:
   // Create a builder that will store the contents of the table it is
   // building in *file.  Does not close the file.  It is up to the
   // caller to close the file after calling Finish().
-  TableBuilder(const Options& options, WritableFile* file);
+  TableBuilder(const Options &options, WritableFile *file);
 
-  TableBuilder(const TableBuilder&) = delete;
-  TableBuilder& operator=(const TableBuilder&) = delete;
+  TableBuilder(const TableBuilder &) = delete;
+  TableBuilder &operator=(const TableBuilder &) = delete;
 
   // REQUIRES: Either Finish() or Abandon() has been called.
   ~TableBuilder();
@@ -44,12 +44,12 @@ class LEVELDB_EXPORT TableBuilder {
   // passed to the constructor is different from its value in the
   // structure passed to this method, this method will return an error
   // without changing any fields.
-  Status ChangeOptions(const Options& options);
+  Status ChangeOptions(const Options &options);
 
   // Add key,value to the table being constructed.
   // REQUIRES: key is after any previously added key according to comparator.
   // REQUIRES: Finish(), Abandon() have not been called
-  void Add(const Slice& key, const Slice& value);
+  void Add(const Slice &key, const Slice &value);
 
   // Advanced operation: flush any buffered key/value pairs to file.
   // Can be used to ensure that two adjacent entries never live in
@@ -79,15 +79,15 @@ class LEVELDB_EXPORT TableBuilder {
   // Finish() call, returns the size of the final generated file.
   uint64_t FileSize() const;
 
- private:
+private:
   bool ok() const { return status().ok(); }
-  void WriteBlock(BlockBuilder* block, BlockHandle* handle);
-  void WriteRawBlock(const Slice& data, CompressionType, BlockHandle* handle);
+  void WriteBlock(BlockBuilder *block, BlockHandle *handle);
+  void WriteRawBlock(const Slice &data, CompressionType, BlockHandle *handle);
 
   struct Rep;
-  Rep* rep_;
+  Rep *rep_;
 };
 
-}  // namespace leveldb
+} // namespace leveldb
 
-#endif  // STORAGE_LEVELDB_INCLUDE_TABLE_BUILDER_H_
+#endif // STORAGE_LEVELDB_INCLUDE_TABLE_BUILDER_H_

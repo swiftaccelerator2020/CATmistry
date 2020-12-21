@@ -63,7 +63,7 @@ NS_SWIFT_NAME(Database)
  */
 // clang-format off
 + (FIRDatabase *)databaseForApp:(FIRApp *)app
-                            URL:(NSString *)url NS_SWIFT_NAME(database(app:url:));
+    URL:(NSString *)url NS_SWIFT_NAME(database(app:url:));
 // clang-format on
 
 /**

@@ -28,8 +28,8 @@ NSString *const kGULKeychainUtilsErrorDomain = @"com.gul.keychain.ErrorDomain";
   mutableQuery[(__bridge id)kSecMatchLimit] = (__bridge id)kSecMatchLimitOne;
 
   CFDataRef result = NULL;
-  OSStatus status =
-      SecItemCopyMatching((__bridge CFDictionaryRef)mutableQuery, (CFTypeRef *)&result);
+  OSStatus status = SecItemCopyMatching((__bridge CFDictionaryRef)mutableQuery,
+                                        (CFTypeRef *)&result);
 
   if (status == errSecSuccess && result != NULL) {
     if (outError) {
@@ -45,7 +45,8 @@ NSString *const kGULKeychainUtilsErrorDomain = @"com.gul.keychain.ErrorDomain";
     }
   } else {
     if (outError) {
-      *outError = [self keychainErrorWithFunction:@"SecItemCopyMatching" status:status];
+      *outError = [self keychainErrorWithFunction:@"SecItemCopyMatching"
+                                           status:status];
     }
   }
   return nil;
@@ -69,7 +70,8 @@ NSString *const kGULKeychainUtilsErrorDomain = @"com.gul.keychain.ErrorDomain";
     status = SecItemAdd((__bridge CFDictionaryRef)mutableQuery, NULL);
   } else {
     NSDictionary *attributes = @{(__bridge id)kSecValueData : item};
-    status = SecItemUpdate((__bridge CFDictionaryRef)query, (__bridge CFDictionaryRef)attributes);
+    status = SecItemUpdate((__bridge CFDictionaryRef)query,
+                           (__bridge CFDictionaryRef)attributes);
   }
 
   if (status == noErr) {
@@ -86,7 +88,8 @@ NSString *const kGULKeychainUtilsErrorDomain = @"com.gul.keychain.ErrorDomain";
   return NO;
 }
 
-+ (BOOL)removeItemWithQuery:(NSDictionary *)query error:(NSError *_Nullable *_Nullable)outError {
++ (BOOL)removeItemWithQuery:(NSDictionary *)query
+                      error:(NSError *_Nullable *_Nullable)outError {
   OSStatus status = SecItemDelete((__bridge CFDictionaryRef)query);
 
   if (status == noErr || status == errSecItemNotFound) {
@@ -104,10 +107,14 @@ NSString *const kGULKeychainUtilsErrorDomain = @"com.gul.keychain.ErrorDomain";
 
 #pragma mark - Errors
 
-+ (NSError *)keychainErrorWithFunction:(NSString *)keychainFunction status:(OSStatus)status {
-  NSString *failureReason = [NSString stringWithFormat:@"%@ (%li)", keychainFunction, (long)status];
++ (NSError *)keychainErrorWithFunction:(NSString *)keychainFunction
+                                status:(OSStatus)status {
+  NSString *failureReason =
+      [NSString stringWithFormat:@"%@ (%li)", keychainFunction, (long)status];
   NSDictionary *userInfo = @{NSLocalizedFailureReasonErrorKey : failureReason};
-  return [NSError errorWithDomain:kGULKeychainUtilsErrorDomain code:0 userInfo:userInfo];
+  return [NSError errorWithDomain:kGULKeychainUtilsErrorDomain
+                             code:0
+                         userInfo:userInfo];
 }
 
 @end

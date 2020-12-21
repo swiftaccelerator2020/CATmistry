@@ -12,13 +12,10 @@ namespace leveldb {
 
 namespace {
 class MergingIterator : public Iterator {
- public:
-  MergingIterator(const Comparator* comparator, Iterator** children, int n)
-      : comparator_(comparator),
-        children_(new IteratorWrapper[n]),
-        n_(n),
-        current_(nullptr),
-        direction_(kForward) {
+public:
+  MergingIterator(const Comparator *comparator, Iterator **children, int n)
+      : comparator_(comparator), children_(new IteratorWrapper[n]), n_(n),
+        current_(nullptr), direction_(kForward) {
     for (int i = 0; i < n; i++) {
       children_[i].Set(children[i]);
     }
@@ -44,7 +41,7 @@ class MergingIterator : public Iterator {
     direction_ = kReverse;
   }
 
-  virtual void Seek(const Slice& target) {
+  virtual void Seek(const Slice &target) {
     for (int i = 0; i < n_; i++) {
       children_[i].Seek(target);
     }
@@ -62,7 +59,7 @@ class MergingIterator : public Iterator {
     // we explicitly position the non-current_ children.
     if (direction_ != kForward) {
       for (int i = 0; i < n_; i++) {
-        IteratorWrapper* child = &children_[i];
+        IteratorWrapper *child = &children_[i];
         if (child != current_) {
           child->Seek(key());
           if (child->Valid() &&
@@ -88,7 +85,7 @@ class MergingIterator : public Iterator {
     // we explicitly position the non-current_ children.
     if (direction_ != kReverse) {
       for (int i = 0; i < n_; i++) {
-        IteratorWrapper* child = &children_[i];
+        IteratorWrapper *child = &children_[i];
         if (child != current_) {
           child->Seek(key());
           if (child->Valid()) {
@@ -128,7 +125,7 @@ class MergingIterator : public Iterator {
     return status;
   }
 
- private:
+private:
   // Which direction is the iterator moving?
   enum Direction { kForward, kReverse };
 
@@ -138,17 +135,17 @@ class MergingIterator : public Iterator {
   // We might want to use a heap in case there are lots of children.
   // For now we use a simple array since we expect a very small number
   // of children in leveldb.
-  const Comparator* comparator_;
-  IteratorWrapper* children_;
+  const Comparator *comparator_;
+  IteratorWrapper *children_;
   int n_;
-  IteratorWrapper* current_;
+  IteratorWrapper *current_;
   Direction direction_;
 };
 
 void MergingIterator::FindSmallest() {
-  IteratorWrapper* smallest = nullptr;
+  IteratorWrapper *smallest = nullptr;
   for (int i = 0; i < n_; i++) {
-    IteratorWrapper* child = &children_[i];
+    IteratorWrapper *child = &children_[i];
     if (child->Valid()) {
       if (smallest == nullptr) {
         smallest = child;
@@ -161,9 +158,9 @@ void MergingIterator::FindSmallest() {
 }
 
 void MergingIterator::FindLargest() {
-  IteratorWrapper* largest = nullptr;
+  IteratorWrapper *largest = nullptr;
   for (int i = n_ - 1; i >= 0; i--) {
-    IteratorWrapper* child = &children_[i];
+    IteratorWrapper *child = &children_[i];
     if (child->Valid()) {
       if (largest == nullptr) {
         largest = child;
@@ -174,9 +171,9 @@ void MergingIterator::FindLargest() {
   }
   current_ = largest;
 }
-}  // namespace
+} // namespace
 
-Iterator* NewMergingIterator(const Comparator* comparator, Iterator** children,
+Iterator *NewMergingIterator(const Comparator *comparator, Iterator **children,
                              int n) {
   assert(n >= 0);
   if (n == 0) {
@@ -188,4 +185,4 @@ Iterator* NewMergingIterator(const Comparator* comparator, Iterator** children,
   }
 }
 
-}  // namespace leveldb
+} // namespace leveldb

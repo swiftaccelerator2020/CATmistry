@@ -34,7 +34,8 @@ static NSString *const kGULNetworkContentLengthKey = @"Content-Length";
 static NSString *const kGULNetworkContentTypeKey = @"Content-Type";
 
 /// Constant string for request header Content-Type value.
-static NSString *const kGULNetworkContentTypeValue = @"application/x-www-form-urlencoded";
+static NSString *const kGULNetworkContentTypeValue =
+    @"application/x-www-form-urlencoded";
 
 /// Constant string for GET request method.
 static NSString *const kGULNetworkGETRequestMethod = @"GET";
@@ -64,8 +65,9 @@ static NSString *const kGULNetworkLogTag = @"Google/Utilities/Network";
   self = [super init];
   if (self) {
     // Setup reachability.
-    _reachability = [[GULReachabilityChecker alloc] initWithReachabilityDelegate:self
-                                                                        withHost:reachabilityHost];
+    _reachability = [[GULReachabilityChecker alloc]
+        initWithReachabilityDelegate:self
+                            withHost:reachabilityHost];
     if (![_reachability start]) {
       return nil;
     }
@@ -84,9 +86,12 @@ static NSString *const kGULNetworkLogTag = @"Google/Utilities/Network";
 #pragma mark - External Methods
 
 + (void)handleEventsForBackgroundURLSessionID:(NSString *)sessionID
-                            completionHandler:(GULNetworkSystemCompletionHandler)completionHandler {
-  [GULNetworkURLSession handleEventsForBackgroundURLSessionID:sessionID
-                                            completionHandler:completionHandler];
+                            completionHandler:
+                                (GULNetworkSystemCompletionHandler)
+                                    completionHandler {
+  [GULNetworkURLSession
+      handleEventsForBackgroundURLSessionID:sessionID
+                          completionHandler:completionHandler];
 }
 
 - (NSString *)postURL:(NSURL *)url
@@ -95,16 +100,19 @@ static NSString *const kGULNetworkLogTag = @"Google/Utilities/Network";
     usingBackgroundSession:(BOOL)usingBackgroundSession
          completionHandler:(GULNetworkCompletionHandler)handler {
   if (!url.absoluteString.length) {
-    [self handleErrorWithCode:GULErrorCodeNetworkInvalidURL queue:queue withHandler:handler];
+    [self handleErrorWithCode:GULErrorCodeNetworkInvalidURL
+                        queue:queue
+                  withHandler:handler];
     return nil;
   }
 
-  NSTimeInterval timeOutInterval = _timeoutInterval ?: kGULNetworkTimeOutInterval;
+  NSTimeInterval timeOutInterval =
+      _timeoutInterval ?: kGULNetworkTimeOutInterval;
 
-  NSMutableURLRequest *request =
-      [[NSMutableURLRequest alloc] initWithURL:url
-                                   cachePolicy:NSURLRequestReloadIgnoringLocalCacheData
-                               timeoutInterval:timeOutInterval];
+  NSMutableURLRequest *request = [[NSMutableURLRequest alloc]
+          initWithURL:url
+          cachePolicy:NSURLRequestReloadIgnoringLocalCacheData
+      timeoutInterval:timeOutInterval];
 
   if (!request) {
     [self handleErrorWithCode:GULErrorCodeNetworkSessionTaskCreation
@@ -114,10 +122,12 @@ static NSString *const kGULNetworkLogTag = @"Google/Utilities/Network";
   }
 
   NSError *compressError = nil;
-  NSData *compressedData = [NSData gul_dataByGzippingData:payload error:&compressError];
+  NSData *compressedData = [NSData gul_dataByGzippingData:payload
+                                                    error:&compressError];
   if (!compressedData || compressError) {
     if (compressError || payload.length > 0) {
-      // If the payload is not empty but it fails to compress the payload, something has been wrong.
+      // If the payload is not empty but it fails to compress the payload,
+      // something has been wrong.
       [self handleErrorWithCode:GULErrorCodeNetworkPayloadCompression
                           queue:queue
                     withHandler:handler];
@@ -132,11 +142,13 @@ static NSString *const kGULNetworkLogTag = @"Google/Utilities/Network";
   [request setValue:postLength forHTTPHeaderField:kGULNetworkContentLengthKey];
   request.HTTPBody = compressedData;
   request.HTTPMethod = kGULNetworkPOSTRequestMethod;
-  [request setValue:kGULNetworkContentTypeValue forHTTPHeaderField:kGULNetworkContentTypeKey];
+  [request setValue:kGULNetworkContentTypeValue
+      forHTTPHeaderField:kGULNetworkContentTypeKey];
   [request setValue:kGULNetworkContentCompressionValue
       forHTTPHeaderField:kGULNetworkContentCompressionKey];
 
-  GULNetworkURLSession *fetcher = [[GULNetworkURLSession alloc] initWithNetworkLoggerDelegate:self];
+  GULNetworkURLSession *fetcher =
+      [[GULNetworkURLSession alloc] initWithNetworkLoggerDelegate:self];
   fetcher.backgroundNetworkEnabled = usingBackgroundSession;
 
   __weak GULNetwork *weakSelf = self;
@@ -148,7 +160,8 @@ static NSString *const kGULNetworkLogTag = @"Google/Utilities/Network";
                     if (!strongSelf) {
                       return;
                     }
-                    dispatch_queue_t queueToDispatch = queue ? queue : dispatch_get_main_queue();
+                    dispatch_queue_t queueToDispatch =
+                        queue ? queue : dispatch_get_main_queue();
                     dispatch_async(queueToDispatch, ^{
                       if (sessionID.length) {
                         [strongSelf->_requests removeObjectForKey:sessionID];
@@ -179,15 +192,18 @@ static NSString *const kGULNetworkLogTag = @"Google/Utilities/Network";
     usingBackgroundSession:(BOOL)usingBackgroundSession
          completionHandler:(GULNetworkCompletionHandler)handler {
   if (!url.absoluteString.length) {
-    [self handleErrorWithCode:GULErrorCodeNetworkInvalidURL queue:queue withHandler:handler];
+    [self handleErrorWithCode:GULErrorCodeNetworkInvalidURL
+                        queue:queue
+                  withHandler:handler];
     return nil;
   }
 
-  NSTimeInterval timeOutInterval = _timeoutInterval ?: kGULNetworkTimeOutInterval;
-  NSMutableURLRequest *request =
-      [[NSMutableURLRequest alloc] initWithURL:url
-                                   cachePolicy:NSURLRequestReloadIgnoringLocalCacheData
-                               timeoutInterval:timeOutInterval];
+  NSTimeInterval timeOutInterval =
+      _timeoutInterval ?: kGULNetworkTimeOutInterval;
+  NSMutableURLRequest *request = [[NSMutableURLRequest alloc]
+          initWithURL:url
+          cachePolicy:NSURLRequestReloadIgnoringLocalCacheData
+      timeoutInterval:timeOutInterval];
 
   if (!request) {
     [self handleErrorWithCode:GULErrorCodeNetworkSessionTaskCreation
@@ -199,19 +215,21 @@ static NSString *const kGULNetworkLogTag = @"Google/Utilities/Network";
   request.HTTPMethod = kGULNetworkGETRequestMethod;
   request.allHTTPHeaderFields = headers;
 
-  GULNetworkURLSession *fetcher = [[GULNetworkURLSession alloc] initWithNetworkLoggerDelegate:self];
+  GULNetworkURLSession *fetcher =
+      [[GULNetworkURLSession alloc] initWithNetworkLoggerDelegate:self];
   fetcher.backgroundNetworkEnabled = usingBackgroundSession;
 
   __weak GULNetwork *weakSelf = self;
   NSString *requestID = [fetcher
       sessionIDFromAsyncGETRequest:request
-                 completionHandler:^(NSHTTPURLResponse *response, NSData *data, NSString *sessionID,
-                                     NSError *error) {
+                 completionHandler:^(NSHTTPURLResponse *response, NSData *data,
+                                     NSString *sessionID, NSError *error) {
                    GULNetwork *strongSelf = weakSelf;
                    if (!strongSelf) {
                      return;
                    }
-                   dispatch_queue_t queueToDispatch = queue ? queue : dispatch_get_main_queue();
+                   dispatch_queue_t queueToDispatch =
+                       queue ? queue : dispatch_get_main_queue();
                    dispatch_async(queueToDispatch, ^{
                      if (sessionID.length) {
                        [strongSelf->_requests removeObjectForKey:sessionID];
@@ -243,30 +261,37 @@ static NSString *const kGULNetworkLogTag = @"Google/Utilities/Network";
 
 #pragma mark - Network Reachability
 
-/// Tells reachability delegate to call reachabilityDidChangeToStatus: to notify the network
-/// reachability has changed.
+/// Tells reachability delegate to call reachabilityDidChangeToStatus: to notify
+/// the network reachability has changed.
 - (void)reachability:(GULReachabilityChecker *)reachability
        statusChanged:(GULReachabilityStatus)status {
-  _networkConnected = (status == kGULReachabilityViaCellular || status == kGULReachabilityViaWifi);
+  _networkConnected = (status == kGULReachabilityViaCellular ||
+                       status == kGULReachabilityViaWifi);
   [_reachabilityDelegate reachabilityDidChange];
 }
 
 #pragma mark - Network logger delegate
 
 - (void)setLoggerDelegate:(id<GULNetworkLoggerDelegate>)loggerDelegate {
-  // Explicitly check whether the delegate responds to the methods because conformsToProtocol does
-  // not work correctly even though the delegate does respond to the methods.
+  // Explicitly check whether the delegate responds to the methods because
+  // conformsToProtocol does not work correctly even though the delegate does
+  // respond to the methods.
   if (!loggerDelegate ||
-      ![loggerDelegate respondsToSelector:@selector(GULNetwork_logWithLevel:
-                                                                messageCode:message:contexts:)] ||
-      ![loggerDelegate respondsToSelector:@selector(GULNetwork_logWithLevel:
-                                                                messageCode:message:context:)] ||
-      ![loggerDelegate respondsToSelector:@selector(GULNetwork_logWithLevel:
-                                                                messageCode:message:)]) {
-    GULLogError(kGULLoggerNetwork, NO,
-                [NSString stringWithFormat:@"I-NET%06ld", (long)kGULNetworkMessageCodeNetwork002],
-                @"Cannot set the network logger delegate: delegate does not conform to the network "
-                 "logger protocol.");
+      ![loggerDelegate respondsToSelector:@selector
+                       (GULNetwork_logWithLevel:
+                                    messageCode:message:contexts:)] ||
+      ![loggerDelegate respondsToSelector:@selector
+                       (GULNetwork_logWithLevel:
+                                    messageCode:message:context:)] ||
+      ![loggerDelegate respondsToSelector:@selector
+                       (GULNetwork_logWithLevel:messageCode:message:)]) {
+    GULLogError(
+        kGULLoggerNetwork, NO,
+        [NSString stringWithFormat:@"I-NET%06ld",
+                                   (long)kGULNetworkMessageCodeNetwork002],
+        @"Cannot set the network logger delegate: delegate does not conform to "
+        @"the network "
+         "logger protocol.");
     return;
   }
   _loggerDelegate = loggerDelegate;
@@ -278,7 +303,8 @@ static NSString *const kGULNetworkLogTag = @"Google/Utilities/Network";
 - (void)handleErrorWithCode:(NSInteger)code
                       queue:(dispatch_queue_t)queue
                 withHandler:(GULNetworkCompletionHandler)handler {
-  NSDictionary *userInfo = @{kGULNetworkErrorContext : @"Failed to create network request"};
+  NSDictionary *userInfo =
+      @{kGULNetworkErrorContext : @"Failed to create network request"};
   NSError *error = [[NSError alloc] initWithDomain:kGULNetworkErrorDomain
                                               code:code
                                           userInfo:userInfo];
@@ -287,7 +313,8 @@ static NSString *const kGULNetworkLogTag = @"Google/Utilities/Network";
                         message:@"Failed to create network request. Code, error"
                        contexts:@[ @(code), error ]];
   if (handler) {
-    dispatch_queue_t queueToDispatch = queue ? queue : dispatch_get_main_queue();
+    dispatch_queue_t queueToDispatch =
+        queue ? queue : dispatch_get_main_queue();
     dispatch_async(queueToDispatch, ^{
       handler(nil, nil, error);
     });
@@ -300,8 +327,8 @@ static NSString *const kGULNetworkLogTag = @"Google/Utilities/Network";
                     messageCode:(GULNetworkMessageCode)messageCode
                         message:(NSString *)message
                        contexts:(NSArray *)contexts {
-  // Let the delegate log the message if there is a valid logger delegate. Otherwise, just log
-  // errors/warnings/info messages to the console log.
+  // Let the delegate log the message if there is a valid logger delegate.
+  // Otherwise, just log errors/warnings/info messages to the console log.
   if (_loggerDelegate) {
     [_loggerDelegate GULNetwork_logWithLevel:logLevel
                                  messageCode:messageCode
@@ -310,12 +337,14 @@ static NSString *const kGULNetworkLogTag = @"Google/Utilities/Network";
     return;
   }
   if (_isDebugModeEnabled || logLevel == kGULNetworkLogLevelError ||
-      logLevel == kGULNetworkLogLevelWarning || logLevel == kGULNetworkLogLevelInfo) {
-    NSString *formattedMessage = GULStringWithLogMessage(message, logLevel, contexts);
+      logLevel == kGULNetworkLogLevelWarning ||
+      logLevel == kGULNetworkLogLevelInfo) {
+    NSString *formattedMessage =
+        GULStringWithLogMessage(message, logLevel, contexts);
     NSLog(@"%@", formattedMessage);
     GULLogBasic((GULLoggerLevel)logLevel, kGULLoggerNetwork, NO,
-                [NSString stringWithFormat:@"I-NET%06ld", (long)messageCode], formattedMessage,
-                NULL);
+                [NSString stringWithFormat:@"I-NET%06ld", (long)messageCode],
+                formattedMessage, NULL);
   }
 }
 
@@ -331,21 +360,31 @@ static NSString *const kGULNetworkLogTag = @"Google/Utilities/Network";
     return;
   }
   NSArray *contexts = context ? @[ context ] : @[];
-  [self GULNetwork_logWithLevel:logLevel messageCode:messageCode message:message contexts:contexts];
+  [self GULNetwork_logWithLevel:logLevel
+                    messageCode:messageCode
+                        message:message
+                       contexts:contexts];
 }
 
 - (void)GULNetwork_logWithLevel:(GULNetworkLogLevel)logLevel
                     messageCode:(GULNetworkMessageCode)messageCode
                         message:(NSString *)message {
   if (_loggerDelegate) {
-    [_loggerDelegate GULNetwork_logWithLevel:logLevel messageCode:messageCode message:message];
+    [_loggerDelegate GULNetwork_logWithLevel:logLevel
+                                 messageCode:messageCode
+                                     message:message];
     return;
   }
-  [self GULNetwork_logWithLevel:logLevel messageCode:messageCode message:message contexts:@[]];
+  [self GULNetwork_logWithLevel:logLevel
+                    messageCode:messageCode
+                        message:message
+                       contexts:@[]];
 }
 
-/// Returns a string for the given log level (e.g. kGULNetworkLogLevelError -> @"ERROR").
-static NSString *GULLogLevelDescriptionFromLogLevel(GULNetworkLogLevel logLevel) {
+/// Returns a string for the given log level (e.g. kGULNetworkLogLevelError ->
+/// @"ERROR").
+static NSString *
+GULLogLevelDescriptionFromLogLevel(GULNetworkLogLevel logLevel) {
   static NSDictionary *levelNames = nil;
   static dispatch_once_t onceToken;
   dispatch_once(&onceToken, ^{
@@ -369,8 +408,8 @@ static NSString *GULStringWithLogMessage(NSString *message,
     message = @"(Message was empty)";
   }
   NSMutableString *result = [[NSMutableString alloc]
-      initWithFormat:@"<%@/%@> %@", kGULNetworkLogTag, GULLogLevelDescriptionFromLogLevel(logLevel),
-                     message];
+      initWithFormat:@"<%@/%@> %@", kGULNetworkLogTag,
+                     GULLogLevelDescriptionFromLogLevel(logLevel), message];
 
   if (!contexts.count) {
     return result;

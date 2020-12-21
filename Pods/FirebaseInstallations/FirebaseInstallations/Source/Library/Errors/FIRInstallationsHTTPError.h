@@ -26,7 +26,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (instancetype)init NS_UNAVAILABLE;
 
-- (instancetype)initWithHTTPResponse:(NSHTTPURLResponse *)HTTPResponse data:(nullable NSData *)data;
+- (instancetype)initWithHTTPResponse:(NSHTTPURLResponse *)HTTPResponse
+                                data:(nullable NSData *)data;
 
 @end
 

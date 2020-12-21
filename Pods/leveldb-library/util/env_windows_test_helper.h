@@ -11,7 +11,7 @@ class EnvWindowsTest;
 
 // A helper for the Windows Env to facilitate testing.
 class EnvWindowsTestHelper {
- private:
+private:
   friend class CorruptionTest;
   friend class EnvWindowsTest;
 
@@ -20,6 +20,6 @@ class EnvWindowsTestHelper {
   static void SetReadOnlyMMapLimit(int limit);
 };
 
-}  // namespace leveldb
+} // namespace leveldb
 
-#endif  // STORAGE_LEVELDB_UTIL_ENV_WINDOWS_TEST_HELPER_H_
+#endif // STORAGE_LEVELDB_UTIL_ENV_WINDOWS_TEST_HELPER_H_

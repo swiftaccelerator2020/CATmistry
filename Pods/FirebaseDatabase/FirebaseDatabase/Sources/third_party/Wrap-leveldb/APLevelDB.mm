@@ -111,8 +111,8 @@ NSString * const APLevelDBErrorDomain = @"APLevelDBErrorDomain";
             {
                 NSString *statusString = [[NSString alloc] initWithCString:status.ToString().c_str() encoding:NSUTF8StringEncoding];
                 *errorOut = [NSError errorWithDomain:APLevelDBErrorDomain
-                                                code:0
-                                            userInfo:[NSDictionary dictionaryWithObjectsAndKeys:statusString, NSLocalizedDescriptionKey, nil]];
+                                     code:0
+                                     userInfo:[NSDictionary dictionaryWithObjectsAndKeys:statusString, NSLocalizedDescriptionKey, nil]];
             }
             return nil;
         }
@@ -197,8 +197,8 @@ NSString * const APLevelDBErrorDomain = @"APLevelDBErrorDomain";
 {
     NSMutableArray *keys = [NSMutableArray array];
     [self enumerateKeys:^(NSString *key, BOOL *stop) {
-        [keys addObject:key];
-    }];
+             [keys addObject:key];
+         }];
     return keys;
 }
 
@@ -497,4 +497,3 @@ NSString * const APLevelDBErrorDomain = @"APLevelDBErrorDomain";
 }
 
 @end
-

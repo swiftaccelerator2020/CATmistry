@@ -46,12 +46,12 @@
  */
 @implementation FWriteTreeRef
 - (id)initWithPath:(FPath *)aPath writeTree:(FWriteTree *)tree {
-    self = [super init];
-    if (self) {
-        self.path = aPath;
-        self.writeTree = tree;
-    }
-    return self;
+  self = [super init];
+  if (self) {
+    self.path = aPath;
+    self.writeTree = tree;
+  }
+  return self;
 }
 
 /**
@@ -62,10 +62,10 @@
  */
 - (id<FNode>)calculateCompleteEventCacheWithCompleteServerCache:
     (id<FNode>)completeServerCache {
-    return [self.writeTree calculateCompleteEventCacheAtPath:self.path
-                                         completeServerCache:completeServerCache
-                                             excludeWriteIds:nil
-                                         includeHiddenWrites:NO];
+  return [self.writeTree calculateCompleteEventCacheAtPath:self.path
+                                       completeServerCache:completeServerCache
+                                           excludeWriteIds:nil
+                                       includeHiddenWrites:NO];
 }
 
 /**
@@ -75,9 +75,9 @@
  */
 - (FChildrenNode *)calculateCompleteEventChildrenWithCompleteServerChildren:
     (id<FNode>)completeServerChildren {
-    return [self.writeTree
-        calculateCompleteEventChildrenAtPath:self.path
-                      completeServerChildren:completeServerChildren];
+  return [self.writeTree
+      calculateCompleteEventChildrenAtPath:self.path
+                    completeServerChildren:completeServerChildren];
 }
 
 /**
@@ -103,11 +103,11 @@
                                            (id<FNode>)existingEventSnap
                                       existingServerSnap:
                                           (id<FNode>)existingServerSnap {
-    return [self.writeTree
-        calculateEventCacheAfterServerOverwriteAtPath:self.path
-                                            childPath:childPath
-                                    existingEventSnap:existingEventSnap
-                                   existingServerSnap:existingServerSnap];
+  return [self.writeTree
+      calculateEventCacheAfterServerOverwriteAtPath:self.path
+                                          childPath:childPath
+                                  existingEventSnap:existingEventSnap
+                                 existingServerSnap:existingServerSnap];
 }
 
 /**
@@ -117,7 +117,7 @@
  * is no write at this path.
  */
 - (id<FNode>)shadowingWriteAtPath:(FPath *)path {
-    return [self.writeTree shadowingWriteAtPath:[self.path child:path]];
+  return [self.writeTree shadowingWriteAtPath:[self.path child:path]];
 }
 
 /**
@@ -129,11 +129,11 @@
                         completeServerData:(id<FNode>)completeServerData
                                    reverse:(BOOL)reverse
                                      index:(id<FIndex>)index {
-    return [self.writeTree calculateNextNodeAfterPost:post
-                                               atPath:self.path
-                                   completeServerData:completeServerData
-                                              reverse:reverse
-                                                index:index];
+  return [self.writeTree calculateNextNodeAfterPost:post
+                                             atPath:self.path
+                                 completeServerData:completeServerData
+                                            reverse:reverse
+                                              index:index];
 }
 
 /**
@@ -142,18 +142,18 @@
  */
 - (id<FNode>)calculateCompleteChild:(NSString *)childKey
                               cache:(FCacheNode *)existingServerCache {
-    return [self.writeTree calculateCompleteChildAtPath:self.path
-                                               childKey:childKey
-                                                  cache:existingServerCache];
+  return [self.writeTree calculateCompleteChildAtPath:self.path
+                                             childKey:childKey
+                                                cache:existingServerCache];
 }
 
 /**
  * @return a WriteTreeref for a child.
  */
 - (FWriteTreeRef *)childWriteTreeRef:(NSString *)childKey {
-    return
-        [[FWriteTreeRef alloc] initWithPath:[self.path childFromString:childKey]
-                                  writeTree:self.writeTree];
+  return
+      [[FWriteTreeRef alloc] initWithPath:[self.path childFromString:childKey]
+                                writeTree:self.writeTree];
 }
 
 @end

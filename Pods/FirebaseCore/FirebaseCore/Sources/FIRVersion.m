@@ -15,11 +15,13 @@
  */
 
 #ifndef Firebase_VERSION
-#error "Firebase_VERSION is not defined: add -DFirebase_VERSION=... to the build invocation"
+#error                                                                         \
+    "Firebase_VERSION is not defined: add -DFirebase_VERSION=... to the build invocation"
 #endif
 
 #ifndef FIRCore_VERSION
-#error "FIRCore_VERSION is not defined: add -DFIRCore_VERSION=... to the build invocation"
+#error                                                                         \
+    "FIRCore_VERSION is not defined: add -DFIRCore_VERSION=... to the build invocation"
 #endif
 
 // The following two macros supply the incantation so that the C
@@ -30,4 +32,5 @@
 #define STR_EXPAND(x) #x
 
 const char *const FIRVersionString = (const char *const)STR(Firebase_VERSION);
-const char *const FIRCoreVersionString = (const char *const)STR(FIRCore_VERSION);
+const char *const FIRCoreVersionString =
+    (const char *const)STR(FIRCore_VERSION);

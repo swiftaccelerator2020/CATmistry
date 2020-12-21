@@ -18,10 +18,10 @@
 #import <Security/SecCertificate.h>
 
 typedef enum {
-    SR_CONNECTING   = 0,
-    SR_OPEN         = 1,
-    SR_CLOSING      = 2,
-    SR_CLOSED       = 3,
+  SR_CONNECTING = 0,
+  SR_OPEN = 1,
+  SR_CLOSING = 2,
+  SR_CLOSED = 3,
 
 } FSRReadyState;
 
@@ -33,19 +33,26 @@ extern NSString *const FSRWebSocketErrorDomain;
 
 @interface FSRWebSocket : NSObject <NSStreamDelegate>
 
-@property (nonatomic, weak) id <FSRWebSocketDelegate> delegate;
+@property(nonatomic, weak) id<FSRWebSocketDelegate> delegate;
 
-@property (nonatomic, readonly) FSRReadyState readyState;
-@property (nonatomic, readonly, retain) NSURL *url;
+@property(nonatomic, readonly) FSRReadyState readyState;
+@property(nonatomic, readonly, retain) NSURL *url;
 
 // This returns the negotiated protocol.
 // It will be niluntil after the handshake completes.
-@property (nonatomic, readonly, copy) NSString *protocol;
+@property(nonatomic, readonly, copy) NSString *protocol;
 
 // Protocols should be an array of strings that turn into Sec-WebSocket-Protocol
-- (id)initWithURLRequest:(NSURLRequest *)request protocols:(NSArray *)protocols queue:(dispatch_queue_t)queue googleAppID:(NSString*)googleAppID andUserAgent:(NSString *)userAgent;
+- (id)initWithURLRequest:(NSURLRequest *)request
+               protocols:(NSArray *)protocols
+                   queue:(dispatch_queue_t)queue
+             googleAppID:(NSString *)googleAppID
+            andUserAgent:(NSString *)userAgent;
 - (id)initWithURLRequest:(NSURLRequest *)request protocols:(NSArray *)protocols;
-- (id)initWithURLRequest:(NSURLRequest *)request queue:(dispatch_queue_t)queue googleAppID:(NSString*)googleAppID andUserAgent:(NSString *)userAgent;
+- (id)initWithURLRequest:(NSURLRequest *)request
+                   queue:(dispatch_queue_t)queue
+             googleAppID:(NSString *)googleAppID
+            andUserAgent:(NSString *)userAgent;
 - (id)initWithURLRequest:(NSURLRequest *)request;
 
 // Some helper constructors
@@ -54,14 +61,16 @@ extern NSString *const FSRWebSocketErrorDomain;
 
 // Delegate queue will be dispatch_main_queue by default.
 // You cannot set both OperationQueue and dispatch_queue.
-- (void)setDelegateOperationQueue:(NSOperationQueue*) queue;
+- (void)setDelegateOperationQueue:(NSOperationQueue *)queue;
 - (void)setDelegateDispatchQueue:(dispatch_queue_t)queue;
 
-// By default, it will schedule itself on +[NSRunLoop SR_networkRunLoop] using defaultModes.
+// By default, it will schedule itself on +[NSRunLoop SR_networkRunLoop] using
+// defaultModes.
 - (void)scheduleInRunLoop:(NSRunLoop *)aRunLoop forMode:(NSString *)mode;
 - (void)unscheduleFromRunLoop:(NSRunLoop *)aRunLoop forMode:(NSString *)mode;
 
-// SRWebSockets are intended one-time-use only.  Open should be called once and only once
+// SRWebSockets are intended one-time-use only.  Open should be called once and
+// only once
 - (void)open;
 
 - (void)close;
@@ -82,21 +91,22 @@ extern NSString *const FSRWebSocketErrorDomain;
 
 - (void)webSocketDidOpen:(FSRWebSocket *)webSocket;
 - (void)webSocket:(FSRWebSocket *)webSocket didFailWithError:(NSError *)error;
-- (void)webSocket:(FSRWebSocket *)webSocket didCloseWithCode:(NSInteger)code reason:(NSString *)reason wasClean:(BOOL)wasClean;
+- (void)webSocket:(FSRWebSocket *)webSocket
+    didCloseWithCode:(NSInteger)code
+              reason:(NSString *)reason
+            wasClean:(BOOL)wasClean;
 
 @end
-
 
 @interface NSURLRequest (FCertificateAdditions)
 
-@property (nonatomic, retain, readonly) NSArray *FSR_SSLPinnedCertificates;
+@property(nonatomic, retain, readonly) NSArray *FSR_SSLPinnedCertificates;
 
 @end
 
-
 @interface NSMutableURLRequest (FCertificateAdditions)
 
-@property (nonatomic, retain) NSArray *FSR_SSLPinnedCertificates;
+@property(nonatomic, retain) NSArray *FSR_SSLPinnedCertificates;
 
 @end
 

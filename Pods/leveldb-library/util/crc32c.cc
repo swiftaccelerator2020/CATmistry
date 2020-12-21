@@ -246,21 +246,21 @@ const uint32_t kStrideExtensionTable3[256] = {
 static constexpr const uint32_t kCRC32Xor = static_cast<uint32_t>(0xffffffffU);
 
 // Reads a little-endian 32-bit integer from a 32-bit-aligned buffer.
-inline uint32_t ReadUint32LE(const uint8_t* buffer) {
-  return DecodeFixed32(reinterpret_cast<const char*>(buffer));
+inline uint32_t ReadUint32LE(const uint8_t *buffer) {
+  return DecodeFixed32(reinterpret_cast<const char *>(buffer));
 }
 
 // Returns the smallest address >= the given address that is aligned to N bytes.
 //
 // N must be a power of two.
 template <int N>
-constexpr inline const uint8_t* RoundUp(const uint8_t* pointer) {
-  return reinterpret_cast<uint8_t*>(
+constexpr inline const uint8_t *RoundUp(const uint8_t *pointer) {
+  return reinterpret_cast<uint8_t *>(
       (reinterpret_cast<uintptr_t>(pointer) + (N - 1)) &
       ~static_cast<uintptr_t>(N - 1));
 }
 
-}  // namespace
+} // namespace
 
 // Determine if the CPU running this program can accelerate the CRC32C
 // calculation.
@@ -273,21 +273,21 @@ static bool CanAccelerateCRC32C() {
   return port::AcceleratedCRC32C(0, kTestCRCBuffer, kBufSize) == kTestCRCValue;
 }
 
-uint32_t Extend(uint32_t crc, const char* data, size_t n) {
+uint32_t Extend(uint32_t crc, const char *data, size_t n) {
   static bool accelerate = CanAccelerateCRC32C();
   if (accelerate) {
     return port::AcceleratedCRC32C(crc, data, n);
   }
 
-  const uint8_t* p = reinterpret_cast<const uint8_t*>(data);
-  const uint8_t* e = p + n;
+  const uint8_t *p = reinterpret_cast<const uint8_t *>(data);
+  const uint8_t *e = p + n;
   uint32_t l = crc ^ kCRC32Xor;
 
 // Process one byte at a time.
-#define STEP1                              \
-  do {                                     \
-    int c = (l & 0xff) ^ *p++;             \
-    l = kByteExtensionTable[c] ^ (l >> 8); \
+#define STEP1                                                                  \
+  do {                                                                         \
+    int c = (l & 0xff) ^ *p++;                                                 \
+    l = kByteExtensionTable[c] ^ (l >> 8);                                     \
   } while (0)
 
 // Process one of the 4 strides of 4-byte data.
@@ -300,28 +300,28 @@ uint32_t Extend(uint32_t crc, const char* data, size_t n) {
   } while (0)
 
 // Process a 16-byte swath of 4 strides, each of which has 4 bytes of data.
-#define STEP16 \
-  do {         \
-    STEP4(0);  \
-    STEP4(1);  \
-    STEP4(2);  \
-    STEP4(3);  \
-    p += 16;   \
+#define STEP16                                                                 \
+  do {                                                                         \
+    STEP4(0);                                                                  \
+    STEP4(1);                                                                  \
+    STEP4(2);                                                                  \
+    STEP4(3);                                                                  \
+    p += 16;                                                                   \
   } while (0)
 
 // Process 4 bytes that were already loaded into a word.
-#define STEP4W(w)                                   \
-  do {                                              \
-    w ^= l;                                         \
-    for (size_t i = 0; i < 4; ++i) {                \
-      w = (w >> 8) ^ kByteExtensionTable[w & 0xff]; \
-    }                                               \
-    l = w;                                          \
+#define STEP4W(w)                                                              \
+  do {                                                                         \
+    w ^= l;                                                                    \
+    for (size_t i = 0; i < 4; ++i) {                                           \
+      w = (w >> 8) ^ kByteExtensionTable[w & 0xff];                            \
+    }                                                                          \
+    l = w;                                                                     \
   } while (0)
 
   // Point x at first 4-byte aligned byte in the buffer. This might be past the
   // end of the buffer.
-  const uint8_t* x = RoundUp<4>(p);
+  const uint8_t *x = RoundUp<4>(p);
   if (x <= e) {
     // Process bytes p is 4-byte aligned.
     while (p != x) {
@@ -376,5 +376,5 @@ uint32_t Extend(uint32_t crc, const char* data, size_t n) {
   return l ^ kCRC32Xor;
 }
 
-}  // namespace crc32c
-}  // namespace leveldb
+} // namespace crc32c
+} // namespace leveldb

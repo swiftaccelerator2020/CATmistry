@@ -21,12 +21,14 @@
 
 - (instancetype)initWithHTTPResponse:(NSHTTPURLResponse *)HTTPResponse
                                 data:(nullable NSData *)data {
-  NSDictionary *userInfo = [FIRInstallationsHTTPError userInfoWithHTTPResponse:HTTPResponse
-                                                                          data:data];
-  self = [super
-      initWithDomain:kFirebaseInstallationsErrorDomain
-                code:[FIRInstallationsHTTPError errorCodeWithHTTPCode:HTTPResponse.statusCode]
-            userInfo:userInfo];
+  NSDictionary *userInfo =
+      [FIRInstallationsHTTPError userInfoWithHTTPResponse:HTTPResponse
+                                                     data:data];
+  self =
+      [super initWithDomain:kFirebaseInstallationsErrorDomain
+                       code:[FIRInstallationsHTTPError
+                                errorCodeWithHTTPCode:HTTPResponse.statusCode]
+                   userInfo:userInfo];
   if (self) {
     _HTTPResponse = HTTPResponse;
     _data = data;
@@ -40,25 +42,30 @@
 
 + (NSDictionary *)userInfoWithHTTPResponse:(NSHTTPURLResponse *)HTTPResponse
                                       data:(nullable NSData *)data {
-  NSString *responseString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-  NSString *failureReason =
-      [NSString stringWithFormat:@"The server responded with an error: \n - URL: %@ \n - HTTP "
-                                 @"status code: %ld \n - Response body: %@",
-                                 HTTPResponse.URL, (long)HTTPResponse.statusCode, responseString];
+  NSString *responseString =
+      [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+  NSString *failureReason = [NSString
+      stringWithFormat:
+          @"The server responded with an error: \n - URL: %@ \n - HTTP "
+          @"status code: %ld \n - Response body: %@",
+          HTTPResponse.URL, (long)HTTPResponse.statusCode, responseString];
   return @{NSLocalizedFailureReasonErrorKey : failureReason};
 }
 
 #pragma mark - NSCopying
 
 - (id)copyWithZone:(NSZone *)zone {
-  return [[FIRInstallationsHTTPError alloc] initWithHTTPResponse:self.HTTPResponse data:self.data];
+  return
+      [[FIRInstallationsHTTPError alloc] initWithHTTPResponse:self.HTTPResponse
+                                                         data:self.data];
 }
 
 #pragma mark - NSSecureCoding
 
 - (nullable instancetype)initWithCoder:(NSCoder *)coder {
-  NSHTTPURLResponse *HTTPResponse = [coder decodeObjectOfClass:[NSHTTPURLResponse class]
-                                                        forKey:@"HTTPResponse"];
+  NSHTTPURLResponse *HTTPResponse =
+      [coder decodeObjectOfClass:[NSHTTPURLResponse class]
+                          forKey:@"HTTPResponse"];
   if (!HTTPResponse) {
     return nil;
   }

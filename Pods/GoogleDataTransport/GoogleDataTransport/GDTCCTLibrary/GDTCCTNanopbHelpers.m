@@ -20,7 +20,7 @@
 #import <UIKit/UIKit.h>
 #elif TARGET_OS_OSX
 #import <AppKit/AppKit.h>
-#endif  // TARGET_OS_IOS || TARGET_OS_TV
+#endif // TARGET_OS_IOS || TARGET_OS_TV
 
 #import "GoogleDataTransport/GDTCORLibrary/Public/GoogleDataTransport/GDTCORClock.h"
 #import "GoogleDataTransport/GDTCORLibrary/Public/GoogleDataTransport/GDTCORConsoleLogger.h"
@@ -41,7 +41,8 @@ pb_bytes_array_t *GDTCCTEncodeString(NSString *string) {
 }
 
 pb_bytes_array_t *GDTCCTEncodeData(NSData *data) {
-  pb_bytes_array_t *pbBytesArray = calloc(1, PB_BYTES_ARRAY_T_ALLOCSIZE(data.length));
+  pb_bytes_array_t *pbBytesArray =
+      calloc(1, PB_BYTES_ARRAY_T_ALLOCSIZE(data.length));
   if (pbBytesArray != NULL) {
     [data getBytes:pbBytesArray->bytes length:data.length];
     pbBytesArray->size = (pb_size_t)data.length;
@@ -51,21 +52,28 @@ pb_bytes_array_t *GDTCCTEncodeData(NSData *data) {
 
 #pragma mark - CCT object constructors
 
-NSData *_Nullable GDTCCTEncodeBatchedLogRequest(gdt_cct_BatchedLogRequest *batchedLogRequest) {
+NSData *_Nullable GDTCCTEncodeBatchedLogRequest(
+    gdt_cct_BatchedLogRequest *batchedLogRequest) {
   pb_ostream_t sizestream = PB_OSTREAM_SIZING;
   // Encode 1 time to determine the size.
-  if (!pb_encode(&sizestream, gdt_cct_BatchedLogRequest_fields, batchedLogRequest)) {
-    GDTCORLogError(GDTCORMCEGeneralError, @"Error in nanopb encoding for size: %s",
+  if (!pb_encode(&sizestream, gdt_cct_BatchedLogRequest_fields,
+                 batchedLogRequest)) {
+    GDTCORLogError(GDTCORMCEGeneralError,
+                   @"Error in nanopb encoding for size: %s",
                    PB_GET_ERROR(&sizestream));
   }
 
   // Encode a 2nd time to actually get the bytes from it.
   size_t bufferSize = sizestream.bytes_written;
-  CFMutableDataRef dataRef = CFDataCreateMutable(CFAllocatorGetDefault(), bufferSize);
+  CFMutableDataRef dataRef =
+      CFDataCreateMutable(CFAllocatorGetDefault(), bufferSize);
   CFDataSetLength(dataRef, bufferSize);
-  pb_ostream_t ostream = pb_ostream_from_buffer((void *)CFDataGetBytePtr(dataRef), bufferSize);
-  if (!pb_encode(&ostream, gdt_cct_BatchedLogRequest_fields, batchedLogRequest)) {
-    GDTCORLogError(GDTCORMCEGeneralError, @"Error in nanopb encoding for bytes: %s",
+  pb_ostream_t ostream =
+      pb_ostream_from_buffer((void *)CFDataGetBytePtr(dataRef), bufferSize);
+  if (!pb_encode(&ostream, gdt_cct_BatchedLogRequest_fields,
+                 batchedLogRequest)) {
+    GDTCORLogError(GDTCORMCEGeneralError,
+                   @"Error in nanopb encoding for bytes: %s",
                    PB_GET_ERROR(&ostream));
   }
 
@@ -74,30 +82,35 @@ NSData *_Nullable GDTCCTEncodeBatchedLogRequest(gdt_cct_BatchedLogRequest *batch
 
 gdt_cct_BatchedLogRequest GDTCCTConstructBatchedLogRequest(
     NSDictionary<NSString *, NSSet<GDTCOREvent *> *> *logMappingIDToLogSet) {
-  gdt_cct_BatchedLogRequest batchedLogRequest = gdt_cct_BatchedLogRequest_init_default;
+  gdt_cct_BatchedLogRequest batchedLogRequest =
+      gdt_cct_BatchedLogRequest_init_default;
   NSUInteger numberOfLogRequests = logMappingIDToLogSet.count;
-  gdt_cct_LogRequest *logRequests = calloc(numberOfLogRequests, sizeof(gdt_cct_LogRequest));
+  gdt_cct_LogRequest *logRequests =
+      calloc(numberOfLogRequests, sizeof(gdt_cct_LogRequest));
   if (logRequests == NULL) {
     return batchedLogRequest;
   }
 
   __block int i = 0;
-  [logMappingIDToLogSet enumerateKeysAndObjectsUsingBlock:^(NSString *_Nonnull logMappingID,
-                                                            NSSet<GDTCOREvent *> *_Nonnull logSet,
-                                                            BOOL *_Nonnull stop) {
-    int32_t logSource = [logMappingID intValue];
-    gdt_cct_LogRequest logRequest = GDTCCTConstructLogRequest(logSource, logSet);
-    logRequests[i] = logRequest;
-    i++;
-  }];
+  [logMappingIDToLogSet
+      enumerateKeysAndObjectsUsingBlock:^(NSString *_Nonnull logMappingID,
+                                          NSSet<GDTCOREvent *> *_Nonnull logSet,
+                                          BOOL *_Nonnull stop) {
+        int32_t logSource = [logMappingID intValue];
+        gdt_cct_LogRequest logRequest =
+            GDTCCTConstructLogRequest(logSource, logSet);
+        logRequests[i] = logRequest;
+        i++;
+      }];
 
   batchedLogRequest.log_request = logRequests;
   batchedLogRequest.log_request_count = (pb_size_t)numberOfLogRequests;
   return batchedLogRequest;
 }
 
-gdt_cct_LogRequest GDTCCTConstructLogRequest(int32_t logSource,
-                                             NSSet<GDTCOREvent *> *_Nonnull logSet) {
+gdt_cct_LogRequest
+GDTCCTConstructLogRequest(int32_t logSource,
+                          NSSet<GDTCOREvent *> *_Nonnull logSet) {
   if (logSet.count == 0) {
     GDTCORLogError(GDTCORMCEGeneralError, @"%@",
                    @"An empty event set can't be serialized to proto.");
@@ -155,11 +168,13 @@ gdt_cct_LogEvent GDTCCTConstructLogEvent(GDTCOREvent *event) {
   NSData *extensionBytes;
   extensionBytes = event.serializedDataObjectBytes;
   if (error) {
-    GDTCORLogWarning(GDTCORMCWFileReadError,
-                     @"There was an error reading extension bytes from disk: %@", error);
+    GDTCORLogWarning(
+        GDTCORMCWFileReadError,
+        @"There was an error reading extension bytes from disk: %@", error);
     return logEvent;
   }
-  logEvent.source_extension = GDTCCTEncodeData(extensionBytes);  // read bytes from the file.
+  logEvent.source_extension =
+      GDTCCTEncodeData(extensionBytes); // read bytes from the file.
   return logEvent;
 }
 
@@ -183,48 +198,59 @@ gdt_cct_IosClientInfo GDTCCTConstructiOSClientInfo() {
   NSBundle *bundle = [NSBundle mainBundle];
   NSLocale *locale = [NSLocale currentLocale];
   iOSClientInfo.os_full_version = GDTCCTEncodeString(device.systemVersion);
-  NSArray *versionComponents = [device.systemVersion componentsSeparatedByString:@"."];
+  NSArray *versionComponents =
+      [device.systemVersion componentsSeparatedByString:@"."];
   iOSClientInfo.os_major_version = GDTCCTEncodeString(versionComponents[0]);
-  NSString *version = [bundle objectForInfoDictionaryKey:(NSString *)kCFBundleVersionKey];
+  NSString *version =
+      [bundle objectForInfoDictionaryKey:(NSString *)kCFBundleVersionKey];
   if (version) {
     iOSClientInfo.application_build = GDTCCTEncodeString(version);
   }
   NSString *countryCode = [locale objectForKey:NSLocaleCountryCode];
   if (countryCode) {
-    iOSClientInfo.country = GDTCCTEncodeString([locale objectForKey:NSLocaleCountryCode]);
+    iOSClientInfo.country =
+        GDTCCTEncodeString([locale objectForKey:NSLocaleCountryCode]);
   }
   iOSClientInfo.model = GDTCCTEncodeString(GDTCORDeviceModel());
   NSString *languageCode = bundle.preferredLocalizations.firstObject;
-  iOSClientInfo.language_code =
-      languageCode ? GDTCCTEncodeString(languageCode) : GDTCCTEncodeString(@"en");
-  iOSClientInfo.application_bundle_id = GDTCCTEncodeString(bundle.bundleIdentifier);
+  iOSClientInfo.language_code = languageCode ? GDTCCTEncodeString(languageCode)
+                                             : GDTCCTEncodeString(@"en");
+  iOSClientInfo.application_bundle_id =
+      GDTCCTEncodeString(bundle.bundleIdentifier);
 #endif
   return iOSClientInfo;
 }
 
 NSData *GDTCCTConstructNetworkConnectionInfoData() {
-  gdt_cct_NetworkConnectionInfo networkConnectionInfo = gdt_cct_NetworkConnectionInfo_init_default;
+  gdt_cct_NetworkConnectionInfo networkConnectionInfo =
+      gdt_cct_NetworkConnectionInfo_init_default;
   NSInteger currentNetworkType = GDTCORNetworkTypeMessage();
   if (currentNetworkType) {
     networkConnectionInfo.has_network_type = 1;
     if (currentNetworkType == GDTCORNetworkTypeMobile) {
-      networkConnectionInfo.network_type = gdt_cct_NetworkConnectionInfo_NetworkType_MOBILE;
-      networkConnectionInfo.mobile_subtype = GDTCCTNetworkConnectionInfoNetworkMobileSubtype();
+      networkConnectionInfo.network_type =
+          gdt_cct_NetworkConnectionInfo_NetworkType_MOBILE;
+      networkConnectionInfo.mobile_subtype =
+          GDTCCTNetworkConnectionInfoNetworkMobileSubtype();
       if (networkConnectionInfo.mobile_subtype !=
           gdt_cct_NetworkConnectionInfo_MobileSubtype_UNKNOWN_MOBILE_SUBTYPE) {
         networkConnectionInfo.has_mobile_subtype = 1;
       }
     } else {
-      networkConnectionInfo.network_type = gdt_cct_NetworkConnectionInfo_NetworkType_WIFI;
+      networkConnectionInfo.network_type =
+          gdt_cct_NetworkConnectionInfo_NetworkType_WIFI;
     }
   }
-  NSData *networkConnectionInfoData = [NSData dataWithBytes:&networkConnectionInfo
-                                                     length:sizeof(networkConnectionInfo)];
+  NSData *networkConnectionInfoData =
+      [NSData dataWithBytes:&networkConnectionInfo
+                     length:sizeof(networkConnectionInfo)];
   return networkConnectionInfoData;
 }
 
-gdt_cct_NetworkConnectionInfo_MobileSubtype GDTCCTNetworkConnectionInfoNetworkMobileSubtype() {
-  NSNumber *networkMobileSubtypeMessage = @(GDTCORNetworkMobileSubTypeMessage());
+gdt_cct_NetworkConnectionInfo_MobileSubtype
+GDTCCTNetworkConnectionInfoNetworkMobileSubtype() {
+  NSNumber *networkMobileSubtypeMessage =
+      @(GDTCORNetworkMobileSubTypeMessage());
   if (!networkMobileSubtypeMessage.intValue) {
     return gdt_cct_NetworkConnectionInfo_MobileSubtype_UNKNOWN_MOBILE_SUBTYPE;
   }
@@ -232,24 +258,32 @@ gdt_cct_NetworkConnectionInfo_MobileSubtype GDTCCTNetworkConnectionInfoNetworkMo
   static dispatch_once_t onceToken;
   dispatch_once(&onceToken, ^{
     MessageToNetworkSubTypeMessage = @{
-      @(GDTCORNetworkMobileSubtypeGPRS) : @(gdt_cct_NetworkConnectionInfo_MobileSubtype_GPRS),
-      @(GDTCORNetworkMobileSubtypeEdge) : @(gdt_cct_NetworkConnectionInfo_MobileSubtype_EDGE),
+      @(GDTCORNetworkMobileSubtypeGPRS) :
+          @(gdt_cct_NetworkConnectionInfo_MobileSubtype_GPRS),
+      @(GDTCORNetworkMobileSubtypeEdge) :
+          @(gdt_cct_NetworkConnectionInfo_MobileSubtype_EDGE),
       @(GDTCORNetworkMobileSubtypeWCDMA) :
           @(gdt_cct_NetworkConnectionInfo_MobileSubtype_UNKNOWN_MOBILE_SUBTYPE),
-      @(GDTCORNetworkMobileSubtypeHSDPA) : @(gdt_cct_NetworkConnectionInfo_MobileSubtype_HSDPA),
-      @(GDTCORNetworkMobileSubtypeHSUPA) : @(gdt_cct_NetworkConnectionInfo_MobileSubtype_HSUPA),
-      @(GDTCORNetworkMobileSubtypeCDMA1x) : @(gdt_cct_NetworkConnectionInfo_MobileSubtype_CDMA),
+      @(GDTCORNetworkMobileSubtypeHSDPA) :
+          @(gdt_cct_NetworkConnectionInfo_MobileSubtype_HSDPA),
+      @(GDTCORNetworkMobileSubtypeHSUPA) :
+          @(gdt_cct_NetworkConnectionInfo_MobileSubtype_HSUPA),
+      @(GDTCORNetworkMobileSubtypeCDMA1x) :
+          @(gdt_cct_NetworkConnectionInfo_MobileSubtype_CDMA),
       @(GDTCORNetworkMobileSubtypeCDMAEVDORev0) :
           @(gdt_cct_NetworkConnectionInfo_MobileSubtype_EVDO_0),
       @(GDTCORNetworkMobileSubtypeCDMAEVDORevA) :
           @(gdt_cct_NetworkConnectionInfo_MobileSubtype_EVDO_A),
       @(GDTCORNetworkMobileSubtypeCDMAEVDORevB) :
           @(gdt_cct_NetworkConnectionInfo_MobileSubtype_EVDO_B),
-      @(GDTCORNetworkMobileSubtypeHRPD) : @(gdt_cct_NetworkConnectionInfo_MobileSubtype_EHRPD),
-      @(GDTCORNetworkMobileSubtypeLTE) : @(gdt_cct_NetworkConnectionInfo_MobileSubtype_LTE),
+      @(GDTCORNetworkMobileSubtypeHRPD) :
+          @(gdt_cct_NetworkConnectionInfo_MobileSubtype_EHRPD),
+      @(GDTCORNetworkMobileSubtypeLTE) :
+          @(gdt_cct_NetworkConnectionInfo_MobileSubtype_LTE),
     };
   });
-  NSNumber *networkMobileSubtype = MessageToNetworkSubTypeMessage[networkMobileSubtypeMessage];
+  NSNumber *networkMobileSubtype =
+      MessageToNetworkSubTypeMessage[networkMobileSubtypeMessage];
   return networkMobileSubtype.intValue;
 }
 
@@ -259,10 +293,13 @@ gdt_cct_LogResponse GDTCCTDecodeLogResponse(NSData *data, NSError **error) {
   gdt_cct_LogResponse response = gdt_cct_LogResponse_init_default;
   pb_istream_t istream = pb_istream_from_buffer([data bytes], [data length]);
   if (!pb_decode(&istream, gdt_cct_LogResponse_fields, &response)) {
-    NSString *nanopb_error = [NSString stringWithFormat:@"%s", PB_GET_ERROR(&istream)];
+    NSString *nanopb_error =
+        [NSString stringWithFormat:@"%s", PB_GET_ERROR(&istream)];
     NSDictionary *userInfo = @{@"nanopb error:" : nanopb_error};
     if (error != NULL) {
-      *error = [NSError errorWithDomain:NSURLErrorDomain code:-1 userInfo:userInfo];
+      *error = [NSError errorWithDomain:NSURLErrorDomain
+                                   code:-1
+                               userInfo:userInfo];
     }
     response = (gdt_cct_LogResponse)gdt_cct_LogResponse_init_default;
   }

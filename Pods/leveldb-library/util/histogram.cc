@@ -186,16 +186,20 @@ void Histogram::Add(double value) {
     b++;
   }
   buckets_[b] += 1.0;
-  if (min_ > value) min_ = value;
-  if (max_ < value) max_ = value;
+  if (min_ > value)
+    min_ = value;
+  if (max_ < value)
+    max_ = value;
   num_++;
   sum_ += value;
   sum_squares_ += (value * value);
 }
 
-void Histogram::Merge(const Histogram& other) {
-  if (other.min_ < min_) min_ = other.min_;
-  if (other.max_ > max_) max_ = other.max_;
+void Histogram::Merge(const Histogram &other) {
+  if (other.min_ < min_)
+    min_ = other.min_;
+  if (other.max_ > max_)
+    max_ = other.max_;
   num_ += other.num_;
   sum_ += other.sum_;
   sum_squares_ += other.sum_squares_;
@@ -219,8 +223,10 @@ double Histogram::Percentile(double p) const {
       double right_sum = sum;
       double pos = (threshold - left_sum) / (right_sum - left_sum);
       double r = left_point + (right_point - left_point) * pos;
-      if (r < min_) r = min_;
-      if (r > max_) r = max_;
+      if (r < min_)
+        r = min_;
+      if (r > max_)
+        r = max_;
       return r;
     }
   }
@@ -228,12 +234,14 @@ double Histogram::Percentile(double p) const {
 }
 
 double Histogram::Average() const {
-  if (num_ == 0.0) return 0;
+  if (num_ == 0.0)
+    return 0;
   return sum_ / num_;
 }
 
 double Histogram::StandardDeviation() const {
-  if (num_ == 0.0) return 0;
+  if (num_ == 0.0)
+    return 0;
   double variance = (sum_squares_ * num_ - sum_ * sum_) / (num_ * num_);
   return sqrt(variance);
 }
@@ -251,14 +259,15 @@ std::string Histogram::ToString() const {
   const double mult = 100.0 / num_;
   double sum = 0;
   for (int b = 0; b < kNumBuckets; b++) {
-    if (buckets_[b] <= 0.0) continue;
+    if (buckets_[b] <= 0.0)
+      continue;
     sum += buckets_[b];
     snprintf(buf, sizeof(buf), "[ %7.0f, %7.0f ) %7.0f %7.3f%% %7.3f%% ",
-             ((b == 0) ? 0.0 : kBucketLimit[b - 1]),  // left
-             kBucketLimit[b],                         // right
-             buckets_[b],                             // count
-             mult * buckets_[b],                      // percentage
-             mult * sum);                             // cumulative percentage
+             ((b == 0) ? 0.0 : kBucketLimit[b - 1]), // left
+             kBucketLimit[b],                        // right
+             buckets_[b],                            // count
+             mult * buckets_[b],                     // percentage
+             mult * sum);                            // cumulative percentage
     r.append(buf);
 
     // Add hash marks based on percentage; 20 marks for 100%.
@@ -269,4 +278,4 @@ std::string Histogram::ToString() const {
   return r;
 }
 
-}  // namespace leveldb
+} // namespace leveldb

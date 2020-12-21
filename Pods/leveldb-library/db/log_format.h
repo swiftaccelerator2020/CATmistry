@@ -29,7 +29,7 @@ static const int kBlockSize = 32768;
 // Header is checksum (4 bytes), length (2 bytes), type (1 byte).
 static const int kHeaderSize = 4 + 2 + 1;
 
-}  // namespace log
-}  // namespace leveldb
+} // namespace log
+} // namespace leveldb
 
-#endif  // STORAGE_LEVELDB_DB_LOG_FORMAT_H_
+#endif // STORAGE_LEVELDB_DB_LOG_FORMAT_H_

@@ -37,47 +37,47 @@
 - (id)initWithEventType:(FIRDataEventType)type
       eventRegistration:(id<FEventRegistration>)registration
            dataSnapshot:(FIRDataSnapshot *)dataSnapshot {
-    return [self initWithEventType:type
-                 eventRegistration:registration
-                      dataSnapshot:dataSnapshot
-                          prevName:nil];
+  return [self initWithEventType:type
+               eventRegistration:registration
+                    dataSnapshot:dataSnapshot
+                        prevName:nil];
 }
 
 - (id)initWithEventType:(FIRDataEventType)type
       eventRegistration:(id<FEventRegistration>)registration
            dataSnapshot:(FIRDataSnapshot *)dataSnapshot
                prevName:(NSString *)previousName {
-    self = [super init];
-    if (self) {
-        self.eventRegistration = registration;
-        self.snapshot = dataSnapshot;
-        self.prevName = previousName;
-        self.eventType = type;
-    }
-    return self;
+  self = [super init];
+  if (self) {
+    self.eventRegistration = registration;
+    self.snapshot = dataSnapshot;
+    self.prevName = previousName;
+    self.eventType = type;
+  }
+  return self;
 }
 
 - (FPath *)path {
-    // Used for logging, so delay calculation
-    FIRDatabaseReference *ref = self.snapshot.ref;
-    if (self.eventType == FIRDataEventTypeValue) {
-        return ref.path;
-    } else {
-        return ref.parent.path;
-    }
+  // Used for logging, so delay calculation
+  FIRDatabaseReference *ref = self.snapshot.ref;
+  if (self.eventType == FIRDataEventTypeValue) {
+    return ref.path;
+  } else {
+    return ref.parent.path;
+  }
 }
 
 - (void)fireEventOnQueue:(dispatch_queue_t)queue {
-    [self.eventRegistration fireEvent:self queue:queue];
+  [self.eventRegistration fireEvent:self queue:queue];
 }
 
 - (BOOL)isCancelEvent {
-    return NO;
+  return NO;
 }
 
 - (NSString *)description {
-    return [NSString stringWithFormat:@"event %d, data: %@", (int)eventType,
-                                      [snapshot value]];
+  return [NSString
+      stringWithFormat:@"event %d, data: %@", (int)eventType, [snapshot value]];
 }
 
 @end

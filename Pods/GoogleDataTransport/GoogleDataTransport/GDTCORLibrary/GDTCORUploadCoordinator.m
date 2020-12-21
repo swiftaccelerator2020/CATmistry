@@ -38,8 +38,8 @@
 - (instancetype)init {
   self = [super init];
   if (self) {
-    _coordinationQueue =
-        dispatch_queue_create("com.google.GDTCORUploadCoordinator", DISPATCH_QUEUE_SERIAL);
+    _coordinationQueue = dispatch_queue_create(
+        "com.google.GDTCORUploadCoordinator", DISPATCH_QUEUE_SERIAL);
     _registrar = [GDTCORRegistrar sharedInstance];
     _timerInterval = 30 * NSEC_PER_SEC;
     _timerLeeway = 5 * NSEC_PER_SEC;
@@ -58,8 +58,9 @@
 
 #pragma mark - Private helper methods
 
-/** Starts a timer that checks whether or not events can be uploaded at regular intervals. It will
- * check the next-upload clocks of all targets to determine if an upload attempt can be made.
+/** Starts a timer that checks whether or not events can be uploaded at regular
+ * intervals. It will check the next-upload clocks of all targets to determine
+ * if an upload attempt can be made.
  */
 - (void)startTimer {
   dispatch_async(_coordinationQueue, ^{
@@ -68,16 +69,17 @@
       return;
     }
 
-    self->_timer =
-        dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, self->_coordinationQueue);
-    dispatch_source_set_timer(self->_timer, DISPATCH_TIME_NOW, self->_timerInterval,
-                              self->_timerLeeway);
+    self->_timer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0,
+                                          self->_coordinationQueue);
+    dispatch_source_set_timer(self->_timer, DISPATCH_TIME_NOW,
+                              self->_timerInterval, self->_timerLeeway);
 
     dispatch_source_set_event_handler(self->_timer, ^{
       if (![[GDTCORApplication sharedApplication] isRunningInBackground]) {
         GDTCORUploadConditions conditions = [self uploadConditions];
         GDTCORLogDebug(@"%@", @"Upload timer fired");
-        [self uploadTargets:[self.registrar.targetToUploader allKeys] conditions:conditions];
+        [self uploadTargets:[self.registrar.targetToUploader allKeys]
+                 conditions:conditions];
       }
     });
     GDTCORLogDebug(@"%@", @"Upload timer started");
@@ -98,11 +100,14 @@
  * @param targets An array of targets to trigger.
  * @param conditions The set of upload conditions.
  */
-- (void)uploadTargets:(NSArray<NSNumber *> *)targets conditions:(GDTCORUploadConditions)conditions {
+- (void)uploadTargets:(NSArray<NSNumber *> *)targets
+           conditions:(GDTCORUploadConditions)conditions {
   dispatch_async(_coordinationQueue, ^{
-    // TODO: The reachability signal may be not reliable enough to prevent an upload attempt.
-    // See https://developer.apple.com/videos/play/wwdc2019/712/ (49:40) for more details.
-    if ((conditions & GDTCORUploadConditionNoNetwork) == GDTCORUploadConditionNoNetwork) {
+    // TODO: The reachability signal may be not reliable enough to prevent an
+    // upload attempt. See https://developer.apple.com/videos/play/wwdc2019/712/
+    // (49:40) for more details.
+    if ((conditions & GDTCORUploadConditionNoNetwork) ==
+        GDTCORUploadConditionNoNetwork) {
       return;
     }
     for (NSNumber *target in targets) {
@@ -113,28 +118,33 @@
 }
 
 - (void)signalToStoragesToCheckExpirations {
-  for (id<GDTCORStorageProtocol> storage in [_registrar.targetToStorage allValues]) {
+  for (id<GDTCORStorageProtocol> storage in
+       [_registrar.targetToStorage allValues]) {
     [storage checkForExpirations];
   }
 }
 
 /** Returns the registered storage for the given NSNumber wrapped GDTCORTarget.
  *
- * @param target The NSNumber wrapping of a GDTCORTarget to find the storage instance of.
+ * @param target The NSNumber wrapping of a GDTCORTarget to find the storage
+ * instance of.
  * @return The storage instance for the given target.
  */
 - (nullable id<GDTCORStorageProtocol>)storageForTarget:(NSNumber *)target {
-  id<GDTCORStorageProtocol> storage = [GDTCORRegistrar sharedInstance].targetToStorage[target];
+  id<GDTCORStorageProtocol> storage =
+      [GDTCORRegistrar sharedInstance].targetToStorage[target];
   GDTCORAssert(storage, @"A storage must be registered for target %@", target);
   return storage;
 }
 
-/** Returns the current upload conditions after making determinations about the network connection.
+/** Returns the current upload conditions after making determinations about the
+ * network connection.
  *
  * @return The current upload conditions.
  */
 - (GDTCORUploadConditions)uploadConditions {
-  GDTCORNetworkReachabilityFlags currentFlags = [GDTCORReachability currentFlags];
+  GDTCORNetworkReachabilityFlags currentFlags =
+      [GDTCORReachability currentFlags];
   BOOL networkConnected = GDTCORReachabilityFlagsReachable(currentFlags);
   if (!networkConnected) {
     return GDTCORUploadConditionNoNetwork;

@@ -22,8 +22,8 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-/** Options that define a set of upload conditions. This is used to help minimize end user data
- * consumption impact.
+/** Options that define a set of upload conditions. This is used to help
+ * minimize end user data consumption impact.
  */
 typedef NS_OPTIONS(NSInteger, GDTCORUploadConditions) {
 
@@ -50,9 +50,11 @@ typedef NS_OPTIONS(NSInteger, GDTCORUploadConditions) {
 
 /** Uploads events to the backend using this specific backend's chosen format.
  *
- * @param conditions The conditions that the upload attempt is likely to occur under.
+ * @param conditions The conditions that the upload attempt is likely to occur
+ * under.
  */
-- (void)uploadTarget:(GDTCORTarget)target withConditions:(GDTCORUploadConditions)conditions;
+- (void)uploadTarget:(GDTCORTarget)target
+      withConditions:(GDTCORUploadConditions)conditions;
 
 @end
 

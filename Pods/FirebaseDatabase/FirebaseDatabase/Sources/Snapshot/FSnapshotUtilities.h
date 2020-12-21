@@ -23,8 +23,8 @@
 @protocol FNode;
 
 typedef NS_ENUM(NSInteger, FDataHashVersion) {
-    FDataHashVersionV1,
-    FDataHashVersionV2,
+  FDataHashVersionV1,
+  FDataHashVersionV2,
 };
 
 @interface FSnapshotUtilities : NSObject

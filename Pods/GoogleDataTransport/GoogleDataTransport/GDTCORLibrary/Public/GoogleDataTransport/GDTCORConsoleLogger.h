@@ -16,8 +16,8 @@
 
 #import <Foundation/Foundation.h>
 
-/** The current logging level. This value and higher will be printed. Declared as volatile to make
- * getting and setting atomic.
+/** The current logging level. This value and higher will be printed. Declared
+ * as volatile to make getting and setting atomic.
  */
 FOUNDATION_EXPORT volatile NSInteger GDTCORConsoleLoggerLoggingLevel;
 
@@ -37,8 +37,8 @@ typedef NS_ENUM(NSInteger, GDTCORLoggingLevel) {
   GDTCORLoggingLevelErrors = 4
 };
 
-/** A list of message codes to print in the logger that help to correspond printed messages with
- * code locations.
+/** A list of message codes to print in the logger that help to correspond
+ * printed messages with code locations.
  *
  * Prefixes:
  * - MCD => MessageCodeDebug
@@ -50,7 +50,8 @@ typedef NS_ENUM(NSInteger, GDTCORMessageCode) {
   /** For debug logs. */
   GDTCORMCDDebugLog = 0,
 
-  /** For warning messages concerning transportBytes: not being implemented by a data object. */
+  /** For warning messages concerning transportBytes: not being implemented by a
+     data object. */
   GDTCORMCWDataObjectMissingBytesImpl = 1,
 
   /** For warning messages concerning a failed event upload. */
@@ -68,7 +69,8 @@ typedef NS_ENUM(NSInteger, GDTCORMessageCode) {
   /** For warning messages concerning the reading of a event file. */
   GDTCORMCWFileReadError = 6,
 
-  /** For error messages concerning transform: not being implemented by an event transformer. */
+  /** For error messages concerning transform: not being implemented by an event
+     transformer. */
   GDTCORMCETransformerDoesntImplementTransform = 1000,
 
   /** For error messages concerning the creation of a directory failing. */
@@ -77,20 +79,23 @@ typedef NS_ENUM(NSInteger, GDTCORMessageCode) {
   /** For error messages concerning the writing of a event file. */
   GDTCORMCEFileWriteError = 1002,
 
-  /** For error messages concerning the lack of a prioritizer for a given backend. */
+  /** For error messages concerning the lack of a prioritizer for a given
+     backend. */
   GDTCORMCEPrioritizerError = 1003,
 
   /** For error messages concerning a package delivery API violation. */
   GDTCORMCEDeliverTwice = 1004,
 
-  /** For error messages concerning an error in an implementation of -transportBytes. */
+  /** For error messages concerning an error in an implementation of
+     -transportBytes. */
   GDTCORMCETransportBytesError = 1005,
 
   /** For general purpose error messages in a dependency. */
   GDTCORMCEGeneralError = 1006,
 
-  /** For fatal errors. Please go to https://github.com/firebase/firebase-ios-sdk/issues and open
-   * an issue if you encounter an error with this code.
+  /** For fatal errors. Please go to
+   * https://github.com/firebase/firebase-ios-sdk/issues and open an issue if
+   * you encounter an error with this code.
    */
   GDTCORMCEFatalAssertion = 1007,
 
@@ -108,8 +113,8 @@ typedef NS_ENUM(NSInteger, GDTCORMessageCode) {
  * @param format The format string.
  */
 FOUNDATION_EXPORT
-void GDTCORLog(GDTCORMessageCode code, GDTCORLoggingLevel logLevel, NSString *_Nonnull format, ...)
-    NS_FORMAT_FUNCTION(3, 4);
+void GDTCORLog(GDTCORMessageCode code, GDTCORLoggingLevel logLevel,
+               NSString *_Nonnull format, ...) NS_FORMAT_FUNCTION(3, 4);
 
 /** Prints an assert log to the console.
  *
@@ -118,26 +123,30 @@ void GDTCORLog(GDTCORMessageCode code, GDTCORLoggingLevel logLevel, NSString *_N
  * @param line The line number of the failure.
  * @param format The format string.
  */
-FOUNDATION_EXPORT void GDTCORLogAssert(BOOL wasFatal,
-                                       NSString *_Nonnull file,
+FOUNDATION_EXPORT void GDTCORLogAssert(BOOL wasFatal, NSString *_Nonnull file,
                                        NSInteger line,
-                                       NSString *_Nullable format,
-                                       ...) NS_FORMAT_FUNCTION(4, 5);
+                                       NSString *_Nullable format, ...)
+    NS_FORMAT_FUNCTION(4, 5);
 
 /** Returns the string that represents some message code.
  *
  * @param code The code to convert to a string.
  * @return The string representing the message code.
  */
-FOUNDATION_EXPORT NSString *_Nonnull GDTCORMessageCodeEnumToString(GDTCORMessageCode code);
+FOUNDATION_EXPORT
+    NSString *_Nonnull GDTCORMessageCodeEnumToString(GDTCORMessageCode code);
 
-#define GDTCORLogDebug(MESSAGE_FORMAT, ...) \
-  GDTCORLog(GDTCORMCDDebugLog, GDTCORLoggingLevelDebug, MESSAGE_FORMAT, __VA_ARGS__);
+#define GDTCORLogDebug(MESSAGE_FORMAT, ...)                                    \
+  GDTCORLog(GDTCORMCDDebugLog, GDTCORLoggingLevelDebug, MESSAGE_FORMAT,        \
+            __VA_ARGS__);
 
 // A define to wrap GULLogWarning with slightly more convenient usage.
-#define GDTCORLogWarning(MESSAGE_CODE, MESSAGE_FORMAT, ...) \
-  GDTCORLog(MESSAGE_CODE, GDTCORLoggingLevelWarnings, MESSAGE_FORMAT, __VA_ARGS__);
+#define GDTCORLogWarning(MESSAGE_CODE, MESSAGE_FORMAT, ...)                    \
+  GDTCORLog(MESSAGE_CODE, GDTCORLoggingLevelWarnings, MESSAGE_FORMAT,          \
+            __VA_ARGS__);
 
-// A define to wrap GULLogError with slightly more convenient usage and a failing assert.
-#define GDTCORLogError(MESSAGE_CODE, MESSAGE_FORMAT, ...) \
-  GDTCORLog(MESSAGE_CODE, GDTCORLoggingLevelErrors, MESSAGE_FORMAT, __VA_ARGS__);
+// A define to wrap GULLogError with slightly more convenient usage and a
+// failing assert.
+#define GDTCORLogError(MESSAGE_CODE, MESSAGE_FORMAT, ...)                      \
+  GDTCORLog(MESSAGE_CODE, GDTCORLoggingLevelErrors, MESSAGE_FORMAT,            \
+            __VA_ARGS__);

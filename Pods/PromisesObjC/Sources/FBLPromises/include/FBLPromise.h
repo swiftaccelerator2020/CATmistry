@@ -24,7 +24,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface FBLPromise<__covariant Value> : NSObject
 
 /**
- Default dispatch queue used for `FBLPromise`, which is `main` if a queue is not specified.
+ Default dispatch queue used for `FBLPromise`, which is `main` if a queue is not
+ specified.
  */
 @property(class) dispatch_queue_t defaultDispatchQueue NS_REFINED_FOR_SWIFT;
 
@@ -36,7 +37,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  Creates a resolved promise.
 
- @param resolution An object to resolve the promise with: either a value or an error.
+ @param resolution An object to resolve the promise with: either a value or an
+ error.
  @return A new resolved promise.
  */
 + (instancetype)resolvedWith:(nullable id)resolution NS_REFINED_FOR_SWIFT;
@@ -59,11 +61,12 @@ NS_ASSUME_NONNULL_BEGIN
 - (instancetype)init NS_UNAVAILABLE;
 @end
 
-@interface FBLPromise<Value>()
+@interface FBLPromise <Value>()
 
 /**
- Adds an object to the set of pending objects to keep strongly while the promise is pending.
- Used by the Swift wrappers to keep them alive until the underlying ObjC promise is resolved.
+ Adds an object to the set of pending objects to keep strongly while the promise
+ is pending. Used by the Swift wrappers to keep them alive until the underlying
+ ObjC promise is resolved.
 
  @param object An object to add.
  */
@@ -77,7 +80,7 @@ NS_ASSUME_NONNULL_BEGIN
 #define FBL_PROMISES_DOT_SYNTAX
 #endif
 
-@interface FBLPromise<Value>(DotSyntaxAdditions)
+@interface FBLPromise <Value>(DotSyntaxAdditions)
 
 /**
  Convenience dot-syntax wrappers for FBLPromise.
@@ -85,8 +88,10 @@ NS_ASSUME_NONNULL_BEGIN
         FBLPromise.resolved(value)
 
  */
-+ (instancetype (^)(void))pending FBL_PROMISES_DOT_SYNTAX NS_SWIFT_UNAVAILABLE("");
-+ (instancetype (^)(id __nullable))resolved FBL_PROMISES_DOT_SYNTAX NS_SWIFT_UNAVAILABLE("");
++ (instancetype (^)(void))pending FBL_PROMISES_DOT_SYNTAX
+    NS_SWIFT_UNAVAILABLE("");
++ (instancetype (^)(id __nullable))resolved FBL_PROMISES_DOT_SYNTAX
+    NS_SWIFT_UNAVAILABLE("");
 
 @end
 

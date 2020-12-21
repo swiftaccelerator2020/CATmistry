@@ -16,8 +16,8 @@
 
 #import <Foundation/Foundation.h>
 
-/** The list of targets supported by the shared transport infrastructure. If adding a new target,
- * please use the previous value +1.
+/** The list of targets supported by the shared transport infrastructure. If
+ * adding a new target, please use the previous value +1.
  */
 typedef NS_ENUM(NSInteger, GDTCORTarget) {
 
@@ -30,8 +30,8 @@ typedef NS_ENUM(NSInteger, GDTCORTarget) {
   /** The FLL target. */
   kGDTCORTargetFLL = 1001,
 
-  /** The CSH target. The CSH target is a special-purpose backend. Please do not use it without
-   * permission.
+  /** The CSH target. The CSH target is a special-purpose backend. Please do not
+   * use it without permission.
    */
   kGDTCORTargetCSH = 1002,
 

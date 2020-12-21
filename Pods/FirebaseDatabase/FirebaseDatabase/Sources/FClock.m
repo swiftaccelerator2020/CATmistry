@@ -19,16 +19,16 @@
 @implementation FSystemClock
 
 - (NSTimeInterval)currentTime {
-    return [[NSDate date] timeIntervalSince1970];
+  return [[NSDate date] timeIntervalSince1970];
 }
 
 + (FSystemClock *)clock {
-    static dispatch_once_t onceToken;
-    static FSystemClock *clock;
-    dispatch_once(&onceToken, ^{
-      clock = [[FSystemClock alloc] init];
-    });
-    return clock;
+  static dispatch_once_t onceToken;
+  static FSystemClock *clock;
+  dispatch_once(&onceToken, ^{
+    clock = [[FSystemClock alloc] init];
+  });
+  return clock;
 }
 
 @end
@@ -43,16 +43,16 @@
 @implementation FOffsetClock
 
 - (NSTimeInterval)currentTime {
-    return [self.clock currentTime] + self.offset;
+  return [self.clock currentTime] + self.offset;
 }
 
 - (id)initWithClock:(id<FClock>)clock offset:(NSTimeInterval)offset {
-    self = [super init];
-    if (self != nil) {
-        self->_clock = clock;
-        self->_offset = offset;
-    }
-    return self;
+  self = [super init];
+  if (self != nil) {
+    self->_clock = clock;
+    self->_offset = offset;
+  }
+  return self;
 }
 
 @end

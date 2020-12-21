@@ -18,29 +18,34 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface FBLPromise<Value>(RecoverAdditions)
+@interface FBLPromise <Value>(RecoverAdditions)
 
-typedef id __nullable (^FBLPromiseRecoverWorkBlock)(NSError *error) NS_SWIFT_UNAVAILABLE("");
+typedef id __nullable (^FBLPromiseRecoverWorkBlock)(NSError *error)
+    NS_SWIFT_UNAVAILABLE("");
 
 /**
  Provides a new promise to recover in case the receiver gets rejected.
 
- @param recovery A block to handle the error that the receiver was rejected with.
- @return A new pending promise to use instead of the rejected one that gets resolved with resolution
-         returned from `recovery` block.
+ @param recovery A block to handle the error that the receiver was rejected
+ with.
+ @return A new pending promise to use instead of the rejected one that gets
+ resolved with resolution returned from `recovery` block.
  */
-- (FBLPromise *)recover:(FBLPromiseRecoverWorkBlock)recovery NS_SWIFT_UNAVAILABLE("");
+- (FBLPromise *)recover:(FBLPromiseRecoverWorkBlock)recovery
+    NS_SWIFT_UNAVAILABLE("");
 
 /**
  Provides a new promise to recover in case the receiver gets rejected.
 
  @param queue A queue to dispatch on.
- @param recovery A block to handle the error that the receiver was rejected with.
- @return A new pending promise to use instead of the rejected one that gets resolved with resolution
-         returned from `recovery` block.
+ @param recovery A block to handle the error that the receiver was rejected
+ with.
+ @return A new pending promise to use instead of the rejected one that gets
+ resolved with resolution returned from `recovery` block.
  */
 - (FBLPromise *)onQueue:(dispatch_queue_t)queue
-                recover:(FBLPromiseRecoverWorkBlock)recovery NS_REFINED_FOR_SWIFT;
+                recover:(FBLPromiseRecoverWorkBlock)recovery
+    NS_REFINED_FOR_SWIFT;
 
 @end
 
@@ -48,12 +53,12 @@ typedef id __nullable (^FBLPromiseRecoverWorkBlock)(NSError *error) NS_SWIFT_UNA
  Convenience dot-syntax wrappers for `FBLPromise` `recover` operators.
  Usage: promise.recover(^id(NSError *error) {...})
  */
-@interface FBLPromise<Value>(DotSyntax_RecoverAdditions)
+@interface FBLPromise <Value>(DotSyntax_RecoverAdditions)
 
 - (FBLPromise * (^)(FBLPromiseRecoverWorkBlock))recover FBL_PROMISES_DOT_SYNTAX
     NS_SWIFT_UNAVAILABLE("");
-- (FBLPromise * (^)(dispatch_queue_t, FBLPromiseRecoverWorkBlock))recoverOn FBL_PROMISES_DOT_SYNTAX
-    NS_SWIFT_UNAVAILABLE("");
+- (FBLPromise * (^)(dispatch_queue_t, FBLPromiseRecoverWorkBlock))
+    recoverOn FBL_PROMISES_DOT_SYNTAX NS_SWIFT_UNAVAILABLE("");
 
 @end
 

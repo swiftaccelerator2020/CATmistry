@@ -31,19 +31,24 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (instancetype)sharedInstance;
 
-/** Registers a backend implementation with the GoogleDataTransport infrastructure.
+/** Registers a backend implementation with the GoogleDataTransport
+ * infrastructure.
  *
  * @param backend The backend object to register.
  * @param target The target this backend object will be responsible for.
  */
-- (void)registerUploader:(id<GDTCORUploader>)backend target:(GDTCORTarget)target;
+- (void)registerUploader:(id<GDTCORUploader>)backend
+                  target:(GDTCORTarget)target;
 
-/** Registers a storage implementation with the GoogleDataTransport infrastructure.
+/** Registers a storage implementation with the GoogleDataTransport
+ * infrastructure.
  *
- * @param storage The storage instance to be associated with this uploader and target.
+ * @param storage The storage instance to be associated with this uploader and
+ * target.
  * @param target The target this backend object will be responsible for.
  */
-- (void)registerStorage:(id<GDTCORStorageProtocol>)storage target:(GDTCORTarget)target;
+- (void)registerStorage:(id<GDTCORStorageProtocol>)storage
+                 target:(GDTCORTarget)target;
 
 @end
 

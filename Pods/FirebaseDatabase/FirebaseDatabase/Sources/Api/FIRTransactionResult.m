@@ -23,17 +23,17 @@
 @synthesize isSuccess;
 
 + (FIRTransactionResult *)successWithValue:(FIRMutableData *)value {
-    FIRTransactionResult *result = [[FIRTransactionResult alloc] init];
-    result.isSuccess = YES;
-    result.update = value;
-    return result;
+  FIRTransactionResult *result = [[FIRTransactionResult alloc] init];
+  result.isSuccess = YES;
+  result.update = value;
+  return result;
 }
 
 + (FIRTransactionResult *)abort {
-    FIRTransactionResult *result = [[FIRTransactionResult alloc] init];
-    result.isSuccess = NO;
-    result.update = nil;
-    return result;
+  FIRTransactionResult *result = [[FIRTransactionResult alloc] init];
+  result.isSuccess = NO;
+  result.update = nil;
+  return result;
 }
 
 @end

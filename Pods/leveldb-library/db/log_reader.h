@@ -18,15 +18,15 @@ class SequentialFile;
 namespace log {
 
 class Reader {
- public:
+public:
   // Interface for reporting errors.
   class Reporter {
-   public:
+  public:
     virtual ~Reporter();
 
     // Some corruption was detected.  "size" is the approximate number
     // of bytes dropped due to the corruption.
-    virtual void Corruption(size_t bytes, const Status& status) = 0;
+    virtual void Corruption(size_t bytes, const Status &status) = 0;
   };
 
   // Create a reader that will return log records from "*file".
@@ -40,11 +40,11 @@ class Reader {
   //
   // The Reader will start reading at the first record located at physical
   // position >= initial_offset within the file.
-  Reader(SequentialFile* file, Reporter* reporter, bool checksum,
+  Reader(SequentialFile *file, Reporter *reporter, bool checksum,
          uint64_t initial_offset);
 
-  Reader(const Reader&) = delete;
-  Reader& operator=(const Reader&) = delete;
+  Reader(const Reader &) = delete;
+  Reader &operator=(const Reader &) = delete;
 
   ~Reader();
 
@@ -53,14 +53,14 @@ class Reader {
   // "*scratch" as temporary storage.  The contents filled in *record
   // will only be valid until the next mutating operation on this
   // reader or the next mutation to *scratch.
-  bool ReadRecord(Slice* record, std::string* scratch);
+  bool ReadRecord(Slice *record, std::string *scratch);
 
   // Returns the physical offset of the last record returned by ReadRecord.
   //
   // Undefined before the first call to ReadRecord.
   uint64_t LastRecordOffset();
 
- private:
+private:
   // Extend record types with the following special values
   enum {
     kEof = kMaxRecordType + 1,
@@ -78,19 +78,19 @@ class Reader {
   bool SkipToInitialBlock();
 
   // Return type, or one of the preceding special values
-  unsigned int ReadPhysicalRecord(Slice* result);
+  unsigned int ReadPhysicalRecord(Slice *result);
 
   // Reports dropped bytes to the reporter.
   // buffer_ must be updated to remove the dropped bytes prior to invocation.
-  void ReportCorruption(uint64_t bytes, const char* reason);
-  void ReportDrop(uint64_t bytes, const Status& reason);
+  void ReportCorruption(uint64_t bytes, const char *reason);
+  void ReportDrop(uint64_t bytes, const Status &reason);
 
-  SequentialFile* const file_;
-  Reporter* const reporter_;
+  SequentialFile *const file_;
+  Reporter *const reporter_;
   bool const checksum_;
-  char* const backing_store_;
+  char *const backing_store_;
   Slice buffer_;
-  bool eof_;  // Last Read() indicated EOF by returning < kBlockSize
+  bool eof_; // Last Read() indicated EOF by returning < kBlockSize
 
   // Offset of the last record returned by ReadRecord.
   uint64_t last_record_offset_;
@@ -106,7 +106,7 @@ class Reader {
   bool resyncing_;
 };
 
-}  // namespace log
-}  // namespace leveldb
+} // namespace log
+} // namespace leveldb
 
-#endif  // STORAGE_LEVELDB_DB_LOG_READER_H_
+#endif // STORAGE_LEVELDB_DB_LOG_READER_H_

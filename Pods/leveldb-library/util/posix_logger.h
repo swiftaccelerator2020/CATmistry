@@ -22,15 +22,15 @@
 namespace leveldb {
 
 class PosixLogger final : public Logger {
- public:
+public:
   // Creates a logger that writes to the given file.
   //
   // The PosixLogger instance takes ownership of the file handle.
-  explicit PosixLogger(std::FILE* fp) : fp_(fp) { assert(fp != nullptr); }
+  explicit PosixLogger(std::FILE *fp) : fp_(fp) { assert(fp != nullptr); }
 
   ~PosixLogger() override { std::fclose(fp_); }
 
-  void Logv(const char* format, va_list arguments) override {
+  void Logv(const char *format, va_list arguments) override {
     // Record the time as close to the Logv() call as possible.
     struct ::timeval now_timeval;
     ::gettimeofday(&now_timeval, nullptr);
@@ -54,11 +54,11 @@ class PosixLogger final : public Logger {
     static_assert(sizeof(stack_buffer) == static_cast<size_t>(kStackBufferSize),
                   "sizeof(char) is expected to be 1 in C++");
 
-    int dynamic_buffer_size = 0;  // Computed in the first iteration.
+    int dynamic_buffer_size = 0; // Computed in the first iteration.
     for (int iteration = 0; iteration < 2; ++iteration) {
       const int buffer_size =
           (iteration == 0) ? kStackBufferSize : dynamic_buffer_size;
-      char* const buffer =
+      char *const buffer =
           (iteration == 0) ? stack_buffer : new char[dynamic_buffer_size];
 
       // Print the header into the buffer.
@@ -121,10 +121,10 @@ class PosixLogger final : public Logger {
     }
   }
 
- private:
-  std::FILE* const fp_;
+private:
+  std::FILE *const fp_;
 };
 
-}  // namespace leveldb
+} // namespace leveldb
 
-#endif  // STORAGE_LEVELDB_UTIL_POSIX_LOGGER_H_
+#endif // STORAGE_LEVELDB_UTIL_POSIX_LOGGER_H_

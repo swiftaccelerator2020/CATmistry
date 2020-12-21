@@ -30,9 +30,10 @@
   FBLPromise *promise = [[FBLPromise alloc] initPending];
   [self observeOnQueue:queue
       fulfill:^(id __nullable value) {
-        dispatch_after(dispatch_time(0, (int64_t)(interval * NSEC_PER_SEC)), queue, ^{
-          [promise fulfill:value];
-        });
+        dispatch_after(dispatch_time(0, (int64_t)(interval * NSEC_PER_SEC)),
+                       queue, ^{
+                         [promise fulfill:value];
+                       });
       }
       reject:^(NSError *error) {
         [promise reject:error];

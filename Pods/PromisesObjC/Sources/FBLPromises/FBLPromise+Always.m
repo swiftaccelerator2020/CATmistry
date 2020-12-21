@@ -24,7 +24,8 @@
   return [self onQueue:FBLPromise.defaultDispatchQueue always:work];
 }
 
-- (FBLPromise *)onQueue:(dispatch_queue_t)queue always:(FBLPromiseAlwaysWorkBlock)work {
+- (FBLPromise *)onQueue:(dispatch_queue_t)queue
+                 always:(FBLPromiseAlwaysWorkBlock)work {
   NSParameterAssert(queue);
   NSParameterAssert(work);
 

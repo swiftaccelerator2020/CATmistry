@@ -42,8 +42,8 @@
 @end
 
 typedef enum {
-    DISCONNECT_REASON_SERVER_RESET = 0,
-    DISCONNECT_REASON_OTHER = 1
+  DISCONNECT_REASON_SERVER_RESET = 0,
+  DISCONNECT_REASON_OTHER = 1
 } FDisconnectReason;
 
 @protocol FConnectionDelegate <NSObject>

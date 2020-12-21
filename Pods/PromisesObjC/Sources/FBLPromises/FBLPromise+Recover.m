@@ -24,7 +24,8 @@
   return [self onQueue:FBLPromise.defaultDispatchQueue recover:recovery];
 }
 
-- (FBLPromise *)onQueue:(dispatch_queue_t)queue recover:(FBLPromiseRecoverWorkBlock)recovery {
+- (FBLPromise *)onQueue:(dispatch_queue_t)queue
+                recover:(FBLPromiseRecoverWorkBlock)recovery {
   NSParameterAssert(queue);
   NSParameterAssert(recovery);
 

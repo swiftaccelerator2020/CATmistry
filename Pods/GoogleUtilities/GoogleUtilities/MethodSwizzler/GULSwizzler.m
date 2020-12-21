@@ -20,14 +20,16 @@
 #import "GoogleUtilities/Common/GULLoggerCodes.h"
 #import "GoogleUtilities/Logger/Private/GULLogger.h"
 
-static GULLoggerService kGULLoggerSwizzler = @"[GoogleUtilities/MethodSwizzler]";
+static GULLoggerService kGULLoggerSwizzler =
+    @"[GoogleUtilities/MethodSwizzler]";
 #endif
 
 dispatch_queue_t GetGULSwizzlingQueue(void) {
   static dispatch_queue_t queue;
   static dispatch_once_t onceToken;
   dispatch_once(&onceToken, ^{
-    queue = dispatch_queue_create("com.google.GULSwizzler", DISPATCH_QUEUE_SERIAL);
+    queue =
+        dispatch_queue_create("com.google.GULSwizzler", DISPATCH_QUEUE_SERIAL);
   });
   return queue;
 }
@@ -49,17 +51,22 @@ dispatch_queue_t GetGULSwizzlingQueue(void) {
     } else {
       method = class_getInstanceMethod(aClass, selector);
     }
-    NSAssert(method, @"You're attempting to swizzle a method that doesn't exist. (%@, %@)",
-             NSStringFromClass(resolvedClass), NSStringFromSelector(selector));
+    NSAssert(
+        method,
+        @"You're attempting to swizzle a method that doesn't exist. (%@, %@)",
+        NSStringFromClass(resolvedClass), NSStringFromSelector(selector));
     IMP newImp = imp_implementationWithBlock(block);
 #ifdef DEBUG
     IMP currentImp = class_getMethodImplementation(resolvedClass, selector);
     Class class = NSClassFromString(@"GULSwizzlingCache");
     if (class) {
-      SEL cacheSelector = NSSelectorFromString(@"cacheCurrentIMP:forNewIMP:forClass:withSelector:");
-      NSMethodSignature *methodSignature = [class methodSignatureForSelector:cacheSelector];
+      SEL cacheSelector = NSSelectorFromString(
+          @"cacheCurrentIMP:forNewIMP:forClass:withSelector:");
+      NSMethodSignature *methodSignature =
+          [class methodSignatureForSelector:cacheSelector];
       if (methodSignature != nil) {
-        NSInvocation *inv = [NSInvocation invocationWithMethodSignature:methodSignature];
+        NSInvocation *inv =
+            [NSInvocation invocationWithMethodSignature:methodSignature];
         [inv setSelector:cacheSelector];
         [inv setTarget:class];
         [inv setArgument:&(currentImp) atIndex:2];
@@ -79,9 +86,11 @@ dispatch_queue_t GetGULSwizzlingQueue(void) {
     // If !originalImpOfClass, then the IMP came from a superclass.
     if (originalImpOfClass) {
       SEL selector = NSSelectorFromString(@"originalIMPOfCurrentIMP:");
-      NSMethodSignature *methodSignature = [class methodSignatureForSelector:selector];
+      NSMethodSignature *methodSignature =
+          [class methodSignatureForSelector:selector];
       if (methodSignature != nil) {
-        NSInvocation *inv = [NSInvocation invocationWithMethodSignature:methodSignature];
+        NSInvocation *inv =
+            [NSInvocation invocationWithMethodSignature:methodSignature];
         [inv setSelector:selector];
         [inv setTarget:class];
         [inv setArgument:&(currentImp) atIndex:2];
@@ -89,11 +98,14 @@ dispatch_queue_t GetGULSwizzlingQueue(void) {
         IMP testOriginal;
         [inv getReturnValue:&testOriginal];
         if (originalImpOfClass != testOriginal) {
-          GULLogWarning(kGULLoggerSwizzler, NO,
-                        [NSString stringWithFormat:@"I-SWZ%06ld",
-                                                   (long)kGULSwizzlerMessageCodeMethodSwizzling000],
-                        @"Swizzling class: %@ SEL:%@ after it has been previously been swizzled.",
-                        NSStringFromClass(resolvedClass), NSStringFromSelector(selector));
+          GULLogWarning(
+              kGULLoggerSwizzler, NO,
+              [NSString stringWithFormat:
+                            @"I-SWZ%06ld",
+                            (long)kGULSwizzlerMessageCodeMethodSwizzling000],
+              @"Swizzling class: %@ SEL:%@ after it has been previously been "
+              @"swizzled.",
+              NSStringFromClass(resolvedClass), NSStringFromSelector(selector));
         }
       }
     }
@@ -117,19 +129,24 @@ dispatch_queue_t GetGULSwizzlingQueue(void) {
     } else {
       method = class_getInstanceMethod(aClass, selector);
     }
-    NSAssert(method, @"The Method for this class/selector combo doesn't exist (%@, %@).",
-             NSStringFromClass(aClass), NSStringFromSelector(selector));
+    NSAssert(
+        method,
+        @"The Method for this class/selector combo doesn't exist (%@, %@).",
+        NSStringFromClass(aClass), NSStringFromSelector(selector));
     if (method == nil) {
       return;
     }
     currentIMP = method_getImplementation(method);
-    NSAssert(currentIMP, @"The IMP for this class/selector combo doesn't exist (%@, %@).",
+    NSAssert(currentIMP,
+             @"The IMP for this class/selector combo doesn't exist (%@, %@).",
              NSStringFromClass(aClass), NSStringFromSelector(selector));
   });
   return currentIMP;
 }
 
-+ (BOOL)selector:(SEL)selector existsInClass:(Class)aClass isClassSelector:(BOOL)isClassSelector {
++ (BOOL)selector:(SEL)selector
+      existsInClass:(Class)aClass
+    isClassSelector:(BOOL)isClassSelector {
   Method method = isClassSelector ? class_getClassMethod(aClass, selector)
                                   : class_getInstanceMethod(aClass, selector);
   return method != nil;

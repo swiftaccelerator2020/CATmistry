@@ -18,13 +18,15 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface FBLPromise<Value>(CatchAdditions)
+@interface FBLPromise <Value>(CatchAdditions)
 
-typedef void (^FBLPromiseCatchWorkBlock)(NSError *error) NS_SWIFT_UNAVAILABLE("");
+typedef void (^FBLPromiseCatchWorkBlock)(NSError *error)
+    NS_SWIFT_UNAVAILABLE("");
 
 /**
- Creates a pending promise which eventually gets resolved with same resolution as the receiver.
- If receiver is rejected, then `reject` block is executed asynchronously.
+ Creates a pending promise which eventually gets resolved with same resolution
+ as the receiver. If receiver is rejected, then `reject` block is executed
+ asynchronously.
 
  @param reject A block to handle the error that receiver was rejected with.
  @return A new pending promise.
@@ -32,8 +34,9 @@ typedef void (^FBLPromiseCatchWorkBlock)(NSError *error) NS_SWIFT_UNAVAILABLE(""
 - (FBLPromise *)catch:(FBLPromiseCatchWorkBlock)reject NS_SWIFT_UNAVAILABLE("");
 
 /**
- Creates a pending promise which eventually gets resolved with same resolution as the receiver.
- If receiver is rejected, then `reject` block is executed asynchronously on the given queue.
+ Creates a pending promise which eventually gets resolved with same resolution
+ as the receiver. If receiver is rejected, then `reject` block is executed
+ asynchronously on the given queue.
 
  @param queue A queue to invoke the `reject` block on.
  @param reject A block to handle the error that receiver was rejected with.
@@ -48,10 +51,12 @@ typedef void (^FBLPromiseCatchWorkBlock)(NSError *error) NS_SWIFT_UNAVAILABLE(""
  Convenience dot-syntax wrappers for `FBLPromise` `catch` operators.
  Usage: promise.catch(^(NSError *error) { ... })
  */
-@interface FBLPromise<Value>(DotSyntax_CatchAdditions)
+@interface FBLPromise <Value>(DotSyntax_CatchAdditions)
 
-- (FBLPromise* (^)(FBLPromiseCatchWorkBlock))catch FBL_PROMISES_DOT_SYNTAX NS_SWIFT_UNAVAILABLE("");
-- (FBLPromise* (^)(dispatch_queue_t, FBLPromiseCatchWorkBlock))catchOn FBL_PROMISES_DOT_SYNTAX
+- (FBLPromise * (^)(FBLPromiseCatchWorkBlock))catch FBL_PROMISES_DOT_SYNTAX
+    NS_SWIFT_UNAVAILABLE("");
+- (FBLPromise * (^)(dispatch_queue_t,
+                    FBLPromiseCatchWorkBlock))catchOn FBL_PROMISES_DOT_SYNTAX
     NS_SWIFT_UNAVAILABLE("");
 
 @end

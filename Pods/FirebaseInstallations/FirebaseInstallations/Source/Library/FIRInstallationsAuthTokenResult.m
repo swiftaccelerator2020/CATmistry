@@ -18,7 +18,8 @@
 
 @implementation FIRInstallationsAuthTokenResult
 
-- (instancetype)initWithToken:(NSString *)token expirationDate:(NSDate *)expirationDate {
+- (instancetype)initWithToken:(NSString *)token
+               expirationDate:(NSDate *)expirationDate {
   self = [super init];
   if (self) {
     _authToken = [token copy];

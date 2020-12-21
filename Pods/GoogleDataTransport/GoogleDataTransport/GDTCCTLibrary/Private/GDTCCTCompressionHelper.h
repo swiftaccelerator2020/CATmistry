@@ -28,7 +28,8 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (nullable NSData *)gzippedData:(NSData *)data;
 
-/** Returns YES if the data looks like it was gzip compressed by checking for the gzip magic number.
+/** Returns YES if the data looks like it was gzip compressed by checking for
+ * the gzip magic number.
  *
  * @note: From https://en.wikipedia.org/wiki/Gzip, gzip's magic number is 1f 8b.
  * @return YES if the data appears gzipped, NO otherwise.

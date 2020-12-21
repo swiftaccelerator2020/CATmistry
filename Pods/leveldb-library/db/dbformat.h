@@ -42,7 +42,7 @@ static const int kMaxMemCompactLevel = 2;
 // Approximate gap in bytes between samples of data read during iteration.
 static const int kReadBytesPeriod = 1048576;
 
-}  // namespace config
+} // namespace config
 
 class InternalKey;
 
@@ -69,28 +69,28 @@ struct ParsedInternalKey {
   SequenceNumber sequence;
   ValueType type;
 
-  ParsedInternalKey() {}  // Intentionally left uninitialized (for speed)
-  ParsedInternalKey(const Slice& u, const SequenceNumber& seq, ValueType t)
+  ParsedInternalKey() {} // Intentionally left uninitialized (for speed)
+  ParsedInternalKey(const Slice &u, const SequenceNumber &seq, ValueType t)
       : user_key(u), sequence(seq), type(t) {}
   std::string DebugString() const;
 };
 
 // Return the length of the encoding of "key".
-inline size_t InternalKeyEncodingLength(const ParsedInternalKey& key) {
+inline size_t InternalKeyEncodingLength(const ParsedInternalKey &key) {
   return key.user_key.size() + 8;
 }
 
 // Append the serialization of "key" to *result.
-void AppendInternalKey(std::string* result, const ParsedInternalKey& key);
+void AppendInternalKey(std::string *result, const ParsedInternalKey &key);
 
 // Attempt to parse an internal key from "internal_key".  On success,
 // stores the parsed data in "*result", and returns true.
 //
 // On error, returns false, leaves "*result" in an undefined state.
-bool ParseInternalKey(const Slice& internal_key, ParsedInternalKey* result);
+bool ParseInternalKey(const Slice &internal_key, ParsedInternalKey *result);
 
 // Returns the user key portion of an internal key.
-inline Slice ExtractUserKey(const Slice& internal_key) {
+inline Slice ExtractUserKey(const Slice &internal_key) {
   assert(internal_key.size() >= 8);
   return Slice(internal_key.data(), internal_key.size() - 8);
 }
@@ -98,48 +98,48 @@ inline Slice ExtractUserKey(const Slice& internal_key) {
 // A comparator for internal keys that uses a specified comparator for
 // the user key portion and breaks ties by decreasing sequence number.
 class InternalKeyComparator : public Comparator {
- private:
-  const Comparator* user_comparator_;
+private:
+  const Comparator *user_comparator_;
 
- public:
-  explicit InternalKeyComparator(const Comparator* c) : user_comparator_(c) {}
-  virtual const char* Name() const;
-  virtual int Compare(const Slice& a, const Slice& b) const;
-  virtual void FindShortestSeparator(std::string* start,
-                                     const Slice& limit) const;
-  virtual void FindShortSuccessor(std::string* key) const;
+public:
+  explicit InternalKeyComparator(const Comparator *c) : user_comparator_(c) {}
+  virtual const char *Name() const;
+  virtual int Compare(const Slice &a, const Slice &b) const;
+  virtual void FindShortestSeparator(std::string *start,
+                                     const Slice &limit) const;
+  virtual void FindShortSuccessor(std::string *key) const;
 
-  const Comparator* user_comparator() const { return user_comparator_; }
+  const Comparator *user_comparator() const { return user_comparator_; }
 
-  int Compare(const InternalKey& a, const InternalKey& b) const;
+  int Compare(const InternalKey &a, const InternalKey &b) const;
 };
 
 // Filter policy wrapper that converts from internal keys to user keys
 class InternalFilterPolicy : public FilterPolicy {
- private:
-  const FilterPolicy* const user_policy_;
+private:
+  const FilterPolicy *const user_policy_;
 
- public:
-  explicit InternalFilterPolicy(const FilterPolicy* p) : user_policy_(p) {}
-  virtual const char* Name() const;
-  virtual void CreateFilter(const Slice* keys, int n, std::string* dst) const;
-  virtual bool KeyMayMatch(const Slice& key, const Slice& filter) const;
+public:
+  explicit InternalFilterPolicy(const FilterPolicy *p) : user_policy_(p) {}
+  virtual const char *Name() const;
+  virtual void CreateFilter(const Slice *keys, int n, std::string *dst) const;
+  virtual bool KeyMayMatch(const Slice &key, const Slice &filter) const;
 };
 
 // Modules in this directory should keep internal keys wrapped inside
 // the following class instead of plain strings so that we do not
 // incorrectly use string comparisons instead of an InternalKeyComparator.
 class InternalKey {
- private:
+private:
   std::string rep_;
 
- public:
-  InternalKey() {}  // Leave rep_ as empty to indicate it is invalid
-  InternalKey(const Slice& user_key, SequenceNumber s, ValueType t) {
+public:
+  InternalKey() {} // Leave rep_ as empty to indicate it is invalid
+  InternalKey(const Slice &user_key, SequenceNumber s, ValueType t) {
     AppendInternalKey(&rep_, ParsedInternalKey(user_key, s, t));
   }
 
-  void DecodeFrom(const Slice& s) { rep_.assign(s.data(), s.size()); }
+  void DecodeFrom(const Slice &s) { rep_.assign(s.data(), s.size()); }
   Slice Encode() const {
     assert(!rep_.empty());
     return rep_;
@@ -147,7 +147,7 @@ class InternalKey {
 
   Slice user_key() const { return ExtractUserKey(rep_); }
 
-  void SetFrom(const ParsedInternalKey& p) {
+  void SetFrom(const ParsedInternalKey &p) {
     rep_.clear();
     AppendInternalKey(&rep_, p);
   }
@@ -157,15 +157,16 @@ class InternalKey {
   std::string DebugString() const;
 };
 
-inline int InternalKeyComparator::Compare(const InternalKey& a,
-                                          const InternalKey& b) const {
+inline int InternalKeyComparator::Compare(const InternalKey &a,
+                                          const InternalKey &b) const {
   return Compare(a.Encode(), b.Encode());
 }
 
-inline bool ParseInternalKey(const Slice& internal_key,
-                             ParsedInternalKey* result) {
+inline bool ParseInternalKey(const Slice &internal_key,
+                             ParsedInternalKey *result) {
   const size_t n = internal_key.size();
-  if (n < 8) return false;
+  if (n < 8)
+    return false;
   uint64_t num = DecodeFixed64(internal_key.data() + n - 8);
   unsigned char c = num & 0xff;
   result->sequence = num >> 8;
@@ -176,13 +177,13 @@ inline bool ParseInternalKey(const Slice& internal_key,
 
 // A helper class useful for DBImpl::Get()
 class LookupKey {
- public:
+public:
   // Initialize *this for looking up user_key at a snapshot with
   // the specified sequence number.
-  LookupKey(const Slice& user_key, SequenceNumber sequence);
+  LookupKey(const Slice &user_key, SequenceNumber sequence);
 
-  LookupKey(const LookupKey&) = delete;
-  LookupKey& operator=(const LookupKey&) = delete;
+  LookupKey(const LookupKey &) = delete;
+  LookupKey &operator=(const LookupKey &) = delete;
 
   ~LookupKey();
 
@@ -195,7 +196,7 @@ class LookupKey {
   // Return the user key
   Slice user_key() const { return Slice(kstart_, end_ - kstart_ - 8); }
 
- private:
+private:
   // We construct a char array of the form:
   //    klength  varint32               <-- start_
   //    userkey  char[klength]          <-- kstart_
@@ -203,16 +204,17 @@ class LookupKey {
   //                                    <-- end_
   // The array is a suitable MemTable key.
   // The suffix starting with "userkey" can be used as an InternalKey.
-  const char* start_;
-  const char* kstart_;
-  const char* end_;
-  char space_[200];  // Avoid allocation for short keys
+  const char *start_;
+  const char *kstart_;
+  const char *end_;
+  char space_[200]; // Avoid allocation for short keys
 };
 
 inline LookupKey::~LookupKey() {
-  if (start_ != space_) delete[] start_;
+  if (start_ != space_)
+    delete[] start_;
 }
 
-}  // namespace leveldb
+} // namespace leveldb
 
-#endif  // STORAGE_LEVELDB_DB_DBFORMAT_H_
+#endif // STORAGE_LEVELDB_DB_DBFORMAT_H_

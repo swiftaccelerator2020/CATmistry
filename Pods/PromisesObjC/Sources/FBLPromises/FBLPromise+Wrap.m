@@ -30,14 +30,16 @@
   NSParameterAssert(work);
 
   return [self onQueue:queue
-                 async:^(FBLPromiseFulfillBlock fulfill, FBLPromiseRejectBlock __unused _) {
+                 async:^(FBLPromiseFulfillBlock fulfill,
+                         FBLPromiseRejectBlock __unused _) {
                    work(^{
                      fulfill(nil);
                    });
                  }];
 }
 
-+ (instancetype)wrapObjectCompletion:(void (^)(FBLPromiseObjectCompletion))work {
++ (instancetype)wrapObjectCompletion:
+    (void (^)(FBLPromiseObjectCompletion))work {
   return [self onQueue:self.defaultDispatchQueue wrapObjectCompletion:work];
 }
 
@@ -47,7 +49,8 @@
   NSParameterAssert(work);
 
   return [self onQueue:queue
-                 async:^(FBLPromiseFulfillBlock fulfill, FBLPromiseRejectBlock __unused _) {
+                 async:^(FBLPromiseFulfillBlock fulfill,
+                         FBLPromiseRejectBlock __unused _) {
                    work(^(id __nullable value) {
                      fulfill(value);
                    });
@@ -63,83 +66,97 @@
   NSParameterAssert(queue);
   NSParameterAssert(work);
 
-  return [self onQueue:queue
-                 async:^(FBLPromiseFulfillBlock fulfill, FBLPromiseRejectBlock reject) {
-                   work(^(NSError *__nullable error) {
-                     if (error) {
-                       reject(error);
-                     } else {
-                       fulfill(nil);
-                     }
-                   });
-                 }];
+  return [self
+      onQueue:queue
+        async:^(FBLPromiseFulfillBlock fulfill, FBLPromiseRejectBlock reject) {
+          work(^(NSError *__nullable error) {
+            if (error) {
+              reject(error);
+            } else {
+              fulfill(nil);
+            }
+          });
+        }];
 }
 
-+ (instancetype)wrapObjectOrErrorCompletion:(void (^)(FBLPromiseObjectOrErrorCompletion))work {
-  return [self onQueue:self.defaultDispatchQueue wrapObjectOrErrorCompletion:work];
-}
-
-+ (instancetype)onQueue:(dispatch_queue_t)queue
-    wrapObjectOrErrorCompletion:(void (^)(FBLPromiseObjectOrErrorCompletion))work {
-  NSParameterAssert(queue);
-  NSParameterAssert(work);
-
-  return [self onQueue:queue
-                 async:^(FBLPromiseFulfillBlock fulfill, FBLPromiseRejectBlock reject) {
-                   work(^(id __nullable value, NSError *__nullable error) {
-                     if (error) {
-                       reject(error);
-                     } else {
-                       fulfill(value);
-                     }
-                   });
-                 }];
-}
-
-+ (instancetype)wrapErrorOrObjectCompletion:(void (^)(FBLPromiseErrorOrObjectCompletion))work {
-  return [self onQueue:self.defaultDispatchQueue wrapErrorOrObjectCompletion:work];
++ (instancetype)wrapObjectOrErrorCompletion:
+    (void (^)(FBLPromiseObjectOrErrorCompletion))work {
+  return [self onQueue:self.defaultDispatchQueue
+      wrapObjectOrErrorCompletion:work];
 }
 
 + (instancetype)onQueue:(dispatch_queue_t)queue
-    wrapErrorOrObjectCompletion:(void (^)(FBLPromiseErrorOrObjectCompletion))work {
+    wrapObjectOrErrorCompletion:
+        (void (^)(FBLPromiseObjectOrErrorCompletion))work {
   NSParameterAssert(queue);
   NSParameterAssert(work);
 
-  return [self onQueue:queue
-                 async:^(FBLPromiseFulfillBlock fulfill, FBLPromiseRejectBlock reject) {
-                   work(^(NSError *__nullable error, id __nullable value) {
-                     if (error) {
-                       reject(error);
-                     } else {
-                       fulfill(value);
-                     }
-                   });
-                 }];
+  return [self
+      onQueue:queue
+        async:^(FBLPromiseFulfillBlock fulfill, FBLPromiseRejectBlock reject) {
+          work(^(id __nullable value, NSError *__nullable error) {
+            if (error) {
+              reject(error);
+            } else {
+              fulfill(value);
+            }
+          });
+        }];
+}
+
++ (instancetype)wrapErrorOrObjectCompletion:
+    (void (^)(FBLPromiseErrorOrObjectCompletion))work {
+  return [self onQueue:self.defaultDispatchQueue
+      wrapErrorOrObjectCompletion:work];
+}
+
++ (instancetype)onQueue:(dispatch_queue_t)queue
+    wrapErrorOrObjectCompletion:
+        (void (^)(FBLPromiseErrorOrObjectCompletion))work {
+  NSParameterAssert(queue);
+  NSParameterAssert(work);
+
+  return [self
+      onQueue:queue
+        async:^(FBLPromiseFulfillBlock fulfill, FBLPromiseRejectBlock reject) {
+          work(^(NSError *__nullable error, id __nullable value) {
+            if (error) {
+              reject(error);
+            } else {
+              fulfill(value);
+            }
+          });
+        }];
 }
 
 + (FBLPromise<NSArray *> *)wrap2ObjectsOrErrorCompletion:
     (void (^)(FBLPromise2ObjectsOrErrorCompletion))work {
-  return [self onQueue:self.defaultDispatchQueue wrap2ObjectsOrErrorCompletion:work];
+  return [self onQueue:self.defaultDispatchQueue
+      wrap2ObjectsOrErrorCompletion:work];
 }
 
 + (FBLPromise<NSArray *> *)onQueue:(dispatch_queue_t)queue
-     wrap2ObjectsOrErrorCompletion:(void (^)(FBLPromise2ObjectsOrErrorCompletion))work {
+     wrap2ObjectsOrErrorCompletion:
+         (void (^)(FBLPromise2ObjectsOrErrorCompletion))work {
   NSParameterAssert(queue);
   NSParameterAssert(work);
 
-  return [self onQueue:queue
-                 async:^(FBLPromiseFulfillBlock fulfill, FBLPromiseRejectBlock reject) {
-                   work(^(id __nullable value1, id __nullable value2, NSError *__nullable error) {
-                     if (error) {
-                       reject(error);
-                     } else {
-                       fulfill(@[ value1, value2 ]);
-                     }
-                   });
-                 }];
+  return [self
+      onQueue:queue
+        async:^(FBLPromiseFulfillBlock fulfill, FBLPromiseRejectBlock reject) {
+          work(^(id __nullable value1, id __nullable value2,
+                 NSError *__nullable error) {
+            if (error) {
+              reject(error);
+            } else {
+              fulfill(@[ value1, value2 ]);
+            }
+          });
+        }];
 }
 
-+ (FBLPromise<NSNumber *> *)wrapBoolCompletion:(void (^)(FBLPromiseBoolCompletion))work {
++ (FBLPromise<NSNumber *> *)wrapBoolCompletion:
+    (void (^)(FBLPromiseBoolCompletion))work {
   return [self onQueue:self.defaultDispatchQueue wrapBoolCompletion:work];
 }
 
@@ -149,7 +166,8 @@
   NSParameterAssert(work);
 
   return [self onQueue:queue
-                 async:^(FBLPromiseFulfillBlock fulfill, FBLPromiseRejectBlock __unused _) {
+                 async:^(FBLPromiseFulfillBlock fulfill,
+                         FBLPromiseRejectBlock __unused _) {
                    work(^(BOOL value) {
                      fulfill(@(value));
                    });
@@ -158,37 +176,43 @@
 
 + (FBLPromise<NSNumber *> *)wrapBoolOrErrorCompletion:
     (void (^)(FBLPromiseBoolOrErrorCompletion))work {
-  return [self onQueue:self.defaultDispatchQueue wrapBoolOrErrorCompletion:work];
+  return [self onQueue:self.defaultDispatchQueue
+      wrapBoolOrErrorCompletion:work];
 }
 
 + (FBLPromise<NSNumber *> *)onQueue:(dispatch_queue_t)queue
-          wrapBoolOrErrorCompletion:(void (^)(FBLPromiseBoolOrErrorCompletion))work {
+          wrapBoolOrErrorCompletion:
+              (void (^)(FBLPromiseBoolOrErrorCompletion))work {
   NSParameterAssert(queue);
   NSParameterAssert(work);
 
-  return [self onQueue:queue
-                 async:^(FBLPromiseFulfillBlock fulfill, FBLPromiseRejectBlock reject) {
-                   work(^(BOOL value, NSError *__nullable error) {
-                     if (error) {
-                       reject(error);
-                     } else {
-                       fulfill(@(value));
-                     }
-                   });
-                 }];
+  return [self
+      onQueue:queue
+        async:^(FBLPromiseFulfillBlock fulfill, FBLPromiseRejectBlock reject) {
+          work(^(BOOL value, NSError *__nullable error) {
+            if (error) {
+              reject(error);
+            } else {
+              fulfill(@(value));
+            }
+          });
+        }];
 }
 
-+ (FBLPromise<NSNumber *> *)wrapIntegerCompletion:(void (^)(FBLPromiseIntegerCompletion))work {
++ (FBLPromise<NSNumber *> *)wrapIntegerCompletion:
+    (void (^)(FBLPromiseIntegerCompletion))work {
   return [self onQueue:self.defaultDispatchQueue wrapIntegerCompletion:work];
 }
 
 + (FBLPromise<NSNumber *> *)onQueue:(dispatch_queue_t)queue
-              wrapIntegerCompletion:(void (^)(FBLPromiseIntegerCompletion))work {
+              wrapIntegerCompletion:
+                  (void (^)(FBLPromiseIntegerCompletion))work {
   NSParameterAssert(queue);
   NSParameterAssert(work);
 
   return [self onQueue:queue
-                 async:^(FBLPromiseFulfillBlock fulfill, FBLPromiseRejectBlock __unused _) {
+                 async:^(FBLPromiseFulfillBlock fulfill,
+                         FBLPromiseRejectBlock __unused _) {
                    work(^(NSInteger value) {
                      fulfill(@(value));
                    });
@@ -197,27 +221,31 @@
 
 + (FBLPromise<NSNumber *> *)wrapIntegerOrErrorCompletion:
     (void (^)(FBLPromiseIntegerOrErrorCompletion))work {
-  return [self onQueue:self.defaultDispatchQueue wrapIntegerOrErrorCompletion:work];
+  return [self onQueue:self.defaultDispatchQueue
+      wrapIntegerOrErrorCompletion:work];
 }
 
 + (FBLPromise<NSNumber *> *)onQueue:(dispatch_queue_t)queue
-       wrapIntegerOrErrorCompletion:(void (^)(FBLPromiseIntegerOrErrorCompletion))work {
+       wrapIntegerOrErrorCompletion:
+           (void (^)(FBLPromiseIntegerOrErrorCompletion))work {
   NSParameterAssert(queue);
   NSParameterAssert(work);
 
-  return [self onQueue:queue
-                 async:^(FBLPromiseFulfillBlock fulfill, FBLPromiseRejectBlock reject) {
-                   work(^(NSInteger value, NSError *__nullable error) {
-                     if (error) {
-                       reject(error);
-                     } else {
-                       fulfill(@(value));
-                     }
-                   });
-                 }];
+  return [self
+      onQueue:queue
+        async:^(FBLPromiseFulfillBlock fulfill, FBLPromiseRejectBlock reject) {
+          work(^(NSInteger value, NSError *__nullable error) {
+            if (error) {
+              reject(error);
+            } else {
+              fulfill(@(value));
+            }
+          });
+        }];
 }
 
-+ (FBLPromise<NSNumber *> *)wrapDoubleCompletion:(void (^)(FBLPromiseDoubleCompletion))work {
++ (FBLPromise<NSNumber *> *)wrapDoubleCompletion:
+    (void (^)(FBLPromiseDoubleCompletion))work {
   return [self onQueue:self.defaultDispatchQueue wrapDoubleCompletion:work];
 }
 
@@ -227,7 +255,8 @@
   NSParameterAssert(work);
 
   return [self onQueue:(dispatch_queue_t)queue
-                 async:^(FBLPromiseFulfillBlock fulfill, FBLPromiseRejectBlock __unused _) {
+                 async:^(FBLPromiseFulfillBlock fulfill,
+                         FBLPromiseRejectBlock __unused _) {
                    work(^(double value) {
                      fulfill(@(value));
                    });
@@ -236,24 +265,27 @@
 
 + (FBLPromise<NSNumber *> *)wrapDoubleOrErrorCompletion:
     (void (^)(FBLPromiseDoubleOrErrorCompletion))work {
-  return [self onQueue:self.defaultDispatchQueue wrapDoubleOrErrorCompletion:work];
+  return [self onQueue:self.defaultDispatchQueue
+      wrapDoubleOrErrorCompletion:work];
 }
 
 + (FBLPromise<NSNumber *> *)onQueue:(dispatch_queue_t)queue
-        wrapDoubleOrErrorCompletion:(void (^)(FBLPromiseDoubleOrErrorCompletion))work {
+        wrapDoubleOrErrorCompletion:
+            (void (^)(FBLPromiseDoubleOrErrorCompletion))work {
   NSParameterAssert(queue);
   NSParameterAssert(work);
 
-  return [self onQueue:queue
-                 async:^(FBLPromiseFulfillBlock fulfill, FBLPromiseRejectBlock reject) {
-                   work(^(double value, NSError *__nullable error) {
-                     if (error) {
-                       reject(error);
-                     } else {
-                       fulfill(@(value));
-                     }
-                   });
-                 }];
+  return [self
+      onQueue:queue
+        async:^(FBLPromiseFulfillBlock fulfill, FBLPromiseRejectBlock reject) {
+          work(^(double value, NSError *__nullable error) {
+            if (error) {
+              reject(error);
+            } else {
+              fulfill(@(value));
+            }
+          });
+        }];
 }
 
 @end
@@ -266,7 +298,8 @@
   };
 }
 
-+ (FBLPromise * (^)(dispatch_queue_t, void (^)(FBLPromiseCompletion)))wrapCompletionOn {
++ (FBLPromise * (^)(dispatch_queue_t,
+                    void (^)(FBLPromiseCompletion)))wrapCompletionOn {
   return ^(dispatch_queue_t queue, void (^work)(FBLPromiseCompletion)) {
     return [self onQueue:queue wrapCompletion:work];
   };
@@ -278,7 +311,8 @@
   };
 }
 
-+ (FBLPromise * (^)(dispatch_queue_t, void (^)(FBLPromiseObjectCompletion)))wrapObjectCompletionOn {
++ (FBLPromise * (^)(dispatch_queue_t, void (^)(FBLPromiseObjectCompletion)))
+    wrapObjectCompletionOn {
   return ^(dispatch_queue_t queue, void (^work)(FBLPromiseObjectCompletion)) {
     return [self onQueue:queue wrapObjectCompletion:work];
   };
@@ -290,34 +324,41 @@
   };
 }
 
-+ (FBLPromise * (^)(dispatch_queue_t, void (^)(FBLPromiseErrorCompletion)))wrapErrorCompletionOn {
++ (FBLPromise * (^)(dispatch_queue_t,
+                    void (^)(FBLPromiseErrorCompletion)))wrapErrorCompletionOn {
   return ^(dispatch_queue_t queue, void (^work)(FBLPromiseErrorCompletion)) {
     return [self onQueue:queue wrapErrorCompletion:work];
   };
 }
 
-+ (FBLPromise * (^)(void (^)(FBLPromiseObjectOrErrorCompletion)))wrapObjectOrErrorCompletion {
++ (FBLPromise * (^)(void (^)(FBLPromiseObjectOrErrorCompletion)))
+    wrapObjectOrErrorCompletion {
   return ^(void (^work)(FBLPromiseObjectOrErrorCompletion)) {
     return [self wrapObjectOrErrorCompletion:work];
   };
 }
 
 + (FBLPromise * (^)(dispatch_queue_t,
-                    void (^)(FBLPromiseObjectOrErrorCompletion)))wrapObjectOrErrorCompletionOn {
-  return ^(dispatch_queue_t queue, void (^work)(FBLPromiseObjectOrErrorCompletion)) {
+                    void (^)(FBLPromiseObjectOrErrorCompletion)))
+    wrapObjectOrErrorCompletionOn {
+  return ^(dispatch_queue_t queue,
+           void (^work)(FBLPromiseObjectOrErrorCompletion)) {
     return [self onQueue:queue wrapObjectOrErrorCompletion:work];
   };
 }
 
-+ (FBLPromise * (^)(void (^)(FBLPromiseErrorOrObjectCompletion)))wrapErrorOrObjectCompletion {
++ (FBLPromise * (^)(void (^)(FBLPromiseErrorOrObjectCompletion)))
+    wrapErrorOrObjectCompletion {
   return ^(void (^work)(FBLPromiseErrorOrObjectCompletion)) {
     return [self wrapErrorOrObjectCompletion:work];
   };
 }
 
 + (FBLPromise * (^)(dispatch_queue_t,
-                    void (^)(FBLPromiseErrorOrObjectCompletion)))wrapErrorOrObjectCompletionOn {
-  return ^(dispatch_queue_t queue, void (^work)(FBLPromiseErrorOrObjectCompletion)) {
+                    void (^)(FBLPromiseErrorOrObjectCompletion)))
+    wrapErrorOrObjectCompletionOn {
+  return ^(dispatch_queue_t queue,
+           void (^work)(FBLPromiseErrorOrObjectCompletion)) {
     return [self onQueue:queue wrapErrorOrObjectCompletion:work];
   };
 }
@@ -329,21 +370,24 @@
   };
 }
 
-+ (FBLPromise<NSArray *> * (^)(dispatch_queue_t, void (^)(FBLPromise2ObjectsOrErrorCompletion)))
++ (FBLPromise<NSArray *> * (^)(dispatch_queue_t,
+                               void (^)(FBLPromise2ObjectsOrErrorCompletion)))
     wrap2ObjectsOrErrorCompletionOn {
-  return ^(dispatch_queue_t queue, void (^work)(FBLPromise2ObjectsOrErrorCompletion)) {
+  return ^(dispatch_queue_t queue,
+           void (^work)(FBLPromise2ObjectsOrErrorCompletion)) {
     return [self onQueue:queue wrap2ObjectsOrErrorCompletion:work];
   };
 }
 
-+ (FBLPromise<NSNumber *> * (^)(void (^)(FBLPromiseBoolCompletion)))wrapBoolCompletion {
++ (FBLPromise<NSNumber *> * (^)(void (^)(FBLPromiseBoolCompletion)))
+    wrapBoolCompletion {
   return ^(void (^work)(FBLPromiseBoolCompletion)) {
     return [self wrapBoolCompletion:work];
   };
 }
 
-+ (FBLPromise<NSNumber *> * (^)(dispatch_queue_t,
-                                void (^)(FBLPromiseBoolCompletion)))wrapBoolCompletionOn {
++ (FBLPromise<NSNumber *> * (^)(
+    dispatch_queue_t, void (^)(FBLPromiseBoolCompletion)))wrapBoolCompletionOn {
   return ^(dispatch_queue_t queue, void (^work)(FBLPromiseBoolCompletion)) {
     return [self onQueue:queue wrapBoolCompletion:work];
   };
@@ -356,21 +400,25 @@
   };
 }
 
-+ (FBLPromise<NSNumber *> * (^)(dispatch_queue_t, void (^)(FBLPromiseBoolOrErrorCompletion)))
++ (FBLPromise<NSNumber *> * (^)(dispatch_queue_t,
+                                void (^)(FBLPromiseBoolOrErrorCompletion)))
     wrapBoolOrErrorCompletionOn {
-  return ^(dispatch_queue_t queue, void (^work)(FBLPromiseBoolOrErrorCompletion)) {
+  return ^(dispatch_queue_t queue,
+           void (^work)(FBLPromiseBoolOrErrorCompletion)) {
     return [self onQueue:queue wrapBoolOrErrorCompletion:work];
   };
 }
 
-+ (FBLPromise<NSNumber *> * (^)(void (^)(FBLPromiseIntegerCompletion)))wrapIntegerCompletion {
++ (FBLPromise<NSNumber *> * (^)(void (^)(FBLPromiseIntegerCompletion)))
+    wrapIntegerCompletion {
   return ^(void (^work)(FBLPromiseIntegerCompletion)) {
     return [self wrapIntegerCompletion:work];
   };
 }
 
 + (FBLPromise<NSNumber *> * (^)(dispatch_queue_t,
-                                void (^)(FBLPromiseIntegerCompletion)))wrapIntegerCompletionOn {
+                                void (^)(FBLPromiseIntegerCompletion)))
+    wrapIntegerCompletionOn {
   return ^(dispatch_queue_t queue, void (^work)(FBLPromiseIntegerCompletion)) {
     return [self onQueue:queue wrapIntegerCompletion:work];
   };
@@ -383,21 +431,25 @@
   };
 }
 
-+ (FBLPromise<NSNumber *> * (^)(dispatch_queue_t, void (^)(FBLPromiseIntegerOrErrorCompletion)))
++ (FBLPromise<NSNumber *> * (^)(dispatch_queue_t,
+                                void (^)(FBLPromiseIntegerOrErrorCompletion)))
     wrapIntegerOrErrorCompletionOn {
-  return ^(dispatch_queue_t queue, void (^work)(FBLPromiseIntegerOrErrorCompletion)) {
+  return ^(dispatch_queue_t queue,
+           void (^work)(FBLPromiseIntegerOrErrorCompletion)) {
     return [self onQueue:queue wrapIntegerOrErrorCompletion:work];
   };
 }
 
-+ (FBLPromise<NSNumber *> * (^)(void (^)(FBLPromiseDoubleCompletion)))wrapDoubleCompletion {
++ (FBLPromise<NSNumber *> * (^)(void (^)(FBLPromiseDoubleCompletion)))
+    wrapDoubleCompletion {
   return ^(void (^work)(FBLPromiseDoubleCompletion)) {
     return [self wrapDoubleCompletion:work];
   };
 }
 
 + (FBLPromise<NSNumber *> * (^)(dispatch_queue_t,
-                                void (^)(FBLPromiseDoubleCompletion)))wrapDoubleCompletionOn {
+                                void (^)(FBLPromiseDoubleCompletion)))
+    wrapDoubleCompletionOn {
   return ^(dispatch_queue_t queue, void (^work)(FBLPromiseDoubleCompletion)) {
     return [self onQueue:queue wrapDoubleCompletion:work];
   };
@@ -410,9 +462,11 @@
   };
 }
 
-+ (FBLPromise<NSNumber *> * (^)(dispatch_queue_t, void (^)(FBLPromiseDoubleOrErrorCompletion)))
++ (FBLPromise<NSNumber *> * (^)(dispatch_queue_t,
+                                void (^)(FBLPromiseDoubleOrErrorCompletion)))
     wrapDoubleOrErrorCompletionOn {
-  return ^(dispatch_queue_t queue, void (^work)(FBLPromiseDoubleOrErrorCompletion)) {
+  return ^(dispatch_queue_t queue,
+           void (^work)(FBLPromiseDoubleOrErrorCompletion)) {
     return [self onQueue:queue wrapDoubleOrErrorCompletion:work];
   };
 }

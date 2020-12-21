@@ -22,8 +22,8 @@
 #import "FBLPromises.h"
 #endif
 
-#import <CommonCrypto/CommonDigest.h>
 #import "FirebaseInstallations/Source/Library/Errors/FIRInstallationsErrorUtil.h"
+#import <CommonCrypto/CommonDigest.h>
 
 static NSString *const kFIRInstallationsIIDKeyPairPublicTagPrefix =
     @"com.google.iid.keypair.public-";
@@ -73,13 +73,14 @@ static NSString *const kFIRInstallationsIIDCreationTimePlistKey = @"|S|cre";
   NSMutableData *identityData = [NSMutableData dataWithData:publicKeySHA1];
 
   uint8_t b0 = bytes[0];
-  // Take the first byte and make the initial four 7 by initially making the initial 4 bits 0
-  // and then adding 0x70 to it.
+  // Take the first byte and make the initial four 7 by initially making the
+  // initial 4 bits 0 and then adding 0x70 to it.
   b0 = 0x70 + (0xF & b0);
   // failsafe should give you back b0 itself
   b0 = (b0 & 0xFF);
   [identityData replaceBytesInRange:NSMakeRange(0, 1) withBytes:&b0];
-  NSData *data = [identityData subdataWithRange:NSMakeRange(0, 8 * sizeof(Byte))];
+  NSData *data =
+      [identityData subdataWithRange:NSMakeRange(0, 8 * sizeof(Byte))];
   return [self base64URLEncodedStringWithData:data];
 }
 
@@ -102,11 +103,13 @@ static NSString *const kFIRInstallationsIIDCreationTimePlistKey = @"|S|cre";
 #pragma mark - Keychain
 
 - (NSData *)IIDPublicKeyData {
-  NSString *tag = [self keychainKeyTagWithPrefix:kFIRInstallationsIIDKeyPairPublicTagPrefix];
+  NSString *tag = [self
+      keychainKeyTagWithPrefix:kFIRInstallationsIIDKeyPairPublicTagPrefix];
   NSDictionary *query = [self keyPairQueryWithTag:tag returnData:YES];
 
   CFTypeRef keyRef = NULL;
-  OSStatus status = SecItemCopyMatching((__bridge CFDictionaryRef)query, (CFTypeRef *)&keyRef);
+  OSStatus status = SecItemCopyMatching((__bridge CFDictionaryRef)query,
+                                        (CFTypeRef *)&keyRef);
 
   if (status != noErr) {
     if (keyRef) {
@@ -119,12 +122,14 @@ static NSString *const kFIRInstallationsIIDCreationTimePlistKey = @"|S|cre";
 }
 
 - (BOOL)deleteIID:(NSError **)outError {
-  if (![self deleteKeychainKeyWithTagPrefix:kFIRInstallationsIIDKeyPairPublicTagPrefix
+  if (![self deleteKeychainKeyWithTagPrefix:
+                 kFIRInstallationsIIDKeyPairPublicTagPrefix
                                       error:outError]) {
     return NO;
   }
 
-  if (![self deleteKeychainKeyWithTagPrefix:kFIRInstallationsIIDKeyPairPrivateTagPrefix
+  if (![self deleteKeychainKeyWithTagPrefix:
+                 kFIRInstallationsIIDKeyPairPrivateTagPrefix
                                       error:outError]) {
     return NO;
   }
@@ -132,17 +137,20 @@ static NSString *const kFIRInstallationsIIDCreationTimePlistKey = @"|S|cre";
   return YES;
 }
 
-- (BOOL)deleteKeychainKeyWithTagPrefix:(NSString *)tagPrefix error:(NSError **)outError {
-  NSString *keyTag = [self keychainKeyTagWithPrefix:kFIRInstallationsIIDKeyPairPublicTagPrefix];
+- (BOOL)deleteKeychainKeyWithTagPrefix:(NSString *)tagPrefix
+                                 error:(NSError **)outError {
+  NSString *keyTag = [self
+      keychainKeyTagWithPrefix:kFIRInstallationsIIDKeyPairPublicTagPrefix];
   NSDictionary *keyQuery = [self keyPairQueryWithTag:keyTag returnData:NO];
 
   OSStatus status = SecItemDelete((__bridge CFDictionaryRef)keyQuery);
 
-  // When item is not found, it should NOT be considered as an error. The operation should
-  // continue.
+  // When item is not found, it should NOT be considered as an error. The
+  // operation should continue.
   if (status != noErr && status != errSecItemNotFound) {
     FIRInstallationsItemSetErrorToPointer(
-        [FIRInstallationsErrorUtil keychainErrorWithFunction:@"SecItemDelete" status:status],
+        [FIRInstallationsErrorUtil keychainErrorWithFunction:@"SecItemDelete"
+                                                      status:status],
         outError);
     return NO;
   }
@@ -150,7 +158,8 @@ static NSString *const kFIRInstallationsIIDCreationTimePlistKey = @"|S|cre";
   return YES;
 }
 
-- (NSDictionary *)keyPairQueryWithTag:(NSString *)tag returnData:(BOOL)shouldReturnData {
+- (NSDictionary *)keyPairQueryWithTag:(NSString *)tag
+                           returnData:(BOOL)shouldReturnData {
   NSMutableDictionary *query = [NSMutableDictionary dictionary];
   NSData *tagData = [tag dataUsingEncoding:NSUTF8StringEncoding];
 
@@ -163,9 +172,10 @@ static NSString *const kFIRInstallationsIIDCreationTimePlistKey = @"|S|cre";
 
 #if TARGET_OS_OSX
   if (self.keychainRef) {
-    query[(__bridge NSString *)kSecMatchSearchList] = @[ (__bridge id)(self.keychainRef) ];
+    query[(__bridge NSString *)kSecMatchSearchList] =
+        @[ (__bridge id)(self.keychainRef) ];
   }
-#endif  // TARGET_OSX
+#endif // TARGET_OSX
 
   return query;
 }
@@ -194,11 +204,13 @@ static NSString *const kFIRInstallationsIIDCreationTimePlistKey = @"|S|cre";
     return YES;
   }
 
-  NSMutableDictionary *plistContent = [[NSMutableDictionary alloc] initWithContentsOfFile:path];
+  NSMutableDictionary *plistContent =
+      [[NSMutableDictionary alloc] initWithContentsOfFile:path];
   plistContent[kFIRInstallationsIIDCreationTimePlistKey] = nil;
 
   if (@available(macOS 10.13, iOS 11.0, tvOS 11.0, *)) {
-    return [plistContent writeToURL:[NSURL fileURLWithPath:path] error:outError];
+    return [plistContent writeToURL:[NSURL fileURLWithPath:path]
+                              error:outError];
   }
 
   return [plistContent writeToFile:path atomically:YES];
@@ -210,7 +222,8 @@ static NSString *const kFIRInstallationsIIDCreationTimePlistKey = @"|S|cre";
     return NO;
   }
 
-  NSDictionary *plistContent = [[NSDictionary alloc] initWithContentsOfFile:path];
+  NSDictionary *plistContent =
+      [[NSDictionary alloc] initWithContentsOfFile:path];
   return plistContent[kFIRInstallationsIIDCreationTimePlistKey] != nil;
 }
 
@@ -218,9 +231,10 @@ static NSString *const kFIRInstallationsIIDCreationTimePlistKey = @"|S|cre";
   NSString *plistNameWithExtension = @"com.google.iid-keypair.plist";
   NSString *_subDirectoryName = @"Google/FirebaseInstanceID";
 
-  NSArray *directoryPaths =
-      NSSearchPathForDirectoriesInDomains([self supportedDirectory], NSUserDomainMask, YES);
-  NSArray *components = @[ directoryPaths.lastObject, _subDirectoryName, plistNameWithExtension ];
+  NSArray *directoryPaths = NSSearchPathForDirectoriesInDomains(
+      [self supportedDirectory], NSUserDomainMask, YES);
+  NSArray *components =
+      @[ directoryPaths.lastObject, _subDirectoryName, plistNameWithExtension ];
 
   return [NSString pathWithComponents:components];
 }

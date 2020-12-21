@@ -42,11 +42,11 @@
 @end
 
 typedef enum {
-    FLogLevelDebug = 1,
-    FLogLevelInfo = 2,
-    FLogLevelWarn = 3,
-    FLogLevelError = 4,
-    FLogLevelNone = 5
+  FLogLevelDebug = 1,
+  FLogLevelInfo = 2,
+  FLogLevelWarn = 3,
+  FLogLevelError = 4,
+  FLogLevelNone = 5
 } FLogLevel;
 
 // Log tags
@@ -55,26 +55,25 @@ FOUNDATION_EXPORT NSString *const kFPersistenceLogTag;
 #define FFLog(code, format, ...) FFDebug((code), (format), ##__VA_ARGS__)
 
 #define FFDebug(code, format, ...)                                             \
-    do {                                                                       \
-        if (FFIsLoggingEnabled(FLogLevelDebug)) {                              \
-            FIRLogDebug(kFIRLoggerDatabase, (code), (format), ##__VA_ARGS__);  \
-        }                                                                      \
-    } while (0)
+  do {                                                                         \
+    if (FFIsLoggingEnabled(FLogLevelDebug)) {                                  \
+      FIRLogDebug(kFIRLoggerDatabase, (code), (format), ##__VA_ARGS__);        \
+    }                                                                          \
+  } while (0)
 
 #define FFInfo(code, format, ...)                                              \
-    do {                                                                       \
-        if (FFIsLoggingEnabled(FLogLevelInfo)) {                               \
-            FIRLogError(kFIRLoggerDatabase, (code), (format), ##__VA_ARGS__);  \
-        }                                                                      \
-    } while (0)
+  do {                                                                         \
+    if (FFIsLoggingEnabled(FLogLevelInfo)) {                                   \
+      FIRLogError(kFIRLoggerDatabase, (code), (format), ##__VA_ARGS__);        \
+    }                                                                          \
+  } while (0)
 
 #define FFWarn(code, format, ...)                                              \
-    do {                                                                       \
-        if (FFIsLoggingEnabled(FLogLevelWarn)) {                               \
-            FIRLogWarning(kFIRLoggerDatabase, (code), (format),                \
-                          ##__VA_ARGS__);                                      \
-        }                                                                      \
-    } while (0)
+  do {                                                                         \
+    if (FFIsLoggingEnabled(FLogLevelWarn)) {                                   \
+      FIRLogWarning(kFIRLoggerDatabase, (code), (format), ##__VA_ARGS__);      \
+    }                                                                          \
+  } while (0)
 
 extern FIRLoggerService kFIRLoggerDatabase;
 BOOL FFIsLoggingEnabled(FLogLevel logLevel);

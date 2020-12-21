@@ -17,15 +17,18 @@
 #import "GoogleDataTransport/GDTCORLibrary/Public/GoogleDataTransport/GDTCORAssert.h"
 
 GDTCORAssertionBlock GDTCORAssertionBlockToRunInstead(void) {
-  // This class is only compiled in by unit tests, and this should fail quickly in optimized builds.
+  // This class is only compiled in by unit tests, and this should fail quickly
+  // in optimized builds.
   Class GDTCORAssertClass = NSClassFromString(@"GDTCORAssertHelper");
   if (__builtin_expect(!!GDTCORAssertClass, 0)) {
     SEL assertionBlockSEL = NSSelectorFromString(@"assertionBlock");
     if (assertionBlockSEL) {
-      IMP assertionBlockIMP = [GDTCORAssertClass methodForSelector:assertionBlockSEL];
+      IMP assertionBlockIMP =
+          [GDTCORAssertClass methodForSelector:assertionBlockSEL];
       if (assertionBlockIMP) {
-        GDTCORAssertionBlock assertionBlock = ((GDTCORAssertionBlock(*)(id, SEL))assertionBlockIMP)(
-            GDTCORAssertClass, assertionBlockSEL);
+        GDTCORAssertionBlock assertionBlock =
+            ((GDTCORAssertionBlock(*)(id, SEL))assertionBlockIMP)(
+                GDTCORAssertClass, assertionBlockSEL);
         if (assertionBlock) {
           return assertionBlock;
         }

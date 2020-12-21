@@ -18,14 +18,14 @@ namespace test {
 
 namespace {
 struct Test {
-  const char* base;
-  const char* name;
+  const char *base;
+  const char *name;
   void (*func)();
 };
-std::vector<Test>* tests;
-}  // namespace
+std::vector<Test> *tests;
+} // namespace
 
-bool RegisterTest(const char* base, const char* name, void (*func)()) {
+bool RegisterTest(const char *base, const char *name, void (*func)()) {
   if (tests == nullptr) {
     tests = new std::vector<Test>;
   }
@@ -38,12 +38,12 @@ bool RegisterTest(const char* base, const char* name, void (*func)()) {
 }
 
 int RunAllTests() {
-  const char* matcher = getenv("LEVELDB_TESTS");
+  const char *matcher = getenv("LEVELDB_TESTS");
 
   int num = 0;
   if (tests != nullptr) {
     for (size_t i = 0; i < tests->size(); i++) {
-      const Test& t = (*tests)[i];
+      const Test &t = (*tests)[i];
       if (matcher != nullptr) {
         std::string name = t.base;
         name.push_back('.');
@@ -69,7 +69,7 @@ std::string TmpDir() {
 }
 
 int RandomSeed() {
-  const char* env = getenv("TEST_RANDOM_SEED");
+  const char *env = getenv("TEST_RANDOM_SEED");
   int result = (env != nullptr ? atoi(env) : 301);
   if (result <= 0) {
     result = 301;
@@ -77,5 +77,5 @@ int RandomSeed() {
   return result;
 }
 
-}  // namespace test
-}  // namespace leveldb
+} // namespace test
+} // namespace leveldb

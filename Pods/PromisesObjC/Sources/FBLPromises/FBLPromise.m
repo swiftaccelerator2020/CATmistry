@@ -23,7 +23,8 @@ typedef NS_ENUM(NSInteger, FBLPromiseState) {
   FBLPromiseStateRejected,
 };
 
-typedef void (^FBLPromiseObserver)(FBLPromiseState state, id __nullable resolution);
+typedef void (^FBLPromiseObserver)(FBLPromiseState state,
+                                   id __nullable resolution);
 
 static dispatch_queue_t gFBLPromiseDefaultDispatchQueue;
 
@@ -37,7 +38,8 @@ static dispatch_queue_t gFBLPromiseDefaultDispatchQueue;
   NSMutableSet *__nullable _pendingObjects;
   /**
    Value to fulfill the promise with.
-   Can be nil if the promise is still pending, was resolved with nil or after it has been rejected.
+   Can be nil if the promise is still pending, was resolved with nil or after it
+   has been rejected.
    */
   id __nullable _value;
   /**
@@ -101,7 +103,7 @@ static dispatch_queue_t gFBLPromiseDefaultDispatchQueue;
 
   if (![error isKindOfClass:[NSError class]]) {
     // Give up on invalid error type in Release mode.
-    @throw error;  // NOLINT
+    @throw error; // NOLINT
   }
   @synchronized(self) {
     if (_state == FBLPromiseStatePending) {
@@ -121,14 +123,17 @@ static dispatch_queue_t gFBLPromiseDefaultDispatchQueue;
 
 - (NSString *)description {
   if (self.isFulfilled) {
-    return [NSString stringWithFormat:@"<%@ %p> Fulfilled: %@", NSStringFromClass([self class]),
-                                      self, self.value];
+    return [NSString stringWithFormat:@"<%@ %p> Fulfilled: %@",
+                                      NSStringFromClass([self class]), self,
+                                      self.value];
   }
   if (self.isRejected) {
-    return [NSString stringWithFormat:@"<%@ %p> Rejected: %@", NSStringFromClass([self class]),
-                                      self, self.error];
+    return [NSString stringWithFormat:@"<%@ %p> Rejected: %@",
+                                      NSStringFromClass([self class]), self,
+                                      self.error];
   }
-  return [NSString stringWithFormat:@"<%@ %p> Pending", NSStringFromClass([self class]), self];
+  return [NSString stringWithFormat:@"<%@ %p> Pending",
+                                    NSStringFromClass([self class]), self];
 }
 
 #pragma mark - Private
@@ -193,7 +198,7 @@ static dispatch_queue_t gFBLPromiseDefaultDispatchQueue;
 
 - (void)addPendingObject:(id)object {
   NSParameterAssert(object);
-  
+
   @synchronized(self) {
     if (_state == FBLPromiseStatePending) {
       if (!_pendingObjects) {
@@ -213,38 +218,38 @@ static dispatch_queue_t gFBLPromiseDefaultDispatchQueue;
 
   @synchronized(self) {
     switch (_state) {
-      case FBLPromiseStatePending: {
-        if (!_observers) {
-          _observers = [[NSMutableArray alloc] init];
-        }
-        [_observers addObject:^(FBLPromiseState state, id __nullable resolution) {
-          dispatch_group_async(FBLPromise.dispatchGroup, queue, ^{
-            switch (state) {
-              case FBLPromiseStatePending:
-                break;
-              case FBLPromiseStateFulfilled:
-                onFulfill(resolution);
-                break;
-              case FBLPromiseStateRejected:
-                onReject(resolution);
-                break;
-            }
-          });
-        }];
-        break;
+    case FBLPromiseStatePending: {
+      if (!_observers) {
+        _observers = [[NSMutableArray alloc] init];
       }
-      case FBLPromiseStateFulfilled: {
+      [_observers addObject:^(FBLPromiseState state, id __nullable resolution) {
         dispatch_group_async(FBLPromise.dispatchGroup, queue, ^{
-          onFulfill(self->_value);
+          switch (state) {
+          case FBLPromiseStatePending:
+            break;
+          case FBLPromiseStateFulfilled:
+            onFulfill(resolution);
+            break;
+          case FBLPromiseStateRejected:
+            onReject(resolution);
+            break;
+          }
         });
-        break;
-      }
-      case FBLPromiseStateRejected: {
-        dispatch_group_async(FBLPromise.dispatchGroup, queue, ^{
-          onReject(self->_error);
-        });
-        break;
-      }
+      }];
+      break;
+    }
+    case FBLPromiseStateFulfilled: {
+      dispatch_group_async(FBLPromise.dispatchGroup, queue, ^{
+        onFulfill(self->_value);
+      });
+      break;
+    }
+    case FBLPromiseStateRejected: {
+      dispatch_group_async(FBLPromise.dispatchGroup, queue, ^{
+        onReject(self->_error);
+      });
+      break;
+    }
     }
   }
 }

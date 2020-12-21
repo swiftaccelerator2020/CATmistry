@@ -18,32 +18,35 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface FBLPromise<Value>(RaceAdditions)
+@interface FBLPromise <Value>(RaceAdditions)
 
 /**
  Wait until any of the given promises are fulfilled.
- If one of the promises is rejected, then the returned promise is rejected with same error.
- If any other arbitrary value or `NSError` appears in the array instead of `FBLPromise`,
- it's implicitly considered a pre-fulfilled or pre-rejected `FBLPromise` correspondingly.
+ If one of the promises is rejected, then the returned promise is rejected with
+ same error. If any other arbitrary value or `NSError` appears in the array
+ instead of `FBLPromise`, it's implicitly considered a pre-fulfilled or
+ pre-rejected `FBLPromise` correspondingly.
 
  @param promises Promises to wait for.
- @return A new pending promise to be resolved with the same resolution as the first promise, among
-         the given ones, which was resolved.
+ @return A new pending promise to be resolved with the same resolution as the
+ first promise, among the given ones, which was resolved.
  */
 + (instancetype)race:(NSArray *)promises NS_SWIFT_UNAVAILABLE("");
 
 /**
  Wait until any of the given promises are fulfilled.
- If one of the promises is rejected, then the returned promise is rejected with same error.
- If any other arbitrary value or `NSError` appears in the array instead of `FBLPromise`,
- it's implicitly considered a pre-fulfilled or pre-rejected `FBLPromise` correspondingly.
+ If one of the promises is rejected, then the returned promise is rejected with
+ same error. If any other arbitrary value or `NSError` appears in the array
+ instead of `FBLPromise`, it's implicitly considered a pre-fulfilled or
+ pre-rejected `FBLPromise` correspondingly.
 
  @param queue A queue to dispatch on.
  @param promises Promises to wait for.
- @return A new pending promise to be resolved with the same resolution as the first promise, among
-         the given ones, which was resolved.
+ @return A new pending promise to be resolved with the same resolution as the
+ first promise, among the given ones, which was resolved.
  */
-+ (instancetype)onQueue:(dispatch_queue_t)queue race:(NSArray *)promises NS_REFINED_FOR_SWIFT;
++ (instancetype)onQueue:(dispatch_queue_t)queue
+                   race:(NSArray *)promises NS_REFINED_FOR_SWIFT;
 
 @end
 
@@ -51,9 +54,10 @@ NS_ASSUME_NONNULL_BEGIN
  Convenience dot-syntax wrappers for `FBLPromise` `race` operators.
  Usage: FBLPromise.race(@[ ... ])
  */
-@interface FBLPromise<Value>(DotSyntax_RaceAdditions)
+@interface FBLPromise <Value>(DotSyntax_RaceAdditions)
 
-+ (FBLPromise * (^)(NSArray *))race FBL_PROMISES_DOT_SYNTAX NS_SWIFT_UNAVAILABLE("");
++ (FBLPromise * (^)(NSArray *))race FBL_PROMISES_DOT_SYNTAX
+    NS_SWIFT_UNAVAILABLE("");
 + (FBLPromise * (^)(dispatch_queue_t, NSArray *))raceOn FBL_PROMISES_DOT_SYNTAX
     NS_SWIFT_UNAVAILABLE("");
 

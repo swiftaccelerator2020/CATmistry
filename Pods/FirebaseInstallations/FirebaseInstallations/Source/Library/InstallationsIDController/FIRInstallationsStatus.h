@@ -19,13 +19,16 @@
 /**
  * The enum represent possible states of the installation ID.
  *
- * WARNING: The enum is stored to Keychain as a part of `FIRInstallationsStoredItem`. Modification
- * of it can lead to incompatibility with previous version. Any modification must be evaluated and,
- * if it is really needed, the `storageVersion` must be bumped and proper migration code added.
+ * WARNING: The enum is stored to Keychain as a part of
+ * `FIRInstallationsStoredItem`. Modification of it can lead to incompatibility
+ * with previous version. Any modification must be evaluated and, if it is
+ * really needed, the `storageVersion` must be bumped and proper migration code
+ * added.
  */
 typedef NS_ENUM(NSInteger, FIRInstallationsStatus) {
-  /** Represents either an initial status when a FIRInstallationsItem instance was created but not
-   * stored to Keychain or an undefined status (e.g. when the status failed to deserialize).
+  /** Represents either an initial status when a FIRInstallationsItem instance
+   * was created but not stored to Keychain or an undefined status (e.g. when
+   * the status failed to deserialize).
    */
   FIRInstallationStatusUnknown,
   /// The Firebase Installation has not yet been registered with FIS.

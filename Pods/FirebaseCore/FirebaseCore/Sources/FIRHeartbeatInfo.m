@@ -19,19 +19,23 @@
 const static long secondsInDay = 86400;
 @implementation FIRHeartbeatInfo : NSObject
 
-/** Updates the storage with the heartbeat information corresponding to this tag.
- * @param heartbeatTag Tag which could either be sdk specific tag or the global tag.
- * @return Boolean representing whether the heartbeat needs to be sent for this tag or not.
+/** Updates the storage with the heartbeat information corresponding to this
+ * tag.
+ * @param heartbeatTag Tag which could either be sdk specific tag or the global
+ * tag.
+ * @return Boolean representing whether the heartbeat needs to be sent for this
+ * tag or not.
  */
 + (BOOL)updateIfNeededHeartbeatDateForTag:(NSString *)heartbeatTag {
   @synchronized(self) {
     NSString *const kHeartbeatStorageFile = @"HEARTBEAT_INFO_STORAGE";
-    GULHeartbeatDateStorage *dataStorage =
-        [[GULHeartbeatDateStorage alloc] initWithFileName:kHeartbeatStorageFile];
+    GULHeartbeatDateStorage *dataStorage = [[GULHeartbeatDateStorage alloc]
+        initWithFileName:kHeartbeatStorageFile];
     NSDate *heartbeatTime = [dataStorage heartbeatDateForTag:heartbeatTag];
     NSDate *currentDate = [NSDate date];
     if (heartbeatTime != nil) {
-      NSTimeInterval secondsBetween = [currentDate timeIntervalSinceDate:heartbeatTime];
+      NSTimeInterval secondsBetween =
+          [currentDate timeIntervalSinceDate:heartbeatTime];
       if (secondsBetween < secondsInDay) {
         return false;
       }
@@ -42,8 +46,10 @@ const static long secondsInDay = 86400;
 
 + (FIRHeartbeatInfoCode)heartbeatCodeForTag:(NSString *)heartbeatTag {
   NSString *globalTag = @"GLOBAL";
-  BOOL isSdkHeartbeatNeeded = [FIRHeartbeatInfo updateIfNeededHeartbeatDateForTag:heartbeatTag];
-  BOOL isGlobalHeartbeatNeeded = [FIRHeartbeatInfo updateIfNeededHeartbeatDateForTag:globalTag];
+  BOOL isSdkHeartbeatNeeded =
+      [FIRHeartbeatInfo updateIfNeededHeartbeatDateForTag:heartbeatTag];
+  BOOL isGlobalHeartbeatNeeded =
+      [FIRHeartbeatInfo updateIfNeededHeartbeatDateForTag:globalTag];
   if (!isSdkHeartbeatNeeded && !isGlobalHeartbeatNeeded) {
     // Both sdk and global heartbeat not needed.
     return FIRHeartbeatInfoCodeNone;

@@ -41,15 +41,16 @@
 - (instancetype)init {
   self = [super init];
   if (self) {
-    _eventWritingQueue =
-        dispatch_queue_create("com.google.GDTCORTransformer", DISPATCH_QUEUE_SERIAL);
+    _eventWritingQueue = dispatch_queue_create("com.google.GDTCORTransformer",
+                                               DISPATCH_QUEUE_SERIAL);
   }
   return self;
 }
 
 - (void)transformEvent:(GDTCOREvent *)event
       withTransformers:(NSArray<id<GDTCOREventTransformer>> *)transformers
-            onComplete:(void (^_Nullable)(BOOL wasWritten, NSError *_Nullable error))completion {
+            onComplete:(void (^_Nullable)(BOOL wasWritten,
+                                          NSError *_Nullable error))completion {
   GDTCORAssert(event, @"You can't write a nil event");
   BOOL hadOriginalCompletion = completion != nil;
   if (!completion) {
@@ -61,7 +62,8 @@
   bgID = [[GDTCORApplication sharedApplication]
       beginBackgroundTaskWithName:@"GDTTransformer"
                 expirationHandler:^{
-                  [[GDTCORApplication sharedApplication] endBackgroundTask:bgID];
+                  [[GDTCORApplication sharedApplication]
+                      endBackgroundTask:bgID];
                   bgID = GDTCORBackgroundIdentifierInvalid;
                 }];
   dispatch_async(_eventWritingQueue, ^{
@@ -76,7 +78,8 @@
         }
       } else {
         GDTCORLogError(GDTCORMCETransformerDoesntImplementTransform,
-                       @"Transformer doesn't implement transform: %@", transformer);
+                       @"Transformer doesn't implement transform: %@",
+                       transformer);
         completion(NO, nil);
         return;
       }
@@ -85,7 +88,8 @@
     id<GDTCORStorageProtocol> storage =
         [GDTCORRegistrar sharedInstance].targetToStorage[@(event.target)];
 
-    [storage storeEvent:transformedEvent onComplete:hadOriginalCompletion ? completion : nil];
+    [storage storeEvent:transformedEvent
+             onComplete:hadOriginalCompletion ? completion : nil];
 
     // The work is done, cancel the background task if it's valid.
     [[GDTCORApplication sharedApplication] endBackgroundTask:bgID];

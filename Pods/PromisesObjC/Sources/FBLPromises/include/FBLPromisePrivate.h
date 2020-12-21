@@ -19,13 +19,17 @@
 NS_ASSUME_NONNULL_BEGIN
 
 /**
- Miscellaneous low-level private interfaces available to extend standard FBLPromise functionality.
+ Miscellaneous low-level private interfaces available to extend standard
+ FBLPromise functionality.
  */
-@interface FBLPromise<Value>()
+@interface FBLPromise <Value>()
 
-typedef void (^FBLPromiseOnFulfillBlock)(Value __nullable value) NS_SWIFT_UNAVAILABLE("");
-typedef void (^FBLPromiseOnRejectBlock)(NSError *error) NS_SWIFT_UNAVAILABLE("");
-typedef id __nullable (^__nullable FBLPromiseChainedFulfillBlock)(Value __nullable value)
+typedef void (^FBLPromiseOnFulfillBlock)(Value __nullable value)
+    NS_SWIFT_UNAVAILABLE("");
+typedef void (^FBLPromiseOnRejectBlock)(NSError *error)
+    NS_SWIFT_UNAVAILABLE("");
+typedef id
+__nullable (^__nullable FBLPromiseChainedFulfillBlock)(Value __nullable value)
     NS_SWIFT_UNAVAILABLE("");
 typedef id __nullable (^__nullable FBLPromiseChainedRejectBlock)(NSError *error)
     NS_SWIFT_UNAVAILABLE("");
@@ -38,28 +42,33 @@ typedef id __nullable (^__nullable FBLPromiseChainedRejectBlock)(NSError *error)
 /**
  Creates a resolved promise.
 
- @param resolution An object to resolve the promise with: either a value or an error.
+ @param resolution An object to resolve the promise with: either a value or an
+ error.
  @return A new resolved promise.
  */
-- (instancetype)initWithResolution:(nullable id)resolution NS_SWIFT_UNAVAILABLE("");
+- (instancetype)initWithResolution:(nullable id)resolution
+    NS_SWIFT_UNAVAILABLE("");
 
 /**
- Invokes `fulfill` and `reject` blocks on `queue` when the receiver gets either fulfilled or
- rejected respectively.
+ Invokes `fulfill` and `reject` blocks on `queue` when the receiver gets either
+ fulfilled or rejected respectively.
  */
 - (void)observeOnQueue:(dispatch_queue_t)queue
                fulfill:(FBLPromiseOnFulfillBlock)onFulfill
-                reject:(FBLPromiseOnRejectBlock)onReject NS_SWIFT_UNAVAILABLE("");
+                reject:(FBLPromiseOnRejectBlock)onReject
+    NS_SWIFT_UNAVAILABLE("");
 
 /**
- Returns a new promise which gets resolved with the return value of `chainedFulfill` or
- `chainedReject` blocks respectively. The blocks are invoked when the receiver gets either
- fulfilled or rejected. If `nil` is passed to either block arg, the returned promise is resolved
- with the same resolution as the receiver.
+ Returns a new promise which gets resolved with the return value of
+ `chainedFulfill` or `chainedReject` blocks respectively. The blocks are invoked
+ when the receiver gets either fulfilled or rejected. If `nil` is passed to
+ either block arg, the returned promise is resolved with the same resolution as
+ the receiver.
  */
 - (FBLPromise *)chainOnQueue:(dispatch_queue_t)queue
               chainedFulfill:(FBLPromiseChainedFulfillBlock)chainedFulfill
-               chainedReject:(FBLPromiseChainedRejectBlock)chainedReject NS_SWIFT_UNAVAILABLE("");
+               chainedReject:(FBLPromiseChainedRejectBlock)chainedReject
+    NS_SWIFT_UNAVAILABLE("");
 
 @end
 

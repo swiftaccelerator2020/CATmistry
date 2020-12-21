@@ -50,7 +50,7 @@
 
 @implementation FBLPromise (DotSyntax_DoAdditions)
 
-+ (FBLPromise* (^)(dispatch_queue_t, FBLPromiseDoWorkBlock))doOn {
++ (FBLPromise * (^)(dispatch_queue_t, FBLPromiseDoWorkBlock))doOn {
   return ^(dispatch_queue_t queue, FBLPromiseDoWorkBlock work) {
     return [self onQueue:queue do:work];
   };

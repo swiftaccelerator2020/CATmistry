@@ -26,12 +26,12 @@
                          andNode:(id<FNode>)node1
                       toOtherKey:(NSString *)key2
                          andNode:(id<FNode>)node2 {
-    NSComparisonResult indexCmp = [node1 compare:node2];
-    if (indexCmp == NSOrderedSame) {
-        return [FUtilities compareKey:key1 toKey:key2];
-    } else {
-        return indexCmp;
-    }
+  NSComparisonResult indexCmp = [node1 compare:node2];
+  if (indexCmp == NSOrderedSame) {
+    return [FUtilities compareKey:key1 toKey:key2];
+  } else {
+    return indexCmp;
+  }
 }
 
 - (NSComparisonResult)compareKey:(NSString *)key1
@@ -39,74 +39,68 @@
                       toOtherKey:(NSString *)key2
                          andNode:(id<FNode>)node2
                          reverse:(BOOL)reverse {
-    if (reverse) {
-        return [self compareKey:key2
-                        andNode:node2
-                     toOtherKey:key1
-                        andNode:node1];
-    } else {
-        return [self compareKey:key1
-                        andNode:node1
-                     toOtherKey:key2
-                        andNode:node2];
-    }
+  if (reverse) {
+    return [self compareKey:key2 andNode:node2 toOtherKey:key1 andNode:node1];
+  } else {
+    return [self compareKey:key1 andNode:node1 toOtherKey:key2 andNode:node2];
+  }
 }
 
 - (NSComparisonResult)compareNamedNode:(FNamedNode *)namedNode1
                            toNamedNode:(FNamedNode *)namedNode2 {
-    return [self compareKey:namedNode1.name
-                    andNode:namedNode1.node
-                 toOtherKey:namedNode2.name
-                    andNode:namedNode2.node];
+  return [self compareKey:namedNode1.name
+                  andNode:namedNode1.node
+               toOtherKey:namedNode2.name
+                  andNode:namedNode2.node];
 }
 
 - (BOOL)isDefinedOn:(id<FNode>)node {
-    return YES;
+  return YES;
 }
 
 - (BOOL)indexedValueChangedBetween:(id<FNode>)oldNode and:(id<FNode>)newNode {
-    return ![oldNode isEqual:newNode];
+  return ![oldNode isEqual:newNode];
 }
 
 - (FNamedNode *)minPost {
-    return FNamedNode.min;
+  return FNamedNode.min;
 }
 
 - (FNamedNode *)maxPost {
-    return FNamedNode.max;
+  return FNamedNode.max;
 }
 
 - (FNamedNode *)makePost:(id<FNode>)indexValue name:(NSString *)name {
-    return [[FNamedNode alloc] initWithName:name andNode:indexValue];
+  return [[FNamedNode alloc] initWithName:name andNode:indexValue];
 }
 
 - (NSString *)queryDefinition {
-    return @".value";
+  return @".value";
 }
 
 - (NSString *)description {
-    return @"FValueIndex";
+  return @"FValueIndex";
 }
 
 - (id)copyWithZone:(NSZone *)zone {
-    return self;
+  return self;
 }
 
 - (BOOL)isEqual:(id)other {
-    // since we're a singleton.
-    return (other == self);
+  // since we're a singleton.
+  return (other == self);
 }
 
 - (NSUInteger)hash {
-    return [@".value" hash];
+  return [@".value" hash];
 }
 
 + (id<FIndex>)valueIndex {
-    static id<FIndex> valueIndex;
-    static dispatch_once_t once;
-    dispatch_once(&once, ^{
-      valueIndex = [[FValueIndex alloc] init];
-    });
-    return valueIndex;
+  static id<FIndex> valueIndex;
+  static dispatch_once_t once;
+  dispatch_once(&once, ^{
+    valueIndex = [[FValueIndex alloc] init];
+  });
+  return valueIndex;
 }
 @end
