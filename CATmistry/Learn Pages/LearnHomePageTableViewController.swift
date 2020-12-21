@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FirebaseDatabase
 
 let ud = UserDefaults.standard
 var chOneDone = ud.bool(forKey: "chOneDone")
@@ -70,12 +71,30 @@ class LearnHomePageTableViewController: UITableViewController {
         if let savedPerson = defaults.object(forKey: "retrieveSolidsArray") as? Data {
             let decoder = JSONDecoder()
             if let loadedPerson = try? decoder.decode(specificSeperationMethod.self, from: savedPerson) {
+                print(loadedPerson)
                 retrieveSolidsArray = [loadedPerson]
+                print("Hello does this work")
             }
         }
-
-        loadData()
-
+        
+        tableView.reloadData()
+        
+        var versionNumber: Int!
+        // var currentVersionNumber: Int?
+        
+        currentVersionNumber = defaults.integer(forKey: "versionNumber")
+        let ref = Database.database().reference(withPath: "versionNumber")
+        ref.keepSynced(true)
+        ref.observe(.value, with: { (snapshot) in
+            
+            let data = snapshot.value
+            versionNumber = data as? Int
+            if true {
+                loadData(versionNumber: versionNumber)
+            }
+        })
+        
+        
         tableView.tableFooterView = UIView()
 
         NotificationCenter.default.addObserver(self, selector: #selector(didUpdateUserDefaults), name: UserDefaults.didChangeNotification, object: nil)

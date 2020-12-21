@@ -253,6 +253,18 @@
 			path = open_dyslexic;
 			sourceTree = "<group>";
 		};
+		54C511CE259033760057F12A /* Quiz View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				267F9EDA2588357D0066BFAB /* QuizCorrectAnswerViewController.swift */,
+				267F9EFF258887F30066BFAB /* QuizStartViewController.swift */,
+				267F9EE8258837B30066BFAB /* QuizWrongAnswerViewController.swift */,
+				54788FCC25863A2F00A16CD2 /* QuizEndedViewController.swift */,
+				54B5D28525738FB5006A55F2 /* QuizViewController.swift */,
+			);
+			path = "Quiz View Controllers";
+			sourceTree = "<group>";
+		};
 		54FEFB122578603A0054CFF9 /* Play Pages */ = {
 			isa = PBXGroup;
 			children = (
@@ -270,14 +282,10 @@
 		54FEFB172578609C0054CFF9 /* Learn Pages */ = {
 			isa = PBXGroup;
 			children = (
-				267F9EFF258887F30066BFAB /* QuizStartViewController.swift */,
-				267F9EE8258837B30066BFAB /* QuizWrongAnswerViewController.swift */,
-				267F9EDA2588357D0066BFAB /* QuizCorrectAnswerViewController.swift */,
+				54C511CE259033760057F12A /* Quiz View Controllers */,
 				54FEFB1D257861690054CFF9 /* Specific Learn Pages */,
 				547F0ADD2570F66E00A224D9 /* LearnHomePageTableViewCell.swift */,
 				547F0AD82570F5F900A224D9 /* LearnHomePageTableViewController.swift */,
-				54788FCC25863A2F00A16CD2 /* QuizEndedViewController.swift */,
-				54B5D28525738FB5006A55F2 /* QuizViewController.swift */,
 			);
 			path = "Learn Pages";
 			sourceTree = "<group>";
