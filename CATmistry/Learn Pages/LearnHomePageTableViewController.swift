@@ -90,7 +90,7 @@ class LearnHomePageTableViewController: UITableViewController {
             let data = snapshot.value
             versionNumber = data as? Int
             if true {
-                loadData(versionNumber: versionNumber)
+                loadData(versionNumber: versionNumber, tableView: self.tableView)
             }
         })
         

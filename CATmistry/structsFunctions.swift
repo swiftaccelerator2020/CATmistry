@@ -1137,7 +1137,7 @@ extension UIFont {
     }
 }
 
-func loadData(versionNumber: Int) {
+func loadData(versionNumber: Int, tableView: UITableView) {
     
     var ref: DatabaseReference!
     
@@ -1148,6 +1148,8 @@ func loadData(versionNumber: Int) {
         let jsonData = try! JSONSerialization.data(withJSONObject: snapshot.value!, options: .prettyPrinted)
         
         learnTopics = try! JSONDecoder().decode([Topic].self, from: jsonData)
+        
+        tableView.reloadData()
         
         let encoder = JSONEncoder()
         if let encoded = try? encoder.encode(learnTopics) {
