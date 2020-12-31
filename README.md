@@ -20,6 +20,8 @@ elements to provide for a fun and engaging learning experience.
 CATmistry was built by Neo Hao Jun, Wang Zerui, Chanel Tan Qian Ai, and Ryu
 Hwina under the 2020 Swift Accelerators' Programme.
 
+Visit us on our [website](https://catmistry.cf).
+
 ## Installation
 
 CATmistry is available for iOS and iPadOS 14 on the
@@ -27,15 +29,13 @@ CATmistry is available for iOS and iPadOS 14 on the
 
 [![App Store](https://upload.wikimedia.org/wikipedia/commons/3/3c/Download_on_the_App_Store_Badge.svg)](https://apps.apple.com/us/app/catmistry/id1545311327)
 
-[CATmistry Web](https://catmistry.cf)
-
 ## Usage
 
 ## Support
 
 1. For Bug Reports and Feature Requests, feel free to open an
    [issue](https://github.com/swiftaccelerator2020/CATmistry/issues) using the
-   appropriate tmeplate.
+   appropriate template.
 2. For general Q&A, start a
    [discussion](https://github.com/swiftaccelerator2020/CATmistry/issues). Feel
    free to request feature enhancements in
