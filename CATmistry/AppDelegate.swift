@@ -15,6 +15,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     override init() {
         super.init()
 
+        UserDefaults.standard.synchronize()
+        
         let ud = UserDefaults.standard
         let isDyslexic = ud.bool(forKey: "dyslexic")
 
