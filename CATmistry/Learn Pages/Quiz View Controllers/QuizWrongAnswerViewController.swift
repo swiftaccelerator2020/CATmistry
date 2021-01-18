@@ -57,6 +57,8 @@ class QuizWrongAnswerViewController: UIViewController {
                 chapterCompletedUserDefaultsArray[currentTopicId] = true
                 UserDefaults.incrementIntegerForKey(key: quizAttemptsStringsUserDefaultArray[currentTopicId])
                 quizAttemptsUserDefaultArray[currentTopicId] += 1
+                UserDefaults.standard.synchronize()
+
             } else {
                 sadLabel.text = "Oh no! \n\nYour answer was wrong, and you only scored \(String(correctAnswers)) out of 10 in this quiz. You need at least 7 out of 10 to pass. Try harder next time!\n\nQuestion: \(question!)\nCorrect Answer: \(correctAnswer!)"
             }

@@ -136,7 +136,7 @@ class QuizViewController: UIViewController {
             destVC.wrongAnswers = wrongAnswers
             destVC.currentTopicId = currentTopicId
             destVC.question = question[index].question
-            destVC.correctAnswer = question[index].options[question[index].correctAnswer]
+            destVC.correctAnswer = question[index].options[question[index].correctAnswer-1]
         }
      }
 

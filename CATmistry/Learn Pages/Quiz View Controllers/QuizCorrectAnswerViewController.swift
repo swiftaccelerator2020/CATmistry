@@ -14,6 +14,7 @@ class QuizCorrectAnswerViewController: UIViewController {
     var correctAnswers: Int!
     var wrongAnswers: Int!
     var currentTopicId: Int!
+    
     var chapterCompletedUserDefaultsArray = [
         chOneDone,
         chTwoDone,
@@ -48,14 +49,15 @@ class QuizCorrectAnswerViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         nextQuestionButton.layer.cornerRadius = 25
-
         if 9 - currentQuestion == 0 {
-            if correctAnswers >= 0 {
+            if correctAnswers >= 7 {
                 congratsLabel.text = "Well done! You got the answer right. \n\nThe quiz has to an end, and you got \(String(correctAnswers)) of 10 questions right. Excellent!"
                 ud.set(true, forKey: chapterCompletedStringsUserDefaultsArray[currentTopicId])
                 chapterCompletedUserDefaultsArray[currentTopicId] = true
                 UserDefaults.incrementIntegerForKey(key: quizAttemptsStringsUserDefaultArray[currentTopicId])
                 quizAttemptsUserDefaultArray[currentTopicId] += 1
+                UserDefaults.standard.synchronize()
+
             } else {
                 congratsLabel.text = "Well done! You got the answer right. \n\nHowever, you only scored \(String(correctAnswers)) out of 10 in this quiz. You need at least 7 out of 10 to pass. Try harder next time!"
             }
