@@ -349,7 +349,7 @@ As your cat can only live in a certain type of gas, your task is to use your kno
                                         <color key="tintColor" red="0.43771609659999999" green="0.60172057150000002" blue="0.74904519319999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                     </imageView>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="200" id="0JT-JU-Rhw"/>
                                     <constraint firstAttribute="trailing" secondItem="BgO-ca-5ez" secondAttribute="trailing" constant="15" id="PVc-By-ifM"/>
@@ -2600,7 +2600,7 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QUe-cY-thK">
-                                <rect key="frame" x="0.0" y="140" width="390" height="621"/>
+                                <rect key="frame" x="0.0" y="148.33333333333331" width="390" height="661.66666666666652"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zMu-Qc-3rs">
                                         <rect key="frame" x="0.0" y="0.0" width="390" height="590"/>
@@ -2618,7 +2618,7 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Attribute 2" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cYj-Ro-1Mx">
-                                                <rect key="frame" x="25" y="345.33333333333331" width="340" height="20.333333333333314"/>
+                                                <rect key="frame" x="25" y="345.33333333333337" width="340" height="20.333333333333314"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -3230,9 +3230,9 @@ Your answer was wrong, but don't worry! You have \(String(10 - currentQuestion))
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="YEM-b9-J01"/>
-        <segue reference="s4T-H5-cTx"/>
-        <segue reference="l86-7T-ukz"/>
+        <segue reference="GnF-zJ-RVj"/>
+        <segue reference="gvO-ns-Fai"/>
+        <segue reference="omW-sG-g2z"/>
         <segue reference="GDV-4V-Yxl"/>
         <segue reference="1zV-QA-rV2"/>
     </inferredMetricsTieBreakers>

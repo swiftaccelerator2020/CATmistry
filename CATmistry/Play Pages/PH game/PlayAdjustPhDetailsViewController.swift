@@ -94,6 +94,7 @@ class PlayAdjustPhDetailsViewController: UIViewController {
         timeLeft = 20
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(PlayAdjustPhDetailsViewController.updateTimer), userInfo: nil, repeats: true)
     }
+    
     @IBAction func clickAddUniversalIndicator(_ sender: Any) {
         if addFirstIndicatorButton.titleLabel!.text == "Add Universal Indicator" {
             indicatorPresent = true
@@ -259,11 +260,15 @@ class PlayAdjustPhDetailsViewController: UIViewController {
 
     func optionCorrect() {
         correctGames += 1
+        timer.invalidate()
+        timer = nil
         performSegue(withIdentifier: "adjustPhCorrect", sender: nil)
     }
 
     func optionWrong() {
         wrongGames += 1
+        timer.invalidate()
+        timer = nil
         performSegue(withIdentifier: "adjustPhWrong", sender: nil)
     }
 
