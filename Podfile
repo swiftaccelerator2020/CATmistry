@@ -6,7 +6,7 @@ target 'CATmistry' do
   use_frameworks!
   pod 'SwiftConfettiView'
   pod 'LayoutHelper'
-  pod 'Firebase/Analytics'
+  # pod 'Firebase/Analytics'
   pod 'Firebase/Database'
   # Pods for CATmistry
   target 'CATmistryTests' do

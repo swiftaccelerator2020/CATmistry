@@ -47,8 +47,7 @@
 - (NSURL *)fileURL {
   if (!_fileURL) {
     NSURL *directoryURL = [[self class] directoryPathURL];
-    [[self class] checkAndCreateDirectory:directoryURL
-                          fileCoordinator:_fileCoordinator];
+    [[self class] checkAndCreateDirectory:directoryURL fileCoordinator:_fileCoordinator];
     _fileURL = [directoryURL URLByAppendingPathComponent:_fileName];
   }
   return _fileURL;
@@ -58,8 +57,8 @@
  * @return the URL path of Application Support.
  */
 + (NSURL *)directoryPathURL {
-  NSArray<NSString *> *paths = NSSearchPathForDirectoriesInDomains(
-      NSApplicationSupportDirectory, NSUserDomainMask, YES);
+  NSArray<NSString *> *paths =
+      NSSearchPathForDirectoriesInDomains(NSApplicationSupportDirectory, NSUserDomainMask, YES);
   NSArray<NSString *> *components = @[ paths.lastObject, @"Google/FIRApp" ];
   NSString *directoryString = [NSString pathWithComponents:components];
   NSURL *directoryURL = [NSURL fileURLWithPath:directoryString];
@@ -69,8 +68,7 @@
 /** Checks and creates a directory for the directory specified by the
  * directory url
  * @param directoryPathURL The path to the directory which needs to be created.
- * @param fileCoordinator The fileCoordinator object to coordinate writes to the
- * directory.
+ * @param fileCoordinator The fileCoordinator object to coordinate writes to the directory.
  */
 + (void)checkAndCreateDirectory:(NSURL *)directoryPathURL
                 fileCoordinator:(NSFileCoordinator *)fileCoordinator {
@@ -81,34 +79,26 @@
                            error:&fileCoordinatorError
                       byAccessor:^(NSURL *writingDirectoryURL) {
                         NSError *error;
-                        if (![writingDirectoryURL
-                                checkResourceIsReachableAndReturnError:&
-                                                                       error]) {
-                          // If fail creating the Application Support directory,
-                          // log warning.
+                        if (![writingDirectoryURL checkResourceIsReachableAndReturnError:&error]) {
+                          // If fail creating the Application Support directory, log warning.
                           NSError *error;
-                          [[NSFileManager defaultManager]
-                                     createDirectoryAtURL:writingDirectoryURL
-                              withIntermediateDirectories:YES
-                                               attributes:nil
-                                                    error:&error];
+                          [[NSFileManager defaultManager] createDirectoryAtURL:writingDirectoryURL
+                                                   withIntermediateDirectories:YES
+                                                                    attributes:nil
+                                                                         error:&error];
                         }
                       }];
 }
 
-- (nullable NSMutableDictionary *)heartbeatDictionaryWithFileURL:
-    (NSURL *)readingFileURL {
+- (nullable NSMutableDictionary *)heartbeatDictionaryWithFileURL:(NSURL *)readingFileURL {
   NSError *error;
   NSMutableDictionary *dict;
-  NSData *objectData = [NSData dataWithContentsOfURL:readingFileURL
-                                             options:0
-                                               error:&error];
+  NSData *objectData = [NSData dataWithContentsOfURL:readingFileURL options:0 error:&error];
   if (objectData == nil || error != nil) {
     dict = [NSMutableDictionary dictionary];
   } else {
     dict = [GULSecureCoding
-        unarchivedObjectOfClasses:
-            [NSSet setWithArray:@[ NSDictionary.class, NSDate.class ]]
+        unarchivedObjectOfClasses:[NSSet setWithArray:@[ NSDictionary.class, NSDate.class ]]
                          fromData:objectData
                             error:&error];
     if (dict == nil || error != nil) {
@@ -121,42 +111,39 @@
 - (nullable NSDate *)heartbeatDateForTag:(NSString *)tag {
   __block NSMutableDictionary *dict;
   NSError *error;
-  [self.fileCoordinator
-      coordinateReadingItemAtURL:self.fileURL
-                         options:0
-                           error:&error
-                      byAccessor:^(NSURL *readingURL) {
-                        dict = [self heartbeatDictionaryWithFileURL:readingURL];
-                      }];
+  [self.fileCoordinator coordinateReadingItemAtURL:self.fileURL
+                                           options:0
+                                             error:&error
+                                        byAccessor:^(NSURL *readingURL) {
+                                          dict = [self heartbeatDictionaryWithFileURL:readingURL];
+                                        }];
   return dict[tag];
 }
 
 - (BOOL)setHearbeatDate:(NSDate *)date forTag:(NSString *)tag {
   NSError *error;
   __block BOOL isSuccess = false;
-  [self.fileCoordinator
-      coordinateReadingItemAtURL:self.fileURL
-                         options:0
-                writingItemAtURL:self.fileURL
-                         options:0
-                           error:&error
-                      byAccessor:^(NSURL *readingURL, NSURL *writingURL) {
-                        NSMutableDictionary *dictionary =
-                            [self heartbeatDictionaryWithFileURL:readingURL];
-                        dictionary[tag] = date;
-                        NSError *error;
-                        isSuccess = [self writeDictionary:dictionary
-                                            forWritingURL:writingURL
-                                                    error:&error];
-                      }];
+  [self.fileCoordinator coordinateReadingItemAtURL:self.fileURL
+                                           options:0
+                                  writingItemAtURL:self.fileURL
+                                           options:0
+                                             error:&error
+                                        byAccessor:^(NSURL *readingURL, NSURL *writingURL) {
+                                          NSMutableDictionary *dictionary =
+                                              [self heartbeatDictionaryWithFileURL:readingURL];
+                                          dictionary[tag] = date;
+                                          NSError *error;
+                                          isSuccess = [self writeDictionary:dictionary
+                                                              forWritingURL:writingURL
+                                                                      error:&error];
+                                        }];
   return isSuccess;
 }
 
 - (BOOL)writeDictionary:(NSMutableDictionary *)dictionary
           forWritingURL:(NSURL *)writingFileURL
                   error:(NSError **)outError {
-  NSData *data = [GULSecureCoding archivedDataWithRootObject:dictionary
-                                                       error:outError];
+  NSData *data = [GULSecureCoding archivedDataWithRootObject:dictionary error:outError];
   if (*outError != nil) {
     return false;
   } else {
