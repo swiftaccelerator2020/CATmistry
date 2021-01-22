@@ -16,18 +16,18 @@
 
 #import "GoogleUtilities/Reachability/Private/GULReachabilityChecker.h"
 #if !TARGET_OS_WATCH
-typedef SCNetworkReachabilityRef (*GULReachabilityCreateWithNameFn)(
-    CFAllocatorRef allocator, const char *host);
+typedef SCNetworkReachabilityRef (*GULReachabilityCreateWithNameFn)(CFAllocatorRef allocator,
+                                                                    const char *host);
 
-typedef Boolean (*GULReachabilitySetCallbackFn)(
-    SCNetworkReachabilityRef target, SCNetworkReachabilityCallBack callback,
-    SCNetworkReachabilityContext *context);
-typedef Boolean (*GULReachabilityScheduleWithRunLoopFn)(
-    SCNetworkReachabilityRef target, CFRunLoopRef runLoop,
-    CFStringRef runLoopMode);
-typedef Boolean (*GULReachabilityUnscheduleFromRunLoopFn)(
-    SCNetworkReachabilityRef target, CFRunLoopRef runLoop,
-    CFStringRef runLoopMode);
+typedef Boolean (*GULReachabilitySetCallbackFn)(SCNetworkReachabilityRef target,
+                                                SCNetworkReachabilityCallBack callback,
+                                                SCNetworkReachabilityContext *context);
+typedef Boolean (*GULReachabilityScheduleWithRunLoopFn)(SCNetworkReachabilityRef target,
+                                                        CFRunLoopRef runLoop,
+                                                        CFStringRef runLoopMode);
+typedef Boolean (*GULReachabilityUnscheduleFromRunLoopFn)(SCNetworkReachabilityRef target,
+                                                          CFRunLoopRef runLoop,
+                                                          CFStringRef runLoopMode);
 
 typedef void (*GULReachabilityReleaseFn)(CFTypeRef cf);
 

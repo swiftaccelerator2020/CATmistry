@@ -24,7 +24,8 @@
 static GULLoggerService kGULLoggerReachability = @"[GULReachability]";
 #if !TARGET_OS_WATCH
 static void ReachabilityCallback(SCNetworkReachabilityRef reachability,
-                                 SCNetworkReachabilityFlags flags, void *info);
+                                 SCNetworkReachabilityFlags flags,
+                                 void *info);
 
 static const struct GULReachabilityApi kGULDefaultReachabilityApi = {
     SCNetworkReachabilityCreateWithName,
@@ -63,12 +64,10 @@ static NSString *const kGULReachabilityDisconnectedStatus = @"Disconnected";
 - (void)setReachabilityApi:(const struct GULReachabilityApi *)reachabilityApi {
 #if !TARGET_OS_WATCH
   if (reachability_) {
-    GULLogError(
-        kGULLoggerReachability, NO,
-        [NSString stringWithFormat:@"I-REA%06ld",
-                                   (long)kGULReachabilityMessageCode000],
-        @"Cannot change reachability API while reachability is running. "
-        @"Call stop first.");
+    GULLogError(kGULLoggerReachability, NO,
+                [NSString stringWithFormat:@"I-REA%06ld", (long)kGULReachabilityMessageCode000],
+                @"Cannot change reachability API while reachability is running. "
+                @"Call stop first.");
     return;
   }
   reachabilityApi_ = reachabilityApi;
@@ -87,32 +86,25 @@ static NSString *const kGULReachabilityDisconnectedStatus = @"Disconnected";
 #endif
 }
 
-- (void)setReachabilityDelegate:
-    (id<GULReachabilityDelegate>)reachabilityDelegate {
+- (void)setReachabilityDelegate:(id<GULReachabilityDelegate>)reachabilityDelegate {
   if (reachabilityDelegate &&
-      (![(NSObject *)reachabilityDelegate
-          conformsToProtocol:@protocol(GULReachabilityDelegate)])) {
-    GULLogError(
-        kGULLoggerReachability, NO,
-        [NSString stringWithFormat:@"I-NET%06ld",
-                                   (long)kGULReachabilityMessageCode005],
-        @"Reachability delegate doesn't conform to Reachability protocol.");
+      (![(NSObject *)reachabilityDelegate conformsToProtocol:@protocol(GULReachabilityDelegate)])) {
+    GULLogError(kGULLoggerReachability, NO,
+                [NSString stringWithFormat:@"I-NET%06ld", (long)kGULReachabilityMessageCode005],
+                @"Reachability delegate doesn't conform to Reachability protocol.");
     return;
   }
   reachabilityDelegate_ = reachabilityDelegate;
 }
 
-- (instancetype)initWithReachabilityDelegate:
-                    (id<GULReachabilityDelegate>)reachabilityDelegate
+- (instancetype)initWithReachabilityDelegate:(id<GULReachabilityDelegate>)reachabilityDelegate
                                     withHost:(NSString *)host {
   self = [super init];
 
   if (!host || !host.length) {
-    GULLogError(
-        kGULLoggerReachability, NO,
-        [NSString stringWithFormat:@"I-REA%06ld",
-                                   (long)kGULReachabilityMessageCode001],
-        @"Invalid host specified");
+    GULLogError(kGULLoggerReachability, NO,
+                [NSString stringWithFormat:@"I-REA%06ld", (long)kGULReachabilityMessageCode001],
+                @"Invalid host specified");
     return nil;
   }
   if (self) {
@@ -138,37 +130,31 @@ static NSString *const kGULReachabilityDisconnectedStatus = @"Disconnected";
 #else
 
   if (!reachability_) {
-    reachability_ = reachabilityApi_->createWithNameFn(kCFAllocatorDefault,
-                                                       [host_ UTF8String]);
+    reachability_ = reachabilityApi_->createWithNameFn(kCFAllocatorDefault, [host_ UTF8String]);
     if (!reachability_) {
       return NO;
     }
     SCNetworkReachabilityContext context = {
         0,                       /* version */
-        (__bridge void *)(self), /* info (passed as last parameter to
-                                    reachability callback) */
+        (__bridge void *)(self), /* info (passed as last parameter to reachability callback) */
         NULL,                    /* retain */
         NULL,                    /* release */
         NULL                     /* copyDescription */
     };
-    if (!reachabilityApi_->setCallbackFn(reachability_, ReachabilityCallback,
-                                         &context) ||
-        !reachabilityApi_->scheduleWithRunLoopFn(
-            reachability_, CFRunLoopGetMain(), kCFRunLoopCommonModes)) {
+    if (!reachabilityApi_->setCallbackFn(reachability_, ReachabilityCallback, &context) ||
+        !reachabilityApi_->scheduleWithRunLoopFn(reachability_, CFRunLoopGetMain(),
+                                                 kCFRunLoopCommonModes)) {
       reachabilityApi_->releaseFn(reachability_);
       reachability_ = nil;
 
-      GULLogError(
-          kGULLoggerReachability, NO,
-          [NSString stringWithFormat:@"I-REA%06ld",
-                                     (long)kGULReachabilityMessageCode002],
-          @"Failed to start reachability handle");
+      GULLogError(kGULLoggerReachability, NO,
+                  [NSString stringWithFormat:@"I-REA%06ld", (long)kGULReachabilityMessageCode002],
+                  @"Failed to start reachability handle");
       return NO;
     }
   }
   GULLogDebug(kGULLoggerReachability, NO,
-              [NSString stringWithFormat:@"I-REA%06ld",
-                                         (long)kGULReachabilityMessageCode003],
+              [NSString stringWithFormat:@"I-REA%06ld", (long)kGULReachabilityMessageCode003],
               @"Monitoring the network status");
   return YES;
 #endif
@@ -195,21 +181,19 @@ static NSString *const kGULReachabilityDisconnectedStatus = @"Disconnected";
     if (!(flags & kSCNetworkReachabilityFlagsConnectionRequired)) {
 // Connection required flag is not set, so we have connectivity.
 #if TARGET_OS_IOS || TARGET_OS_TV
-      status = (flags & kSCNetworkReachabilityFlagsIsWWAN)
-                   ? kGULReachabilityViaCellular
-                   : kGULReachabilityViaWifi;
+      status = (flags & kSCNetworkReachabilityFlagsIsWWAN) ? kGULReachabilityViaCellular
+                                                           : kGULReachabilityViaWifi;
 #elif TARGET_OS_OSX
       status = kGULReachabilityViaWifi;
 #endif
     } else if ((flags & (kSCNetworkReachabilityFlagsConnectionOnDemand |
                          kSCNetworkReachabilityFlagsConnectionOnTraffic)) &&
                !(flags & kSCNetworkReachabilityFlagsInterventionRequired)) {
-// If the connection on demand or connection on traffic flag is set, and user
-// intervention is not required, we have connectivity.
+// If the connection on demand or connection on traffic flag is set, and user intervention
+// is not required, we have connectivity.
 #if TARGET_OS_IOS || TARGET_OS_TV
-      status = (flags & kSCNetworkReachabilityFlagsIsWWAN)
-                   ? kGULReachabilityViaCellular
-                   : kGULReachabilityViaWifi;
+      status = (flags & kSCNetworkReachabilityFlagsIsWWAN) ? kGULReachabilityViaCellular
+                                                           : kGULReachabilityViaWifi;
 #elif TARGET_OS_OSX
       status = kGULReachabilityViaWifi;
 #endif
@@ -230,12 +214,10 @@ static NSString *const kGULReachabilityDisconnectedStatus = @"Disconnected";
                                      : kGULReachabilityConnectedStatus;
     }
 
-    GULLogDebug(
-        kGULLoggerReachability, NO,
-        [NSString stringWithFormat:@"I-REA%06ld",
-                                   (long)kGULReachabilityMessageCode004],
-        @"Network status has changed. Code:%@, status:%@", @(status),
-        reachabilityStatusString);
+    GULLogDebug(kGULLoggerReachability, NO,
+                [NSString stringWithFormat:@"I-REA%06ld", (long)kGULReachabilityMessageCode004],
+                @"Network status has changed. Code:%@, status:%@", @(status),
+                reachabilityStatusString);
     reachabilityStatus_ = status;
     [reachabilityDelegate_ reachability:self statusChanged:reachabilityStatus_];
   }
@@ -246,7 +228,8 @@ static NSString *const kGULReachabilityDisconnectedStatus = @"Disconnected";
 
 #if !TARGET_OS_WATCH
 static void ReachabilityCallback(SCNetworkReachabilityRef reachability,
-                                 SCNetworkReachabilityFlags flags, void *info) {
+                                 SCNetworkReachabilityFlags flags,
+                                 void *info) {
   GULReachabilityChecker *checker = (__bridge GULReachabilityChecker *)info;
   [checker reachabilityFlagsChanged:flags];
 }
@@ -262,20 +245,19 @@ static void ReachabilityCallback(SCNetworkReachabilityRef reachability,
 // to test thoroughly with an iOS device under various network conditions.
 const NSString *GULReachabilityStatusString(GULReachabilityStatus status) {
   switch (status) {
-  case kGULReachabilityUnknown:
-    return @"Reachability Unknown";
+    case kGULReachabilityUnknown:
+      return @"Reachability Unknown";
 
-  case kGULReachabilityNotReachable:
-    return @"Not reachable";
+    case kGULReachabilityNotReachable:
+      return @"Not reachable";
 
-  case kGULReachabilityViaWifi:
-    return @"Reachable via Wifi";
+    case kGULReachabilityViaWifi:
+      return @"Reachable via Wifi";
 
-  case kGULReachabilityViaCellular:
-    return @"Reachable via Cellular Data";
+    case kGULReachabilityViaCellular:
+      return @"Reachable via Cellular Data";
 
-  default:
-    return [NSString
-        stringWithFormat:@"Invalid reachability status %d", (int)status];
+    default:
+      return [NSString stringWithFormat:@"Invalid reachability status %d", (int)status];
   }
 }

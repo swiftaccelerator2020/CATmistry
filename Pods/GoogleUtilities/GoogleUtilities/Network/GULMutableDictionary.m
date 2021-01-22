@@ -18,8 +18,8 @@
   /// The mutable dictionary.
   NSMutableDictionary *_objects;
 
-  /// Serial synchronization queue. All reads should use dispatch_sync, while
-  /// writes use dispatch_async.
+  /// Serial synchronization queue. All reads should use dispatch_sync, while writes use
+  /// dispatch_async.
   dispatch_queue_t _queue;
 }
 
@@ -28,8 +28,7 @@
 
   if (self) {
     _objects = [[NSMutableDictionary alloc] init];
-    _queue =
-        dispatch_queue_create("GULMutableDictionary", DISPATCH_QUEUE_SERIAL);
+    _queue = dispatch_queue_create("GULMutableDictionary", DISPATCH_QUEUE_SERIAL);
   }
 
   return self;
