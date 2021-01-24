@@ -272,6 +272,18 @@ extension UIFont {
     }
 }
 
+public extension UIViewController {
+func canPerformSegue(withIdentifier id: String) -> Bool {
+        guard let segues = self.value(forKey: "storyboardSegueTemplates") as? [NSObject] else { return false }
+        return segues.first { $0.value(forKey: "identifier") as? String == id } != nil
+    }
+
+    func performSegueIfPossible(id: String?, sender: AnyObject? = nil) {
+        guard let id = id, canPerformSegue(withIdentifier: id) else { return }
+        self.performSegue(withIdentifier: id, sender: sender)
+    }
+}
+
 func loadData(versionNumber: Int, tableView: UITableView) {
     
     var ref: DatabaseReference!
@@ -396,3 +408,4 @@ func getData(keyName name: String) -> Data? {
     let defaults = UserDefaults.standard
     return (defaults.object(forKey: name) as? Data)
 }
+

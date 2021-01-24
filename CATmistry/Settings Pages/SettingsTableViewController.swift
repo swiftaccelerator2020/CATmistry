@@ -17,20 +17,20 @@ var gameThreeAttempts = ud.integer(forKey: "gameThreeAttempts")
 var gameFourAttempts = ud.integer(forKey: "gameFourAttempts")
 
 class SettingsTableViewController: UITableViewController {
-
+    
     var settingsHeaderArray = [
         "Accessibility Settings",
         "Quiz Attempts",
         "Game Attempts",
-//        "General Statistics",
-//        "Find Gas Game",
-//        "Retrieve Solids Game",
-//        "Adjust pH Game",
-//        "Identify Elements Game",
+        //        "General Statistics",
+        //        "Find Gas Game",
+        //        "Retrieve Solids Game",
+        //        "Adjust pH Game",
+        //        "Identify Elements Game",
         "Authors and Acknoledgements",
         ""
     ]
-
+    
     var settingsContentArray = [
         [
             SettingsContent(
@@ -39,19 +39,19 @@ class SettingsTableViewController: UITableViewController {
                 emojiImage: "🅰️"
             ),
             /*
-            SettingsContent(
-                labelText: "Haptics",
-                type: "switchCell",
-                emojiImage: "📳"
-            ),
-            SettingsContent(
-                labelText: "Dark Mode",
-                type: "switchCell",
-                emojiImage: "🌙"
-            ),
- */
+             SettingsContent(
+             labelText: "Haptics",
+             type: "switchCell",
+             emojiImage: "📳"
+             ),
+             SettingsContent(
+             labelText: "Dark Mode",
+             type: "switchCell",
+             emojiImage: "🌙"
+             ),
+             */
         ],
-
+        
         [
             SettingsContent(
                 labelText: "Gas Tests: \(String(quizOneAttempts))",
@@ -74,7 +74,7 @@ class SettingsTableViewController: UITableViewController {
                 emojiImage: "4️⃣"
             ),
         ],
-
+        
         [
             SettingsContent(
                 labelText: "Gas Tests: \(String(gameOneAttempts))",
@@ -97,72 +97,72 @@ class SettingsTableViewController: UITableViewController {
                 emojiImage: "4️⃣"
             ),
         ],
-
-//        [
-//            SettingsContent(
-//                labelText: "Chapters Covered:",
-//                type: "detailAccessoryCell",
-//                emojiImage: "📚"
-//            ),
-//            SettingsContent(
-//                labelText: "Hours Spent Learning:",
-//                type: "detailAccessoryCell",
-//                emojiImage: "⏰"
-//            ),
-//        ],
-//
-//        [
-//            SettingsContent(
-//                labelText: "Number of Times Played: ",
-//                type: "detailAccessoryCell",
-//                emojiImage: "🎮"
-//            ),
-//            SettingsContent(
-//                labelText: "High Score: ",
-//                type: "disclosureIndicatorCell",
-//                emojiImage: "🏅"
-//            ),
-//        ],
-//
-//        [
-//            SettingsContent(
-//                labelText: "Number of Times Played: ",
-//                type: "detailAccessoryCell",
-//                emojiImage: "🎮"
-//            ),
-//            SettingsContent(
-//                labelText: "High Score: ",
-//                type: "disclosureIndicatorCell",
-//                emojiImage: "🏅"
-//            ),
-//        ],
-//
-//        [
-//            SettingsContent(
-//                labelText: "Number of Times Played: ",
-//                type: "detailAccessoryCell",
-//                emojiImage: "🎮"
-//            ),
-//            SettingsContent(
-//                labelText: "High Score: ",
-//                type: "disclosureIndicatorCell",
-//                emojiImage: "🏅"
-//            ),
-//        ],
-//
-//        [
-//            SettingsContent(
-//                labelText: "Number of Times Played: ",
-//                type: "detailAccessoryCell",
-//                emojiImage: "🎮"
-//            ),
-//            SettingsContent(
-//                labelText: "High Score: ",
-//                type: "disclosureIndicatorCell",
-//                emojiImage: "🏅"
-//            ),
-//        ],
-
+        
+        //        [
+        //            SettingsContent(
+        //                labelText: "Chapters Covered:",
+        //                type: "detailAccessoryCell",
+        //                emojiImage: "📚"
+        //            ),
+        //            SettingsContent(
+        //                labelText: "Hours Spent Learning:",
+        //                type: "detailAccessoryCell",
+        //                emojiImage: "⏰"
+        //            ),
+        //        ],
+        //
+        //        [
+        //            SettingsContent(
+        //                labelText: "Number of Times Played: ",
+        //                type: "detailAccessoryCell",
+        //                emojiImage: "🎮"
+        //            ),
+        //            SettingsContent(
+        //                labelText: "High Score: ",
+        //                type: "disclosureIndicatorCell",
+        //                emojiImage: "🏅"
+        //            ),
+        //        ],
+        //
+        //        [
+        //            SettingsContent(
+        //                labelText: "Number of Times Played: ",
+        //                type: "detailAccessoryCell",
+        //                emojiImage: "🎮"
+        //            ),
+        //            SettingsContent(
+        //                labelText: "High Score: ",
+        //                type: "disclosureIndicatorCell",
+        //                emojiImage: "🏅"
+        //            ),
+        //        ],
+        //
+        //        [
+        //            SettingsContent(
+        //                labelText: "Number of Times Played: ",
+        //                type: "detailAccessoryCell",
+        //                emojiImage: "🎮"
+        //            ),
+        //            SettingsContent(
+        //                labelText: "High Score: ",
+        //                type: "disclosureIndicatorCell",
+        //                emojiImage: "🏅"
+        //            ),
+        //        ],
+        //
+        //        [
+        //            SettingsContent(
+        //                labelText: "Number of Times Played: ",
+        //                type: "detailAccessoryCell",
+        //                emojiImage: "🎮"
+        //            ),
+        //            SettingsContent(
+        //                labelText: "High Score: ",
+        //                type: "disclosureIndicatorCell",
+        //                emojiImage: "🏅"
+        //            ),
+        //        ],
+        
         [
             SettingsContent(
                 labelText: "The CATmistry Team: \nWang Zerui - CEO \nNeo Hao Jun - CTO \nChanel Tan - CDO \nRyu Hwina - CMO",
@@ -175,7 +175,7 @@ class SettingsTableViewController: UITableViewController {
                 emojiImage: "👨‍💻"
             ),
         ],
-
+        
         [
             SettingsContent(
                 labelText: "",
@@ -184,27 +184,27 @@ class SettingsTableViewController: UITableViewController {
             ),
         ],
     ]
-
+    
     @IBOutlet var settingsTableView: UITableView!
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         tableView.tableFooterView = UIView()
-
+        
         let navbar = UINavigationBarAppearance()
         navbar.backgroundColor = UIColor(red: 196/255, green: 169/255, blue: 124/255, alpha: 1)
         self.navigationController?.navigationBar.scrollEdgeAppearance = navbar
-
+        
         //        gamePointsLabel.text = " You have \(points) points"
-
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
-
+        
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
-
+    
     override func viewDidAppear(_ animated: Bool) {
         quizOneAttempts = ud.integer(forKey: "quizOneAttempts")
         quizTwoAttempts = ud.integer(forKey: "quizTwoAttempts")
@@ -216,26 +216,26 @@ class SettingsTableViewController: UITableViewController {
         gameFourAttempts = ud.integer(forKey: "gameFourAttempts")
         tableView.reloadData()
     }
-
+    
     @IBAction func doneButtonClicked(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }
-
+    
     // MARK: - Table view data source
-
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return settingsContentArray.count
     }
-
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         return settingsContentArray[section].count
     }
-
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: settingsContentArray[indexPath.section][indexPath.row].type, for: indexPath)
-
+        
         // Configure the cell...
         if let cell = cell as? SettingsTableViewCell {
             if cell.reuseIdentifier != "shareCell" && cell.reuseIdentifier != "buttonCell" {
@@ -251,7 +251,7 @@ class SettingsTableViewController: UITableViewController {
                 }
             }
         }
-
+        
         if cell.reuseIdentifier == "detailAccessoryCell" ||  cell.reuseIdentifier == "textCell" || cell.reuseIdentifier == "buttonCell"  {
             cell.selectionStyle = .none
         }
@@ -262,10 +262,10 @@ class SettingsTableViewController: UITableViewController {
             }
             print("hi")
         }
-
+        
         return cell
     }
-
+    
     // Table Header
     override func tableView(_ tableView: UITableView, titleForHeaderInSection
                                 section: Int) -> String? {
@@ -275,7 +275,7 @@ class SettingsTableViewController: UITableViewController {
             return nil
         }
     }
-
+    
     // Table Footer
     override func tableView(_ tableView: UITableView, titleForFooterInSection
                                 section: Int) -> String? {
@@ -285,7 +285,7 @@ class SettingsTableViewController: UITableViewController {
             return nil
         }
     }
-
+    
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if settingsContentArray[indexPath.section][indexPath.row].type  == "textCell" {
             return 150.0
@@ -300,20 +300,14 @@ class SettingsTableViewController: UITableViewController {
         if isDyslexic {
             isDyslexic = false
             ud.setValue(false, forKey: "dyslexic")
-            let alert = UIAlertController(title: "The app will need to restart.", message: "Restart Now?", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "Yes", style: UIAlertAction.Style.default, handler: { _ in
-                UIControl().sendAction(#selector(URLSessionTask.suspend), to: UIApplication.shared, for: nil)
-            }))
-            alert.addAction(UIAlertAction(title: "No", style: UIAlertAction.Style.cancel, handler: nil))
+            let alert = UIAlertController(title: "Settings Changed", message: "The settings will apply when you restart the app.", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: nil))
             self.present(alert, animated: true, completion: nil)
         } else {
             isDyslexic = true
             ud.setValue(true, forKey: "dyslexic")
-            let alert = UIAlertController(title: "The app will need to restart.", message: "Restart Now?", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "Yes", style: UIAlertAction.Style.default, handler: { _ in
-                UIControl().sendAction(#selector(URLSessionTask.suspend), to: UIApplication.shared, for: nil)
-            }))
-            alert.addAction(UIAlertAction(title: "No", style: UIAlertAction.Style.cancel, handler: nil))
+            let alert = UIAlertController(title: "Settings Changed", message: "The settings will apply when you restart the app.", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: nil))
             self.present(alert, animated: true, completion: nil)
         }
         
@@ -326,7 +320,7 @@ class SettingsTableViewController: UITableViewController {
      return true
      }
      */
-
+    
     /*
      // Override to support editing the table view.
      override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
@@ -338,14 +332,14 @@ class SettingsTableViewController: UITableViewController {
      }
      }
      */
-
+    
     /*
      // Override to support rearranging the table view.
      override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
+     
      }
      */
-
+    
     /*
      // Override to support conditional rearranging of the table view.
      override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
@@ -353,17 +347,17 @@ class SettingsTableViewController: UITableViewController {
      return true
      }
      */
-
+    
     /*
      // MARK: - Navigation
-
+     
      // In a storyboard-based application, you will often want to do a little preparation before navigation
      override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
      // Get the new view controller using segue.destination.
      // Pass the selected object to the new view controller.
      }
      */
-
+    
 }
 
 public extension String {
@@ -371,7 +365,7 @@ public extension String {
         let font = UIFont.systemFont(ofSize: fontSize)
         let attributes = [NSAttributedString.Key.font: font]
         let imageSize = imageSize ?? self.size(withAttributes: attributes)
-
+        
         UIGraphicsBeginImageContextWithOptions(imageSize, false, 0)
         bgColor.set()
         let rect = CGRect(origin: .zero, size: imageSize)

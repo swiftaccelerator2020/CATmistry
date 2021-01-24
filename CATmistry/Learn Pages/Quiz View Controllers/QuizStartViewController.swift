@@ -37,8 +37,22 @@ class QuizStartViewController: UIViewController {
 
 
     @IBAction func openDeveloperCenter(_ sender: Any) {
-        print("hello world")
-        // fatalError()
+        let ac = UIAlertController(title: "Enter developer panel code", message: nil, preferredStyle: .alert)
+        ac.addTextField()
+        
+        let submitAction = UIAlertAction(title: "Submit", style: .default) { [unowned ac] _ in
+            let answer = ac.textFields![0]
+            self.performSegueIfPossible(id: answer.text)
+        }
+        
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .default)
+        
+        ac.addAction(submitAction)
+        ac.addAction(cancelAction)
+        
+        present(ac, animated: true)
+        
     }
     
     // MARK: - Navigation
