@@ -300,20 +300,20 @@ class SettingsTableViewController: UITableViewController {
         if isDyslexic {
             isDyslexic = false
             ud.setValue(false, forKey: "dyslexic")
-            let alert = UIAlertController(title: "Are you sure you would like to change this setting?", message: "The app will need to restart.", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "Continue", style: UIAlertAction.Style.default, handler: { _ in
+            let alert = UIAlertController(title: "The app will need to restart.", message: "Restart Now?", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Yes", style: UIAlertAction.Style.default, handler: { _ in
                 fatalError()
             }))
-            alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel, handler: nil))
+            alert.addAction(UIAlertAction(title: "No", style: UIAlertAction.Style.cancel, handler: nil))
             self.present(alert, animated: true, completion: nil)
         } else {
             isDyslexic = true
             ud.setValue(true, forKey: "dyslexic")
-            let alert = UIAlertController(title: "Are you sure you would like to change this setting?", message: "The app will need to restart.", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "Continue", style: UIAlertAction.Style.default, handler: { _ in
+            let alert = UIAlertController(title: "The app will need to restart.", message: "Restart Now?", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Yes", style: UIAlertAction.Style.default, handler: { _ in
                 fatalError()
             }))
-            alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel, handler: nil))
+            alert.addAction(UIAlertAction(title: "No", style: UIAlertAction.Style.cancel, handler: nil))
             self.present(alert, animated: true, completion: nil)
         }
         
