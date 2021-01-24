@@ -2180,9 +2180,6 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
                                     <subviews>
                                         <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Yj6-P6-Tov">
                                             <rect key="frame" x="286" y="7" width="51" height="31"/>
-                                            <connections>
-                                                <action selector="isDyslexicSwitch:" destination="u3b-ng-oRm" eventType="valueChanged" id="Z9w-po-wSU"/>
-                                            </connections>
                                         </switch>
                                         <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iFd-2V-AeY">
                                             <rect key="frame" x="10" y="10" width="261" height="25"/>
@@ -2798,7 +2795,7 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="FaB-d6-X5c"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="wEn-aq-CEr">
-                        <rect key="frame" x="0.0" y="44" width="390" height="96"/>
+                        <rect key="frame" x="0.0" y="44" width="390" height="104.33333333333334"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>

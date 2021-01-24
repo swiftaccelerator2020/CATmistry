@@ -252,8 +252,15 @@ class SettingsTableViewController: UITableViewController {
             }
         }
 
-        if cell.reuseIdentifier == "detailAccessoryCell" || cell.reuseIdentifier == "switchCell" || cell.reuseIdentifier == "textCell" || cell.reuseIdentifier == "buttonCell"  {
+        if cell.reuseIdentifier == "detailAccessoryCell" ||  cell.reuseIdentifier == "textCell" || cell.reuseIdentifier == "buttonCell"  {
             cell.selectionStyle = .none
+        }
+        
+        if cell.reuseIdentifier == "switchCell" {
+            if let cell = cell as? SettingsTableViewCell {
+                cell.dyslexicSwitch.addTarget(self, action: #selector(zeruiToggled(_:)), for: .touchUpInside)
+            }
+            print("hi")
         }
 
         return cell
@@ -286,7 +293,32 @@ class SettingsTableViewController: UITableViewController {
             return 45.0
         }
     }
-
+    
+    @objc func zeruiToggled(_ sender: UISwitch) {
+        // when zerui state gets changed
+        
+        if isDyslexic {
+            isDyslexic = false
+            ud.setValue(false, forKey: "dyslexic")
+            let alert = UIAlertController(title: "Are you sure you would like to change this setting?", message: "The app will need to restart.", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Continue", style: UIAlertAction.Style.default, handler: { _ in
+                fatalError()
+            }))
+            alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+        } else {
+            isDyslexic = true
+            ud.setValue(true, forKey: "dyslexic")
+            let alert = UIAlertController(title: "Are you sure you would like to change this setting?", message: "The app will need to restart.", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Continue", style: UIAlertAction.Style.default, handler: { _ in
+                fatalError()
+            }))
+            alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+        }
+        
+    }
+    
     /*
      // Override to support conditional editing of the table view.
      override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
