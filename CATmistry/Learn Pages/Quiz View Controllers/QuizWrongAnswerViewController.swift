@@ -13,6 +13,8 @@ class QuizWrongAnswerViewController: UIViewController {
     var correctAnswers: Int!
     var wrongAnswers: Int!
     var currentTopicId: Int!
+    var question: String!
+    var correctAnswer: String!
     var chapterCompletedUserDefaultsArray = [
         chOneDone,
         chTwoDone,
@@ -49,17 +51,19 @@ class QuizWrongAnswerViewController: UIViewController {
         nextQuestionButton.layer.cornerRadius = 25
 
         if 9 - currentQuestion == 0 {
-            if correctAnswers >= 0 {
-                sadLabel.text = "Oh no! \n\nYour answer was wrong, but not to worry! You got \(String(correctAnswers)) of 10 questions in this quiz right. Excellent!"
+            if correctAnswers >= 7 {
+                sadLabel.text = "Oh no! \n\nYour answer was wrong, but not to worry! You got \(String(correctAnswers)) of 10 questions in this quiz right. Excellent!\n\nQuestion: \(question!)\nCorrect Answer: \(correctAnswer!)"
                 ud.set(true, forKey: chapterCompletedStringsUserDefaultsArray[currentTopicId])
                 chapterCompletedUserDefaultsArray[currentTopicId] = true
                 UserDefaults.incrementIntegerForKey(key: quizAttemptsStringsUserDefaultArray[currentTopicId])
                 quizAttemptsUserDefaultArray[currentTopicId] += 1
+                UserDefaults.standard.synchronize()
+
             } else {
-                sadLabel.text = "Oh no! \n\nYour answer was wrong, and you only scored \(String(correctAnswers)) out of 10 in this quiz. You need at least 7 out of 10 to pass. Try harder next time!"
+                sadLabel.text = "Oh no! \n\nYour answer was wrong, and you only scored \(String(correctAnswers)) out of 10 in this quiz. You need at least 7 out of 10 to pass. Try harder next time!\n\nQuestion: \(question!)\nCorrect Answer: \(correctAnswer!)"
             }
         } else {
-            sadLabel.text = "Oh no! \n\nYour answer was wrong, but don't worry! You have \(String(9 - currentQuestion)) questions left in this quiz. Try harder next time!"
+            sadLabel.text = "Oh no! \n\nYour answer was wrong, but don't worry! You have \(String(9 - currentQuestion)) questions left in this quiz. Try harder next time!\n\nQuestion: \(question!)\nCorrect Answer: \(correctAnswer!)"
         }
 
         if 9 - currentQuestion == 0 {

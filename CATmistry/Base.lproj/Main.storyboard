@@ -349,7 +349,7 @@ As your cat can only live in a certain type of gas, your task is to use your kno
                                         <color key="tintColor" red="0.43771609659999999" green="0.60172057150000002" blue="0.74904519319999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                     </imageView>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="200" id="0JT-JU-Rhw"/>
                                     <constraint firstAttribute="trailing" secondItem="BgO-ca-5ez" secondAttribute="trailing" constant="15" id="PVc-By-ifM"/>
@@ -1492,7 +1492,7 @@ Given the properties of each Group of the periodic table, select the correct gro
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B2H-1r-aQ3">
                                                                 <rect key="frame" x="0.0" y="45" width="140" height="35"/>
                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                <state key="normal" title="Group 3">
+                                                                <state key="normal" title="Group 2">
                                                                     <color key="titleColor" systemColor="labelColor"/>
                                                                 </state>
                                                                 <connections>
@@ -1510,7 +1510,7 @@ Given the properties of each Group of the periodic table, select the correct gro
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O7J-Hd-b7c">
                                                                 <rect key="frame" x="0.0" y="0.0" width="140" height="35"/>
                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                <state key="normal" title="Group 2">
+                                                                <state key="normal" title="Group 7">
                                                                     <color key="titleColor" systemColor="labelColor"/>
                                                                 </state>
                                                                 <connections>
@@ -1520,7 +1520,7 @@ Given the properties of each Group of the periodic table, select the correct gro
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="60r-ze-aOG">
                                                                 <rect key="frame" x="0.0" y="45" width="140" height="35"/>
                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                <state key="normal" title="Group 4">
+                                                                <state key="normal" title="Group 8">
                                                                     <color key="titleColor" systemColor="labelColor"/>
                                                                 </state>
                                                                 <connections>
@@ -2074,7 +2074,7 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
                 <navigationController id="8Us-es-0oa" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Learn" image="books.vertical.fill" catalog="system" selectedImage="books.vertical.fill" id="ZOw-bY-pdm"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="OvI-u8-jpf">
-                        <rect key="frame" x="0.0" y="44" width="390" height="96"/>
+                        <rect key="frame" x="0.0" y="44" width="390" height="104.33333333333334"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" red="0.95419245959999999" green="0.83945876360000005" blue="0.47016263009999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -2413,7 +2413,7 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" contentInsetAdjustmentBehavior="never" translatesAutoresizingMaskIntoConstraints="NO" id="XVC-Ig-NQi">
-                                <rect key="frame" x="0.0" y="148.33333333333331" width="390" height="612.66666666666674"/>
+                                <rect key="frame" x="0.0" y="140" width="390" height="621"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mVw-ph-Zlg">
                                         <rect key="frame" x="0.0" y="0.0" width="390" height="850"/>
@@ -2425,7 +2425,7 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="SYZ-WC-ALx">
-                                                <rect key="frame" x="25" y="312.33333333333337" width="340" height="280"/>
+                                                <rect key="frame" x="25" y="312.33333333333331" width="340" height="279.99999999999994"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ruL-5t-Hew">
                                                         <rect key="frame" x="0.0" y="0.0" width="340" height="20"/>
@@ -2469,7 +2469,7 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="7aQ-Kb-rIM">
-                                                        <rect key="frame" x="0.0" y="109.99999999999994" width="340" height="170"/>
+                                                        <rect key="frame" x="0.0" y="110.00000000000006" width="340" height="170"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="170" id="FtG-tu-kGa"/>
                                                         </constraints>
@@ -2477,7 +2477,7 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a9P-V4-qKv">
-                                                <rect key="frame" x="0.0" y="622.33333333333326" width="390" height="227.66666666666663"/>
+                                                <rect key="frame" x="0.0" y="622.33333333333337" width="390" height="227.66666666666663"/>
                                                 <subviews>
                                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Jm5-uT-0GT">
                                                         <rect key="frame" x="0.0" y="0.0" width="390" height="227.66666666666666"/>
@@ -2600,7 +2600,7 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QUe-cY-thK">
-                                <rect key="frame" x="0.0" y="140" width="390" height="621"/>
+                                <rect key="frame" x="0.0" y="140" width="390" height="670"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zMu-Qc-3rs">
                                         <rect key="frame" x="0.0" y="0.0" width="390" height="590"/>
@@ -2988,7 +2988,7 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="q0c-Zz-aob" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="jRP-bA-vTs">
-                        <rect key="frame" x="0.0" y="44" width="390" height="96"/>
+                        <rect key="frame" x="0.0" y="44" width="390" height="104.33333333333334"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -3230,11 +3230,11 @@ Your answer was wrong, but don't worry! You have \(String(10 - currentQuestion))
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="YEM-b9-J01"/>
-        <segue reference="s4T-H5-cTx"/>
-        <segue reference="l86-7T-ukz"/>
-        <segue reference="8zc-2j-Gbh"/>
-        <segue reference="xa7-EN-bjL"/>
+        <segue reference="GnF-zJ-RVj"/>
+        <segue reference="gvO-ns-Fai"/>
+        <segue reference="omW-sG-g2z"/>
+        <segue reference="orq-5T-Gly"/>
+        <segue reference="SnY-zI-Ehk"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="books.vertical.fill" catalog="system" width="128" height="100"/>

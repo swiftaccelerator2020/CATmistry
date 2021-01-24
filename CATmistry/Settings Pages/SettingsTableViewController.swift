@@ -241,9 +241,10 @@ class SettingsTableViewController: UITableViewController {
                 cell.settingsImageView.image = settingsContentArray[indexPath.section][indexPath.row].emojiImage.image()
             } else if cell.reuseIdentifier == "buttonCell" {
                 cell.shareAction = {
-                    let shareText = "CATmistry - Chemistry, Gamified - is a Chemistry learning app specifically designed for Upper Primary to Lower Secondary students. With many interactive learning elements and fun games, CATmistry is sure to provided a fun and engaging learning experience. \n\nFind us on the app store now:"
+                    let shareText = "CATmistry - Chemistry, Gamified - is a Chemistry learning app specifically designed for Upper Primary to Lower Secondary students. With many interactive learning elements and fun games, CATmistry is sure to provided a fun and engaging learning experience. \n\nFind us on the app store now: https:/"
                     let shareURL = NSURL(fileURLWithPath: "http://tk.sg/sis20-catmistry")
                     let vc = UIActivityViewController(activityItems: [shareText, shareURL], applicationActivities: [])
+                    vc.modalPresentationStyle = .popover
                     self.present(vc, animated: true, completion: nil)
                 }
             }
