@@ -25,12 +25,10 @@ typedef NS_ENUM(NSUInteger, FIRInstallationsErrorCode) {
   /** Keychain error. See `userInfo` for details. */
   FIRInstallationsErrorCodeKeychain = 1,
 
-  /** Server unreachable. A network error or server is unavailable. See
-     `userInfo` for details. */
+  /** Server unreachable. A network error or server is unavailable. See `userInfo` for details. */
   FIRInstallationsErrorCodeServerUnreachable = 2,
 
-  /** FirebaseApp configuration issues e.g. invalid GMP-App-ID, etc. See
-     `userInfo` for details. */
+  /** FirebaseApp configuration issues e.g. invalid GMP-App-ID, etc. See `userInfo` for details. */
   FIRInstallationsErrorCodeInvalidConfiguration = 3,
 
 } NS_SWIFT_NAME(InstallationsErrorCode);

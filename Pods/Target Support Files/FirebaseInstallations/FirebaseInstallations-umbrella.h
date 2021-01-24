@@ -10,11 +10,12 @@
 #endif
 #endif
 
+#import "FirebaseInstallations.h"
 #import "FIRInstallations.h"
 #import "FIRInstallationsAuthTokenResult.h"
 #import "FIRInstallationsErrors.h"
 #import "FIRInstallationsVersion.h"
-#import "FirebaseInstallations.h"
 
 FOUNDATION_EXPORT double FirebaseInstallationsVersionNumber;
 FOUNDATION_EXPORT const unsigned char FirebaseInstallationsVersionString[];
+

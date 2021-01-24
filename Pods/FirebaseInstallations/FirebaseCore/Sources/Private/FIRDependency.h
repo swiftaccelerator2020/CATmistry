@@ -28,15 +28,14 @@ NS_SWIFT_NAME(Dependency)
 /// A flag to specify if the dependency is required or not.
 @property(nonatomic, readonly) BOOL isRequired;
 
-/// Initializes a dependency that is required. Calls
-/// `initWithProtocol:isRequired` with `YES` for the required parameter. Creates
-/// a required dependency on the specified protocol's functionality.
+/// Initializes a dependency that is required. Calls `initWithProtocol:isRequired` with `YES` for
+/// the required parameter.
+/// Creates a required dependency on the specified protocol's functionality.
 + (instancetype)dependencyWithProtocol:(Protocol *)protocol;
 
-/// Creates a dependency on the specified protocol's functionality and specify
-/// if it's required for the class's functionality.
-+ (instancetype)dependencyWithProtocol:(Protocol *)protocol
-                            isRequired:(BOOL)required;
+/// Creates a dependency on the specified protocol's functionality and specify if it's required for
+/// the class's functionality.
++ (instancetype)dependencyWithProtocol:(Protocol *)protocol isRequired:(BOOL)required;
 
 /// Use `dependencyWithProtocol:isRequired:` instead.
 - (instancetype)init NS_UNAVAILABLE;

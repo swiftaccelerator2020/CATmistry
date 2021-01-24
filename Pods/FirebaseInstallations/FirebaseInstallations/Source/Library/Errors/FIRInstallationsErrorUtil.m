@@ -24,8 +24,7 @@
 #import "FBLPromises.h"
 #endif
 
-NSString *const kFirebaseInstallationsErrorDomain =
-    @"com.firebase.installations";
+NSString *const kFirebaseInstallationsErrorDomain = @"com.firebase.installations";
 
 void FIRInstallationsItemSetErrorToPointer(NSError *error, NSError **pointer) {
   if (pointer != NULL) {
@@ -37,54 +36,46 @@ void FIRInstallationsItemSetErrorToPointer(NSError *error, NSError **pointer) {
 
 + (NSError *)keyedArchiverErrorWithException:(NSException *)exception {
   NSString *failureReason = [NSString
-      stringWithFormat:
-          @"NSKeyedArchiver exception with name: %@, reason: %@, userInfo: %@",
-          exception.name, exception.reason, exception.userInfo];
+      stringWithFormat:@"NSKeyedArchiver exception with name: %@, reason: %@, userInfo: %@",
+                       exception.name, exception.reason, exception.userInfo];
   return [self installationsErrorWithCode:FIRInstallationsErrorCodeUnknown
                             failureReason:failureReason
                           underlyingError:nil];
 }
 
 + (NSError *)keyedArchiverErrorWithError:(NSError *)error {
-  NSString *failureReason =
-      [NSString stringWithFormat:@"NSKeyedArchiver error."];
+  NSString *failureReason = [NSString stringWithFormat:@"NSKeyedArchiver error."];
   return [self installationsErrorWithCode:FIRInstallationsErrorCodeUnknown
                             failureReason:failureReason
                           underlyingError:error];
 }
 
-+ (NSError *)keychainErrorWithFunction:(NSString *)keychainFunction
-                                status:(OSStatus)status {
-  NSString *failureReason =
-      [NSString stringWithFormat:@"%@ (%li)", keychainFunction, (long)status];
++ (NSError *)keychainErrorWithFunction:(NSString *)keychainFunction status:(OSStatus)status {
+  NSString *failureReason = [NSString stringWithFormat:@"%@ (%li)", keychainFunction, (long)status];
   return [self installationsErrorWithCode:FIRInstallationsErrorCodeKeychain
                             failureReason:failureReason
                           underlyingError:nil];
 }
 
-+ (NSError *)installationItemNotFoundForAppID:(NSString *)appID
-                                      appName:(NSString *)appName {
-  NSString *failureReason = [NSString
-      stringWithFormat:@"Installation for appID %@ appName %@ not found", appID,
-                       appName];
++ (NSError *)installationItemNotFoundForAppID:(NSString *)appID appName:(NSString *)appName {
+  NSString *failureReason =
+      [NSString stringWithFormat:@"Installation for appID %@ appName %@ not found", appID, appName];
   return [self installationsErrorWithCode:FIRInstallationsErrorCodeUnknown
                             failureReason:failureReason
                           underlyingError:nil];
 }
 
 + (NSError *)corruptedIIDTokenData {
-  NSString *failureReason = @"IID token data stored in Keychain is corrupted "
-                            @"or in an incompatible format.";
+  NSString *failureReason =
+      @"IID token data stored in Keychain is corrupted or in an incompatible format.";
   return [self installationsErrorWithCode:FIRInstallationsErrorCodeUnknown
                             failureReason:failureReason
                           underlyingError:nil];
 }
 
-+ (FIRInstallationsHTTPError *)
-    APIErrorWithHTTPResponse:(NSHTTPURLResponse *)HTTPResponse
-                        data:(nullable NSData *)data {
-  return [[FIRInstallationsHTTPError alloc] initWithHTTPResponse:HTTPResponse
-                                                            data:data];
++ (FIRInstallationsHTTPError *)APIErrorWithHTTPResponse:(NSHTTPURLResponse *)HTTPResponse
+                                                   data:(nullable NSData *)data {
+  return [[FIRInstallationsHTTPError alloc] initWithHTTPResponse:HTTPResponse data:data];
 }
 
 + (BOOL)isAPIError:(NSError *)error withHTTPCode:(NSInteger)HTTPCode {
@@ -92,40 +83,34 @@ void FIRInstallationsItemSetErrorToPointer(NSError *error, NSError **pointer) {
     return NO;
   }
 
-  return
-      [(FIRInstallationsHTTPError *)error HTTPResponse].statusCode == HTTPCode;
+  return [(FIRInstallationsHTTPError *)error HTTPResponse].statusCode == HTTPCode;
 }
 
 + (NSError *)JSONSerializationError:(NSError *)error {
-  NSString *failureReason =
-      [NSString stringWithFormat:@"Failed to serialize JSON data."];
+  NSString *failureReason = [NSString stringWithFormat:@"Failed to serialize JSON data."];
   return [self installationsErrorWithCode:FIRInstallationsErrorCodeUnknown
                             failureReason:failureReason
                           underlyingError:nil];
 }
 
-+ (NSError *)FIDRegistrationErrorWithResponseMissingField:
-    (NSString *)missingFieldName {
++ (NSError *)FIDRegistrationErrorWithResponseMissingField:(NSString *)missingFieldName {
   NSString *failureReason = [NSString
-      stringWithFormat:@"A required response field with name %@ is missing",
-                       missingFieldName];
+      stringWithFormat:@"A required response field with name %@ is missing", missingFieldName];
   return [self installationsErrorWithCode:FIRInstallationsErrorCodeUnknown
                             failureReason:failureReason
                           underlyingError:nil];
 }
 
 + (NSError *)networkErrorWithError:(NSError *)error {
-  return [self
-      installationsErrorWithCode:FIRInstallationsErrorCodeServerUnreachable
-                   failureReason:@"Network connection error."
-                 underlyingError:error];
+  return [self installationsErrorWithCode:FIRInstallationsErrorCodeServerUnreachable
+                            failureReason:@"Network connection error."
+                          underlyingError:error];
 }
 
 + (NSError *)backoffIntervalWaitError {
-  return [self
-      installationsErrorWithCode:FIRInstallationsErrorCodeServerUnreachable
-                   failureReason:@"Too many server requests."
-                 underlyingError:nil];
+  return [self installationsErrorWithCode:FIRInstallationsErrorCodeServerUnreachable
+                            failureReason:@"Too many server requests."
+                          underlyingError:nil];
 }
 
 + (NSError *)publicDomainErrorWithError:(NSError *)error {
@@ -145,9 +130,7 @@ void FIRInstallationsItemSetErrorToPointer(NSError *error, NSError **pointer) {
   userInfo[NSUnderlyingErrorKey] = underlyingError;
   userInfo[NSLocalizedFailureReasonErrorKey] = failureReason;
 
-  return [NSError errorWithDomain:kFirebaseInstallationsErrorDomain
-                             code:code
-                         userInfo:userInfo];
+  return [NSError errorWithDomain:kFirebaseInstallationsErrorDomain code:code userInfo:userInfo];
 }
 
 + (FBLPromise *)rejectedPromiseWithError:(NSError *)error {

@@ -24,22 +24,18 @@ NSString *const kGULSecureCodingError = @"GULSecureCodingError";
   id object;
 #if __has_builtin(__builtin_available)
   if (@available(macOS 10.13, iOS 11.0, tvOS 11.0, watchOS 4.0, *)) {
-    object = [NSKeyedUnarchiver unarchivedObjectOfClasses:classes
-                                                 fromData:data
-                                                    error:outError];
+    object = [NSKeyedUnarchiver unarchivedObjectOfClasses:classes fromData:data error:outError];
   } else
-#endif // __has_builtin(__builtin_available)
+#endif  // __has_builtin(__builtin_available)
   {
     @try {
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wdeprecated-declarations"
-      NSKeyedUnarchiver *unarchiver =
-          [[NSKeyedUnarchiver alloc] initForReadingWithData:data];
+      NSKeyedUnarchiver *unarchiver = [[NSKeyedUnarchiver alloc] initForReadingWithData:data];
 #pragma clang diagnostic pop
       unarchiver.requiresSecureCoding = YES;
 
-      object = [unarchiver decodeObjectOfClasses:classes
-                                          forKey:NSKeyedArchiveRootObjectKey];
+      object = [unarchiver decodeObjectOfClasses:classes forKey:NSKeyedArchiveRootObjectKey];
     } @catch (NSException *exception) {
       if (outError) {
         *outError = [self archivingErrorWithException:exception];
@@ -48,10 +44,9 @@ NSString *const kGULSecureCodingError = @"GULSecureCodingError";
 
     if (object == nil && outError && *outError == nil) {
       NSString *failureReason = @"NSKeyedUnarchiver failed to unarchive data.";
-      *outError = [NSError
-          errorWithDomain:kGULSecureCodingError
-                     code:-1
-                 userInfo:@{NSLocalizedFailureReasonErrorKey : failureReason}];
+      *outError = [NSError errorWithDomain:kGULSecureCodingError
+                                      code:-1
+                                  userInfo:@{NSLocalizedFailureReasonErrorKey : failureReason}];
     }
   }
 
@@ -61,13 +56,10 @@ NSString *const kGULSecureCodingError = @"GULSecureCodingError";
 + (nullable id)unarchivedObjectOfClass:(Class)class
                               fromData:(NSData *)data
                                  error:(NSError **)outError {
-  return [self unarchivedObjectOfClasses:[NSSet setWithObject:class]
-                                fromData:data
-                                   error:outError];
+  return [self unarchivedObjectOfClasses:[NSSet setWithObject:class] fromData:data error:outError];
 }
 
-+ (nullable NSData *)archivedDataWithRootObject:(id<NSCoding>)object
-                                          error:(NSError **)outError {
++ (nullable NSData *)archivedDataWithRootObject:(id<NSCoding>)object error:(NSError **)outError {
   NSData *archiveData;
 #if __has_builtin(__builtin_available)
   if (@available(macOS 10.13, iOS 11.0, tvOS 11.0, watchOS 4.0, *)) {
@@ -75,14 +67,13 @@ NSString *const kGULSecureCodingError = @"GULSecureCodingError";
                                         requiringSecureCoding:YES
                                                         error:outError];
   } else
-#endif // __has_builtin(__builtin_available)
+#endif  // __has_builtin(__builtin_available)
   {
     @try {
       NSMutableData *data = [NSMutableData data];
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wdeprecated-declarations"
-      NSKeyedArchiver *archiver =
-          [[NSKeyedArchiver alloc] initForWritingWithMutableData:data];
+      NSKeyedArchiver *archiver = [[NSKeyedArchiver alloc] initForWritingWithMutableData:data];
 #pragma clang diagnostic pop
       archiver.requiresSecureCoding = YES;
 
@@ -102,15 +93,11 @@ NSString *const kGULSecureCodingError = @"GULSecureCodingError";
 
 + (NSError *)archivingErrorWithException:(NSException *)exception {
   NSString *failureReason = [NSString
-      stringWithFormat:
-          @"NSKeyedArchiver exception with name: %@, reason: %@, userInfo: %@",
-          exception.name, exception.reason, exception.userInfo];
-  NSDictionary *errorUserInfo =
-      @{NSLocalizedFailureReasonErrorKey : failureReason};
+      stringWithFormat:@"NSKeyedArchiver exception with name: %@, reason: %@, userInfo: %@",
+                       exception.name, exception.reason, exception.userInfo];
+  NSDictionary *errorUserInfo = @{NSLocalizedFailureReasonErrorKey : failureReason};
 
-  return [NSError errorWithDomain:kGULSecureCodingError
-                             code:-1
-                         userInfo:errorUserInfo];
+  return [NSError errorWithDomain:kGULSecureCodingError code:-1 userInfo:errorUserInfo];
 }
 
 @end

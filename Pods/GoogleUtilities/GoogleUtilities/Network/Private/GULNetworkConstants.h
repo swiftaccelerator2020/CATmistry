@@ -14,13 +14,12 @@
  * limitations under the License.
  */
 
-#import "GoogleUtilities/Logger/Private/GULLogger.h"
 #import <Foundation/Foundation.h>
+#import "GoogleUtilities/Logger/Private/GULLogger.h"
 
 /// Error codes in Firebase Network error domain.
-/// Note: these error codes should never change. It would make it harder to
-/// decode the errors if we inadvertently altered any of these codes in a future
-/// SDK version.
+/// Note: these error codes should never change. It would make it harder to decode the errors if
+/// we inadvertently altered any of these codes in a future SDK version.
 typedef NS_ENUM(NSInteger, GULNetworkErrorCode) {
   /// Unknown error.
   GULNetworkErrorCodeUnknown = 0,
@@ -41,8 +40,7 @@ typedef NS_ENUM(NSInteger, GULNetworkErrorCode) {
 /// The prefix of the ID of the background session.
 extern NSString *const kGULNetworkBackgroundSessionConfigIDPrefix;
 
-/// The sub directory to store the files of data that is being uploaded in the
-/// background.
+/// The sub directory to store the files of data that is being uploaded in the background.
 extern NSString *const kGULNetworkApplicationSupportSubdirectory;
 
 /// Name of the temporary directory that stores files for background uploading.

@@ -43,35 +43,33 @@ extern NSString *const kServiceInfoFileType;
 @interface FIROptions ()
 
 /**
- * resetDefaultOptions and initInternalWithOptionsDictionary: are exposed only
- * for unit tests.
+ * resetDefaultOptions and initInternalWithOptionsDictionary: are exposed only for unit tests.
  */
 + (void)resetDefaultOptions;
 
 /**
- * Initializes the options with dictionary. The above strings are the keys of
- * the dictionary. This is the designated initializer.
+ * Initializes the options with dictionary. The above strings are the keys of the dictionary.
+ * This is the designated initializer.
  */
-- (instancetype)initInternalWithOptionsDictionary:
-    (NSDictionary *)serviceInfoDictionary;
+- (instancetype)initInternalWithOptionsDictionary:(NSDictionary *)serviceInfoDictionary;
 
 /**
- * defaultOptions and defaultOptionsDictionary are exposed in order to be used
- * in FIRApp and other first party services.
+ * defaultOptions and defaultOptionsDictionary are exposed in order to be used in FIRApp and
+ * other first party services.
  */
 + (FIROptions *)defaultOptions;
 
 + (NSDictionary *)defaultOptionsDictionary;
 
 /**
- * Indicates whether or not Analytics collection was explicitly enabled via a
- * plist flag or at runtime.
+ * Indicates whether or not Analytics collection was explicitly enabled via a plist flag or at
+ * runtime.
  */
 @property(nonatomic, readonly) BOOL isAnalyticsCollectionExplicitlySet;
 
 /**
- * Whether or not Analytics Collection was enabled. Analytics Collection is
- * enabled unless explicitly disabled in GoogleService-Info.plist.
+ * Whether or not Analytics Collection was enabled. Analytics Collection is enabled unless
+ * explicitly disabled in GoogleService-Info.plist.
  */
 @property(nonatomic, readonly) BOOL isAnalyticsCollectionEnabled;
 
@@ -87,14 +85,14 @@ extern NSString *const kServiceInfoFileType;
 @property(nonatomic, readonly, copy) NSString *libraryVersionID;
 
 /**
- * The flag indicating whether this object was constructed with the values in
- * the default plist file.
+ * The flag indicating whether this object was constructed with the values in the default plist
+ * file.
  */
 @property(nonatomic) BOOL usingOptionsFromDefaultPlist;
 
 /**
- * Whether or not Measurement was enabled. Measurement is enabled unless
- * explicitly disabled in GoogleService-Info.plist.
+ * Whether or not Measurement was enabled. Measurement is enabled unless explicitly disabled in
+ * GoogleService-Info.plist.
  */
 @property(nonatomic, readonly) BOOL isMeasurementEnabled;
 
@@ -109,8 +107,7 @@ extern NSString *const kServiceInfoFileType;
 @property(nonatomic, readonly) BOOL isSignInEnabled;
 
 /**
- * Whether or not editing is locked. This should occur after FIROptions has been
- * set on a FIRApp.
+ * Whether or not editing is locked. This should occur after FIROptions has been set on a FIRApp.
  */
 @property(nonatomic, getter=isEditingLocked) BOOL editingLocked;
 

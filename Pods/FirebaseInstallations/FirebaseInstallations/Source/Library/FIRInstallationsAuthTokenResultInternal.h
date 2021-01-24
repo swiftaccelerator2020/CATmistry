@@ -20,8 +20,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface FIRInstallationsAuthTokenResult (Internal)
 
-- (instancetype)initWithToken:(NSString *)token
-               expirationDate:(NSDate *)expirationTime;
+- (instancetype)initWithToken:(NSString *)token expirationDate:(NSDate *)expirationTime;
 
 @end
 

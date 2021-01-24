@@ -30,6 +30,7 @@
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lock" translatesAutoresizingMaskIntoConstraints="NO" id="CIJ-cd-Ogd">
                                                     <rect key="frame" x="0.0" y="0.0" width="80" height="50"/>
+                                                    <gestureRecognizers/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="50" id="PgY-jm-Azl"/>
                                                         <constraint firstAttribute="width" constant="80" id="zwZ-j6-8pF"/>
@@ -65,6 +66,7 @@
                                         <constraint firstAttribute="trailing" secondItem="4m7-mb-Cp1" secondAttribute="trailing" constant="15" id="Q3G-sd-oXF"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <gestureRecognizers/>
                                 <connections>
                                     <outlet property="learnChapterImageView" destination="CIJ-cd-Ogd" id="m6V-6w-RIX"/>
                                     <outlet property="learnChapterLabel" destination="FgN-en-35b" id="Coz-iG-P6l"/>
@@ -1492,7 +1494,7 @@ Given the properties of each Group of the periodic table, select the correct gro
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B2H-1r-aQ3">
                                                                 <rect key="frame" x="0.0" y="45" width="140" height="35"/>
                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                <state key="normal" title="Group 2">
+                                                                <state key="normal" title="Group 7">
                                                                     <color key="titleColor" systemColor="labelColor"/>
                                                                 </state>
                                                                 <connections>
@@ -1510,7 +1512,7 @@ Given the properties of each Group of the periodic table, select the correct gro
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O7J-Hd-b7c">
                                                                 <rect key="frame" x="0.0" y="0.0" width="140" height="35"/>
                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                <state key="normal" title="Group 7">
+                                                                <state key="normal" title="Group 2">
                                                                     <color key="titleColor" systemColor="labelColor"/>
                                                                 </state>
                                                                 <connections>
@@ -2178,6 +2180,9 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
                                     <subviews>
                                         <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Yj6-P6-Tov">
                                             <rect key="frame" x="286" y="7" width="51" height="31"/>
+                                            <connections>
+                                                <action selector="isDyslexicSwitch:" destination="u3b-ng-oRm" eventType="valueChanged" id="Z9w-po-wSU"/>
+                                            </connections>
                                         </switch>
                                         <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iFd-2V-AeY">
                                             <rect key="frame" x="10" y="10" width="261" height="25"/>
@@ -2209,6 +2214,7 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="contentLabel" destination="kjL-AQ-fhx" id="aiq-2i-u9v"/>
+                                    <outlet property="dyslexicSwitch" destination="Yj6-P6-Tov" id="9G3-GH-fOg"/>
                                     <outlet property="settingsImageView" destination="Aw0-jJ-Izn" id="KRp-gB-64t"/>
                                 </connections>
                             </tableViewCell>
@@ -2821,6 +2827,7 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z7Z-7s-HZM">
                                 <rect key="frame" x="80" y="690" width="230" height="50"/>
                                 <color key="backgroundColor" red="0.91905879970000004" green="0.43814137580000001" blue="0.37824100259999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="dIe-LL-btv"/>
                                 </constraints>
@@ -2829,6 +2836,7 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
                                     <color key="titleColor" systemColor="labelColor"/>
                                 </state>
                                 <connections>
+                                    <outletCollection property="gestureRecognizers" destination="gyt-cr-xHB" appends="YES" id="os6-4Z-yOG"/>
                                     <segue destination="Q5l-gv-pqw" kind="presentation" identifier="startQuiz" modalPresentationStyle="fullScreen" id="BtZ-7b-WOf"/>
                                 </connections>
                             </button>
@@ -2866,6 +2874,11 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kSB-rg-mU7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.5" id="gyt-cr-xHB">
+                    <connections>
+                        <action selector="openDeveloperCenter:" destination="3zK-zc-Ypk" id="H4F-01-n0P"/>
+                    </connections>
+                </pongPressGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="214" y="508"/>
         </scene>
@@ -2988,7 +3001,7 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="q0c-Zz-aob" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="jRP-bA-vTs">
-                        <rect key="frame" x="0.0" y="44" width="390" height="104.33333333333334"/>
+                        <rect key="frame" x="0.0" y="44" width="390" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -3021,6 +3034,21 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dy3-kA-TKd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-3202" y="807"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="HD7-H7-u38">
+            <objects>
+                <viewController id="Aoj-BB-fv4" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="O24-X2-9V1">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="9vc-xJ-erV"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eF1-Wx-oTU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-3203" y="1510"/>
         </scene>
         <!--Quiz Correct Answer View Controller-->
         <scene sceneID="fr1-09-KyP">
@@ -3230,7 +3258,7 @@ Your answer was wrong, but don't worry! You have \(String(10 - currentQuestion))
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="GnF-zJ-RVj"/>
+        <segue reference="YEM-b9-J01"/>
         <segue reference="gvO-ns-Fai"/>
         <segue reference="omW-sG-g2z"/>
         <segue reference="orq-5T-Gly"/>

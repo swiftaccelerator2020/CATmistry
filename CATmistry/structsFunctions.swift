@@ -199,9 +199,9 @@ func changePoints(_ valueChanged: Int){
 import UIKit
 
 struct AppFontName {
-    static let regular = "OpenDyslexic-Regular"
-    static let bold = "OpenDyslexic-Bold"
-    static let italic = "OpenDyslexic-Italic"
+    static let regular = "OpenDyslexic-BoldItalic"
+    static let bold = "OpenDyslexic-BoldItalic"
+    static let italic = "OpenDyslexic-BoldItalic"
 }
 
 extension UIFontDescriptor.AttributeName {

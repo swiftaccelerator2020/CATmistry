@@ -21,9 +21,8 @@ typedef NS_ENUM(NSInteger, FIRErrorCode) {
    */
   FIRErrorCodeUnknown = 0,
   /**
-   * Loading data from the GoogleService-Info.plist file failed. This is a fatal
-   * error and should not be ignored. Further calls to the API will fail and/or
-   * possibly cause crashes.
+   * Loading data from the GoogleService-Info.plist file failed. This is a fatal error and should
+   * not be ignored. Further calls to the API will fail and/or possibly cause crashes.
    */
   FIRErrorCodeInvalidPlistFile = -100,
 
@@ -33,8 +32,8 @@ typedef NS_ENUM(NSInteger, FIRErrorCode) {
   FIRErrorCodeInvalidAppID = -101,
 
   /**
-   * Error code for failing to configure a specific service. It's deprecated,
-   * but still used after copybara.
+   * Error code for failing to configure a specific service. It's deprecated, but
+   * still used after copybara.
    */
   FIRErrorCodeConfigFailed = -114,
 };

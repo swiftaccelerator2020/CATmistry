@@ -19,7 +19,7 @@ var gameFourAttempts = ud.integer(forKey: "gameFourAttempts")
 class SettingsTableViewController: UITableViewController {
 
     var settingsHeaderArray = [
-//        "Accessibility Settings",
+        "Accessibility Settings",
         "Quiz Attempts",
         "Game Attempts",
 //        "General Statistics",
@@ -32,12 +32,13 @@ class SettingsTableViewController: UITableViewController {
     ]
 
     var settingsContentArray = [
-/*        [
+        [
             SettingsContent(
                 labelText: "Dyslexic Text",
                 type: "switchCell",
                 emojiImage: "🅰️"
             ),
+            /*
             SettingsContent(
                 labelText: "Haptics",
                 type: "switchCell",
@@ -48,7 +49,8 @@ class SettingsTableViewController: UITableViewController {
                 type: "switchCell",
                 emojiImage: "🌙"
             ),
-        ], */
+ */
+        ],
 
         [
             SettingsContent(
@@ -163,7 +165,7 @@ class SettingsTableViewController: UITableViewController {
 
         [
             SettingsContent(
-                labelText: "The CATmistry Team: \nNeo Hao Jun - CEO \nWang Zerui - CTO \nChanel Tan - CDO \nRyu Hwina - CMO",
+                labelText: "The CATmistry Team: \nWang Zerui - CEO \nNeo Hao Jun - CTO \nChanel Tan - CDO \nRyu Hwina - CMO",
                 type: "textCell",
                 emojiImage: "👨‍🔬"
             ),
@@ -242,7 +244,7 @@ class SettingsTableViewController: UITableViewController {
             } else if cell.reuseIdentifier == "buttonCell" {
                 cell.shareAction = {
                     let shareText = "CATmistry - Chemistry, Gamified - is a Chemistry learning app specifically designed for Upper Primary to Lower Secondary students. With many interactive learning elements and fun games, CATmistry is sure to provided a fun and engaging learning experience. \n\nFind us on the app store now: https:/"
-                    let shareURL = NSURL(fileURLWithPath: "http://tk.sg/sis20-catmistry")
+                    let shareURL = NSURL(fileURLWithPath: "https://tk.sg/sis20-catmistry")
                     let vc = UIActivityViewController(activityItems: [shareText, shareURL], applicationActivities: [])
                     vc.modalPresentationStyle = .popover
                     self.present(vc, animated: true, completion: nil)

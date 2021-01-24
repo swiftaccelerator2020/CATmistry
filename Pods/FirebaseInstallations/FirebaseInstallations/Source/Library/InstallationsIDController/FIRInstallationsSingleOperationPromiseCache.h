@@ -21,40 +21,35 @@
 NS_ASSUME_NONNULL_BEGIN
 
 /**
- * The class makes sure the a single operation (represented by a promise) is
- * performed at a time. If there is an ongoing operation, then its existing
- * corresponding promise will be returned instead of starting a new operation.
+ * The class makes sure the a single operation (represented by a promise) is performed at a time. If
+ * there is an ongoing operation, then its existing corresponding promise will be returned instead
+ * of starting a new operation.
  */
-@interface FIRInstallationsSingleOperationPromiseCache<__covariant ResultType>
-    : NSObject
+@interface FIRInstallationsSingleOperationPromiseCache<__covariant ResultType> : NSObject
 
 - (instancetype)init NS_UNAVAILABLE;
 
 /**
  * The designated initializer.
- * @param newOperationHandler The block that must return a new promise
- * representing the single-at-a-time operation. The promise should be fulfilled
- * when the operation is completed. The factory block will be used to create a
- * new promise when needed.
+ * @param newOperationHandler The block that must return a new promise representing the
+ * single-at-a-time operation. The promise should be fulfilled when the operation is completed. The
+ * factory block will be used to create a new promise when needed.
  */
 - (instancetype)initWithNewOperationHandler:
-    (FBLPromise<ResultType> *_Nonnull (^)(void))newOperationHandler
-    NS_DESIGNATED_INITIALIZER;
+    (FBLPromise<ResultType> *_Nonnull (^)(void))newOperationHandler NS_DESIGNATED_INITIALIZER;
 
 /**
  * Creates a new promise or returns an existing pending one.
- * @return Returns and existing pending promise if exists. If the pending
- * promise does not exist then a new one will be created using the `factory`
- * block passed in the initializer. Once the pending promise gets resolved, it
- * is removed, so calling the method again will lead to creating and caching
- * another promise.
+ * @return Returns and existing pending promise if exists. If the pending promise does not exist
+ * then a new one will be created using the `factory` block passed in the initializer. Once the
+ * pending promise gets resolved, it is removed, so calling the method again will lead to creating
+ * and caching another promise.
  */
 - (FBLPromise<ResultType> *)getExistingPendingOrCreateNewPromise;
 
 /**
  * Returns an existing pending promise or `nil`.
- * @return Returns an existing pending promise if there is one or `nil`
- * otherwise.
+ * @return Returns an existing pending promise if there is one or `nil` otherwise.
  */
 - (nullable FBLPromise<ResultType> *)getExistingPendingPromise;
 

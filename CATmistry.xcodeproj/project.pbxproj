@@ -40,6 +40,7 @@
 		547F0AD92570F5F900A224D9 /* LearnHomePageTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 547F0AD82570F5F900A224D9 /* LearnHomePageTableViewController.swift */; };
 		547F0ADE2570F66E00A224D9 /* LearnHomePageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 547F0ADD2570F66E00A224D9 /* LearnHomePageTableViewCell.swift */; };
 		547F0AEB2570F85000A224D9 /* structsFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 547F0AEA2570F85000A224D9 /* structsFunctions.swift */; };
+		54833B6525BC2457006DE133 /* DeveloperCenterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54833B6425BC2457006DE133 /* DeveloperCenterViewController.swift */; };
 		548C7E862576897200D2ACD8 /* PlayIdentifyElementsStartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 548C7E852576897200D2ACD8 /* PlayIdentifyElementsStartViewController.swift */; };
 		54B5D28625738FB5006A55F2 /* QuizViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54B5D28525738FB5006A55F2 /* QuizViewController.swift */; };
 		54C1714A2574E44F004ED787 /* SubSubTopicTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C171492574E44F004ED787 /* SubSubTopicTableViewCell.swift */; };
@@ -112,6 +113,7 @@
 		547F0AD82570F5F900A224D9 /* LearnHomePageTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearnHomePageTableViewController.swift; sourceTree = "<group>"; };
 		547F0ADD2570F66E00A224D9 /* LearnHomePageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearnHomePageTableViewCell.swift; sourceTree = "<group>"; };
 		547F0AEA2570F85000A224D9 /* structsFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = structsFunctions.swift; sourceTree = "<group>"; };
+		54833B6425BC2457006DE133 /* DeveloperCenterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeveloperCenterViewController.swift; sourceTree = "<group>"; };
 		548C7E852576897200D2ACD8 /* PlayIdentifyElementsStartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayIdentifyElementsStartViewController.swift; sourceTree = "<group>"; };
 		54B5D28525738FB5006A55F2 /* QuizViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizViewController.swift; sourceTree = "<group>"; };
 		54C171492574E44F004ED787 /* SubSubTopicTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubSubTopicTableViewCell.swift; sourceTree = "<group>"; };
@@ -200,6 +202,7 @@
 				5432EDAD258ED2E800832D12 /* GoogleService-Info.plist */,
 				2613B03F2570DB9000EECB4C /* LaunchScreen.storyboard */,
 				2613B03A2570DB8C00EECB4C /* Main.storyboard */,
+				54833B6425BC2457006DE133 /* DeveloperCenterViewController.swift */,
 				2613B0342570DB8C00EECB4C /* AppDelegate.swift */,
 				2613B0362570DB8C00EECB4C /* SceneDelegate.swift */,
 				547F0AEA2570F85000A224D9 /* structsFunctions.swift */,
@@ -620,6 +623,7 @@
 				261E539D2571486600094DA5 /* PlayHomePageTableViewController.swift in Sources */,
 				2632D7092577D5F00005033F /* PlayAdjustPhDetailsViewController.swift in Sources */,
 				54FEFB0525770AE50054CFF9 /* PlayIdentifyElementsSecondViewController.swift in Sources */,
+				54833B6525BC2457006DE133 /* DeveloperCenterViewController.swift in Sources */,
 				267F9EE9258837B30066BFAB /* QuizWrongAnswerViewController.swift in Sources */,
 				267F9F00258887F30066BFAB /* QuizStartViewController.swift in Sources */,
 				2613B0372570DB8C00EECB4C /* SceneDelegate.swift in Sources */,
@@ -807,14 +811,14 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = CATmistry/CATmistry.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = XL5JK4F896;
 				INFOPLIST_FILE = CATmistry/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1.0;
+				MARKETING_VERSION = 1.2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = sg.tk.2020.CATmistry;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTS_MACCATALYST = NO;
@@ -831,14 +835,14 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = CATmistry/CATmistry.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = XL5JK4F896;
 				INFOPLIST_FILE = CATmistry/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1.0;
+				MARKETING_VERSION = 1.2.0;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = sg.tk.2020.CATmistry;
 				PRODUCT_NAME = "$(TARGET_NAME)";

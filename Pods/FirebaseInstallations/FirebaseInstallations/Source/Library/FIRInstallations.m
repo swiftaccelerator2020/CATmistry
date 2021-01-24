@@ -42,8 +42,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, readonly) FIROptions *appOptions;
 @property(nonatomic, readonly) NSString *appName;
 
-@property(nonatomic, readonly)
-    FIRInstallationsIDController *installationsIDController;
+@property(nonatomic, readonly) FIRInstallationsIDController *installationsIDController;
 
 @end
 
@@ -54,24 +53,22 @@ NS_ASSUME_NONNULL_BEGIN
 + (void)load {
   [FIRApp registerInternalLibrary:(Class<FIRLibrary>)self
                          withName:@"fire-install"
-                      withVersion:[NSString stringWithUTF8String:
-                                                FIRInstallationsVersionStr]];
+                      withVersion:[NSString stringWithUTF8String:FIRInstallationsVersionStr]];
 }
 
 + (nonnull NSArray<FIRComponent *> *)componentsToRegister {
   FIRComponentCreationBlock creationBlock =
       ^id _Nullable(FIRComponentContainer *container, BOOL *isCacheable) {
     *isCacheable = YES;
-    FIRInstallations *installations =
-        [[FIRInstallations alloc] initWithApp:container.app];
+    FIRInstallations *installations = [[FIRInstallations alloc] initWithApp:container.app];
     return installations;
   };
 
-  FIRComponent *installationsProvider = [FIRComponent
-      componentWithProtocol:@protocol(FIRInstallationsInstanceProvider)
-        instantiationTiming:FIRInstantiationTimingAlwaysEager
-               dependencies:@[]
-              creationBlock:creationBlock];
+  FIRComponent *installationsProvider =
+      [FIRComponent componentWithProtocol:@protocol(FIRInstallationsInstanceProvider)
+                      instantiationTiming:FIRInstantiationTimingAlwaysEager
+                             dependencies:@[]
+                            creationBlock:creationBlock];
   return @[ installationsProvider ];
 }
 
@@ -79,16 +76,14 @@ NS_ASSUME_NONNULL_BEGIN
   return [self initWitAppOptions:app.options appName:app.name];
 }
 
-- (instancetype)initWitAppOptions:(FIROptions *)appOptions
-                          appName:(NSString *)appName {
+- (instancetype)initWitAppOptions:(FIROptions *)appOptions appName:(NSString *)appName {
   FIRInstallationsIDController *IDController =
-      [[FIRInstallationsIDController alloc]
-          initWithGoogleAppID:appOptions.googleAppID
-                      appName:appName
-                       APIKey:appOptions.APIKey
-                    projectID:appOptions.projectID
-                  GCMSenderID:appOptions.GCMSenderID
-                  accessGroup:appOptions.appGroupID];
+      [[FIRInstallationsIDController alloc] initWithGoogleAppID:appOptions.googleAppID
+                                                        appName:appName
+                                                         APIKey:appOptions.APIKey
+                                                      projectID:appOptions.projectID
+                                                    GCMSenderID:appOptions.GCMSenderID
+                                                    accessGroup:appOptions.appGroupID];
 
   // `prefetchAuthToken` is disabled due to b/156746574.
   return [self initWithAppOptions:appOptions
@@ -97,12 +92,10 @@ NS_ASSUME_NONNULL_BEGIN
                 prefetchAuthToken:NO];
 }
 
-/// The initializer is supposed to be used by tests to inject
-/// `installationsStore`.
+/// The initializer is supposed to be used by tests to inject `installationsStore`.
 - (instancetype)initWithAppOptions:(FIROptions *)appOptions
                            appName:(NSString *)appName
-         installationsIDController:
-             (FIRInstallationsIDController *)installationsIDController
+         installationsIDController:(FIRInstallationsIDController *)installationsIDController
                  prefetchAuthToken:(BOOL)prefetchAuthToken {
   self = [super init];
   if (self) {
@@ -115,17 +108,15 @@ NS_ASSUME_NONNULL_BEGIN
 
     // Pre-fetch auth token.
     if (prefetchAuthToken) {
-      [self authTokenWithCompletion:^(
-                FIRInstallationsAuthTokenResult *_Nullable tokenResult,
-                NSError *_Nullable error){
+      [self authTokenWithCompletion:^(FIRInstallationsAuthTokenResult *_Nullable tokenResult,
+                                      NSError *_Nullable error){
       }];
     }
   }
   return self;
 }
 
-+ (void)validateAppOptions:(FIROptions *)appOptions
-                   appName:(NSString *)appName {
++ (void)validateAppOptions:(FIROptions *)appOptions appName:(NSString *)appName {
   NSMutableArray *missingFields = [NSMutableArray array];
   if (appName.length < 1) {
     [missingFields addObject:@"`FirebaseApp.name`"];
@@ -144,19 +135,16 @@ NS_ASSUME_NONNULL_BEGIN
   }
 
   if (missingFields.count > 0) {
-    [NSException raise:kFirebaseInstallationsErrorDomain
-                format:@"%@[%@] Could not configure Firebase Installations due "
-                       @"to invalid FirebaseApp "
-                       @"options. The following parameters are nil or empty: "
-                       @"%@. If you use "
-                       @"GoogleServices-Info.plist please download the most "
-                       @"recent version from the Firebase "
-                       @"Console. If you configure Firebase in code, please "
-                       @"make sure you specify all "
-                       @"required parameters.",
-                       kFIRLoggerInstallations,
-                       kFIRInstallationsMessageCodeInvalidFirebaseAppOptions,
-                       [missingFields componentsJoinedByString:@", "]];
+    [NSException
+         raise:kFirebaseInstallationsErrorDomain
+        format:
+            @"%@[%@] Could not configure Firebase Installations due to invalid FirebaseApp "
+            @"options. The following parameters are nil or empty: %@. If you use "
+            @"GoogleServices-Info.plist please download the most recent version from the Firebase "
+            @"Console. If you configure Firebase in code, please make sure you specify all "
+            @"required parameters.",
+            kFIRLoggerInstallations, kFIRInstallationsMessageCodeInvalidFirebaseAppOptions,
+            [missingFields componentsJoinedByString:@", "]];
   }
 }
 
@@ -165,16 +153,12 @@ NS_ASSUME_NONNULL_BEGIN
 + (FIRInstallations *)installations {
   FIRApp *defaultApp = [FIRApp defaultApp];
   if (!defaultApp) {
-    [NSException
-         raise:kFirebaseInstallationsErrorDomain
-        format:@"The default FirebaseApp instance must be configured before "
-               @"the default"
-               @"FirebaseApp instance can be initialized. One way to ensure "
-               @"that is to "
-               @"call `[FIRApp configure];` (`FirebaseApp.configure()` in "
-               @"Swift) in the App"
-               @" Delegate's `application:didFinishLaunchingWithOptions:` "
-               @"(`application(_:didFinishLaunchingWithOptions:)` in Swift)."];
+    [NSException raise:kFirebaseInstallationsErrorDomain
+                format:@"The default FirebaseApp instance must be configured before the default"
+                       @"FirebaseApp instance can be initialized. One way to ensure that is to "
+                       @"call `[FIRApp configure];` (`FirebaseApp.configure()` in Swift) in the App"
+                       @" Delegate's `application:didFinishLaunchingWithOptions:` "
+                       @"(`application(_:didFinishLaunchingWithOptions:)` in Swift)."];
   }
 
   return [self installationsWithApp:defaultApp];
@@ -193,8 +177,7 @@ NS_ASSUME_NONNULL_BEGIN
         return nil;
       })
       .catch(^(NSError *error) {
-        completion(
-            nil, [FIRInstallationsErrorUtil publicDomainErrorWithError:error]);
+        completion(nil, [FIRInstallationsErrorUtil publicDomainErrorWithError:error]);
       });
 }
 
@@ -205,12 +188,10 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)authTokenForcingRefresh:(BOOL)forceRefresh
                      completion:(FIRInstallationsTokenHandler)completion {
   [self.installationsIDController getAuthTokenForcingRefresh:forceRefresh]
-      .then(^FIRInstallationsAuthTokenResult *(
-          FIRInstallationsItem *installation) {
-        FIRInstallationsAuthTokenResult *result =
-            [[FIRInstallationsAuthTokenResult alloc]
-                 initWithToken:installation.authToken.token
-                expirationDate:installation.authToken.expirationDate];
+      .then(^FIRInstallationsAuthTokenResult *(FIRInstallationsItem *installation) {
+        FIRInstallationsAuthTokenResult *result = [[FIRInstallationsAuthTokenResult alloc]
+             initWithToken:installation.authToken.token
+            expirationDate:installation.authToken.expirationDate];
         return result;
       })
       .then(^id(FIRInstallationsAuthTokenResult *token) {
@@ -218,8 +199,7 @@ NS_ASSUME_NONNULL_BEGIN
         return nil;
       })
       .catch(^void(NSError *error) {
-        completion(
-            nil, [FIRInstallationsErrorUtil publicDomainErrorWithError:error]);
+        completion(nil, [FIRInstallationsErrorUtil publicDomainErrorWithError:error]);
       });
 }
 
@@ -230,8 +210,7 @@ NS_ASSUME_NONNULL_BEGIN
         return nil;
       })
       .catch(^void(NSError *error) {
-        completion(
-            [FIRInstallationsErrorUtil publicDomainErrorWithError:error]);
+        completion([FIRInstallationsErrorUtil publicDomainErrorWithError:error]);
       });
 }
 
@@ -244,10 +223,8 @@ NS_ASSUME_NONNULL_BEGIN
 #else
   if (![self isIIDVersionCompatible]) {
     [NSException raise:kFirebaseInstallationsErrorDomain
-                format:@"FirebaseInstallations will not work correctly with "
-                       @"current version of "
-                       @"Firebase Instance ID. Please update your Firebase "
-                       @"Instance ID version."];
+                format:@"FirebaseInstallations will not work correctly with current version of "
+                       @"Firebase Instance ID. Please update your Firebase Instance ID version."];
   }
 #endif
 }
@@ -258,10 +235,8 @@ NS_ASSUME_NONNULL_BEGIN
     // It is OK if there is no IID at all.
     return YES;
   }
-  // We expect a compatible version having the method `+[FIRInstanceID usesFIS]`
-  // defined.
-  BOOL isCompatibleVersion =
-      [IIDClass respondsToSelector:NSSelectorFromString(@"usesFIS")];
+  // We expect a compatible version having the method `+[FIRInstanceID usesFIS]` defined.
+  BOOL isCompatibleVersion = [IIDClass respondsToSelector:NSSelectorFromString(@"usesFIS")];
   return isCompatibleVersion;
 }
 

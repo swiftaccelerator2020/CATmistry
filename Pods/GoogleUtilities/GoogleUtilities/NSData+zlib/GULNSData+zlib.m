@@ -19,16 +19,13 @@
 #define kChunkSize 1024
 #define Z_DEFAULT_COMPRESSION (-1)
 
-NSString *const GULNSDataZlibErrorDomain =
-    @"com.google.GULNSDataZlibErrorDomain";
+NSString *const GULNSDataZlibErrorDomain = @"com.google.GULNSDataZlibErrorDomain";
 NSString *const GULNSDataZlibErrorKey = @"GULNSDataZlibErrorKey";
-NSString *const GULNSDataZlibRemainingBytesKey =
-    @"GULNSDataZlibRemainingBytesKey";
+NSString *const GULNSDataZlibRemainingBytesKey = @"GULNSDataZlibRemainingBytesKey";
 
 @implementation NSData (GULGzip)
 
-+ (NSData *)gul_dataByInflatingGzippedData:(NSData *)data
-                                     error:(NSError **)error {
++ (NSData *)gul_dataByInflatingGzippedData:(NSData *)data error:(NSError **)error {
   const void *bytes = [data bytes];
   NSUInteger length = [data length];
   if (!bytes || !length) {
@@ -49,15 +46,14 @@ NSString *const GULNSDataZlibRemainingBytesKey =
   strm.avail_in = (unsigned int)length;
   strm.next_in = (unsigned char *)bytes;
 
-  int windowBits = 15; // 15 to enable any window size
-  windowBits += 32;    // and +32 to enable zlib or gzip header detection.
+  int windowBits = 15;  // 15 to enable any window size
+  windowBits += 32;     // and +32 to enable zlib or gzip header detection.
 
   int retCode;
   if ((retCode = inflateInit2(&strm, windowBits)) != Z_OK) {
     if (error) {
-      NSDictionary *userInfo =
-          [NSDictionary dictionaryWithObject:[NSNumber numberWithInt:retCode]
-                                      forKey:GULNSDataZlibErrorKey];
+      NSDictionary *userInfo = [NSDictionary dictionaryWithObject:[NSNumber numberWithInt:retCode]
+                                                           forKey:GULNSDataZlibErrorKey];
       *error = [NSError errorWithDomain:GULNSDataZlibErrorDomain
                                    code:GULNSDataZlibErrorInternal
                                userInfo:userInfo];
@@ -77,9 +73,9 @@ NSString *const GULNSDataZlibRemainingBytesKey =
     retCode = inflate(&strm, Z_NO_FLUSH);
     if ((retCode != Z_OK) && (retCode != Z_STREAM_END)) {
       if (error) {
-        NSMutableDictionary *userInfo = [NSMutableDictionary
-            dictionaryWithObject:[NSNumber numberWithInt:retCode]
-                          forKey:GULNSDataZlibErrorKey];
+        NSMutableDictionary *userInfo =
+            [NSMutableDictionary dictionaryWithObject:[NSNumber numberWithInt:retCode]
+                                               forKey:GULNSDataZlibErrorKey];
         if (strm.msg) {
           NSString *message = [NSString stringWithUTF8String:strm.msg];
           if (message) {
@@ -101,13 +97,12 @@ NSString *const GULNSDataZlibRemainingBytesKey =
 
   } while (retCode == Z_OK);
 
-  // Make sure there wasn't more data tacked onto the end of a valid compressed
-  // stream.
+  // Make sure there wasn't more data tacked onto the end of a valid compressed stream.
   if (strm.avail_in != 0) {
     if (error) {
-      NSDictionary *userInfo = [NSDictionary
-          dictionaryWithObject:[NSNumber numberWithUnsignedInt:strm.avail_in]
-                        forKey:GULNSDataZlibRemainingBytesKey];
+      NSDictionary *userInfo =
+          [NSDictionary dictionaryWithObject:[NSNumber numberWithUnsignedInt:strm.avail_in]
+                                      forKey:GULNSDataZlibRemainingBytesKey];
       *error = [NSError errorWithDomain:GULNSDataZlibErrorDomain
                                    code:GULNSDataZlibErrorDataRemaining
                                userInfo:userInfo];
@@ -116,9 +111,7 @@ NSString *const GULNSDataZlibRemainingBytesKey =
   }
   // The only way out of the loop was by hitting the end of the stream.
   NSAssert(retCode == Z_STREAM_END,
-           @"Thought we finished inflate w/o getting a result of stream end, "
-           @"code %d",
-           retCode);
+           @"Thought we finished inflate w/o getting a result of stream end, code %d", retCode);
 
   // Clean up.
   inflateEnd(&strm);
@@ -139,10 +132,9 @@ NSString *const GULNSDataZlibRemainingBytesKey =
   // Don't support > 32bit length for 64 bit, see note in header.
   if (length > UINT_MAX) {
     if (error) {
-      *error =
-          [NSError errorWithDomain:GULNSDataZlibErrorDomain
-                              code:GULNSDataZlibErrorGreaterThan32BitsToCompress
-                          userInfo:nil];
+      *error = [NSError errorWithDomain:GULNSDataZlibErrorDomain
+                                   code:GULNSDataZlibErrorGreaterThan32BitsToCompress
+                               userInfo:nil];
     }
     return nil;
   }
@@ -151,16 +143,15 @@ NSString *const GULNSDataZlibRemainingBytesKey =
   z_stream strm;
   bzero(&strm, sizeof(z_stream));
 
-  int memLevel = 8;         // Default.
-  int windowBits = 15 + 16; // Enable gzip header instead of zlib header.
+  int memLevel = 8;          // Default.
+  int windowBits = 15 + 16;  // Enable gzip header instead of zlib header.
 
   int retCode;
   if ((retCode = deflateInit2(&strm, level, Z_DEFLATED, windowBits, memLevel,
                               Z_DEFAULT_STRATEGY)) != Z_OK) {
     if (error) {
-      NSDictionary *userInfo =
-          [NSDictionary dictionaryWithObject:[NSNumber numberWithInt:retCode]
-                                      forKey:GULNSDataZlibErrorKey];
+      NSDictionary *userInfo = [NSDictionary dictionaryWithObject:[NSNumber numberWithInt:retCode]
+                                                           forKey:GULNSDataZlibErrorKey];
       *error = [NSError errorWithDomain:GULNSDataZlibErrorDomain
                                    code:GULNSDataZlibErrorInternal
                                userInfo:userInfo];
@@ -184,9 +175,8 @@ NSString *const GULNSDataZlibRemainingBytesKey =
     retCode = deflate(&strm, Z_FINISH);
     if ((retCode != Z_OK) && (retCode != Z_STREAM_END)) {
       if (error) {
-        NSDictionary *userInfo =
-            [NSDictionary dictionaryWithObject:[NSNumber numberWithInt:retCode]
-                                        forKey:GULNSDataZlibErrorKey];
+        NSDictionary *userInfo = [NSDictionary dictionaryWithObject:[NSNumber numberWithInt:retCode]
+                                                             forKey:GULNSDataZlibErrorKey];
         *error = [NSError errorWithDomain:GULNSDataZlibErrorDomain
                                      code:GULNSDataZlibErrorInternal
                                  userInfo:userInfo];
@@ -203,14 +193,10 @@ NSString *const GULNSDataZlibRemainingBytesKey =
   } while (retCode == Z_OK);
 
   // If the loop exits, it used all input and the stream ended.
-  NSAssert(
-      strm.avail_in == 0,
-      @"Should have finished deflating without using all input, %u bytes left",
-      strm.avail_in);
+  NSAssert(strm.avail_in == 0,
+           @"Should have finished deflating without using all input, %u bytes left", strm.avail_in);
   NSAssert(retCode == Z_STREAM_END,
-           @"thought we finished deflate w/o getting a result of stream end, "
-           @"code %d",
-           retCode);
+           @"thought we finished deflate w/o getting a result of stream end, code %d", retCode);
 
   // Clean up.
   deflateEnd(&strm);

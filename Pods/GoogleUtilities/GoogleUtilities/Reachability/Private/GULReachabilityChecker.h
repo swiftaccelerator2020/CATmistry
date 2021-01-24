@@ -21,11 +21,10 @@
 
 /// Reachability Status
 typedef enum {
-  kGULReachabilityUnknown, ///< Have not yet checked or been notified whether
-                           ///< host is reachable.
-  kGULReachabilityNotReachable, ///< Host is not reachable.
-  kGULReachabilityViaWifi,      ///< Host is reachable via Wifi.
-  kGULReachabilityViaCellular,  ///< Host is reachable via cellular.
+  kGULReachabilityUnknown,  ///< Have not yet checked or been notified whether host is reachable.
+  kGULReachabilityNotReachable,  ///< Host is not reachable.
+  kGULReachabilityViaWifi,       ///< Host is reachable via Wifi.
+  kGULReachabilityViaCellular,   ///< Host is reachable via cellular.
 } GULReachabilityStatus;
 
 const NSString *GULReachabilityStatusString(GULReachabilityStatus status);
@@ -53,29 +52,28 @@ const NSString *GULReachabilityStatusString(GULReachabilityStatus status);
 /// `YES` if the reachability checker is active, `NO` otherwise.
 @property(nonatomic, readonly) BOOL isActive;
 
-/// Initialize the reachability checker. Note that you must call start to begin
-/// checking for and receiving notifications about network status changes.
+/// Initialize the reachability checker. Note that you must call start to begin checking for and
+/// receiving notifications about network status changes.
 ///
-/// @param reachabilityDelegate The delegate to be notified when reachability
-/// status to host changes.
+/// @param reachabilityDelegate The delegate to be notified when reachability status to host
+/// changes.
 ///
 /// @param host The name of the host.
 ///
-- (instancetype)initWithReachabilityDelegate:
-                    (id<GULReachabilityDelegate>)reachabilityDelegate
+- (instancetype)initWithReachabilityDelegate:(id<GULReachabilityDelegate>)reachabilityDelegate
                                     withHost:(NSString *)host;
 
 - (instancetype)init NS_UNAVAILABLE;
 
-/// Start checking for reachability to the specified host. This has no effect if
-/// the status checker is already checking for connectivity.
+/// Start checking for reachability to the specified host. This has no effect if the status
+/// checker is already checking for connectivity.
 ///
-/// @return `YES` if initiating status checking was successful or the status
-/// checking has already been initiated, `NO` otherwise.
+/// @return `YES` if initiating status checking was successful or the status checking has already
+/// been initiated, `NO` otherwise.
 - (BOOL)start;
 
-/// Stop checking for reachability to the specified host. This has no effect if
-/// the status checker is not checking for connectivity.
+/// Stop checking for reachability to the specified host. This has no effect if the status
+/// checker is not checking for connectivity.
 - (void)stop;
 
 @end

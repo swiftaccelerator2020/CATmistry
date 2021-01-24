@@ -20,10 +20,8 @@
 
 NSString *const kFIRInstallationsStoredAuthTokenStatusKey = @"status";
 NSString *const kFIRInstallationsStoredAuthTokenTokenKey = @"token";
-NSString *const kFIRInstallationsStoredAuthTokenExpirationDateKey =
-    @"expirationDate";
-NSString *const kFIRInstallationsStoredAuthTokenStorageVersionKey =
-    @"storageVersion";
+NSString *const kFIRInstallationsStoredAuthTokenExpirationDateKey = @"expirationDate";
+NSString *const kFIRInstallationsStoredAuthTokenStorageVersionKey = @"storageVersion";
 
 NSInteger const kFIRInstallationsStoredAuthTokenStorageVersion = 1;
 
@@ -34,8 +32,7 @@ NSInteger const kFIRInstallationsStoredAuthTokenStorageVersion = 1;
 }
 
 - (nonnull id)copyWithZone:(nullable NSZone *)zone {
-  FIRInstallationsStoredAuthToken *clone =
-      [[FIRInstallationsStoredAuthToken alloc] init];
+  FIRInstallationsStoredAuthToken *clone = [[FIRInstallationsStoredAuthToken alloc] init];
   clone.status = self.status;
   clone.token = [self.token copy];
   clone.expirationDate = self.expirationDate;
@@ -43,10 +40,8 @@ NSInteger const kFIRInstallationsStoredAuthTokenStorageVersion = 1;
 }
 
 - (void)encodeWithCoder:(nonnull NSCoder *)aCoder {
-  [aCoder encodeInteger:self.status
-                 forKey:kFIRInstallationsStoredAuthTokenStatusKey];
-  [aCoder encodeObject:self.token
-                forKey:kFIRInstallationsStoredAuthTokenTokenKey];
+  [aCoder encodeInteger:self.status forKey:kFIRInstallationsStoredAuthTokenStatusKey];
+  [aCoder encodeObject:self.token forKey:kFIRInstallationsStoredAuthTokenTokenKey];
   [aCoder encodeObject:self.expirationDate
                 forKey:kFIRInstallationsStoredAuthTokenExpirationDateKey];
   [aCoder encodeInteger:self.storageVersion
@@ -54,29 +49,23 @@ NSInteger const kFIRInstallationsStoredAuthTokenStorageVersion = 1;
 }
 
 - (nullable instancetype)initWithCoder:(nonnull NSCoder *)aDecoder {
-  NSInteger storageVersion = [aDecoder
-      decodeIntegerForKey:kFIRInstallationsStoredAuthTokenStorageVersionKey];
+  NSInteger storageVersion =
+      [aDecoder decodeIntegerForKey:kFIRInstallationsStoredAuthTokenStorageVersionKey];
   if (storageVersion > kFIRInstallationsStoredAuthTokenStorageVersion) {
-    FIRLogWarning(
-        kFIRLoggerInstallations,
-        kFIRInstallationsMessageCodeAuthTokenCoderVersionMismatch,
-        @"FIRInstallationsStoredAuthToken was encoded by a newer coder version "
-        @"%ld. "
-        @"Current coder version is %ld. Some auth token data may be lost.",
-        (long)storageVersion,
-        (long)kFIRInstallationsStoredAuthTokenStorageVersion);
+    FIRLogWarning(kFIRLoggerInstallations,
+                  kFIRInstallationsMessageCodeAuthTokenCoderVersionMismatch,
+                  @"FIRInstallationsStoredAuthToken was encoded by a newer coder version %ld. "
+                  @"Current coder version is %ld. Some auth token data may be lost.",
+                  (long)storageVersion, (long)kFIRInstallationsStoredAuthTokenStorageVersion);
   }
 
-  FIRInstallationsStoredAuthToken *object =
-      [[FIRInstallationsStoredAuthToken alloc] init];
-  object.status =
-      [aDecoder decodeIntegerForKey:kFIRInstallationsStoredAuthTokenStatusKey];
-  object.token =
-      [aDecoder decodeObjectOfClass:[NSString class]
-                             forKey:kFIRInstallationsStoredAuthTokenTokenKey];
-  object.expirationDate = [aDecoder
-      decodeObjectOfClass:[NSDate class]
-                   forKey:kFIRInstallationsStoredAuthTokenExpirationDateKey];
+  FIRInstallationsStoredAuthToken *object = [[FIRInstallationsStoredAuthToken alloc] init];
+  object.status = [aDecoder decodeIntegerForKey:kFIRInstallationsStoredAuthTokenStatusKey];
+  object.token = [aDecoder decodeObjectOfClass:[NSString class]
+                                        forKey:kFIRInstallationsStoredAuthTokenTokenKey];
+  object.expirationDate =
+      [aDecoder decodeObjectOfClass:[NSDate class]
+                             forKey:kFIRInstallationsStoredAuthTokenExpirationDateKey];
 
   return object;
 }

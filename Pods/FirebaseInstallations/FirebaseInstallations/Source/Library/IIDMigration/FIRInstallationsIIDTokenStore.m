@@ -26,8 +26,7 @@
 
 #import "FirebaseInstallations/Source/Library/Errors/FIRInstallationsErrorUtil.h"
 
-static NSString *const kFIRInstallationsIIDTokenKeychainId =
-    @"com.google.iid-tokens";
+static NSString *const kFIRInstallationsIIDTokenKeychainId = @"com.google.iid-tokens";
 
 @interface FIRInstallationsIIDTokenInfo : NSObject <NSSecureCoding>
 @property(nonatomic, nullable, copy) NSString *token;
@@ -70,11 +69,10 @@ static NSString *const kFIRInstallationsIIDTokenKeychainId =
   return [[FBLPromise onQueue:dispatch_get_global_queue(QOS_CLASS_UTILITY, 0)
                            do:^id _Nullable {
                              return [self IIDDefaultTokenData];
-                           }]
-      onQueue:dispatch_get_global_queue(QOS_CLASS_UTILITY, 0)
-         then:^id _Nullable(NSData *_Nullable keychainData) {
-           return [self IIDCheckinWithData:keychainData];
-         }];
+                           }] onQueue:dispatch_get_global_queue(QOS_CLASS_UTILITY, 0)
+                                 then:^id _Nullable(NSData *_Nullable keychainData) {
+                                   return [self IIDCheckinWithData:keychainData];
+                                 }];
 }
 
 - (FBLPromise<NSString *> *)IIDCheckinWithData:(NSData *)data {
@@ -83,9 +81,7 @@ static NSString *const kFIRInstallationsIIDTokenKeychainId =
   NSError *archiverError;
   NSKeyedUnarchiver *unarchiver;
   if (@available(iOS 11.0, tvOS 11.0, macOS 10.13, *)) {
-    unarchiver =
-        [[NSKeyedUnarchiver alloc] initForReadingFromData:data
-                                                    error:&archiverError];
+    unarchiver = [[NSKeyedUnarchiver alloc] initForReadingFromData:data error:&archiverError];
   } else {
     @try {
 #pragma clang diagnostic push
@@ -93,20 +89,17 @@ static NSString *const kFIRInstallationsIIDTokenKeychainId =
       unarchiver = [[NSKeyedUnarchiver alloc] initForReadingWithData:data];
 #pragma clang diagnostic pop
     } @catch (NSException *exception) {
-      archiverError =
-          [FIRInstallationsErrorUtil keyedArchiverErrorWithException:exception];
+      archiverError = [FIRInstallationsErrorUtil keyedArchiverErrorWithException:exception];
     }
   }
 
   if (!unarchiver) {
-    NSError *error =
-        archiverError ?: [FIRInstallationsErrorUtil corruptedIIDTokenData];
+    NSError *error = archiverError ?: [FIRInstallationsErrorUtil corruptedIIDTokenData];
     [resultPromise reject:error];
     return resultPromise;
   }
 
-  [unarchiver setClass:[FIRInstallationsIIDTokenInfo class]
-          forClassName:@"FIRInstanceIDTokenInfo"];
+  [unarchiver setClass:[FIRInstallationsIIDTokenInfo class] forClassName:@"FIRInstanceIDTokenInfo"];
   FIRInstallationsIIDTokenInfo *IIDTokenInfo =
       [unarchiver decodeObjectOfClass:[FIRInstallationsIIDTokenInfo class]
                                forKey:NSKeyedArchiveRootObjectKey];
@@ -132,21 +125,17 @@ static NSString *const kFIRInstallationsIIDTokenKeychainId =
     [resultPromise fulfill:data];
     return resultPromise;
   } else {
-    NSError *outError =
-        error ?: [FIRInstallationsErrorUtil corruptedIIDTokenData];
+    NSError *outError = error ?: [FIRInstallationsErrorUtil corruptedIIDTokenData];
     [resultPromise reject:outError];
     return resultPromise;
   }
 }
 
 - (NSMutableDictionary *)IIDDefaultTokenDataKeychainQuery {
-  NSDictionary *query =
-      @{(__bridge id)kSecClass : (__bridge id)kSecClassGenericPassword};
+  NSDictionary *query = @{(__bridge id)kSecClass : (__bridge id)kSecClassGenericPassword};
 
-  NSMutableDictionary *finalQuery =
-      [NSMutableDictionary dictionaryWithDictionary:query];
-  finalQuery[(__bridge NSString *)kSecAttrGeneric] =
-      kFIRInstallationsIIDTokenKeychainId;
+  NSMutableDictionary *finalQuery = [NSMutableDictionary dictionaryWithDictionary:query];
+  finalQuery[(__bridge NSString *)kSecAttrGeneric] = kFIRInstallationsIIDTokenKeychainId;
 
   NSString *account = [self IIDAppIdentifier];
   if ([account length]) {
@@ -162,8 +151,7 @@ static NSString *const kFIRInstallationsIIDTokenKeychainId =
   return [[NSBundle mainBundle] bundleIdentifier] ?: @"";
 }
 
-- (NSString *)serviceKeyForAuthorizedEntity:(NSString *)authorizedEntity
-                                      scope:(NSString *)scope {
+- (NSString *)serviceKeyForAuthorizedEntity:(NSString *)authorizedEntity scope:(NSString *)scope {
   return [NSString stringWithFormat:@"%@:%@", authorizedEntity, scope];
 }
 

@@ -16,12 +16,11 @@
 
 #import <Foundation/Foundation.h>
 
-NSString *const kGULNetworkBackgroundSessionConfigIDPrefix =
-    @"com.gul.network.background-upload";
+NSString *const kGULNetworkBackgroundSessionConfigIDPrefix = @"com.gul.network.background-upload";
 NSString *const kGULNetworkApplicationSupportSubdirectory = @"GUL/Network";
 NSString *const kGULNetworkTempDirectoryName = @"GULNetworkTemporaryDirectory";
-const NSTimeInterval kGULNetworkTempFolderExpireTime = 60 * 60; // 1 hour
-const NSTimeInterval kGULNetworkTimeOutInterval = 60;           // 1 minute.
+const NSTimeInterval kGULNetworkTempFolderExpireTime = 60 * 60;  // 1 hour
+const NSTimeInterval kGULNetworkTimeOutInterval = 60;            // 1 minute.
 NSString *const kGULNetworkReachabilityHost = @"app-measurement.com";
 NSString *const kGULNetworkErrorContext = @"Context";
 

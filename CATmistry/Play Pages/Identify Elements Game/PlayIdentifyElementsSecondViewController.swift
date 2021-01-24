@@ -29,8 +29,9 @@ class PlayIdentifyElementsSecondViewController: UIViewController {
     var timeLeftTrack: Int!
     var level: Int!
 
-    let color = UIColor(red: 88/255, green: 214/255, blue: 141/255, alpha: 1)
-
+    // let color = UIColor(red: 88/255, green: 214/255, blue: 141/255, alpha: 1)
+    let color = UIColor(red: 240/255, green: 215/255, blue: 224/255, alpha: 1)
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         gameTopicArray.shuffle()

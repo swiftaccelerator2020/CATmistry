@@ -10,15 +10,16 @@
 #endif
 #endif
 
-#import "FIRDataEventType.h"
-#import "FIRDataSnapshot.h"
 #import "FIRDatabase.h"
 #import "FIRDatabaseQuery.h"
 #import "FIRDatabaseReference.h"
+#import "FIRDataEventType.h"
+#import "FIRDataSnapshot.h"
+#import "FirebaseDatabase.h"
 #import "FIRMutableData.h"
 #import "FIRServerValue.h"
 #import "FIRTransactionResult.h"
-#import "FirebaseDatabase.h"
 
 FOUNDATION_EXPORT double FirebaseDatabaseVersionNumber;
 FOUNDATION_EXPORT const unsigned char FirebaseDatabaseVersionString[];
+

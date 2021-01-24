@@ -19,8 +19,7 @@
 
 #import <Foundation/Foundation.h>
 
-// The has_include is a workaround so the old IID needed for the FIS tests can
-// find the headers.
+// The has_include is a workaround so the old IID needed for the FIS tests can find the headers.
 #if __has_include("FirebaseCore/Sources/Private/FIRComponent.h")
 #import "FirebaseCore/Sources/Private/FIRComponent.h"
 #else
@@ -31,8 +30,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-/// Provide an interface to register a library for userAgent logging and
-/// availability to others.
+/// Provide an interface to register a library for userAgent logging and availability to others.
 NS_SWIFT_NAME(Library)
 @protocol FIRLibrary
 
@@ -41,9 +39,8 @@ NS_SWIFT_NAME(Library)
 + (NSArray<FIRComponent *> *)componentsToRegister;
 
 @optional
-/// Implement this method if the library needs notifications for lifecycle
-/// events. This method is called when the developer calls
-/// `FirebaseApp.configure()`.
+/// Implement this method if the library needs notifications for lifecycle events. This method is
+/// called when the developer calls `FirebaseApp.configure()`.
 + (void)configureWithApp:(FIRApp *)app;
 
 @end

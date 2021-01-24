@@ -20,5 +20,4 @@
 #define STR(x) STR_EXPAND(x)
 #define STR_EXPAND(x) #x
 
-const char *const FIRInstallationsVersionStr =
-    (const char *const)STR(FIRInstallations_LIB_VERSION);
+const char *const FIRInstallationsVersionStr = (const char *const)STR(FIRInstallations_LIB_VERSION);

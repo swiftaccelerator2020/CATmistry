@@ -9,16 +9,14 @@ import UIKit
 import Firebase
 import FirebaseDatabase
 
+var isDyslexic = ud.bool(forKey: "dyslexic")
+
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     override init() {
         super.init()
-        
-        let ud = UserDefaults.standard
-        let isDyslexic = ud.bool(forKey: "dyslexic")
-
-        if isDyslexic == true {
+        if isDyslexic {
             UIFont.overrideInitialize()
         }
     }

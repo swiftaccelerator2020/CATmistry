@@ -26,35 +26,25 @@ extern NSString *const kFIRInstallationsMessageCodeAPIRequestNetworkError;
 extern NSString *const kFIRInstallationsMessageCodeAPIRequestResponse;
 extern NSString *const kFIRInstallationsMessageCodeUnexpectedAPIRequestResponse;
 extern NSString *const kFIRInstallationsMessageCodeParsingAPIResponse;
-extern NSString
-    *const kFIRInstallationsMessageCodeAPIResponseParsingInstallationFailed;
-extern NSString
-    *const kFIRInstallationsMessageCodeAPIResponseParsingInstallationSucceed;
-extern NSString
-    *const kFIRInstallationsMessageCodeAPIResponseParsingAuthTokenFailed;
-extern NSString
-    *const kFIRInstallationsMessageCodeAPIResponseParsingAuthTokenSucceed;
+extern NSString *const kFIRInstallationsMessageCodeAPIResponseParsingInstallationFailed;
+extern NSString *const kFIRInstallationsMessageCodeAPIResponseParsingInstallationSucceed;
+extern NSString *const kFIRInstallationsMessageCodeAPIResponseParsingAuthTokenFailed;
+extern NSString *const kFIRInstallationsMessageCodeAPIResponseParsingAuthTokenSucceed;
 
 // FIRInstallationsIDController.m
-extern NSString
-    *const kFIRInstallationsMessageCodeNewGetInstallationOperationCreated;
-extern NSString
-    *const kFIRInstallationsMessageCodeNewGetAuthTokenOperationCreated;
-extern NSString
-    *const kFIRInstallationsMessageCodeNewDeleteInstallationOperationCreated;
+extern NSString *const kFIRInstallationsMessageCodeNewGetInstallationOperationCreated;
+extern NSString *const kFIRInstallationsMessageCodeNewGetAuthTokenOperationCreated;
+extern NSString *const kFIRInstallationsMessageCodeNewDeleteInstallationOperationCreated;
 extern NSString *const kFIRInstallationsMessageCodeInvalidFirebaseConfiguration;
 
 // FIRInstallationsStoredItem.m
-extern NSString
-    *const kFIRInstallationsMessageCodeInstallationCoderVersionMismatch;
+extern NSString *const kFIRInstallationsMessageCodeInstallationCoderVersionMismatch;
 
 // FIRInstallationsStoredAuthToken.m
-extern NSString
-    *const kFIRInstallationsMessageCodeAuthTokenCoderVersionMismatch;
+extern NSString *const kFIRInstallationsMessageCodeAuthTokenCoderVersionMismatch;
 
 // FIRInstallationsStoredIIDCheckin.m
-extern NSString
-    *const kFIRInstallationsMessageCodeIIDCheckinCoderVersionMismatch;
+extern NSString *const kFIRInstallationsMessageCodeIIDCheckinCoderVersionMismatch;
 extern NSString *const kFIRInstallationsMessageCodeIIDCheckinFailedToDecode;
 
 // FIRInstallations.m

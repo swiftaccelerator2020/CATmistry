@@ -14,9 +14,9 @@
  * limitations under the License.
  */
 
+#import <Foundation/Foundation.h>
 #import "GoogleUtilities/Network/Private/GULMutableDictionary.h"
 #import "GoogleUtilities/SceneDelegateSwizzler/Private/GULSceneDelegateSwizzler.h"
-#import <Foundation/Foundation.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -24,11 +24,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 #if UISCENE_SUPPORTED
 
-/** Returns a dictionary containing interceptor IDs mapped to a
- * GULZeroingWeakContainer.
+/** Returns a dictionary containing interceptor IDs mapped to a GULZeroingWeakContainer.
  *
- *  @return A dictionary of the form {NSString : GULZeroingWeakContainer}, where
- * the NSString is the interceptorID.
+ *  @return A dictionary of the form {NSString : GULZeroingWeakContainer}, where the NSString is
+ *      the interceptorID.
  */
 + (GULMutableDictionary *)interceptors;
 
@@ -37,13 +36,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** ISA Swizzles the given appDelegate as the original app delegate would be.
  *
- *  @param scene The scene whose delegate needs to be isa swizzled. This should
- * conform to the scene delegate protocol.
+ *  @param scene The scene whose delegate needs to be isa swizzled. This should conform to the
+ *      scene delegate protocol.
  */
-+ (void)proxySceneDelegateIfNeeded:(UIScene *)scene
-    API_AVAILABLE(ios(13.0), tvos(13.0));
++ (void)proxySceneDelegateIfNeeded:(UIScene *)scene API_AVAILABLE(ios(13.0), tvos(13.0));
 
-#endif // UISCENE_SUPPORTED
+#endif  // UISCENE_SUPPORTED
 
 @end
 
