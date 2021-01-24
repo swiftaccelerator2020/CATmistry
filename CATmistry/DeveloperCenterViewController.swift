@@ -39,6 +39,7 @@ class DeveloperCenterViewController: UIViewController {
         let submitFalse = UIAlertAction(title: "False", style: .default, handler: {_ in truefalse=false})
         ac.addAction(submitTrue)
         ac.addAction(submitFalse)
+        present(ac, animated: true, completion: nil)
         ud.setValue(truefalse, forKey: userdefaultBool.text ?? "none")
     }
     
