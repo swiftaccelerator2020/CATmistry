@@ -38,7 +38,7 @@ class QuizStartViewController: UIViewController {
 
     @IBAction func openDeveloperCenter(_ sender: Any) {
         print("hello world")
-        fatalError()
+        // fatalError()
     }
     
     // MARK: - Navigation
