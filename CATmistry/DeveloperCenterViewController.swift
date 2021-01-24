@@ -24,7 +24,12 @@ class DeveloperCenterViewController: UIViewController {
     }
     
     @IBAction func submitInt(_ sender: Any) {
-        ud.setValue(Int(get()), forKey: userdefaultInt.text ?? "none")
+        let a = get()
+        print(a)
+        print(Int(a))
+        let b = Int(a) ?? 0
+        ud.setValue(b, forKey: userdefaultInt.text ?? "none")
+        
     }
     
     @IBAction func submitBool(_ sender: Any) {
