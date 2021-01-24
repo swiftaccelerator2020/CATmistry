@@ -92,7 +92,7 @@ struct specificSeperationMethod: Hashable, Codable {
     var name: String
     var properties: String
     var givenMethods: GivenSeperationMethods
-    
+
     func hash(into hasher: inout Hasher) {
         hasher.combine(name)
         hasher.combine(properties)
@@ -101,9 +101,9 @@ struct specificSeperationMethod: Hashable, Codable {
 }
 
 struct GivenSeperationMethods: Hashable, Codable {
-    
+
     var methods: [SeperationMethods]
-    
+
     func hash(into hasher: inout Hasher) {
         hasher.combine(methods)
     }
@@ -112,7 +112,7 @@ struct GivenSeperationMethods: Hashable, Codable {
 struct SeperationMethods: Hashable, Codable {
     var methodName: String
     var isCorrect: Bool
-    
+
     func hash(into hasher: inout Hasher) {
         hasher.combine(methodName)
         hasher.combine(isCorrect)
@@ -129,7 +129,7 @@ struct PhOption: Hashable, Codable {
     var image: String
     var turnUniversalTankColour: String
     var isAcidic: Bool? = true
-    
+
     func hash(into hasher: inout Hasher) {
         hasher.combine(name)
         hasher.combine(image)
@@ -210,19 +210,19 @@ extension UIFontDescriptor.AttributeName {
 
 extension UIFont {
     static var isOverrided: Bool = false
-    
+
     @objc class func mySystemFont(ofSize size: CGFloat) -> UIFont {
         return UIFont(name: AppFontName.regular, size: size)!
     }
-    
+
     @objc class func myBoldSystemFont(ofSize size: CGFloat) -> UIFont {
         return UIFont(name: AppFontName.bold, size: size)!
     }
-    
+
     @objc class func myItalicSystemFont(ofSize size: CGFloat) -> UIFont {
         return UIFont(name: AppFontName.italic, size: size)!
     }
-    
+
     @objc convenience init(myCoder aDecoder: NSCoder) {
         guard
             let fontDescriptor = aDecoder.decodeObject(forKey: "UIFontDescriptor") as? UIFontDescriptor,
@@ -243,28 +243,28 @@ extension UIFont {
         }
         self.init(name: fontName, size: fontDescriptor.pointSize)!
     }
-    
+
     class func overrideInitialize() {
         guard self == UIFont.self, !isOverrided else { return }
-        
+
         // Avoid method swizzling run twice and revert to original initialize function
         isOverrided = true
-        
+
         if let systemFontMethod = class_getClassMethod(self, #selector(systemFont(ofSize:))),
            let mySystemFontMethod = class_getClassMethod(self, #selector(mySystemFont(ofSize:))) {
             method_exchangeImplementations(systemFontMethod, mySystemFontMethod)
         }
-        
+
         if let boldSystemFontMethod = class_getClassMethod(self, #selector(boldSystemFont(ofSize:))),
            let myBoldSystemFontMethod = class_getClassMethod(self, #selector(myBoldSystemFont(ofSize:))) {
             method_exchangeImplementations(boldSystemFontMethod, myBoldSystemFontMethod)
         }
-        
+
         if let italicSystemFontMethod = class_getClassMethod(self, #selector(italicSystemFont(ofSize:))),
            let myItalicSystemFontMethod = class_getClassMethod(self, #selector(myItalicSystemFont(ofSize:))) {
             method_exchangeImplementations(italicSystemFontMethod, myItalicSystemFontMethod)
         }
-        
+
         if let initCoderMethod = class_getInstanceMethod(self, #selector(UIFontDescriptor.init(coder:))), // Trick to get over the lack of UIFont.init(coder:))
            let myInitCoderMethod = class_getInstanceMethod(self, #selector(UIFont.init(myCoder:))) {
             method_exchangeImplementations(initCoderMethod, myInitCoderMethod)
@@ -273,123 +273,123 @@ extension UIFont {
 }
 
 func loadData(versionNumber: Int, tableView: UITableView) {
-    
+
     var ref: DatabaseReference!
-    
+
     ref = Database.database().reference(withPath: "learnTopics")
     ref.keepSynced(true)
     ref!.observe(.value, with: { (snapshot) in
-        
+
         let jsonData = try! JSONSerialization.data(withJSONObject: snapshot.value!, options: .prettyPrinted)
-        
+
         learnTopics = try! JSONDecoder().decode([Topic].self, from: jsonData)
-        
+
         tableView.reloadData()
-        
+
         let encoder = JSONEncoder()
         if let encoded = try? encoder.encode(learnTopics) {
             let defaults = UserDefaults.standard
             defaults.set(encoded, forKey: "learnTopics")
         }
     })
-    
+
     let ref2 = Database.database().reference(withPath: "gasesArray")
     ref2.keepSynced(true)
     ref2.observe(.value, with: { (snapshot) in
-        
+
         let jsonData = try! JSONSerialization.data(withJSONObject: snapshot.value!, options: .prettyPrinted)
-        
+
         gasesArray = try! JSONDecoder().decode([GasTestGame].self, from: jsonData)
-        
+
         gasesArray.shuffle()
-        
+
         let encoder = JSONEncoder()
         if let encoded = try? encoder.encode(gasesArray) {
             let defaults = UserDefaults.standard
             defaults.set(encoded, forKey: "gasesArray")
         }
-        
+
     })
-    
+
     let ref3 = Database.database().reference(withPath: "gameTopics")
     ref3.keepSynced(true)
     ref3.observe(.value, with: { (snapshot) in
-        
+
         let jsonData = try! JSONSerialization.data(withJSONObject: snapshot.value!, options: .prettyPrinted)
-        
+
         gameTopics = try! JSONDecoder().decode([PlayTopic].self, from: jsonData)
-        
+
         let encoder = JSONEncoder()
         if let encoded = try? encoder.encode(gameTopics) {
             let defaults = UserDefaults.standard
             defaults.set(encoded, forKey: "gameTopics")
         }
     })
-    
+
     let ref4 = Database.database().reference(withPath: "periodicTable")
     ref4.keepSynced(true)
     ref4.observe(.value, with: { (snapshot) in
-        
+
         let jsonData = try! JSONSerialization.data(withJSONObject: snapshot.value!, options: .prettyPrinted)
-        
+
         periodicTable = try! JSONDecoder().decode([[PeriodicTableGame]].self, from: jsonData)
-        
+
         let encoder = JSONEncoder()
         if let encoded = try? encoder.encode(periodicTable) {
             let defaults = UserDefaults.standard
             defaults.set(encoded, forKey: "periodicTable")
         }
     })
-    
+
     let ref5 = Database.database().reference(withPath: "phGameArray")
     ref5.keepSynced(true)
     ref5.observe(.value, with: { (snapshot) in
-        
+
         let jsonData = try! JSONSerialization.data(withJSONObject: snapshot.value!, options: .prettyPrinted)
-        
+
         phGameArray = try! JSONDecoder().decode([[PhGame]].self, from: jsonData)
-        
+
         let encoder = JSONEncoder()
         if let encoded = try? encoder.encode(phGameArray) {
             let defaults = UserDefaults.standard
             defaults.set(encoded, forKey: "phGameArray")
         }
     })
-    
+
     let ref6 = Database.database().reference(withPath: "phGameOptionsArray")
     ref6.keepSynced(true)
     ref6.observe(.value, with: { (snapshot) in
-        
+
         let jsonData = try! JSONSerialization.data(withJSONObject: snapshot.value!, options: .prettyPrinted)
-        
+
         phGameOptionsArray = try! JSONDecoder().decode([PhOption].self, from: jsonData)
-        
+
         let encoder = JSONEncoder()
         if let encoded = try? encoder.encode(phGameOptionsArray) {
             let defaults = UserDefaults.standard
             defaults.set(encoded, forKey: "phGameOptionsArray")
         }
     })
-    
+
     let ref7 = Database.database().reference(withPath: "retrieveSolidsArray")
     ref7.keepSynced(true)
     ref7.observe(.value, with: { (snapshot) in
-        
+
         let jsonData = try! JSONSerialization.data(withJSONObject: snapshot.value!, options: .prettyPrinted)
-        
+
         retrieveSolidsArray = try! JSONDecoder().decode([specificSeperationMethod].self, from: jsonData)
-        
+
         let encoder = JSONEncoder()
         if let encoded = try? encoder.encode(retrieveSolidsArray) {
             let defaults = UserDefaults.standard
             defaults.set(encoded, forKey: "retrieveSolidsArray")
-            
+
             defaults.set(versionNumber, forKey: "versionNumber")
         }
     })
-    
-    
-    
+
+
+
 }
 
 func getData(keyName name: String) -> Data? {
