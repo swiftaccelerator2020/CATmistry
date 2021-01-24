@@ -2076,7 +2076,7 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
                 <navigationController id="8Us-es-0oa" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Learn" image="books.vertical.fill" catalog="system" selectedImage="books.vertical.fill" id="ZOw-bY-pdm"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="OvI-u8-jpf">
-                        <rect key="frame" x="0.0" y="44" width="390" height="104.33333333333334"/>
+                        <rect key="frame" x="0.0" y="44" width="390" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" red="0.95419245959999999" green="0.83945876360000005" blue="0.47016263009999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -2180,9 +2180,6 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
                                     <subviews>
                                         <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Yj6-P6-Tov">
                                             <rect key="frame" x="286" y="7" width="51" height="31"/>
-                                            <connections>
-                                                <action selector="isDyslexicSwitch:" destination="u3b-ng-oRm" eventType="valueChanged" id="Z9w-po-wSU"/>
-                                            </connections>
                                         </switch>
                                         <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iFd-2V-AeY">
                                             <rect key="frame" x="10" y="10" width="261" height="25"/>
@@ -2798,7 +2795,7 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="FaB-d6-X5c"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="wEn-aq-CEr">
-                        <rect key="frame" x="0.0" y="44" width="390" height="96"/>
+                        <rect key="frame" x="0.0" y="44" width="390" height="104.33333333333334"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -2837,7 +2834,7 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
                                 </state>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="gyt-cr-xHB" appends="YES" id="os6-4Z-yOG"/>
-                                    <segue destination="Q5l-gv-pqw" kind="presentation" identifier="startQuiz" modalPresentationStyle="fullScreen" id="BtZ-7b-WOf"/>
+                                    <segue destination="Aoj-BB-fv4" kind="show" identifier="Student01" id="Kip-gN-4hT"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aPQ-LX-ywK">
@@ -2874,7 +2871,7 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kSB-rg-mU7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.5" id="gyt-cr-xHB">
+                <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="5" id="gyt-cr-xHB">
                     <connections>
                         <action selector="openDeveloperCenter:" destination="3zK-zc-Ypk" id="H4F-01-n0P"/>
                     </connections>
@@ -2896,6 +2893,7 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1E6-k1-giD">
                                         <rect key="frame" x="0.0" y="0.0" width="350" height="60"/>
                                         <color key="backgroundColor" red="0.62745098039215685" green="0.90196078431372551" blue="0.93725490196078431" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <state key="normal" title="Option 1">
                                             <color key="titleColor" systemColor="labelColor"/>
                                         </state>
@@ -3035,20 +3033,126 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
             </objects>
             <point key="canvasLocation" x="-3202" y="807"/>
         </scene>
-        <!--View Controller-->
+        <!--Developer Center View Controller-->
         <scene sceneID="HD7-H7-u38">
             <objects>
-                <viewController id="Aoj-BB-fv4" sceneMemberID="viewController">
+                <viewController id="Aoj-BB-fv4" customClass="DeveloperCenterViewController" customModule="CATmistry" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="O24-X2-9V1">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="set userdefault value (string)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wFe-bM-Tf9">
+                                <rect key="frame" x="0.0" y="64" width="390" height="34"/>
+                                <color key="backgroundColor" systemColor="systemGreenColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="252" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="set userdefault value (int)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uBy-cw-X9m">
+                                <rect key="frame" x="0.0" y="138" width="390" height="40"/>
+                                <color key="backgroundColor" systemColor="systemGreenColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="jdb-eT-yf9"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="253" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="set userdefault value (bool)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kuX-un-Hsd">
+                                <rect key="frame" x="0.0" y="218" width="390" height="40"/>
+                                <color key="backgroundColor" systemColor="systemGreenColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="AZB-1s-3JM"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NqO-O2-ipV">
+                                <rect key="frame" x="0.0" y="98" width="390" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="foD-o9-vLN"/>
+                                </constraints>
+                                <state key="normal" title="Submit "/>
+                                <connections>
+                                    <action selector="submitString:" destination="Aoj-BB-fv4" eventType="touchUpInside" id="aAT-6y-anX"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="252" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h08-MZ-GZZ">
+                                <rect key="frame" x="0.0" y="178" width="390" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="T4j-S1-9GG"/>
+                                </constraints>
+                                <state key="normal" title="Submit "/>
+                                <connections>
+                                    <action selector="submitInt:" destination="Aoj-BB-fv4" eventType="touchUpInside" id="Kf0-pT-SH2"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3ee-0M-YNR" userLabel="Submit">
+                                <rect key="frame" x="0.0" y="258" width="390" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="ETJ-X0-NDs"/>
+                                </constraints>
+                                <state key="normal" title="Submit "/>
+                                <connections>
+                                    <action selector="submitBool:" destination="Aoj-BB-fv4" eventType="touchUpInside" id="Zi0-Sf-EaI"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dCg-wE-SZg">
+                                <rect key="frame" x="0.0" y="714" width="390" height="30"/>
+                                <state key="normal" title="Crash App"/>
+                                <connections>
+                                    <action selector="crashAppButton:" destination="Aoj-BB-fv4" eventType="touchUpInside" id="Olw-x5-7pq"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="9vc-xJ-erV"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="NqO-O2-ipV" firstAttribute="trailing" secondItem="9vc-xJ-erV" secondAttribute="trailing" id="2Kj-YM-9Ni"/>
+                            <constraint firstItem="wFe-bM-Tf9" firstAttribute="trailing" secondItem="9vc-xJ-erV" secondAttribute="trailing" id="31g-Mb-hHA"/>
+                            <constraint firstItem="wFe-bM-Tf9" firstAttribute="top" secondItem="9vc-xJ-erV" secondAttribute="top" constant="20" id="45E-lY-wkg"/>
+                            <constraint firstAttribute="trailing" secondItem="kuX-un-Hsd" secondAttribute="trailing" id="59k-vT-MS1"/>
+                            <constraint firstItem="kuX-un-Hsd" firstAttribute="top" secondItem="h08-MZ-GZZ" secondAttribute="bottom" id="5eQ-hN-5eu"/>
+                            <constraint firstAttribute="trailing" secondItem="dCg-wE-SZg" secondAttribute="trailing" id="7VM-V3-Uao"/>
+                            <constraint firstItem="dCg-wE-SZg" firstAttribute="leading" secondItem="O24-X2-9V1" secondAttribute="leading" id="8qR-Ig-I28"/>
+                            <constraint firstItem="3ee-0M-YNR" firstAttribute="top" secondItem="kuX-un-Hsd" secondAttribute="bottom" id="ATI-2K-3Za"/>
+                            <constraint firstItem="3ee-0M-YNR" firstAttribute="top" secondItem="kuX-un-Hsd" secondAttribute="bottom" id="KA0-0s-q5t"/>
+                            <constraint firstItem="uBy-cw-X9m" firstAttribute="leading" secondItem="9vc-xJ-erV" secondAttribute="leading" id="L6C-0e-tGt"/>
+                            <constraint firstItem="9vc-xJ-erV" firstAttribute="trailing" secondItem="kuX-un-Hsd" secondAttribute="trailing" id="Mpv-0Z-UAb"/>
+                            <constraint firstItem="NqO-O2-ipV" firstAttribute="leading" secondItem="9vc-xJ-erV" secondAttribute="leading" id="Nj4-0g-odo"/>
+                            <constraint firstItem="uBy-cw-X9m" firstAttribute="trailing" secondItem="9vc-xJ-erV" secondAttribute="trailing" id="PVQ-sZ-Wi2"/>
+                            <constraint firstItem="kuX-un-Hsd" firstAttribute="leading" secondItem="9vc-xJ-erV" secondAttribute="leading" id="PVR-rs-5M4"/>
+                            <constraint firstItem="3ee-0M-YNR" firstAttribute="leading" secondItem="O24-X2-9V1" secondAttribute="leading" id="Rg7-Xd-G0t"/>
+                            <constraint firstItem="3ee-0M-YNR" firstAttribute="leading" secondItem="kuX-un-Hsd" secondAttribute="leading" id="TYv-7m-Z3d"/>
+                            <constraint firstItem="h08-MZ-GZZ" firstAttribute="leading" secondItem="9vc-xJ-erV" secondAttribute="leading" id="Ti8-Kc-8nz"/>
+                            <constraint firstItem="h08-MZ-GZZ" firstAttribute="top" secondItem="uBy-cw-X9m" secondAttribute="bottom" id="Tk0-Nj-9tZ"/>
+                            <constraint firstItem="3ee-0M-YNR" firstAttribute="trailing" secondItem="kuX-un-Hsd" secondAttribute="trailing" id="aI5-vQ-dWK"/>
+                            <constraint firstItem="uBy-cw-X9m" firstAttribute="top" secondItem="NqO-O2-ipV" secondAttribute="bottom" id="aIS-gc-hjh"/>
+                            <constraint firstItem="9vc-xJ-erV" firstAttribute="trailing" secondItem="h08-MZ-GZZ" secondAttribute="trailing" id="aZ7-Hz-vZ1"/>
+                            <constraint firstItem="wFe-bM-Tf9" firstAttribute="leading" secondItem="9vc-xJ-erV" secondAttribute="leading" id="bM9-Ee-ziA"/>
+                            <constraint firstItem="h08-MZ-GZZ" firstAttribute="top" secondItem="uBy-cw-X9m" secondAttribute="bottom" id="eQG-eS-9hc"/>
+                            <constraint firstItem="9vc-xJ-erV" firstAttribute="trailing" secondItem="uBy-cw-X9m" secondAttribute="trailing" id="g3e-Dc-yX4"/>
+                            <constraint firstItem="uBy-cw-X9m" firstAttribute="leading" secondItem="9vc-xJ-erV" secondAttribute="leading" id="hqY-TO-gNd"/>
+                            <constraint firstItem="NqO-O2-ipV" firstAttribute="leading" secondItem="9vc-xJ-erV" secondAttribute="leading" id="jmN-o0-b96"/>
+                            <constraint firstItem="kuX-un-Hsd" firstAttribute="leading" secondItem="O24-X2-9V1" secondAttribute="leading" id="khn-jO-5sj"/>
+                            <constraint firstAttribute="trailing" secondItem="3ee-0M-YNR" secondAttribute="trailing" id="oJy-D3-niA"/>
+                            <constraint firstItem="h08-MZ-GZZ" firstAttribute="leading" secondItem="9vc-xJ-erV" secondAttribute="leading" id="rHi-fM-d3j"/>
+                            <constraint firstItem="uBy-cw-X9m" firstAttribute="top" secondItem="NqO-O2-ipV" secondAttribute="bottom" id="rfA-ov-fn6"/>
+                            <constraint firstItem="9vc-xJ-erV" firstAttribute="trailing" secondItem="NqO-O2-ipV" secondAttribute="trailing" id="ufJ-U0-3SE"/>
+                            <constraint firstItem="NqO-O2-ipV" firstAttribute="top" secondItem="wFe-bM-Tf9" secondAttribute="bottom" id="vu1-HO-rCy"/>
+                            <constraint firstItem="kuX-un-Hsd" firstAttribute="top" secondItem="h08-MZ-GZZ" secondAttribute="bottom" id="wiA-ik-Xnu"/>
+                            <constraint firstAttribute="bottom" secondItem="dCg-wE-SZg" secondAttribute="bottom" constant="100" id="wyV-5O-QcP"/>
+                            <constraint firstItem="h08-MZ-GZZ" firstAttribute="trailing" secondItem="9vc-xJ-erV" secondAttribute="trailing" id="xY6-SU-Vyg"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="mrp-J0-5RC"/>
+                    <connections>
+                        <outlet property="userdefaultBool" destination="kuX-un-Hsd" id="xtK-3d-4v0"/>
+                        <outlet property="userdefaultInt" destination="uBy-cw-X9m" id="czn-bs-xdd"/>
+                        <outlet property="userdefaultString" destination="wFe-bM-Tf9" id="MW9-Gb-Px0"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eF1-Wx-oTU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3203" y="1510"/>
+            <point key="canvasLocation" x="-3203.0769230769229" y="1509.9526066350711"/>
         </scene>
         <!--Quiz Correct Answer View Controller-->
         <scene sceneID="fr1-09-KyP">
@@ -3289,6 +3393,9 @@ Your answer was wrong, but don't worry! You have \(String(10 - currentQuestion))
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGreenColor">
+            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
