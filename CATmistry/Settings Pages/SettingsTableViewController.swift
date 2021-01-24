@@ -302,7 +302,7 @@ class SettingsTableViewController: UITableViewController {
             ud.setValue(false, forKey: "dyslexic")
             let alert = UIAlertController(title: "The app will need to restart.", message: "Restart Now?", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "Yes", style: UIAlertAction.Style.default, handler: { _ in
-                fatalError()
+                UIControl().sendAction(#selector(URLSessionTask.suspend), to: UIApplication.shared, for: nil)
             }))
             alert.addAction(UIAlertAction(title: "No", style: UIAlertAction.Style.cancel, handler: nil))
             self.present(alert, animated: true, completion: nil)
@@ -311,7 +311,7 @@ class SettingsTableViewController: UITableViewController {
             ud.setValue(true, forKey: "dyslexic")
             let alert = UIAlertController(title: "The app will need to restart.", message: "Restart Now?", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "Yes", style: UIAlertAction.Style.default, handler: { _ in
-                fatalError()
+                UIControl().sendAction(#selector(URLSessionTask.suspend), to: UIApplication.shared, for: nil)
             }))
             alert.addAction(UIAlertAction(title: "No", style: UIAlertAction.Style.cancel, handler: nil))
             self.present(alert, animated: true, completion: nil)
