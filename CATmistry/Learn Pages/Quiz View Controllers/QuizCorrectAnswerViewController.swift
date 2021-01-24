@@ -14,7 +14,7 @@ class QuizCorrectAnswerViewController: UIViewController {
     var correctAnswers: Int!
     var wrongAnswers: Int!
     var currentTopicId: Int!
-    
+
     var chapterCompletedUserDefaultsArray = [
         chOneDone,
         chTwoDone,

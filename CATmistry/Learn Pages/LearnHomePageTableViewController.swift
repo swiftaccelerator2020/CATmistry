@@ -76,25 +76,25 @@ class LearnHomePageTableViewController: UITableViewController {
                 print("Hello does this work")
             }
         }
-        
+
         tableView.reloadData()
-        
+
         var versionNumber: Int!
         // var currentVersionNumber: Int?
-        
+
         // currentVersionNumber = defaults.integer(forKey: "versionNumber")
         let ref = Database.database().reference(withPath: "versionNumber")
         ref.keepSynced(true)
         ref.observe(.value, with: { (snapshot) in
-            
+
             let data = snapshot.value
             versionNumber = data as? Int
             if true {
                 loadData(versionNumber: versionNumber, tableView: self.tableView)
             }
         })
-        
-        
+
+
         tableView.tableFooterView = UIView()
 
         NotificationCenter.default.addObserver(self, selector: #selector(didUpdateUserDefaults), name: UserDefaults.didChangeNotification, object: nil)
