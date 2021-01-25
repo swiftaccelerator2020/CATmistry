@@ -2076,7 +2076,7 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
                 <navigationController id="8Us-es-0oa" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Learn" image="books.vertical.fill" catalog="system" selectedImage="books.vertical.fill" id="ZOw-bY-pdm"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="OvI-u8-jpf">
-                        <rect key="frame" x="0.0" y="44" width="390" height="104.33333333333334"/>
+                        <rect key="frame" x="0.0" y="44" width="390" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" red="0.95419245959999999" green="0.83945876360000005" blue="0.47016263009999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -2603,7 +2603,7 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QUe-cY-thK">
-                                <rect key="frame" x="0.0" y="140" width="390" height="670"/>
+                                <rect key="frame" x="0.0" y="148.33333333333331" width="390" height="661.66666666666652"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zMu-Qc-3rs">
                                         <rect key="frame" x="0.0" y="0.0" width="390" height="590"/>
@@ -2621,7 +2621,7 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Attribute 2" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cYj-Ro-1Mx">
-                                                <rect key="frame" x="25" y="345.33333333333331" width="340" height="20.333333333333314"/>
+                                                <rect key="frame" x="25" y="345.33333333333337" width="340" height="20.333333333333314"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -2795,7 +2795,7 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="FaB-d6-X5c"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="wEn-aq-CEr">
-                        <rect key="frame" x="0.0" y="44" width="390" height="104.33333333333334"/>
+                        <rect key="frame" x="0.0" y="44" width="390" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -2834,7 +2834,6 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
                                 </state>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="gyt-cr-xHB" appends="YES" id="os6-4Z-yOG"/>
-                                    <segue destination="Aoj-BB-fv4" kind="show" identifier="Student01" id="Kip-gN-4hT"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aPQ-LX-ywK">
@@ -2868,6 +2867,7 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="startButton" destination="z7Z-7s-HZM" id="LyX-8h-AWc"/>
+                        <segue destination="Aoj-BB-fv4" kind="show" identifier="Student01" id="Tap-ym-LFu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kSB-rg-mU7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -3102,10 +3102,18 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
                                     <action selector="crashAppButton:" destination="Aoj-BB-fv4" eventType="touchUpInside" id="Olw-x5-7pq"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A5Z-Oc-T3n">
+                                <rect key="frame" x="0.0" y="308" width="390" height="30"/>
+                                <state key="normal" title="Go Back"/>
+                                <connections>
+                                    <action selector="goBackButton:" destination="Aoj-BB-fv4" eventType="touchUpInside" id="Bci-Og-pb0"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="9vc-xJ-erV"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="A5Z-Oc-T3n" firstAttribute="leading" secondItem="9vc-xJ-erV" secondAttribute="leading" id="1jA-hb-OBz"/>
                             <constraint firstItem="NqO-O2-ipV" firstAttribute="trailing" secondItem="9vc-xJ-erV" secondAttribute="trailing" id="2Kj-YM-9Ni"/>
                             <constraint firstItem="wFe-bM-Tf9" firstAttribute="trailing" secondItem="9vc-xJ-erV" secondAttribute="trailing" id="31g-Mb-hHA"/>
                             <constraint firstItem="wFe-bM-Tf9" firstAttribute="top" secondItem="9vc-xJ-erV" secondAttribute="top" constant="20" id="45E-lY-wkg"/>
@@ -3124,6 +3132,7 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
                             <constraint firstItem="3ee-0M-YNR" firstAttribute="leading" secondItem="kuX-un-Hsd" secondAttribute="leading" id="TYv-7m-Z3d"/>
                             <constraint firstItem="h08-MZ-GZZ" firstAttribute="leading" secondItem="9vc-xJ-erV" secondAttribute="leading" id="Ti8-Kc-8nz"/>
                             <constraint firstItem="h08-MZ-GZZ" firstAttribute="top" secondItem="uBy-cw-X9m" secondAttribute="bottom" id="Tk0-Nj-9tZ"/>
+                            <constraint firstItem="9vc-xJ-erV" firstAttribute="trailing" secondItem="A5Z-Oc-T3n" secondAttribute="trailing" id="XmB-XE-JuW"/>
                             <constraint firstItem="3ee-0M-YNR" firstAttribute="trailing" secondItem="kuX-un-Hsd" secondAttribute="trailing" id="aI5-vQ-dWK"/>
                             <constraint firstItem="uBy-cw-X9m" firstAttribute="top" secondItem="NqO-O2-ipV" secondAttribute="bottom" id="aIS-gc-hjh"/>
                             <constraint firstItem="9vc-xJ-erV" firstAttribute="trailing" secondItem="h08-MZ-GZZ" secondAttribute="trailing" id="aZ7-Hz-vZ1"/>
@@ -3133,6 +3142,7 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
                             <constraint firstItem="uBy-cw-X9m" firstAttribute="leading" secondItem="9vc-xJ-erV" secondAttribute="leading" id="hqY-TO-gNd"/>
                             <constraint firstItem="NqO-O2-ipV" firstAttribute="leading" secondItem="9vc-xJ-erV" secondAttribute="leading" id="jmN-o0-b96"/>
                             <constraint firstItem="kuX-un-Hsd" firstAttribute="leading" secondItem="O24-X2-9V1" secondAttribute="leading" id="khn-jO-5sj"/>
+                            <constraint firstItem="A5Z-Oc-T3n" firstAttribute="top" secondItem="3ee-0M-YNR" secondAttribute="bottom" constant="10" id="kjz-Dg-Hfa"/>
                             <constraint firstAttribute="trailing" secondItem="3ee-0M-YNR" secondAttribute="trailing" id="oJy-D3-niA"/>
                             <constraint firstItem="h08-MZ-GZZ" firstAttribute="leading" secondItem="9vc-xJ-erV" secondAttribute="leading" id="rHi-fM-d3j"/>
                             <constraint firstItem="uBy-cw-X9m" firstAttribute="top" secondItem="NqO-O2-ipV" secondAttribute="bottom" id="rfA-ov-fn6"/>

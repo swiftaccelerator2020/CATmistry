@@ -47,6 +47,10 @@ class DeveloperCenterViewController: UIViewController {
         fatalError()
     }
     
+    @IBAction func goBackButton(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
+    
     func get() -> String {
         let ac = UIAlertController(title: "Enter value: ", message: nil, preferredStyle: .alert)
         ac.addTextField()
