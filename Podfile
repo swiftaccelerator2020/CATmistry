@@ -9,6 +9,8 @@ target 'CATmistry' do
   pod 'LayoutHelper'
   pod 'Firebase/Analytics'
   pod 'Firebase/Database'
+  pod 'Firebase'
+  pod 'Google-Mobile-Ads-SDK'
   target 'CATmistryTests' do
     inherit! :search_paths
     # Pods for testing

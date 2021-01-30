@@ -6,8 +6,9 @@
 //
 
 import UIKit
-import Firebase
+import FirebaseCore
 import FirebaseDatabase
+import GoogleMobileAds
 
 var isDyslexic = ud.bool(forKey: "dyslexic")
 
@@ -26,6 +27,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                      didFinishLaunchingWithOptions launchOptions:
                         [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
+        GADMobileAds.sharedInstance().start(completionHandler: nil)
         FirebaseApp.configure()
         Database.database().isPersistenceEnabled = true
 
