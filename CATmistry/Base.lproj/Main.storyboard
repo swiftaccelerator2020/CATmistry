@@ -2603,7 +2603,7 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QUe-cY-thK">
-                                <rect key="frame" x="0.0" y="140" width="390" height="670"/>
+                                <rect key="frame" x="0.0" y="148.33333333333331" width="390" height="612.66666666666652"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zMu-Qc-3rs">
                                         <rect key="frame" x="0.0" y="0.0" width="390" height="590"/>
@@ -2621,7 +2621,7 @@ Don't worry though, a cat has 9 lives, and you still have \(String(10 - currentG
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Attribute 2" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cYj-Ro-1Mx">
-                                                <rect key="frame" x="25" y="345.33333333333331" width="340" height="20.333333333333314"/>
+                                                <rect key="frame" x="25" y="345.33333333333337" width="340" height="20.333333333333314"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -3349,13 +3349,23 @@ Your answer was wrong, but don't worry! You have \(String(10 - currentQuestion))
                                     <action selector="nextGameClicked:" destination="G5l-IS-oK1" eventType="touchUpInside" id="NfD-yT-q9s"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pb5-N5-3jf">
+                                <rect key="frame" x="35" y="50" width="320" height="50"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="OSY-4E-0SZ"/>
+                                    <constraint firstAttribute="width" constant="320" id="mNv-vM-Zun"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="oy2-gX-IMI"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="He6-h7-3U8" firstAttribute="leading" secondItem="oy2-gX-IMI" secondAttribute="leading" constant="40" id="B5w-hw-Ard"/>
+                            <constraint firstItem="pb5-N5-3jf" firstAttribute="top" secondItem="MLy-EV-ci8" secondAttribute="top" constant="50" id="E3W-Pn-fRB"/>
                             <constraint firstItem="oy2-gX-IMI" firstAttribute="trailing" secondItem="txQ-YD-Lkh" secondAttribute="trailing" id="FWA-gj-Npg"/>
                             <constraint firstItem="oy2-gX-IMI" firstAttribute="trailing" secondItem="ZLP-p7-acC" secondAttribute="trailing" constant="40" id="Fyf-or-rmZ"/>
+                            <constraint firstItem="pb5-N5-3jf" firstAttribute="centerX" secondItem="txQ-YD-Lkh" secondAttribute="centerX" id="GaH-wf-kzB"/>
                             <constraint firstItem="txQ-YD-Lkh" firstAttribute="leading" secondItem="oy2-gX-IMI" secondAttribute="leading" id="Ns4-bo-LTg"/>
                             <constraint firstItem="txQ-YD-Lkh" firstAttribute="top" secondItem="oy2-gX-IMI" secondAttribute="top" id="Qim-Gk-URH"/>
                             <constraint firstItem="ZLP-p7-acC" firstAttribute="top" secondItem="He6-h7-3U8" secondAttribute="bottom" constant="10" id="ZaN-9d-nKT"/>
@@ -3379,7 +3389,7 @@ Your answer was wrong, but don't worry! You have \(String(10 - currentQuestion))
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="YEM-b9-J01"/>
-        <segue reference="gvO-ns-Fai"/>
+        <segue reference="s4T-H5-cTx"/>
         <segue reference="omW-sG-g2z"/>
         <segue reference="orq-5T-Gly"/>
         <segue reference="SnY-zI-Ehk"/>

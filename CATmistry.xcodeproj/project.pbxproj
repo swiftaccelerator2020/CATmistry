@@ -812,7 +812,7 @@
 				CODE_SIGN_ENTITLEMENTS = CATmistry/CATmistry.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = XL5JK4F896;
+				DEVELOPMENT_TEAM = XA2K6HP7MQ;
 				INFOPLIST_FILE = CATmistry/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -836,7 +836,7 @@
 				CODE_SIGN_ENTITLEMENTS = CATmistry/CATmistry.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = XL5JK4F896;
+				DEVELOPMENT_TEAM = XA2K6HP7MQ;
 				INFOPLIST_FILE = CATmistry/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
