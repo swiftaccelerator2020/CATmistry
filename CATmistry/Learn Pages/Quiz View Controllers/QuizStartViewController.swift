@@ -35,7 +35,10 @@ class QuizStartViewController: UIViewController {
         self.navigationController?.popViewController(animated: true)
     }
 
-
+    @IBAction func startPressed(_ sender: Any) {
+        performSegue(withIdentifier: "startQuiz", sender: nil)
+    }
+    
     @IBAction func openDeveloperCenter(_ sender: Any) {
         let ac = UIAlertController(title: "Enter developer panel code", message: nil, preferredStyle: .alert)
         ac.addTextField()

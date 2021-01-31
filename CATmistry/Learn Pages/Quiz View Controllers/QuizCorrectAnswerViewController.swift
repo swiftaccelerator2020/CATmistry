@@ -7,7 +7,7 @@
 
 import SwiftConfettiView
 import UIKit
-
+import GoogleMobileAds
 class QuizCorrectAnswerViewController: UIViewController {
 
     var currentQuestion: Int!
@@ -43,10 +43,14 @@ class QuizCorrectAnswerViewController: UIViewController {
     @IBOutlet var nextQuestionButton: UIButton!
     @IBOutlet var congratsLabel: UILabel!
     @IBOutlet var goBackLearningButton: UIButton!
+    @IBOutlet weak var bannerView: GADBannerView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        bannerView.adUnitID = "ca-app-pub-9168191638605055/2555802960"
+        bannerView.rootViewController = self
+        bannerView.load(GADRequest())
         // Do any additional setup after loading the view.
         nextQuestionButton.layer.cornerRadius = 25
         if 9 - currentQuestion == 0 {
@@ -77,7 +81,9 @@ class QuizCorrectAnswerViewController: UIViewController {
     }
 
     @IBAction func nextGameClicked(_: Any) {
+        print(currentQuestion!)
         if 9 - currentQuestion == 0 {
+            print("What")
             presentingViewController?.presentingViewController?.dismiss(animated: true, completion: nil)
         } else {
             dismiss(animated: true, completion: nil)
@@ -102,7 +108,7 @@ class QuizCorrectAnswerViewController: UIViewController {
      // Pass the selected object to the new view controller.
      }
      */
-
+    
 }
 
 public extension UserDefaults {
