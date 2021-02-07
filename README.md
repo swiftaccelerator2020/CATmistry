@@ -22,10 +22,10 @@ Hwina under the 2020 Swift Accelerators' Programme.
 
 ## Installation
 
-CATmistry is available for iOS 13, iPadOS 13, and macOS Big Sur on the
-[App Store](https://apps.apple.com/us/app/catmistry/id1545311327).
+      CATmistry is available for iOS 13, iPadOS 13, and macOS Big Sur on the
+      [App Store](https://apps.apple.com/us/app/catmistry/id1545311327).
 
-[![App Store](https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-US?size=250x83&amp;releaseDate=1541376000&h=561e05398c4a2a59b5e291212d641520)](https://apps.apple.com/us/app/catmistry/id1545311327)
+      [![App Store](https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-US?size=250x83&amp;releaseDate=1541376000&h=561e05398c4a2a59b5e291212d641520)](https://apps.apple.com/us/app/catmistry/id1545311327)
 
 ## Screenshots
 
@@ -78,12 +78,12 @@ A big thank you to:
 1. Rochelle Teh Xinyue
 2. Shu Yinjia
 3. Wang Yunze
-4. Vincent
-5. Chenghao
+4. Vincent Kwok
+5. Ding Chenghao
 
 who aided us greatly in the content.
 
-Also, a big shoutout to Vincent for working on CATmistry for Android.
+Also, a big shoutout again to Vincent Kwok for working tirelessly on CATmistry for Android, as well as to Vincent Kwok and Ding Chenghao for helping out in the CATmistry Web Team.
 
 ## About the Swift Accelerator Programme
 
