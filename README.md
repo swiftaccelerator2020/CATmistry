@@ -109,3 +109,16 @@ build, and release an iOS app of their own. Find out more about us at
 
 [GPLv3](https://www.gnu.org/licenses/gpl-3.0.en.html) Licensed (file
 [LICENSE](LICENSE)).
+
+## Intellectual Property
+
+### Copyright
+
+© 2020, Neo Hao Jun, Wang Zerui, Chanel Tan, Ryu Hwina.
+
+While we have made every effort to abide by legal and ethical requirements when using works that we didn't create, some may have been overlooked inadvertently. Please drop us an email at contact@catmistry.cf, and we will be happy to make the necessary arrangements.
+
+### Trademarks
+We reserve the full rights to use any word, phrase, symbol, or design created by us as part of this project, for any endeavor. Your use of this project, pursuant to the GPLv3 license, does not permit you to use or modify our trademarks for any purpose other than in reference to us and our work.
+
+"CATmistry" is a working and distributed title for this project. We do not claim to own the trademark for "CATmistry", nor will the "CATmistry" name be used in any commercial endeavor in a way that makes it confusingly similar to an existing trademark. Any similarities to existing trademarks is purely coincidental and deeply regretted.
