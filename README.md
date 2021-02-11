@@ -22,10 +22,9 @@ Hwina under the 2020 Swift Accelerators' Programme.
 
 ## Installation
 
-      CATmistry is available for iOS 13, iPadOS 13, and macOS Big Sur on the
-      [App Store](https://apps.apple.com/us/app/catmistry/id1545311327).
+CATmistry is available for iOS 13, iPadOS 13, and macOS Big Sur on the [App Store](https://apps.apple.com/us/app/catmistry/id1545311327).
 
-      [![App Store](https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-US?size=250x83&amp;releaseDate=1541376000&h=561e05398c4a2a59b5e291212d641520)](https://apps.apple.com/us/app/catmistry/id1545311327)
+[![App Store](https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-US?size=250x83&amp;releaseDate=1541376000&h=561e05398c4a2a59b5e291212d641520)](https://apps.apple.com/us/app/catmistry/id1545311327)
 
 ## Screenshots
 
@@ -44,12 +43,22 @@ Hwina under the 2020 Swift Accelerators' Programme.
 
 ## Contributing
 
-Contribution is welcome! Feel free to fork our repo and create a
-[pull request](https://github.com/swiftaccelerator2020/CATmistry/pulls) into
-development!
+Contribution is welcome!
 
-Please do remember to read this repository's [code of conduct](CODE_OF_CONDUCT)
+To contribute directly to this project, fork this repository, submit a
+[pull request](https://github.com/swiftaccelerator2020/CATmistry/pulls) into
+development, and we'll look into the changes you have made. To discuss major enhancements and bugs, open an [issue](https://github.com/swiftaccelerator2020/CATmistry/issues).
+
+If you're contributing to CATmistry for the first time, please do remember to read this repository's [code of conduct](CODE_OF_CONDUCT)
 and [contributing guidelines](CONTRIBUTING).
+
+## Status
+
+This project is being actively maintained, although the rate of bug fixes and enhancements might slow down due to our busy schedules.
+
+## Technologies
+
+This project was built with Swift 5 and Xcode 12. Figma was used during our initial prototyping stages.
 
 ## Authors and Acknowledgements
 
