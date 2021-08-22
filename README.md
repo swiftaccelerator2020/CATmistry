@@ -1,3 +1,5 @@
+<img src="Assets/CATmistry - iOS.png" height="450" />
+
 # CATmistry 😺🧪
 
 [![Language](http://img.shields.io/badge/swift-5-orange.svg?style=flat)](https://developer.apple.com/swift)
